@@ -1,2 +1,2 @@
-AccountingTemplate
-==================
+Switzerland
+===========
