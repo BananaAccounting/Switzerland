@@ -112,26 +112,40 @@ function createReport(banDoc, startDate, endDate) {
     tableRow.addCell("Exchangerate","headerStyle", 1);
     tableRow.addCell("VatTaxableCHF", "headerStyle", 1);
     tableRow.addCell("VatPostedCHF", "headerStyle", 1);
+    tableRow.addCell("Tran. Curr.", "headerStyle", 1);
+
+    var tmpRowOrigin = "";
+    var rowOrigin = "";
 
     for (var i = 0; i < transactions.length; i++) {
-        tableRow = table.addRow();
-        tableRow.addCell(Banana.Converter.toLocaleDateFormat(transactions[i].date), "", 1);
-        tableRow.addCell(transactions[i].doc, "", 1);
-        tableRow.addCell(transactions[i].description, "", 1);
-        tableRow.addCell(transactions[i].vatcode, "", 1);
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxable), "right", 1);
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatposted), "right", 1);
-        
-        var exchangerate = Banana.SDecimal.multiply(transactions[i].exchangerate,1,{'decimals':4}); //multiply to add the {decimals} option
-        tableRow.addCell(exchangerate, "right", 1);
-        
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxableCHF), "right", 1);
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatpostedCHF), "right", 1);
 
-        totVatTaxable = Banana.SDecimal.add(totVatTaxable,transactions[i].vattaxable);
-        totVatPosted = Banana.SDecimal.add(totVatPosted,transactions[i].vatposted);
-        totVatTaxableCHF = Banana.SDecimal.add(totVatTaxableCHF,transactions[i].vattaxableCHF);
-        totVatPostedCHF = Banana.SDecimal.add(totVatPostedCHF,transactions[i].vatpostedCHF);
+        rowOrigin = transactions[i].roworigin;
+
+        if (rowOrigin !== tmpRowOrigin) {
+
+            tableRow = table.addRow();
+            tableRow.addCell(Banana.Converter.toLocaleDateFormat(transactions[i].date), "", 1);
+            tableRow.addCell(transactions[i].doc, "", 1);
+            tableRow.addCell(transactions[i].description, "", 1);
+            tableRow.addCell(transactions[i].vatcode, "", 1);
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxable), "right", 1);
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatposted), "right", 1);
+            
+            var exchangerate = Banana.SDecimal.multiply(transactions[i].exchangerate,1,{'decimals':4}); //multiply to add the {decimals} option
+            tableRow.addCell(exchangerate, "right", 1);
+            
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxableCHF), "right", 1);
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatpostedCHF), "right", 1);
+            tableRow.addCell(transactions[i].transactioncurrency, "", 1);
+
+            totVatTaxable = Banana.SDecimal.add(totVatTaxable,transactions[i].vattaxable);
+            totVatPosted = Banana.SDecimal.add(totVatPosted,transactions[i].vatposted);
+            totVatTaxableCHF = Banana.SDecimal.add(totVatTaxableCHF,transactions[i].vattaxableCHF);
+            totVatPostedCHF = Banana.SDecimal.add(totVatPostedCHF,transactions[i].vatpostedCHF);
+
+            tmpRowOrigin = rowOrigin;
+        }
+        
     }
 
     tableRow = table.addRow();
@@ -175,16 +189,19 @@ function getJournal() {
             line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
             line.doc = tRow.value("Doc");
             line.description = tRow.value("Description");
+            line.transactioncurrency = tRow.value("JTransactionCurrency");
+            line.isvatoperation = tRow.value("JVatIsVatOperation");
+            line.roworigin = tRow.value("JRowOrigin");
 
             //Converts values from base currency to CHF
-            if (line.vatcode && line.amount) {
+            if (line.isvatoperation) { //line.vat && line.amount
 
                 line.vattaxableCHF = convertBaseCurrencyToCHF(line.vattaxable, line.exchangerate);
                 line.vatamountCHF = convertBaseCurrencyToCHF(line.vatamount, line.exchangerate);
                 line.vatpostedCHF = convertBaseCurrencyToCHF(line.vatposted, line.exchangerate);
                 line.amountCHF = convertBaseCurrencyToCHF(line.amount, line.exchangerate);
 
-                transactions.push(line);
+                transactions.push(line);   
             }
         }
     }
