@@ -144,6 +144,7 @@ function createReport(banDoc, startDate, endDate) {
     tableRow.addCell("","",1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totVatTaxableCHF), "bold right ", 1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totVatPostedCHF), "bold right", 1);
+    tableRow.addCell("","",1);
 
 
     //Add Header and footer
