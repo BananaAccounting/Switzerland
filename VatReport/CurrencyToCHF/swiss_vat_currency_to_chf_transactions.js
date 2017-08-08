@@ -49,7 +49,8 @@ function loadParam(banDoc, startDate, endDate) {
         "startDate" : startDate,
         "endDate" : endDate,
         "rounding" : 4,
-        "company" : Banana.document.info("AccountingDataBase","Company"),
+        "company" : banDoc.info("AccountingDataBase","Company"),
+        "basicCurrency" : banDoc.info("AccountingDataBase","BasicCurrency"),
         "pageCounterText" : "Page",
     };
 }
@@ -100,7 +101,6 @@ function createReport(banDoc, startDate, endDate) {
     var totVatPosted = "";
     var totVatTaxableCHF = "";
     var totVatPostedCHF = "";
-    var basicCurrency = Banana.document.info("AccountingDataBase","BasicCurrency");
 
     // Create a table header for the titles of the columns
     var tableHeader = table.getHeader();
@@ -111,8 +111,8 @@ function createReport(banDoc, startDate, endDate) {
     tableRow.addCell("Tran. Curr.", "headerStyle", 1);
     tableRow.addCell("Amount Tran. Curr.", "headerStyle" ,1);
     tableRow.addCell("VatCode", "headerStyle", 1);
-    tableRow.addCell("VatTaxable"+basicCurrency, "headerStyle", 1);
-    tableRow.addCell("VatPosted"+basicCurrency, "headerStyle", 1);
+    tableRow.addCell("VatTaxable" + param.basicCurrency, "headerStyle", 1);
+    tableRow.addCell("VatPosted" + param.basicCurrency, "headerStyle", 1);
     tableRow.addCell("Exchangerate","headerStyle", 1);
     tableRow.addCell("VatTaxableCHF", "headerStyle", 1);
     tableRow.addCell("VatPostedCHF", "headerStyle", 1);
