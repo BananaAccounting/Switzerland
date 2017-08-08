@@ -176,11 +176,25 @@ function getJournal() {
             line.vatamount = tRow.value("VatAmount");
             line.vatposted = tRow.value("VatPosted");
             line.amount = tRow.value("JAmount");
-            line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+            line.amountaccountcurrency = tRow.value("JAmountAccountCurrency");
+            line.transactioncurrencyconversionrate = tRow.value("JTransactionCurrencyConversionRate");
             line.doc = tRow.value("Doc");
             line.description = tRow.value("Description");
             line.transactioncurrency = tRow.value("JTransactionCurrency");
             line.isvatoperation = tRow.value("JVatIsVatOperation");
+			
+			if (line.transactioncurrency == "CHF") {
+				line.exchangerate = 1 / line.transactioncurrencyconversionrate;
+			}
+			else {
+				// should be 15 of the month
+				line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+				/* possible future API then return the date*/
+				if (typeof line.exchangerate === 'object' ) {
+					line.exchangerate = line.exchangerate.exchangeRate;
+					line.exchangerateDate = line.exchangerate.exchangeRateDate;
+				}
+			}
 
             //We take only the rows with a VAT code and then we convert values from base currency to CHF
             if (line.isvatoperation) {
