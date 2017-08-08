@@ -125,7 +125,7 @@ function createReport(banDoc, startDate, endDate) {
         tableRow.addCell(transactions[i].doc, "", 1);
         tableRow.addCell(transactions[i].description, "", 1);
         tableRow.addCell(transactions[i].transactioncurrency, "", 1);
-        tableRow.addCell(transactions[i].amounttransactioncurrency, "", 1);
+        tableRow.addCell(transactions[i].amounttransactioncurrency, "right", 1);
         tableRow.addCell(transactions[i].vatcode, "", 1);
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxable), "right", 1);
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatposted), "right", 1);
@@ -188,19 +188,19 @@ function getJournal() {
             line.isvatoperation = tRow.value("JVatIsVatOperation");
             line.amounttransactioncurrency = tRow.value("JAmountTransactionCurrency");
             
-			if (line.transactioncurrency === "CHF") {
+            if (line.transactioncurrency === "CHF") {
                 line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
-			}
-			else {
-				// should be 15 of the month
-				line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+            }
+            else {
+                // should be 15 of the month
+                line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
 
                 /* possible future API then return the date */
-				if (typeof line.exchangerate === "object") {
-					line.exchangerate = line.exchangerate.exchangeRate;
-					line.exchangerateDate = line.exchangerate.date;
-				}
-			}
+                if (typeof line.exchangerate === "object") {
+                    line.exchangerate = line.exchangerate.exchangeRate;
+                    line.exchangerateDate = line.exchangerate.date;
+                }
+            }
 
             //We take only the rows with a VAT code and then we convert values from base currency to CHF
             if (line.isvatoperation) {
