@@ -14,11 +14,11 @@
 //
 // @id = ch.banana.addon.swissvatreport.toCHF.transactions
 // @api = 1.0
-// @pubdate = 2017-08-04
+// @pubdate = 2017-08-08
 // @publisher = Banana.ch SA
-// @description = Swiss VAT Report Transactions currency to CHF
+// @description = Swiss VAT Report Transactions currency to CHF (Beta)
 // @task = app.command
-// @doctype = 100.*;110.*;130.*
+// @doctype = 100.130.*
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
