@@ -14,11 +14,11 @@
 //
 // @id = ch.banana.addon.swissvatreport.toCHF.summary
 // @api = 1.0
-// @pubdate = 2017-01-24
+// @pubdate = 2017-08-08
 // @publisher = Banana.ch SA
-// @description = Swiss VAT Report Summary currency to CHF
+// @description = Swiss VAT Report Summary currency to CHF (Beta)
 // @task = app.command
-// @doctype = 100.*;110.*;130.*
+// @doctype = 100.130.*
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
@@ -41,16 +41,15 @@ var param = {};
 
 function loadParam(banDoc, startDate, endDate) {
     param = {
-        "reportName" : "Swiss VAT Report Summary currency to CHF",
+        "reportName" : "Swiss VAT Report Summary currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 8",
-        "scriptVersion" : "script v. 2017-01-24",
+        "scriptVersion" : "script v. 2017-08-08",
         "startDate" : startDate,
         "endDate" : endDate,
         "company" : Banana.document.info("AccountingDataBase","Company"),
         "pageCounterText" : "Page",
         "grColumn" : "Gr1",
-        "rounding" : 2,     
-        "formatNumber" : true
+        "rounding" : 2
     };
 }
 
@@ -482,9 +481,10 @@ function getJournal() {
             line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
             line.doc = tRow.value("Doc");
             line.description = tRow.value("Description");
+            line.isvatoperation = tRow.value("JVatIsVatOperation");
 
-            //Converts values from base currency to CHF
-            if (line.vatcode && line.amount) {
+            //We take only the rows with a VAT code and then we convert values from base currency to CHF
+            if (line.isvatoperation) {
 
                 line.vattaxableCHF = convertBaseCurrencyToCHF(line.vattaxable, line.exchangerate);
                 line.vatamountCHF = convertBaseCurrencyToCHF(line.vatamount, line.exchangerate);
@@ -740,7 +740,7 @@ function getPeriodSettings() {
     };
 
     //Read script settings
-    var data = Banana.document.scriptReadSettings();
+    var data = Banana.document.getScriptSettings();
     
     //Check if there are previously saved settings and read them
     if (data.length > 0) {
@@ -771,7 +771,7 @@ function getPeriodSettings() {
 
         //Save script settings
         var formToString = JSON.stringify(scriptform);
-        var value = Banana.document.scriptSaveSettings(formToString);       
+        var value = Banana.document.setScriptSettings(formToString);       
     } else {
         //User clicked cancel
         return;

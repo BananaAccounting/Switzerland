@@ -43,11 +43,12 @@ var param = {};
 
 function loadParam(banDoc, startDate, endDate) {
     param = {
-        "reportName" : "Swiss VAT Report Transactions currency to CHF",
+        "reportName" : "Swiss VAT Report Transactions currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 8",
-        "scriptVersion" : "script v. 2017-08-04",
+        "scriptVersion" : "script v. 2017-08-08",
         "startDate" : startDate,
         "endDate" : endDate,
+        "rounding" : 4,
         "company" : Banana.document.info("AccountingDataBase","Company"),
         "pageCounterText" : "Page",
     };
@@ -99,6 +100,7 @@ function createReport(banDoc, startDate, endDate) {
     var totVatPosted = "";
     var totVatTaxableCHF = "";
     var totVatPostedCHF = "";
+    var basicCurrency = Banana.document.info("AccountingDataBase","BasicCurrency");
 
     // Create a table header for the titles of the columns
     var tableHeader = table.getHeader();
@@ -106,13 +108,15 @@ function createReport(banDoc, startDate, endDate) {
     tableRow.addCell("Date", "headerStyle", 1);
     tableRow.addCell("Doc", "headerStyle", 1);
     tableRow.addCell("Description", "headerStyle", 1);
+    tableRow.addCell("Tran. Curr.", "headerStyle", 1);
+    tableRow.addCell("Amount Tran. Curr.", "headerStyle" ,1);
     tableRow.addCell("VatCode", "headerStyle", 1);
-    tableRow.addCell("VatTaxable", "headerStyle", 1);
-    tableRow.addCell("VatPosted", "headerStyle", 1);
+    tableRow.addCell("VatTaxable"+basicCurrency, "headerStyle", 1);
+    tableRow.addCell("VatPosted"+basicCurrency, "headerStyle", 1);
     tableRow.addCell("Exchangerate","headerStyle", 1);
     tableRow.addCell("VatTaxableCHF", "headerStyle", 1);
     tableRow.addCell("VatPostedCHF", "headerStyle", 1);
-    tableRow.addCell("Tran. Curr.", "headerStyle", 1);
+
 
     for (var i = 0; i < transactions.length; i++) {
 
@@ -120,6 +124,8 @@ function createReport(banDoc, startDate, endDate) {
         tableRow.addCell(Banana.Converter.toLocaleDateFormat(transactions[i].date), "", 1);
         tableRow.addCell(transactions[i].doc, "", 1);
         tableRow.addCell(transactions[i].description, "", 1);
+        tableRow.addCell(transactions[i].transactioncurrency, "", 1);
+        tableRow.addCell(transactions[i].amounttransactioncurrency, "", 1);
         tableRow.addCell(transactions[i].vatcode, "", 1);
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxable), "right", 1);
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatposted), "right", 1);
@@ -129,7 +135,6 @@ function createReport(banDoc, startDate, endDate) {
         
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vattaxableCHF), "right", 1);
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(transactions[i].vatpostedCHF), "right", 1);
-        tableRow.addCell(transactions[i].transactioncurrency, "", 1);
 
         totVatTaxable = Banana.SDecimal.add(totVatTaxable,transactions[i].vattaxable);
         totVatPosted = Banana.SDecimal.add(totVatPosted,transactions[i].vatposted);
@@ -138,13 +143,12 @@ function createReport(banDoc, startDate, endDate) {
     }
 
     tableRow = table.addRow();
-    tableRow.addCell("TOTAL", "bold center", 4);
+    tableRow.addCell("TOTAL", "bold center", 6);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totVatTaxable), "bold right", 1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totVatPosted), "bold right", 1);
     tableRow.addCell("","",1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totVatTaxableCHF), "bold right ", 1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totVatPostedCHF), "bold right", 1);
-    tableRow.addCell("","",1);
 
 
     //Add Header and footer
@@ -182,17 +186,19 @@ function getJournal() {
             line.description = tRow.value("Description");
             line.transactioncurrency = tRow.value("JTransactionCurrency");
             line.isvatoperation = tRow.value("JVatIsVatOperation");
-			
-			if (line.transactioncurrency == "CHF") {
-				line.exchangerate = 1 / line.transactioncurrencyconversionrate;
+            line.amounttransactioncurrency = tRow.value("JAmountTransactionCurrency");
+            
+			if (line.transactioncurrency === "CHF") {
+                line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
 			}
 			else {
 				// should be 15 of the month
 				line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
-				/* possible future API then return the date*/
-				if (typeof line.exchangerate === 'object' ) {
+
+                /* possible future API then return the date */
+				if (typeof line.exchangerate === "object") {
 					line.exchangerate = line.exchangerate.exchangeRate;
-					line.exchangerateDate = line.exchangerate.exchangeRateDate;
+					line.exchangerateDate = line.exchangerate.date;
 				}
 			}
 
@@ -215,7 +221,7 @@ function getJournal() {
 /* Function for Euro to CHF conversion */
 function convertBaseCurrencyToCHF(valeToConvert, exchangerate) {
     
-    return Banana.SDecimal.divide(valeToConvert,exchangerate, {'decimals':param.rounding});
+    return Banana.SDecimal.divide(valeToConvert,exchangerate,{'decimals':param.rounding});
 }
 
 
@@ -231,7 +237,7 @@ function getPeriodSettings() {
     };
 
     //Read script settings
-    var data = Banana.document.scriptReadSettings();
+    var data = Banana.document.getScriptSettings();
     
     //Check if there are previously saved settings and read them
     if (data.length > 0) {
@@ -262,7 +268,7 @@ function getPeriodSettings() {
 
         //Save script settings
         var formToString = JSON.stringify(scriptform);
-        var value = Banana.document.scriptSaveSettings(formToString);       
+        var value = Banana.document.setScriptSettings(formToString);       
     } else {
         //User clicked cancel
         return;
@@ -298,8 +304,7 @@ function addHeader(report) {
 /* Function that creates all the styles used to print the report */
 function createStyleSheet() {
     var stylesheet = Banana.Report.newStyleSheet();
-    
-    stylesheet.addStyle("@page", "margin:10mm 5mm 10mm 5mm;") 
+    stylesheet.addStyle("@page", "margin:10mm 5mm 10mm 5mm; size:landscape")
     stylesheet.addStyle("body", "font-family:Helvetica; font-size:10pt");
     stylesheet.addStyle(".headerStyle", "background-color:#E0EFF6; text-align:center; font-weight:bold;");
     stylesheet.addStyle(".bold", "font-weight:bold;");
