@@ -161,7 +161,7 @@ function loadDescriptions() {
         getFormObjectById(form,"900").description = "Subventions, taxes de séjour et similaires, contributions versées aux établissements chargés de l'élimination des déchets et de l'approvisionnement en eau (let. a à c)";
         getFormObjectById(form,"910").description = "Les dons, les dividendes, les dédommagements, etc. (let. d à l)";
     }
-    else if (lan === "deu") {
+    else { //lan=deu or lan=enu
         param.title = "MWST-Abrechnung";
         getFormObjectById(form,"200").description = "Total der vereinbarten bzw. vereinnahmten Entgelte (Art. 39), inkl. Entgelte aus Übertragungen im Meldeverfahren sowie aus Leistungen im Ausland";
         getFormObjectById(form,"205").description = "In Ziffer 200 enthaltene Entgelte aus nicht steuerbaren Leistungen (Art. 21), für welche nach Art. 22 optiert wird";

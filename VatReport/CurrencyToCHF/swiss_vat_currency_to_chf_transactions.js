@@ -188,22 +188,48 @@ function getJournal() {
             line.isvatoperation = tRow.value("JVatIsVatOperation");
             line.amounttransactioncurrency = tRow.value("JAmountTransactionCurrency");
             
-            if (line.transactioncurrency === "CHF") {
-                line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
-            }
-            else {
-                // should be 15 of the month
-                line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
-
-                /* possible future API then return the date */
-                if (typeof line.exchangerate === "object") {
-                    line.exchangerate = line.exchangerate.exchangeRate;
-                    line.exchangerateDate = line.exchangerate.date;
-                }
-            }
-
             //We take only the rows with a VAT code and then we convert values from base currency to CHF
             if (line.isvatoperation) {
+
+                if (line.transactioncurrency === "CHF") {
+                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
+                }
+                else {
+
+                    //Starting from the date of the line.date (ex. 2015-10-13)
+                    var date = line.date.split("-"); //es. [2015,10,13]
+                    var year = date[0];
+                    var month = date[1];
+
+                    //We set the date as the 15 of the month
+                    var stringDate = year + "-" + month + "-15"; //es. 2015-10-15
+
+                    //Read from the ExchangeRates table and find the row with the date of 15th of the month
+                    var dateExchangeRates = "";
+                    try {
+                        dateExchangeRates = Banana.document.table("ExchangeRates").findRowByValue("Date", stringDate).value("Date");
+                    } catch(e){
+                        //The row doesn't exists
+                    }
+
+                    if (dateExchangeRates === stringDate) { // there is the 15th of the month
+                        // should be 15 of the month
+                        line.exchangerate = Banana.document.exchangeRate("CHF", stringDate);
+                        //Banana.console.log("[Y] " + line.date + "; " + stringDate + "; " + line.exchangerate);
+
+                        // /* possible future API then return the date */
+                        // if (typeof line.exchangerate === "object") {
+                        //     line.exchangerate = line.exchangerate.exchangeRate;
+                        //     line.exchangerateDate = line.exchangerate.date;
+                        // }
+
+                    }
+                    else { // there is not the 15th of the month
+                        // should be the previous? the transaction date?
+                        line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+                        //Banana.console.log("[N] " + line.date + " : " + line.exchangerate);                    
+                    }
+                }
 
                 line.vattaxableCHF = convertBaseCurrencyToCHF(line.vattaxable, line.exchangerate);
                 line.vatamountCHF = convertBaseCurrencyToCHF(line.vatamount, line.exchangerate);
