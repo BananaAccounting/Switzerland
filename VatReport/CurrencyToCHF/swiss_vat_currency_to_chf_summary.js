@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport.toCHF.summary
 // @api = 1.0
-// @pubdate = 2017-08-08
+// @pubdate = 2017-09-04
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Report Summary currency to CHF (Beta)
 // @task = app.command
@@ -85,8 +85,8 @@ function loadForm() {
     form.push({"id":"420", "gr":"420", "vatClass":"3", "description":""}); 
     form.push({"id":"479", "description":"", "sum":"400;405;410;415;420"});
     
-    form.push({"id":"500", "description":"", "sum":"399;-479"}); 
-    form.push({"id":"510", "gr":"510", "vatClass":"4", "description":""}); 
+    form.push({"id":"500", "description":"", "sum":""});
+    form.push({"id":"510", "description":"", "sum":""});
     
     // III.
     form.push({"id":"900", "gr":"900", "vatClass":"4", "description":""}); 
@@ -226,6 +226,18 @@ function exec() {
 
 function postProcess(banDoc) {
     /* Eventually some operations that has to be done before formatting the values */
+
+    var tot399 = getFormValueById(form, "399", "amount");
+    var tot479 = getFormValueById(form, "479", "amount");
+    var totDiff = Banana.SDecimal.subtract(tot399, tot479);
+
+    if (Banana.SDecimal.sign(totDiff) > 0) {
+        getFormObjectById(form,"500").amount = totDiff;
+        getFormObjectById(form,"510").amount = 0;
+    } else if (Banana.SDecimal.sign(totDiff) < 0) {
+        getFormObjectById(form,"500").amount = 0;
+        getFormObjectById(form,"510").amount = Banana.SDecimal.invert(totDiff);
+    }
 }
 
 
@@ -418,7 +430,6 @@ function createVatReport(banDoc, startDate, endDate) {
     tableRow.addCell(getFormValueById(form, "500", "description"), "bold", 1);
     tableRow.addCell("","", 1);
     tableRow.addCell(getFormValueById(form, "500", "amount_formatted"),"right bold",1);
-
 
     tableRow = table.addRow();
     tableRow.addCell(getFormValueById(form, "510", "id"), "bold", 1);
