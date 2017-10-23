@@ -1,0 +1,101 @@
+// @id = ch.banana.filter.import.camt054
+// @api = 1.0
+// @pubdate = 2016-11-16
+// @publisher = Banana.ch SA
+// @description = ISR recept/payment transactions (camt.054)
+// @description.de = ESV Einnahmen/Ausgaben (camt.054)
+// @description.fr = BVR Mouvements recettes/dépenses (camt.054)
+// @description.it = PVR Movimenti entrate/uscite (camt.054)
+// @doctype = *
+// @docproperties =
+// @task = import.transactions
+// @outputformat = transactions.simple
+// @inputdatasource = openfiledialog
+// @inputencoding = latin1
+// @inputfilefilter = ISR recept/payment transactions (*.xml);;All files (*.*)
+// @inputfilefilter.de = ESV Einnahmen/Ausgaben (*.xml);;Alle Dateien (*.*)
+// @inputfilefilter.fr = BVR Mouvements recettes/dépenses (*.xml);;Tous (*.*)
+// @inputfilefilter.it = PVR Movimenti entrate/uscite (*.xml);;Tutti i files (*.*)
+
+/**
+ * Parse the data and return the data to be imported as a tab separated file.
+ */
+function exec(string) {
+
+   var xml = Banana.Xml.parse(string);
+   var transactions = mapTransactionsToObjects(xml);
+   transactions = transactions.map(mapTransactionsToPayments);
+   return transactions;
+}
+
+function mapTransactionsToObjects(xmlFile) {
+   var mappedLines = [];
+
+   var mainNode = xmlFile.firstChildElement('Document').firstChildElement('BkToCstmrDbtCdtNtfctn');
+   var transactionNode = mainNode.firstChildElement('Ntfctn').firstChildElement('Ntry');
+   while (transactionNode) {
+      var bookingDate = transactionNode.firstChildElement('BookgDt').firstChildElement('Dt').text;
+      var valutaDate = transactionNode.firstChildElement('ValDt').firstChildElement('Dt').text;
+
+      var detailsNode = transactionNode.firstChildElement('NtryDtls').firstChildElement('TxDtls');
+      while (detailsNode) {
+
+         var isCredit = detailsNode.firstChildElement('CdtDbtInd').text === 'CRDT';
+         var amount = detailsNode.firstChildElement('Amt').text;
+         var pvrReference = detailsNode.firstChildElement('RmtInf').firstChildElement('Strd')
+            .firstChildElement('CdtrRefInf').firstChildElement('Ref').text;
+         var externalReference = detailsNode.firstChildElement('Refs').firstChildElement('AcctSvcrRef').text;
+
+         var mappedLine = {
+            date: bookingDate,
+            dateValue: valutaDate,
+            pvrReference: pvrReference,
+            description: "Pvr payment " + pvrReference,
+            income: isCredit ? amount : '',
+            expenses: isCredit ? '' : amount,
+            externalReference: externalReference
+         };
+         mappedLines.push(mappedLine);
+
+         detailsNode = detailsNode.nextSiblingElement('TxDtls'); // next movement detail
+      }
+
+      transactionNode = transactionNode.nextSiblingElement('Ntry'); // next account movement
+   }
+   return mappedLines;
+}
+
+/** Convert the income expenses entries to payment objects */
+function mapTransactionsToPayments(element) {
+   var mappedElement = {}
+
+   var spareString = element.pvrReference.substr(6, 5)
+   var customerNoString = element.pvrReference.substr(11, 7)
+   var invoiceNoString = element.pvrReference.substr(18, 7)
+
+   mappedElement.date = element.dateValue
+   mappedElement.currency = "chf"
+   mappedElement.total_amount = Banana.SDecimal.subtract(element.income, element.expenses)
+   mappedElement.unapplied_amount = "0"
+   mappedElement.customer_info = {
+      email: "",
+      number: parseInt(customerNoString, 10).toString()
+   }
+   mappedElement.items = [
+            {
+               amount: Banana.SDecimal.subtract(element.income, element.expenses),
+               document_link: {
+                  type: "invoice",
+                  number: parseInt(invoiceNoString, 10).toString()
+               }
+            }
+         ]
+   mappedElement.document_reference = ""
+   mappedElement.external_reference = element.externalReference
+   mappedElement.payment_method = "pvr"
+   mappedElement.pvr_reference = element.pvrReference
+
+   return mappedElement;
+}
+
+
