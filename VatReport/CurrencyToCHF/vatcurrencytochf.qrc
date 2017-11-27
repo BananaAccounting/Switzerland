@@ -1,6 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-	<qresource>
-		<file>swiss_vat_currency_to_chf_summary.js</file>
-		<file>swiss_vat_currency_to_chf_transactions.js</file>
-	</qresource>
-</RCC>

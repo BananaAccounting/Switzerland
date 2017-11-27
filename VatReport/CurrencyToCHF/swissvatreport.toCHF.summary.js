@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// @id = ch.banana.apps.swissvatreport.toCHF.summary
+// @id = ch.banana.addon.swissvatreport.toCHF.summary
 // @api = 1.0
 // @pubdate = 2017-09-04
 // @publisher = Banana.ch SA
-// @description = Summary base currency to CHF (Beta)
+// @description = Swiss VAT Report Summary currency to CHF (Beta)
 // @task = app.command
 // @doctype = 100.130.*
 // @docproperties = 

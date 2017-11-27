@@ -16,7 +16,7 @@
 // @api = 1.0
 // @pubdate = 2017-08-08
 // @publisher = Banana.ch SA
-// @description = Swiss VAT Report Transactions currency to CHF (Beta)
+// @description = Transactions base currency to CHF (Beta)
 // @task = app.command
 // @doctype = 100.130.*
 // @docproperties = 
