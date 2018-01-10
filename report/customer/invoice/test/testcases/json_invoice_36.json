@@ -1,0 +1,116 @@
+{
+   "billing_info":{
+      "payment_term":"",
+      "total_amount_vat_exclusive":"6481.48",
+      "total_amount_vat_exclusive_before_discount":"6481.48",
+      "total_amount_vat_inclusive":"7000.00",
+      "total_amount_vat_inclusive_before_discount":"7000.00",
+      "total_categories":[
+
+      ],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"7000.00",
+      "total_vat_amount":"518.52",
+      "total_vat_amount_before_discount":"518.52",
+      "total_vat_codes":[
+
+      ],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"6481.48",
+            "total_amount_vat_inclusive":"7000.00",
+            "total_vat_amount":"518.52",
+            "vat_rate":"8.00"
+         }
+      ]
+   },
+   "customer_info":{
+      "address1":"V.Meggiagra 3",
+      "balance":"12000.00",
+      "balance_base_currency":"12000.00",
+      "city":"Robasacco",
+      "country":"Switzerland",
+      "first_name":"Susanna",
+      "last_name":"Lanfranchi",
+      "number":"100004",
+      "origin_row":"107",
+      "origin_table":"Accounts",
+      "postal_code":"6599"
+   },
+   "document_info":{
+      "currency":"CHF",
+      "date":"2018-02-01",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "locale":"en",
+      "number":"36",
+      "origin_row":"19",
+      "origin_table":"Transactions",
+      "printed":"",
+      "rounding_total":"0.05",
+      "type":"invoice"
+   },
+   "items":[
+      {
+         "account_assignment":"100004",
+         "description":"Sales merchandise, invoice #36, customer D",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"19",
+         "origin_table":"Transactions",
+         "quantity":"1",
+         "total_amount_vat_exclusive":"6481.48",
+         "total_amount_vat_inclusive":"7000.00",
+         "total_vat_amount":"518.52",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"7000.00",
+            "calculated_amount_vat_exclusive":"6481.48",
+            "calculated_amount_vat_inclusive":"7000.00",
+            "calculated_vat_amount":"518.52",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         }
+      }
+   ],
+   "note":[
+
+   ],
+   "parameters":{
+
+   },
+   "payment_info":{
+      "date_expected":"2018-03-03",
+      "due_date":"2018-03-03",
+      "due_days":"",
+      "due_period":"4_Current",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   },
+   "shipping_info":{
+      "different_shipping_address":false
+   },
+   "supplier_info":{
+      "address1":"Via Trevano 7a",
+      "business_name":"Banana.ch SA",
+      "city":"Lugano",
+      "country":"Switzerland",
+      "email":"info@banana.ch",
+      "postal_code":"6900",
+      "web":"www.banana.ch"
+   },
+   "transactions":[
+
+   ],
+   "type":"invoice",
+   "version":"1.0"
+}
