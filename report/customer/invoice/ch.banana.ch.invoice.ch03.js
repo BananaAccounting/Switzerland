@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// @id = ch.banana.ch.invoice.template3
+// @id = ch.banana.ch.invoice.ch03
 // @api = 1.0
-// @pubdate = 2018-01-15
+// @pubdate = 2018-01-16
 // @publisher = Banana.ch SA
 // @description = Invoice with quantity and unit price columns (ISR) - style 3
 // @description.it = Fattura con colonne quantità e prezzo unitario (PVR) - stile 3
