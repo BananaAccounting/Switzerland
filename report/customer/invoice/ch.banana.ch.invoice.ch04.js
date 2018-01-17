@@ -1,4 +1,4 @@
-// Copyright [2016] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2018] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// @id = ch.banana.ch.invoice.template4
+// @id = ch.banana.ch.invoice.ch04
 // @api = 1.0
-// @pubdate = 2018-01-15
+// @pubdate = 2018-01-17
 // @publisher = Banana.ch SA
 // @description = Invoice with quantity and unit price columns (ISR) - style 4
 // @description.it = Fattura con colonne quantità e prezzo unitario (PVR) - stile 4

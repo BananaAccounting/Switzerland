@@ -1,8 +1,8 @@
-%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.template4.test.js}
+%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch04.test.js}
 %%info_test_app{Banana90}{9.0.1}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-15}{13:43:09.402}
+%%info_test_date{2018-01-17}{10:16:53.969}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -22,14 +22,14 @@
 \begin{testcase}{ReportInvoiceTemplate4}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.000}
+%%info_test_time_elapsed{00:00:00.003}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
 %%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
-%Test ch.banana.ch.invoice.template4.js
+%Test ch.banana.ch.invoice.ch04.js
 \section{Invoice tests}
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
@@ -428,9 +428,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.055}
+%%info_test_time_elapsed{00:00:00.080}
 \end{test}
-%%info_test_time_elapsed{00:00:00.055}
+%%info_test_time_elapsed{00:00:00.083}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.076}
+%%info_test_time_elapsed{00:00:00.122}
 \end{document}

@@ -14,17 +14,17 @@
 //
 
 
-// @id = ch.banana.ch.invoice.template4.test
+// @id = ch.banana.ch.invoice.ch04.test
 // @api = 1.0
-// @pubdate = 2018-01-15
+// @pubdate = 2018-01-17
 // @publisher = Banana.ch SA
-// @description = <TEST ch.banana.ch.invoice.template4.js>
+// @description = <TEST ch.banana.ch.invoice.ch04.js>
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.ch.invoice.template4.js
+// @includejs = ../ch.banana.ch.invoice.ch04.js
 // @timeout = -1
 
 
@@ -94,7 +94,7 @@ ReportInvoiceTemplate4.prototype.test2 = function() {
 
 ReportInvoiceTemplate4.prototype.testReport = function() {
    
-  Test.logger.addComment("Test ch.banana.ch.invoice.template4.js");
+  Test.logger.addComment("Test ch.banana.ch.invoice.ch04.js");
 
   var fileAC2 = "file:script/../test/testcases/invoices_switzerland.ac2";
   var banDoc = Banana.application.openDocument(fileAC2);
