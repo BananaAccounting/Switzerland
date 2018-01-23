@@ -14,14 +14,14 @@
 //
 // @id = ch.banana.ch.invoice.ch02
 // @api = 1.0
-// @pubdate = 2018-01-16
+// @pubdate = 2018-01-23
 // @publisher = Banana.ch SA
-// @description = Invoice with quantity and unit price columns (ISR) - style 1
-// @description.it = Fattura con colonne quantità e prezzo unitario (PVR) - stile 1
-// @description.de = Rechnung mit Menge und Einheitspreisspalten (ESR) - Stil 1
-// @description.fr = Facture avec colonnes de quantité et prix unitaire (BVR) - style 1
-// @description.nl = Factuur met hoeveelheids en eenheidsprijskolommen (ISR) - stijl 1
-// @description.en = Invoice with quantity and unit price columns (ISR) - style 1
+// @description = Style 2: Invoice with net amounts, quantity column, 3 colours
+// @description.it = Stile 2: Fattura con importi netti, colonna quantità, 3 colori
+// @description.de = Stil 2: Rechnung mit Nettobeträgen, Mengenspalte, 3 Farben
+// @description.fr = Style 2: Facture avec montants nets, colonne quantité, 3 couleurs
+// @description.nl = Stijl 2: Factuur met netto bedragen, hoeveelheid kolom, 3 kleuren
+// @description.en = Style 2: Invoice with net amounts, quantity column, 3 colours
 // @doctype = *
 // @task = report.customer.invoice
 
@@ -113,9 +113,9 @@ function initParam() {
    param.isr_position_dY = '0';
    param.isr_on_new_page = false;
    param.font_family = '';
-   param.color_1 = '';
-   param.color_2 = '';
-   param.color_3 = '';
+   param.color_1 = '#0066CC';
+   param.color_2 = '#FFD100';
+   param.color_3 = '#F0F8FF';
    param.color_4 = '';
    param.color_5 = '';
    return param;
@@ -147,11 +147,11 @@ function verifyParam(param) {
    if (!param.font_family)
      param.font_family = '';
    if (!param.color_1)
-     param.color_1 = '';
+     param.color_1 = '#0066CC';
    if (!param.color_2)
-     param.color_2 = '';
+     param.color_2 = '#FFD100';
    if (!param.color_3)
-     param.color_3 = '';
+     param.color_3 = '#F0F8FF';
    if (!param.color_4)
      param.color_4 = '';
    if (!param.color_5)
@@ -254,7 +254,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   var col2 = infoTable.addColumn("infoCol2");
 
   tableRow = infoTable.addRow();
-  tableRow.addCell(getTitle(invoiceObj, texts) + " #", "", 1);
+  tableRow.addCell(getTitle(invoiceObj, texts), "", 1);
   tableRow.addCell(invoiceObj.document_info.number, "", 1);
 
   tableRow = infoTable.addRow();
@@ -308,6 +308,10 @@ function printInvoice(jsonInvoice, repDocObj, param) {
     repShippingObj.addParagraph(addressLines[i]);
   }
 
+  //Text begin
+  if (invoiceObj.document_info.text_begin) {
+    repDocObj.addParagraph(invoiceObj.document_info.text_begin, "begin_text");
+  }
  
   /***************
     5. TABLE ITEMS
@@ -826,7 +830,7 @@ function printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber) {
   var col2 = infoTable.addColumn("infoCol2");
 
   tableRow = infoTable.addRow();
-  tableRow.addCell(getTitle(invoiceObj, texts) + " #", "", 1);
+  tableRow.addCell(getTitle(invoiceObj, texts), "", 1);
   tableRow.addCell(invoiceObj.document_info.number, "", 1);
 
   tableRow = infoTable.addRow();
@@ -1277,7 +1281,15 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     //addressStyle2.setAttribute("overflow", "shrink");
     addressStyle2.setAttribute("font-size", "10px");
 
-
+    /* 
+      Text begin
+    */
+    var beginStyle = repStyleObj.addStyle(".begin_text");
+    beginStyle.setAttribute("position", "absolute");
+    beginStyle.setAttribute("top", "100mm");
+    beginStyle.setAttribute("left", "20mm");
+    beginStyle.setAttribute("right", "10mm");
+    beginStyle.setAttribute("font-size", "10px");
 
     //====================================================================//
     // 4. TABLE ITEMS
@@ -1362,9 +1374,9 @@ function setInvoiceTexts(language) {
       texts.shipping_to = 'Indirizzo spedizione';
       texts.from = 'DA';
       texts.to = 'A';
-      texts.param_color_1 = 'Colore 1';
-      texts.param_color_2 = 'Colore 2';
-      texts.param_color_3 = 'Colore 3';
+      texts.param_color_1 = 'Colore testo intestazione';
+      texts.param_color_2 = 'Colore sfondo intestazione';
+      texts.param_color_3 = 'Colore sfondo righe';
       texts.param_font_family = 'Tipo carattere';
       texts.param_print_header = 'Includi intestazione pagina (1=si, 0=no)';
       texts.param_print_isr = 'Stampa PVR (1=si, 0=no)';
@@ -1398,9 +1410,9 @@ function setInvoiceTexts(language) {
       texts.shipping_to = 'Lieferadresse';
       texts.from = 'VON';
       texts.to = 'ZU';
-      texts.param_color_1 = 'Farbe 1';
-      texts.param_color_2 = 'Farbe 2';
-      texts.param_color_3 = 'Farbe 3';
+      texts.param_color_1 = 'Farbe des Kopfzeilentextes';
+      texts.param_color_2 = 'Kopfzeile Hintergrundfarbe';
+      texts.param_color_3 = 'Zeilen Hintergrundfarbe';
       texts.param_font_family = 'Typ Schriftzeichen';
       texts.param_print_header = 'Seitenüberschrift einschliessen (1=ja, 0=nein)';
       texts.param_print_isr = 'ESR ausdrucken (1=ja, 0=nein)';
@@ -1434,9 +1446,9 @@ function setInvoiceTexts(language) {
       texts.shipping_to = 'Adresse de livraison';
       texts.from = 'DE';
       texts.to = 'À';
-      texts.param_color_1 = 'Couleur 1';
-      texts.param_color_2 = 'Couleur 2';
-      texts.param_color_3 = 'Couleur 3';
+      texts.param_color_1 = "Couleur du texte de l'en-tête";
+      texts.param_color_2 = "Couleur de fond de l'en-tête";
+      texts.param_color_3 = "Couleur de fond des lignes";
       texts.param_font_family = 'Police de caractère';
       texts.param_print_header = 'Inclure en-tête de page (1=oui, 0=non)';
       texts.param_print_isr = 'Imprimer BVR (1=oui, 0=non)';
@@ -1470,9 +1482,9 @@ function setInvoiceTexts(language) {
       texts.shipping_to = 'Leveringsadres';
       texts.from = 'VAN';
       texts.to = 'TOT';
-      texts.param_color_1 = 'Kleur 1';
-      texts.param_color_2 = 'Kleur 2';
-      texts.param_color_3 = 'Kleur 3';
+      texts.param_color_1 = 'Hoofdtekst kleur';
+      texts.param_color_2 = 'Kopkop achtergrondkleur';
+      texts.param_color_3 = 'Rijen achtergrondkleur';
       texts.param_font_family = 'Lettertype';
       texts.param_print_header = 'Pagina-koptekst opnemen (1=ja, 0=nee)';
       texts.param_print_isr = 'Print ISR (1=yes, 0=no)';
@@ -1506,9 +1518,9 @@ function setInvoiceTexts(language) {
       texts.shipping_to = 'Shipping address';
       texts.from = 'FROM';
       texts.to = 'TO';
-      texts.param_color_1 = 'Color 1';
-      texts.param_color_2 = 'Color 2';
-      texts.param_color_3 = 'Color 3';
+      texts.param_color_1 = 'Header text color';
+      texts.param_color_2 = 'Header background color';
+      texts.param_color_3 = 'Rows background color';
       texts.param_font_family = 'Font type';
       texts.param_print_header = 'Include page header (1=yes, 0=no)';
       texts.param_print_isr = 'Print ISR (1=yes, 0=no)';

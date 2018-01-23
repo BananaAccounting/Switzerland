@@ -1,8 +1,8 @@
 %%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch02.test.js}
-%%info_test_app{Banana90}{9.0.1}
+%%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-16}{14:27:58.527}
+%%info_test_date{2018-01-23}{11:46:07.151}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -22,7 +22,7 @@
 \begin{testcase}{ReportInvoiceTemplate2}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.001}
+%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
@@ -40,7 +40,7 @@
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
 \end{tabular}
 \begin{tabular}{ l  l }
-Invoice #  & 35 \\
+Invoice  & 35 \\
 Date  & 29.01.2018 \\
 Customer No  & 100002 \\
 Payment  & 30 days \\
@@ -52,6 +52,7 @@ Via Trevano \\
 6963 Pregassona \\
 \\
 \\
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice #35, customer B \\
@@ -127,7 +128,7 @@ Via Trevano \\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
 \end{tabular}
 \begin{tabular}{ l  l }
-Invoice #  & 36 \\
+Invoice  & 36 \\
 Date  & 01.02.2018 \\
 Customer No  & 100004 \\
 Due date  & 03.03.2018 \\
@@ -139,6 +140,7 @@ V.Meggiagra 3 \\
 6599 Robasacco \\
 Switzerland \\
 \\
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice #36, customer D \\
@@ -150,7 +152,7 @@ Sales merchandise, invoice #36, customer D \\
 \end{tabular}
 \\
 \begin{tabular}{ l  l }
-Invoice #  & 36 \\
+Invoice  & 36 \\
 Date  & 01.02.2018 \\
 Customer No  & 100004 \\
 Due date  & 03.03.2018 \\
@@ -214,7 +216,7 @@ V.Meggiagra 3 \\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
 \end{tabular}
 \begin{tabular}{ l  l }
-Invoice #  & 37 \\
+Invoice  & 37 \\
 Date  & 03.02.2018 \\
 Customer No  & 100001 \\
 Due date  & 05.03.2018 \\
@@ -227,6 +229,7 @@ Via Trevano \\
 6963 Pregassona \\
 Switzerland \\
 \\
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice #37, customer A \\
@@ -254,7 +257,7 @@ Consultancy \\
 \end{tabular}
 \\
 \begin{tabular}{ l  l }
-Invoice #  & 37 \\
+Invoice  & 37 \\
 Date  & 03.02.2018 \\
 Customer No  & 100001 \\
 Due date  & 05.03.2018 \\
@@ -322,7 +325,7 @@ Via Trevano \\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
 \end{tabular}
 \begin{tabular}{ l  l }
-Invoice #  & 47 \\
+Invoice  & 47 \\
 Date  & 11.11.2018 \\
 Customer No  & 100003 \\
 Due date  & 11.12.2018 \\
@@ -334,6 +337,7 @@ V. CampurÃ©ta 40 \\
 6883 Novazzano \\
 Switzerland \\
 \\
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Product A \\
@@ -396,9 +400,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.056}
+%%info_test_time_elapsed{00:00:00.061}
 \end{test}
-%%info_test_time_elapsed{00:00:00.057}
+%%info_test_time_elapsed{00:00:00.061}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.071}
+%%info_test_time_elapsed{00:00:00.076}
 \end{document}

@@ -52,6 +52,7 @@
       "origin_table":"Transactions",
       "printed":"",
       "rounding_total":"0.05",
+      "text_begin":"This is the beginning text...",
       "type":"invoice"
    },
    "items":[

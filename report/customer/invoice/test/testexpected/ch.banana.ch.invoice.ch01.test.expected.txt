@@ -1,8 +1,8 @@
-%%info_test_name{/Users/ivan/Desktop/report/customer/invoice/test/ch.banana.ch.invoice.template1.test.js}
-%%info_test_app{Banana90}{9.0.1}
+%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch01.test.js}
+%%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-10}{10:58:35.497}
+%%info_test_date{2018-01-22}{13:52:35.249}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -29,7 +29,7 @@
 %%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
-%Test ch.banana.ch.invoice.template1.js
+%Test ch.banana.ch.invoice.ch01.js
 \section{Invoice tests}
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
@@ -53,6 +53,8 @@ Via Trevano \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 35 \\
+\\
+This is the beginning text... \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
@@ -145,6 +147,8 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 36 \\
+\\
+This is the beginning text... \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
@@ -239,6 +243,8 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 37 \\
+\\
+This is the beginning text... \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
@@ -352,6 +358,8 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 47 \\
+\\
+This is the beginning text... \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
@@ -418,9 +426,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.054}
+%%info_test_time_elapsed{00:00:00.059}
 \end{test}
-%%info_test_time_elapsed{00:00:00.055}
+%%info_test_time_elapsed{00:00:00.059}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.073}
+%%info_test_time_elapsed{00:00:00.077}
 \end{document}
