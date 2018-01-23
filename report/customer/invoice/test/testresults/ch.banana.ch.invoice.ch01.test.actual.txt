@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-23}{11:45:58.790}
+%%info_test_date{2018-01-23}{15:38:45.957}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -53,9 +53,8 @@ Via Trevano \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 35 \\
-\\
-This is the beginning text... \\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Sales merchandise, invoice #35, customer B \\
@@ -147,9 +146,8 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 36 \\
-\\
-This is the beginning text... \\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Sales merchandise, invoice #36, customer D \\
@@ -243,9 +241,8 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 37 \\
-\\
-This is the beginning text... \\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Sales merchandise, invoice #37, customer A \\
@@ -358,9 +355,8 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l }
 Invoice 47 \\
-\\
-This is the beginning text... \\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Product A \\
@@ -426,9 +422,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.067}
+%%info_test_time_elapsed{00:00:00.060}
 \end{test}
-%%info_test_time_elapsed{00:00:00.067}
+%%info_test_time_elapsed{00:00:00.060}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.084}
+%%info_test_time_elapsed{00:00:00.075}
 \end{document}

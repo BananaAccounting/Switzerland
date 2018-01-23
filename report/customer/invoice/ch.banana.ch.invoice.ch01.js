@@ -269,25 +269,24 @@ function printInvoice(jsonInvoice, repDocObj, param) {
       cell2.addParagraph(addressLines[i], "");
    }
 
+   //Text begin
+   var titleTable = "";
+   if (invoiceObj.document_info.text_begin) {
+      titleTable = repDocObj.addTable("title_table1");
+      repDocObj.addParagraph(invoiceObj.document_info.text_begin, "begin_text");
+      repTableObj = repDocObj.addTable("doc_table1");
+   }
+   else {
+      titleTable = repDocObj.addTable("title_table");
+      repTableObj = repDocObj.addTable("doc_table");
+   }
 
    /***************
       4. TABLE ITEMS
     ***************/
-   var titleTable = repDocObj.addTable("title_table");
+   //var titleTable = repDocObj.addTable("title_table");
    tableRow = titleTable.addRow();
    tableRow.addCell(getTitle(invoiceObj, texts) + " " + invoiceObj.document_info.number, "bold title");
-
-   //Text begin
-   if (invoiceObj.document_info.text_begin) {
-      tableRow = titleTable.addRow();
-      tableRow.addCell("", "");
-      tableRow = titleTable.addRow();
-      tableRow.addCell(invoiceObj.document_info.text_begin, "");
-      repTableObj = repDocObj.addTable("doc_table1");
-   }
-   else if (!invoiceObj.document_info.text_begin) {
-      repTableObj = repDocObj.addTable("doc_table");
-   }
 
    /***************
       4. TABLE ITEMS
@@ -1173,6 +1172,15 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
    //repStyleObj.addStyle(".repTableCol4","width:%");
 
 
+   /* 
+      Text begin
+   */
+   var beginStyle = repStyleObj.addStyle(".begin_text");
+   beginStyle.setAttribute("position", "absolute");
+   beginStyle.setAttribute("top", "90mm");
+   beginStyle.setAttribute("left", "20mm");
+   beginStyle.setAttribute("right", "10mm");
+   beginStyle.setAttribute("font-size", "10px");
 
    //====================================================================//
    // TABLES
@@ -1185,7 +1193,6 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
    //headerStyle.setAttribute("width", "100%");
    //repStyleObj.addStyle("table.header_table td", "border: thin solid black");
 
-
    var infoStyle = repStyleObj.addStyle(".title_table");
    infoStyle.setAttribute("position", "absolute");
    infoStyle.setAttribute("margin-top", "90mm");
@@ -1194,6 +1201,12 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
    //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
    infoStyle.setAttribute("width", "100%");
 
+   var infoStyle = repStyleObj.addStyle(".title_table1");
+   infoStyle.setAttribute("position", "absolute");
+   infoStyle.setAttribute("margin-top", "115mm");
+   infoStyle.setAttribute("margin-left", "22mm");
+   infoStyle.setAttribute("margin-right", "10mm");
+   infoStyle.setAttribute("width", "100%");
 
    var addressStyle = repStyleObj.addStyle(".address_table");
    addressStyle.setAttribute("position", "absolute");
@@ -1221,7 +1234,7 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
    itemsStyle.setAttribute("width", "100%");
 
    var itemsStyle = repStyleObj.addStyle(".doc_table1");
-   itemsStyle.setAttribute("margin-top", "120mm"); 
+   itemsStyle.setAttribute("margin-top", "130mm"); 
    itemsStyle.setAttribute("margin-left", "23mm");
    itemsStyle.setAttribute("margin-right", "10mm");
    itemsStyle.setAttribute("width", "100%");

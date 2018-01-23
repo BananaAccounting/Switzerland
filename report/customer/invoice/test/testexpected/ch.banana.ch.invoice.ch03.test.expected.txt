@@ -1,8 +1,8 @@
-%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.template3.test.js}
-%%info_test_app{Banana90}{9.0.1}
+%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch03.test.js}
+%%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-15}{09:57:44.825}
+%%info_test_date{2018-01-23}{15:39:59.662}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -29,7 +29,7 @@
 %%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
-%Test ch.banana.ch.invoice.template3.js
+%Test ch.banana.ch.invoice.ch03.js
 \section{Invoice tests}
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
@@ -56,6 +56,7 @@ Via Trevano \\
 \multicolumn{2}{l}{ Payment: 30 days }\\
 \multicolumn{2}{l}{ Page: 1 }\\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice #35, customer B \\
@@ -162,6 +163,7 @@ Switzerland \\
 \multicolumn{2}{l}{ Due date: 03.03.2018 }\\
 \multicolumn{2}{l}{ Page: 2 }\\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice #36, customer D \\
@@ -247,6 +249,7 @@ Switzerland \\
 \multicolumn{2}{l}{ Due date: 05.03.2018 }\\
 \multicolumn{2}{l}{ Page: 2 }\\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice #37, customer A \\
@@ -362,6 +365,7 @@ Switzerland \\
 \multicolumn{2}{l}{ Due date: 11.12.2018 }\\
 \multicolumn{2}{l}{ Page: 3 }\\
 \end{tabular}
+This is the beginning text... \\
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Product A \\
@@ -428,9 +432,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.062}
+%%info_test_time_elapsed{00:00:00.063}
 \end{test}
-%%info_test_time_elapsed{00:00:00.062}
+%%info_test_time_elapsed{00:00:00.063}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.079}
+%%info_test_time_elapsed{00:00:00.080}
 \end{document}
