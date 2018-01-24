@@ -16,12 +16,12 @@
 // @api = 1.0
 // @pubdate = 2018-01-24
 // @publisher = Banana.ch SA
-// @description = Style 4: Invoice with net amounts, quantity column, 4 colours
-// @description.it = Stile 4: Fattura con importi netti, colonna quantità, 4 colori
-// @description.de = Stil 4: Rechnung mit Nettobeträgen, Mengenspalte, 4 Farben
-// @description.fr = Style 4: Facture avec montants nets, colonne quantité, 4 couleurs
-// @description.nl = Stijl 4: Factuur met netto bedragen, hoeveelheid kolom, 4 kleuren
-// @description.en = Style 4: Invoice with net amounts, quantity column, 4 colours
+// @description = Style 4: Invoice with net amounts, quantity column, 5 colours
+// @description.it = Stile 4: Fattura con importi netti, colonna quantità, 5 colori
+// @description.de = Stil 4: Rechnung mit Nettobeträgen, Mengenspalte, 5 Farben
+// @description.fr = Style 4: Facture avec montants nets, colonne quantité, 5 couleurs
+// @description.nl = Stijl 4: Factuur met netto bedragen, hoeveelheid kolom, 5 kleuren
+// @description.en = Style 4: Invoice with net amounts, quantity column, 5 colours
 // @doctype = *
 // @task = report.customer.invoice
 
@@ -29,7 +29,7 @@ var rowNumber = 0;
 var pageNr = 1;
 var repTableObj = "";
 var max_items_per_page = 21;
-var max_items_per_page_with_isr = 10;
+var max_items_per_page_with_isr = 12;
 
 /*Update script's parameters*/
 function settingsDialog() {
@@ -98,6 +98,10 @@ function settingsDialog() {
    if (param.color_4 === undefined)
       return;
 
+   param.color_5 = Banana.Ui.getText('Settings', texts.param_color_5, param.color_5);
+   if (param.color_5 === undefined)
+      return;
+
    var paramToString = JSON.stringify(param);
    var value = Banana.document.scriptSaveSettings(paramToString);
 }
@@ -120,7 +124,7 @@ function initParam() {
    param.color_2 = '#ffffff';
    param.color_3 = '#666666';
    param.color_4 = '#ffffff';
-   param.color_5 = '';
+   param.color_5 = '#F4F4F4';
    return param;
 }
 
@@ -158,7 +162,7 @@ function verifyParam(param) {
    if (!param.color_4)
      param.color_4 = '#ffffff';
    if (!param.color_5)
-     param.color_5 = '';
+     param.color_5 = '#F4F4F4';
    
    return param;
 }
@@ -1219,7 +1223,7 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     }
 
     if (!param.color_5) {
-        param.color_5 = "";
+        param.color_5 = "#F4F4F4"; //rows background color
     }
     
     //====================================================================//
@@ -1236,7 +1240,7 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     repStyleObj.addStyle(".address_table_header td", "padding:5px;");
     repStyleObj.addStyle(".items_table_header", "font-weight:bold; background-color:" + param.color_3 + "; color:"+ param.color_4);
     repStyleObj.addStyle(".items_table_header td", "padding-top:5px; padding-bottom:7px");
-    //repStyleObj.addStyle(".items_table", "background-color:" + param.color_2);
+    repStyleObj.addStyle(".items_table", "background-color:" + param.color_5);
     repStyleObj.addStyle(".items_table td", "padding:5px;");
     repStyleObj.addStyle(".padding-top", "padding-top:12x");
     repStyleObj.addStyle(".total", "font-size:16pt");
@@ -1382,6 +1386,7 @@ function setInvoiceTexts(language) {
     texts.param_color_2 = 'Colore testo intestazione';
     texts.param_color_3 = 'Colore sfondo';
     texts.param_color_4 = 'Colore testo';
+    texts.param_color_5 = 'Colore sfondo righe';
     texts.param_font_family = 'Tipo carattere';
     texts.param_print_header = 'Includi intestazione pagina (1=si, 0=no)';
     texts.param_print_isr = 'Stampa PVR (1=si, 0=no)';
@@ -1421,6 +1426,7 @@ function setInvoiceTexts(language) {
     texts.param_color_2 = 'Kopfzeile Textfarbe';
     texts.param_color_3 = 'Hintergrundfarbe';
     texts.param_color_4 = 'Textfarbe';
+    texts.param_color_5 = 'Zeilen Hintergrundfarbe';
     texts.param_font_family = 'Typ Schriftzeichen';
     texts.param_print_header = 'Seitenüberschrift einschliessen (1=ja, 0=nein)';
     texts.param_print_isr = 'ESR ausdrucken (1=ja, 0=nein)';
@@ -1460,6 +1466,7 @@ function setInvoiceTexts(language) {
     texts.param_color_2 = "Couleur du texte de l'en-tête";
     texts.param_color_3 = "Couleur de fond";
     texts.param_color_4 = "Couleur du texte";
+    texts.param_color_5 = "Couleur de fond des lignes";
     texts.param_font_family = 'Police de caractère';
     texts.param_print_header = 'Inclure en-tête de page (1=oui, 0=non)';
     texts.param_print_isr = 'Imprimer BVR (1=oui, 0=non)';
@@ -1499,6 +1506,7 @@ function setInvoiceTexts(language) {
     texts.param_color_2 = 'Kop Tekst Kleur';
     texts.param_color_3 = 'Achtergrondkleur';
     texts.param_color_4 = 'Tekstkleur';
+    texts.param_color_5 = 'Rijen achtergrondkleur';
     texts.param_font_family = 'Lettertype';
     texts.param_print_header = 'Pagina-koptekst opnemen (1=yes, 0=no)';
     texts.param_print_isr = 'Print ISR (1=yes, 0=no)';
@@ -1538,6 +1546,7 @@ function setInvoiceTexts(language) {
     texts.param_color_2 = 'Header text color';
     texts.param_color_3 = 'Background color';
     texts.param_color_4 = 'Text color';
+    texts.param_color_5 = 'Rows background color';
     texts.param_font_family = 'Font type';
     texts.param_print_header = 'Include page header (1=yes, 0=no)';
     texts.param_print_isr = 'Print ISR (1=yes, 0=no)';
