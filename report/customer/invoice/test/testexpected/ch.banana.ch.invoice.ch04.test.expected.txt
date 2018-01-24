@@ -1,8 +1,8 @@
-%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.template4.test.js}
-%%info_test_app{Banana90}{9.0.1}
+%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch04.test.js}
+%%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-15}{13:36:20.643}
+%%info_test_date{2018-01-24}{10:52:00.915}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -22,14 +22,14 @@
 \begin{testcase}{ReportInvoiceTemplate4}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.001}
+%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
 %%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
-%Test ch.banana.ch.invoice.template4.js
+%Test ch.banana.ch.invoice.ch04.js
 \section{Invoice tests}
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
@@ -48,7 +48,6 @@ info@banana.ch www.banana.ch \\
 \multicolumn{4}{l}{ Page: 1 }\\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -80,6 +79,7 @@ Sales merchandise, invoice #35, customer B \\
 \multicolumn{7}{l}{  }\\
 \multicolumn{7}{l}{Best regards, Banana.ch SA }\\
 \end{tabular}
+This is the beginning text... \\
 \\
 \begin{tabular}{ l  l  l  l }
 \multicolumn{4}{l}{ Invoice 35 }\\
@@ -154,7 +154,6 @@ info@banana.ch www.banana.ch \\
 \multicolumn{4}{l}{ Page: 2 }\\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -175,6 +174,7 @@ Sales merchandise, invoice #36, customer D \\
 \multicolumn{2}{l}{} & VAT 8.00%  &  & 6'481.48  &  & 518.52 \\
 \multicolumn{2}{l}{} & TOTAL CHF  & \multicolumn{3}{l}{} & 7'000.00 \\
 \end{tabular}
+This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -238,7 +238,6 @@ info@banana.ch www.banana.ch \\
 \multicolumn{4}{l}{ Page: 2 }\\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -251,6 +250,7 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l  l  l  l }
 \end{tabular}
+This is the beginning text... \\
 \\
 \begin{tabular}{ l  l  l  l }
 \multicolumn{4}{l}{ Invoice 37 }\\
@@ -354,7 +354,6 @@ info@banana.ch www.banana.ch \\
 \multicolumn{4}{l}{ Page: 3 }\\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -381,6 +380,7 @@ Discount 10% product B \\
 \multicolumn{2}{l}{} & VAT 8.00%  &  & 45.37  &  & 3.63 \\
 \multicolumn{2}{l}{} & TOTAL CHF  & \multicolumn{3}{l}{} & 49.00 \\
 \end{tabular}
+This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -428,9 +428,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.064}
+%%info_test_time_elapsed{00:00:00.060}
 \end{test}
-%%info_test_time_elapsed{00:00:00.065}
+%%info_test_time_elapsed{00:00:00.061}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.080}
+%%info_test_time_elapsed{00:00:00.077}
 \end{document}
