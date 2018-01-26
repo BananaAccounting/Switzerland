@@ -1,8 +1,8 @@
-%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.template5.test.js}
-%%info_test_app{Banana90}{9.0.1}
+%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch05.test.js}
+%%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-15}{15:58:45.206}
+%%info_test_date{2018-01-26}{10:51:02.013}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -29,7 +29,7 @@
 %%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
-%Test ch.banana.ch.invoice.template5.js
+%Test ch.banana.ch.invoice.ch05.js
 \section{Invoice tests}
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
@@ -41,7 +41,6 @@ Via Trevano 7a \\
 info@banana.ch \\
 www.banana.ch \\
 \\
-Invoice \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
@@ -86,6 +85,7 @@ Sales merchandise, invoice #35, customer B \\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{Best regards, Banana.ch SA }\\
 \end{tabular}
+This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -142,7 +142,6 @@ Via Trevano 7a \\
 info@banana.ch \\
 www.banana.ch \\
 \\
-Invoice \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
@@ -176,6 +175,7 @@ Sales merchandise, invoice #36, customer D \\
  & TOTAL CHF  &    & 7'000.00 \\
 \multicolumn{4}{l}{}\\
 \end{tabular}
+This is the beginning text... \\
 \\
 \begin{tabular}{ l  l  l }
 \multicolumn{3}{l}{  }\\
@@ -250,7 +250,6 @@ Via Trevano 7a \\
 info@banana.ch \\
 www.banana.ch \\
 \\
-Invoice \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
@@ -290,6 +289,7 @@ Consultancy \\
 \\
  & 1.00  & 92.59  & 92.59 \\
 \end{tabular}
+This is the beginning text... \\
 \\
 \begin{tabular}{ l  l  l }
 \multicolumn{3}{l}{  }\\
@@ -379,7 +379,6 @@ Via Trevano 7a \\
 info@banana.ch \\
 www.banana.ch \\
 \\
-Invoice \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l }
@@ -419,6 +418,7 @@ Discount 10% product B \\
  & TOTAL CHF  &    & 49.00 \\
 \multicolumn{4}{l}{}\\
 \end{tabular}
+This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -466,9 +466,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.062}
+%%info_test_time_elapsed{00:00:00.063}
 \end{test}
-%%info_test_time_elapsed{00:00:00.062}
+%%info_test_time_elapsed{00:00:00.063}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.078}
+%%info_test_time_elapsed{00:00:00.079}
 \end{document}

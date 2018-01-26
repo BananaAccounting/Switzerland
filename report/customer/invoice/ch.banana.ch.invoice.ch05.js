@@ -14,14 +14,14 @@
 //
 // @id = ch.banana.ch.invoice.ch05.js
 // @api = 1.0
-// @pubdate = 2018-01-16
+// @pubdate = 2018-01-26
 // @publisher = Banana.ch SA
-// @description = Invoice with quantity and unit price columns (ISR) - style 5
-// @description.it = Fattura con colonne quantità e prezzo unitario (PVR) - stile 5
-// @description.de = Rechnung mit Menge und Einheitspreisspalten (ESR) - Stil 5
-// @description.fr = Facture avec colonnes de quantité et prix unitaire (BVR) - style 5
-// @description.nl = Factuur met hoeveelheids en eenheidsprijskolommen (ISR) - stijl 5
-// @description.en = Invoice with quantity and unit price columns (ISR) - style 5
+// @description = Style 5: Invoice with net amounts, quantity column, with logo, 2 colours
+// @description.it = Stile 5: Fattura con importi netti, colonna quantità, con logo, 2 colori
+// @description.de = Stil 5: Rechnung mit Nettobeträgen, Mengenspalte, mit Logo, 2 Farben
+// @description.fr = Style 5: Facture avec montants nets, colonne quantité, avec logo, 2 couleurs
+// @description.nl = Stijl 5: Factuur met netto bedragen, hoeveelheid kolom, met logo, 2 kleuren
+// @description.en = Style 5: Invoice with net amounts, quantity column, with logo, 2 colours
 // @doctype = *
 // @task = report.customer.invoice
 
@@ -34,7 +34,7 @@ var max_items_per_page_with_isr = 18;
 /*Update script's parameters*/
 function settingsDialog() {
    var param = initParam();
-   var savedParam = Banana.document.scriptReadSettings();
+   var savedParam = Banana.document.getScriptSettings();
    if (savedParam.length > 0) {
       param = JSON.parse(savedParam);
    }   
@@ -82,6 +82,10 @@ function settingsDialog() {
          return;
    }
 
+   param.image_height = Banana.Ui.getInt('Settings', texts.param_image_height, param.image_height);
+   if (param.image_height === undefined)
+      return;
+
    param.color_1 = Banana.Ui.getText('Settings', texts.param_color_1, param.color_1);
    if (param.color_1 === undefined)
       return;
@@ -91,7 +95,7 @@ function settingsDialog() {
       return;
    
    var paramToString = JSON.stringify(param);
-   var value = Banana.document.scriptSaveSettings(paramToString);
+   var value = Banana.document.setScriptSettings(paramToString);
 }
 
 function initParam() {
@@ -108,11 +112,12 @@ function initParam() {
    param.isr_position_dY = '0';
    param.isr_on_new_page = false;
    param.font_family = '';
-   param.color_1 = '';
-   param.color_2 = '';
+   param.color_1 = '#337ab7';
+   param.color_2 = '#ffffff';
    param.color_3 = '';
    param.color_4 = '';
    param.color_5 = '';
+   param.image_height = '20';
    return param;
 }
 
@@ -142,15 +147,17 @@ function verifyParam(param) {
    if (!param.font_family)
      param.font_family = '';
    if (!param.color_1)
-     param.color_1 = '';
+     param.color_1 = '#337ab7';
    if (!param.color_2)
-     param.color_2 = '';
+     param.color_2 = '#ffffff';
    if (!param.color_3)
      param.color_3 = '';
    if (!param.color_4)
      param.color_4 = '';
    if (!param.color_5)
      param.color_5 = '';
+   if (!param.image_height)
+     param.image_height = '20';
    
    return param;
 }
@@ -166,7 +173,7 @@ function pvrInvoiceNumber(jsonInvoice) {
 
 function printDocument(jsonInvoice, repDocObj, repStyleObj) {
   var param = initParam();
-  var savedParam = Banana.document.scriptReadSettings();
+  var savedParam = Banana.document.getScriptSettings();
   if (savedParam.length > 0) {
     param = JSON.parse(savedParam);
     param = verifyParam(param);
@@ -226,7 +233,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
     for (var i=0; i < supplierLines.length; i++) {
       cell2.addParagraph(supplierLines[i], "", 1);
     }
-    cell2.addParagraph(getTitle(invoiceObj, texts), "bold");
   }
   else {
     var cell1 = tableRow.addCell("", "");
@@ -235,7 +241,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
     cell2.addParagraph(" ");
     cell2.addParagraph(" ");
     cell2.addParagraph(" ");
-    cell2.addParagraph(getTitle(invoiceObj, texts), "bold amount");
   }
 
 
@@ -284,11 +289,19 @@ function printInvoice(jsonInvoice, repDocObj, param) {
     cell3.addParagraph(addressLines[i]);
   }
 
+  //Text begin
+  if (invoiceObj.document_info.text_begin) {
+    repTableObj = repDocObj.addTable("doc_table1");
+    repDocObj.addParagraph(invoiceObj.document_info.text_begin, "begin_text");
+  }
+  else {
+    repTableObj = repDocObj.addTable("doc_table");
+  }
 
   /***************
     3. TABLE ITEMS
   ***************/
-  repTableObj = repDocObj.addTable("doc_table");
+  //repTableObj = repDocObj.addTable("doc_table");
   var repTableCol1 = repTableObj.addColumn("repTableCol1");
   var repTableCol2 = repTableObj.addColumn("repTableCol2");
   var repTableCol3 = repTableObj.addColumn("repTableCol3");
@@ -1141,10 +1154,6 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     }
 
     //Set default values
-    if (!param.font_family) {
-        param.font_family = "Helvetica";
-    }
-
     if (!param.color_1) {
         param.color_1 = "#337ab7";
     }
@@ -1161,15 +1170,15 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
         param.color_4 = "#dddddd";
     }
 
-    if (!param.color_5) {
-        param.color_5 = "#eeeeee";
+    if (!param.image_height) {
+        param.image_height = "30";
     }
 
     //====================================================================//
     // GENERAL
     //====================================================================//
     repStyleObj.addStyle(".pageReset", "counter-reset: page");
-    repStyleObj.addStyle("body", "font-size: 11pt; font-family:" + param.font_family);
+    repStyleObj.addStyle("body", "font-size: 11pt; font-family:Helvetica");
     repStyleObj.addStyle(".amount", "text-align:right");
     repStyleObj.addStyle(".bold", "font-weight: bold");
     repStyleObj.addStyle(".doc_table_header", "font-weight:bold; background-color:" + param.color_1 + "; color:" + param.color_2);
@@ -1191,6 +1200,15 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     repStyleObj.addStyle(".repTableCol3","width:20%");
     repStyleObj.addStyle(".repTableCol4","width:20%");
 
+    /* 
+      Text begin
+    */
+    var beginStyle = repStyleObj.addStyle(".begin_text");
+    beginStyle.setAttribute("position", "absolute");
+    beginStyle.setAttribute("top", "90mm");
+    beginStyle.setAttribute("left", "20mm");
+    beginStyle.setAttribute("right", "10mm");
+    beginStyle.setAttribute("font-size", "10px");
 
     //====================================================================//
     // LOGO
@@ -1199,7 +1217,7 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     logoStyle.setAttribute("position", "absolute");
     logoStyle.setAttribute("margin-top", "10mm");
     logoStyle.setAttribute("margin-left", "20mm");
-    logoStyle.setAttribute("height", "75px");
+    logoStyle.setAttribute("height", param.image_height + "mm");
 
 
     //====================================================================//
@@ -1238,6 +1256,12 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     //repStyleObj.addStyle("table.doc_table td", "border: thin solid black; padding: 3px;");
     itemsStyle.setAttribute("width", "100%");
 
+    var itemsStyle = repStyleObj.addStyle(".doc_table1");
+    itemsStyle.setAttribute("margin-top", "125mm"); //106
+    itemsStyle.setAttribute("margin-left", "23mm"); //20
+    itemsStyle.setAttribute("margin-right", "10mm");
+    //repStyleObj.addStyle("table.doc_table1 td", "border: thin solid black; padding: 3px;");
+    itemsStyle.setAttribute("width", "100%");
 
     var itemsStyle = repStyleObj.addStyle(".doc_table_row0");
     itemsStyle.setAttribute("margin-top", "50mm"); //106
@@ -1268,8 +1292,9 @@ function setInvoiceTexts(language) {
     texts.shipping_to = 'Indirizzo spedizione';
     texts.from = 'DA:';
     texts.to = 'A:';
-    texts.param_color_1 = 'Colore 1';
-    texts.param_color_2 = 'Colore 2';
+    texts.param_color_1 = 'Colore sfondo';
+    texts.param_color_2 = 'Colore testo';
+    texts.param_image_height = 'Altezza immagine (mm)';
     texts.param_print_header = 'Includi intestazione pagina (1=si, 0=no)';
     texts.param_print_isr = 'Stampa PVR (1=si, 0=no)';
     texts.param_isr_bank_name = 'Nome banca (solo con conto bancario, con conto postale lasciare vuoto)';
@@ -1306,8 +1331,9 @@ function setInvoiceTexts(language) {
     texts.shipping_to = 'Lieferadresse';
     texts.from = 'VON:';
     texts.to = 'ZU:';
-    texts.param_color_1 = 'Farbe 1';
-    texts.param_color_2 = 'Farbe 2';
+    texts.param_color_1 = 'Hintergrundfarbe';
+    texts.param_color_2 = 'Textfarbe';
+    texts.param_image_height = 'Bildhöhe (mm)';
     texts.param_font_family = 'Tipo carattere';
     texts.param_print_header = 'Seitenüberschrift einschliessen (1=ja, 0=nein)';
     texts.param_print_isr = 'ESR ausdrucken (1=ja, 0=nein)';
@@ -1345,8 +1371,9 @@ function setInvoiceTexts(language) {
     texts.shipping_to = 'Adresse de livraison';
     texts.from = 'DE:';
     texts.to = 'À:';
-    texts.param_color_1 = 'Couleur 1';
-    texts.param_color_2 = 'Couleur 2';
+    texts.param_color_1 = 'Couleur de fond';
+    texts.param_color_2 = 'Couleur du texte';
+    texts.param_image_height = "Hauteur de l'image (mm)";
     texts.param_font_family = 'Police de caractère';
     texts.param_print_header = 'Inclure en-tête de page (1=oui, 0=non)';
     texts.param_print_isr = 'Imprimer BVR (1=oui, 0=non)';
@@ -1384,8 +1411,9 @@ function setInvoiceTexts(language) {
     texts.shipping_to = 'Leveringsadres';
     texts.from = 'VAN:';
     texts.to = 'TOT:';
-    texts.param_color_1 = 'Kleur 1';
-    texts.param_color_2 = 'Kleur 2';
+    texts.param_color_1 = 'Achtergrond kleur';
+    texts.param_color_2 = 'tekstkleur';
+    texts.param_image_height = 'Beeldhoogte (mm)';
     texts.param_font_family = 'Lettertype';
     texts.param_print_header = 'Pagina-koptekst opnemen (1=ja, 0=nee)';
     texts.param_print_isr = 'Print ISR (1=yes, 0=no)';
@@ -1423,8 +1451,9 @@ function setInvoiceTexts(language) {
     texts.shipping_to = 'Shipping address';
     texts.from = 'FROM:';
     texts.to = 'TO:';
-    texts.param_color_1 = 'Color 1';
-    texts.param_color_2 = 'Color 2';
+    texts.param_color_1 = 'Background Color';
+    texts.param_color_2 = 'Text Color';
+    texts.param_image_height = 'Image height (mm)';
     texts.param_font_family = 'Font type';
     texts.param_print_header = 'Include page header (1=yes, 0=no)';
     texts.param_print_isr = 'Print ISR (1=yes, 0=no)';
