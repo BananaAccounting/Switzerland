@@ -1,8 +1,8 @@
 %%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch07.test.js}
-%%info_test_app{Banana90}{9.0.1}
+%%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-17}{13:42:11.523}
+%%info_test_date{2018-01-30}{12:40:54.683}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -22,7 +22,7 @@
 \begin{testcase}{ReportInvoiceTemplate7}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.001}
+%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
@@ -44,7 +44,7 @@ info@banana.ch - www.banana.ch \\
 Invoice \\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO: \\
+ & \\
 \\
  & Mario Bianchi \\
 Via Trevano \\
@@ -78,11 +78,16 @@ VAT 8.00%  &  & 3'240.74  & 259.26 \\
 TOTAL CHF  & \multicolumn{2}{l}{} & 3'500.00 \\
 \multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{This is the first note. }\\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{This is the secon note. }\\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{Best regards, Banana.ch SA }\\
 \end{tabular}
+This is the beginning text... \\
 \\
 \begin{tabular}{ l  l  l }
  &  & \\
@@ -154,7 +159,7 @@ info@banana.ch - www.banana.ch \\
 Invoice \\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO: \\
+ & \\
 \\
  & Susanna Lanfranchi \\
 V.Meggiagra 3 \\
@@ -172,6 +177,19 @@ Switzerland \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
+\end{tabular}
+This is the beginning text... \\
+\\
+\begin{tabular}{ l  l  l }
+ &  & \\
+ & Invoice   & 36 \\
+ & Date  & 01.02.2018 \\
+ & Customer No  & 100004 \\
+ & Due date  & 03.03.2018 \\
+ & Page  & 3 \\
+\end{tabular}
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total \\
 Sales merchandise, invoice #36, customer D \\
 \\
  & 1.00  & 6'481.48  & 6'481.48 \\
@@ -180,7 +198,6 @@ Total net  & \multicolumn{2}{l}{} & 6'481.48 \\
 VAT 8.00%  &  & 6'481.48  & 518.52 \\
 \multicolumn{4}{l}{}\\
 TOTAL CHF  & \multicolumn{2}{l}{} & 7'000.00 \\
-\multicolumn{4}{l}{}\\
 \end{tabular}
 Aaa \\
 Bbb \\
@@ -241,7 +258,7 @@ info@banana.ch - www.banana.ch \\
 Invoice \\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO: \\
+ & \\
 \\
  & Carlo Rossi \\
 Rossi SA \\
@@ -256,7 +273,7 @@ Switzerland \\
  & Date  & 03.02.2018 \\
  & Customer No  & 100001 \\
  & Due date  & 05.03.2018 \\
- & Page  & 2 \\
+ & Page  & 3 \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -281,25 +298,13 @@ Consultancy \\
 Consultancy \\
 \\
  & 1.00  & 92.59  & 92.59 \\
-\end{tabular}
-\\
-\begin{tabular}{ l  l  l }
- &  & \\
- & Invoice   & 37 \\
- & Date  & 03.02.2018 \\
- & Customer No  & 100001 \\
- & Due date  & 05.03.2018 \\
- & Page  & 3 \\
-\end{tabular}
-\begin{tabular}{ l  l  l  l }
-Description  & Quantity  & Unit price  & Total \\
 \multicolumn{4}{l}{}\\
 Total net  & \multicolumn{2}{l}{} & 7'962.95 \\
 VAT 8.00%  &  & 7'962.95  & 637.05 \\
 \multicolumn{4}{l}{}\\
 TOTAL CHF  & \multicolumn{2}{l}{} & 8'600.00 \\
-\multicolumn{4}{l}{}\\
 \end{tabular}
+This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -361,7 +366,7 @@ info@banana.ch - www.banana.ch \\
 Invoice \\
 \end{tabular}
 \begin{tabular}{ l  l }
- & TO: \\
+ & \\
 \\
  & Marco Alberti \\
 V. CampurÃ©ta 40 \\
@@ -393,8 +398,8 @@ Total net  & \multicolumn{2}{l}{} & 45.37 \\
 VAT 8.00%  &  & 45.37  & 3.63 \\
 \multicolumn{4}{l}{}\\
 TOTAL CHF  & \multicolumn{2}{l}{} & 49.00 \\
-\multicolumn{4}{l}{}\\
 \end{tabular}
+This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -442,9 +447,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.055}
+%%info_test_time_elapsed{00:00:00.060}
 \end{test}
-%%info_test_time_elapsed{00:00:00.056}
+%%info_test_time_elapsed{00:00:00.060}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.071}
+%%info_test_time_elapsed{00:00:00.076}
 \end{document}
