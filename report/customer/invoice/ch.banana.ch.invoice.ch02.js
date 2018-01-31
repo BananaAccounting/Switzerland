@@ -1,4 +1,4 @@
-// Copyright [2016] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2018] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch02
 // @api = 1.0
-// @pubdate = 2018-01-23
+// @pubdate = 2018-01-31
 // @publisher = Banana.ch SA
 // @description = Style 2: Invoice with net amounts, quantity column, 3 colours
 // @description.it = Stile 2: Fattura con importi netti, colonna quantità, 3 colori
@@ -28,8 +28,10 @@
 var rowNumber = 0;
 var pageNr = 1;
 var repTableObj = "";
-var max_items_per_page = 26;
+var max_items_per_page = "";
 var max_items_per_page_with_isr = 15;
+var max_items_per_page_with_isr1 = 24;
+var isFirstPage = true;
 
 
 /*Update script's parameters*/
@@ -168,7 +170,6 @@ function pvrInvoiceNumber(jsonInvoice) {
   }
   return jsonInvoice["document_info"]["number"]
 }
-
 
 function printDocument(jsonInvoice, repDocObj, repStyleObj) {
   var param = initParam();
@@ -458,7 +459,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
       tableRow.addCell(text[i], "", 4);
     }
   }
-  
+
   // Pvr
   if (param.print_isr && invoiceObj.document_info.currency == "CHF") {
     
@@ -487,7 +488,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
         var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
       }
       //pvr on other pages, after the items table
-      else if (rowNumber <= max_items_per_page && pageNr > 1) 
+      else if (rowNumber <= max_items_per_page_with_isr1 && pageNr > 1) 
       {
         var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
       }
@@ -806,19 +807,46 @@ function getTitle(invoiceObj, texts) {
 }
 
 function checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber) {
-  if (rowNumber >= max_items_per_page) 
-  {
-    repDocObj.addPageBreak();
-    pageNr++;
+  
+  if (isFirstPage) { // page 1
 
-    printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
-    printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
+    max_items_per_page = 25;
 
-    return 0;
+    if (rowNumber <= max_items_per_page) {
+      rowNumber++;
+      return rowNumber;
+    }
+    else {
+      repDocObj.addPageBreak();
+      pageNr++;
+
+      printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
+      printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
+
+      isFirstPage = false;
+      return 0; //row counter = 0
+    }
   }
 
-  rowNumber++;
-  return rowNumber;
+  else { // page 2+
+
+    max_items_per_page = 35;
+
+    if (rowNumber <= max_items_per_page) {
+      rowNumber++;
+      return rowNumber;
+    }
+    else {
+      repDocObj.addPageBreak();
+      pageNr++;
+
+      printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
+      printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
+
+      isFirstPage = false;
+      return 0; //row counter = 0
+    }
+  }
 }
 
 function printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber) {
