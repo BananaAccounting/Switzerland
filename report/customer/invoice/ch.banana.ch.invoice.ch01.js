@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch01
 // @api = 1.0
-// @pubdate = 2018-01-23
+// @pubdate = 2018-01-31
 // @publisher = Banana.ch SA
 // @description = Style 1: Invoice with gross amounts, 2 colours
 // @description.it = Stile 1: Fattura con importi lordi, 2 colori
@@ -28,8 +28,9 @@
 var rowNumber = 0;
 var pageNr = 1;
 var repTableObj = "";
-var max_items_per_page = 30;
-var max_items_per_page_with_isr = 18;
+var max_items_per_page = "";
+var max_items_per_page_with_isr = 17;
+var isFirstPage = true;
 
 /*Update script's parameters*/
 function settingsDialog() {
@@ -775,18 +776,51 @@ function getTitle(invoiceObj, texts) {
 }
 
 function checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber) {
-   if (rowNumber >= max_items_per_page) {
+  
+  if (isFirstPage) { // page 1
+
+    if (invoiceObj.document_info.text_begin) {
+      max_items_per_page = 25;
+    } else {
+      max_items_per_page = 30;
+    }
+    
+
+    if (rowNumber <= max_items_per_page) {
+      rowNumber++;
+      return rowNumber;
+    }
+    else {
       repDocObj.addPageBreak();
       pageNr++;
 
       printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
       printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
 
-      return 0;
-   }
+      isFirstPage = false;
+      return 0; //row counter = 0
+    }
+  }
 
-   rowNumber++;
-   return rowNumber;
+  else { // page 2+
+
+    max_items_per_page = 30;
+
+    if (rowNumber <= max_items_per_page) {
+      rowNumber++;
+      return rowNumber;
+    }
+    else {
+      repDocObj.addPageBreak();
+      pageNr++;
+
+      printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
+      printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
+
+      isFirstPage = false;
+      return 0; //row counter = 0
+    }
+  }
 }
 
 
