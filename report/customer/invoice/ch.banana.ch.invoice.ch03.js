@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch03
 // @api = 1.0
-// @pubdate = 2018-01-23
+// @pubdate = 2018-01-31
 // @publisher = Banana.ch SA
 // @description = Style 3: Invoice with net amounts, quantity column, address on the left, 2 colours
 // @description.it = Stile 3: Fattura con importi netti, colonna quantità, indirizzo a sinistra, 2 colori
@@ -1209,7 +1209,7 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     repStyleObj.addStyle(".items_table_header", "font-weight:bold; background-color: " + param.color_1 + "; color: " + param.color_2);
     repStyleObj.addStyle(".items_table_header td", "padding-top:5px; padding-bottom:5px");
     repStyleObj.addStyle(".padding-top", "padding-top:12x");
-    repStyleObj.addStyle(".total", "font-size:16pt; color:" + param.color_1);
+    repStyleObj.addStyle(".total", "font-size:15pt; color:" + param.color_1);
     
     repStyleObj.addStyle(".border-left", "border-left:thin solid " + param.color_1);
     repStyleObj.addStyle(".border-right", "border-right:thin solid " + param.color_1);
