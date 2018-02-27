@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-26}{15:14:21.963}
+%%info_test_date{2018-02-27}{14:02:00.601}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -47,6 +47,7 @@ Via Trevano \\
 \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  35 }\\
 \end{tabular}
@@ -147,6 +148,7 @@ V.Meggiagra 3 \\
 Switzerland \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  36 }\\
 \end{tabular}
@@ -230,6 +232,7 @@ Via Trevano \\
 Switzerland \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  37 }\\
 \end{tabular}
@@ -339,6 +342,7 @@ V. CampurÃ©ta 40 \\
 Switzerland \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  47 }\\
 \end{tabular}
@@ -412,9 +416,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.065}
+%%info_test_time_elapsed{00:00:00.060}
 \end{test}
-%%info_test_time_elapsed{00:00:00.066}
+%%info_test_time_elapsed{00:00:00.061}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.083}
+%%info_test_time_elapsed{00:00:00.080}
 \end{document}

@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-26}{11:20:18.330}
+%%info_test_date{2018-02-27}{14:01:54.432}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -22,11 +22,11 @@
 \begin{testcase}{ReportInvoiceTemplate5}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.001}
+%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.000}
+%%info_test_time_elapsed{00:00:00.001}
 \end{test}
 \begin{test}{testReport}
 %Test ch.banana.ch.invoice.ch05.js
@@ -43,6 +43,7 @@ www.banana.ch \\
 \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l }
 \multicolumn{3}{l}{  }\\
 Invoice: \\
@@ -144,6 +145,7 @@ www.banana.ch \\
 \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l }
 \multicolumn{3}{l}{  }\\
 Invoice: \\
@@ -252,6 +254,7 @@ www.banana.ch \\
 \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l }
 \multicolumn{3}{l}{  }\\
 Invoice: \\
@@ -381,6 +384,7 @@ www.banana.ch \\
 \\
 \\
 \end{tabular}
+\\
 \begin{tabular}{ l  l  l }
 \multicolumn{3}{l}{  }\\
 Invoice: \\
@@ -466,9 +470,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.068}
+%%info_test_time_elapsed{00:00:00.056}
 \end{test}
-%%info_test_time_elapsed{00:00:00.069}
+%%info_test_time_elapsed{00:00:00.057}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.085}
+%%info_test_time_elapsed{00:00:00.075}
 \end{document}
