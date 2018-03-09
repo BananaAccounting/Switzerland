@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport.toCHF.transactions
 // @api = 1.0
-// @pubdate = 2017-08-08
+// @pubdate = 2018-03-09
 // @publisher = Banana.ch SA
 // @description = Transactions base currency to CHF (Beta)
 // @task = app.command
@@ -45,7 +45,7 @@ function loadParam(banDoc, startDate, endDate) {
     param = {
         "reportName" : "Swiss VAT Report Transactions currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 8",
-        "scriptVersion" : "script v. 2017-08-08",
+        "scriptVersion" : "script v. 2018-03-09",
         "startDate" : startDate,
         "endDate" : endDate,
         "rounding" : 4,
@@ -165,6 +165,7 @@ function getJournal() {
     var journal = Banana.document.journal(Banana.document.ORIGINTYPE_CURRENT, Banana.document.ACCOUNTTYPE_NORMAL);
     var len = journal.rowCount;
     var transactions = []; //Array that will contain all the lines of the transactions
+    var requiredVersion = "9.0.0";
     
     for (var i = 0; i < len; i++) {
 
@@ -214,7 +215,13 @@ function getJournal() {
 
                     if (dateExchangeRates === stringDate) { // there is the 15th of the month
                         // should be 15 of the month
-                        line.exchangerate = Banana.document.exchangeRate("CHF", stringDate);
+                        if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+                            //Return Object with properties 'date' and 'exchangeRate'
+                            line.exchangerate = Banana.document.exchangeRate("CHF", stringDate).exchangeRate;
+                        } else {
+                            //Return value
+                            line.exchangerate = Banana.document.exchangeRate("CHF", stringDate);
+                        }
                         //Banana.console.log("[Y] " + line.date + "; " + stringDate + "; " + line.exchangerate);
 
                         // /* possible future API then return the date */
@@ -226,7 +233,13 @@ function getJournal() {
                     }
                     else { // there is not the 15th of the month
                         // should be the previous? the transaction date?
-                        line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+                        if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+                            //Return Object with properties 'date' and 'exchangeRate'
+                            line.exchangerate = Banana.document.exchangeRate("CHF", line.date).exchangeRate;
+                        } else {
+                            //Return value
+                            line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+                        }
                         //Banana.console.log("[N] " + line.date + " : " + line.exchangerate);                    
                     }
                 }
@@ -254,7 +267,10 @@ function convertBaseCurrencyToCHF(valeToConvert, exchangerate) {
 /* The main purpose of this function is to allow the user to enter the accounting period desired and saving it for the next time the script is run
    Every time the user runs of the script he has the possibility to change the date of the accounting period */
 function getPeriodSettings() {
-    
+
+    //Banana required version
+    var requiredVersion = "9.0.0";
+
     //The formeters of the period that we need
     var scriptform = {
        "selectionStartDate": "",
@@ -263,7 +279,12 @@ function getPeriodSettings() {
     };
 
     //Read script settings
-    var data = Banana.document.getScriptSettings();
+    var data = "";
+    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+        data = Banana.document.getScriptSettings();
+    } else {
+        data = Banana.document.scriptReadSettings();
+    }
     
     //Check if there are previously saved settings and read them
     if (data.length > 0) {
@@ -294,7 +315,12 @@ function getPeriodSettings() {
 
         //Save script settings
         var formToString = JSON.stringify(scriptform);
-        var value = Banana.document.setScriptSettings(formToString);       
+        var value = "";
+        if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+            value = Banana.document.setScriptSettings(formToString);
+        } else {
+            value = Banana.document.scriptSaveSettings(formToString);
+        }
     } else {
         //User clicked cancel
         return;
