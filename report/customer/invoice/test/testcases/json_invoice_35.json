@@ -1,0 +1,198 @@
+{
+   "billing_info":{
+      "payment_term":"30 days",
+      "total_amount_vat_exclusive":"3240.74",
+      "total_amount_vat_exclusive_before_discount":"3240.74",
+      "total_amount_vat_inclusive":"3500.00",
+      "total_amount_vat_inclusive_before_discount":"3500.00",
+      "total_categories":[
+
+      ],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"3500.00",
+      "total_vat_amount":"259.26",
+      "total_vat_amount_before_discount":"259.26",
+      "total_vat_codes":[
+
+      ],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"3240.74",
+            "total_amount_vat_inclusive":"3500.00",
+            "total_vat_amount":"259.26",
+            "vat_rate":"8.00"
+         }
+      ]
+   },
+   "customer_info":{
+      "address1":"Via Trevano",
+      "balance":"16500.00",
+      "balance_base_currency":"16500.00",
+      "city":"Pregassona",
+      "first_name":"Mario",
+      "last_name":"Bianchi",
+      "number":"100002",
+      "origin_row":"105",
+      "origin_table":"Accounts",
+      "postal_code":"6963"
+   },
+   "document_info":{
+      "currency":"CHF",
+      "date":"2018-01-29",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "greetings":"Best regards, Banana.ch SA",
+      "locale":"en",
+      "number":"35",
+      "origin_row":"3",
+      "origin_table":"Transactions",
+      "printed":"",
+      "rounding_total":"0.05",
+      "text_begin":"This is the beginning text...",
+      "type":"invoice"
+   },
+   "items":[
+      {
+         "account_assignment":"100002",
+         "description":"Sales merchandise, invoice #35, customer B",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"3",
+         "origin_table":"Transactions",
+         "quantity":"1",
+         "total_amount_vat_exclusive":"1851.85",
+         "total_amount_vat_inclusive":"2000.00",
+         "total_vat_amount":"148.15",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"2000.00",
+            "calculated_amount_vat_exclusive":"1851.85",
+            "calculated_amount_vat_inclusive":"2000.00",
+            "calculated_vat_amount":"148.15",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         }
+      },
+      {
+         "account_assignment":"100002",
+         "description":"Sales merchandise, invoice #35, customer B",
+         "details":"",
+         "index":"1",
+         "item_type":"item",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"4",
+         "origin_table":"Transactions",
+         "quantity":"1",
+         "total_amount_vat_exclusive":"925.93",
+         "total_amount_vat_inclusive":"1000.00",
+         "total_vat_amount":"74.07",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"1000.00",
+            "calculated_amount_vat_exclusive":"925.93",
+            "calculated_amount_vat_inclusive":"1000.00",
+            "calculated_vat_amount":"74.07",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         }
+      },
+      {
+         "account_assignment":"100002",
+         "description":"Sales merchandise, invoice #35, customer B",
+         "details":"",
+         "index":"2",
+         "item_type":"item",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"5",
+         "origin_table":"Transactions",
+         "quantity":"1",
+         "total_amount_vat_exclusive":"462.96",
+         "total_amount_vat_inclusive":"500.00",
+         "total_vat_amount":"37.04",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"500.00",
+            "calculated_amount_vat_exclusive":"462.96",
+            "calculated_amount_vat_inclusive":"500.00",
+            "calculated_vat_amount":"37.04",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         }
+      }
+   ],
+   "note":[
+      {
+         "date":"",
+         "description":"This is the first note.",
+         "origin_row":"12",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":"This is the secon note.",
+         "origin_row":"13",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"14",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"15",
+         "origin_table":"Transactions"
+      }
+   ],
+   "parameters":{
+
+   },
+   "payment_info":{
+      "date_expected":"2018-02-28",
+      "due_date":"2018-02-28",
+      "due_days":"",
+      "due_period":"4_Current",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   },
+   "shipping_info":{
+      "different_shipping_address":false
+   },
+   "supplier_info":{
+      "address1":"Via Trevano 7a",
+      "business_name":"Banana.ch SA",
+      "city":"Lugano",
+      "country":"Switzerland",
+      "email":"info@banana.ch",
+      "postal_code":"6900",
+      "web":"www.banana.ch"
+   },
+   "transactions":[
+      {
+         "balance":"-5000.00",
+         "balance_base_currency":"",
+         "currency":"CHF",
+         "date":"20180131",
+         "description":"Payment Client B",
+         "origin_row":"18",
+         "origin_table":"Transactions"
+      }
+   ],
+   "type":"invoice",
+   "version":"1.0"
+}

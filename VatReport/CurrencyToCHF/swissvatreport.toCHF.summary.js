@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport.toCHF.summary
 // @api = 1.0
-// @pubdate = 2017-09-04
+// @pubdate = 2018-03-09
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Report Summary currency to CHF (Beta)
 // @task = app.command
@@ -43,7 +43,7 @@ function loadParam(banDoc, startDate, endDate) {
     param = {
         "reportName" : "Swiss VAT Report Summary currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 8",
-        "scriptVersion" : "script v. 2017-08-08",
+        "scriptVersion" : "script v. 2018-03-09",
         "startDate" : startDate,
         "endDate" : endDate,
         "company" : Banana.document.info("AccountingDataBase","Company"),
@@ -266,14 +266,13 @@ function createVatReport(banDoc, startDate, endDate) {
     formatValues(["amount"]);
 
 
-
     //--------------------------------------------------------------------------------------------------------------//
     //  6) Print the report
     //--------------------------------------------------------------------------------------------------------------//
 
     // Create the report
     var report = Banana.Report.newReport(param.reportName);
-    
+
     // Create a table
     var table = report.addTable("table");
     
@@ -474,6 +473,7 @@ function getJournal() {
     var journal = Banana.document.journal(Banana.document.ORIGINTYPE_CURRENT, Banana.document.ACCOUNTTYPE_NORMAL);
     var len = journal.rowCount;
     var transactions = []; //Array that will contain all the lines of the transactions
+    var requiredVersion = "9.0.0";
     
     for (var i = 0; i < len; i++) {
 
@@ -489,7 +489,15 @@ function getJournal() {
             line.vatamount = tRow.value("VatAmount");
             line.vatposted = tRow.value("VatPosted");
             line.amount = tRow.value("JAmount");
-            line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+
+            if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+                //Return Object with properties 'date' and 'exchangeRate'
+                line.exchangerate = Banana.document.exchangeRate("CHF", line.date).exchangeRate;
+            } else {
+                //Return value
+                line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+            }
+        
             line.doc = tRow.value("Doc");
             line.description = tRow.value("Description");
             line.isvatoperation = tRow.value("JVatIsVatOperation");
@@ -512,7 +520,7 @@ function getJournal() {
 
 /* Function for Euro to CHF conversion */
 function convertBaseCurrencyToCHF(valeToConvert, exchangerate) {
-    //var exchangerate = Banana.document.exchangeRate("CHF", date);
+
     return Banana.SDecimal.divide(valeToConvert,exchangerate, {'decimals':param.rounding});
 }
 
@@ -742,7 +750,10 @@ function getFormObjectById(form, id) {
 /* The main purpose of this function is to allow the user to enter the accounting period desired and saving it for the next time the script is run
    Every time the user runs of the script he has the possibility to change the date of the accounting period */
 function getPeriodSettings() {
-    
+
+    //Banana required version
+    var requiredVersion = "9.0.0";
+
     //The formeters of the period that we need
     var scriptform = {
        "selectionStartDate": "",
@@ -751,7 +762,12 @@ function getPeriodSettings() {
     };
 
     //Read script settings
-    var data = Banana.document.getScriptSettings();
+    var data = "";
+    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+        data = Banana.document.getScriptSettings();
+    } else {
+        data = Banana.document.scriptReadSettings();
+    }
     
     //Check if there are previously saved settings and read them
     if (data.length > 0) {
@@ -782,7 +798,12 @@ function getPeriodSettings() {
 
         //Save script settings
         var formToString = JSON.stringify(scriptform);
-        var value = Banana.document.setScriptSettings(formToString);       
+        var value = "";
+        if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+            value = Banana.document.setScriptSettings(formToString);
+        } else {
+            value = Banana.document.scriptSaveSettings(formToString);
+        }
     } else {
         //User clicked cancel
         return;
