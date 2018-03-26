@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-23}{15:40:24.898}
+%%info_test_date{2018-03-26}{09:08:45.295}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -26,7 +26,7 @@
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.001}
+%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
 %Test ch.banana.ch.invoice.ch03.js
@@ -434,7 +434,7 @@ V. CampurÃ©ta 40 \\
 \keyvalue{Result}{Passed}
 %%info_test_time_elapsed{00:00:00.063}
 \end{test}
-%%info_test_time_elapsed{00:00:00.064}
+%%info_test_time_elapsed{00:00:00.063}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.078}
+%%info_test_time_elapsed{00:00:00.080}
 \end{document}

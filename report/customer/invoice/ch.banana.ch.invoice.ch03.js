@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch03
 // @api = 1.0
-// @pubdate = 2018-01-31
+// @pubdate = 2018-03-26
 // @publisher = Banana.ch SA
 // @description = Style 3: Invoice with net amounts, quantity column, address on the left, 2 colours
 // @description.it = Stile 3: Fattura con importi netti, colonna quantità, indirizzo a sinistra, 2 colori
@@ -1343,7 +1343,7 @@ function setInvoiceTexts(language) {
       texts.page = 'Seite';
       texts.rounding = 'Rundung';
       texts.total = 'Total';
-      texts.totalnet = 'Total net';
+      texts.totalnet = 'Netto-Betrag';
       texts.vat = 'MwSt.';
       texts.qty = 'Menge';
       texts.unit_ref = 'Einheit';

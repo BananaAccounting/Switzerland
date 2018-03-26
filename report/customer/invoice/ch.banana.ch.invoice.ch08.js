@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch08.js
 // @api = 1.0
-// @pubdate = 2018-02-27
+// @pubdate = 2018-03-26
 // @publisher = Banana.ch SA
 // @description = Style 8: Total column, logo, 2 colors
 // @description.it = Stile 8: colonna totale, logo, 2 colori
@@ -1350,7 +1350,7 @@ function setInvoiceTexts(language) {
     texts.page = 'Seite';
     texts.rounding = 'Rundung';
     texts.total = 'Total';
-    texts.totalnet = 'Total net';
+    texts.totalnet = 'Netto-Betrag';
     texts.vat = 'MwSt.';
     texts.qty = 'Menge';
     texts.unit_ref = 'Einheit';

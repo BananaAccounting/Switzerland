@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch01
 // @api = 1.0
-// @pubdate = 2018-01-31
+// @pubdate = 2018-03-26
 // @publisher = Banana.ch SA
 // @description = Style 1: Invoice with gross amounts, 2 colours
 // @description.it = Stile 1: Fattura con importi lordi, 2 colori
@@ -1328,7 +1328,7 @@ function setInvoiceTexts(language) {
       texts.page = 'Seite';
       texts.rounding = 'Rundung';
       texts.total = 'Total';
-      texts.totalnet = 'Total net';
+      texts.totalnet = 'Netto-Betrag';
       texts.vat = 'MwSt.';
       texts.qty = 'Menge';
       texts.unit_ref = 'Einheit';

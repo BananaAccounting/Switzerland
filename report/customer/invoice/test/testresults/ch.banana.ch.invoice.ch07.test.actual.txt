@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-30}{14:05:43.612}
+%%info_test_date{2018-03-26}{09:09:26.347}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -447,9 +447,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.059}
+%%info_test_time_elapsed{00:00:00.068}
 \end{test}
-%%info_test_time_elapsed{00:00:00.059}
+%%info_test_time_elapsed{00:00:00.069}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.074}
+%%info_test_time_elapsed{00:00:00.089}
 \end{document}
