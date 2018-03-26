@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-03-26}{09:08:45.295}
+%%info_test_date{2018-03-26}{11:17:23.305}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -34,9 +34,9 @@
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
 \begin{tabular}{ l  l }
-BANANA.CH SA  & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+BANANA.CH SA  & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.chwww.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -141,9 +141,9 @@ Via Trevano \\
 \subsection{Test Invoice 36}
 \begin{reportvalue}{Test Invoice 36}
 \begin{tabular}{ l  l }
-BANANA.CH SA  & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+BANANA.CH SA  & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.chwww.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -226,9 +226,9 @@ V.Meggiagra 3 \\
 \subsection{Test Invoice 37}
 \begin{reportvalue}{Test Invoice 37}
 \begin{tabular}{ l  l }
-BANANA.CH SA  & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+BANANA.CH SA  & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.chwww.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -343,9 +343,9 @@ Via Trevano \\
 \subsection{Test Invoice 47}
 \begin{reportvalue}{Test Invoice 47}
 \begin{tabular}{ l  l }
-BANANA.CH SA  & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+BANANA.CH SA  & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.chwww.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l }
@@ -432,9 +432,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.063}
+%%info_test_time_elapsed{00:00:00.046}
 \end{test}
-%%info_test_time_elapsed{00:00:00.063}
+%%info_test_time_elapsed{00:00:00.047}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.080}
+%%info_test_time_elapsed{00:00:00.072}
 \end{document}

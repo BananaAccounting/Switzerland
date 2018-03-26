@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-01-24}{10:52:00.915}
+%%info_test_date{2018-03-26}{11:17:30.680}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -35,9 +35,9 @@
 \begin{reportvalue}{Test Invoice 35}
 \begin{tabular}{ l  l }
 BANANA.CH SA \\
- & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+ & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.ch www.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l }
@@ -141,9 +141,9 @@ Via Trevano \\
 \begin{reportvalue}{Test Invoice 36}
 \begin{tabular}{ l  l }
 BANANA.CH SA \\
- & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+ & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.ch www.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l }
@@ -225,9 +225,9 @@ V.Meggiagra 3 \\
 \begin{reportvalue}{Test Invoice 37}
 \begin{tabular}{ l  l }
 BANANA.CH SA \\
- & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+ & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.ch www.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l }
@@ -341,9 +341,9 @@ Via Trevano \\
 \begin{reportvalue}{Test Invoice 47}
 \begin{tabular}{ l  l }
 BANANA.CH SA \\
- & Banana.ch SA - Via Trevano 7a 6900 Lugano \\
+ & Banana.ch SA - Via Trevano 7a - 6900 Lugano \\
 \\
-info@banana.ch www.banana.ch \\
+info@banana.ch - www.banana.ch \\
 \\
 \end{tabular}
 \begin{tabular}{ l  l  l  l }
@@ -428,9 +428,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.060}
+%%info_test_time_elapsed{00:00:00.049}
 \end{test}
-%%info_test_time_elapsed{00:00:00.061}
+%%info_test_time_elapsed{00:00:00.049}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.077}
+%%info_test_time_elapsed{00:00:00.075}
 \end{document}

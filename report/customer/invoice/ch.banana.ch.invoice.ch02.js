@@ -562,70 +562,76 @@ function getInvoiceAddress(invoiceAddress) {
 }
 
 function getInvoiceSupplier(invoiceSupplier) {
-  
-  var supplierAddress = "";
 
-  if (invoiceSupplier.first_name) {
-    supplierAddress = invoiceSupplier.first_name + " ";
-  }
- 
-  if (invoiceSupplier.last_name) {
-    supplierAddress = supplierAddress + invoiceSupplier.last_name + ", ";
-  }
+   var supplierAddressRow1 = "";
+   var supplierAddressRow2 = "";
+   var supplierAddressRow3 = "";
+   var supplierAddress = "";
 
-  if (invoiceSupplier.address1 || invoiceSupplier.address2) {
-    //supplierAddress = supplierAddress + ", ";
+   //Row 1
+   if (invoiceSupplier.first_name) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.first_name + " ";
+   }
 
-    if (invoiceSupplier.address1) {
-      supplierAddress = supplierAddress + invoiceSupplier.address1 + ", ";
-    }
-    
-    if (invoiceSupplier.address2) {
-      supplierAddress = supplierAddress + invoiceSupplier.address2 + ", ";
-    }
-  }
-  
-  if (invoiceSupplier.postal_code) {
-    supplierAddress = supplierAddress + invoiceSupplier.postal_code + " ";
-  }
-  
-  if (invoiceSupplier.city) {
-    supplierAddress = supplierAddress + invoiceSupplier.city + ", ";
-  }
-  
-  if (invoiceSupplier.phone) {
-    supplierAddress = supplierAddress + "Tel: " + invoiceSupplier.phone + ", ";
-  }
-  
-  if (invoiceSupplier.fax) {
-    supplierAddress = supplierAddress + "Fax: " + invoiceSupplier.fax;
-  }
-  
-  if (supplierAddress.lastIndexOf(", ") >=0) {
-    supplierAddress = supplierAddress.substr(0, supplierAddress.lastIndexOf(", "));
-  }
-  
-  if (invoiceSupplier.email || invoiceSupplier.web || invoiceSupplier.vat_number) {
-    supplierAddress = supplierAddress + "\n";
-  }
+   if (invoiceSupplier.last_name) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.last_name + ", ";
+   }
 
-  if (invoiceSupplier.email) {
-    supplierAddress = supplierAddress + invoiceSupplier.email + ", ";
-  }
-  
-  if (invoiceSupplier.web) {
-    supplierAddress = supplierAddress + invoiceSupplier.web + ", ";
-  }
- 
-  if (invoiceSupplier.vat_number) {
-	supplierAddress = supplierAddress + invoiceSupplier.vat_number;
-  }
+   if (supplierAddressRow1.length <= 0) {
+      if (invoiceSupplier.business_name) {
+         supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.business_name + ", ";
+      }
+   }
 
-  if (supplierAddress.lastIndexOf(", ") >=0) {
-    supplierAddress = supplierAddress.substr(0, supplierAddress.lastIndexOf(", "));
-  }
-    
- return supplierAddress;
+   if (invoiceSupplier.address1) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address1 + ", ";
+   }
+
+   if (invoiceSupplier.address2) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address2 + ", ";
+   }
+
+   if (invoiceSupplier.postal_code) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.postal_code + " ";
+   }
+
+   if (invoiceSupplier.city) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.city + ", ";
+   }
+
+   if (invoiceSupplier.country) {
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.country;
+   }
+
+   //Row 2
+   if (invoiceSupplier.phone) {
+      supplierAddressRow2 = supplierAddressRow2 + "Tel: " + invoiceSupplier.phone + ", ";
+   }
+
+   if (invoiceSupplier.fax) {
+      supplierAddressRow2 = supplierAddressRow2 + "Fax: " + invoiceSupplier.fax + ", ";
+   }
+
+   if (invoiceSupplier.email) {
+      supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.email + ", ";
+   }
+
+   if (invoiceSupplier.web) {
+      supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.web;
+   }
+
+   // //Row 3
+   // if (invoiceSupplier.fiscal_number) {
+   //    supplierAddressRow3 = supplierAddressRow3 + invoiceSupplier.fiscal_number + ", ";
+   // }
+
+   // if (invoiceSupplier.vat_number) {
+   //    supplierAddressRow3 = supplierAddressRow3 + invoiceSupplier.vat_number;
+   // }
+
+   //Final address (row1 + row2 + row3)
+   supplierAddress = supplierAddress + supplierAddressRow1 + "\n" + supplierAddressRow2; // + "\n" + supplierAddressRow3;
+   return supplierAddress;
 }
 
 
