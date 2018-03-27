@@ -2,7 +2,7 @@
 %%info_test_app{Banana90}{9.0.2}
 %%info_test_os{macOS Sierra (10.12)}
 %%info_test_qt{5.9.0}
-%%info_test_date{2018-03-26}{11:16:26.352}
+%%info_test_date{2018-03-27}{11:11:33.713}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
@@ -22,7 +22,7 @@
 \begin{testcase}{ReportInvoiceTemplate2}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.000}
+%%info_test_time_elapsed{00:00:00.001}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
@@ -400,9 +400,9 @@ V. CampurÃ©ta 40 \\
 
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.050}
+%%info_test_time_elapsed{00:00:00.059}
 \end{test}
-%%info_test_time_elapsed{00:00:00.050}
+%%info_test_time_elapsed{00:00:00.060}
 \end{testcase}
-%%info_test_time_elapsed{00:00:00.074}
+%%info_test_time_elapsed{00:00:00.078}
 \end{document}

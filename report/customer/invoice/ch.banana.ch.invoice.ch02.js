@@ -603,6 +603,13 @@ function getInvoiceSupplier(invoiceSupplier) {
       supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.country;
    }
 
+   //Remove last character if it is a ","
+   var str = supplierAddressRow1.trim();
+   var lastChar = str[str.length - 1];
+   if (lastChar === ",") {
+      supplierAddressRow1 = str.slice(0,-1);
+   }
+
    //Row 2
    if (invoiceSupplier.phone) {
       supplierAddressRow2 = supplierAddressRow2 + "Tel: " + invoiceSupplier.phone + ", ";
@@ -618,6 +625,13 @@ function getInvoiceSupplier(invoiceSupplier) {
 
    if (invoiceSupplier.web) {
       supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.web;
+   }
+
+   //Remove last character if it is a ","
+   var str = supplierAddressRow2.trim();
+   var lastChar = str[str.length - 1];
+   if (lastChar === ",") {
+      supplierAddressRow2 = str.slice(0,-1);
    }
 
    // //Row 3

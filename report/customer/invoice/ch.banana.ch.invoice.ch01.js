@@ -535,21 +535,21 @@ function getInvoiceSupplier(invoiceSupplier) {
    }
 
    if (invoiceSupplier.last_name) {
-      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.last_name + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.last_name + ", ";
    }
 
    if (supplierAddressRow1.length <= 0) {
       if (invoiceSupplier.business_name) {
-         supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.business_name + " - ";
+         supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.business_name + ", ";
       }
    }
 
    if (invoiceSupplier.address1) {
-      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address1 + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address1 + ", ";
    }
 
    if (invoiceSupplier.address2) {
-      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address2 + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address2 + ", ";
    }
 
    if (invoiceSupplier.postal_code) {
@@ -557,33 +557,47 @@ function getInvoiceSupplier(invoiceSupplier) {
    }
 
    if (invoiceSupplier.city) {
-      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.city + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.city + ", ";
    }
 
    if (invoiceSupplier.country) {
       supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.country;
    }
 
+   //Remove last character if it is a ","
+   var str = supplierAddressRow1.trim();
+   var lastChar = str[str.length - 1];
+   if (lastChar === ",") {
+      supplierAddressRow1 = str.slice(0,-1);
+   }
+
    //Row 2
    if (invoiceSupplier.phone) {
-      supplierAddressRow2 = supplierAddressRow2 + "Tel: " + invoiceSupplier.phone + " - ";
+      supplierAddressRow2 = supplierAddressRow2 + "Tel: " + invoiceSupplier.phone + ", ";
    }
 
    if (invoiceSupplier.fax) {
-      supplierAddressRow2 = supplierAddressRow2 + "Fax: " + invoiceSupplier.fax + " - ";
+      supplierAddressRow2 = supplierAddressRow2 + "Fax: " + invoiceSupplier.fax + ", ";
    }
 
    if (invoiceSupplier.email) {
-      supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.email + " - ";
+      supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.email + ", ";
    }
 
    if (invoiceSupplier.web) {
       supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.web;
    }
 
+   //Remove last character if it is a ","
+   var str = supplierAddressRow2.trim();
+   var lastChar = str[str.length - 1];
+   if (lastChar === ",") {
+      supplierAddressRow2 = str.slice(0,-1);
+   }
+
    // //Row 3
    // if (invoiceSupplier.fiscal_number) {
-   //    supplierAddressRow3 = supplierAddressRow3 + invoiceSupplier.fiscal_number + " - ";
+   //    supplierAddressRow3 = supplierAddressRow3 + invoiceSupplier.fiscal_number + ", ";
    // }
 
    // if (invoiceSupplier.vat_number) {
