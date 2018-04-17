@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// @id = ch.banana.ch.invoice.chredis.js
+// @id = ch.banana.ch.invoice.ch09.js
 // @api = 1.0
 // @pubdate = 2018-04-17
 // @publisher = Banana.ch SA
-// @description = [CHRED]Invoice with Red Inpayment slip (IS), logo and address
-// @description.it = [CHRED]Fattura con Polizza di versamento rossa (PV), logo e indirizzo
-// @description.de = [CHRED]Rechnung mit Roter Einzahlungsschein (ES), Logo und Adresse
-// @description.fr = [CHRED]Facture avec Bulletin de versement rouge (BV), logo et adresse
+// @description = [CH09]Invoice with Red Inpayment slip (IS), logo and address
+// @description.it = [CH09]Fattura con Polizza di versamento rossa (PV), logo e indirizzo
+// @description.de = [CH09]Rechnung mit Roter Einzahlungsschein (ES), Logo und Adresse
+// @description.fr = [CH09]Facture avec Bulletin de versement rouge (BV), logo et adresse
 // @doctype = *
 // @task = report.customer.invoice
 
