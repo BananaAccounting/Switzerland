@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch01
 // @api = 1.0
-// @pubdate = 2018-01-31
+// @pubdate = 2018-04-06
 // @publisher = Banana.ch SA
 // @description = Style 1: Invoice with gross amounts, 2 colours
 // @description.it = Stile 1: Fattura con importi lordi, 2 colori
@@ -40,6 +40,13 @@ function settingsDialog() {
       param = JSON.parse(savedParam);
    }
    param = verifyParam(param);
+   
+   if (typeof (Banana.Ui.openPropertyEditor) !== 'undefined') {
+      param = Banana.Ui.openPropertyEditor('Settings', convertParam(param));
+      if (!param)
+         return;
+   }
+   else {
    var lang = Banana.document.locale;
    if (lang.length > 2)
       lang = lang.substr(0, 2);
@@ -90,9 +97,176 @@ function settingsDialog() {
    param.color_2 = Banana.Ui.getText('Settings', texts.param_color_2, param.color_2);
    if (param.color_2 === undefined)
       return;
+   }
 
    var paramToString = JSON.stringify(param);
    var value = Banana.document.setScriptSettings(paramToString);
+}
+
+function convertParam(param) {
+   var lang = 'en';
+   if (Banana.document.locale)
+     lang = Banana.document.locale;
+   if (lang.length > 2)
+      lang = lang.substr(0, 2);
+   var texts = setInvoiceTexts(lang);
+
+   var convertedParam = {};
+   convertedParam.version = '1.0';
+   /*array dei parametri dello script*/
+   convertedParam.data = [];
+   
+   var currentParam = {};
+   currentParam.name = 'print_header';
+   currentParam.title = texts.param_print_header;
+   currentParam.type = 'bool';
+   currentParam.value = false;
+   if (param.print_header)
+     currentParam.value = true;
+   var paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+   
+   currentParam = {};
+   currentParam.name = 'print_isr';
+   currentParam.title = texts.param_print_isr;
+   currentParam.type = 'bool';
+   currentParam.value = false;
+   if (param.print_isr)
+     currentParam.value = true;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_bank_name';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_bank_name;
+   currentParam.type = 'string';
+   currentParam.value = '';
+   currentParam.parent = 'print_isr';
+   if (param.isr_bank_name)
+     currentParam.value = param.isr_bank_name;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_bank_address';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_bank_address;
+   currentParam.type = 'string';
+   currentParam.value = '';
+   if (param.isr_bank_address)
+     currentParam.value = param.isr_bank_address;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_account';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_account;
+   currentParam.type = 'string';
+   currentParam.value = '';
+   if (param.isr_account)
+     currentParam.value = param.isr_account;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_id';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_id;
+   currentParam.type = 'string';
+   currentParam.value = '';
+   if (param.isr_id)
+     currentParam.value = param.isr_id;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_scaleX';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_scaleX;
+   currentParam.type = 'number';
+   currentParam.value = '1.0';
+   if (param.isr_position_scaleX)
+     currentParam.value = param.isr_position_scaleX;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_scaleY';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_scaleY;
+   currentParam.type = 'number';
+   currentParam.value = '1.0';
+   if (param.isr_position_scaleY)
+     currentParam.value = param.isr_position_scaleY;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_dX';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_dX;
+   currentParam.type = 'number';
+   currentParam.value = '1.0';
+   if (param.isr_position_dX)
+     currentParam.value = param.isr_position_dX;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_dY';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_dY;
+   currentParam.type = 'number';
+   currentParam.value = '1.0';
+   if (param.isr_position_dY)
+     currentParam.value = param.isr_position_dY;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'isr_on_new_page';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_on_new_page;
+   currentParam.type = 'bool';
+   currentParam.value = false;
+   if (param.isr_on_new_page)
+     currentParam.value = true;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'font_family';
+   currentParam.title = texts.param_font_family;
+   currentParam.type = 'string';
+   currentParam.value = '';
+   if (param.font_family)
+     currentParam.value = param.font_family;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'color_1';
+   currentParam.title = texts.param_color_1;
+   currentParam.type = 'string';
+   currentParam.value = '#005392';
+   if (param.color_1)
+     currentParam.value = param.color_1;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   currentParam = {};
+   currentParam.name = 'color_2';
+   currentParam.title = texts.param_color_2;
+   currentParam.type = 'string';
+   currentParam.value = '#ffffff';
+   if (param.color_2)
+     currentParam.value = param.color_2;
+   paramToString = JSON.stringify(currentParam);
+   convertedParam.data.push(paramToString);
+
+   return convertedParam;
 }
 
 function initParam() {
@@ -524,72 +698,88 @@ function getInvoiceAddress(invoiceAddress) {
 
 function getInvoiceSupplier(invoiceSupplier) {
 
+   var supplierAddressRow1 = "";
+   var supplierAddressRow2 = "";
+   var supplierAddressRow3 = "";
    var supplierAddress = "";
 
+   //Row 1
    if (invoiceSupplier.first_name) {
-      supplierAddress = invoiceSupplier.first_name + " ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.first_name + " ";
    }
 
    if (invoiceSupplier.last_name) {
-      supplierAddress = supplierAddress + invoiceSupplier.last_name + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.last_name + ", ";
    }
 
-   if (supplierAddress.length <= 0) {
+   if (supplierAddressRow1.length <= 0) {
       if (invoiceSupplier.business_name) {
-         supplierAddress = invoiceSupplier.business_name + " - ";
+         supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.business_name + ", ";
       }
    }
 
    if (invoiceSupplier.address1) {
-      supplierAddress = supplierAddress + invoiceSupplier.address1 + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address1 + ", ";
    }
 
    if (invoiceSupplier.address2) {
-      supplierAddress = supplierAddress + invoiceSupplier.address2 + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.address2 + ", ";
    }
 
    if (invoiceSupplier.postal_code) {
-      supplierAddress = supplierAddress + invoiceSupplier.postal_code + " ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.postal_code + " ";
    }
 
    if (invoiceSupplier.city) {
-      supplierAddress = supplierAddress + invoiceSupplier.city + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.city + ", ";
    }
 
    if (invoiceSupplier.country) {
-      supplierAddress = supplierAddress + invoiceSupplier.country + " - ";
+      supplierAddressRow1 = supplierAddressRow1 + invoiceSupplier.country;
    }
 
+   //Remove last character if it is a ","
+   var str = supplierAddressRow1.trim();
+   var lastChar = str[str.length - 1];
+   if (lastChar === ",") {
+      supplierAddressRow1 = str.slice(0,-1);
+   }
+
+   //Row 2
    if (invoiceSupplier.phone) {
-      supplierAddress = supplierAddress + "Tel: " + invoiceSupplier.phone + " - ";
+      supplierAddressRow2 = supplierAddressRow2 + "Tel: " + invoiceSupplier.phone + ", ";
    }
 
    if (invoiceSupplier.fax) {
-      supplierAddress = supplierAddress + "Fax: " + invoiceSupplier.fax;
+      supplierAddressRow2 = supplierAddressRow2 + "Fax: " + invoiceSupplier.fax + ", ";
    }
-
-   if (supplierAddress.lastIndexOf(" - ") >= 0) {
-      supplierAddress = supplierAddress.substr(0, supplierAddress.lastIndexOf(" - "));
-   }
-
-   supplierAddress = supplierAddress + "\n";
 
    if (invoiceSupplier.email) {
-      supplierAddress = supplierAddress + invoiceSupplier.email + " - ";
+      supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.email + ", ";
    }
 
    if (invoiceSupplier.web) {
-      supplierAddress = supplierAddress + invoiceSupplier.web + " - ";
+      supplierAddressRow2 = supplierAddressRow2 + invoiceSupplier.web;
    }
 
-   if (invoiceSupplier.vat_number) {
-      supplierAddress = supplierAddress + invoiceSupplier.vat_number;
+   //Remove last character if it is a ","
+   var str = supplierAddressRow2.trim();
+   var lastChar = str[str.length - 1];
+   if (lastChar === ",") {
+      supplierAddressRow2 = str.slice(0,-1);
    }
 
-   if (supplierAddress.lastIndexOf(" - ") >= 0) {
-      supplierAddress = supplierAddress.substr(0, supplierAddress.lastIndexOf(" - "));
-   }
+   // //Row 3
+   // if (invoiceSupplier.fiscal_number) {
+   //    supplierAddressRow3 = supplierAddressRow3 + invoiceSupplier.fiscal_number + ", ";
+   // }
 
+   // if (invoiceSupplier.vat_number) {
+   //    supplierAddressRow3 = supplierAddressRow3 + invoiceSupplier.vat_number;
+   // }
+
+   //Final address (row1 + row2 + row3)
+   supplierAddress = supplierAddress + supplierAddressRow1 + "\n" + supplierAddressRow2; // + "\n" + supplierAddressRow3;
    return supplierAddress;
 }
 
@@ -1328,7 +1518,7 @@ function setInvoiceTexts(language) {
       texts.page = 'Seite';
       texts.rounding = 'Rundung';
       texts.total = 'Total';
-      texts.totalnet = 'Total net';
+      texts.totalnet = 'Netto-Betrag';
       texts.vat = 'MwSt.';
       texts.qty = 'Menge';
       texts.unit_ref = 'Einheit';

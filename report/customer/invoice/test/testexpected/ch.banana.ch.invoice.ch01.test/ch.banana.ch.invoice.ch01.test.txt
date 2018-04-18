@@ -1,32 +1,30 @@
-%%info_test_name{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch01.test.js}
-%%info_test_app{Banana90}{9.0.2}
-%%info_test_os{macOS Sierra (10.12)}
-%%info_test_qt{5.9.0}
-%%info_test_date{2018-01-31}{09:58:42.856}
+%%info_test_name{ch.banana.ch.invoice.ch01.test}
 \documentclass{report}
 \usepackage{color}
 \usepackage{adjustbox}
+\usepackage{listings}
 \usepackage[margin=1cm]{geometry}
 \begin{document}
-\newenvironment{tablevalue}[2]
-   {\textbf{Table: #1}\\\begin{adjustbox}{max width=\textwidth}\tabular{#2}}
-   {\endtabular\end{adjustbox}}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\\\begin{adjustbox}{max width=\textwidth}\tabular{#2}}{\endtabular\end{adjustbox}\\}
 \newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{\\}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
 \newcommand{\info}[2]{\textit{#1: #2}\\}
 \newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
 \newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
 \newcommand{\excltest}[1]{\\Excluded from compare: #1}
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
+%%SCRIPT{/Users/lorenzo/Programmazione/GitHub/BananaAccounting/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch01.test.js}
+%
 \begin{testcase}{ReportCustomerInvoiceStyle01}
 \begin{test}{test1}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{test2}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.000}
 \end{test}
 \begin{test}{testReport}
 %Test ch.banana.ch.invoice.ch01.js
@@ -34,50 +32,32 @@
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
 \begin{tabular}{ l }
-BANANA.CH SA \\
-\\
-Banana.ch SA - Via Trevano 7a - 6900 Lugano - Switzerland \\
-info@banana.ch - www.banana.ch \\
-\\
-\end{tabular}
+BANANA.CH SA \newline \\
+Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
+\end{tabular}\\
 \begin{tabular}{ l  l }
-Date: 29.01.2018 \\
-Customer No: 100002 \\
-Payment: 30 days \\
-Page: 1 \\
- & Mario Bianchi \\
-Via Trevano \\
-6963 Pregassona \\
-\\
-\\
-\end{tabular}
+Date: 29.01.2018 \newline Customer No: 100002 \newline Payment: 30 days \newline Page: 1 \newline  & Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
+\end{tabular}\\
 \begin{tabular}{ l }
 Invoice 35 \\
-\end{tabular}
+\end{tabular}\\
 This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
-\multicolumn{2}{l}{Sales merchandise, invoice #35, customer B \\
-\\
-} & 2'000.00 \\
-\multicolumn{2}{l}{Sales merchandise, invoice #35, customer B \\
-\\
-} & 1'000.00 \\
-\multicolumn{2}{l}{Sales merchandise, invoice #35, customer B \\
-\\
-} & 500.00 \\
+\multicolumn{2}{l}{Sales merchandise, invoice \#35, customer B \newline \newline } & 2'000.00 \\
+\multicolumn{2}{l}{Sales merchandise, invoice \#35, customer B \newline \newline } & 1'000.00 \\
+\multicolumn{2}{l}{Sales merchandise, invoice \#35, customer B \newline \newline } & 500.00 \\
 \multicolumn{3}{l}{}\\
 \multicolumn{3}{l}{}\\
 TOTAL CHF  &  & 3'500.00 \\
 \multicolumn{3}{l}{}\\
-\multicolumn{3}{l}{VAT 8.00% = 259.26 CHF \\
-}\\
+\multicolumn{3}{l}{VAT 8.00\% = 259.26 CHF \newline }\\
 \multicolumn{3}{l}{This is the first note. }\\
 \multicolumn{3}{l}{This is the secon note. }\\
 \multicolumn{3}{l}{  }\\
 \multicolumn{3}{l}{  }\\
 \multicolumn{3}{l}{Best regards, Banana.ch SA }\\
-\end{tabular}
+\end{tabular}\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -122,56 +102,36 @@ Via Trevano \\
 0100003500009>123456780000100002000003502+ 011030555> \\
 \\
 \\
-
 \end{reportvalue}
 \subsection{Test Invoice 36}
 \begin{reportvalue}{Test Invoice 36}
 \begin{tabular}{ l }
-BANANA.CH SA \\
-\\
-Banana.ch SA - Via Trevano 7a - 6900 Lugano - Switzerland \\
-info@banana.ch - www.banana.ch \\
-\\
-\end{tabular}
+BANANA.CH SA \newline \\
+Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
+\end{tabular}\\
 \begin{tabular}{ l  l }
-Date: 01.02.2018 \\
-Customer No: 100004 \\
-Due date: 03.03.2018 \\
-Page: 1 \\
- & Susanna Lanfranchi \\
-V.Meggiagra 3 \\
-6599 Robasacco \\
-Switzerland \\
-\\
-\end{tabular}
+Date: 01.02.2018 \newline Customer No: 100004 \newline Due date: 03.03.2018 \newline Page: 1 \newline  & Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
+\end{tabular}\\
 \begin{tabular}{ l }
 Invoice 36 \\
-\end{tabular}
+\end{tabular}\\
 This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
-\multicolumn{2}{l}{Sales merchandise, invoice #36, customer D \\
-\\
-} & 7'000.00 \\
+\multicolumn{2}{l}{Sales merchandise, invoice \#36, customer D \newline \newline } & 7'000.00 \\
 \multicolumn{3}{l}{}\\
 \multicolumn{3}{l}{}\\
 TOTAL CHF  &  & 7'000.00 \\
 \multicolumn{3}{l}{}\\
-\multicolumn{3}{l}{VAT 8.00% = 518.52 CHF \\
-}\\
-\end{tabular}
+\multicolumn{3}{l}{VAT 8.00\% = 518.52 CHF \newline }\\
+\end{tabular}\\
 \\
 \begin{tabular}{ l }
-Invoice 36 \\
-Date: 01.02.2018 \\
-Customer No: 100004 \\
-Due date: 03.03.2018 \\
-Page: 2 \\
-\\
-\end{tabular}
+Invoice 36 \newline Date: 01.02.2018 \newline Customer No: 100004 \newline Due date: 03.03.2018 \newline Page: 2 \newline \\
+\end{tabular}\\
 \begin{tabular}{ l  l  l  l }
 Description  &  & Total CHF \\
-\end{tabular}
+\end{tabular}\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -216,75 +176,42 @@ V.Meggiagra 3 \\
 0100007000003>123456780000100004000003604+ 011030555> \\
 \\
 \\
-
 \end{reportvalue}
 \subsection{Test Invoice 37}
 \begin{reportvalue}{Test Invoice 37}
 \begin{tabular}{ l }
-BANANA.CH SA \\
-\\
-Banana.ch SA - Via Trevano 7a - 6900 Lugano - Switzerland \\
-info@banana.ch - www.banana.ch \\
-\\
-\end{tabular}
+BANANA.CH SA \newline \\
+Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
+\end{tabular}\\
 \begin{tabular}{ l  l }
-Date: 03.02.2018 \\
-Customer No: 100001 \\
-Due date: 05.03.2018 \\
-Page: 2 \\
- & Carlo Rossi \\
-Rossi SA \\
-Via Trevano \\
-6963 Pregassona \\
-Switzerland \\
-\\
-\end{tabular}
+Date: 03.02.2018 \newline Customer No: 100001 \newline Due date: 05.03.2018 \newline Page: 2 \newline  & Carlo Rossi \newline Rossi SA \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
+\end{tabular}\\
 \begin{tabular}{ l }
 Invoice 37 \\
-\end{tabular}
+\end{tabular}\\
 This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
-\multicolumn{2}{l}{Sales merchandise, invoice #37, customer A \\
-\\
-} & 8'000.00 \\
-\multicolumn{2}{l}{Consultancy \\
-\\
-} & 100.00 \\
-\multicolumn{2}{l}{Consultancy \\
-\\
-} & 100.00 \\
-\multicolumn{2}{l}{Consultancy \\
-\\
-} & 100.00 \\
-\end{tabular}
+\multicolumn{2}{l}{Sales merchandise, invoice \#37, customer A \newline \newline } & 8'000.00 \\
+\multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
+\multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
+\multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
+\end{tabular}\\
 \\
 \begin{tabular}{ l }
-Invoice 37 \\
-Date: 03.02.2018 \\
-Customer No: 100001 \\
-Due date: 05.03.2018 \\
-Page: 3 \\
-\\
-\end{tabular}
+Invoice 37 \newline Date: 03.02.2018 \newline Customer No: 100001 \newline Due date: 05.03.2018 \newline Page: 3 \newline \\
+\end{tabular}\\
 \begin{tabular}{ l  l  l  l }
 Description  &  & Total CHF \\
-\multicolumn{2}{l}{Consultancy \\
-\\
-} & 100.00 \\
-\multicolumn{2}{l}{Consultancy \\
-\\
-} & 100.00 \\
-\multicolumn{2}{l}{Consultancy \\
-\\
-} & 100.00 \\
+\multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
+\multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
+\multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
 \multicolumn{3}{l}{}\\
 \multicolumn{3}{l}{}\\
 TOTAL CHF  &  & 8'600.00 \\
 \multicolumn{3}{l}{}\\
-\multicolumn{3}{l}{VAT 8.00% = 637.05 CHF \\
-}\\
-\end{tabular}
+\multicolumn{3}{l}{VAT 8.00\% = 637.05 CHF \newline }\\
+\end{tabular}\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -331,50 +258,31 @@ Via Trevano \\
 0100008600005>123456780000100001000003703+ 011030555> \\
 \\
 \\
-
 \end{reportvalue}
 \subsection{Test Invoice 47}
 \begin{reportvalue}{Test Invoice 47}
 \begin{tabular}{ l }
-BANANA.CH SA \\
-\\
-Banana.ch SA - Via Trevano 7a - 6900 Lugano - Switzerland \\
-info@banana.ch - www.banana.ch \\
-\\
-\end{tabular}
+BANANA.CH SA \newline \\
+Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
+\end{tabular}\\
 \begin{tabular}{ l  l }
-Date: 11.11.2018 \\
-Customer No: 100003 \\
-Due date: 11.12.2018 \\
-Page: 3 \\
- & Marco Alberti \\
-V. CampurÃ©ta 40 \\
-6883 Novazzano \\
-Switzerland \\
-\\
-\end{tabular}
+Date: 11.11.2018 \newline Customer No: 100003 \newline Due date: 11.12.2018 \newline Page: 3 \newline  & Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
+\end{tabular}\\
 \begin{tabular}{ l }
 Invoice 47 \\
-\end{tabular}
+\end{tabular}\\
 This is the beginning text... \\
 \begin{tabular}{ l  l  l }
 Description  &  & Total CHF \\
-\multicolumn{2}{l}{Product A \\
-\\
-} & 22.00 \\
-\multicolumn{2}{l}{Product B \\
-\\
-} & 30.00 \\
-\multicolumn{2}{l}{Discount 10% product B \\
-\\
-} & -3.00 \\
+\multicolumn{2}{l}{Product A \newline \newline } & 22.00 \\
+\multicolumn{2}{l}{Product B \newline \newline } & 30.00 \\
+\multicolumn{2}{l}{Discount 10\% product B \newline \newline } & -3.00 \\
 \multicolumn{3}{l}{}\\
 \multicolumn{3}{l}{}\\
 TOTAL CHF  &  & 49.00 \\
 \multicolumn{3}{l}{}\\
-\multicolumn{3}{l}{VAT 8.00% = 3.63 CHF \\
-}\\
-\end{tabular}
+\multicolumn{3}{l}{VAT 8.00\% = 3.63 CHF \newline }\\
+\end{tabular}\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -407,11 +315,11 @@ Via Trevano 7a \\
 \\
 12 34567 80000 10000 30000 04708  \\
 Marco Alberti \\
-V. CampurÃ©ta 40 \\
+V. Campuréta 40 \\
 6883 Novazzano \\
 \\
 Marco Alberti \\
-V. CampurÃ©ta 40 \\
+V. Campuréta 40 \\
 6883 Novazzano \\
 \\
 12 34567 80000 10000 30000 04708  \\
@@ -419,12 +327,8 @@ V. CampurÃ©ta 40 \\
 0100000049006>123456780000100003000004708+ 011030555> \\
 \\
 \\
-
 \end{reportvalue}
 \keyvalue{Result}{Passed}
-%%info_test_time_elapsed{00:00:00.082}
 \end{test}
-%%info_test_time_elapsed{00:00:00.082}
 \end{testcase}
-%%info_test_time_elapsed{00:00:06.071}
 \end{document}
