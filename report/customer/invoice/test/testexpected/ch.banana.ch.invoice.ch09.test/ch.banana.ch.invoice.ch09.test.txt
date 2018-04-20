@@ -1,0 +1,324 @@
+%%info_test_name{ch.banana.ch.invoice.ch09.test}
+\documentclass{report}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\\\begin{adjustbox}{max width=\textwidth}\tabular{#2}}{\endtabular\end{adjustbox}\\}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{\\}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch09.test.js}
+%
+\begin{testcase}{ReportInvoiceTemplate9}
+\begin{test}{testBananaApp}
+\begin{reportvalue}{Test Invoice 35}
+\begin{tabular}{ l  l }
+ & Banana.ch SA \newline \newline Via Trevano 7a \newline 6900 Lugano \newline info@banana.ch \newline www.banana.ch \newline \newline \\
+\end{tabular}\\
+\\
+\begin{tabular}{ l  l  l }
+\multicolumn{3}{l}{  }\\
+Invoice: \newline Date: \newline Customer No: \newline Payment: \newline Page: \newline  & 35 \newline 29.01.2018 \newline 100002 \newline 30 days \newline 1 \newline  & Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
+\end{tabular}\\
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total CHF \\
+Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 1'851.85  & 1'851.85 \\
+Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 925.93  & 925.93 \\
+Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 462.96  & 462.96 \\
+\multicolumn{4}{l}{}\\
+\multicolumn{4}{l}{}\\
+   & Total net  &    & 3'240.74 \\
+ & VAT 8.00\%  & 3'240.74  & 259.26 \\
+\multicolumn{4}{l}{}\\
+ & TOTAL CHF  &    & 3'500.00 \\
+\multicolumn{4}{l}{}\\
+\multicolumn{4}{l}{This is the first note. }\\
+\multicolumn{4}{l}{This is the secon note. }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{Best regards, Banana.ch SA }\\
+\end{tabular}\\
+This is the beginning text... \\
+Aaa \\
+Bbb \\
+\\
+Aaa \\
+Bbb \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+00-00000-0 \\
+\\
+00-00000-0 \\
+\\
+3500 \\
+\\
+00 \\
+\\
+3500 \\
+\\
+00 \\
+\\
+Mario Bianchi \\
+Via Trevano \\
+6963 Pregassona \\
+\\
+Mario Bianchi \\
+Via Trevano \\
+6963 Pregassona \\
+\\
+000000000> \\
+\\
+1234567890123456789012345678901234567 \\
+Invoice 35 \\
+\\
+\\
+\end{reportvalue}
+\begin{reportvalue}{Test Invoice 36}
+\begin{tabular}{ l  l }
+ & Banana.ch SA \newline \newline Via Trevano 7a \newline 6900 Lugano \newline info@banana.ch \newline www.banana.ch \newline \newline \\
+\end{tabular}\\
+\\
+\begin{tabular}{ l  l  l }
+\multicolumn{3}{l}{  }\\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 36 \newline 01.02.2018 \newline 100004 \newline 03.03.2018 \newline 1 \newline  & Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
+\end{tabular}\\
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total CHF \\
+Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.48  & 6'481.48 \\
+\multicolumn{4}{l}{}\\
+\multicolumn{4}{l}{}\\
+   & Total net  &    & 6'481.48 \\
+ & VAT 8.00\%  & 6'481.48  & 518.52 \\
+\multicolumn{4}{l}{}\\
+ & TOTAL CHF  &    & 7'000.00 \\
+\multicolumn{4}{l}{}\\
+\end{tabular}\\
+This is the beginning text... \\
+\\
+\begin{tabular}{ l  l  l }
+\multicolumn{3}{l}{  }\\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 36 \newline 01.02.2018 \newline 100004 \newline 03.03.2018 \newline 2 \newline  & \\
+\end{tabular}\\
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total CHF \\
+\end{tabular}\\
+Aaa \\
+Bbb \\
+\\
+Aaa \\
+Bbb \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+00-00000-0 \\
+\\
+00-00000-0 \\
+\\
+7000 \\
+\\
+00 \\
+\\
+7000 \\
+\\
+00 \\
+\\
+Susanna Lanfranchi \\
+V.Meggiagra 3 \\
+6599 Robasacco \\
+\\
+Susanna Lanfranchi \\
+V.Meggiagra 3 \\
+6599 Robasacco \\
+\\
+000000000> \\
+\\
+1234567890123456789012345678901234567 \\
+Invoice 36 \\
+\\
+\\
+\end{reportvalue}
+\begin{reportvalue}{Test Invoice 37}
+\begin{tabular}{ l  l }
+ & Banana.ch SA \newline \newline Via Trevano 7a \newline 6900 Lugano \newline info@banana.ch \newline www.banana.ch \newline \newline \\
+\end{tabular}\\
+\\
+\begin{tabular}{ l  l  l }
+\multicolumn{3}{l}{  }\\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 37 \newline 03.02.2018 \newline 100001 \newline 05.03.2018 \newline 2 \newline  & Carlo Rossi \newline Rossi SA \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
+\end{tabular}\\
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total CHF \\
+Sales merchandise, invoice \#37, customer A \newline \newline  & 1.00  & 7'407.41  & 7'407.41 \\
+Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
+Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
+Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
+Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
+\end{tabular}\\
+This is the beginning text... \\
+\\
+\begin{tabular}{ l  l  l }
+\multicolumn{3}{l}{  }\\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 37 \newline 03.02.2018 \newline 100001 \newline 05.03.2018 \newline 3 \newline  & \\
+\end{tabular}\\
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total CHF \\
+Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
+Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
+\multicolumn{4}{l}{}\\
+\multicolumn{4}{l}{}\\
+   & Total net  &    & 7'962.95 \\
+ & VAT 8.00\%  & 7'962.95  & 637.05 \\
+\multicolumn{4}{l}{}\\
+ & TOTAL CHF  &    & 8'600.00 \\
+\multicolumn{4}{l}{}\\
+\end{tabular}\\
+Aaa \\
+Bbb \\
+\\
+Aaa \\
+Bbb \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+00-00000-0 \\
+\\
+00-00000-0 \\
+\\
+8600 \\
+\\
+00 \\
+\\
+8600 \\
+\\
+00 \\
+\\
+Rossi SA \\
+Carlo Rossi \\
+Via Trevano \\
+6963 Pregassona \\
+\\
+Rossi SA \\
+Carlo Rossi \\
+Via Trevano \\
+6963 Pregassona \\
+\\
+000000000> \\
+\\
+1234567890123456789012345678901234567 \\
+Invoice 37 \\
+\\
+\\
+\end{reportvalue}
+\begin{reportvalue}{Test Invoice 47}
+\begin{tabular}{ l  l }
+ & Banana.ch SA \newline \newline Via Trevano 7a \newline 6900 Lugano \newline info@banana.ch \newline www.banana.ch \newline \newline \\
+\end{tabular}\\
+\\
+\begin{tabular}{ l  l  l }
+\multicolumn{3}{l}{  }\\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 47 \newline 11.11.2018 \newline 100003 \newline 11.12.2018 \newline 3 \newline  & Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
+\end{tabular}\\
+\begin{tabular}{ l  l  l  l }
+Description  & Quantity  & Unit price  & Total CHF \\
+Product A \newline \newline  & 1.00  & 20.37  & 20.37 \\
+Product B \newline \newline  & 1.00  & 27.78  & 27.78 \\
+Discount 10\% product B \newline \newline  & 1.00  & -2.78  & -2.78 \\
+\multicolumn{4}{l}{}\\
+\multicolumn{4}{l}{}\\
+   & Total net  &    & 45.37 \\
+ & VAT 8.00\%  & 45.37  & 3.63 \\
+\multicolumn{4}{l}{}\\
+ & TOTAL CHF  &    & 49.00 \\
+\multicolumn{4}{l}{}\\
+\end{tabular}\\
+This is the beginning text... \\
+Aaa \\
+Bbb \\
+\\
+Aaa \\
+Bbb \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+CH3181239000001245689 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+\\
+00-00000-0 \\
+\\
+00-00000-0 \\
+\\
+49 \\
+\\
+00 \\
+\\
+49 \\
+\\
+00 \\
+\\
+Marco Alberti \\
+V. Campuréta 40 \\
+6883 Novazzano \\
+\\
+Marco Alberti \\
+V. Campuréta 40 \\
+6883 Novazzano \\
+\\
+000000000> \\
+\\
+1234567890123456789012345678901234567 \\
+Invoice 47 \\
+\\
+\\
+\end{reportvalue}
+\begin{jsonvalue}{JSON of invoice 35}
+"{\n   \"billing_info\":{\n      \"payment_term\":\"30 days\",\n      \"total_amount_vat_exclusive\":\"3240.74\",\n      \"total_amount_vat_exclusive_before_discount\":\"3240.74\",\n      \"total_amount_vat_inclusive\":\"3500.00\",\n      \"total_amount_vat_inclusive_before_discount\":\"3500.00\",\n      \"total_categories\":[\n\n      ],\n      \"total_discount_percent\":\"\",\n      \"total_discount_vat_exclusive\":\"\",\n      \"total_discount_vat_inclusive\":\"\",\n      \"total_rounding_difference\":\"\",\n      \"total_to_pay\":\"3500.00\",\n      \"total_vat_amount\":\"259.26\",\n      \"total_vat_amount_before_discount\":\"259.26\",\n      \"total_vat_codes\":[\n\n      ],\n      \"total_vat_rates\":[\n         {\n            \"total_amount_vat_exclusive\":\"3240.74\",\n            \"total_amount_vat_inclusive\":\"3500.00\",\n            \"total_vat_amount\":\"259.26\",\n            \"vat_rate\":\"8.00\"\n         }\n      ]\n   },\n   \"customer_info\":{\n      \"address1\":\"Via Trevano\",\n      \"balance\":\"16500.00\",\n      \"balance_base_currency\":\"16500.00\",\n      \"city\":\"Pregassona\",\n      \"first_name\":\"Mario\",\n      \"last_name\":\"Bianchi\",\n      \"number\":\"100002\",\n      \"origin_row\":\"105\",\n      \"origin_table\":\"Accounts\",\n      \"postal_code\":\"6963\"\n   },\n   \"document_info\":{\n      \"currency\":\"CHF\",\n      \"date\":\"2018-01-29\",\n      \"decimals_amounts\":2,\n      \"description\":\"\",\n      \"doc_type\":\"10\",\n      \"greetings\":\"Best regards, Banana.ch SA\",\n      \"locale\":\"en\",\n      \"number\":\"35\",\n      \"origin_row\":\"3\",\n      \"origin_table\":\"Transactions\",\n      \"printed\":\"\",\n      \"rounding_total\":\"0.05\",\n      \"text_begin\":\"This is the beginning text...\",\n      \"type\":\"invoice\"\n   },\n   \"items\":[\n      {\n         \"account_assignment\":\"100002\",\n         \"description\":\"Sales merchandise, invoice #35, customer B\",\n         \"details\":\"\",\n         \"index\":\"0\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"3\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"1851.85\",\n         \"total_amount_vat_inclusive\":\"2000.00\",\n         \"total_vat_amount\":\"148.15\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"2000.00\",\n            \"calculated_amount_vat_exclusive\":\"1851.85\",\n            \"calculated_amount_vat_inclusive\":\"2000.00\",\n            \"calculated_vat_amount\":\"148.15\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100002\",\n         \"description\":\"Sales merchandise, invoice #35, customer B\",\n         \"details\":\"\",\n         \"index\":\"1\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"4\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"925.93\",\n         \"total_amount_vat_inclusive\":\"1000.00\",\n         \"total_vat_amount\":\"74.07\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"1000.00\",\n            \"calculated_amount_vat_exclusive\":\"925.93\",\n            \"calculated_amount_vat_inclusive\":\"1000.00\",\n            \"calculated_vat_amount\":\"74.07\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100002\",\n         \"description\":\"Sales merchandise, invoice #35, customer B\",\n         \"details\":\"\",\n         \"index\":\"2\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"5\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"462.96\",\n         \"total_amount_vat_inclusive\":\"500.00\",\n         \"total_vat_amount\":\"37.04\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"500.00\",\n            \"calculated_amount_vat_exclusive\":\"462.96\",\n            \"calculated_amount_vat_inclusive\":\"500.00\",\n            \"calculated_vat_amount\":\"37.04\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      }\n   ],\n   \"note\":[\n      {\n         \"date\":\"\",\n         \"description\":\"This is the first note.\",\n         \"origin_row\":\"12\",\n         \"origin_table\":\"Transactions\"\n      },\n      {\n         \"date\":\"\",\n         \"description\":\"This is the secon note.\",\n         \"origin_row\":\"13\",\n         \"origin_table\":\"Transactions\"\n      },\n      {\n         \"date\":\"\",\n         \"description\":\" \",\n         \"origin_row\":\"14\",\n         \"origin_table\":\"Transactions\"\n      },\n      {\n         \"date\":\"\",\n         \"description\":\" \",\n         \"origin_row\":\"15\",\n         \"origin_table\":\"Transactions\"\n      }\n   ],\n   \"parameters\":{\n\n   },\n   \"payment_info\":{\n      \"date_expected\":\"2018-02-28\",\n      \"due_date\":\"2018-02-28\",\n      \"due_days\":\"\",\n      \"due_period\":\"4_Current\",\n      \"last_reminder\":\"\",\n      \"last_reminder_date\":\"\",\n      \"payment_date\":\"\"\n   },\n   \"shipping_info\":{\n      \"different_shipping_address\":false\n   },\n   \"supplier_info\":{\n      \"address1\":\"Via Trevano 7a\",\n      \"business_name\":\"Banana.ch SA\",\n      \"city\":\"Lugano\",\n      \"country\":\"Switzerland\",\n      \"email\":\"info@banana.ch\",\n      \"postal_code\":\"6900\",\n      \"web\":\"www.banana.ch\"\n   },\n   \"transactions\":[\n      {\n         \"balance\":\"-5000.00\",\n         \"balance_base_currency\":\"\",\n         \"currency\":\"CHF\",\n         \"date\":\"20180131\",\n         \"description\":\"Payment Client B\",\n         \"origin_row\":\"18\",\n         \"origin_table\":\"Transactions\"\n      }\n   ],\n   \"type\":\"invoice\",\n   \"version\":\"1.0\"\n}"\end{jsonvalue}
+\begin{jsonvalue}{JSON of invoice 36}
+"{\n   \"billing_info\":{\n      \"payment_term\":\"\",\n      \"total_amount_vat_exclusive\":\"6481.48\",\n      \"total_amount_vat_exclusive_before_discount\":\"6481.48\",\n      \"total_amount_vat_inclusive\":\"7000.00\",\n      \"total_amount_vat_inclusive_before_discount\":\"7000.00\",\n      \"total_categories\":[\n\n      ],\n      \"total_discount_percent\":\"\",\n      \"total_discount_vat_exclusive\":\"\",\n      \"total_discount_vat_inclusive\":\"\",\n      \"total_rounding_difference\":\"\",\n      \"total_to_pay\":\"7000.00\",\n      \"total_vat_amount\":\"518.52\",\n      \"total_vat_amount_before_discount\":\"518.52\",\n      \"total_vat_codes\":[\n\n      ],\n      \"total_vat_rates\":[\n         {\n            \"total_amount_vat_exclusive\":\"6481.48\",\n            \"total_amount_vat_inclusive\":\"7000.00\",\n            \"total_vat_amount\":\"518.52\",\n            \"vat_rate\":\"8.00\"\n         }\n      ]\n   },\n   \"customer_info\":{\n      \"address1\":\"V.Meggiagra 3\",\n      \"balance\":\"12000.00\",\n      \"balance_base_currency\":\"12000.00\",\n      \"city\":\"Robasacco\",\n      \"country\":\"Switzerland\",\n      \"first_name\":\"Susanna\",\n      \"last_name\":\"Lanfranchi\",\n      \"number\":\"100004\",\n      \"origin_row\":\"107\",\n      \"origin_table\":\"Accounts\",\n      \"postal_code\":\"6599\"\n   },\n   \"document_info\":{\n      \"currency\":\"CHF\",\n      \"date\":\"2018-02-01\",\n      \"decimals_amounts\":2,\n      \"description\":\"\",\n      \"doc_type\":\"10\",\n      \"locale\":\"en\",\n      \"number\":\"36\",\n      \"origin_row\":\"19\",\n      \"origin_table\":\"Transactions\",\n      \"printed\":\"\",\n      \"rounding_total\":\"0.05\",\n      \"text_begin\":\"This is the beginning text...\",\n      \"type\":\"invoice\"\n   },\n   \"items\":[\n      {\n         \"account_assignment\":\"100004\",\n         \"description\":\"Sales merchandise, invoice #36, customer D\",\n         \"details\":\"\",\n         \"index\":\"0\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"19\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"6481.48\",\n         \"total_amount_vat_inclusive\":\"7000.00\",\n         \"total_vat_amount\":\"518.52\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"7000.00\",\n            \"calculated_amount_vat_exclusive\":\"6481.48\",\n            \"calculated_amount_vat_inclusive\":\"7000.00\",\n            \"calculated_vat_amount\":\"518.52\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      }\n   ],\n   \"note\":[\n\n   ],\n   \"parameters\":{\n\n   },\n   \"payment_info\":{\n      \"date_expected\":\"2018-03-03\",\n      \"due_date\":\"2018-03-03\",\n      \"due_days\":\"\",\n      \"due_period\":\"4_Current\",\n      \"last_reminder\":\"\",\n      \"last_reminder_date\":\"\",\n      \"payment_date\":\"\"\n   },\n   \"shipping_info\":{\n      \"different_shipping_address\":false\n   },\n   \"supplier_info\":{\n      \"address1\":\"Via Trevano 7a\",\n      \"business_name\":\"Banana.ch SA\",\n      \"city\":\"Lugano\",\n      \"country\":\"Switzerland\",\n      \"email\":\"info@banana.ch\",\n      \"postal_code\":\"6900\",\n      \"web\":\"www.banana.ch\"\n   },\n   \"transactions\":[\n\n   ],\n   \"type\":\"invoice\",\n   \"version\":\"1.0\"\n}"\end{jsonvalue}
+\begin{jsonvalue}{JSON of invoice 37}
+"{\n   \"billing_info\":{\n      \"payment_term\":\"\",\n      \"total_amount_vat_exclusive\":\"7962.95\",\n      \"total_amount_vat_exclusive_before_discount\":\"7962.95\",\n      \"total_amount_vat_inclusive\":\"8600.00\",\n      \"total_amount_vat_inclusive_before_discount\":\"8600.00\",\n      \"total_categories\":[\n\n      ],\n      \"total_discount_percent\":\"\",\n      \"total_discount_vat_exclusive\":\"\",\n      \"total_discount_vat_inclusive\":\"\",\n      \"total_rounding_difference\":\"\",\n      \"total_to_pay\":\"8600.00\",\n      \"total_vat_amount\":\"637.05\",\n      \"total_vat_amount_before_discount\":\"637.05\",\n      \"total_vat_codes\":[\n\n      ],\n      \"total_vat_rates\":[\n         {\n            \"total_amount_vat_exclusive\":\"7962.95\",\n            \"total_amount_vat_inclusive\":\"8600.00\",\n            \"total_vat_amount\":\"637.05\",\n            \"vat_rate\":\"8.00\"\n         }\n      ]\n   },\n   \"customer_info\":{\n      \"address1\":\"Via Trevano\",\n      \"balance\":\"10600.00\",\n      \"balance_base_currency\":\"10600.00\",\n      \"business_name\":\"Rossi SA\",\n      \"city\":\"Pregassona\",\n      \"country\":\"Switzerland\",\n      \"first_name\":\"Carlo\",\n      \"last_name\":\"Rossi\",\n      \"number\":\"100001\",\n      \"origin_row\":\"104\",\n      \"origin_table\":\"Accounts\",\n      \"postal_code\":\"6963\"\n   },\n   \"document_info\":{\n      \"currency\":\"CHF\",\n      \"date\":\"2018-02-03\",\n      \"decimals_amounts\":2,\n      \"description\":\"\",\n      \"doc_type\":\"10\",\n      \"locale\":\"en\",\n      \"number\":\"37\",\n      \"origin_row\":\"20\",\n      \"origin_table\":\"Transactions\",\n      \"printed\":\"\",\n      \"rounding_total\":\"0.05\",\n      \"text_begin\":\"This is the beginning text...\",\n      \"type\":\"invoice\"\n   },\n   \"items\":[\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Sales merchandise, invoice #37, customer A\",\n         \"details\":\"\",\n         \"index\":\"0\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"20\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"7407.41\",\n         \"total_amount_vat_inclusive\":\"8000.00\",\n         \"total_vat_amount\":\"592.59\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"8000.00\",\n            \"calculated_amount_vat_exclusive\":\"7407.41\",\n            \"calculated_amount_vat_inclusive\":\"8000.00\",\n            \"calculated_vat_amount\":\"592.59\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Consultancy\",\n         \"details\":\"\",\n         \"index\":\"1\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"21\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"92.59\",\n         \"total_amount_vat_inclusive\":\"100.00\",\n         \"total_vat_amount\":\"7.41\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"100.00\",\n            \"calculated_amount_vat_exclusive\":\"92.59\",\n            \"calculated_amount_vat_inclusive\":\"100.00\",\n            \"calculated_vat_amount\":\"7.41\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Consultancy\",\n         \"details\":\"\",\n         \"index\":\"2\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"22\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"92.59\",\n         \"total_amount_vat_inclusive\":\"100.00\",\n         \"total_vat_amount\":\"7.41\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"100.00\",\n            \"calculated_amount_vat_exclusive\":\"92.59\",\n            \"calculated_amount_vat_inclusive\":\"100.00\",\n            \"calculated_vat_amount\":\"7.41\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Consultancy\",\n         \"details\":\"\",\n         \"index\":\"3\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"23\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"92.59\",\n         \"total_amount_vat_inclusive\":\"100.00\",\n         \"total_vat_amount\":\"7.41\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"100.00\",\n            \"calculated_amount_vat_exclusive\":\"92.59\",\n            \"calculated_amount_vat_inclusive\":\"100.00\",\n            \"calculated_vat_amount\":\"7.41\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Consultancy\",\n         \"details\":\"\",\n         \"index\":\"4\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"24\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"92.59\",\n         \"total_amount_vat_inclusive\":\"100.00\",\n         \"total_vat_amount\":\"7.41\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"100.00\",\n            \"calculated_amount_vat_exclusive\":\"92.59\",\n            \"calculated_amount_vat_inclusive\":\"100.00\",\n            \"calculated_vat_amount\":\"7.41\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Consultancy\",\n         \"details\":\"\",\n         \"index\":\"5\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"25\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"92.59\",\n         \"total_amount_vat_inclusive\":\"100.00\",\n         \"total_vat_amount\":\"7.41\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"100.00\",\n            \"calculated_amount_vat_exclusive\":\"92.59\",\n            \"calculated_amount_vat_inclusive\":\"100.00\",\n            \"calculated_vat_amount\":\"7.41\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100001\",\n         \"description\":\"Consultancy\",\n         \"details\":\"\",\n         \"index\":\"6\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"26\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"92.59\",\n         \"total_amount_vat_inclusive\":\"100.00\",\n         \"total_vat_amount\":\"7.41\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"100.00\",\n            \"calculated_amount_vat_exclusive\":\"92.59\",\n            \"calculated_amount_vat_inclusive\":\"100.00\",\n            \"calculated_vat_amount\":\"7.41\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      }\n   ],\n   \"note\":[\n\n   ],\n   \"parameters\":{\n\n   },\n   \"payment_info\":{\n      \"date_expected\":\"2018-03-05\",\n      \"due_date\":\"2018-03-05\",\n      \"due_days\":\"\",\n      \"due_period\":\"4_Current\",\n      \"last_reminder\":\"\",\n      \"last_reminder_date\":\"\",\n      \"payment_date\":\"\"\n   },\n   \"shipping_info\":{\n      \"different_shipping_address\":false\n   },\n   \"supplier_info\":{\n      \"address1\":\"Via Trevano 7a\",\n      \"business_name\":\"Banana.ch SA\",\n      \"city\":\"Lugano\",\n      \"country\":\"Switzerland\",\n      \"email\":\"info@banana.ch\",\n      \"postal_code\":\"6900\",\n      \"web\":\"www.banana.ch\"\n   },\n   \"transactions\":[\n      {\n         \"balance\":\"-4000.00\",\n         \"balance_base_currency\":\"\",\n         \"currency\":\"CHF\",\n         \"date\":\"20180401\",\n         \"description\":\"Down payment invoice 37\",\n         \"origin_row\":\"30\",\n         \"origin_table\":\"Transactions\"\n      }\n   ],\n   \"type\":\"invoice\",\n   \"version\":\"1.0\"\n}"\end{jsonvalue}
+\begin{jsonvalue}{JSON of invoice 47}
+"{\n   \"billing_info\":{\n      \"payment_term\":\"\",\n      \"total_amount_vat_exclusive\":\"45.37\",\n      \"total_amount_vat_exclusive_before_discount\":\"45.37\",\n      \"total_amount_vat_inclusive\":\"49.00\",\n      \"total_amount_vat_inclusive_before_discount\":\"49.00\",\n      \"total_categories\":[\n\n      ],\n      \"total_discount_percent\":\"\",\n      \"total_discount_vat_exclusive\":\"\",\n      \"total_discount_vat_inclusive\":\"\",\n      \"total_rounding_difference\":\"\",\n      \"total_to_pay\":\"49.00\",\n      \"total_vat_amount\":\"3.63\",\n      \"total_vat_amount_before_discount\":\"3.63\",\n      \"total_vat_codes\":[\n\n      ],\n      \"total_vat_rates\":[\n         {\n            \"total_amount_vat_exclusive\":\"45.37\",\n            \"total_amount_vat_inclusive\":\"49.00\",\n            \"total_vat_amount\":\"3.63\",\n            \"vat_rate\":\"8.00\"\n         }\n      ]\n   },\n   \"customer_info\":{\n      \"address1\":\"V. Campuréta 40\",\n      \"balance\":\"20049.00\",\n      \"balance_base_currency\":\"20049.00\",\n      \"city\":\"Novazzano\",\n      \"country\":\"Switzerland\",\n      \"first_name\":\"Marco\",\n      \"last_name\":\"Alberti\",\n      \"number\":\"100003\",\n      \"origin_row\":\"106\",\n      \"origin_table\":\"Accounts\",\n      \"postal_code\":\"6883\"\n   },\n   \"document_info\":{\n      \"currency\":\"CHF\",\n      \"date\":\"2018-11-11\",\n      \"decimals_amounts\":2,\n      \"description\":\"\",\n      \"doc_type\":\"10\",\n      \"locale\":\"en\",\n      \"number\":\"47\",\n      \"origin_row\":\"38\",\n      \"origin_table\":\"Transactions\",\n      \"printed\":\"\",\n      \"rounding_total\":\"0.05\",\n      \"text_begin\":\"This is the beginning text...\",\n      \"type\":\"invoice\"\n   },\n   \"items\":[\n      {\n         \"account_assignment\":\"100003\",\n         \"description\":\"Product A\",\n         \"details\":\"\",\n         \"index\":\"0\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"38\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"20.37\",\n         \"total_amount_vat_inclusive\":\"22.00\",\n         \"total_vat_amount\":\"1.63\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"22.00\",\n            \"calculated_amount_vat_exclusive\":\"20.37\",\n            \"calculated_amount_vat_inclusive\":\"22.00\",\n            \"calculated_vat_amount\":\"1.63\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100003\",\n         \"description\":\"Product B\",\n         \"details\":\"\",\n         \"index\":\"1\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"39\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"27.78\",\n         \"total_amount_vat_inclusive\":\"30.00\",\n         \"total_vat_amount\":\"2.22\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"30.00\",\n            \"calculated_amount_vat_exclusive\":\"27.78\",\n            \"calculated_amount_vat_inclusive\":\"30.00\",\n            \"calculated_vat_amount\":\"2.22\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      },\n      {\n         \"account_assignment\":\"100003\",\n         \"description\":\"Discount 10% product B\",\n         \"details\":\"\",\n         \"index\":\"2\",\n         \"item_type\":\"item\",\n         \"mesure_unit\":\"\",\n         \"number\":\"\",\n         \"origin_row\":\"40\",\n         \"origin_table\":\"Transactions\",\n         \"quantity\":\"1\",\n         \"total_amount_vat_exclusive\":\"-2.78\",\n         \"total_amount_vat_inclusive\":\"-3.00\",\n         \"total_vat_amount\":\"-0.22\",\n         \"unit_price\":{\n            \"amount_vat_exclusive\":null,\n            \"amount_vat_inclusive\":\"-3.00\",\n            \"calculated_amount_vat_exclusive\":\"-2.78\",\n            \"calculated_amount_vat_inclusive\":\"-3.00\",\n            \"calculated_vat_amount\":\"-0.22\",\n            \"currency\":\"CHF\",\n            \"vat_code\":\"V80\",\n            \"vat_rate\":\"8.00\"\n         }\n      }\n   ],\n   \"note\":[\n\n   ],\n   \"parameters\":{\n\n   },\n   \"payment_info\":{\n      \"date_expected\":\"2018-12-11\",\n      \"due_date\":\"2018-12-11\",\n      \"due_days\":\"\",\n      \"due_period\":\"4_Current\",\n      \"last_reminder\":\"\",\n      \"last_reminder_date\":\"\",\n      \"payment_date\":\"\"\n   },\n   \"shipping_info\":{\n      \"different_shipping_address\":false\n   },\n   \"supplier_info\":{\n      \"address1\":\"Via Trevano 7a\",\n      \"business_name\":\"Banana.ch SA\",\n      \"city\":\"Lugano\",\n      \"country\":\"Switzerland\",\n      \"email\":\"info@banana.ch\",\n      \"postal_code\":\"6900\",\n      \"web\":\"www.banana.ch\"\n   },\n   \"transactions\":[\n\n   ],\n   \"type\":\"invoice\",\n   \"version\":\"1.0\"\n}"\end{jsonvalue}
+\keyvalue{Result}{Passed}
+\end{test}
+\end{testcase}
+\end{document}
