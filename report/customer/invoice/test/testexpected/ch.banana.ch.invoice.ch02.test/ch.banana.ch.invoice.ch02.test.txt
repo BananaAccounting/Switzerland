@@ -1,12 +1,12 @@
 %%info_test_name{ch.banana.ch.invoice.ch02.test}
 \documentclass{report}
+\usepackage{longtable}
 \usepackage{color}
-\usepackage{adjustbox}
 \usepackage{listings}
 \usepackage[margin=1cm]{geometry}
 \begin{document}
-\newenvironment{tablevalue}[2]{\textbf{Table: #1}\\\begin{adjustbox}{max width=\textwidth}\tabular{#2}}{\endtabular\end{adjustbox}\\}
-\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{\\}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
 \lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
 \lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
 \newcommand{\info}[2]{\textit{#1: #2}\\}
@@ -14,10 +14,11 @@
 \newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
 \newcommand{\textvalue}[1]{#1\\}
 \newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/lorenzo/Programmazione/GitHub/BananaAccounting/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch02.test.js}
+%%SCRIPT{C:/Users/claudia/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch02.test.js}
 %
 \begin{testcase}{ReportInvoiceTemplate2}
 \begin{test}{test1}
@@ -31,27 +32,24 @@
 \section{Invoice tests}
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
-\begin{tabular}{ l  l }
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
-\end{tabular}\\
-\begin{tabular}{ l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 Invoice  & 35 \\
 Date  & 29.01.2018 \\
 Customer No  & 100002 \\
 Payment  & 30 days \\
 Page  & 1 \\
-\end{tabular}\\
-\\
+\end{longtable}
 Mario Bianchi \\
 Via Trevano \\
 6963 Pregassona \\
-\\
-\\
 This is the beginning text... \\
-\begin{tabular}{ l  l  l  l }
+\begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 1'851.85  & 1'851.85 \\
 Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 925.93  & 925.93 \\
@@ -64,161 +62,122 @@ Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 462.96 
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{Best regards, Banana.ch SA }\\
-\end{tabular}\\
+\end{longtable}
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
 01-103055-5 \\
-\\
 01-103055-5 \\
-\\
 3500 \\
-\\
 00 \\
-\\
 3500 \\
-\\
 00 \\
-\\
 12 34567 80000 10000 20000 03502  \\
 Mario Bianchi \\
 Via Trevano \\
 6963 Pregassona \\
-\\
 Mario Bianchi \\
 Via Trevano \\
 6963 Pregassona \\
-\\
 12 34567 80000 10000 20000 03502  \\
-\\
 0100003500009>123456780000100002000003502+ 011030555> \\
-\\
-\\
 \end{reportvalue}
 \subsection{Test Invoice 36}
 \begin{reportvalue}{Test Invoice 36}
-\begin{tabular}{ l  l }
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
-\end{tabular}\\
-\begin{tabular}{ l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 Invoice  & 36 \\
 Date  & 01.02.2018 \\
 Customer No  & 100004 \\
 Due date  & 03.03.2018 \\
 Page  & 1 \\
-\end{tabular}\\
-\\
+\end{longtable}
 Susanna Lanfranchi \\
 V.Meggiagra 3 \\
 6599 Robasacco \\
 Switzerland \\
-\\
 This is the beginning text... \\
-\begin{tabular}{ l  l  l  l }
+\begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.48  & 6'481.48 \\
    & Total net  &    & 6'481.48 \\
  & VAT 8.00\%  & 6'481.48  & 518.52 \\
  & TOTAL CHF  &    & 7'000.00 \\
-\end{tabular}\\
-\\
-\begin{tabular}{ l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 Invoice  & 36 \\
 Date  & 01.02.2018 \\
 Customer No  & 100004 \\
 Due date  & 03.03.2018 \\
 Page  & 2 \\
-\end{tabular}\\
-\begin{tabular}{ l  l  l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
-\end{tabular}\\
+\end{longtable}
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
 01-103055-5 \\
-\\
 01-103055-5 \\
-\\
 7000 \\
-\\
 00 \\
-\\
 7000 \\
-\\
 00 \\
-\\
 12 34567 80000 10000 40000 03604  \\
 Susanna Lanfranchi \\
 V.Meggiagra 3 \\
 6599 Robasacco \\
-\\
 Susanna Lanfranchi \\
 V.Meggiagra 3 \\
 6599 Robasacco \\
-\\
 12 34567 80000 10000 40000 03604  \\
-\\
 0100007000003>123456780000100004000003604+ 011030555> \\
-\\
-\\
 \end{reportvalue}
 \subsection{Test Invoice 37}
 \begin{reportvalue}{Test Invoice 37}
-\begin{tabular}{ l  l }
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
-\end{tabular}\\
-\begin{tabular}{ l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 Invoice  & 37 \\
 Date  & 03.02.2018 \\
 Customer No  & 100001 \\
 Due date  & 05.03.2018 \\
 Page  & 2 \\
-\end{tabular}\\
-\\
+\end{longtable}
 Carlo Rossi \\
 Rossi SA \\
 Via Trevano \\
 6963 Pregassona \\
 Switzerland \\
-\\
 This is the beginning text... \\
-\begin{tabular}{ l  l  l  l }
+\begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice \#37, customer A \newline \newline  & 1.00  & 7'407.41  & 7'407.41 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
@@ -228,90 +187,70 @@ Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
    & Total net  &    & 7'962.95 \\
-\end{tabular}\\
-\\
-\begin{tabular}{ l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 Invoice  & 37 \\
 Date  & 03.02.2018 \\
 Customer No  & 100001 \\
 Due date  & 05.03.2018 \\
 Page  & 3 \\
-\end{tabular}\\
-\begin{tabular}{ l  l  l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
  & VAT 8.00\%  & 7'962.95  & 637.05 \\
  & TOTAL CHF  &    & 8'600.00 \\
-\end{tabular}\\
+\end{longtable}
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
 01-103055-5 \\
-\\
 01-103055-5 \\
-\\
 8600 \\
-\\
 00 \\
-\\
 8600 \\
-\\
 00 \\
-\\
 12 34567 80000 10000 10000 03703  \\
 Rossi SA \\
 Carlo Rossi \\
 Via Trevano \\
 6963 Pregassona \\
-\\
 Rossi SA \\
 Carlo Rossi \\
 Via Trevano \\
 6963 Pregassona \\
-\\
 12 34567 80000 10000 10000 03703  \\
-\\
 0100008600005>123456780000100001000003703+ 011030555> \\
-\\
-\\
 \end{reportvalue}
 \subsection{Test Invoice 47}
 \begin{reportvalue}{Test Invoice 47}
-\begin{tabular}{ l  l }
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
 \multicolumn{2}{l}{info@banana.ch, www.banana.ch }\\
-\end{tabular}\\
-\begin{tabular}{ l  l }
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 Invoice  & 47 \\
 Date  & 11.11.2018 \\
 Customer No  & 100003 \\
 Due date  & 11.12.2018 \\
 Page  & 3 \\
-\end{tabular}\\
-\\
+\end{longtable}
 Marco Alberti \\
 V. Campuréta 40 \\
 6883 Novazzano \\
 Switzerland \\
-\\
 This is the beginning text... \\
-\begin{tabular}{ l  l  l  l }
+\begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Product A \newline \newline  & 1.00  & 20.37  & 20.37 \\
 Product B \newline \newline  & 1.00  & 27.78  & 27.78 \\
@@ -319,51 +258,34 @@ Discount 10\% product B \newline \newline  & 1.00  & -2.78  & -2.78 \\
    & Total net  &    & 45.37 \\
  & VAT 8.00\%  & 45.37  & 3.63 \\
  & TOTAL CHF  &    & 49.00 \\
-\end{tabular}\\
+\end{longtable}
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
 Aaa \\
 Bbb \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
-\\
 Banana.ch SA \\
 Via Trevano 7a \\
 6900 Lugano \\
-\\
 01-103055-5 \\
-\\
 01-103055-5 \\
-\\
 49 \\
-\\
 00 \\
-\\
 49 \\
-\\
 00 \\
-\\
 12 34567 80000 10000 30000 04708  \\
 Marco Alberti \\
 V. Campuréta 40 \\
 6883 Novazzano \\
-\\
 Marco Alberti \\
 V. Campuréta 40 \\
 6883 Novazzano \\
-\\
 12 34567 80000 10000 30000 04708  \\
-\\
 0100000049006>123456780000100003000004708+ 011030555> \\
-\\
-\\
 \end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}

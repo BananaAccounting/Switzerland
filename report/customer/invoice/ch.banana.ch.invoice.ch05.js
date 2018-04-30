@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch05.js
 // @api = 1.0
-// @pubdate = 2018-04-06
+// @pubdate = 2018-04-30
 // @publisher = Banana.ch SA
 // @description = Style 5: Invoice with net amounts, quantity column, with logo, 2 colours
 // @description.it = Stile 5: Fattura con importi netti, colonna quantità, con logo, 2 colori
@@ -41,9 +41,15 @@ function settingsDialog() {
    param = verifyParam(param);
    
    if (typeof (Banana.Ui.openPropertyEditor) !== 'undefined') {
-      param = Banana.Ui.openPropertyEditor('Settings', convertParam(param));
-      if (!param)
+      var dialogTitle = 'Settings';
+      var convertedParam = convertParam(param);
+      var pageAnchor = 'dlgSettings';
+      if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor))
          return;
+      for (var i = 0; i < convertedParam.data.length; i++) {
+         // Read values to param (through the readValue function)
+         convertedParam.data[i].readValue();
+      }
    }
    else {
    var lang = Banana.document.locale;
@@ -123,161 +129,160 @@ function convertParam(param) {
    currentParam.name = 'print_header';
    currentParam.title = texts.param_print_header;
    currentParam.type = 'bool';
-   currentParam.value = false;
-   if (param.print_header)
-     currentParam.value = true;
-   var paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.print_header ? true : false;
+   currentParam.readValue = function() {
+     param.print_header = this.value;
+   }
+   convertedParam.data.push(currentParam);
    
-    currentParam = {};
+   currentParam = {};
    currentParam.name = 'print_isr';
    currentParam.title = texts.param_print_isr;
    currentParam.type = 'bool';
-   currentParam.value = false;
-   if (param.print_isr)
-     currentParam.value = true;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.print_isr ? true : false;
+   currentParam.readValue = function() {
+     param.print_isr = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_bank_name';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_bank_name;
    currentParam.type = 'string';
-   currentParam.value = '';
-   currentParam.parent = 'print_isr';
-   if (param.isr_bank_name)
-     currentParam.value = param.isr_bank_name;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_bank_name ? param.isr_bank_name : '';
+   currentParam.readValue = function() {
+     param.isr_bank_name = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_bank_address';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_bank_address;
    currentParam.type = 'string';
-   currentParam.value = '';
-   if (param.isr_bank_address)
-     currentParam.value = param.isr_bank_address;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_bank_address ? param.isr_bank_address : '';
+   currentParam.readValue = function() {
+     param.isr_bank_address = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_account';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_account;
    currentParam.type = 'string';
-   currentParam.value = '';
-   if (param.isr_account)
-     currentParam.value = param.isr_account;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_account ? param.isr_account : '';
+   currentParam.readValue = function() {
+     param.isr_account = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_id';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_id;
    currentParam.type = 'string';
-   currentParam.value = '';
-   if (param.isr_id)
-     currentParam.value = param.isr_id;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_id ? param.isr_id : '';
+   currentParam.readValue = function() {
+     param.isr_id = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_position_scaleX';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_position_scaleX;
    currentParam.type = 'number';
-   currentParam.value = '1.0';
-   if (param.isr_position_scaleX)
-     currentParam.value = param.isr_position_scaleX;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_position_scaleX ? param.isr_position_scaleX : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_scaleX = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_position_scaleY';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_position_scaleY;
    currentParam.type = 'number';
-   currentParam.value = '1.0';
-   if (param.isr_position_scaleY)
-     currentParam.value = param.isr_position_scaleY;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_position_scaleY ? param.isr_position_scaleY : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_scaleY = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_position_dX';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_position_dX;
    currentParam.type = 'number';
-   currentParam.value = '1.0';
-   if (param.isr_position_dX)
-     currentParam.value = param.isr_position_dX;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_position_dX ? param.isr_position_dX : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_dX = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_position_dY';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_position_dY;
    currentParam.type = 'number';
-   currentParam.value = '1.0';
-   if (param.isr_position_dY)
-     currentParam.value = param.isr_position_dY;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_position_dY ? param.isr_position_dY : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_dY = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'isr_on_new_page';
    currentParam.parentObject = 'print_isr';
    currentParam.title = texts.param_isr_on_new_page;
    currentParam.type = 'bool';
-   currentParam.value = false;
-   if (param.isr_on_new_page)
-     currentParam.value = true;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.isr_on_new_page ? true : false;
+   currentParam.readValue = function() {
+     param.isr_on_new_page = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'font_family';
    currentParam.title = texts.param_font_family;
    currentParam.type = 'string';
-   currentParam.value = '';
-   if (param.font_family)
-     currentParam.value = param.font_family;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.font_family ? param.font_family : '';
+   currentParam.readValue = function() {
+     param.font_family = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'color_1';
    currentParam.title = texts.param_color_1;
    currentParam.type = 'string';
-   currentParam.value = '#337ab7';
-   if (param.color_1)
-     currentParam.value = param.color_1;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.color_1 ? param.color_1 : '#337ab7';
+   currentParam.readValue = function() {
+     param.color_1 = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'color_2';
    currentParam.title = texts.param_color_2;
    currentParam.type = 'string';
-   currentParam.value = '#ffffff';
-   if (param.color_2)
-     currentParam.value = param.color_2;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.color_2 ? param.color_2 : '#ffffff';
+   currentParam.readValue = function() {
+     param.color_2 = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    currentParam = {};
    currentParam.name = 'image_height';
    currentParam.title = texts.param_image_height;
    currentParam.type = 'number';
-   currentParam.value = '20';
-   if (param.image_height)
-     currentParam.value = param.image_height;
-   paramToString = JSON.stringify(currentParam);
-   convertedParam.data.push(paramToString);
+   currentParam.value = param.image_height ? param.image_height : '20';
+   currentParam.readValue = function() {
+     param.image_height = this.value;
+   }
+   convertedParam.data.push(currentParam);
 
    return convertedParam;
 }
