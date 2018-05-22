@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport2018.toCHF.summary
 // @api = 1.0
-// @pubdate = 2018-05-14
+// @pubdate = 2018-05-22
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Report 2018, Summary currency to CHF (Beta)
 // @task = app.command
@@ -41,7 +41,7 @@ function loadParam(banDoc, startDate, endDate) {
     param = {
         "reportName" : "Swiss VAT Report 2018, Summary currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 9",
-        "scriptVersion" : "script v. 2018-05-14",
+        "scriptVersion" : "script v. 2018-05-22",
         "startDate" : startDate,
         "endDate" : endDate,
         "company" : Banana.document.info("AccountingDataBase","Company"),

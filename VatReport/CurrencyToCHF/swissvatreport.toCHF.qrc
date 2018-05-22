@@ -1,7 +1,8 @@
 <!DOCTYPE RCC><RCC version="1.0">
 	<qresource>
 		<file alias="manifest.json">swissvatreport.toCHF.manifest.json</file>
-		<file>swissvatreport.toCHF.summary.js</file>
+		<file>swissvatreport2017.toCHF.summary.js</file>
+		<file>swissvatreport2018.toCHF.summary.js</file>
 		<file>swissvatreport.toCHF.transactions.js</file>
 	</qresource>
 </RCC>
