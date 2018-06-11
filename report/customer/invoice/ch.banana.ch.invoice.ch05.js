@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch05.js
 // @api = 1.0
-// @pubdate = 2018-02-27
+// @pubdate = 2018-04-30
 // @publisher = Banana.ch SA
 // @description = Style 5: Invoice with net amounts, quantity column, with logo, 2 colours
 // @description.it = Stile 5: Fattura con importi netti, colonna quantità, con logo, 2 colori
@@ -39,6 +39,19 @@ function settingsDialog() {
       param = JSON.parse(savedParam);
    }   
    param = verifyParam(param);
+   
+   if (typeof (Banana.Ui.openPropertyEditor) !== 'undefined') {
+      var dialogTitle = 'Settings';
+      var convertedParam = convertParam(param);
+      var pageAnchor = 'dlgSettings';
+      if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor))
+         return;
+      for (var i = 0; i < convertedParam.data.length; i++) {
+         // Read values to param (through the readValue function)
+         convertedParam.data[i].readValue();
+      }
+   }
+   else {
    var lang = Banana.document.locale;
    if (lang.length>2)
       lang = lang.substr(0,2);
@@ -93,9 +106,185 @@ function settingsDialog() {
    param.color_2 = Banana.Ui.getText('Settings', texts.param_color_2, param.color_2);
    if (param.color_2 === undefined)
       return;
+   }
    
    var paramToString = JSON.stringify(param);
    var value = Banana.document.setScriptSettings(paramToString);
+}
+
+function convertParam(param) {
+   var lang = 'en';
+   if (Banana.document.locale)
+     lang = Banana.document.locale;
+   if (lang.length > 2)
+      lang = lang.substr(0, 2);
+   var texts = setInvoiceTexts(lang);
+
+   var convertedParam = {};
+   convertedParam.version = '1.0';
+   /*array dei parametri dello script*/
+   convertedParam.data = [];
+   
+   var currentParam = {};
+   currentParam.name = 'print_header';
+   currentParam.title = texts.param_print_header;
+   currentParam.type = 'bool';
+   currentParam.value = param.print_header ? true : false;
+   currentParam.readValue = function() {
+     param.print_header = this.value;
+   }
+   convertedParam.data.push(currentParam);
+   
+   currentParam = {};
+   currentParam.name = 'print_isr';
+   currentParam.title = texts.param_print_isr;
+   currentParam.type = 'bool';
+   currentParam.value = param.print_isr ? true : false;
+   currentParam.readValue = function() {
+     param.print_isr = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_bank_name';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_bank_name;
+   currentParam.type = 'string';
+   currentParam.value = param.isr_bank_name ? param.isr_bank_name : '';
+   currentParam.readValue = function() {
+     param.isr_bank_name = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_bank_address';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_bank_address;
+   currentParam.type = 'string';
+   currentParam.value = param.isr_bank_address ? param.isr_bank_address : '';
+   currentParam.readValue = function() {
+     param.isr_bank_address = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_account';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_account;
+   currentParam.type = 'string';
+   currentParam.value = param.isr_account ? param.isr_account : '';
+   currentParam.readValue = function() {
+     param.isr_account = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_id';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_id;
+   currentParam.type = 'string';
+   currentParam.value = param.isr_id ? param.isr_id : '';
+   currentParam.readValue = function() {
+     param.isr_id = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_scaleX';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_scaleX;
+   currentParam.type = 'number';
+   currentParam.value = param.isr_position_scaleX ? param.isr_position_scaleX : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_scaleX = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_scaleY';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_scaleY;
+   currentParam.type = 'number';
+   currentParam.value = param.isr_position_scaleY ? param.isr_position_scaleY : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_scaleY = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_dX';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_dX;
+   currentParam.type = 'number';
+   currentParam.value = param.isr_position_dX ? param.isr_position_dX : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_dX = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_position_dY';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_position_dY;
+   currentParam.type = 'number';
+   currentParam.value = param.isr_position_dY ? param.isr_position_dY : '1.0';
+   currentParam.readValue = function() {
+     param.isr_position_dY = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'isr_on_new_page';
+   currentParam.parentObject = 'print_isr';
+   currentParam.title = texts.param_isr_on_new_page;
+   currentParam.type = 'bool';
+   currentParam.value = param.isr_on_new_page ? true : false;
+   currentParam.readValue = function() {
+     param.isr_on_new_page = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'font_family';
+   currentParam.title = texts.param_font_family;
+   currentParam.type = 'string';
+   currentParam.value = param.font_family ? param.font_family : '';
+   currentParam.readValue = function() {
+     param.font_family = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'color_1';
+   currentParam.title = texts.param_color_1;
+   currentParam.type = 'string';
+   currentParam.value = param.color_1 ? param.color_1 : '#337ab7';
+   currentParam.readValue = function() {
+     param.color_1 = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'color_2';
+   currentParam.title = texts.param_color_2;
+   currentParam.type = 'string';
+   currentParam.value = param.color_2 ? param.color_2 : '#ffffff';
+   currentParam.readValue = function() {
+     param.color_2 = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   currentParam = {};
+   currentParam.name = 'image_height';
+   currentParam.title = texts.param_image_height;
+   currentParam.type = 'number';
+   currentParam.value = param.image_height ? param.image_height : '20';
+   currentParam.readValue = function() {
+     param.image_height = this.value;
+   }
+   convertedParam.data.push(currentParam);
+
+   return convertedParam;
 }
 
 function initParam() {
@@ -1345,7 +1534,7 @@ function setInvoiceTexts(language) {
     texts.page = 'Seite';
     texts.rounding = 'Rundung';
     texts.total = 'Total';
-    texts.totalnet = 'Total net';
+    texts.totalnet = 'Netto-Betrag';
     texts.vat = 'MwSt.';
     texts.qty = 'Menge';
     texts.unit_ref = 'Einheit';
