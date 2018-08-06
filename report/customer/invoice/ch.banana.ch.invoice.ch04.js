@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch04
 // @api = 1.0
-// @pubdate = 2018-04-30
+// @pubdate = 2018-08-06
 // @publisher = Banana.ch SA
 // @description = Style 4: Invoice with net amounts, quantity column, 5 colours
 // @description.it = Stile 4: Fattura con importi netti, colonna quantità, 5 colori
@@ -25,11 +25,7 @@
 // @doctype = *
 // @task = report.customer.invoice
 
-var rowNumber = 0;
-var pageNr = 1;
-var repTableObj = "";
-var max_items_per_page = 21;
-var max_items_per_page_with_isr = 12;
+var docTableStart = "";
 
 /*Update script's parameters*/
 function settingsDialog() {
@@ -52,68 +48,68 @@ function settingsDialog() {
       }
    }
    else {
-   var lang = Banana.document.locale;
-   if (lang.length>2)
-      lang = lang.substr(0,2);
-   var texts = setInvoiceTexts(lang);
-   
-   param.print_header = Banana.Ui.getInt('Settings', texts.param_print_header, param.print_header);
-   if (param.print_header === undefined)
-      return;
+     var lang = Banana.document.locale;
+     if (lang.length>2)
+        lang = lang.substr(0,2);
+     var texts = setInvoiceTexts(lang);
+     
+     param.print_header = Banana.Ui.getInt('Settings', texts.param_print_header, param.print_header);
+     if (param.print_header === undefined)
+        return;
 
-   param.print_isr = Banana.Ui.getInt('Settings', texts.param_print_isr, param.print_isr);
-   if (param.print_isr === undefined)
-      return;
+     param.print_isr = Banana.Ui.getInt('Settings', texts.param_print_isr, param.print_isr);
+     if (param.print_isr === undefined)
+        return;
 
-   if (param.print_isr === 1) {
-      param.isr_bank_name = Banana.Ui.getText('Settings', texts.param_isr_bank_name, param.isr_bank_name);
-      if (param.isr_bank_name === undefined)
-         return;
-      param.isr_bank_address = Banana.Ui.getText('Settings', texts.param_isr_bank_address, param.isr_bank_address);
-      if (param.isr_bank_address === undefined)
-         return;
-      param.isr_account = Banana.Ui.getText('Settings', texts.param_isr_account, param.isr_account);
-      if (param.isr_account === undefined)
-         return;
-      param.isr_id = Banana.Ui.getText('Settings', texts.param_isr_id, param.isr_id);
-      if (param.isr_id === undefined)
-         return;
-      param.isr_position_scaleX = Banana.Ui.getText('Settings', texts.param_isr_position_scaleX, param.isr_position_scaleX);
-      if (param.isr_position_scaleX === undefined)
-         return;
-      param.isr_position_scaleY = Banana.Ui.getText('Settings', texts.param_isr_position_scaleY, param.isr_position_scaleY);
-      if (param.isr_position_scaleY === undefined)
-         return;
-      param.isr_position_dX = Banana.Ui.getText('Settings', texts.param_isr_position_dX, param.isr_position_dX);
-      if (param.isr_position_dX === undefined)
-         return;
-      param.isr_position_dY = Banana.Ui.getText('Settings', texts.param_isr_position_dY, param.isr_position_dY);
-      if (param.isr_position_dY === undefined)
-         return;
-      param.isr_on_new_page = Banana.Ui.getInt('Settings', texts.param_isr_on_new_page, param.isr_on_new_page);
-      if (param.isr_on_new_page === undefined)
-         return;
-   }
-   
-   param.color_1 = Banana.Ui.getText('Settings', texts.param_color_1, param.color_1);
-   if (param.color_1 === undefined)
-      return;
+     if (param.print_isr === 1) {
+        param.isr_bank_name = Banana.Ui.getText('Settings', texts.param_isr_bank_name, param.isr_bank_name);
+        if (param.isr_bank_name === undefined)
+           return;
+        param.isr_bank_address = Banana.Ui.getText('Settings', texts.param_isr_bank_address, param.isr_bank_address);
+        if (param.isr_bank_address === undefined)
+           return;
+        param.isr_account = Banana.Ui.getText('Settings', texts.param_isr_account, param.isr_account);
+        if (param.isr_account === undefined)
+           return;
+        param.isr_id = Banana.Ui.getText('Settings', texts.param_isr_id, param.isr_id);
+        if (param.isr_id === undefined)
+           return;
+        param.isr_position_scaleX = Banana.Ui.getText('Settings', texts.param_isr_position_scaleX, param.isr_position_scaleX);
+        if (param.isr_position_scaleX === undefined)
+           return;
+        param.isr_position_scaleY = Banana.Ui.getText('Settings', texts.param_isr_position_scaleY, param.isr_position_scaleY);
+        if (param.isr_position_scaleY === undefined)
+           return;
+        param.isr_position_dX = Banana.Ui.getText('Settings', texts.param_isr_position_dX, param.isr_position_dX);
+        if (param.isr_position_dX === undefined)
+           return;
+        param.isr_position_dY = Banana.Ui.getText('Settings', texts.param_isr_position_dY, param.isr_position_dY);
+        if (param.isr_position_dY === undefined)
+           return;
+        param.isr_on_new_page = Banana.Ui.getInt('Settings', texts.param_isr_on_new_page, param.isr_on_new_page);
+        if (param.isr_on_new_page === undefined)
+           return;
+     }
+     
+     param.color_1 = Banana.Ui.getText('Settings', texts.param_color_1, param.color_1);
+     if (param.color_1 === undefined)
+        return;
 
-   param.color_2 = Banana.Ui.getText('Settings', texts.param_color_2, param.color_2);
-   if (param.color_2 === undefined)
-      return;
-   
-   param.color_3 = Banana.Ui.getText('Settings', texts.param_color_3, param.color_3);
-   if (param.color_3 === undefined)
-      return;
-   
-   param.color_4 = Banana.Ui.getText('Settings', texts.param_color_4, param.color_4);
-   if (param.color_4 === undefined)
-      return;
+     param.color_2 = Banana.Ui.getText('Settings', texts.param_color_2, param.color_2);
+     if (param.color_2 === undefined)
+        return;
+     
+     param.color_3 = Banana.Ui.getText('Settings', texts.param_color_3, param.color_3);
+     if (param.color_3 === undefined)
+        return;
+     
+     param.color_4 = Banana.Ui.getText('Settings', texts.param_color_4, param.color_4);
+     if (param.color_4 === undefined)
+        return;
 
-   param.color_5 = Banana.Ui.getText('Settings', texts.param_color_5, param.color_5);
-   if (param.color_5 === undefined)
-      return;
+     param.color_5 = Banana.Ui.getText('Settings', texts.param_color_5, param.color_5);
+     if (param.color_5 === undefined)
+        return;
    }
    
    var paramToString = JSON.stringify(param);
@@ -494,15 +490,12 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   tableRow.addCell(" " + payment_terms_label + ": " + payment_terms, "", 4);
   
   tableRow = infoTable.addRow();
-  tableRow.addCell(" " + texts.page + ": " + pageNr, "", 4);
-
-
+  tableRow.addCell(" " + texts.page + ": ", "", 4).addFieldPageNr();
 
 
   /**********************
     3. ADDRESSES
   **********************/
-  
   var titleAddressTable = repDocObj.addTable("title_address_table");
   var titleAddressTableCol1 = titleAddressTable.addColumn("titleAddressCol1");
   var titleAddressTableCol2 = titleAddressTable.addColumn("titleAddressCol2");
@@ -512,7 +505,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
 
   //var c2 = tableRow.addCell("", "address_table_header border-left border-right border-top border-bottom", 1);
   //c2.addParagraph(texts.to, "");
-
 
   var addressTable = repDocObj.addTable("address_table");
   var addressCol1 = addressTable.addColumn("addressCol1");
@@ -529,18 +521,19 @@ function printInvoice(jsonInvoice, repDocObj, param) {
 
   //Text begin
   if (invoiceObj.document_info.text_begin) {
-    repTableObj = repDocObj.addTable("doc_table1");
+    docTableStart = "125mm";
     repDocObj.addParagraph(invoiceObj.document_info.text_begin, "begin_text");
-  }
+  } 
   else {
-    repTableObj = repDocObj.addTable("doc_table");
+    docTableStart = "105mm";
   }
 
+  printInvoiceDetails(invoiceObj, repDocObj.getHeader(), param, texts);
 
   /***************
     4. TABLE ITEMS
   ***************/
-  //repTableObj = repDocObj.addTable("doc_table");
+  repTableObj = repDocObj.addTable("doc_table");
   var repTableCol1 = repTableObj.addColumn("repTableCol1");
   var repTableCol2 = repTableObj.addColumn("repTableCol2");
   var repTableCol3 = repTableObj.addColumn("repTableCol3");
@@ -549,7 +542,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   var repTableCol6 = repTableObj.addColumn("repTableCol6");
   var repTableCol7 = repTableObj.addColumn("repTableCol7");
 
-  rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
   var dd = repTableObj.getHeader().addRow();
   dd.addCell(texts.description, "items_table_header center", 1);
   dd.addCell("", "items_table_header", 1);
@@ -558,7 +550,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   dd.addCell(texts.unit_price, "items_table_header center", 1);
   dd.addCell("", "items_table_header", 1);
   dd.addCell(texts.total + " " + invoiceObj.document_info.currency, "items_table_header center", 1);
-
 
   //ITEMS
   for (var i = 0; i < invoiceObj.items.length; i++)
@@ -573,41 +564,38 @@ function printInvoice(jsonInvoice, repDocObj, param) {
       className = "note_cell";
     }
 	
-    rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
     tableRow = repTableObj.addRow();
-  
     var descriptionCell = tableRow.addCell("", "items_table border-top-white " + className, 1);
     descriptionCell.addParagraph(item.description);
     descriptionCell.addParagraph(item.description2);
     tableRow.addCell("", "border-top-white " + className, 1);
-	if (className == "note_cell") {
-      tableRow.addCell("", "items_table border-top-white amount " + className, 1);
-      tableRow.addCell("", "border-top-white " + className, 1);
-      tableRow.addCell("", "items_table border-top-white amount " + className, 1);
-      tableRow.addCell("", "border-top-white " + className, 1);
-      tableRow.addCell("", "items_table border-top-white amount " + className, 1);
-	}
-	else if (className == "subtotal_cell") {
-      tableRow.addCell("", "items_table border-top-white amount " + className, 1);
-      tableRow.addCell("", "border-top-white " + className, 1);
-      tableRow.addCell("", "items_table border-top-white amount " + className, 1);
-      tableRow.addCell("", "border-top-white " + className, 1);
-      tableRow.addCell(toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "items_table border-top-white amount " + className, 1);
-	}
-	else {
-      tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.quantity), "items_table border-top-white amount " + className, 1);
-      tableRow.addCell("", "border-top-white " + className, 1);
-      tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.unit_price.calculated_amount_vat_exclusive), "items_table border-top-white amount " + className, 1);
-      tableRow.addCell("", "border-top-white " + className, 1);
-      tableRow.addCell(toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "items_table border-top-white amount " + className, 1);
-	}
+  	
+    if (className == "note_cell") {
+        tableRow.addCell("", "items_table border-top-white amount " + className, 1);
+        tableRow.addCell("", "border-top-white " + className, 1);
+        tableRow.addCell("", "items_table border-top-white amount " + className, 1);
+        tableRow.addCell("", "border-top-white " + className, 1);
+        tableRow.addCell("", "items_table border-top-white amount " + className, 1);
+  	}
+  	else if (className == "subtotal_cell") {
+        tableRow.addCell("", "items_table border-top-white amount " + className, 1);
+        tableRow.addCell("", "border-top-white " + className, 1);
+        tableRow.addCell("", "items_table border-top-white amount " + className, 1);
+        tableRow.addCell("", "border-top-white " + className, 1);
+        tableRow.addCell(toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "items_table border-top-white amount " + className, 1);
+  	}
+  	else {
+        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.quantity), "items_table border-top-white amount " + className, 1);
+        tableRow.addCell("", "border-top-white " + className, 1);
+        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.unit_price.calculated_amount_vat_exclusive), "items_table border-top-white amount " + className, 1);
+        tableRow.addCell("", "border-top-white " + className, 1);
+        tableRow.addCell(toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "items_table border-top-white amount " + className, 1);
+  	}
   }
 
-  rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
   tableRow = repTableObj.addRow();
   tableRow.addCell("", "", 7);
 
-  rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
   tableRow = repTableObj.addRow();
   tableRow.addCell("", "", 2);
   tableRow.addCell(texts.total, "bold center items_table_header", 5);
@@ -616,9 +604,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   //TOTAL NET
   if (invoiceObj.billing_info.total_vat_rates.length > 0)
   {
-    rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
     tableRow = repTableObj.addRow();
-
     tableRow.addCell("", "", 2);
     tableRow.addCell(texts.totalnet, "items_table border-top-white", 1);
     tableRow.addCell("", "items_table border-top-white", 3);
@@ -626,9 +612,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
 
     for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) 
     {
-      rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
       tableRow = repTableObj.addRow();
-
       tableRow.addCell("", "", 2);
       tableRow.addCell(texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%", "items_table border-top-white", 1); 
       tableRow.addCell("", "items_table border-top-white", 1);
@@ -642,9 +626,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   //TOTAL ROUNDING DIFFERENCE
   if (invoiceObj.billing_info.total_rounding_difference.length) 
   {
-    rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
     tableRow = repTableObj.addRow();
-
     tableRow.addCell("", "", 2);
     tableRow.addCell(texts.rounding, "items_table border-top-white", 1);
     tableRow.addCell("", "items_table border-top-white", 3);
@@ -652,9 +634,7 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   }
 
   //FINAL TOTAL
-  rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
   tableRow = repTableObj.addRow();
-
   tableRow.addCell("", "", 2);
   tableRow.addCell(texts.total.toUpperCase() + " " + invoiceObj.document_info.currency, "bold items_table border-top-white", 1);
   tableRow.addCell("", "items_table border-top-white", 3);
@@ -665,7 +645,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
   for (var i = 0; i < invoiceObj.note.length; i++) 
   {
     if (invoiceObj.note[i].description) {
-      rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
       tableRow = repTableObj.addRow();
       tableRow.addCell(invoiceObj.note[i].description,"",7);
     }
@@ -673,7 +652,6 @@ function printInvoice(jsonInvoice, repDocObj, param) {
 
   //Greetings
   if (invoiceObj.document_info.greetings) {
-      rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
       tableRow = repTableObj.addRow();
       tableRow.addCell(invoiceObj.document_info.greetings, "", 7);
   }
@@ -700,54 +678,31 @@ function printInvoice(jsonInvoice, repDocObj, param) {
     if (text.join().length <= 0)
       text = textDefault;
     for (var i=0; i < text.length; i++) {
-      rowNumber = checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber);
       tableRow = repTableObj.addRow();
       tableRow.addCell(text[i], "", 7);
     }
   }
 
-  // Pvr
+  // Prints the PVR
   if (param.print_isr && invoiceObj.document_info.currency == "CHF") {
-    
-	var bank = param.isr_bank_name;
-	if (bank.length>0 && param.isr_bank_address.length>0)
-	  bank += ",";
-	bank += param.isr_bank_address;
+    var bank = param.isr_bank_name;
+    if (bank.length > 0 && param.isr_bank_address.length > 0) {
+       bank += ",";
+    }
+    bank += param.isr_bank_address;
     invoiceObj["billing_info"]["bank_name"] = bank;
-	invoiceObj["billing_info"]["iban_number"] = "";
+    invoiceObj["billing_info"]["iban_number"] = "";
 
-    //pvr on new page
-    if (param.isr_on_new_page) 
-    {
-      repDocObj.addPageBreak();
-      pageNr++;
-      printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
-      printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
-      var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
+    //pvr on new page: add a page break
+    if (param.isr_on_new_page) {
+       repDocObj.addPageBreak();
     }
-    //pvr NOT (if possible) on new page
-    else 
-    {
-      //pvr on the page 1, after the items table
-      if (rowNumber <= max_items_per_page_with_isr && pageNr == 1) 
-      {
-        var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
-      }
-      //pvr on other pages, after the items table
-      else if (rowNumber <= max_items_per_page && pageNr > 1) 
-      {
-        var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
-      }
-      //pvr goes automatically on new page if there is not enough space
-      else 
-      {
-        repDocObj.addPageBreak();
-        pageNr++;
-        printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
-        printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
-        var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
-      }
-    }
+
+    //Inserts an "invisible" rectangle to avoid the ISR form overwrite the text at the bottom of the page
+    repDocObj.addParagraph("", "rectangle"); 
+
+    //pvr if possible not on new page
+    var repStyleObj = print_isr(invoiceObj, repDocObj, repStyleObj, param);
   }
    
   return repDocObj;
@@ -1059,22 +1014,6 @@ function getTitle(invoiceObj, texts) {
   return documentTitle;
 }
 
-function checkFileLength(invoiceObj, repDocObj, param, texts, rowNumber) {
-  if (rowNumber >= max_items_per_page) 
-  {
-    repDocObj.addPageBreak();
-    pageNr++;
-
-    printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber);
-    printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber);
-
-    return 0;
-  }
-
-  rowNumber++;
-  return rowNumber;
-}
-
 function printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber) {
   //
   // INVOICE DETAILS
@@ -1106,31 +1045,9 @@ function printInvoiceDetails(invoiceObj, repDocObj, param, texts, rowNumber) {
   tableRow.addCell(" " + payment_terms_label + ": " + payment_terms, "", 4);
   
   tableRow = infoTable.addRow();
-  tableRow.addCell(" " + texts.page + ": " + pageNr, "", 4);
+  tableRow.addCell(" " + texts.page + ": ", "", 4).addFieldPageNr();
 }
 
-function printItemsHeader(invoiceObj, repDocObj, param, texts, rowNumber) {
-  //
-  // ITEMS TABLE
-  //
-  repTableObj = repDocObj.addTable("doc_table_row0");
-  var repTableCol1 = repTableObj.addColumn("repTableCol1");
-  var repTableCol2 = repTableObj.addColumn("repTableCol2");
-  var repTableCol3 = repTableObj.addColumn("repTableCol3");
-  var repTableCol4 = repTableObj.addColumn("repTableCol4");
-  var repTableCol5 = repTableObj.addColumn("repTableCol5");
-  var repTableCol6 = repTableObj.addColumn("repTableCol6");
-  var repTableCol7 = repTableObj.addColumn("repTableCol7");
-
-  var dd = repTableObj.getHeader().addRow();
-  dd.addCell(texts.description, "items_table_header center", 1);
-  dd.addCell("", "items_table_header", 1);
-  dd.addCell(texts.qty, "items_table_header center", 1);
-  dd.addCell("", "items_table_header", 1);
-  dd.addCell(texts.unit_price, "items_table_header center", 1);
-  dd.addCell("", "items_table_header", 1);
-  dd.addCell(texts.total + " " + invoiceObj.document_info.currency, "items_table_header center", 1);
-}
 
 //====================================================================//
 // PVRCODE
@@ -1485,13 +1402,18 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     repStyleObj.addStyle(".addressCol1","width:41%");
     repStyleObj.addStyle(".addressCol2","width:43%");
 
-    repStyleObj.addStyle(".repTableCol1","width:45%");
-    repStyleObj.addStyle(".repTableCol2","width:0.5%");
-    repStyleObj.addStyle(".repTableCol3","width:18%");
-    repStyleObj.addStyle(".repTableCol4","width:0.5%");
-    repStyleObj.addStyle(".repTableCol5","width:18%");
-    repStyleObj.addStyle(".repTableCol6","width:0.5%");
-    repStyleObj.addStyle(".repTableCol7","width:18%");
+    repStyleObj.addStyle(".repTableCol1", "width:45%");
+    repStyleObj.addStyle(".repTableCol2", "width:1%");
+    repStyleObj.addStyle(".repTableCol3", "width:15%");
+    repStyleObj.addStyle(".repTableCol4", "width:1%");
+    repStyleObj.addStyle(".repTableCol5", "width:20%");
+    repStyleObj.addStyle(".repTableCol6", "width:1%");
+    repStyleObj.addStyle(".repTableCol7", "width:20%");
+
+    var rectangleStyle = repStyleObj.addStyle(".rectangle");
+    rectangleStyle.setAttribute("width","50px");
+    rectangleStyle.setAttribute("height","100mm");
+    rectangleStyle.setAttribute("background-color","white");
 
     /* 
       Text begin
@@ -1508,34 +1430,33 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     //====================================================================//
     var headerStyle = repStyleObj.addStyle(".header_table");
     headerStyle.setAttribute("position", "absolute");
-    headerStyle.setAttribute("margin-top", "4mm"); //106
-    headerStyle.setAttribute("margin-left", "4mm"); //20
-    headerStyle.setAttribute("margin-right", "4mm");
+    headerStyle.setAttribute("margin-top", "5mm"); //106
+    headerStyle.setAttribute("margin-left", "23mm"); //20
+    headerStyle.setAttribute("margin-right", "10mm");
     //repStyleObj.addStyle("table.header_table td", "border: thin solid black");
     repStyleObj.addStyle("table.header_table td", "padding: 5px");
     headerStyle.setAttribute("width", "100%");
     headerStyle.setAttribute("background-color", param.color_1);
     headerStyle.setAttribute("color", param.color_2);
 
-
     var infoStyle = repStyleObj.addStyle(".info_table");
     infoStyle.setAttribute("position", "absolute");
     infoStyle.setAttribute("margin-top", "40mm");
-    infoStyle.setAttribute("margin-left", "22mm");
+    infoStyle.setAttribute("margin-left", "20mm");
     infoStyle.setAttribute("margin-right", "10mm");
     //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
     infoStyle.setAttribute("width", "100%");
-
 
     var infoStyle = repStyleObj.addStyle(".info_table_row0");
     infoStyle.setAttribute("position", "absolute");
     infoStyle.setAttribute("margin-top", "10mm");
-    infoStyle.setAttribute("margin-left", "22mm");
+    infoStyle.setAttribute("margin-left", "20mm");
     infoStyle.setAttribute("margin-right", "10mm");
     //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
     infoStyle.setAttribute("width", "100%");
 
-
+    var infoStyle = repStyleObj.addStyle("@page:first-view table.info_table_row0");
+    infoStyle.setAttribute("display", "none");
 
     var addressTitleStyle = repStyleObj.addStyle(".title_address_table");
     addressTitleStyle.setAttribute("position", "absolute");
@@ -1545,7 +1466,6 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     //repStyleObj.addStyle("table.title_address_table td", "border: thin solid black");
     //addressTitleStyle.setAttribute("width", "100%");
 
-
     var addressStyle = repStyleObj.addStyle(".address_table");
     addressStyle.setAttribute("position", "absolute");
     addressStyle.setAttribute("margin-top", "46mm");
@@ -1554,21 +1474,10 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     //repStyleObj.addStyle("table.address_table td", "border: thin solid black");
     //addressStyle.setAttribute("width", "100%");
 
+    var itemsStyle = repStyleObj.addStyle(".doc_table:first-view");
+    itemsStyle.setAttribute("margin-top", docTableStart);
+
     var itemsStyle = repStyleObj.addStyle(".doc_table");
-    itemsStyle.setAttribute("margin-top", "105mm"); //106
-    itemsStyle.setAttribute("margin-left", "23mm"); //20
-    itemsStyle.setAttribute("margin-right", "10mm");
-    //repStyleObj.addStyle("table.doc_table td", "border: thin solid #282828; padding: 3px;");
-    itemsStyle.setAttribute("width", "100%");
-
-    var itemsStyle = repStyleObj.addStyle(".doc_table1");
-    itemsStyle.setAttribute("margin-top", "125mm"); //106
-    itemsStyle.setAttribute("margin-left", "23mm"); //20
-    itemsStyle.setAttribute("margin-right", "10mm");
-    //repStyleObj.addStyle("table.doc_table1 td", "border: thin solid #282828; padding: 3px;");
-    itemsStyle.setAttribute("width", "100%");
-
-    var itemsStyle = repStyleObj.addStyle(".doc_table_row0");
     itemsStyle.setAttribute("margin-top", "40mm"); //106
     itemsStyle.setAttribute("margin-left", "23mm"); //20
     itemsStyle.setAttribute("margin-right", "10mm");
