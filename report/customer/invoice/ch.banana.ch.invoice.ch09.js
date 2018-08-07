@@ -106,6 +106,10 @@ function settingsDialog() {
      param.image_height = Banana.Ui.getInt('Settings', texts.param_image_height, param.image_height);
      if (param.image_height === undefined)
         return;
+     
+     param.font_family = Banana.Ui.getText('Settings', texts.param_font_family, param.font_family);
+     if (param.font_family === undefined)
+        return;
 
      param.color_1 = Banana.Ui.getText('Settings', texts.param_color_1, param.color_1);
      if (param.color_1 === undefined)
