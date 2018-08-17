@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch09.js
 // @api = 1.0
-// @pubdate = 2018-07-31
+// @pubdate = 2018-08-16
 // @publisher = Banana.ch SA
 // @description = [CH09]Invoice with Red Inpayment slip (IS), logo and address
 // @description.it = [CH09]Fattura con Polizza di versamento rossa (PV), logo e indirizzo
@@ -23,7 +23,7 @@
 // @doctype = *
 // @task = report.customer.invoice
 
-var docTableStart = "";
+var docTableStart = "110mm";
 
 /*Update script's parameters*/
 function settingsDialog() {
@@ -457,7 +457,7 @@ function printInvoice(jsonInvoice, repDocObj, param, repStyleObj) {
   /***********
     1. HEADER
   ***********/
-  var tab = repDocObj.addTable("header_table");
+  var tab = repDocObj.getHeader().addTable("header_table");
   var col1 = tab.addColumn("col1");
   var col2 = tab.addColumn("col2");
   var headerLogoSection = repDocObj.addSection("");
@@ -1310,7 +1310,7 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
 
     var infoStyle = repStyleObj.addStyle(".info_table_row0");
     infoStyle.setAttribute("position", "absolute");
-    infoStyle.setAttribute("margin-top", "10mm");
+    infoStyle.setAttribute("margin-top", "45mm");
     infoStyle.setAttribute("margin-left", "22mm");
     infoStyle.setAttribute("margin-right", "10mm");
     //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
@@ -1319,11 +1319,11 @@ function setInvoiceStyle(reportObj, repStyleObj, param) {
     var infoStyle = repStyleObj.addStyle("@page:first-view table.info_table_row0");
     infoStyle.setAttribute("display", "none");
 
-    var itemsStyle = repStyleObj.addStyle(".doc_table:first-view");
-    itemsStyle.setAttribute("margin-top", docTableStart);
+    //var itemsStyle = repStyleObj.addStyle(".doc_table:first-view");
+    //itemsStyle.setAttribute("margin-top", docTableStart);
 
     var itemsStyle = repStyleObj.addStyle(".doc_table");
-    itemsStyle.setAttribute("margin-top", "50mm"); //106
+    itemsStyle.setAttribute("margin-top", docTableStart); //106
     itemsStyle.setAttribute("margin-left", "23mm"); //20
     itemsStyle.setAttribute("margin-right", "10mm");
     //repStyleObj.addStyle("table.doc_table td", "border: thin solid black; padding: 3px;");
