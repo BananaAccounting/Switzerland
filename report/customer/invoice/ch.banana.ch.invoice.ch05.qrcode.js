@@ -175,7 +175,18 @@ function BananaInvoice(banDocument) {
    this.ID_ERR_VERSION = "ID_ERR_VERSION";
 
    //default settings
-   this.docTableStart = '110mm';
+   this.mmInvoiceTableTopMargin = 60;
+   
+   this.mmInvoiceTableWidth = 180;
+   
+   this.mmInvoiceHeaderCol1Width = 35;
+   this.mmInvoiceHeaderCol2Width = 55;
+   this.mmInvoiceHeaderCol3Width = 90;
+   
+   this.mmDescriptionColWidth = 90;
+   this.mmQuantityColWidth = 30;
+   this.mmUnitPriceColWidth = 30;
+   this.mmTotalColWidth = 30;
 
 }
 
@@ -200,36 +211,19 @@ BananaInvoice.prototype.applyStyle = function (repStyleObj) {
    //====================================================================//
    // GENERAL
    //====================================================================//
-   repStyleObj.addStyle(".pageReset", "counter-reset: page");
    repStyleObj.addStyle("body", "font-size: 11pt; font-family:" + this.param.font_family);
    repStyleObj.addStyle(".amount", "text-align:right");
    repStyleObj.addStyle(".bold", "font-weight: bold");
-   repStyleObj.addStyle(".doc_table_header", "font-weight:bold; background-color:" + this.param.color_1 + "; color:" + this.param.color_2);
-   repStyleObj.addStyle(".doc_table_header td", "padding:5px;");
-   repStyleObj.addStyle(".total_cell", "font-weight:bold; background-color:" + this.param.color_1 + "; color: " + this.param.color_2 + "; padding:5px");
-   repStyleObj.addStyle(".subtotal_cell", "font-weight:bold; background-color:" + this.param.color_1 + "; color: " + this.param.color_2 + "; padding:5px");
-   repStyleObj.addStyle(".col1", "width:50%");
-   repStyleObj.addStyle(".col2", "width:49%");
-   repStyleObj.addStyle(".infoCol1", "width:15%");
-   repStyleObj.addStyle(".infoCol2", "width:30%");
-   repStyleObj.addStyle(".infoCol3", "width:54%");
    repStyleObj.addStyle(".border-bottom", "border-bottom:2px solid " + this.param.color_1);
-   repStyleObj.addStyle(".thin-border-top", "border-top:thin solid " + this.param.color_1);
    repStyleObj.addStyle(".padding-right", "padding-right:5px");
    repStyleObj.addStyle(".padding-left", "padding-left:5px");
-
-   repStyleObj.addStyle(".repTableCol1", "width:45%");
-   repStyleObj.addStyle(".repTableCol2", "width:15%");
-   repStyleObj.addStyle(".repTableCol3", "width:20%");
-   repStyleObj.addStyle(".repTableCol4", "width:20%");
-
-   var rectangleStyle = repStyleObj.addStyle(".rectangle");
-   rectangleStyle.setAttribute("width", "50px");
-   rectangleStyle.setAttribute("height", "100mm");
-   rectangleStyle.setAttribute("background-color", "white");
+   repStyleObj.addStyle(".pageReset", "counter-reset: page");
+   repStyleObj.addStyle(".subtotal_cell", "font-weight:bold; background-color:" + this.param.color_1 + "; color: " + this.param.color_2 + "; padding:5px");
+   repStyleObj.addStyle(".thin-border-top", "border-top:thin solid " + this.param.color_1);
+   repStyleObj.addStyle(".total_cell", "font-weight:bold; background-color:" + this.param.color_1 + "; color: " + this.param.color_2 + "; padding:5px");
 
    /* 
-     Text begin
+   *  Text begin
    */
    var beginStyle = repStyleObj.addStyle(".begin_text");
    beginStyle.setAttribute("position", "absolute");
@@ -261,46 +255,141 @@ BananaInvoice.prototype.applyStyle = function (repStyleObj) {
    qrCodeStyle.setAttribute("padding-top", "10mm");
    qrCodeStyle.setAttribute("width", "30mm");
    
-
    //====================================================================//
    // TABLES
    //====================================================================//
-   var headerStyle = repStyleObj.addStyle(".header_table");
+   var headerStyle = repStyleObj.addStyle(".pageHeader");
    headerStyle.setAttribute("position", "absolute");
-   headerStyle.setAttribute("margin-top", "10mm"); //106
-   headerStyle.setAttribute("margin-left", "22mm"); //20
+   headerStyle.setAttribute("margin-top", "10mm");
+   headerStyle.setAttribute("margin-left", "22mm");
    headerStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.header_table td", "border: thin solid black");
    headerStyle.setAttribute("width", "100%");
+   repStyleObj.addStyle(".pageHeaderCol1", "width:50%");
+   repStyleObj.addStyle(".pageHeaderCol2", "width:49%");
 
+   var headerStyle = repStyleObj.addStyle(".invoiceTable");
+   headerStyle.setAttribute("margin-left", "20mm");
+   headerStyle.setAttribute("margin-top", this.mmInvoiceTableTopMargin.toString()+'mm');
+   repStyleObj.addStyle(".pxCol","width:1mm;");
+  
+   repStyleObj.addStyle(".invoiceTableHeader", "font-weight:bold; background-color:" + this.param.color_1 + "; color:" + this.param.color_2);
+   repStyleObj.addStyle(".invoiceTableHeader td", "padding:5px;");
 
-   var infoStyle = repStyleObj.addStyle(".info_table");
-   infoStyle.setAttribute("position", "absolute");
-   infoStyle.setAttribute("margin-top", "45mm");
-   infoStyle.setAttribute("margin-left", "20mm");
-   infoStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
+   repStyleObj.addStyle(".invoiceInfo td", "padding-bottom:15px;");
+   
 
-   var infoStyle = repStyleObj.addStyle(".info_table_row0");
-   infoStyle.setAttribute("position", "absolute");
-   infoStyle.setAttribute("margin-top", "45mm");
-   infoStyle.setAttribute("margin-left", "20mm");
-   infoStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
-   // infoStyle.setAttribute("width", "100%");
+}
 
-   //var infoStyle = repStyleObj.addStyle("@page:first-view table.info_table_row0");
-   //infoStyle.setAttribute("display", "none");
+BananaInvoice.prototype.getAddressTo = function (invoiceAddress) {
 
-   //var itemsStyle = repStyleObj.addStyle(".doc_table:first-view");
-   //itemsStyle.setAttribute("margin-top", docTableStart);
+   var address = "";
 
-   var itemsStyle = repStyleObj.addStyle(".doc_table");
-   itemsStyle.setAttribute("margin-top", this.docTableStart); //106
-   itemsStyle.setAttribute("margin-left", "23mm"); //20
-   itemsStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.doc_table td", "border: thin solid black; padding: 3px;");
-   itemsStyle.setAttribute("width", "100%");
+   if (invoiceAddress.courtesy) {
+      address = invoiceAddress.courtesy + "\n";
+   }
+
+   if (invoiceAddress.first_name || invoiceAddress.last_name) {
+      if (invoiceAddress.first_name) {
+         address = address + invoiceAddress.first_name + " ";
+      }
+      if (invoiceAddress.last_name) {
+         address = address + invoiceAddress.last_name;
+      }
+      address = address + "\n";
+   }
+
+   if (invoiceAddress.business_name) {
+      address = address + invoiceAddress.business_name + "\n";
+   }
+
+   if (invoiceAddress.address1) {
+      address = address + invoiceAddress.address1 + "\n";
+   }
+
+   if (invoiceAddress.address2) {
+      address = address + invoiceAddress.address2 + "\n";
+   }
+
+   if (invoiceAddress.address3) {
+      address = address + invoiceAddress.address3 + "\n";
+   }
+
+   if (invoiceAddress.postal_code) {
+      address = address + invoiceAddress.postal_code + " ";
+   }
+
+   if (invoiceAddress.city) {
+      address = address + invoiceAddress.city + "\n";
+   }
+
+   if (invoiceAddress.country) {
+      address = address + invoiceAddress.country;
+   }
+
+   return address;
+}
+
+BananaInvoice.prototype.getCompanyAddress = function (invoiceSupplier) {
+
+   var supplierAddress = "";
+
+   if (invoiceSupplier.address1) {
+      supplierAddress = supplierAddress + invoiceSupplier.address1 + "\n";
+   }
+
+   if (invoiceSupplier.address2) {
+      supplierAddress = supplierAddress + invoiceSupplier.address2 + "\n";
+   }
+
+   if (invoiceSupplier.postal_code) {
+      supplierAddress = supplierAddress + invoiceSupplier.postal_code + " ";
+   }
+
+   if (invoiceSupplier.city) {
+      supplierAddress = supplierAddress + invoiceSupplier.city + "\n";
+   }
+
+   if (invoiceSupplier.phone) {
+      supplierAddress = supplierAddress + "Tel: " + invoiceSupplier.phone + "\n";
+   }
+
+   if (invoiceSupplier.fax) {
+      supplierAddress = supplierAddress + "Fax: " + invoiceSupplier.fax + "\n";
+   }
+
+   if (invoiceSupplier.email) {
+      supplierAddress = supplierAddress + invoiceSupplier.email + "\n";
+   }
+
+   if (invoiceSupplier.web) {
+      supplierAddress = supplierAddress + invoiceSupplier.web + "\n";
+   }
+
+   if (invoiceSupplier.vat_number) {
+      supplierAddress = supplierAddress + invoiceSupplier.vat_number;
+   }
+
+   return supplierAddress;
+}
+
+BananaInvoice.prototype.getCompanyName = function (invoiceSupplier) {
+
+   var supplierName = "";
+
+   if (invoiceSupplier.business_name) {
+      supplierName = invoiceSupplier.business_name + "\n";
+   }
+
+   if (supplierName.length <= 0) {
+      if (invoiceSupplier.first_name) {
+         supplierName = invoiceSupplier.first_name + " ";
+      }
+
+      if (invoiceSupplier.last_name) {
+         supplierName = supplierName + invoiceSupplier.last_name + "\n";
+      }
+   }
+   return supplierName;
 }
 
 BananaInvoice.prototype.getErrorMessage = function (errorId, lang) {
@@ -508,232 +597,51 @@ BananaInvoice.prototype.print = function (jsonInvoice, repDocObj, repStyleObj) {
    var reportObj = Banana.Report;
 
    if (!repDocObj) {
-      repDocObj = reportObj.newReport(this.printTitle(invoiceObj, texts) + " " + invoiceObj.document_info.number);
+      var documentTitle = texts.invoice;
+      if (invoiceObj.document_info.title) {
+         documentTitle = invoiceObj.document_info.title;
+      }
+      repDocObj = reportObj.newReport(documentTitle + ' ' + invoiceObj.document_info.number);
    } else {
       var pageBreak = repDocObj.addPageBreak();
-      pageBreak.addClass("pageReset");
+      //pageBreak.addClass("pageReset");
    }
-
-   this.applyStyle(repStyleObj);
-
-   /***********
-     1. HEADER
-   ***********/
-   var tab = repDocObj.getHeader().addTable("header_table");
-   var col1 = tab.addColumn("col1");
-   var col2 = tab.addColumn("col2");
-   var headerLogoSection = repDocObj.addSection("");
-
-   if (this.param.print_logo) {
-      //Check the version of Banana:
-      //If 9.0.3 or greater we try to use the defined logo (not the one of the table documents).
-      //If logo doesn't exists or Banana version is older than 9.0.3, we use the logo of the table Documents
-      var requiredVersion = "9.0.3";
-      if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
-         // If there is a defined logo it is used as default logo
-         var logoFormat = Banana.Report.logoFormat("Logo");
-         if (logoFormat) {
-            var logoElement = logoFormat.createDocNode(headerLogoSection, repStyleObj, "logo");
-            repDocObj.getHeader().addChild(logoElement);
-         }
-         // If there is not a defined logo, than it is used the logo of the Documents table
-         else {
-            repDocObj.addImage("documents:logo", "logoStyle");
-         }
-      }
-      // If the version of Banana is older than 9.0.3 it is used the logo of the Documents table
-      else {
-         repDocObj.addImage("documents:logo", "logoStyle");
-      }
-   }
-
-   if (this.param.print_header) {
-      tableRow = tab.addRow();
-      var cell1 = tableRow.addCell("", "");
-      var cell2 = tableRow.addCell("", "amount");
-      var supplierNameLines = this.printAddressFromName(invoiceObj.supplier_info).split('\n');
-      for (var i = 0; i < supplierNameLines.length; i++) {
-         cell2.addParagraph(supplierNameLines[i], "bold", 1);
-      }
-      var supplierLines = this.printAddressFrom(invoiceObj.supplier_info).split('\n');
-      for (var i = 0; i < supplierLines.length; i++) {
-         cell2.addParagraph(supplierLines[i], "", 1);
-      }
-   }
-   else {
-      tableRow = tab.addRow();
-      var cell1 = tableRow.addCell("", "");
-      var cell2 = tableRow.addCell("", "");
-      cell2.addParagraph(" ");
-      cell2.addParagraph(" ");
-      cell2.addParagraph(" ");
-      cell2.addParagraph(" ");
-   }
-
-
-
-   /**********************
-     2. INVOICE TEXTS INFO
-   **********************/
-   var infoTable = repDocObj.addTable("info_table");
-   var col1 = infoTable.addColumn("infoCol1");
-   var col2 = infoTable.addColumn("infoCol2");
-   var col3 = infoTable.addColumn("infoCol3");
-
-   tableRow = infoTable.addRow();
-   tableRow.addCell(" ", "", 3);
-
-   tableRow = infoTable.addRow();
-   var cell1 = tableRow.addCell("", "", 1);
-   var cell2 = tableRow.addCell("", "bold", 1);
-   var cell3 = tableRow.addCell("", "", 1);
-
-   var invoiceDate = Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date);
-   cell1.addParagraph(this.printTitle(invoiceObj, texts) + ":", "");
-   cell1.addParagraph(texts.date + ":", "");
-   cell1.addParagraph(texts.customer + ":", "");
-   //Payment Terms
-   var payment_terms_label = texts.payment_terms_label;
-   var payment_terms = '';
-   if (invoiceObj.billing_info.payment_term) {
-      payment_terms = invoiceObj.billing_info.payment_term;
-   }
-   else if (invoiceObj.payment_info.due_date) {
-      payment_terms_label = texts.payment_due_date_label
-      payment_terms = Banana.Converter.toLocaleDateFormat(invoiceObj.payment_info.due_date);
-   }
-   cell1.addParagraph(payment_terms_label + ":", "");
-   cell1.addParagraph(texts.page + ":", "");
-
-   cell2.addParagraph(invoiceObj.document_info.number, "");
-   cell2.addParagraph(invoiceDate, "");
-   cell2.addParagraph(invoiceObj.customer_info.number, "");
-   cell2.addParagraph(payment_terms, "");
-   cell2.addParagraph("", "").addFieldPageNr();
-
-   var addressLines = this.printAddressTo(invoiceObj.customer_info).split('\n');
-   for (var i = 0; i < addressLines.length; i++) {
-      cell3.addParagraph(addressLines[i]);
-   }
-
+   
    //Text begin
    if (invoiceObj.document_info.text_begin) {
-      this.docTableStart = "125mm";
+      this.mmInvoiceTableTopMargin = 90;
       repDocObj.addParagraph(invoiceObj.document_info.text_begin, "begin_text");
    }
-   else {
-      this.docTableStart = "110mm";
+
+   this.printPageHeader(invoiceObj, repDocObj, repStyleObj, texts);
+   var tableObj = repDocObj.addTable("invoiceTable");
+   for (var i=0;i<this.mmInvoiceTableWidth;i++) {
+      tableObj.addColumn('pxCol');
    }
+   this.printTableHeader(invoiceObj, tableObj, texts);
+   this.printTableContent(invoiceObj, tableObj, texts);
+   this.printClosureText(invoiceObj, repDocObj, texts);
+   this.printQRCode(invoiceObj, repDocObj);
+   this.applyStyle(repStyleObj);
 
-   //this.printInvoiceDetails(invoiceObj, repDocObj.getHeader(), texts);
+   
+   return repDocObj;
+}
 
-   /***************
-     3. TABLE ITEMS
-   ***************/
-   repTableObj = repDocObj.addTable("doc_table");
-   var repTableCol1 = repTableObj.addColumn("repTableCol1");
-   var repTableCol2 = repTableObj.addColumn("repTableCol2");
-   var repTableCol3 = repTableObj.addColumn("repTableCol3");
-   var repTableCol4 = repTableObj.addColumn("repTableCol4");
-
-   var dd = repTableObj.getHeader().addRow();
-   dd.addCell(texts.description, "doc_table_header", 1);
-   dd.addCell(texts.qty, "doc_table_header amount", 1);
-   dd.addCell(texts.unit_price, "doc_table_header amount", 1);
-   dd.addCell(texts.total + " " + invoiceObj.document_info.currency, "doc_table_header amount", 1);
-
-   //ITEMS
-   for (var i = 0; i < invoiceObj.items.length; i++) {
-      var item = invoiceObj.items[i];
-
-      var className = "item_cell";
-      if (item.item_type && item.item_type.indexOf("total") === 0) {
-         className = "subtotal_cell";
-      }
-      if (item.item_type && item.item_type.indexOf("note") === 0) {
-         className = "note_cell";
-      }
-
-      tableRow = repTableObj.addRow();
-      var descriptionCell = tableRow.addCell("", "padding-left padding-right thin-border-top " + className, 1);
-      descriptionCell.addParagraph(item.description);
-      descriptionCell.addParagraph(item.description2);
-
-      if (className == "note_cell") {
-         tableRow.addCell("", "padding-left padding-right thin-border-top " + className, 3);
-      }
-      else if (className == "subtotal_cell") {
-         tableRow.addCell("", "amount padding-left padding-right thin-border-top " + className, 2);
-         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "amount padding-left padding-right thin-border-top " + className, 1);
-      }
-      else {
-         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.quantity), "amount padding-left padding-right thin-border-top " + className, 1);
-         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.unit_price.calculated_amount_vat_exclusive), "amount padding-left padding-right thin-border-top " + className, 1);
-         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "amount padding-left padding-right thin-border-top " + className, 1);
-      }
-   }
-
-   tableRow = repTableObj.addRow();
-   tableRow.addCell("", "border-bottom", 4);
-
-   tableRow = repTableObj.addRow();
-   tableRow.addCell("", "", 4);
-
-
-   //TOTAL NET
-   if (invoiceObj.billing_info.total_vat_rates.length > 0) {
-      tableRow = repTableObj.addRow();
-      tableRow.addCell(" ", "padding-left padding-right", 1)
-      tableRow.addCell(texts.totalnet, "padding-left padding-right", 1);
-      tableRow.addCell(" ", "padding-left padding-right", 1)
-      tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_amount_vat_exclusive), "amount padding-left padding-right", 1);
-
-      for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
-         tableRow = repTableObj.addRow();
-         tableRow.addCell("", "padding-left padding-right", 1);
-         tableRow.addCell(texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%", "padding-left padding-right", 1);
-         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive), "amount padding-left padding-right", 1);
-         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_vat_rates[i].total_vat_amount), "amount padding-left padding-right", 1);
-      }
-   }
-
-
-   //TOTAL ROUNDING DIFFERENCE
-   if (invoiceObj.billing_info.total_rounding_difference.length) {
-      tableRow = repTableObj.addRow();
-      tableRow.addCell(" ", "padding-left padding-right", 1);
-      tableRow.addCell(texts.rounding, "padding-left padding-right", 1);
-      tableRow.addCell(" ", "padding-left padding-right", 1)
-      tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_rounding_difference), "amount padding-left padding-right", 1);
-   }
-
-   tableRow = repTableObj.addRow();
-   tableRow.addCell("", "", 4);
-
-
-   //FINAL TOTAL
-   tableRow = repTableObj.addRow();
-   tableRow.addCell("", "", 1)
-   tableRow.addCell(texts.total.toUpperCase() + " " + invoiceObj.document_info.currency, "total_cell", 1);
-   tableRow.addCell(" ", "total_cell", 1);
-   tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_to_pay), "total_cell amount", 1);
-
-   tableRow = repTableObj.addRow();
-   tableRow.addCell("", "", 4);
-
-
+BananaInvoice.prototype.printClosureText = function (invoiceObj, repDocObj, texts) {
+   /*
+   *  Adds the footer of the invoice: notes, greetings and text closure
+   */
    //Notes
    for (var i = 0; i < invoiceObj.note.length; i++) {
       if (invoiceObj.note[i].description) {
-         tableRow = repTableObj.addRow();
-         tableRow.addCell(invoiceObj.note[i].description, "", 4);
+         repDocObj.addParagraph(invoiceObj.note[i].description, 'notes');
       }
    }
 
    //Greetings
    if (invoiceObj.document_info.greetings) {
-      tableRow = repTableObj.addRow();
-      tableRow.addCell(invoiceObj.document_info.greetings, "", 4);
+      repDocObj.addParagraph(invoiceObj.document_info.greetings, 'greetings');
    }
 
    //Template params
@@ -758,159 +666,162 @@ BananaInvoice.prototype.print = function (jsonInvoice, repDocObj, repStyleObj) {
       if (text.join().length <= 0)
          text = textDefault;
       for (var i = 0; i < text.length; i++) {
-         tableRow = repTableObj.addRow();
-         tableRow.addCell(text[i], "", 4);
+         repDocObj.addParagraph(text[i], 'params');
       }
    }
-
-   // Prints the QRCode
-   if (this.param.print_qrcode && invoiceObj.document_info.currency == "CHF") {
-      var bank = this.param.qrcode_bank_name;
-      if (bank.length > 0 && this.param.qrcode_bank_address.length > 0) {
-         bank += ",";
-      }
-      bank += this.param.qrcode_bank_address;
-      invoiceObj["billing_info"]["bank_name"] = bank;
-      invoiceObj["billing_info"]["iban_number"] = "";
-
-      //Inserts an "invisible" rectangle to avoid the qrcode form overwrite the text at the bottom of the page
-      //repDocObj.addParagraph("", "rectangle");
-      this.printQRCode(invoiceObj, repDocObj);
-   }
-   return repDocObj;
 }
 
-BananaInvoice.prototype.printAddressFrom = function (invoiceSupplier) {
+BananaInvoice.prototype.printPageHeader = function (invoiceObj, repDocObj, repStyleObj, texts) {
+   /*
+   *  Adds logo and company name to the page header, the output is printed on every page
+   */
+   var tab = repDocObj.getHeader().addTable("pageHeader");
+   var col1 = tab.addColumn("pageHeaderCol1");
+   var col2 = tab.addColumn("pageHeaderCol2");
+   var headerLogoSection = repDocObj.addSection("");
 
-   var supplierAddress = "";
-
-   if (invoiceSupplier.address1) {
-      supplierAddress = supplierAddress + invoiceSupplier.address1 + "\n";
+   if (this.param.print_logo) {
+      var logoPrinted=false;
+      if (typeof (Banana.Report.logoFormat)) {
+         var logoFormat = Banana.Report.logoFormat("Logo");
+         if (logoFormat) {
+            var logoElement = logoFormat.createDocNode(headerLogoSection, repStyleObj, "logo");
+            repDocObj.getHeader().addChild(logoElement);
+            logoPrinted = true;
+         }
+      }
+      if (!logoPrinted) {
+         repDocObj.addImage("documents:logo", "logoStyle");
+      }
    }
 
-   if (invoiceSupplier.address2) {
-      supplierAddress = supplierAddress + invoiceSupplier.address2 + "\n";
+   if (this.param.print_header) {
+      tableRow = tab.addRow();
+      var cell1 = tableRow.addCell("", "");
+      var cell2 = tableRow.addCell("", "amount");
+      var supplierNameLines = this.getCompanyName(invoiceObj.supplier_info).split('\n');
+      for (var i = 0; i < supplierNameLines.length; i++) {
+         cell2.addParagraph(supplierNameLines[i], "bold", 1);
+      }
+      var supplierLines = this.getCompanyAddress(invoiceObj.supplier_info).split('\n');
+      for (var i = 0; i < supplierLines.length; i++) {
+         cell2.addParagraph(supplierLines[i], "", 1);
+      }
    }
-
-   if (invoiceSupplier.postal_code) {
-      supplierAddress = supplierAddress + invoiceSupplier.postal_code + " ";
+   else {
+      tableRow = tab.addRow();
+      var cell1 = tableRow.addCell("", "");
+      var cell2 = tableRow.addCell("", "");
+      cell2.addParagraph(" ");
+      cell2.addParagraph(" ");
+      cell2.addParagraph(" ");
+      cell2.addParagraph(" ");
    }
-
-   if (invoiceSupplier.city) {
-      supplierAddress = supplierAddress + invoiceSupplier.city + "\n";
-   }
-
-   if (invoiceSupplier.phone) {
-      supplierAddress = supplierAddress + "Tel: " + invoiceSupplier.phone + "\n";
-   }
-
-   if (invoiceSupplier.fax) {
-      supplierAddress = supplierAddress + "Fax: " + invoiceSupplier.fax + "\n";
-   }
-
-   if (invoiceSupplier.email) {
-      supplierAddress = supplierAddress + invoiceSupplier.email + "\n";
-   }
-
-   if (invoiceSupplier.web) {
-      supplierAddress = supplierAddress + invoiceSupplier.web + "\n";
-   }
-
-   if (invoiceSupplier.vat_number) {
-      supplierAddress = supplierAddress + invoiceSupplier.vat_number;
-   }
-
-   return supplierAddress;
 }
 
-BananaInvoice.prototype.printAddressFromName = function (invoiceSupplier) {
+BananaInvoice.prototype.printTableContent = function (invoiceObj, table, texts) {
+   /*
+   *  Adds the content of the invoice: items and totals
+   */
+   //Items
+   for (var i = 0; i < invoiceObj.items.length; i++) {
+      var item = invoiceObj.items[i];
 
-   var supplierName = "";
-
-   if (invoiceSupplier.business_name) {
-      supplierName = invoiceSupplier.business_name + "\n";
-   }
-
-   if (supplierName.length <= 0) {
-      if (invoiceSupplier.first_name) {
-         supplierName = invoiceSupplier.first_name + " ";
+      var className = "item_cell";
+      if (item.item_type && item.item_type.indexOf("total") === 0) {
+         className = "subtotal_cell";
+      }
+      if (item.item_type && item.item_type.indexOf("note") === 0) {
+         className = "note_cell";
       }
 
-      if (invoiceSupplier.last_name) {
-         supplierName = supplierName + invoiceSupplier.last_name + "\n";
+      var tableRow = table.addRow();
+      var descriptionCell = tableRow.addCell("", "padding-left padding-right thin-border-top " + className, this.mmDescriptionColWidth);
+      descriptionCell.addParagraph(item.description);
+      descriptionCell.addParagraph(item.description2);
+
+      if (className == "note_cell") {
+         tableRow.addCell('', "padding-left padding-right thin-border-top " + className, this.mmQuantityColWidth+this.mmUnitPriceColWidth+this.mmTotalColWidth);
+      }
+      else if (className == "subtotal_cell") {
+         tableRow.addCell('', "amount padding-left padding-right thin-border-top " + className, this.mmQuantityColWidth+this.mmUnitPriceColWidth);
+         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "amount padding-left padding-right thin-border-top " + className, this.mmTotalColWidth);
+      }
+      else {
+         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.quantity), "amount padding-left padding-right thin-border-top " + className, this.mmQuantityColWidth);
+         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(item.unit_price.calculated_amount_vat_exclusive), "amount padding-left padding-right thin-border-top " + className, this.mmUnitPriceColWidth);
+         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, item.total_amount_vat_exclusive), "amount padding-left padding-right thin-border-top " + className, this.mmTotalColWidth);
       }
    }
-   return supplierName;
+
+   tableRow = table.addRow();
+   tableRow.addCell("", "border-bottom", this.mmInvoiceTableWidth);
+
+   tableRow = table.addRow();
+   tableRow.addCell("", "", this.mmInvoiceTableWidth);
+
+
+   //TOTAL NET
+   if (invoiceObj.billing_info.total_vat_rates.length > 0) {
+      tableRow = table.addRow();
+      tableRow.addCell(" ", "padding-left padding-right", this.mmDescriptionColWidth)
+      tableRow.addCell(texts.totalnet, "padding-left padding-right", this.mmQuantityColWidth);
+      tableRow.addCell(" ", "padding-left padding-right", this.mmUnitPriceColWidth)
+      tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_amount_vat_exclusive), "amount padding-left padding-right", this.mmTotalColWidth);
+
+      for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
+         tableRow = table.addRow();
+         tableRow.addCell("", "padding-left padding-right", this.mmDescriptionColWidth);
+         tableRow.addCell(texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%", "padding-left padding-right", this.mmQuantityColWidth);
+         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive), "amount padding-left padding-right", this.mmUnitPriceColWidth);
+         tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_vat_rates[i].total_vat_amount), "amount padding-left padding-right", this.mmTotalColWidth);
+      }
+   }
+
+
+   //TOTAL ROUNDING DIFFERENCE
+   if (invoiceObj.billing_info.total_rounding_difference.length) {
+      tableRow = table.addRow();
+      tableRow.addCell(" ", "padding-left padding-right", this.mmDescriptionColWidth);
+      tableRow.addCell(texts.rounding, "padding-left padding-right", this.mmQuantityColWidth);
+      tableRow.addCell(" ", "padding-left padding-right", this.mmUnitPriceColWidth)
+      tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_rounding_difference), "amount padding-left padding-right", this.mmTotalColWidth);
+   }
+
+   tableRow = table.addRow();
+   tableRow.addCell("", "", this.mmInvoiceTableWidth);
+
+
+   //FINAL TOTAL
+   tableRow = table.addRow();
+   tableRow.addCell("", "", this.mmDescriptionColWidth)
+   tableRow.addCell(texts.total.toUpperCase() + " " + invoiceObj.document_info.currency, "total_cell", this.mmQuantityColWidth);
+   tableRow.addCell(" ", "total_cell", this.mmUnitPriceColWidth);
+   tableRow.addCell(this.toInvoiceAmountFormat(invoiceObj, invoiceObj.billing_info.total_to_pay), "total_cell amount", this.mmTotalColWidth);
+
+   tableRow = table.addRow();
+   tableRow.addCell("", "", this.mmInvoiceTableWidth);
+
 }
 
-BananaInvoice.prototype.printAddressTo = function (invoiceAddress) {
+BananaInvoice.prototype.printTableHeader = function (invoiceObj, table, texts) {
+   /*
+   *  Adds invoice details (date, invoice n., customer n.), bill address and columns header
+   *  to the table header in order to print this content on multiple pages
+   */
 
-   var address = "";
-
-   if (invoiceAddress.courtesy) {
-      address = invoiceAddress.courtesy + "\n";
-   }
-
-   if (invoiceAddress.first_name || invoiceAddress.last_name) {
-      if (invoiceAddress.first_name) {
-         address = address + invoiceAddress.first_name + " ";
-      }
-      if (invoiceAddress.last_name) {
-         address = address + invoiceAddress.last_name;
-      }
-      address = address + "\n";
-   }
-
-   if (invoiceAddress.business_name) {
-      address = address + invoiceAddress.business_name + "\n";
-   }
-
-   if (invoiceAddress.address1) {
-      address = address + invoiceAddress.address1 + "\n";
-   }
-
-   if (invoiceAddress.address2) {
-      address = address + invoiceAddress.address2 + "\n";
-   }
-
-   if (invoiceAddress.address3) {
-      address = address + invoiceAddress.address3 + "\n";
-   }
-
-   if (invoiceAddress.postal_code) {
-      address = address + invoiceAddress.postal_code + " ";
-   }
-
-   if (invoiceAddress.city) {
-      address = address + invoiceAddress.city + "\n";
-   }
-
-   if (invoiceAddress.country) {
-      address = address + invoiceAddress.country;
-   }
-
-   return address;
-}
-
-BananaInvoice.prototype.printInvoiceDetails = function (invoiceObj, repDocObj, texts) {
-   //
-   // INVOICE DETAILS
-   //
-   var infoTable = repDocObj.addTable("info_table_row0");
-   var col1 = infoTable.addColumn("infoCol1");
-   var col2 = infoTable.addColumn("infoCol2");
-   var col3 = infoTable.addColumn("infoCol3");
-
-   tableRow = infoTable.addRow();
-   tableRow.addCell(" ", "", 3);
-
-   tableRow = infoTable.addRow();
-   var cell1 = tableRow.addCell("", "", 1);
-   var cell2 = tableRow.addCell("", "bold", 1);
-   var cell3 = tableRow.addCell("", "", 1);
+   var tableRow = table.getHeader().addRow('invoiceInfo');
+   var cell1 = tableRow.addCell('', 'invoiceInfo', this.mmInvoiceHeaderCol1Width);
+   var cell2 = tableRow.addCell('', 'invoiceInfo bold', this.mmInvoiceHeaderCol2Width);
+   var cell3 = tableRow.addCell('', 'invoiceInfo', this.mmInvoiceHeaderCol3Width);
 
    var invoiceDate = Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date);
-   cell1.addParagraph(this.printTitle(invoiceObj, texts) + ":", "");
+   //Document title
+   var documentTitle = texts.invoice;
+   if (invoiceObj.document_info.title) {
+      documentTitle = invoiceObj.document_info.title;
+   }
+   cell1.addParagraph(documentTitle + ":", "");
    cell1.addParagraph(texts.date + ":", "");
    cell1.addParagraph(texts.customer + ":", "");
    //Payment Terms
@@ -931,22 +842,56 @@ BananaInvoice.prototype.printInvoiceDetails = function (invoiceObj, repDocObj, t
    cell2.addParagraph(invoiceObj.customer_info.number, "");
    cell2.addParagraph(payment_terms, "");
    cell2.addParagraph("", "").addFieldPageNr();
+
+   var addressLines = this.getAddressTo(invoiceObj.customer_info).split('\n');
+   for (var i = 0; i < addressLines.length; i++) {
+      cell3.addParagraph(addressLines[i]);
+   }
+   
+   //columns titles
+   tableRow = table.getHeader().addRow('invoiceTableHeader');
+   tableRow.addCell(texts.description, 'invoiceTableHeader', this.mmDescriptionColWidth);
+   tableRow.addCell(texts.qty, 'invoiceTableHeader amount', this.mmQuantityColWidth);
+   tableRow.addCell(texts.unit_price, 'invoiceTableHeader amount', this.mmUnitPriceColWidth);
+   tableRow.addCell(texts.total + ' ' + invoiceObj.document_info.currency, 'invoiceTableHeader amount', this.mmTotalColWidth);
+
 }
 
 BananaInvoice.prototype.printQRCode = function (invoiceObj, repDocObj) {
-   var qrCodeParam = {};
-   var qrCodeSvgImage = Banana.Report.qrCodeImage("hello world", 1, qrCodeParam);
-   if (qrCodeSvgImage) {
-      repDocObj.addImage(qrCodeSvgImage, "qrcode_style_class");
+   // Prints the QRCode to the invoice
+   if (this.param.print_qrcode && invoiceObj.document_info.currency == "CHF") {
+      //var bank = this.param.qrcode_bank_name;
+      //if (bank.length > 0 && this.param.qrcode_bank_address.length > 0) {
+      //   bank += ",";
+      //}
+      //bank += this.param.qrcode_bank_address;
+      var qrCodeParam = {};
+      var test = 'SPC\
+0100\
+1\
+CH5800791123000889012\
+Robert Schneider AG\
+Rue du Lac\
+1268\
+2501\
+Biel\
+CH\
+3949.75\
+CHF\
+2019-10-31\
+Pia Rutschmann\
+Marktgasse\
+28\
+9400\
+Rorschach\
+CH\
+NON\
+Rechnung Nr. 3139 für Gartenarbeiten und Entsorgung Schnittmaterial.';
+      var qrCodeSvgImage = Banana.Report.qrCodeImage(test, 1, qrCodeParam);
+      if (qrCodeSvgImage) {
+         repDocObj.addImage(qrCodeSvgImage, "qrcode_style_class");
+      }
    }
-}
-
-BananaInvoice.prototype.printTitle = function (invoiceObj, texts) {
-   var documentTitle = texts.invoice;
-   if (invoiceObj.document_info.title) {
-      documentTitle = invoiceObj.document_info.title;
-   }
-   return documentTitle;
 }
 
 BananaInvoice.prototype.setParam = function (param) {
@@ -979,6 +924,9 @@ BananaInvoice.prototype.verifyBananaVersion = function () {
       this.banDocument.addMessage(msg, this.ID_ERR_VERSION);
       return false;
    }
+   //Check the version of Banana
+   //var requiredVersion = "9.0.?";
+   //if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) { }
    return true;
 }
 
@@ -1003,3 +951,68 @@ BananaInvoice.prototype.verifyParam = function () {
       this.param.color_2 = '#ffffff';
 }
 
+
+/*REMOVED
+   repStyleObj.addStyle(".doc_table_header", "font-weight:bold; background-color:" + this.param.color_1 + "; color:" + this.param.color_2);
+   repStyleObj.addStyle(".doc_table_header td", "padding:5px;");
+
+   repStyleObj.addStyle(".infoCol1", "width:15%");
+   repStyleObj.addStyle(".infoCol2", "width:30%");
+   repStyleObj.addStyle(".infoCol3", "width:54%");
+
+
+   repStyleObj.addStyle(".col1", "width:50%");
+   repStyleObj.addStyle(".col2", "width:49%");
+   
+   
+   
+   repStyleObj.addStyle(".repTableCol1", "width:45%");
+   repStyleObj.addStyle(".repTableCol2", "width:15%");
+   repStyleObj.addStyle(".repTableCol3", "width:20%");
+   repStyleObj.addStyle(".repTableCol4", "width:20%");
+
+   var rectangleStyle = repStyleObj.addStyle(".rectangle");
+   rectangleStyle.setAttribute("width", "50px");
+   rectangleStyle.setAttribute("height", "100mm");
+   rectangleStyle.setAttribute("background-color", "white");
+
+   //====================================================================//
+   // TABLES
+   //====================================================================//
+   var headerStyle = repStyleObj.addStyle(".header_table");
+   headerStyle.setAttribute("position", "absolute");
+   headerStyle.setAttribute("margin-top", "10mm"); //106
+   headerStyle.setAttribute("margin-left", "22mm"); //20
+   headerStyle.setAttribute("margin-right", "10mm");
+   //repStyleObj.addStyle("table.header_table td", "border: thin solid black");
+   headerStyle.setAttribute("width", "100%");
+
+
+   var infoStyle = repStyleObj.addStyle(".info_table");
+   infoStyle.setAttribute("position", "absolute");
+   infoStyle.setAttribute("margin-top", "45mm");
+   infoStyle.setAttribute("margin-left", "20mm");
+   infoStyle.setAttribute("margin-right", "10mm");
+   //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
+
+   var infoStyle = repStyleObj.addStyle(".info_table_row0");
+   infoStyle.setAttribute("position", "absolute");
+   infoStyle.setAttribute("margin-top", "45mm");
+   infoStyle.setAttribute("margin-left", "20mm");
+   infoStyle.setAttribute("margin-right", "10mm");
+   //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
+   // infoStyle.setAttribute("width", "100%");
+
+   //var infoStyle = repStyleObj.addStyle("@page:first-view table.info_table_row0");
+   //infoStyle.setAttribute("display", "none");
+
+   //var itemsStyle = repStyleObj.addStyle(".doc_table:first-view");
+   //itemsStyle.setAttribute("margin-top", docTableStart);
+
+   var itemsStyle = repStyleObj.addStyle(".doc_table");
+   itemsStyle.setAttribute("margin-top", this.docTableStart); //106
+   itemsStyle.setAttribute("margin-left", "23mm"); //20
+   itemsStyle.setAttribute("margin-right", "10mm");
+   //repStyleObj.addStyle("table.doc_table td", "border: thin solid black; padding: 3px;");
+   itemsStyle.setAttribute("width", "100%");
+   */
