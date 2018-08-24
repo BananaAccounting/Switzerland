@@ -12,12 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// @id = ch.banana.ch.invoice.ch05.qrcode.js
+// @id = ch.banana.ch.invoice.ch10.js
 // @api = 1.0
-// @pubdate = 2018-08-17
+// @includejs = qrcode.js
+// @pubdate = 2018-08-24
 // @publisher = Banana.ch SA
-// @description = [DEV] Invoice with QRCode
-// @description.en = [DEV] Invoice with QRCode
+// @description = [CH10-DEV] Invoice with QRCode, net amounts, quantity column, logo, 2 colours
+// @description.en = [CH10-DEV] Invoice with QRCode, net amounts, quantity column, logo, 2 colours
+// @description.it = [CH10-DEV] Fattura con QRCode, importi netti, colonna quantità, logo, 2 colori
+// @description.de = [CH10-DEV] Rechnung mit QRCode, Nettobeträgen, Mengenspalte, Logo, 2 Farben
+// @description.fr = [CH10-DEV] Facture avec QRCode, montants nets, colonne quantité, logo, 2 couleurs
 // @doctype = *
 // @task = report.customer.invoice
 
@@ -173,7 +177,7 @@ function BananaInvoice(banDocument) {
    
    //errors
    this.ID_ERR_VERSION = "ID_ERR_VERSION";
-
+   
    //default settings
    this.mmInvoiceTableTopMargin = 60;
    
@@ -247,15 +251,6 @@ BananaInvoice.prototype.applyStyle = function (repStyleObj) {
    logoStyle.setAttribute("margin-left", "20mm");
    
    //====================================================================//
-   // QRCODE
-   //====================================================================//
-   var qrCodeStyle = repStyleObj.addStyle(".qrcode_style_class");
-   qrCodeStyle.setAttribute("text-align", "left");
-   qrCodeStyle.setAttribute("margin-left", "20mm");
-   qrCodeStyle.setAttribute("padding-top", "10mm");
-   qrCodeStyle.setAttribute("width", "30mm");
-   
-   //====================================================================//
    // TABLES
    //====================================================================//
    var headerStyle = repStyleObj.addStyle(".pageHeader");
@@ -276,8 +271,6 @@ BananaInvoice.prototype.applyStyle = function (repStyleObj) {
    repStyleObj.addStyle(".invoiceTableHeader td", "padding:5px;");
 
    repStyleObj.addStyle(".invoiceInfo td", "padding-bottom:15px;");
-   
-
 }
 
 BananaInvoice.prototype.getAddressTo = function (invoiceAddress) {
@@ -621,7 +614,8 @@ BananaInvoice.prototype.print = function (jsonInvoice, repDocObj, repStyleObj) {
    this.printTableHeader(invoiceObj, tableObj, texts);
    this.printTableContent(invoiceObj, tableObj, texts);
    this.printClosureText(invoiceObj, repDocObj, texts);
-   this.printQRCode(invoiceObj, repDocObj);
+   var qrBill = new QRBill(this.banDocument, this.param );
+   qrBill.printQRCode(invoiceObj, repDocObj, repStyleObj);
    this.applyStyle(repStyleObj);
 
    
@@ -857,43 +851,6 @@ BananaInvoice.prototype.printTableHeader = function (invoiceObj, table, texts) {
 
 }
 
-BananaInvoice.prototype.printQRCode = function (invoiceObj, repDocObj) {
-   // Prints the QRCode to the invoice
-   if (this.param.print_qrcode && invoiceObj.document_info.currency == "CHF") {
-      //var bank = this.param.qrcode_bank_name;
-      //if (bank.length > 0 && this.param.qrcode_bank_address.length > 0) {
-      //   bank += ",";
-      //}
-      //bank += this.param.qrcode_bank_address;
-      var qrCodeParam = {};
-      var test = 'SPC\
-0100\
-1\
-CH5800791123000889012\
-Robert Schneider AG\
-Rue du Lac\
-1268\
-2501\
-Biel\
-CH\
-3949.75\
-CHF\
-2019-10-31\
-Pia Rutschmann\
-Marktgasse\
-28\
-9400\
-Rorschach\
-CH\
-NON\
-Rechnung Nr. 3139 für Gartenarbeiten und Entsorgung Schnittmaterial.';
-      var qrCodeSvgImage = Banana.Report.qrCodeImage(test, 1, qrCodeParam);
-      if (qrCodeSvgImage) {
-         repDocObj.addImage(qrCodeSvgImage, "qrcode_style_class");
-      }
-   }
-}
-
 BananaInvoice.prototype.setParam = function (param) {
    if (param && typeof (param) === 'object') {
       this.param = param;
@@ -952,67 +909,3 @@ BananaInvoice.prototype.verifyParam = function () {
 }
 
 
-/*REMOVED
-   repStyleObj.addStyle(".doc_table_header", "font-weight:bold; background-color:" + this.param.color_1 + "; color:" + this.param.color_2);
-   repStyleObj.addStyle(".doc_table_header td", "padding:5px;");
-
-   repStyleObj.addStyle(".infoCol1", "width:15%");
-   repStyleObj.addStyle(".infoCol2", "width:30%");
-   repStyleObj.addStyle(".infoCol3", "width:54%");
-
-
-   repStyleObj.addStyle(".col1", "width:50%");
-   repStyleObj.addStyle(".col2", "width:49%");
-   
-   
-   
-   repStyleObj.addStyle(".repTableCol1", "width:45%");
-   repStyleObj.addStyle(".repTableCol2", "width:15%");
-   repStyleObj.addStyle(".repTableCol3", "width:20%");
-   repStyleObj.addStyle(".repTableCol4", "width:20%");
-
-   var rectangleStyle = repStyleObj.addStyle(".rectangle");
-   rectangleStyle.setAttribute("width", "50px");
-   rectangleStyle.setAttribute("height", "100mm");
-   rectangleStyle.setAttribute("background-color", "white");
-
-   //====================================================================//
-   // TABLES
-   //====================================================================//
-   var headerStyle = repStyleObj.addStyle(".header_table");
-   headerStyle.setAttribute("position", "absolute");
-   headerStyle.setAttribute("margin-top", "10mm"); //106
-   headerStyle.setAttribute("margin-left", "22mm"); //20
-   headerStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.header_table td", "border: thin solid black");
-   headerStyle.setAttribute("width", "100%");
-
-
-   var infoStyle = repStyleObj.addStyle(".info_table");
-   infoStyle.setAttribute("position", "absolute");
-   infoStyle.setAttribute("margin-top", "45mm");
-   infoStyle.setAttribute("margin-left", "20mm");
-   infoStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
-
-   var infoStyle = repStyleObj.addStyle(".info_table_row0");
-   infoStyle.setAttribute("position", "absolute");
-   infoStyle.setAttribute("margin-top", "45mm");
-   infoStyle.setAttribute("margin-left", "20mm");
-   infoStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.info_table td", "border: thin solid black");
-   // infoStyle.setAttribute("width", "100%");
-
-   //var infoStyle = repStyleObj.addStyle("@page:first-view table.info_table_row0");
-   //infoStyle.setAttribute("display", "none");
-
-   //var itemsStyle = repStyleObj.addStyle(".doc_table:first-view");
-   //itemsStyle.setAttribute("margin-top", docTableStart);
-
-   var itemsStyle = repStyleObj.addStyle(".doc_table");
-   itemsStyle.setAttribute("margin-top", this.docTableStart); //106
-   itemsStyle.setAttribute("margin-left", "23mm"); //20
-   itemsStyle.setAttribute("margin-right", "10mm");
-   //repStyleObj.addStyle("table.doc_table td", "border: thin solid black; padding: 3px;");
-   itemsStyle.setAttribute("width", "100%");
-   */

@@ -1,0 +1,13 @@
+{
+    "category": "productivity",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "[CH10-DEV] Invoice with QRCode, net amounts, quantity column, logo, 2 colours",
+    "description.en": "[CH10-DEV] Invoice with QRCode, net amounts, quantity column, logo, 2 colours",
+    "id": "ch.banana.ch.invoice.ch05.qrcode",
+    "language": "",
+    "publisher": "Banana.ch",
+    "title": "[CH10-DEV] Invoice with QRCode",
+    "title.en": "[CH10-DEV] Invoice with QRCode",
+    "version": "1.0"
+}
