@@ -1,6 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
- <qresource>
-    <file>ch.banana.ch.invoice.ch10.js</file>
-    <file>qrcode.js</file>
- </qresource>
-</RCC>
