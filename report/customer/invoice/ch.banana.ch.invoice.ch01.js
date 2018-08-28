@@ -374,16 +374,30 @@ function printInvoice(jsonInvoice, repDocObj, param) {
       langDoc = invoiceObj.document_info.locale;
    var texts = setInvoiceTexts(langDoc);
 
+   // Document title
+   var docTitle = getTitle(invoiceObj, texts) + ": " + invoiceObj.document_info.number;
+   if (invoiceObj.customer_info.business_name) {
+      docTitle += " - " + invoiceObj.customer_info.business_name;
+   } else if (invoiceObj.customer_info.first_name || invoiceObj.customer_info.last_name) {
+      docTitle += " -";
+      if (invoiceObj.supplier_info.first_name) {
+         docTitle += " " + invoiceObj.customer_info.first_name;
+      }
+      if (invoiceObj.supplier_info.last_name) {
+         docTitle += " " + invoiceObj.customer_info.last_name;
+      }
+   }
+
    // Invoice document
    var reportObj = Banana.Report;
 
    if (!repDocObj) {
-      repDocObj = reportObj.newReport(getTitle(invoiceObj, texts) + ": " + invoiceObj.document_info.number);
+      repDocObj = reportObj.newReport(docTitle);
    } else {
+      repDocObj.setTitle(docTitle);
       var pageBreak = repDocObj.addPageBreak();
       pageBreak.addClass("pageReset");
    }
-
 
    /***********
      1. HEADER
