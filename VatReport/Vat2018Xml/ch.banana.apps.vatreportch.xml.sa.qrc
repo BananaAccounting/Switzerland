@@ -1,0 +1,10 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+ 	<file alias="manifest.json">ch.banana.apps.vatreportch.xml.sa.manifest.json</file>
+ 	<file>vat_sa1s2018.js</file>
+ 	<file>vat_sa1s2018_report.js</file>
+ 	<file>vat_sa1s2018_xml.js</file>
+	<file>vat_sa1s2018.dialog.ui</file>
+	<file>vat_dialog.js</file>
+ </qresource>
+ </RCC>

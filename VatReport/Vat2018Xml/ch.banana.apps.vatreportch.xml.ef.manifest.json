@@ -1,0 +1,19 @@
+{
+    "category": "productivity",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "[BETA] Swiss VAT: Effective method with (with XML file)",
+    "description.en": "[BETA] Swiss VAT: Effective method (with XML file)",
+    "description.it": "[BETA] IVA Svizzera: Metodo effettivo (con file XML)",
+    "description.de": "[BETA] MwSt/USt Schweiz: Effektive Methode (mit XML-Datei)",
+    "description.fr": "[BETA] TVA Suisse: Méthode effective (avec fichier XML)",
+    "id": "ch.banana.apps.vatreportch.xml.ef",
+    "language": "",
+    "publisher": "Banana.ch",
+    "title": "[BETA] Swiss VAT: Effective method (with XML file)",
+    "title.en": "[BETA] Swiss VAT: Effective method (with XML file)",
+    "title.it": "[BETA] IVA Svizzera: Metodo effettivo (con file XML)",
+    "title.de": "[BETA] MwSt/USt Schweiz: Effektive Methode (mit XML-Datei)",
+    "title.fr": "[BETA] TVA Suisse: Méthode effective (avec fichier XML)",
+    "version": "1.0"
+}
