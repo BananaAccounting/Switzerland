@@ -350,22 +350,22 @@ function translateDialog(dialog, netTaxRates) {
    reportRadioButton.text = dialogTexts.reportRadioButton;
    xmlRadioButton.text = dialogTexts.xmlRadioButton;
    xmlOpenCheckBox.text = dialogTexts.xmlOpenCheckBox;
-   methodTypeLabel.text = dialogTexts.methodTypeLabel;
    typeOfSubmissionLabel.text = dialogTexts.typeOfSubmissionLabel;
    formOfReportingLabel.text = dialogTexts.formOfReportingLabel;
    desVariousDeductionsLabel.text = dialogTexts.desVariousDeductionsLabel;
    adjustRoundingCheckBox.text = dialogTexts.adjustRoundingCheckBox;
 
    if (netTaxRates) {
+      methodTypeLabel.text = dialogTexts.methodTypeLabel;
       desActivity322Label.text = dialogTexts.desActivity322Label;
       desActivity321Label.text = dialogTexts.desActivity321Label;
       desActivity332Label.text = dialogTexts.desActivity332Label;
       desActivity331Label.text = dialogTexts.desActivity331Label;
       taxRatesGroupBox.title = dialogTexts.taxRatesGroupBox;
-	  taxRate1Label.text = dialogTexts.taxRate1Label;
-	  taxRate2Label.text = dialogTexts.taxRate2Label;
-	  taxRate3Label.text = dialogTexts.taxRate3Label;
-	  taxRate4Label.text = dialogTexts.taxRate4Label;
+	   taxRate1Label.text = dialogTexts.taxRate1Label;
+	   taxRate2Label.text = dialogTexts.taxRate2Label;
+	   taxRate3Label.text = dialogTexts.taxRate3Label;
+	   taxRate4Label.text = dialogTexts.taxRate4Label;
       dialog.windowTitle=dialogTexts.windowTitleNetTaxRates;
    }
    else {
@@ -385,11 +385,13 @@ function translateDialog(dialog, netTaxRates) {
    periods.push(dialogTexts.periodComboBoxYear);
    periodComboBox.addItems(periods);
 
-   var methodTypes = [];
-   methodTypes.push(dialogTexts.methodTypeComboBox1);
-   methodTypes.push(dialogTexts.methodTypeComboBox2);
-   methodTypeComboBox.addItems(methodTypes);
-
+   if (netTaxRates) {
+      var methodTypes = [];
+      methodTypes.push(dialogTexts.methodTypeComboBox1);
+      methodTypes.push(dialogTexts.methodTypeComboBox2);
+      methodTypeComboBox.addItems(methodTypes);
+   }
+   
    var typeOfSubmissions = [];
    typeOfSubmissions.push(dialogTexts.typeOfSubmissionComboBox1);
    typeOfSubmissions.push(dialogTexts.typeOfSubmissionComboBox2);
