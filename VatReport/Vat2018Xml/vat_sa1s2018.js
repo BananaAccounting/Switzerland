@@ -551,6 +551,7 @@ VatCHSaldo.prototype.initParam = function () {
 
    /*xmlParam*/
    this.param.xml = {};
+   /*method 0 = netTaxRateMethod (default), method 1 = flatTaxRateMethod*/
    this.param.xml.method = '0';
    this.param.xml.typeOfSubmission = '1';
    this.param.xml.formOfReporting = '1';

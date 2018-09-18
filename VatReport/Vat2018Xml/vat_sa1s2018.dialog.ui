@@ -363,73 +363,83 @@
           <item>
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
+             <widget class="QLabel" name="methodTypeLabel">
+              <property name="text">
+               <string>Method type</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="methodTypeComboBox"/>
+            </item>
+            <item row="1" column="0">
              <widget class="QLabel" name="typeOfSubmissionLabel">
               <property name="text">
                <string>Type of submission</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
+            <item row="1" column="1">
              <widget class="QComboBox" name="typeOfSubmissionComboBox"/>
             </item>
-            <item row="1" column="0">
+            <item row="2" column="0">
              <widget class="QLabel" name="formOfReportingLabel">
               <property name="text">
                <string>Form of reporting</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="2" column="1">
              <widget class="QComboBox" name="formOfReportingComboBox"/>
             </item>
-            <item row="2" column="0">
+            <item row="3" column="0">
              <widget class="QLabel" name="desVariousDeductionsLabel">
               <property name="text">
                <string>Description various deduction</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
+            <item row="3" column="1">
              <widget class="QLineEdit" name="desVariousDeductionsLineEdit"/>
             </item>
-            <item row="3" column="0">
+            <item row="4" column="0">
              <widget class="QLabel" name="desActivity322Label">
               <property name="text">
                <string>Description activity 322</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
+            <item row="4" column="1">
              <widget class="QLineEdit" name="desActivity322LineEdit"/>
             </item>
-            <item row="4" column="0">
+            <item row="5" column="0">
              <widget class="QLabel" name="desActivity332Label">
               <property name="text">
                <string>Description activity 332</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
+            <item row="5" column="1">
              <widget class="QLineEdit" name="desActivity332LineEdit"/>
             </item>
-            <item row="5" column="0">
+            <item row="6" column="0">
              <widget class="QLabel" name="desActivity321Label">
               <property name="text">
                <string>Description activity 321</string>
               </property>
              </widget>
             </item>
-            <item row="5" column="1">
+            <item row="6" column="1">
              <widget class="QLineEdit" name="desActivity321LineEdit"/>
             </item>
-            <item row="6" column="0">
+            <item row="7" column="0">
              <widget class="QLabel" name="desActivity331Label">
               <property name="text">
                <string>Description activity 331</string>
               </property>
              </widget>
             </item>
-            <item row="6" column="1">
+            <item row="7" column="1">
              <widget class="QLineEdit" name="desActivity331LineEdit"/>
             </item>
            </layout>
@@ -485,6 +495,7 @@
   <tabstop>reportRadioButton</tabstop>
   <tabstop>xmlRadioButton</tabstop>
   <tabstop>xmlOpenCheckBox</tabstop>
+  <tabstop>methodTypeComboBox</tabstop>
   <tabstop>typeOfSubmissionComboBox</tabstop>
   <tabstop>formOfReportingComboBox</tabstop>
   <tabstop>desVariousDeductionsLineEdit</tabstop>

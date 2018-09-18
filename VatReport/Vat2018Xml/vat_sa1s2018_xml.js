@@ -409,7 +409,6 @@ VatCHSaldoXml.prototype.checkResults = function () {
       var risBananaTotIva = Banana.SDecimal.add(this.vatCHSaldo.dataObject["aliquotedaregistrare"].posted, Banana.SDecimal.invert(totalFromBanana));
       var checkSum = Banana.SDecimal.subtract(totalFromReport, risBananaTotIva);
       //If the difference is > or < 0.01 cts, it calls an error
-	  Banana.console.debug(checkSum + " " + totalFromReport + " " + risBananaTotIva);
       if (checkSum < -0.01 && 0.01 < checkSum) {
          this.banDocument.addMessage(
             this.vatCHSaldo.texts.xml + "\n" +
