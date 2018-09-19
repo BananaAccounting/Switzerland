@@ -125,8 +125,8 @@ VatCHSaldo.prototype.calculateRoundingDifference = function (vatBalances, grText
    var totalRoundingDifference = '';
    var totalVatAmount = '';
    var totalVatPosted = '';
-   var totalVatPostedFromBanana = '';
    var totalVatTaxable = '';
+   var totalVatTaxableFromBanana = '';
 
    for (var key in vatBalances) {
       var object = vatBalances[key];
@@ -134,22 +134,22 @@ VatCHSaldo.prototype.calculateRoundingDifference = function (vatBalances, grText
       var type = object.type;
       if (type == 'rate' && object.vatGr == grText && !Banana.SDecimal.isZero(object.vatRate)) {
          var taxable = object.vatTaxable;
-         var posted = object.vatPosted;
+         var amount = object.vatAmount;
          var result = '';
          if (useGrossAmount) {
-            var grossAmount = Banana.SDecimal.add(taxable, posted);
+            var grossAmount = Banana.SDecimal.add(taxable, amount);
             result = Banana.SDecimal.multiply(grossAmount, object.vatRate);
          }
          else {
             result = Banana.SDecimal.multiply(taxable, object.vatRate);
          }
          result = Banana.SDecimal.divide(result, 100, { 'decimals': 2 });
-         difference = Banana.SDecimal.subtract(result, posted);
+         difference = Banana.SDecimal.subtract(result, amount);
          if (!Banana.SDecimal.isZero(difference)) {
-            taxable = Banana.SDecimal.multiply(posted, 100);
+            taxable = Banana.SDecimal.multiply(amount, 100);
             taxable = Banana.SDecimal.divide(taxable, object.vatRate, { 'decimals': 2 });
             if (useGrossAmount)
-               taxable = Banana.SDecimal.subtract(taxable, posted);
+               taxable = Banana.SDecimal.subtract(taxable, amount);
             object.vatTaxableFromBanana = object.vatTaxable;
             object.vatTaxable = taxable;
             difference = Banana.SDecimal.subtract(object.vatTaxableFromBanana, taxable);
@@ -158,19 +158,19 @@ VatCHSaldo.prototype.calculateRoundingDifference = function (vatBalances, grText
          totalRoundingDifference  = Banana.SDecimal.add(totalRoundingDifference, difference);
          totalVatAmount  = Banana.SDecimal.add(totalVatAmount, object.vatAmount);
          totalVatPosted  = Banana.SDecimal.add(totalVatPosted, object.vatPosted);
-         if (object.vatPostedFromBanana)
-            totalVatPostedFromBanana  = Banana.SDecimal.add(totalVatPostedFromBanana, object.vatPostedFromBanana);
-         else
-            totalVatPostedFromBanana  = Banana.SDecimal.add(totalVatPostedFromBanana, object.vatPosted);
          totalVatTaxable  = Banana.SDecimal.add(totalVatTaxable, object.vatTaxable);
+         if (object.vatTaxableFromBanana)
+            totalVatTaxableFromBanana  = Banana.SDecimal.add(totalVatTaxableFromBanana, object.vatTaxableFromBanana);
+         else
+            totalVatTaxableFromBanana  = Banana.SDecimal.add(totalVatTaxableFromBanana, object.vatTaxable);
       }
    }
    
    vatBalances[grText].roundingDifference = totalRoundingDifference;
    vatBalances[grText].vatAmount = totalVatAmount;
    vatBalances[grText].vatPosted = totalVatPosted;
-   vatBalances[grText].vatPostedFromBanana = totalVatPostedFromBanana;
    vatBalances[grText].vatTaxable = totalVatTaxable;
+   vatBalances[grText].vatTaxableFromBanana = totalVatTaxableFromBanana;
 
 }
 
@@ -593,7 +593,7 @@ VatCHSaldo.prototype.loadData = function () {
       this.dataObject[ref] = {};
       var currentBal = this.getVatBalances(transactions, ref);
       if (currentBal[ref].roundingDifference) {
-         this.dataObject[ref].taxableFromBanana = Banana.SDecimal.invert(currentBal[ref].vatTaxableFromBanana);
+         this.dataObject[ref].taxableFromBanana = Banana.SDecimal.invert(Banana.SDecimal.add(currentBal[ref].vatTaxableFromBanana,currentBal[ref].vatAmount));
          this.dataObject[ref].roundingDifference = currentBal[ref].roundingDifference;
          roundingDifference = Banana.SDecimal.add(currentBal[ref].roundingDifference, roundingDifference);
       }

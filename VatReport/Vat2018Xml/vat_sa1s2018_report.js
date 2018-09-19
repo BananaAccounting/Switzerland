@@ -288,13 +288,13 @@ VatCHSaldoReport.prototype.createVatReport = function () {
    var remarks = '';
    var roundingDifference = this.getTotalRoundingDifference();
    if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
-      remarks = '*** ';
+      remarks = '***   ';
    }
    tableRow = table.addRow();
-   tableRow.addCell(remarks+descriptionVariousDeduction, "", 6);
+   tableRow.addCell(descriptionVariousDeduction, "", 6);
    tableRow.addCell("280", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange ", 1);
-   tableRow.addCell(this.vatCHSaldo.dataObject["280"].taxableformatted, "right dataCell ", 1);
+   tableRow.addCell(remarks + this.vatCHSaldo.dataObject["280"].taxableformatted, "right dataCell ", 1);
    tableRow.addCell("=", "orange ", 1);
    tableRow.addCell("-", "orange ", 1);
    tableRow.addCell(this.vatCHSaldo.dataObject["289"].taxableformatted, "right dataCell", 1); //use the total 289 previously summed
@@ -581,6 +581,17 @@ VatCHSaldoReport.prototype.createVatReport = function () {
       tableRow.addCell(this.vatCHSaldo.texts.totalRoundingDifference, "", 1);
       tableRow.addCell(roundingDifference, "bold right", 1);
       tableRow.addCell("CHF", "", 1);
+      //Single rounding difference for each group
+      /*for (var key in this.vatCHSaldo.dataObject) {
+         var currentBal = this.vatCHSaldo.dataObject[key];
+         if (currentBal.roundingDifference && !Banana.SDecimal.isZero(currentBal.roundingDifference)) {
+            tableRow = tableII.addRow();
+            tableRow.addCell("Rounding difference by key " + key, "", 1);
+            tableRow.addCell(currentBal.roundingDifference, "bold right", 1);
+            var paragraph = " taxable from banana " + Banana.Converter.toLocaleNumberFormat(currentBal.taxableFromBanana) + " taxable from script " + Banana.Converter.toLocaleNumberFormat(currentBal.taxable);
+            tableRow.addCell("CHF " + paragraph, "", 1);
+         }
+      }*/
    }
    
    /***********************************

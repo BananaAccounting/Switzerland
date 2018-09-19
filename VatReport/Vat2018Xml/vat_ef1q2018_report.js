@@ -442,13 +442,13 @@ VatCHEffReport.prototype.createVatReport = function () {
    var remarks = '';
    var roundingDifference = this.getTotalRoundingDifference();
    if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
-      remarks = '*** ';
+      remarks = '***   ';
    }
    tableRow = table.addRow();
-   tableRow.addCell(remarks+this.vatCHEff.texts.description28, "", 6);
+   tableRow.addCell(this.vatCHEff.texts.description28, "", 6);
    tableRow.addCell("405", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange", 1);
-   tableRow.addCell(this.vatCHEff.dataObject["405"].postedformatted, "right dataCell", 1);
+   tableRow.addCell(remarks+this.vatCHEff.dataObject["405"].postedformatted, "right dataCell", 1);
    tableRow.addCell("", "", 1);
    tableRow.addCell("", "", 1);
    tableRow.addCell("", "", 1);
@@ -589,6 +589,10 @@ VatCHEffReport.prototype.createVatReport = function () {
    //Rounding differences
    var roundingDifference = this.getTotalRoundingDifference();
    if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
+      tableRow = tableII.addRow();
+      tableRow.addCell(this.vatCHEff.texts.totalRoundingDifference, "", 1);
+      tableRow.addCell(roundingDifference, "bold right", 1);
+      tableRow.addCell("CHF", "", 1);
       //Single rounding difference for each group
       /*for (var key in this.vatCHEff.dataObject) {
          var currentBal = this.vatCHEff.dataObject[key];
@@ -596,14 +600,10 @@ VatCHEffReport.prototype.createVatReport = function () {
             tableRow = tableII.addRow();
             tableRow.addCell("Rounding difference by key " + key, "", 1);
             tableRow.addCell(currentBal.roundingDifference, "bold right", 1);
-            var paragraph = "from banana " + Banana.Converter.toLocaleNumberFormat(currentBal.postedFromBanana) + " recalculated " + Banana.Converter.toLocaleNumberFormat(currentBal.posted);
+            var paragraph = " calculated from banana " + Banana.Converter.toLocaleNumberFormat(currentBal.postedFromBanana) + " calculated from script " + Banana.Converter.toLocaleNumberFormat(currentBal.posted);
             tableRow.addCell("CHF " + paragraph, "", 1);
          }
       }*/
-      tableRow = tableII.addRow();
-      tableRow.addCell(this.vatCHEff.texts.totalRoundingDifference, "", 1);
-      tableRow.addCell(roundingDifference, "bold right", 1);
-      tableRow.addCell("CHF", "", 1);
    }
 
    //Instructions
