@@ -555,7 +555,10 @@ VatCHSaldo.prototype.initParam = function () {
    this.param.xml.method = '0';
    this.param.xml.typeOfSubmission = '1';
    this.param.xml.formOfReporting = '1';
-   this.param.xml.descriptionVariousDeduction = this.texts.variousDeduction;
+   var variousDeduction = '';
+   if  (this.texts.description11)
+      variousDeduction = this.texts.description11;
+   this.param.xml.descriptionVariousDeduction = variousDeduction;
    this.param.xml.activity322 = this.texts.textactivity322;
    this.param.xml.activity332 = this.texts.textactivity332;
    this.param.xml.activity321 = this.texts.textactivity321;
@@ -825,7 +828,6 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.xmldialogtitle = "Formulario IVA Svizzera";
       this.texts.typeOfSubmission = "Tipo invio dichiarazione (1=Primo deposito; 2=Dichiarazione rettificativa; 3=Concordanza annuale)";
       this.texts.formOfReporting = "Tipo dichiarazione (1=convenuto; 2=ricevuto)";
-      this.texts.variousDeduction = "Deduzioni diverse";
       this.texts.textactivity322 = "Descrizione attività 322";
       this.texts.textactivity332 = "Descrizione attività 332";
       this.texts.textactivity321 = "Descrizione attività 321";
@@ -898,7 +900,6 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.xmldialogtitle = "Formulaire TVA pour la Suisse";
       this.texts.typeOfSubmission = "Type de décompte d'envoi (1=Premier dépôt; 2=Décompte rectificatif; 3=Concordance annuelle)";
       this.texts.formOfReporting = "Type de décompte (1=convenu; 2=reçu)";
-      this.texts.variousDeduction = "Différentes déductions";
       this.texts.textactivity322 = "Description de l'activité 322";
       this.texts.textactivity332 = "Description de l'activité 332";
       this.texts.textactivity321 = "Description de l'activité 321";
@@ -971,7 +972,6 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.xmldialogtitle = "MwSt-Abrechnung für die Schweiz";
       this.texts.typeOfSubmission = "Abrechnungstyp (1=Ersteinreichung; 2=Korrekturabrechnung; 3=Jahresabstimmung)";
       this.texts.formOfReporting = "Abrechnungsart (1=vereinbart; 2=vereinnahmt)";
-      this.texts.variousDeduction = "Verschiedene Abzüge";
       this.texts.textactivity322 = "Beschreibung der Tätigkeit 322";
       this.texts.textactivity332 = "Beschreibung der Tätigkeit 332";
       this.texts.textactivity321 = "Beschreibung der Tätigkeit 321";
@@ -1115,8 +1115,11 @@ VatCHSaldo.prototype.verifyParam = function () {
       this.param.xml.typeOfSubmission = '1';
    if (!this.param.xml.formOfReporting)
       this.param.xml.formOfReporting = '1';
-   if (!this.param.xml.descriptionVariousDeduction)
-      this.param.xml.descriptionVariousDeduction = 'Various deductions';
+   var variousDeduction = '';
+   if (this.texts.description11)
+      variousDeduction = this.texts.description11;
+   if (!this.param.xml.descriptionVariousDeduction || this.param.xml.descriptionVariousDeduction.length<=0)
+      this.param.xml.descriptionVariousDeduction = variousDeduction;
    if (!this.param.xml.activity322)
       this.param.xml.activity322 = 'Activity 322...';
    if (!this.param.xml.activity332)

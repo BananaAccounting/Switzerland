@@ -393,9 +393,9 @@ function translateDialog(dialog, netTaxRates) {
    }
    
    var typeOfSubmissions = [];
+   //3=Riconciliazione annuale non implementata (typeOfSubmissionComboBox3)
    typeOfSubmissions.push(dialogTexts.typeOfSubmissionComboBox1);
    typeOfSubmissions.push(dialogTexts.typeOfSubmissionComboBox2);
-   typeOfSubmissions.push(dialogTexts.typeOfSubmissionComboBox3);
    typeOfSubmissionComboBox.addItems(typeOfSubmissions);
 
    var formOfReporting = [];

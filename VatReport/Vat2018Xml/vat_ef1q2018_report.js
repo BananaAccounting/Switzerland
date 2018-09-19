@@ -1,4 +1,5 @@
 // Copyright [2018] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2018] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -292,12 +293,9 @@ VatCHEffReport.prototype.createVatReport = function () {
    tableRow.addCell("", "", 1);
 
    //280
-   var desVariousDeductions = this.vatCHEff.texts.description12;
-   if (this.vatCHEff.param.xml.descriptionVariousDeduction.length>0) {
-      desVariousDeductions = this.vatCHEff.param.xml.descriptionVariousDeduction;
-   }
+   var descriptionVariousDeduction = this.vatCHEff.param.xml.descriptionVariousDeduction;
    tableRow = table.addRow();
-   tableRow.addCell(desVariousDeductions, "", 6);
+   tableRow.addCell(descriptionVariousDeduction, "", 6);
    tableRow.addCell("280", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange ", 1);
    tableRow.addCell(this.vatCHEff.dataObject["280"].taxableformatted, "right dataCell ", 1);

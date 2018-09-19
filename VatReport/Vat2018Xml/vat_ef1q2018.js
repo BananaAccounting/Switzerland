@@ -452,7 +452,10 @@ VatCHEff.prototype.initParam = function () {
    this.param.xml = {};
    this.param.xml.typeOfSubmission = '1';
    this.param.xml.formOfReporting = '1';
-   this.param.xml.descriptionVariousDeduction = this.texts.variousDeduction;
+   var variousDeduction = '';
+   if  (this.texts.description12)
+      variousDeduction = this.texts.description12;
+   this.param.xml.descriptionVariousDeduction = variousDeduction;
    this.param.xml.openXmlFile = false;
 
 
@@ -734,7 +737,6 @@ VatCHEff.prototype.loadTexts = function () {
       this.texts.xmldialogtitle = "Formulario IVA Svizzera";
       this.texts.typeOfSubmission = "Tipo invio dichiarazione (1=Primo deposito; 2=Dichiarazione rettificativa; 3=Concordanza annuale)";
       this.texts.formOfReporting = "Tipo dichiarazione (1=convenuto; 2=ricevuto)";
-      this.texts.variousDeduction = "Descrizione deduzioni diverse";
       this.texts.stringToLong = "Valore inserito troppo lungo";
       this.texts.stringToShort = "Valore inserito troppo corto";
       this.texts.xml = "Rendiconto IVA dal 2018 (XML)";
@@ -803,7 +805,6 @@ VatCHEff.prototype.loadTexts = function () {
       this.texts.xmldialogtitle = "Formulaire TVA pour la Suisse";
       this.texts.typeOfSubmission = "Type de décompte d'envoi (1=Premier dépôt; 2=Décompte rectificatif; 3=Concordance annuelle)";
       this.texts.formOfReporting = "Type de décompte (1=convenu; 2=reçu)";
-      this.texts.variousDeduction = "Description différentes déductions";
       this.texts.stringToLong = "Valeur entrée trop longue";
       this.texts.stringToShort = "Valeur entrée trop courte";
       this.texts.xml = "Décompte TVA depuis 2018 (XML)";
@@ -872,7 +873,6 @@ VatCHEff.prototype.loadTexts = function () {
       this.texts.xmldialogtitle = "MwSt-Abrechnung für die Schweiz";
       this.texts.typeOfSubmission = "Abrechnungstyp (1=Ersteinreichung; 2=Korrekturabrechnung; 3=Jahresabstimmung)";
       this.texts.formOfReporting = "Abrechnungsart (1=vereinbart; 2=vereinnahmt)";
-      this.texts.variousDeduction = "Beschreibung verschiedenen Abzüge";
       this.texts.stringToLong = "Eingegebener Wert ist zu lang";
       this.texts.stringToShort = "Eingegebener Wert ist zu kurz";
       this.texts.xml = "MWST-Abrechnung ab 2018 (XML)";
@@ -998,8 +998,11 @@ VatCHEff.prototype.verifyParam = function () {
       this.param.xml.typeOfSubmission = '1';
    if (!this.param.xml.formOfReporting)
       this.param.xml.formOfReporting = '1';
-   if (!this.param.xml.descriptionVariousDeduction)
-      this.param.xml.descriptionVariousDeduction = 'Various deductions';
+   var variousDeduction = '';
+   if (this.texts.description12)
+      variousDeduction = this.texts.description12;
+   if (!this.param.xml.descriptionVariousDeduction || this.param.xml.descriptionVariousDeduction.length<=0)
+      this.param.xml.descriptionVariousDeduction = variousDeduction;
    if (!this.param.xml.openXmlFile)
       this.param.xml.openXmlFile = false;
 

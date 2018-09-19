@@ -284,17 +284,14 @@ VatCHSaldoReport.prototype.createVatReport = function () {
    tableRow.addCell("", "", 1);
 
    //280
-   var desVariousDeductions = this.vatCHSaldo.texts.description11;
-   if (this.vatCHSaldo.param.xml.descriptionVariousDeduction.length>0) {
-      desVariousDeductions = this.vatCHSaldo.param.xml.descriptionVariousDeduction;
-   }
+   var descriptionVariousDeduction = this.vatCHSaldo.param.xml.descriptionVariousDeduction;
    var remarks = '';
    var roundingDifference = this.getTotalRoundingDifference();
    if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
       remarks = '*** ';
    }
    tableRow = table.addRow();
-   tableRow.addCell(remarks+desVariousDeductions, "", 6);
+   tableRow.addCell(remarks+descriptionVariousDeduction, "", 6);
    tableRow.addCell("280", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange ", 1);
    tableRow.addCell(this.vatCHSaldo.dataObject["280"].taxableformatted, "right dataCell ", 1);
