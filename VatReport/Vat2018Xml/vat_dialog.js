@@ -415,7 +415,7 @@ function getDialogTexts() {
       lang = "en";
    
    if (lang === "it") {
-      texts.adjustRoundingCheckBox  = "Correzione differenze d'arrotondamento";
+      texts.adjustRoundingCheckBox  = "Pareggiare differenze d'arrotondamento";
       texts.desVariousDeductionsLabel = "Descrizione deduzioni diverse";
       texts.desActivity322Label = "Descrizione attività 322";
       texts.desActivity332Label = "Descrizione attività 332";
@@ -456,7 +456,7 @@ function getDialogTexts() {
 
    }
    else if (lang === "fr") {
-      texts.adjustRoundingCheckBox  = "Corriger différences d'arrondi";
+      texts.adjustRoundingCheckBox  = "Régler différences d'arrondi";
       texts.desVariousDeductionsLabel = "Description différentes déductions";
       texts.desActivity322Label = "Description activité 322";
       texts.desActivity332Label = "Description activité 332";
@@ -536,7 +536,7 @@ function getDialogTexts() {
       texts.xmlRadioButton = "XML-Datei";
    }
    else {
-      texts.adjustRoundingCheckBox  = "Adjust rounding differences";
+      texts.adjustRoundingCheckBox  = "Balance rounding differences";
       texts.desVariousDeductionsLabel = "Description various deductions";
       texts.desActivity322Label = "Description activity 322";
       texts.desActivity332Label = "Description activity 332";

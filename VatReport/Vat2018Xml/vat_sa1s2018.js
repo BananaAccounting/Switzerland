@@ -464,6 +464,9 @@ VatCHSaldo.prototype.getVatBalances = function (transactions, grText) {
             vatBalances[grText].vatTaxable = Banana.SDecimal.add(vatBalances[grText].vatTaxable, vattaxable);
             vatBalances[grText].vatPosted = Banana.SDecimal.add(vatBalances[grText].vatPosted, vatposted);
             vatBalances[grText].vatAmount = Banana.SDecimal.add(vatBalances[grText].vatAmount, vatamount);
+            if (grText > 300 && grText <380) {
+               vatBalances[grText].vatRate = vatrate;
+            }
             if (groupByCode) {
                if (!vatBalances[vatcode]) {
                   vatBalances[vatcode] = {};

@@ -363,11 +363,11 @@ VatCHEff.prototype.getVatBalances = function (transactions, grText) {
             var vattaxable = transactions[i].vattaxable;
             var vatposted = transactions[i].vatposted;
             var vatamount = transactions[i].vatamount;
+            var vatrate = transactions[i].vatrate;
             vatBalances[grText].vatTaxable = Banana.SDecimal.add(vatBalances[grText].vatTaxable, vattaxable);
             vatBalances[grText].vatPosted = Banana.SDecimal.add(vatBalances[grText].vatPosted, vatposted);
             vatBalances[grText].vatAmount = Banana.SDecimal.add(vatBalances[grText].vatAmount, vatamount);
             if (groupByCode) {
-               var vatrate = transactions[i].vatrate;
                if (!vatBalances[vatcode]) {
                   vatBalances[vatcode] = {};
                   vatBalances[vatcode].vatCode = vatcode;
@@ -387,6 +387,9 @@ VatCHEff.prototype.getVatBalances = function (transactions, grText) {
                vatBalances[vatrate].vatTaxable = Banana.SDecimal.add(vatBalances[vatrate].vatTaxable, vattaxable);
                vatBalances[vatrate].vatPosted = Banana.SDecimal.add(vatBalances[vatrate].vatPosted, vatposted);
                vatBalances[vatrate].vatAmount = Banana.SDecimal.add(vatBalances[vatrate].vatAmount, vatamount);
+            }
+            if (grText > 300 && grText <380) {
+               vatBalances[grText].vatRate = vatrate;
             }
          }
       }
@@ -567,7 +570,7 @@ VatCHEff.prototype.loadData = function () {
       this.dataObject[ref].taxableformatted = this.formatNumber(this.dataObject[ref].taxable, true);
       this.dataObject[ref].posted = Banana.SDecimal.invert(currentBal[ref].vatPosted);
       this.dataObject[ref].postedformatted = this.formatNumber(this.dataObject[ref].posted, true);
-      this.dataObject[ref].vatrate = currentBal[ref].vatrate;
+      this.dataObject[ref].vatrate = currentBal[ref].vatRate;
       //tot399taxable = Banana.SDecimal.add(tot399taxable, this.dataObject[ref].taxable);
       tot399posted = Banana.SDecimal.add(tot399posted, this.dataObject[ref].posted);
 
