@@ -14,7 +14,7 @@
 //
 // @id = vat_ef1q2018.js
 // @api = 1.0
-// @pubdate = 2018-09-15
+// @pubdate = 2018-09-25
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -456,8 +456,8 @@ VatCHEff.prototype.initParam = function () {
    this.param.xml.typeOfSubmission = '1';
    this.param.xml.formOfReporting = '1';
    var variousDeduction = '';
-   if  (this.texts.description12)
-      variousDeduction = this.texts.description12;
+   if  (this.texts.variousDeduction)
+      variousDeduction = this.texts.variousDeduction;
    this.param.xml.descriptionVariousDeduction = variousDeduction;
    this.param.xml.openXmlFile = false;
 
@@ -745,6 +745,7 @@ VatCHEff.prototype.loadTexts = function () {
       this.texts.xml = "Rendiconto IVA dal 2018 (XML)";
       this.texts.vatToPayXml = "Importo da pagare all'AFC calcolato nel file XML";
       this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.variousDeduction = "Deduzioni diverse";
    }
    else if (lang === "fr") {
       this.texts.reportName = "Formulaire TVA pour la Suisse - méthode effective"
@@ -813,6 +814,7 @@ VatCHEff.prototype.loadTexts = function () {
       this.texts.xml = "Décompte TVA depuis 2018 (XML)";
       this.texts.vatToPayXml = "Montant à payer calculé per ce fichier XML";
       this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.variousDeduction = "Différentes déductions";
    }
    else { //lang=deu or lang=enu
       this.texts.reportName = "MwSt-Abrechnung für die Schweiz - effektive Methode"
@@ -881,6 +883,7 @@ VatCHEff.prototype.loadTexts = function () {
       this.texts.xml = "MWST-Abrechnung ab 2018 (XML)";
       this.texts.vatToPayXml = "Betrag, welcher dem ESTV zu bezhalen ist, im XML-Datei berechnet";
       this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.variousDeduction = "Verschiedene Abzüge";
    }
 }
 

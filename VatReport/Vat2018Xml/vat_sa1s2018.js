@@ -559,8 +559,8 @@ VatCHSaldo.prototype.initParam = function () {
    this.param.xml.typeOfSubmission = '1';
    this.param.xml.formOfReporting = '1';
    var variousDeduction = '';
-   if  (this.texts.description11)
-      variousDeduction = this.texts.description11;
+   if  (this.texts.variousDeduction)
+      variousDeduction = this.texts.variousDeduction;
    this.param.xml.descriptionVariousDeduction = variousDeduction;
    this.param.xml.activity322 = this.texts.textactivity322;
    this.param.xml.activity332 = this.texts.textactivity332;
@@ -843,6 +843,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.xml = "Rendiconto IVA dal 2018 (XML)";
       this.texts.vatToPayXml = "Importo da pagare all'AFC calcolato nel file XML";
       this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.variousDeduction = "Deduzioni diverse";
    }
    else if (lang === "fr") {
       this.texts.reportName = "Formulaire TVA pour la Suisse - selon taux de la dette fiscale nette/taux forfaitaires"
@@ -915,6 +916,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.xml = "Décompte TVA depuis 2018 (XML)";
       this.texts.vatToPayXml = "Montant à payer calculé per ce fichier XML";
       this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.variousDeduction = "Différentes déductions";
    }
    else { //lan=deu or lan=enu
       this.texts.reportName = "MwSt-Abrechnung für die Schweiz - Saldosteuersatz/Pauschalsteuersatz"
@@ -987,6 +989,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.xml = "MWST-Abrechnung ab 2018 (XML)";
       this.texts.vatToPayXml = "Betrag, welcher dem ESTV zu bezhalen ist, im XML-Datei berechnet";
       this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.variousDeduction = "Verschiedene Abzüge";
    }
 }
 
