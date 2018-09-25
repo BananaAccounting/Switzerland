@@ -14,7 +14,7 @@
 //
 // @id = vat_sa1s2018.js
 // @api = 1.0
-// @pubdate = 2018-09-15
+// @pubdate = 2018-09-25
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -132,7 +132,7 @@ VatCHSaldo.prototype.calculateRoundingDifference = function (vatBalances, grText
       var object = vatBalances[key];
       var difference = '';
       var type = object.type;
-      if (type == 'rate' && object.vatGr == grText && !Banana.SDecimal.isZero(object.vatRate)) {
+      if (type == 'rate' && object.vatGr == grText) {
          var taxable = object.vatTaxable;
          var amount = object.vatAmount;
          var result = '';
@@ -145,7 +145,7 @@ VatCHSaldo.prototype.calculateRoundingDifference = function (vatBalances, grText
          }
          result = Banana.SDecimal.divide(result, 100, { 'decimals': 2 });
          difference = Banana.SDecimal.subtract(result, amount);
-         if (!Banana.SDecimal.isZero(difference)) {
+         if (!Banana.SDecimal.isZero(difference) && !Banana.SDecimal.isZero(object.vatRate)) {
             taxable = Banana.SDecimal.multiply(amount, 100);
             taxable = Banana.SDecimal.divide(taxable, object.vatRate, { 'decimals': 2 });
             if (useGrossAmount)
