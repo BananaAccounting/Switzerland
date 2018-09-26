@@ -289,11 +289,11 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
             return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare alla versione più recente";
+            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare a Banana Experimental";
          else if (lang == 'de')
-            return "Das Skript funktionert mit Ihrer Version von Banana Buchhaltung nicht. Bitte auf neuste Version aktualisieren";
+            return "Das Skript funktionert mit Ihrer Version von Banana Buchhaltung nicht. Bitte auf Banana Experimental aktualisieren";
          else
-            return "This script does not run with your version of Banana Accounting. Please update to the latest version";
+            return "This script does not run with your version of Banana Accounting. Please update to Banana Experimental";
 	}
    return '';
 }
