@@ -224,7 +224,7 @@ function settingsVatDialog(vatCHObject) {
       periodComboBox.currentIndex = 0;         
    }
    dialog.showHelp = function () {
-      Banana.Ui.showHelp(vatCHObject.dialogName);
+      Banana.Ui.showHelp(vatCHObject.helpId);
    }
    buttonBox.accepted.connect(dialog, dialog.checkdata);
    buttonBox.helpRequested.connect(dialog, dialog.showHelp);

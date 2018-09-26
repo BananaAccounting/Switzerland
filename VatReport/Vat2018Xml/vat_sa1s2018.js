@@ -99,6 +99,7 @@ function VatCHSaldo(banDocument) {
 
    this.grColumn = "Gr1";
    this.dialogName = "vat_sa1s2018.dialog.ui";
+   this.helpId = "vat_sa1s2018";
 
    //errors
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
@@ -268,23 +269,31 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
       case this.ID_ERR_TAXRATE_NOTVALID:
          if (lang == 'it')
             return "Alla cifra %1 l'aliquota %2 non è permessa. Controllare il codice IVA %3";
+         else if (lang == 'de')
+            return "In der Ziffer %1 ist der Satz %2 nicht erlaubt. Den MwSt-Code %3 überprüfen";
          else
             return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_TAXRATE_TOOMANY:
          if (lang == 'it')
-            return "Alla cifra %1 è permessa un'unica aliquota. Controllare le aliquote dei codici IVA associati";
+            return "Alla cifra %1 è permessa un'unica aliquota. Controllare le aliquote dei codici IVA collegati";
+         if (lang == 'de')
+            return "In der Ziffer %1 ist ein einziger Satz erlaubt. Ueberprüfen Sie die Steuer-Sätze mit den verbundenen MwSt-Codes";
          else
             return "At group %1 only one tax rate is allowed. Please check the tax rates related to this group";   
       case this.ID_ERR_METHOD_NOTSUPPORTED:
          if (lang == 'it')
-            return "Metodo %1 non supportato. Aggiornare Banana ad una versione più recente.";
+            return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
+         else if (lang == 'de')
+            return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
          else
-            return "Method %1 not supported. Please update to a more recent version of Banana Accounting.";
+            return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare alla versione più recente.";
+            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare alla versione più recente";
+         else if (lang == 'de')
+            return "Das Skript funktionert mit Ihrer Version von Banana Buchhaltung nicht. Bitte auf neuste Version aktualisieren";
          else
-            return "This script does not run with your version of Banana Accounting. Please update to the latest version.";
+            return "This script does not run with your version of Banana Accounting. Please update to the latest version";
 	}
    return '';
 }
