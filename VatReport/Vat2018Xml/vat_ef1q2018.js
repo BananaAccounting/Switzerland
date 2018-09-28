@@ -98,7 +98,7 @@ function VatCHEff(banDocument) {
 
    this.grColumn = "Gr1";
    this.dialogName = "vat_ef1q2018.dialog.ui";
-   this.helpId = "vat_ef1q2018";
+   this.helpId = "vat_ef1q2018.js";
 
    //errors
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
@@ -175,7 +175,7 @@ VatCHEff.prototype.checkTaxRates = function (vatBalances, grText) {
 	         msg = msg.replace("%1", object.vatGr);
             msg = msg.replace("%2", object.vatRate);
             msg = msg.replace("%3", object.vatCode);
-            this.banDocument.addMessage(msg, this.ID_ERR_TAXRATE_NOTVALID);
+            this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_NOTVALID);
          }
       }
    }
@@ -982,7 +982,7 @@ VatCHEff.prototype.verifyBananaVersion = function () {
    var requiredVersion = "9.0.3.180906";
    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
       var msg = this.getErrorMessage(this.ID_ERR_VERSION_NOTSUPPORTED, lang);
-      this.banDocument.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
+      this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_VERSION_NOTSUPPORTED);
       return false;
    }
 

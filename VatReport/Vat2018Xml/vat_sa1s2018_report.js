@@ -285,16 +285,11 @@ VatCHSaldoReport.prototype.createVatReport = function () {
 
    //280
    var descriptionVariousDeduction = this.vatCHSaldo.param.xml.descriptionVariousDeduction;
-   var remarks = '';
-   var roundingDifference = this.getTotalRoundingDifference();
-   if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
-      remarks = '***   ';
-   }
    tableRow = table.addRow();
    tableRow.addCell(descriptionVariousDeduction, "", 6);
    tableRow.addCell("280", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange ", 1);
-   tableRow.addCell(remarks + this.vatCHSaldo.dataObject["280"].taxableformatted, "right dataCell ", 1);
+   tableRow.addCell(this.vatCHSaldo.dataObject["280"].taxableformatted, "right dataCell ", 1);
    tableRow.addCell("=", "orange ", 1);
    tableRow.addCell("-", "orange ", 1);
    tableRow.addCell(this.vatCHSaldo.dataObject["289"].taxableformatted, "right dataCell", 1); //use the total 289 previously summed
