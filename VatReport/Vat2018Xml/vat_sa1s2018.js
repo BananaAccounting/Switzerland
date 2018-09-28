@@ -793,7 +793,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.vatToPay = "Importo da pagare all'AFC calcolato nel formulario"
       this.texts.checkSum = "Somma di controllo deve essere uguale a 0";
       this.texts.amountToRegister = "Importo aliquote IVA da registrare in contabilità";
-      this.texts.amountCalculatedInBanana = "Importo IVA calcolato in automatico in Banana";
+      this.texts.amountCalculatedInBanana = "Importo IVA già calcolato in Banana";
       this.texts.textError = "ATTENZIONE: Le linee marcate in rosso indicano delle divergenze di calcolo dovute ad un inserimento non corretto delle cifre iva di riferimento nella tabella Codici Iva.";
       this.texts.instructionsTitle = "Istruzioni d'uso:";
       this.texts.instructions1 = "Nella colonna 'Gr1' della tabella 'Codici IVA', indicare per ogni codice IVA una o più cifre di riferimento del formulario. Per ogni codice è possibile inserire più cifre, separate da un punto e virgola ';'.";
@@ -852,7 +852,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.flatTaxRateMethod = "Metodo aliquote forfetarie";
       this.texts.xml = "Rendiconto IVA dal 2018 (XML)";
       this.texts.vatToPayXml = "Importo da pagare all'AFC calcolato nel file XML";
-      this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.totalRoundingDifference = "*** Differenza d'arrotondamento";
       this.texts.variousDeduction = "Deduzioni diverse";
    }
    else if (lang === "fr") {
@@ -866,7 +866,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.vatToPay = "Montant à payer calculé per ce formulaire"
       this.texts.checkSum = "Pour contrôle la somme doit donner 0";
       this.texts.amountToRegister = "Montant taux TVA à enregistrer en comptabilité";
-      this.texts.amountCalculatedInBanana = "Montant TVA calculé automatiquement en Banana";
+      this.texts.amountCalculatedInBanana = "Montant TVA déjà calculé en Banana";
       paramError = "ATTENTION: les lignes marquées en rouge indiques des différences dues à une insertion fausse des chiffres TVA dans la table IVA.";
       this.texts.instructionsTitle = "Mode d'emplois:";
       this.texts.instructions1 = "Dans la colonne 'Gr1' du tableau 'Codes TVA', indiquer pour chaque code TVA un ou plusieurs chiffres de référence du formulaire. Pour chaque code, il est possible d'insérer plusieurs chiffres séparés par un point-virgule ';'.";
@@ -925,7 +925,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.flatTaxRateMethod = "Méthode des taux forfaitaires";
       this.texts.xml = "Décompte TVA depuis 2018 (XML)";
       this.texts.vatToPayXml = "Montant à payer calculé per ce fichier XML";
-      this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.totalRoundingDifference = "*** Différence d'arrondi";
       this.texts.variousDeduction = "Différentes déductions";
    }
    else { //lan=deu or lan=enu
@@ -939,7 +939,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.vatToPay = "Betrag, welcher dem ESTV zu bezhalen ist, im Formular berechnet"
       this.texts.checkSum = "Zur Kontrolle muss die Summe gleich Null sein";
       this.texts.amountToRegister = "Betrag der MWST-Sätze, welcher zu buchen ist";
-      this.texts.amountCalculatedInBanana = "MWST-Betrag automatisch in Banana berechnet";
+      this.texts.amountCalculatedInBanana = "MWST-Betrag in Banana schon berechnet";
       paramError = "ACHTUNG: Die roten Zeilen zeigen Differenzen, die von einer falschen Eingabe der MwSt/USt-Ziffern in der MwSt/USt-Codes-Tabelle verursacht werden.";
       this.texts.instructionsTitle = "Bedienungsanleitung:";
       this.texts.instructions1 = "In der Spalte 'Gr1' der Tabelle 'MwSt/USt-Codes' ist für jeden MwSt-Code eine oder mehrere Referenzziffern des Formulars anzugeben. Für jeden Code können mehrere Ziffern eingegeben werden, die durch einen Strichpunkt ';' zu trennen sind.";
@@ -998,7 +998,7 @@ VatCHSaldo.prototype.loadTexts = function () {
       this.texts.flatTaxRateMethod = "Pauschalsteuersatz Methode";
       this.texts.xml = "MWST-Abrechnung ab 2018 (XML)";
       this.texts.vatToPayXml = "Betrag, welcher dem ESTV zu bezhalen ist, im XML-Datei berechnet";
-      this.texts.totalRoundingDifference = "*** Total rounding difference";
+      this.texts.totalRoundingDifference = "*** Rundungsdifferenz";
       this.texts.variousDeduction = "Verschiedene Abzüge";
    }
 }

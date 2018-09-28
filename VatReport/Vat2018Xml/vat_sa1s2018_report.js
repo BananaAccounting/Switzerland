@@ -496,10 +496,17 @@ VatCHSaldoReport.prototype.createVatReport = function () {
    var totalFromReport = Banana.SDecimal.subtract(this.vatCHSaldo.dataObject["399"].posted, this.vatCHSaldo.dataObject["479"].posted, { 'decimals': 2 });
    var tableII = report.addTable("tableII");
 
+   //Rounding differences
+   var roundingDifference = this.getTotalRoundingDifference();
+   var remarks = '';
+   if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
+      remarks = '***';
+   }
+   
    if (!Banana.SDecimal.isZero(this.vatCHSaldo.dataObject["aliquotedaregistrare"].posted)) {
       //Riga 1 "Importo aliquote IVA da registrare in contabilità"
       tableRow = tableII.addRow();
-      tableRow.addCell(this.vatCHSaldo.texts.amountToRegister, "", 1);
+      tableRow.addCell(this.vatCHSaldo.texts.amountToRegister + remarks, "", 1);
       tableRow.addCell(this.vatCHSaldo.dataObject["aliquotedaregistrare"].postedformatted, "bold right", 1);
       tableRow.addCell("CHF", "", 1);
 
@@ -570,7 +577,6 @@ VatCHSaldoReport.prototype.createVatReport = function () {
    }
 
    //Rounding differences
-   var roundingDifference = this.getTotalRoundingDifference();
    if (!Banana.SDecimal.isZero(Banana.SDecimal.round(roundingDifference, {'decimals':2}))) {
       tableRow = tableII.addRow();
       tableRow.addCell(this.vatCHSaldo.texts.totalRoundingDifference, "", 1);
