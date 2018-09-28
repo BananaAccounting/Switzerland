@@ -102,9 +102,10 @@ function VatCHSaldo(banDocument) {
    this.helpId = "vat_sa1s2018.js";
 
    //errors
+   this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
+   this.ID_ERR_TAXRATE_NOTONGROSS = "ID_ERR_TAXRATE_NOTONGROSS";
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_TAXRATE_TOOMANY = "ID_ERR_TAXRATE_TOOMANY";
-   this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
    this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
  
    this.dataObject = {};
@@ -113,7 +114,7 @@ function VatCHSaldo(banDocument) {
 /* Calculate the amount with the vat rate defined in the dialog */
 VatCHSaldo.prototype.calculateRoundingDifference = function (vatBalances, grText) {
    
-   //rounding difference is calculated for cifra from 300 to 390 (suppliesPerTaxRate 0..100) and 38x (acquisitionTax 0.100)
+   //rounding difference is calculated for cifra from 300 to 379 (suppliesPerTaxRate 0..100) and 38x (acquisitionTax 0.100)
    var nKey = parseInt(grText);
    if (nKey < 300 || nKey >=390)
       return;
@@ -179,10 +180,12 @@ VatCHSaldo.prototype.calculateVatAmount = function (value, aliquota) {
 
 /* Controlla se ci sono più aliquote per la stessa cifra */
 VatCHSaldo.prototype.checkTaxRates = function (vatBalances, grText) {
+   var tableVatCodes = this.banDocument.table('VatCodes');
    var elementName = this.getElementName(grText);
-   if (elementName != 'suppliesPerTaxRate')
+   if (elementName != 'suppliesPerTaxRate' || !tableVatCodes)
       return;
 
+   
    //var legalTaxRates = this.getLegalTaxRates(grText);
    var usedTaxRates = [];
    for (var key in vatBalances) {
@@ -202,6 +205,16 @@ VatCHSaldo.prototype.checkTaxRates = function (vatBalances, grText) {
             var msg = this.getErrorMessage(this.ID_ERR_TAXRATE_TOOMANY, this.getLang());
 	         msg = msg.replace("%1", object.vatGr);
             this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_TOOMANY);
+         }
+         //controlla anche se l'iva è calcolata sul lordo
+         var rowVatCodes = tableVatCodes.findRowByValue('VatCode', object.vatCode);
+         if (rowVatCodes) {
+            var vatRateOnGross = rowVatCodes.value("VatRateOnGross");
+            if (!vatRateOnGross) {
+               var msg = this.getErrorMessage(this.ID_ERR_TAXRATE_NOTONGROSS, this.getLang());
+	            msg = msg.replace("%1", object.vatCode);
+               this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_NOTONGROSS);
+            }
          }
       }
    }
@@ -262,6 +275,20 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
    if (!lang)
       lang = 'en';
    switch (errorId) {
+      case this.ID_ERR_METHOD_NOTSUPPORTED:
+         if (lang == 'it')
+            return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
+         else if (lang == 'de')
+            return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
+         else
+            return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
+      case this.ID_ERR_TAXRATE_NOTONGROSS:
+         if (lang == 'it')
+            return "La percentuale IVA del codice %1 non è calcolata sul lordo";
+         else if (lang == 'de')
+            return "Der MwSt.-Prozentsatz des Codes% 1 wird nicht auf Brutto berechnet";
+         else
+            return "The VAT percentage of code% 1 is not calculated on the gross";   
       case this.ID_ERR_TAXRATE_NOTVALID:
          if (lang == 'it')
             return "Alla cifra %1 l'aliquota %2 non è permessa. Controllare il codice IVA %3";
@@ -276,13 +303,6 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
             return "In der Ziffer %1 ist ein einziger Satz erlaubt. Ueberprüfen Sie die Steuer-Sätze mit den verbundenen MwSt-Codes";
          else
             return "At group %1 only one tax rate is allowed. Please check the tax rates related to this group";   
-      case this.ID_ERR_METHOD_NOTSUPPORTED:
-         if (lang == 'it')
-            return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
-         else if (lang == 'de')
-            return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
-         else
-            return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
             return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare a Banana Experimental";
@@ -377,9 +397,6 @@ VatCHSaldo.prototype.getTaxRate = function (grText) {
       var tRow = tableVatCodes.row(i);
       if (tRow.value(this.grColumn) === grText) {
          if (tRow.value("VatRate").length > 0) {
-            if (vatCode.vatRate.length > 0 && vatCode.vatRate != tRow.value("VatRate")) {
-               //message another vatRate found
-            }
             vatCode.vatRate = tRow.value("VatRate");
             vatCode.calculatedFromBanana = true;
          }
