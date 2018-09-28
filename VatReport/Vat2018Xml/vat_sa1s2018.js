@@ -14,7 +14,7 @@
 //
 // @id = vat_sa1s2018.js
 // @api = 1.0
-// @pubdate = 2018-09-25
+// @pubdate = 2018-09-28
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -177,6 +177,7 @@ VatCHSaldo.prototype.calculateVatAmount = function (value, aliquota) {
    return res;
 }
 
+/* Controlla se ci sono più aliquote per la stessa cifra */
 VatCHSaldo.prototype.checkTaxRates = function (vatBalances, grText) {
    var elementName = this.getElementName(grText);
    if (elementName != 'suppliesPerTaxRate')
@@ -441,6 +442,7 @@ VatCHSaldo.prototype.getVatBalances = function (transactions, grText) {
    if (taxRates[grText])
       vatBalances[grText].calculatedFromBanana = taxRates[grText].calculatedFromBanana;
    
+   //le cifre da 300 a 382 vengono raggruppate anche per aliquota e codice iva oltre che per la stessa cifra
    var groupByCode = false;
    var elementName = this.getElementName(grText);
    if (elementName == 'suppliesPerTaxRate' || elementName == 'acquisitionTax') {
@@ -460,11 +462,8 @@ VatCHSaldo.prototype.getVatBalances = function (transactions, grText) {
             var vatrate = transactions[i].vatrate;
             var vattaxable = transactions[i].vattaxable;
             if (elementName == 'suppliesPerTaxRate' && !vatBalances[grText].calculatedFromBanana) {
-               vatposted = this.calculateVatAmount(vattaxable, taxRates[grText].vatRate);
-               vattaxable = Banana.SDecimal.subtract(vattaxable, vatposted);
-               vatamount = vatposted;
                vatrate = taxRates[grText].vatRate;
-            } 
+            }
             vatBalances[grText].vatTaxable = Banana.SDecimal.add(vatBalances[grText].vatTaxable, vattaxable);
             vatBalances[grText].vatPosted = Banana.SDecimal.add(vatBalances[grText].vatPosted, vatposted);
             vatBalances[grText].vatAmount = Banana.SDecimal.add(vatBalances[grText].vatAmount, vatamount);
@@ -492,6 +491,20 @@ VatCHSaldo.prototype.getVatBalances = function (transactions, grText) {
                vatBalances[vatrate].vatPosted = Banana.SDecimal.add(vatBalances[vatrate].vatPosted, vatposted);
                vatBalances[vatrate].vatAmount = Banana.SDecimal.add(vatBalances[vatrate].vatAmount, vatamount);
             }
+         }
+      }
+   }
+   
+   //calcolo imposta totale per aliquote definite nel dialogo sul totale imponibile
+   //non viene calcolato per ogni singola registrazione altrimenti ci potrebbero essere delle differenze di arrotondamento sui totali
+   //cifre 381 e 382 vengono cmq calcolate da Banana perché non è possibile inserire l'aliquota nel dialogo
+   if (elementName == 'suppliesPerTaxRate' && !vatBalances[grText].calculatedFromBanana) {
+      for (var key in vatBalances) {
+         var object = vatBalances[key];
+         if (object.vatGr == grText) {
+            object.vatPosted = this.calculateVatAmount(object.vatTaxable, object.vatRate);
+            object.vatTaxable = Banana.SDecimal.subtract(object.vatTaxable, object.vatPosted);
+            object.vatAmount = object.vatPosted;
          }
       }
    }
