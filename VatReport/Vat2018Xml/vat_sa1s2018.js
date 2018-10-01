@@ -103,6 +103,7 @@ function VatCHSaldo(banDocument) {
 
    //errors
    this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
+   this.ID_ERR_ORGANISATIONID = "ID_ERR_ORGANISATIONID";
    this.ID_ERR_TAXRATE_NOTONGROSS = "ID_ERR_TAXRATE_NOTONGROSS";
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_TAXRATE_TOOMANY = "ID_ERR_TAXRATE_TOOMANY";
@@ -282,6 +283,13 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
             return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
          else
             return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
+      case this.ID_ERR_ORGANISATIONID:
+         if (lang == 'it')
+            return "Il numero IVA della vostra società non è valido oppure mancante. Impostare in File - Proprietà file (indirizzo)";
+         else if (lang == 'de')
+            return "Die MwSt/USt-Nummer ist ungültig oder fehlt. Mit dem Befehl Datei - Eigenschaften (Adresse) festlegen.";
+         else
+            return "The VAT Number of your company is not valid or missing. Please use File - File and accounting Properties (Address)";   
       case this.ID_ERR_TAXRATE_NOTONGROSS:
          if (lang == 'it')
             return "La percentuale IVA del codice %1 non è calcolata sul lordo";

@@ -134,6 +134,10 @@ VatCHSaldoXml.prototype.addGeneralInformation = function (xml) {
    if (vatNumber && vatNumber.match(/\d/g)) {
       uidOrganisationId = vatNumber.match(/\d/g).join(""); //numero IVA a 9 cifre, solo cifre (es. 111222333)
    }
+   if (uidOrganisationId.length != 9) {
+      var msg = this.vatCHSaldo.getErrorMessage(this.vatCHSaldo.ID_ERR_ORGANISATIONID, this.vatCHSaldo.getLang());
+      this.banDocument.addMessage(msg, this.vatCHSaldo.helpId + "::" + this.vatCHSaldo.ID_ERR_ORGANISATIONID);
+   }
    var organisationName = '';
    if (company) {
       organisationName = company; //Ragione sociale registrata nel sistema
@@ -147,9 +151,6 @@ VatCHSaldoXml.prototype.addGeneralInformation = function (xml) {
    var productVersion = '';
    if (programVersion.length >= 5)
       var productVersion = programVersion.substring(0, 5);
-
-   //Check the vat number length
-   //checkStringLength("uidOrganisationId", uidOrganisationId.toString(), 9, 9);
 
    var typeOfSubmission = this.vatCHSaldo.param.xml.typeOfSubmission;
    var formOfReporting = this.vatCHSaldo.param.xml.formOfReporting;

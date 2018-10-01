@@ -101,8 +101,9 @@ function VatCHEff(banDocument) {
    this.helpId = "vat_ef1q2018.js";
 
    //errors
-   this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
+   this.ID_ERR_ORGANISATIONID = "ID_ERR_ORGANISATIONID";
+   this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
    
    this.dataObject = {};
@@ -235,13 +236,6 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
    if (!lang)
       lang = 'en';
    switch (errorId) {
-      case this.ID_ERR_TAXRATE_NOTVALID:
-         if (lang == 'it')
-            return "Alla cifra %1 l'aliquota %2 non è permessa. Controllare il codice IVA %3";
-         else if (lang == 'de')
-            return "In der Ziffer %1 ist der Satz %2 nicht erlaubt. Den MwSt-Code %3 überprüfen";
-         else
-            return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_METHOD_NOTSUPPORTED:
          if (lang == 'it')
             return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
@@ -249,6 +243,20 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
             return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
          else
             return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
+      case this.ID_ERR_ORGANISATIONID:
+         if (lang == 'it')
+            return "Il numero IVA della vostra società non è valido oppure mancante. Impostare in File - Proprietà file (indirizzo)";
+         else if (lang == 'de')
+            return "Die MwSt/USt-Nummer ist ungültig oder fehlt. Mit dem Befehl Datei - Eigenschaften (Adresse) festlegen.";
+         else
+            return "The VAT Number of your company is not valid or missing. Please use File - File and accounting Properties (Address)";   
+      case this.ID_ERR_TAXRATE_NOTVALID:
+         if (lang == 'it')
+            return "Alla cifra %1 l'aliquota %2 non è permessa. Controllare il codice IVA %3";
+         else if (lang == 'de')
+            return "In der Ziffer %1 ist der Satz %2 nicht erlaubt. Den MwSt-Code %3 überprüfen";
+         else
+            return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
             return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare a Banana Experimental";
