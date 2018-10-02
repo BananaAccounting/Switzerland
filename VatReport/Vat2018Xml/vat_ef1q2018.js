@@ -245,16 +245,16 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
             return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_ORGANISATIONID:
          if (lang == 'it')
-            return "Il numero IVA della vostra società non è valido oppure mancante. Impostare in File - Proprietà file (indirizzo)";
+            return "Il numero IVA della vostra società non è valido oppure mancante. Impostare o correggere con il comando a menu 'File' - 'Proprietà file', scheda 'indirizzo'";
          else if (lang == 'de')
-            return "Die MwSt/USt-Nummer ist ungültig oder fehlt. Mit dem Befehl Datei - Eigenschaften (Adresse) festlegen.";
+            return "Die MwSt/USt-Nummer Ihrer Firma ist ungültig oder fehlt. Sie ist unter Menü 'Datei' -> Befehl 'Eigenschaften(Stammdaten)', Registerkarte 'Adresse' zu erfassen oder korrigieren";
          else
             return "The VAT Number of your company is not valid or missing. Please use File - File and accounting Properties (Address)";   
       case this.ID_ERR_TAXRATE_NOTVALID:
          if (lang == 'it')
             return "Alla cifra %1 l'aliquota %2 non è permessa. Controllare il codice IVA %3";
          else if (lang == 'de')
-            return "In der Ziffer %1 ist der Satz %2 nicht erlaubt. Den MwSt-Code %3 überprüfen";
+            return "In der Ziffer %1 ist der Satz %2 nicht erlaubt. Bitte den MwSt-Code %3 überprüfen";
          else
             return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
