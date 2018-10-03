@@ -104,6 +104,7 @@ function exec(inData, options) {
 function createReport(banDoc, startDate, endDate, userParam, donorsToPrint) {
 
     var report = Banana.Report.newReport(texts.title);
+    var lang = getLang(banDoc);
 
     for (var k = 0; k < donorsToPrint.length; k++) {
 
@@ -234,11 +235,17 @@ function createReport(banDoc, startDate, endDate, userParam, donorsToPrint) {
         } else {
             paragraph.addText(texts.text03, "");
             paragraph.addText(" ", "");
-            paragraph.addText(Banana.Converter.toLocaleDateFormat(startDate) + " - " + Banana.Converter.toLocaleDateFormat(endDate), "bold");
+            
+            if (lang !== "en") {
+                paragraph.addText(Banana.Converter.toLocaleDateFormat(startDate) + " - " + Banana.Converter.toLocaleDateFormat(endDate), "bold");
+            } else {
+                paragraph.addText(Banana.Converter.toLocaleDateFormat(startDate), "bold");
+                paragraph.addText(" and ", "");
+                paragraph.addText(Banana.Converter.toLocaleDateFormat(endDate), "bold");
+            }
         }
 
         // German text is inverted
-        var lang = getLang(banDoc);
         if (lang === "de") {
             paragraph.addText(" ", "");
             paragraph.addText(banDoc.info("AccountingDataBase", "BasicCurrency"), "bold");
@@ -691,7 +698,7 @@ function loadTexts(banDoc) {
         texts.donationDate = "Period";
         texts.text01 = "We hereby declare that";
         texts.text02 = "on";
-        texts.text03 = "on the period";
+        texts.text03 = "between";
         texts.text04 = "donated";
         texts.text05 = "to our Association.";
         texts.text06 = "Total";
