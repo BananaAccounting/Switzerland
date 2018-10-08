@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.attestatodonazione.js
 // @api = 1.0
-// @pubdate = 2018-10-02
+// @pubdate = 2018-10-08
 // @publisher = Banana.ch SA
 // @description = Spendenbescheinigung für Vereine in Schweiz
 // @description.de = Spendenbescheinigung für Vereine in Schweiz
@@ -642,11 +642,11 @@ function loadTexts(banDoc) {
         texts.donor = "Name und Anschrift des Zuwendenden";
         texts.memberAccount = "Mitgliedskonto";
         texts.donationDate = "Periode";
-        texts.text01 = "Wir bestätigen hiermit, dass";
+        texts.text01 = "Hiermit bestätigen wir, dass";
         texts.text02 = "am";
         texts.text03 = "in der Zeit vom";
         texts.text04 = "gespendet hat.";
-        texts.text05 = "an unsere Verein";
+        texts.text05 = "unserem Verein";
         texts.text06 = "Summe";
     }
     else if (lang === "fr") {
