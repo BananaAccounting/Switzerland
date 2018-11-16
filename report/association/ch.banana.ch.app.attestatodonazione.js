@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.attestatodonazione.js
 // @api = 1.0
-// @pubdate = 2018-10-08
+// @pubdate = 2018-11-16
 // @publisher = Banana.ch SA
 // @description = Spendenbescheinigung für Vereine in Schweiz
 // @description.de = Spendenbescheinigung für Vereine in Schweiz
@@ -32,6 +32,7 @@
 *   - all the donators (empty field) => (i.e. "")
 *   
 *   It works for a single donation or multiple donations during the selected period.
+*   It works for simple and double accounting files.
 */
 
 var texts;
@@ -364,7 +365,16 @@ function calculateTotalTransactions(banDoc, costcenter, startDate, endDate) {
         if (date >= startDate && date <= endDate) {
 
             if (costcenter && costcenter === cc3) {
-                total = Banana.SDecimal.add(total, tRow.value("Amount"));
+
+            	/*  If simple accounting, amount=Income column of transaction
+            		If double accounting, amount=Amount column of transaction */
+            	if (banDoc.table('Categories')) {
+            		var amount = tRow.value("Income");
+            	} else {
+            		var amount = tRow.value("Amount");
+            	}
+
+                total = Banana.SDecimal.add(total, amount);
                 numberOfTransactions++;
             }
         }
@@ -400,17 +410,26 @@ function printTransactionTable(banDoc, report, costcenter, startDate, endDate) 
         if (date >= startDate && date <= endDate) {
 
             if (costcenter && costcenter === cc3) {
+
+            	/*  If simple accounting, amount=Income column of transaction
+            		If double accounting, amount=Amount column of transaction */
+            	if (banDoc.table('Categories')) {
+            		var amount = tRow.value("Income");
+            	} else {
+            		var amount = tRow.value("Amount");
+            	}
+
                 rowCnt++;
                 tableRow.addCell(rowCnt, "borderBottom", 1); //sequencial numbers
                 tableRow.addCell(Banana.Converter.toLocaleDateFormat(tRow.value("Date")), "borderBottom", 1);
                 tableRow.addCell(banDoc.info("AccountingDataBase", "BasicCurrency"), "borderBottom");
-                tableRow.addCell(Banana.Converter.toLocaleNumberFormat(tRow.value("Amount")), "right borderBottom", 1);
+                tableRow.addCell(Banana.Converter.toLocaleNumberFormat(amount), "right borderBottom", 1);
                 if (banDoc.info("AccountingDataBase","Company")) {
                     tableRow.addCell(banDoc.info("AccountingDataBase","Company"), "borderBottom right");
                 } else {
                     tableRow.addCell();
                 }
-                total = Banana.SDecimal.add(total, tRow.value("Amount"));
+                total = Banana.SDecimal.add(total, amount);
             }
         }
     }
