@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.attestatodonazione.js
 // @api = 1.0
-// @pubdate = 2018-11-16
+// @pubdate = 2018-11-27
 // @publisher = Banana.ch SA
 // @description = Spendenbescheinigung für Vereine in Schweiz
 // @description.de = Spendenbescheinigung für Vereine in Schweiz
@@ -580,6 +580,8 @@ function getScriptSettings() {
 }
 
 function settingsDialog() {
+
+    var texts = loadTexts(Banana.document);
     
     //The formeters of the period that we need
     var scriptform = getScriptSettings();
