@@ -1481,7 +1481,7 @@ function setInvoiceTexts(language) {
   }
   else if (language == 'de')
   {
-    texts.customer = 'Kunde-Nr';
+    texts.customer = 'Kunden-Nr';
     texts.date = 'Datum';
     texts.description = 'Beschreibung';
     texts.invoice = 'Rechnung';

@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/Users/claudia/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch02.test.js}
+%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch02.test.js}
 %
 \begin{testcase}{ReportInvoiceTemplate2}
 \begin{test}{test1}
@@ -33,6 +33,13 @@
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
 \begin{longtable}[l]{ l  l }
+Invoice  & 35 \\
+Date  & 29.01.2018 \\
+Customer No  & 100002 \\
+Payment  & 30 days \\
+Page  & \\
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
@@ -43,7 +50,7 @@ Invoice  & 35 \\
 Date  & 29.01.2018 \\
 Customer No  & 100002 \\
 Payment  & 30 days \\
-Page  & 1 \\
+Page  & \\
 \end{longtable}
 Mario Bianchi \\
 Via Trevano \\
@@ -94,6 +101,13 @@ Via Trevano \\
 \subsection{Test Invoice 36}
 \begin{reportvalue}{Test Invoice 36}
 \begin{longtable}[l]{ l  l }
+Invoice  & 36 \\
+Date  & 01.02.2018 \\
+Customer No  & 100004 \\
+Due date  & 03.03.2018 \\
+Page  & \\
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
@@ -104,7 +118,7 @@ Invoice  & 36 \\
 Date  & 01.02.2018 \\
 Customer No  & 100004 \\
 Due date  & 03.03.2018 \\
-Page  & 1 \\
+Page  & \\
 \end{longtable}
 Susanna Lanfranchi \\
 V.Meggiagra 3 \\
@@ -117,16 +131,6 @@ Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.4
    & Total net  &    & 6'481.48 \\
  & VAT 8.00\%  & 6'481.48  & 518.52 \\
  & TOTAL CHF  &    & 7'000.00 \\
-\end{longtable}
-\begin{longtable}[l]{ l  l }
-Invoice  & 36 \\
-Date  & 01.02.2018 \\
-Customer No  & 100004 \\
-Due date  & 03.03.2018 \\
-Page  & 2 \\
-\end{longtable}
-\begin{longtable}[l]{ l  l  l  l }
-Description  & Quantity  & Unit price  & Total CHF \\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -159,6 +163,13 @@ V.Meggiagra 3 \\
 \subsection{Test Invoice 37}
 \begin{reportvalue}{Test Invoice 37}
 \begin{longtable}[l]{ l  l }
+Invoice  & 37 \\
+Date  & 03.02.2018 \\
+Customer No  & 100001 \\
+Due date  & 05.03.2018 \\
+Page  & \\
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
@@ -169,7 +180,7 @@ Invoice  & 37 \\
 Date  & 03.02.2018 \\
 Customer No  & 100001 \\
 Due date  & 05.03.2018 \\
-Page  & 2 \\
+Page  & \\
 \end{longtable}
 Carlo Rossi \\
 Rossi SA \\
@@ -187,16 +198,6 @@ Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
    & Total net  &    & 7'962.95 \\
-\end{longtable}
-\begin{longtable}[l]{ l  l }
-Invoice  & 37 \\
-Date  & 03.02.2018 \\
-Customer No  & 100001 \\
-Due date  & 05.03.2018 \\
-Page  & 3 \\
-\end{longtable}
-\begin{longtable}[l]{ l  l  l  l }
-Description  & Quantity  & Unit price  & Total CHF \\
  & VAT 8.00\%  & 7'962.95  & 637.05 \\
  & TOTAL CHF  &    & 8'600.00 \\
 \end{longtable}
@@ -233,6 +234,13 @@ Via Trevano \\
 \subsection{Test Invoice 47}
 \begin{reportvalue}{Test Invoice 47}
 \begin{longtable}[l]{ l  l }
+Invoice  & 47 \\
+Date  & 11.11.2018 \\
+Customer No  & 100003 \\
+Due date  & 11.12.2018 \\
+Page  & \\
+\end{longtable}
+\begin{longtable}[l]{ l  l }
 >  & Banana.ch SA \\
 \multicolumn{2}{l}{}\\
 \multicolumn{2}{l}{Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland }\\
@@ -243,7 +251,7 @@ Invoice  & 47 \\
 Date  & 11.11.2018 \\
 Customer No  & 100003 \\
 Due date  & 11.12.2018 \\
-Page  & 3 \\
+Page  & \\
 \end{longtable}
 Marco Alberti \\
 V. Campuréta 40 \\

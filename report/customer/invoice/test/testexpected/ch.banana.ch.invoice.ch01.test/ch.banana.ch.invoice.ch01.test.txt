@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/Users/claudia/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch01.test.js}
+%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch01.test.js}
 %
 \begin{testcase}{ReportCustomerInvoiceStyle01}
 \begin{test}{test1}
@@ -33,16 +33,19 @@
 \subsection{Test Invoice 35}
 \begin{reportvalue}{Test Invoice 35}
 \begin{longtable}[l]{ l }
+Invoice 35 \newline Date: 29.01.2018 \newline Customer No: 100002 \newline Payment: 30 days \newline Page:  \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
 BANANA.CH SA \newline \\
 Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
-Date: 29.01.2018 \newline Customer No: 100002 \newline Payment: 30 days \newline Page: 1 \newline  & Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
+Date: 29.01.2018 \newline Customer No: 100002 \newline Payment: 30 days \newline Page:  \newline  & Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l }
 Invoice 35 \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Sales merchandise, invoice \#35, customer B \newline \newline } & 2'000.00 \\
@@ -90,16 +93,19 @@ Via Trevano \\
 \subsection{Test Invoice 36}
 \begin{reportvalue}{Test Invoice 36}
 \begin{longtable}[l]{ l }
+Invoice 36 \newline Date: 01.02.2018 \newline Customer No: 100004 \newline Due date: 03.03.2018 \newline Page:  \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
 BANANA.CH SA \newline \\
 Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
-Date: 01.02.2018 \newline Customer No: 100004 \newline Due date: 03.03.2018 \newline Page: 1 \newline  & Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
+Date: 01.02.2018 \newline Customer No: 100004 \newline Due date: 03.03.2018 \newline Page:  \newline  & Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l }
 Invoice 36 \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Sales merchandise, invoice \#36, customer D \newline \newline } & 7'000.00 \\
@@ -108,12 +114,6 @@ Description  &  & Total CHF \\
 TOTAL CHF  &  & 7'000.00 \\
 \multicolumn{3}{l}{}\\
 \multicolumn{3}{l}{VAT 8.00\% = 518.52 CHF \newline }\\
-\end{longtable}
-\begin{longtable}[l]{ l }
-Invoice 36 \newline Date: 01.02.2018 \newline Customer No: 100004 \newline Due date: 03.03.2018 \newline Page: 2 \newline \\
-\end{longtable}
-\begin{longtable}[l]{ l  l  l  l }
-Description  &  & Total CHF \\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -146,28 +146,25 @@ V.Meggiagra 3 \\
 \subsection{Test Invoice 37}
 \begin{reportvalue}{Test Invoice 37}
 \begin{longtable}[l]{ l }
+Invoice 37 \newline Date: 03.02.2018 \newline Customer No: 100001 \newline Due date: 05.03.2018 \newline Page:  \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
 BANANA.CH SA \newline \\
 Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
-Date: 03.02.2018 \newline Customer No: 100001 \newline Due date: 05.03.2018 \newline Page: 2 \newline  & Carlo Rossi \newline Rossi SA \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
+Date: 03.02.2018 \newline Customer No: 100001 \newline Due date: 05.03.2018 \newline Page:  \newline  & Carlo Rossi \newline Rossi SA \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l }
 Invoice 37 \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Sales merchandise, invoice \#37, customer A \newline \newline } & 8'000.00 \\
 \multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
 \multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
 \multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
-\end{longtable}
-\begin{longtable}[l]{ l }
-Invoice 37 \newline Date: 03.02.2018 \newline Customer No: 100001 \newline Due date: 05.03.2018 \newline Page: 3 \newline \\
-\end{longtable}
-\begin{longtable}[l]{ l  l  l  l }
-Description  &  & Total CHF \\
 \multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
 \multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
 \multicolumn{2}{l}{Consultancy \newline \newline } & 100.00 \\
@@ -210,16 +207,19 @@ Via Trevano \\
 \subsection{Test Invoice 47}
 \begin{reportvalue}{Test Invoice 47}
 \begin{longtable}[l]{ l }
+Invoice 47 \newline Date: 11.11.2018 \newline Customer No: 100003 \newline Due date: 11.12.2018 \newline Page:  \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
 BANANA.CH SA \newline \\
 Banana.ch SA, Via Trevano 7a, 6900 Lugano, Switzerland \newline info@banana.ch, www.banana.ch \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
-Date: 11.11.2018 \newline Customer No: 100003 \newline Due date: 11.12.2018 \newline Page: 3 \newline  & Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
+Date: 11.11.2018 \newline Customer No: 100003 \newline Due date: 11.12.2018 \newline Page:  \newline  & Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l }
 Invoice 47 \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l }
 Description  &  & Total CHF \\
 \multicolumn{2}{l}{Product A \newline \newline } & 22.00 \\

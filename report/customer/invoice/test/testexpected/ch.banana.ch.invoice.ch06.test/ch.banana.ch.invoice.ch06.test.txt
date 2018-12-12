@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/Users/claudia/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch06.test.js}
+%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch06.test.js}
 %
 \begin{testcase}{ReportInvoiceTemplate6}
 \begin{test}{test1}
@@ -37,9 +37,14 @@
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  35 }\\
+Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
-Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  1 \\
+\multicolumn{4}{l}{INVOICE  35 }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{  }\\
+Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -58,13 +63,6 @@ Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 462.96 
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{Best regards, Banana.ch SA }\\
-\end{longtable}
-This is the beginning text... \\
-\begin{longtable}[l]{ l  l  l  l }
-Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  2 \\
-\end{longtable}
-\begin{longtable}[l]{ l  l  l  l }
-Description  & Quantity  & Unit price  & Total CHF \\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -101,9 +99,14 @@ Via Trevano \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  36 }\\
+Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
-Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  2 \\
+\multicolumn{4}{l}{INVOICE  36 }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{  }\\
+Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -116,7 +119,6 @@ Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.4
 \multicolumn{4}{l}{}\\
 Due date: 03.03.2018 \\
 \end{longtable}
-This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\
@@ -152,9 +154,14 @@ V.Meggiagra 3 \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  37 }\\
+Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
-Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  2 \\
+\multicolumn{4}{l}{INVOICE  37 }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{  }\\
+Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -162,13 +169,6 @@ Sales merchandise, invoice \#37, customer A \newline \newline  & 1.00  & 7'407.4
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
-\end{longtable}
-This is the beginning text... \\
-\begin{longtable}[l]{ l  l  l  l }
-Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  3 \\
-\end{longtable}
-\begin{longtable}[l]{ l  l  l  l }
-Description  & Quantity  & Unit price  & Total CHF \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
 Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
@@ -217,9 +217,14 @@ Via Trevano \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  47 }\\
+Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  \\
 \end{longtable}
+This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
-Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  3 \\
+\multicolumn{4}{l}{INVOICE  47 }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{  }\\
+Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -234,7 +239,6 @@ Discount 10\% product B \newline \newline  & 1.00  & -2.78  & -2.78 \\
 \multicolumn{4}{l}{}\\
 Due date: 11.12.2018 \\
 \end{longtable}
-This is the beginning text... \\
 Aaa \\
 Bbb \\
 6900 Lugano \\

@@ -1452,7 +1452,7 @@ function setInvoiceTexts(language) {
       texts.payment_terms_label = 'Pagamento';
       //texts.param_max_items_per_page = 'Numero di linee su ogni fattura';
    } else if (language == 'de') {
-      texts.customer = 'Kunde-Nr';
+      texts.customer = 'Kunden-Nr';
       texts.date = 'Datum';
       texts.description = 'Beschreibung';
       texts.invoice = 'Rechnung';
