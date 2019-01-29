@@ -45,14 +45,14 @@
       "decimals_amounts":2,
       "description":"",
       "doc_type":"10",
-      "greetings":"Best regards, Banana.ch SA",
+      "greetings":"Greetings text using the '10:gre' command in the DocType column",
       "locale":"en",
       "number":"35",
       "origin_row":"3",
       "origin_table":"Transactions",
       "printed":"",
       "rounding_total":"0.05",
-      "text_begin":"This is the beginning text...",
+      "text_begin":"This is the beginning text using the '10:beg' command in DocType column.",
       "type":"invoice"
    },
    "items":[
@@ -135,26 +135,32 @@
    "note":[
       {
          "date":"",
-         "description":"This is the first note.",
-         "origin_row":"12",
-         "origin_table":"Transactions"
-      },
-      {
-         "date":"",
-         "description":"This is the secon note.",
+         "description":" ",
          "origin_row":"13",
          "origin_table":"Transactions"
       },
       {
          "date":"",
-         "description":" ",
+         "description":"This is a note using the '10:not' command in the DocType column.",
          "origin_row":"14",
          "origin_table":"Transactions"
       },
       {
          "date":"",
-         "description":" ",
+         "description":"This is another note using the '10:not' command in the DocType column of the transactions table.",
          "origin_row":"15",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"16",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"17",
          "origin_table":"Transactions"
       }
    ],
@@ -164,8 +170,8 @@
    "payment_info":{
       "date_expected":"2018-02-28",
       "due_date":"2018-02-28",
-      "due_days":"",
-      "due_period":"4_Current",
+      "due_days":"335",
+      "due_period":"0_>90",
       "last_reminder":"",
       "last_reminder_date":"",
       "payment_date":""
@@ -182,14 +188,23 @@
       "postal_code":"6900",
       "web":"www.banana.ch"
    },
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            ]
+         }
+      ]
+   },
    "transactions":[
       {
-         "balance":"-5000.00",
-         "balance_base_currency":"",
+         "amount":"-5000.00",
          "currency":"CHF",
-         "date":"20180131",
+         "date":"2018-01-31",
          "description":"Payment Client B",
-         "origin_row":"18",
+         "origin_row":"19",
          "origin_table":"Transactions"
       }
    ],

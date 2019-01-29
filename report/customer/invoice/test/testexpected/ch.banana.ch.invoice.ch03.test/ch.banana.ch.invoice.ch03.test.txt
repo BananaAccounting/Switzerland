@@ -37,7 +37,7 @@
 \multicolumn{2}{l}{ Date: 29.01.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100002 }\\
 \multicolumn{2}{l}{ Payment: 30 days }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
 BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline info@banana.ch www.banana.ch \newline \\
@@ -53,9 +53,9 @@ BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline i
 \multicolumn{2}{l}{ Date: 29.01.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100002 }\\
 \multicolumn{2}{l}{ Payment: 30 days }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
-This is the beginning text... \\
+This is the beginning text using the '10:beg' command in DocType column. \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 1'851.85  & 1'851.85 \\
@@ -68,11 +68,13 @@ Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 462.96 
 \multicolumn{4}{l}{}\\
  & \multicolumn{2}{l}{TOTAL CHF } & 3'500.00 \\
 \multicolumn{4}{l}{}\\
-\multicolumn{4}{l}{This is the first note. }\\
-\multicolumn{4}{l}{This is the secon note. }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{This is a note using the '10:not' command in the DocType column. }\\
+\multicolumn{4}{l}{This is another note using the '10:not' command in the DocType column of the transactions table. }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-\multicolumn{4}{l}{Best regards, Banana.ch SA }\\
+\multicolumn{4}{l}{Greetings text using the '10:gre' command in the DocType column }\\
+\multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -109,7 +111,7 @@ Via Trevano \\
 \multicolumn{2}{l}{ Date: 01.02.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100004 }\\
 \multicolumn{2}{l}{ Due date: 03.03.2018 }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
 BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline info@banana.ch www.banana.ch \newline \\
@@ -125,9 +127,8 @@ BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline i
 \multicolumn{2}{l}{ Date: 01.02.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100004 }\\
 \multicolumn{2}{l}{ Due date: 03.03.2018 }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.48  & 6'481.48 \\
@@ -137,6 +138,7 @@ Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.4
  & VAT 8.00\%  & 6'481.48  & 518.52 \\
 \multicolumn{4}{l}{}\\
  & \multicolumn{2}{l}{TOTAL CHF } & 7'000.00 \\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
@@ -174,7 +176,7 @@ V.Meggiagra 3 \\
 \multicolumn{2}{l}{ Date: 03.02.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100001 }\\
 \multicolumn{2}{l}{ Due date: 05.03.2018 }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
 BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline info@banana.ch www.banana.ch \newline \\
@@ -190,9 +192,8 @@ BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline i
 \multicolumn{2}{l}{ Date: 03.02.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100001 }\\
 \multicolumn{2}{l}{ Due date: 05.03.2018 }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Sales merchandise, invoice \#37, customer A \newline \newline  & 1.00  & 7'407.41  & 7'407.41 \\
@@ -208,6 +209,7 @@ Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
  & VAT 8.00\%  & 7'962.95  & 637.05 \\
 \multicolumn{4}{l}{}\\
  & \multicolumn{2}{l}{TOTAL CHF } & 8'600.00 \\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
@@ -247,7 +249,7 @@ Via Trevano \\
 \multicolumn{2}{l}{ Date: 11.11.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100003 }\\
 \multicolumn{2}{l}{ Due date: 11.12.2018 }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
 \begin{longtable}[l]{ l  l }
 BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline info@banana.ch www.banana.ch \newline \\
@@ -263,9 +265,8 @@ BANANA.CH SA  & Via Trevano 7a \newline \newline 6900 Lugano \newline \newline i
 \multicolumn{2}{l}{ Date: 11.11.2018 }\\
 \multicolumn{2}{l}{ Customer No: 100003 }\\
 \multicolumn{2}{l}{ Due date: 11.12.2018 }\\
-\multicolumn{2}{l}{ Page:  }\\
+\multicolumn{2}{l}{ Page:  \#page-nr }\\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
 Product A \newline \newline  & 1.00  & 20.37  & 20.37 \\
@@ -277,6 +278,7 @@ Discount 10\% product B \newline \newline  & 1.00  & -2.78  & -2.78 \\
  & VAT 8.00\%  & 45.37  & 3.63 \\
 \multicolumn{4}{l}{}\\
  & \multicolumn{2}{l}{TOTAL CHF } & 49.00 \\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\

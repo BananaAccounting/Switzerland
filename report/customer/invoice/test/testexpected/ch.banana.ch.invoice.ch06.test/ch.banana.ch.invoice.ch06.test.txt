@@ -37,14 +37,14 @@
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  35 }\\
-Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  \\
+Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  \#page-nr \\
 \end{longtable}
-This is the beginning text... \\
+This is the beginning text using the '10:beg' command in DocType column. \\
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  35 }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  \\
+Date:  29.01.2018  & Customer No:  100002  & Total:  CHF 3'500.00  & Page:  \#page-nr \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -58,11 +58,13 @@ Sales merchandise, invoice \#35, customer B \newline \newline  & 1.00  & 462.96 
  &    & TOTAL CHF  & 3'500.00 \\
 \multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{Payment:  30 days }\\
-\multicolumn{4}{l}{This is the first note. }\\
-\multicolumn{4}{l}{This is the secon note. }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{This is a note using the '10:not' command in the DocType column. }\\
+\multicolumn{4}{l}{This is another note using the '10:not' command in the DocType column of the transactions table. }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-\multicolumn{4}{l}{Best regards, Banana.ch SA }\\
+\multicolumn{4}{l}{Greetings text using the '10:gre' command in the DocType column }\\
+\multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -99,14 +101,13 @@ Via Trevano \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  36 }\\
-Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  \\
+Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  \#page-nr \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  36 }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  \\
+Date:  01.02.2018  & Customer No:  100004  & Total:  CHF 7'000.00  & Page:  \#page-nr \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -118,6 +119,7 @@ Sales merchandise, invoice \#36, customer D \newline \newline  & 1.00  & 6'481.4
  &    & TOTAL CHF  & 7'000.00 \\
 \multicolumn{4}{l}{}\\
 Due date: 03.03.2018 \\
+\multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -154,14 +156,13 @@ V.Meggiagra 3 \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  37 }\\
-Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  \\
+Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  \#page-nr \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  37 }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  \\
+Date:  03.02.2018  & Customer No:  100001  & Total:  CHF 8'600.00  & Page:  \#page-nr \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -179,6 +180,7 @@ Consultancy \newline \newline  & 1.00  & 92.59  & 92.59 \\
  &    & TOTAL CHF  & 8'600.00 \\
 \multicolumn{4}{l}{}\\
 Due date: 05.03.2018 \\
+\multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -217,14 +219,13 @@ Via Trevano \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  47 }\\
-Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  \\
+Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  \#page-nr \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 \multicolumn{4}{l}{INVOICE  47 }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  \\
+Date:  11.11.2018  & Customer No:  100003  & Total:  CHF 49.00  & Page:  \#page-nr \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l }
 Description  & Quantity  & Unit price  & Total CHF \\
@@ -238,6 +239,7 @@ Discount 10\% product B \newline \newline  & 1.00  & -2.78  & -2.78 \\
  &    & TOTAL CHF  & 49.00 \\
 \multicolumn{4}{l}{}\\
 Due date: 11.12.2018 \\
+\multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
 Bbb \\

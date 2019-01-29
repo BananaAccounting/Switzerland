@@ -48,11 +48,10 @@
       "doc_type":"10",
       "locale":"en",
       "number":"47",
-      "origin_row":"38",
+      "origin_row":"39",
       "origin_table":"Transactions",
       "printed":"",
       "rounding_total":"0.05",
-      "text_begin":"This is the beginning text...",
       "type":"invoice"
    },
    "items":[
@@ -64,7 +63,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"38",
+         "origin_row":"39",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"20.37",
@@ -89,7 +88,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"39",
+         "origin_row":"40",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"27.78",
@@ -114,7 +113,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"40",
+         "origin_row":"41",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"-2.78",
@@ -141,8 +140,8 @@
    "payment_info":{
       "date_expected":"2018-12-11",
       "due_date":"2018-12-11",
-      "due_days":"",
-      "due_period":"4_Current",
+      "due_days":"49",
+      "due_period":"2_31-60",
       "last_reminder":"",
       "last_reminder_date":"",
       "payment_date":""
@@ -158,6 +157,16 @@
       "email":"info@banana.ch",
       "postal_code":"6900",
       "web":"www.banana.ch"
+   },
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            ]
+         }
+      ]
    },
    "transactions":[
 

@@ -49,11 +49,10 @@
       "doc_type":"10",
       "locale":"en",
       "number":"37",
-      "origin_row":"20",
+      "origin_row":"21",
       "origin_table":"Transactions",
       "printed":"",
       "rounding_total":"0.05",
-      "text_begin":"This is the beginning text...",
       "type":"invoice"
    },
    "items":[
@@ -65,7 +64,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"20",
+         "origin_row":"21",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"7407.41",
@@ -90,7 +89,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"21",
+         "origin_row":"22",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"92.59",
@@ -115,7 +114,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"22",
+         "origin_row":"23",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"92.59",
@@ -140,7 +139,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"23",
+         "origin_row":"24",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"92.59",
@@ -165,7 +164,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"24",
+         "origin_row":"25",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"92.59",
@@ -190,7 +189,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"25",
+         "origin_row":"26",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"92.59",
@@ -215,7 +214,7 @@
          "item_type":"item",
          "mesure_unit":"",
          "number":"",
-         "origin_row":"26",
+         "origin_row":"27",
          "origin_table":"Transactions",
          "quantity":"1",
          "total_amount_vat_exclusive":"92.59",
@@ -242,8 +241,8 @@
    "payment_info":{
       "date_expected":"2018-03-05",
       "due_date":"2018-03-05",
-      "due_days":"",
-      "due_period":"4_Current",
+      "due_days":"330",
+      "due_period":"0_>90",
       "last_reminder":"",
       "last_reminder_date":"",
       "payment_date":""
@@ -260,14 +259,23 @@
       "postal_code":"6900",
       "web":"www.banana.ch"
    },
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            ]
+         }
+      ]
+   },
    "transactions":[
       {
-         "balance":"-4000.00",
-         "balance_base_currency":"",
+         "amount":"-4000.00",
          "currency":"CHF",
-         "date":"20180401",
+         "date":"2018-04-01",
          "description":"Down payment invoice 37",
-         "origin_row":"30",
+         "origin_row":"31",
          "origin_table":"Transactions"
       }
    ],

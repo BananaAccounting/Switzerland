@@ -37,13 +37,13 @@
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Payment: \newline Page: \newline  & 35 \newline 29.01.2018 \newline 100002 \newline 30 days \newline \newline  & \\
+Invoice: \newline Date: \newline Customer No: \newline Payment: \newline Page: \newline  & 35 \newline 29.01.2018 \newline 100002 \newline 30 days \newline \#page-nr \newline  & \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Payment: \newline Page: \newline  & 35 \newline 29.01.2018 \newline 100002 \newline 30 days \newline \newline  & Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
+Invoice: \newline Date: \newline Customer No: \newline Payment: \newline Page: \newline  & 35 \newline 29.01.2018 \newline 100002 \newline 30 days \newline \#page-nr \newline  & Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
 \end{longtable}
-This is the beginning text... \\
+This is the beginning text using the '10:beg' command in DocType column. \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  &  &  & Total CHF \\
 Sales merchandise, invoice \#35, customer B \newline \newline  &  &  & 1'851.85 \\
@@ -56,11 +56,13 @@ Sales merchandise, invoice \#35, customer B \newline \newline  &  &  & 462.96 \\
 \multicolumn{4}{l}{}\\
  & TOTAL CHF  &    & 3'500.00 \\
 \multicolumn{4}{l}{}\\
-\multicolumn{4}{l}{This is the first note. }\\
-\multicolumn{4}{l}{This is the secon note. }\\
+\multicolumn{4}{l}{  }\\
+\multicolumn{4}{l}{This is a note using the '10:not' command in the DocType column. }\\
+\multicolumn{4}{l}{This is another note using the '10:not' command in the DocType column of the transactions table. }\\
 \multicolumn{4}{l}{  }\\
 \multicolumn{4}{l}{  }\\
-\multicolumn{4}{l}{Best regards, Banana.ch SA }\\
+\multicolumn{4}{l}{Greetings text using the '10:gre' command in the DocType column }\\
+\multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
 Bbb \\
@@ -97,13 +99,12 @@ Via Trevano \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 36 \newline 01.02.2018 \newline 100004 \newline 03.03.2018 \newline \newline  & \\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 36 \newline 01.02.2018 \newline 100004 \newline 03.03.2018 \newline \#page-nr \newline  & \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 36 \newline 01.02.2018 \newline 100004 \newline 03.03.2018 \newline \newline  & Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 36 \newline 01.02.2018 \newline 100004 \newline 03.03.2018 \newline \#page-nr \newline  & Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  &  &  & Total CHF \\
 Sales merchandise, invoice \#36, customer D \newline \newline  &  &  & 6'481.48 \\
@@ -113,6 +114,7 @@ Sales merchandise, invoice \#36, customer D \newline \newline  &  &  & 6'481.48 
  & VAT 8.00\%  &  & 518.52 \\
 \multicolumn{4}{l}{}\\
  & TOTAL CHF  &    & 7'000.00 \\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
@@ -150,13 +152,12 @@ V.Meggiagra 3 \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 37 \newline 03.02.2018 \newline 100001 \newline 05.03.2018 \newline \newline  & \\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 37 \newline 03.02.2018 \newline 100001 \newline 05.03.2018 \newline \#page-nr \newline  & \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 37 \newline 03.02.2018 \newline 100001 \newline 05.03.2018 \newline \newline  & Carlo Rossi \newline Rossi SA \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 37 \newline 03.02.2018 \newline 100001 \newline 05.03.2018 \newline \#page-nr \newline  & Carlo Rossi \newline Rossi SA \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  &  &  & Total CHF \\
 Sales merchandise, invoice \#37, customer A \newline \newline  &  &  & 7'407.41 \\
@@ -172,6 +173,7 @@ Consultancy \newline \newline  &  &  & 92.59 \\
  & VAT 8.00\%  &  & 637.05 \\
 \multicolumn{4}{l}{}\\
  & TOTAL CHF  &    & 8'600.00 \\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
@@ -211,13 +213,12 @@ Via Trevano \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 47 \newline 11.11.2018 \newline 100003 \newline 11.12.2018 \newline \newline  & \\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 47 \newline 11.11.2018 \newline 100003 \newline 11.12.2018 \newline \#page-nr \newline  & \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 \multicolumn{3}{l}{  }\\
-Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 47 \newline 11.11.2018 \newline 100003 \newline 11.12.2018 \newline \newline  & Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
+Invoice: \newline Date: \newline Customer No: \newline Due date: \newline Page: \newline  & 47 \newline 11.11.2018 \newline 100003 \newline 11.12.2018 \newline \#page-nr \newline  & Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
 \end{longtable}
-This is the beginning text... \\
 \begin{longtable}[l]{ l  l  l  l }
 Description  &  &  & Total CHF \\
 Product A \newline \newline  &  &  & 20.37 \\
@@ -229,6 +230,7 @@ Discount 10\% product B \newline \newline  &  &  & -2.78 \\
  & VAT 8.00\%  &  & 3.63 \\
 \multicolumn{4}{l}{}\\
  & TOTAL CHF  &    & 49.00 \\
+\multicolumn{4}{l}{}\\
 \multicolumn{4}{l}{}\\
 \end{longtable}
 Aaa \\
