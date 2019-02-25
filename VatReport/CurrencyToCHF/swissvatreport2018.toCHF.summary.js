@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport2018.toCHF.summary
 // @api = 1.0
-// @pubdate = 2018-05-22
+// @pubdate = 2019-02-25
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Report 2018, Summary currency to CHF (Beta)
 // @task = app.command
@@ -41,12 +41,12 @@ function loadParam(banDoc, startDate, endDate) {
     param = {
         "reportName" : "Swiss VAT Report 2018, Summary currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 9",
-        "scriptVersion" : "script v. 2018-05-22",
+        "scriptVersion" : "script v. 2019-02-25",
         "startDate" : startDate,
         "endDate" : endDate,
         "company" : Banana.document.info("AccountingDataBase","Company"),
         "grColumn" : "Gr1",
-        "rounding" : 2
+        "rounding" : 4
     };
 }
 
@@ -272,7 +272,7 @@ function createVatReport(banDoc, startDate, endDate) {
     tableRow = table.addRow();
     tableRow.addCell("289", "bold", 1);
     tableRow.addCell(param.description9, "bold", 1);
-    tableRow.addCell(formatNumber(tot289, true), "right", 1);
+    tableRow.addCell(formatNumber(tot289, true), "right bold", 1);
     tableRow.addCell("","",1);
     tot299 = Banana.SDecimal.subtract(tot299,tot289); //sum for 299 total
 
@@ -460,21 +460,26 @@ function getJournal() {
             line.vatamount = tRow.value("VatAmount");
             line.vatposted = tRow.value("VatPosted");
             line.amount = tRow.value("JAmount");
-
-            if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
-                //Return Object with properties 'date' and 'exchangeRate'
-                line.exchangerate = Banana.document.exchangeRate("CHF", line.date).exchangeRate;
-            } else {
-                //Return value
-                line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
-            }
-        
             line.doc = tRow.value("Doc");
             line.description = tRow.value("Description");
             line.isvatoperation = tRow.value("JVatIsVatOperation");
+            line.transactioncurrency = tRow.value("JTransactionCurrency");
+            line.transactioncurrencyconversionrate = tRow.value("JTransactionCurrencyConversionRate");
 
             //We take only the rows with a VAT code and then we convert values from base currency to CHF
             if (line.isvatoperation) {
+                if (line.transactioncurrency === "CHF") {
+                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
+                }
+                else {
+                    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+                        //Return Object with properties 'date' and 'exchangeRate'
+                        line.exchangerate = Banana.document.exchangeRate("CHF", line.date).exchangeRate;
+                    } else {
+                        //Return value
+                        line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+                    }
+                }
 
                 line.vattaxableCHF = convertBaseCurrencyToCHF(line.vattaxable, line.exchangerate);
                 line.vatamountCHF = convertBaseCurrencyToCHF(line.vatamount, line.exchangerate);

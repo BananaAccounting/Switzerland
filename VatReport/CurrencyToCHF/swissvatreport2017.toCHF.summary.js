@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport2017.toCHF.summary
 // @api = 1.0
-// @pubdate = 2018-05-22
+// @pubdate = 2019-02-25
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Report 2017, Summary currency to CHF (Beta)
 // @task = app.command
@@ -43,13 +43,13 @@ function loadParam(banDoc, startDate, endDate) {
     param = {
         "reportName" : "Swiss VAT Report Summary currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 8",
-        "scriptVersion" : "script v. 2018-05-22",
+        "scriptVersion" : "script v. 2019-02-25",
         "startDate" : startDate,
         "endDate" : endDate,
         "company" : Banana.document.info("AccountingDataBase","Company"),
         "pageCounterText" : "Page",
         "grColumn" : "Gr1",
-        "rounding" : 2
+        "rounding" : 4
     };
 }
 
@@ -488,22 +488,27 @@ function getJournal() {
             line.vattaxable = tRow.value("JVatTaxable");
             line.vatamount = tRow.value("VatAmount");
             line.vatposted = tRow.value("VatPosted");
-            line.amount = tRow.value("JAmount");
-
-            if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
-                //Return Object with properties 'date' and 'exchangeRate'
-                line.exchangerate = Banana.document.exchangeRate("CHF", line.date).exchangeRate;
-            } else {
-                //Return value
-                line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
-            }
-        
+            line.amount = tRow.value("JAmount");        
             line.doc = tRow.value("Doc");
             line.description = tRow.value("Description");
             line.isvatoperation = tRow.value("JVatIsVatOperation");
+            line.transactioncurrency = tRow.value("JTransactionCurrency");
+            line.transactioncurrencyconversionrate = tRow.value("JTransactionCurrencyConversionRate");
 
             //We take only the rows with a VAT code and then we convert values from base currency to CHF
             if (line.isvatoperation) {
+                if (line.transactioncurrency === "CHF") {
+                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
+                }
+                else {
+                    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+                        //Return Object with properties 'date' and 'exchangeRate'
+                        line.exchangerate = Banana.document.exchangeRate("CHF", line.date).exchangeRate;
+                    } else {
+                        //Return value
+                        line.exchangerate = Banana.document.exchangeRate("CHF", line.date);
+                    }
+                }
 
                 line.vattaxableCHF = convertBaseCurrencyToCHF(line.vattaxable, line.exchangerate);
                 line.vatamountCHF = convertBaseCurrencyToCHF(line.vatamount, line.exchangerate);
