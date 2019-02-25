@@ -49,7 +49,7 @@ function loadParam(banDoc, startDate, endDate) {
         "company" : Banana.document.info("AccountingDataBase","Company"),
         "pageCounterText" : "Page",
         "grColumn" : "Gr1",
-        "rounding" : 4
+        "rounding" : 2
     };
 }
 
@@ -498,7 +498,7 @@ function getJournal() {
             //We take only the rows with a VAT code and then we convert values from base currency to CHF
             if (line.isvatoperation) {
                 if (line.transactioncurrency === "CHF") {
-                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
+                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate);
                 }
                 else {
                     if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {

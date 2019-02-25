@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport.toCHF.transactions
 // @api = 1.0
-// @pubdate = 2018-03-09
+// @pubdate = 2019-02-25
 // @publisher = Banana.ch SA
 // @description = Transactions base currency to CHF (Beta)
 // @task = app.command
@@ -48,7 +48,7 @@ function loadParam(banDoc, startDate, endDate) {
         "scriptVersion" : "script v. 2018-03-09",
         "startDate" : startDate,
         "endDate" : endDate,
-        "rounding" : 4,
+        "rounding" : 2,
         "company" : banDoc.info("AccountingDataBase","Company"),
         "basicCurrency" : banDoc.info("AccountingDataBase","BasicCurrency"),
         "pageCounterText" : "Page",
@@ -193,7 +193,7 @@ function getJournal() {
             if (line.isvatoperation) {
 
                 if (line.transactioncurrency === "CHF") {
-                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate,{'decimals':param.rounding});
+                    line.exchangerate = Banana.SDecimal.divide(1,line.transactioncurrencyconversionrate);
                 }
                 else {
 
