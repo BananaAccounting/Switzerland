@@ -4,7 +4,7 @@
     "countryCode": "ch",
     "description": "Swiss VAT Report Base Currency not CHF",
     "id": "ch.banana.apps.swissvatreport.toCHF",
-    "language": "",
+    "language": "en",
     "publisher": "Banana.ch",
     "title": "Swiss VAT Report Base Currency not CHF",
     "version": "1.0"
