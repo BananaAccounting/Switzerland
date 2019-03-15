@@ -3,7 +3,6 @@
 		<file alias="manifest.json">swissvatreport.toCHF.manifest.json</file>
 		<file>swissvatreport2017.toCHF.summary.js</file>
 		<file>swissvatreport2018.toCHF.summary.js</file>
-		<file>swissvatreport2019.toCHF.summary.js</file>
 		<file>swissvatreport.toCHF.transactions.js</file>
 	</qresource>
 </RCC>

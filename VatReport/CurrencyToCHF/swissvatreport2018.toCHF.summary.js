@@ -14,9 +14,9 @@
 //
 // @id = ch.banana.addon.swissvatreport2018.toCHF.summary
 // @api = 1.0
-// @pubdate = 2019-02-25
+// @pubdate = 2019-03-15
 // @publisher = Banana.ch SA
-// @description = Swiss VAT Report 2018, Summary currency to CHF (Beta)
+// @description = Swiss VAT Report since 2018, Summary currency to CHF (Beta)
 // @task = app.command
 // @doctype = 100.130.*
 // @docproperties = 
@@ -39,11 +39,12 @@ var param = {};
 
 function loadParam(banDoc, startDate, endDate) {
     param = {
-        "reportName" : "Swiss VAT Report 2018, Summary currency to CHF (Beta)",
+        "reportName" : "Swiss VAT Report "+ Banana.Converter.toDate(startDate).getFullYear() +", Summary currency to CHF (Beta)",
         "bananaVersion" : "Banana Accounting 9",
-        "scriptVersion" : "script v. 2019-02-25",
+        "scriptVersion" : "script v. 2019-03-15",
         "startDate" : startDate,
         "endDate" : endDate,
+        "year": Banana.Converter.toDate(startDate).getFullYear(),
         "company" : Banana.document.info("AccountingDataBase","Company"),
         "grColumn" : "Gr1",
         "rounding" : 2
@@ -719,7 +720,7 @@ function addHeader(report, param) {
     if (param.company) {
         pageHeader.addParagraph(param.company, "heading");
     }
-    pageHeader.addParagraph("VAT Report 2018, Summary currency to CHF", "heading");
+    pageHeader.addParagraph("VAT Report " + param.year + ", Summary currency to CHF", "heading");
     pageHeader.addParagraph(Banana.Converter.toLocaleDateFormat(param.startDate) + " - " + Banana.Converter.toLocaleDateFormat(param.endDate), "");
     pageHeader.addParagraph(" ", "");
     pageHeader.addParagraph(" ", "");
