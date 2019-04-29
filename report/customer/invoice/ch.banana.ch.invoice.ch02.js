@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch02
 // @api = 1.0
-// @pubdate = 2018-08-06
+// @pubdate = 2019-04-26
 // @publisher = Banana.ch SA
 // @description = Style 2: Invoice with net amounts, quantity column, 3 colours
 // @description.it = Stile 2: Fattura con importi netti, colonna quantità, 3 colori
@@ -1566,7 +1566,7 @@ function setInvoiceTexts(language) {
       texts.param_isr_position_dY = 'ESR Y-Position mm (default 0)';
       texts.param_isr_on_new_page = 'ESR auf ein separates Blatt drucken (1=ja, 0=nein)';
       texts.payment_due_date_label = 'Fälligkeitsdatum';
-      texts.payment_terms_label = 'Zahlungsbedingungen';
+      texts.payment_terms_label = 'Zahlungsfrist';
       //texts.param_max_items_per_page = 'Anzahl der Zeilen auf jeder Rechnung';
    } else if (language == 'fr') {
       texts.customer = 'No Client';
