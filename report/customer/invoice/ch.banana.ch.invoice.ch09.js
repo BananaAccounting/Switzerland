@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch09.js
 // @api = 1.0
-// @pubdate = 2019-04-26
+// @pubdate = 2019-06-05
 // @publisher = Banana.ch SA
 // @description = [CH09]Invoice with Red Inpayment slip (IS), logo and address
 // @description.it = [CH09]Fattura con Polizza di versamento rossa (PV), logo e indirizzo
@@ -927,17 +927,27 @@ function print_isrAmount(jsonInvoice, report, repStyleObj) {
 
    //Receipt
    var totalInvoiceFr_REC = report.addSection("totalInvoiceFr_REC");
-   totalInvoiceFr_REC.addParagraph(res[0]);
-
    var totalInvoiceCts_REC = report.addSection("totalInvoiceCts_REC");
-   totalInvoiceCts_REC.addParagraph(res[1]);
-
    //Payment
    var totalInvoiceFr_PAY = report.addSection("totalInvoiceFr_PAY");
-   totalInvoiceFr_PAY.addParagraph(res[0]);
-
    var totalInvoiceCts_PAY = report.addSection("totalInvoiceCts_PAY");
-   totalInvoiceCts_PAY.addParagraph(res[1]);
+
+   if (Banana.SDecimal.sign(res[0]) > 0) {
+      //Receipt
+      totalInvoiceFr_REC.addParagraph(res[0]);
+      totalInvoiceCts_REC.addParagraph(res[1]);
+      //Payment
+      totalInvoiceFr_PAY.addParagraph(res[0]);
+      totalInvoiceCts_PAY.addParagraph(res[1]);
+   }
+   else {
+      //Receipt
+      totalInvoiceFr_REC.addParagraph("*");
+      totalInvoiceCts_REC.addParagraph("*");
+      //Payment
+      totalInvoiceFr_PAY.addParagraph("*");
+      totalInvoiceCts_PAY.addParagraph("*");
+   }
 }
 
 //The purpose of this function is to print the customer address in the correct position

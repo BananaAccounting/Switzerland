@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch03
 // @api = 1.0
-// @pubdate = 2019-04-26
+// @pubdate = 2019-06-05
 // @publisher = Banana.ch SA
 // @description = Style 3: Invoice with net amounts, quantity column, address on the left, 2 colours
 // @description.it = Stile 3: Fattura con importi netti, colonna quantità, indirizzo a sinistra, 2 colori
@@ -862,17 +862,27 @@ function print_isrAmount(jsonInvoice, report, repStyleObj) {
 
    //Receipt
    var totalInvoiceFr_REC = report.addSection("totalInvoiceFr_REC");
-   totalInvoiceFr_REC.addParagraph(res[0]);
-
    var totalInvoiceCts_REC = report.addSection("totalInvoiceCts_REC");
-   totalInvoiceCts_REC.addParagraph(res[1]);
-
    //Payment
    var totalInvoiceFr_PAY = report.addSection("totalInvoiceFr_PAY");
-   totalInvoiceFr_PAY.addParagraph(res[0]);
-
    var totalInvoiceCts_PAY = report.addSection("totalInvoiceCts_PAY");
-   totalInvoiceCts_PAY.addParagraph(res[1]);
+
+   if (Banana.SDecimal.sign(res[0]) > 0) {
+      //Receipt
+      totalInvoiceFr_REC.addParagraph(res[0]);
+      totalInvoiceCts_REC.addParagraph(res[1]);
+      //Payment
+      totalInvoiceFr_PAY.addParagraph(res[0]);
+      totalInvoiceCts_PAY.addParagraph(res[1]);
+   }
+   else {
+      //Receipt
+      totalInvoiceFr_REC.addParagraph("*");
+      totalInvoiceCts_REC.addParagraph("*");
+      //Payment
+      totalInvoiceFr_PAY.addParagraph("*");
+      totalInvoiceCts_PAY.addParagraph("*");
+   }
 }
 
 //The purpose of this function is to print the customer address in the correct position
@@ -926,7 +936,9 @@ function print_isrCode(jsonInvoice, report, repStyleObj, param) {
    }
 
    var pvrFullCode_PAY = report.addSection("pvrFullCode_PAY");
-   pvrFullCode_PAY.addParagraph(pvrFullCode);
+   if (Banana.SDecimal.sign(amount) >= 0) {
+      pvrFullCode_PAY.addParagraph(pvrFullCode);
+   }
 }
 
 //The purpose of this function is return a complete address
