@@ -867,7 +867,7 @@ function print_isrAmount(jsonInvoice, report, repStyleObj) {
    var totalInvoiceFr_PAY = report.addSection("totalInvoiceFr_PAY");
    var totalInvoiceCts_PAY = report.addSection("totalInvoiceCts_PAY");
 
-   if (Banana.SDecimal.sign(res[0]) > 0) {
+   if (Banana.SDecimal.sign(str) > 0) {
       //Receipt
       totalInvoiceFr_REC.addParagraph(res[0]);
       totalInvoiceCts_REC.addParagraph(res[1]);
