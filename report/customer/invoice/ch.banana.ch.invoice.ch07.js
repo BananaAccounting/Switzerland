@@ -942,11 +942,11 @@ function print_isrAmount(jsonInvoice, report, repStyleObj) {
    }
    else {
       //Receipt
-      totalInvoiceFr_REC.addParagraph("*");
-      totalInvoiceCts_REC.addParagraph("*");
+      totalInvoiceFr_REC.addParagraph("***");
+      totalInvoiceCts_REC.addParagraph("**");
       //Payment
-      totalInvoiceFr_PAY.addParagraph("*");
-      totalInvoiceCts_PAY.addParagraph("*");
+      totalInvoiceFr_PAY.addParagraph("***");
+      totalInvoiceCts_PAY.addParagraph("**");
    }
 }
 
