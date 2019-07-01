@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.camt
 // @api = 1.0
-// @pubdate = 2018-04-26
+// @pubdate = 2019-07-01
 // @publisher = Banana.ch SA
 // @description = Bank statement Camt ISO 20022 (Switzerland)
 // @description.de = Bankauszug Camt ISO 20022 (Schweiz)
@@ -47,7 +47,7 @@ function exec(string) {
 
    // Read transactions
    var transactions = camtFile.readTransactions();
-   var headersProperties = ['Date', 'DateValue', 'DocInvoice', 'ExternalReference', 'Description', 'Income', 'Expenses', 'IsDetail'];
+   var headersProperties = ['Date', 'DateValue', 'DocInvoice', 'ExternalReference', 'Description', 'Income', 'Expenses', 'ContraAccount', 'Cc1', 'Cc2', 'Cc3', 'IsDetail'];
    var csv = Banana.Converter.objectArrayToCsv(headersProperties, transactions, '\t');
 
    return csv;
@@ -105,6 +105,7 @@ function settingsDialog() {
       currentParam.name = 'add_counterpart_transaction';
       currentParam.title = isoCamtReader.tr('add_counterpart_transaction', lang);
       currentParam.type = 'bool';
+      currentParam.defaultvalue = true;
       currentParam.value = params.add_counterpart_transaction ? true : false;
       currentParam.readValue = function() {
          params.add_counterpart_transaction = this.value;
@@ -115,6 +116,7 @@ function settingsDialog() {
       currentParam.name = 'invoice_no_extract';
       currentParam.title = isoCamtReader.tr('invoice_no_extract', lang);
       currentParam.type = 'bool';
+      currentParam.defaultvalue = false;
       currentParam.value = params.invoice_no.extract ? true : false;
       currentParam.readValue = function() {
          params.invoice_no.extract = this.value;
@@ -126,7 +128,8 @@ function settingsDialog() {
       currentParam.parentObject = 'invoice_no_extract';
       currentParam.title = isoCamtReader.tr('invoice_no_start', lang);
       currentParam.type = 'string';
-      currentParam.value = params.invoice_no.start ? params.invoice_no.start.toString() : '0';
+      currentParam.defaultvalue = '0';
+      currentParam.value = params.invoice_no.start ? params.invoice_no.start.toString() : currentParam.defaultvalue;
       currentParam.readValue = function() {
          params.invoice_no.start = this.value.trim();
       }
@@ -137,7 +140,8 @@ function settingsDialog() {
       currentParam.parentObject = 'invoice_no_extract';
       currentParam.title = isoCamtReader.tr('invoice_no_length', lang);
       currentParam.type = 'string';
-      currentParam.value = params.invoice_no.count ? params.invoice_no.count.toString() : '-1';
+      currentParam.defaultvalue = '-1';
+      currentParam.value = params.invoice_no.count ? params.invoice_no.count.toString() : currentParam.defaultvalue;
       currentParam.readValue = function() {
          params.invoice_no.count = this.value.trim();
       }
@@ -148,9 +152,69 @@ function settingsDialog() {
       currentParam.parentObject = 'invoice_no_extract';
       currentParam.title = isoCamtReader.tr('invoice_no_method', lang);
       currentParam.type = 'string';
-      currentParam.value = params.invoice_no.method ? params.invoice_no.method : '';
+      currentParam.defaultvalue = '';
+      currentParam.value = params.invoice_no.method ? params.invoice_no.method : currentParam.defaultvalue;
       currentParam.readValue = function() {
          params.invoice_no.method = this.value.trim();
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'customer_no_extract';
+      currentParam.title = isoCamtReader.tr('customer_no_extract', lang);
+      currentParam.type = 'bool';
+      currentParam.defaultvalue = false;
+      currentParam.value = params.customer_no.extract ? true : false;
+      currentParam.readValue = function() {
+         params.customer_no.extract = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'customer_no_start';
+      currentParam.parentObject = 'customer_no_extract';
+      currentParam.title = isoCamtReader.tr('customer_no_start', lang);
+      currentParam.type = 'string';
+      currentParam.defaultvalue = '0';
+      currentParam.value = params.customer_no.start ? params.customer_no.start.toString() : currentParam.defaultvalue;
+      currentParam.readValue = function() {
+         params.customer_no.start = this.value.trim();
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'customer_no_length';
+      currentParam.parentObject = 'customer_no_extract';
+      currentParam.title = isoCamtReader.tr('customer_no_length', lang);
+      currentParam.type = 'string';
+      currentParam.defaultvalue = '-1';
+      currentParam.value = params.customer_no.count ? params.customer_no.count.toString() : currentParam.defaultvalue;
+      currentParam.readValue = function() {
+         params.customer_no.count = this.value.trim();
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'customer_no_use_cc';
+      currentParam.parentObject = 'customer_no_extract';
+      currentParam.title = isoCamtReader.tr('customer_no_use_cc', lang);
+      currentParam.type = 'string';
+      currentParam.defaultvalue = '';
+      currentParam.value = params.customer_no.use_cc ? params.customer_no.use_cc : currentParam.defaultvalue;
+      currentParam.readValue = function() {
+         params.customer_no.use_cc = this.value.trim();
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'customer_no_method';
+      currentParam.parentObject = 'customer_no_extract';
+      currentParam.title = isoCamtReader.tr('customer_no_method', lang);
+      currentParam.type = 'string';
+      currentParam.defaultvalue = '';
+      currentParam.value = params.customer_no.method ? params.customer_no.method : currentParam.defaultvalue;
+      currentParam.readValue = function() {
+         params.customer_no.method = this.value.trim();
       }
       convertedParam.data.push(currentParam);
 
@@ -234,6 +298,13 @@ ISO20022CamtFile.prototype.defaultParameters = function() {
    params.invoice_no.start = 0;
    params.invoice_no.count = -1;
    params.invoice_no.method = '';
+
+   params.customer_no = {};
+   params.customer_no.extract = false;
+   params.customer_no.start = 0;
+   params.customer_no.count = -1;
+   params.customer_no.use_cc = '';
+   params.customer_no.method = '';
 
    return params;
 }
@@ -519,8 +590,27 @@ ISO20022CamtFile.prototype.readStatementEntry = function(entryNode) {
                   'Income': deatailsIsCredit ? deatailAmount : '',
                   'Expenses': deatailsIsCredit ? '' : deatailAmount,
                   'ExternalReference': detailExternalReference,
+                  'ContraAccount': '',
+                  'Cc1': '',
+                  'Cc2': '',
+                  'Cc3': '',
                   'IsDetail': this.params.add_counterpart_transaction && txDtlsCount > 1 ? 'D' : ''
                };
+
+               if (this.params.customer_no.extract) { // Set customer number
+                  var customerNumber = this.extractCustomerNumber(detailEsrReference);
+                  var ccPrefix = deatailsIsCredit ? '-' : '';
+                  if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC1') {
+                     transaction.Cc1 = ccPrefix + customerNumber;
+                  } else if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC2') {
+                     transaction.Cc2 = ccPrefix + customerNumber;
+                  } else if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC3') {
+                     transaction.Cc3 = ccPrefix + customerNumber;
+                  } else {
+                     transaction.ContraAccount = customerNumber;
+                  }
+               }
+
                transactions.push(transaction);
                txDtlsCount++;
 
@@ -535,6 +625,10 @@ ISO20022CamtFile.prototype.readStatementEntry = function(entryNode) {
                'Income': entryIsCredit ? entryAmount : '',
                'Expenses': entryIsCredit ? '' : entryAmount,
                'ExternalReference': entryExternalReference,
+               'ContraAccount': '',
+               'Cc1': '',
+               'Cc2': '',
+               'Cc3': '',
                'IsDetail': ''
             };
             transactions.push(transaction);
@@ -553,6 +647,10 @@ ISO20022CamtFile.prototype.readStatementEntry = function(entryNode) {
          'Income': entryIsCredit ? entryAmount : '',
          'Expenses': entryIsCredit ? '' : entryAmount,
          'ExternalReference': entryExternalReference,
+         'ContraAccount': '',
+         'Cc1': '',
+         'Cc2': '',
+         'Cc3': '',
          'IsDetail': ''
       };
       transactions.push(transaction);
@@ -728,7 +826,39 @@ ISO20022CamtFile.prototype.extractInvoiceNumber = function(esrNumber) {
       }
    }
 
+   // Remove traling zeros
+   invoiceNumber = invoiceNumber.replace(/^0+/, '')
+
    return invoiceNumber;
+}
+
+ISO20022CamtFile.prototype.extractCustomerNumber = function(esrNumber) {
+
+   if (!esrNumber || esrNumber.length <= 0)
+      return '';
+
+   var customerNumber = esrNumber;
+
+   // First apply start / length extraction
+   if (this.params.customer_no.start !== 0 || this.params.customer_no.count !== -1) {
+      if (this.params.customer_no.count === -1)
+         customerNumber = customerNumber.substr(this.params.customer_no.start);
+      else
+         customerNumber = customerNumber.substr(this.params.customer_no.start, this.params.customer_no.count);
+   }
+
+   // Second apply method if defined
+   if (this.params.customer_no.method.length > 0) {
+      var customerMethod = eval(this.params.customer_no.method);
+      if (typeof(customerMethod) === 'function') {
+         customerNumber = customerMethod(customerNumber);
+      }
+   }
+
+   // Remove traling zeros
+   customerNumber = customerNumber.replace(/^0+/, '')
+
+   return customerNumber;
 }
 
 ISO20022CamtFile.prototype.firstGrandChildElement = function(node, childs) {
@@ -762,6 +892,11 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
    texts.invoice_no_start = 'Start position';
    texts.invoice_no_length = 'Number of characters (-1 = all)';
    texts.invoice_no_method = 'Function (optional)';
+   texts.customer_no_extract = 'Extract customer account from Isr reference';
+   texts.customer_no_start = 'Start position';
+   texts.customer_no_length = 'Number of characters (-1 = all)';
+   texts.customer_no_use_cc = 'Cost center for customer accounts (optional)';
+   texts.customer_no_method = 'Function (optional)';
 
    texts.legacy_add_counterpart_transaction = 'Add counterpart transactions (0 or empty = No; 1 = Yes)';
    texts.legacy_invoice_no_extract = 'Extract invoice number from Isr reference (0 or empty = No; 1 = Yes)';
@@ -779,6 +914,11 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.invoice_no_start = 'Posizione di inizio';
       texts.invoice_no_length = 'Numero di carateri (-1 = tutti)';
       texts.invoice_no_method = 'Funzione (opzionale)';
+      texts.customer_no_extract = 'Estrai conto cliente dal numero di riferimento PVR';
+      texts.customer_no_start = 'Posizione di inizio';
+      texts.customer_no_length = 'Numero di carateri (-1 = tutti)';
+      texts.customer_no_use_cc = 'Centro di costo per i conti cliente (opzionale)';
+      texts.customer_no_method = 'Funzione (opzionale)';
 
       texts.legacy_add_counterpart_transaction = 'Aggiungi registrazione di contropartita (0 o vuoto = No; 1 = Si)';
       texts.legacy_invoice_no_extract = 'Estrai numero fattura dal numero di riferimento PVR (0 o vuoto = No; 1 = Si)';
@@ -795,6 +935,11 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.invoice_no_start = 'Anfangsposition';
       texts.invoice_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.invoice_no_method = 'Funktion (optional)';
+      texts.customer_no_extract = 'Kundenkonte aus ESR-Referenznummer extrahieren';
+      texts.customer_no_start = 'Anfangsposition';
+      texts.customer_no_length = 'Anzahl Zeichen (-1 = Alle)';
+      texts.customer_no_use_cc = 'Kostenstelle für die Kundenkonten (optional)';
+      texts.customer_no_method = 'Funktion (optional)';
 
       texts.legacy_add_counterpart_transaction = 'Gegenbuchung hinzufügen (0 oder leer = Nein; 1 = Ja)';
       texts.legacy_invoice_no_extract = 'Rechnungsnummer aus ESR-Referenznummer extrahieren (0 oder leer = Nein; 1 = Ja)';
@@ -811,6 +956,11 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.invoice_no_start = 'Position de départ';
       texts.invoice_no_length = 'Nombre de caractères (-1 = tous)';
       texts.invoice_no_method = 'Fonction (optionnel)';
+      texts.customer_no_extract = 'Extraire le compte client depuis le numéro de référence BVR';
+      texts.customer_no_start = 'Position de départ';
+      texts.customer_no_length = 'Nombre de caractères (-1 = tous)';
+      texts.customer_no_use_cc = 'Centre de coût pour les comptes clients (optional)';
+      texts.customer_no_method = 'Fonction (optionnel)';
 
       texts.legacy_add_counterpart_transaction = 'Ajouter écriture de contrepartie (0 ou vide = Non; 1 = Oui)';
       texts.legacy_invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence BVR (0 ou vide = Non; 1 = Oui)';
