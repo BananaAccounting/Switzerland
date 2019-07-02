@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.camt
 // @api = 1.0
-// @pubdate = 2019-07-01
+// @pubdate = 2019-07-02
 // @publisher = Banana.ch SA
 // @description = Bank statement Camt ISO 20022 (Switzerland)
 // @description.de = Bankauszug Camt ISO 20022 (Schweiz)
@@ -151,6 +151,7 @@ function settingsDialog() {
       currentParam.name = 'invoice_no_method';
       currentParam.parentObject = 'invoice_no_extract';
       currentParam.title = isoCamtReader.tr('invoice_no_method', lang);
+      currentParam.tooltip = isoCamtReader.tr('invoice_no_method_tooltip', lang);
       currentParam.type = 'string';
       currentParam.defaultvalue = '';
       currentParam.value = params.invoice_no.method ? params.invoice_no.method : currentParam.defaultvalue;
@@ -198,6 +199,7 @@ function settingsDialog() {
       currentParam.name = 'customer_no_use_cc';
       currentParam.parentObject = 'customer_no_extract';
       currentParam.title = isoCamtReader.tr('customer_no_use_cc', lang);
+      currentParam.tooltip = isoCamtReader.tr('customer_no_use_cc_tooltip', lang);
       currentParam.type = 'string';
       currentParam.defaultvalue = '';
       currentParam.value = params.customer_no.use_cc ? params.customer_no.use_cc : currentParam.defaultvalue;
@@ -210,6 +212,7 @@ function settingsDialog() {
       currentParam.name = 'customer_no_method';
       currentParam.parentObject = 'customer_no_extract';
       currentParam.title = isoCamtReader.tr('customer_no_method', lang);
+      currentParam.tooltip = isoCamtReader.tr('customer_no_method_tooltip', lang);
       currentParam.type = 'string';
       currentParam.defaultvalue = '';
       currentParam.value = params.customer_no.method ? params.customer_no.method : currentParam.defaultvalue;
@@ -276,12 +279,14 @@ function ISO20022CamtFile() {
    this.document = null;
    this.lang = 'en';
    this.params = this.defaultParameters();
-   var savedParam = Banana.document.getScriptSettings();
-   if (savedParam.length > 0) {
-      try {
-         this.params = JSON.parse(savedParam);
-      } catch(err) {
-         Banana.console.log(err.toString());
+   if (Banana.document) {
+      var savedParam = Banana.document.getScriptSettings();
+      if (savedParam.length > 0) {
+         try {
+            this.params = JSON.parse(savedParam);
+         } catch(err) {
+            Banana.console.log(err.toString());
+         }
       }
    }
 }
@@ -314,6 +319,10 @@ ISO20022CamtFile.prototype.setDocument = function(xml) {
       this.document = Banana.Xml.parse(xml);
    else
       this.document = xml;
+}
+
+ISO20022CamtFile.prototype.setParams = function(params) {
+   this.params = params;
 }
 
 ISO20022CamtFile.prototype.readTransactions = function() {
@@ -892,11 +901,15 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
    texts.invoice_no_start = 'Start position';
    texts.invoice_no_length = 'Number of characters (-1 = all)';
    texts.invoice_no_method = 'Function (optional)';
+   texts.invoice_no_method_tooltip = 'Function to extract the invoice number, ex.: "(function(text) {return text.substr(11,7);})"';
    texts.customer_no_extract = 'Extract customer account from Isr reference';
    texts.customer_no_start = 'Start position';
    texts.customer_no_length = 'Number of characters (-1 = all)';
    texts.customer_no_use_cc = 'Cost center for customer accounts (optional)';
+   texts.customer_no_use_cc_tooltip = 'Leave empty (default) if balance sheet accounts are used for customer accounts. ' +
+         'Insert "Cc1", "Cc2" or "Cc3" if cost centers are used for customer accounts.';
    texts.customer_no_method = 'Function (optional)';
+   texts.customer_no_method_tooltip = 'Function to extract the customer account, ex.: "(function(text) {return text.substr(18,7);})"';
 
    texts.legacy_add_counterpart_transaction = 'Add counterpart transactions (0 or empty = No; 1 = Yes)';
    texts.legacy_invoice_no_extract = 'Extract invoice number from Isr reference (0 or empty = No; 1 = Yes)';
@@ -912,13 +925,17 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.add_counterpart_transaction = 'Aggiungi registrazione di contropartita';
       texts.invoice_no_extract = 'Estrai numero fattura dal numero di riferimento PVR';
       texts.invoice_no_start = 'Posizione di inizio';
-      texts.invoice_no_length = 'Numero di carateri (-1 = tutti)';
+      texts.invoice_no_length = 'Numero di caratteri (-1 = tutti)';
       texts.invoice_no_method = 'Funzione (opzionale)';
+      texts.invoice_no_method_tooltip = 'Funzione per estrarre il numero di fattura, es.: "(function(text) {return text.substr(11,7);})"';
       texts.customer_no_extract = 'Estrai conto cliente dal numero di riferimento PVR';
       texts.customer_no_start = 'Posizione di inizio';
-      texts.customer_no_length = 'Numero di carateri (-1 = tutti)';
+      texts.customer_no_length = 'Numero di caratteri (-1 = tutti)';
       texts.customer_no_use_cc = 'Centro di costo per i conti cliente (opzionale)';
+      texts.customer_no_use_cc_tooltip = 'Lasciare vuoto (predefinito) se si utilizzano conti di bilancio per gli account clienti. ' +
+            'Inserisci "Cc1", "Cc2" o "Cc3" se si utilizzano i centri di costo per gli account clienti';
       texts.customer_no_method = 'Funzione (opzionale)';
+      texts.customer_no_method_tooltip = 'Funzione per estrarre l\'account del cliente, es .: "(function(text) {return text.substr(18,7);})"';
 
       texts.legacy_add_counterpart_transaction = 'Aggiungi registrazione di contropartita (0 o vuoto = No; 1 = Si)';
       texts.legacy_invoice_no_extract = 'Estrai numero fattura dal numero di riferimento PVR (0 o vuoto = No; 1 = Si)';
@@ -935,11 +952,15 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.invoice_no_start = 'Anfangsposition';
       texts.invoice_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.invoice_no_method = 'Funktion (optional)';
+      texts.invoice_no_method_tooltip = 'Funktion zum Extrahieren der Rechnungsnummer, zB: "(function(text) {return text.substr(11,7);})"';
       texts.customer_no_extract = 'Kundenkonte aus ESR-Referenznummer extrahieren';
       texts.customer_no_start = 'Anfangsposition';
       texts.customer_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.customer_no_use_cc = 'Kostenstelle für die Kundenkonten (optional)';
+      texts.customer_no_use_cc_tooltip = 'Leer lassen (Standard), wenn Bilanzkonten für Kundenkonten verwendet werden.' +
+            '"Cc1", "Cc2" o "Cc3" eingeben, wenn Kostenstellen für Kundenkonten verwendet werden.';
       texts.customer_no_method = 'Funktion (optional)';
+      texts.customer_no_method_tooltip = 'Funktion zum Extrahieren des Kundenkontos, zB: "(function(text) {return text.substr(18,7);})"';
 
       texts.legacy_add_counterpart_transaction = 'Gegenbuchung hinzufügen (0 oder leer = Nein; 1 = Ja)';
       texts.legacy_invoice_no_extract = 'Rechnungsnummer aus ESR-Referenznummer extrahieren (0 oder leer = Nein; 1 = Ja)';
@@ -956,11 +977,15 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.invoice_no_start = 'Position de départ';
       texts.invoice_no_length = 'Nombre de caractères (-1 = tous)';
       texts.invoice_no_method = 'Fonction (optionnel)';
+      texts.invoice_no_method_tooltip = 'Fonction pour extraire le numéro de facture, ex.: "(function(text) {return text.substr(11,7);})"';
       texts.customer_no_extract = 'Extraire le compte client depuis le numéro de référence BVR';
       texts.customer_no_start = 'Position de départ';
       texts.customer_no_length = 'Nombre de caractères (-1 = tous)';
       texts.customer_no_use_cc = 'Centre de coût pour les comptes clients (optional)';
+      texts.customer_no_use_cc_tooltip = 'Laisser vide (par défaut) si les comptes du bilan sont utilisés pour les comptes clients.' +
+            'Insérer "Cc1", "Cc2" ou "Cc3" si les centres de coûts sont utilisés pour les comptes clients.';
       texts.customer_no_method = 'Fonction (optionnel)';
+      texts.customer_no_method_tooltip = 'Fonction pour extraire le compte client, ex .: "(function(text) {return text.substr(18,7);})"';
 
       texts.legacy_add_counterpart_transaction = 'Ajouter écriture de contrepartie (0 ou vide = Non; 1 = Oui)';
       texts.legacy_invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence BVR (0 ou vide = Non; 1 = Oui)';
