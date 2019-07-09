@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.camt
 // @api = 1.0
-// @pubdate = 2019-07-02
+// @pubdate = 2019-07-09
 // @publisher = Banana.ch SA
 // @description = Bank statement Camt ISO 20022 (Switzerland)
 // @description.de = Bankauszug Camt ISO 20022 (Schweiz)
