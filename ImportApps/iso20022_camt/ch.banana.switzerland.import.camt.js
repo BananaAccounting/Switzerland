@@ -81,6 +81,8 @@ function settingsDialog() {
    if (savedParam.length > 0) {
       try {
          params = JSON.parse(savedParam);
+         if (!params.customer_no)
+            params.customer_no = {};
       } catch(err) {
          Banana.console.log(err.toString());
       }
@@ -606,7 +608,7 @@ ISO20022CamtFile.prototype.readStatementEntry = function(entryNode) {
                   'IsDetail': this.params.add_counterpart_transaction && txDtlsCount > 1 ? 'D' : ''
                };
 
-               if (this.params.customer_no.extract) { // Set customer number
+               if (this.params.customer_no && this.params.customer_no.extract) { // Set customer number
                   var customerNumber = this.extractCustomerNumber(detailEsrReference);
                   var ccPrefix = deatailsIsCredit ? '-' : '';
                   if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC1') {
@@ -848,24 +850,26 @@ ISO20022CamtFile.prototype.extractCustomerNumber = function(esrNumber) {
 
    var customerNumber = esrNumber;
 
-   // First apply start / length extraction
-   if (this.params.customer_no.start !== 0 || this.params.customer_no.count !== -1) {
-      if (this.params.customer_no.count === -1)
-         customerNumber = customerNumber.substr(this.params.customer_no.start);
-      else
-         customerNumber = customerNumber.substr(this.params.customer_no.start, this.params.customer_no.count);
-   }
-
-   // Second apply method if defined
-   if (this.params.customer_no.method.length > 0) {
-      var customerMethod = eval(this.params.customer_no.method);
-      if (typeof(customerMethod) === 'function') {
-         customerNumber = customerMethod(customerNumber);
+   if (this.params.customer_no) {
+      // First apply start / length extraction
+      if (this.params.customer_no.start !== 0 || this.params.customer_no.count !== -1) {
+         if (this.params.customer_no.count === -1)
+            customerNumber = customerNumber.substr(this.params.customer_no.start);
+         else
+            customerNumber = customerNumber.substr(this.params.customer_no.start, this.params.customer_no.count);
       }
-   }
 
-   // Remove traling zeros
-   customerNumber = customerNumber.replace(/^0+/, '')
+      // Second apply method if defined
+      if (this.params.customer_no.method.length > 0) {
+         var customerMethod = eval(this.params.customer_no.method);
+         if (typeof(customerMethod) === 'function') {
+            customerNumber = customerMethod(customerNumber);
+         }
+      }
+
+      // Remove traling zeros
+      customerNumber = customerNumber.replace(/^0+/, '')
+   }
 
    return customerNumber;
 }
