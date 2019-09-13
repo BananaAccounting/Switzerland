@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch02
 // @api = 1.0
-// @pubdate = 2019-06-05
+// @pubdate = 2019-09-13
 // @publisher = Banana.ch SA
 // @description = Style 2: Invoice with net amounts, quantity column, 3 colours
 // @description.it = Stile 2: Fattura con importi netti, colonna quantità, 3 colori
@@ -1604,7 +1604,7 @@ function setInvoiceTexts(language) {
       texts.param_font_family = 'Police de caractère';
       texts.param_print_header = 'Inclure en-tête de page (1=oui, 0=non)';
       texts.param_print_isr = 'Imprimer BVR (1=oui, 0=non)';
-      texts.param_isr_bank_name = 'Compte bancaire (seulement avec compte bancaire, avec compte postal laisser vide)';
+      texts.param_isr_bank_name = 'Nom de la banque (seulement avec compte bancaire, avec compte postal laisser vide)';
       texts.param_isr_bank_address = 'Adresse de la banque (seulement avec compte bancaire, avec compte postal laisser vide)';
       texts.param_isr_account = 'Compte BVR (numéro de client BVR)';
       texts.param_isr_id = 'Numéro d’adhérent BVR (seulement avec compte bancaire, avec compte postal laisser vide)';
