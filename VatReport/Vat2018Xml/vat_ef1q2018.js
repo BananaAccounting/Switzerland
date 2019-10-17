@@ -14,7 +14,7 @@
 //
 // @id = vat_ef1q2018.js
 // @api = 1.0
-// @pubdate = 2018-09-25
+// @pubdate = 2019-10-17
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -259,11 +259,13 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
             return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare a Banana Experimental";
+            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità. Aggiornare Banana alla versione più recente";
+         else if (lang == 'fr')
+            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité. S'il vous plaît mettre à jour à la dernière version de Banana";
          else if (lang == 'de')
-            return "Das Skript funktionert mit Ihrer Version von Banana Buchhaltung nicht. Bitte auf Banana Experimental aktualisieren";
+            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt. Auf neuste Version von Banana Buchhaltung aktualisieren";
          else
-            return "This script does not run with your version of Banana Accounting. Please update to Banana Experimental";
+            return "This script does not run with your current version of Banana Accounting. Please update to the latest version";
 	}
    return '';
 }
