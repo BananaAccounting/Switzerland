@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.camt
 // @api = 1.0
-// @pubdate = 2019-09-23
+// @pubdate = 2019-10-28
 // @publisher = Banana.ch SA
 // @description = Bank statement Camt ISO 20022 (Switzerland)
 // @description.de = Bankauszug Camt ISO 20022 (Schweiz)
@@ -603,7 +603,7 @@ ISO20022CamtFile.prototype.readStatementEntry = function(entryNode) {
                if (txDtlsCount === 1) {
                   deatailAmount = entryAmount;
                   detailExternalReference = entryExternalReference;
-                  detailDescription = this.joinNotEmpty([entryDescription, detailDescription, entryDetailsBatchMsgId], ' / ');
+                  detailDescription = this.joinNotEmpty([detailDescription, entryDetailsBatchMsgId, entryDescription], ' / ');
                }
 
                transaction = {
@@ -732,6 +732,10 @@ ISO20022CamtFile.prototype.readStatementEntryDetailsDescription = function(detai
          detailsDescriptionTexts.push(ustrdString);
          ustrdNode = ustrdNode.nextSiblingElement('Ustrd');
       }
+   } else if (detailsNode.hasChildElements('AddtlTxInf')) {
+      var addtlTxInfString = detailsNode.firstChildElement('AddtlTxInf').text.trim();
+      if (addtlTxInfString.length > 0)
+         detailsDescriptionTexts.push(addtlTxInfString);
    }
 
    var rmtInfRefNode = this.firstGrandChildElement(detailsNode, ['RmtInf','Strd','CdtrRefInf','Ref']);
