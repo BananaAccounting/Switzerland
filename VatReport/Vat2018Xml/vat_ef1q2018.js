@@ -101,7 +101,6 @@ function VatCHEff(banDocument) {
    this.helpId = "vat_ef1q2018.js";
 
    //errors
-   this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
    this.ID_ERR_ORGANISATIONID = "ID_ERR_ORGANISATIONID";
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
@@ -236,13 +235,6 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
    if (!lang)
       lang = 'en';
    switch (errorId) {
-      case this.ID_ERR_METHOD_NOTSUPPORTED:
-         if (lang == 'it')
-            return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
-         else if (lang == 'de')
-            return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
-         else
-            return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_ORGANISATIONID:
          if (lang == 'it')
             return "Il numero IVA della vostra società non è valido oppure mancante. Impostare o correggere con il comando a menu 'File' - 'Proprietà file', scheda 'indirizzo'";
@@ -259,13 +251,13 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
             return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità, aggiornare alla versione più recente. Versione minimina richiesta: %1";
+            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità. Versione minimina richiesta: %1. Per aggiornare o per maggiori informazioni cliccare su Aiuto";
          else if (lang == 'fr')
-            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité, mettre à jour à la dernière version. Version minimale requise: %1";
+            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité. Version minimale requise: %1. Pour mettre à jour ou pour plus d'informations, cliquez sur Aide";
          else if (lang == 'de')
-            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt, auf neuste Version aktualisieren. Mindestversion erforderlich: %1";
+            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt. Mindestversion erforderlich: %1. Klicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
          else
-            return "This script does not run with your current version of Banana Accounting, please update to the latest version. Minimum version required: %1";
+            return "This script does not run with your current version of Banana Accounting. Minimum version required: %1. To update or for more information click on Help";
 	}
    return '';
 }
@@ -311,8 +303,12 @@ VatCHEff.prototype.getJournal = function () {
 }
 
 VatCHEff.prototype.getLang = function () {
-   var lang = this.banDocument.locale;
-   if (lang && lang.length > 2)
+   var lang = 'en';
+   if (Banana.application.locale)
+      lang = Banana.application.locale;
+   else if (this.banDocument)
+      lang = this.banDocument.locale;
+   if (lang.length > 2)
       lang = lang.substr(0, 2);
    return lang;
 }
