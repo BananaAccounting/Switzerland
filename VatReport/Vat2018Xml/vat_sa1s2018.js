@@ -14,7 +14,7 @@
 //
 // @id = vat_sa1s2018.js
 // @api = 1.0
-// @pubdate = 2019-10-17
+// @pubdate = 2019-11-15
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -106,7 +106,7 @@ function VatCHSaldo(banDocument) {
    this.ID_ERR_TAXRATE_NOTONGROSS = "ID_ERR_TAXRATE_NOTONGROSS";
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_TAXRATE_TOOMANY = "ID_ERR_TAXRATE_TOOMANY";
-   this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
+   this.ID_ERR_VERSION_NOTSUPPORTED = "ERR_VERSION_NOTSUPPORTED";
  
    this.dataObject = {};
 }
@@ -305,13 +305,13 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
             return "At group %1 only one tax rate is allowed. Please check the tax rates related to this group";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità. Versione minimina richiesta: %1. Per aggiornare o per maggiori informazioni cliccare su Aiuto";
+            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità.\nVersione minimina richiesta: %1.\nPer aggiornare o per maggiori informazioni cliccare su Aiuto";
          else if (lang == 'fr')
-            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité. Version minimale requise: %1. Pour mettre à jour ou pour plus d'informations, cliquez sur Aide";
+            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité.\nVersion minimale requise: %1.\nPour mettre à jour ou pour plus d'informations, cliquez sur Aide";
          else if (lang == 'de')
-            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt. Mindestversion erforderlich: %1. Klicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
+            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt.\nMindestversion erforderlich: %1.\nKlicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
          else
-            return "This script does not run with your current version of Banana Accounting. Minimum version required: %1. To update or for more information click on Help";
+            return "This script does not run with your current version of Banana Accounting.\nMinimum version required: %1.\nTo update or for more information click on Help";
 	}
    return '';
 }
