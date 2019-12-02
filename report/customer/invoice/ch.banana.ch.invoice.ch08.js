@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch08.js
 // @api = 1.0
-// @pubdate = 2019-04-26
+// @pubdate = 2019-09-13
 // @publisher = Banana.ch SA
 // @description = Style 8: Total column, logo, 2 colors
 // @description.it = Stile 8: colonna totale, logo, 2 colori
@@ -892,17 +892,27 @@ function print_isrAmount(jsonInvoice, report, repStyleObj) {
 
    //Receipt
    var totalInvoiceFr_REC = report.addSection("totalInvoiceFr_REC");
-   totalInvoiceFr_REC.addParagraph(res[0]);
-
    var totalInvoiceCts_REC = report.addSection("totalInvoiceCts_REC");
-   totalInvoiceCts_REC.addParagraph(res[1]);
-
    //Payment
    var totalInvoiceFr_PAY = report.addSection("totalInvoiceFr_PAY");
-   totalInvoiceFr_PAY.addParagraph(res[0]);
-
    var totalInvoiceCts_PAY = report.addSection("totalInvoiceCts_PAY");
-   totalInvoiceCts_PAY.addParagraph(res[1]);
+
+   if (Banana.SDecimal.sign(str) > 0) {
+      //Receipt
+      totalInvoiceFr_REC.addParagraph(res[0]);
+      totalInvoiceCts_REC.addParagraph(res[1]);
+      //Payment
+      totalInvoiceFr_PAY.addParagraph(res[0]);
+      totalInvoiceCts_PAY.addParagraph(res[1]);
+   }
+   else {
+      //Receipt
+      totalInvoiceFr_REC.addParagraph("***");
+      totalInvoiceCts_REC.addParagraph("**");
+      //Payment
+      totalInvoiceFr_PAY.addParagraph("***");
+      totalInvoiceCts_PAY.addParagraph("**");
+   }
 }
 
 //The purpose of this function is to print the customer address in the correct position
@@ -956,7 +966,9 @@ function print_isrCode(jsonInvoice, report, repStyleObj, param) {
    }
 
    var pvrFullCode_PAY = report.addSection("pvrFullCode_PAY");
-   pvrFullCode_PAY.addParagraph(pvrFullCode);
+   if (Banana.SDecimal.sign(amount) >= 0) {
+      pvrFullCode_PAY.addParagraph(pvrFullCode);
+   }
 }
 
 //The purpose of this function is return a complete address
@@ -1550,7 +1562,7 @@ function setInvoiceTexts(language) {
     texts.param_print_header = 'Inclure en-tête de page (1=oui, 0=non)';
     texts.param_print_logo = 'Imprimer logo (1=oui, 0=non)';
     texts.param_print_isr = 'Imprimer BVR (1=oui, 0=non)';
-    texts.param_isr_bank_name = 'Compte bancaire (seulement avec compte bancaire, avec compte postal laisser vide)';
+    texts.param_isr_bank_name = 'Nom de la banque (seulement avec compte bancaire, avec compte postal laisser vide)';
     texts.param_isr_bank_address = 'Adresse de la banque (seulement avec compte bancaire, avec compte postal laisser vide)';
     texts.param_isr_account = 'Compte BVR (numéro de client BVR)';
     texts.param_isr_id = 'Numéro d’adhérent BVR (seulement avec compte bancaire, avec compte postal laisser vide)';

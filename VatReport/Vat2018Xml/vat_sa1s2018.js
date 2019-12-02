@@ -14,7 +14,7 @@
 //
 // @id = vat_sa1s2018.js
 // @api = 1.0
-// @pubdate = 2018-09-28
+// @pubdate = 2019-11-15
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -102,12 +102,11 @@ function VatCHSaldo(banDocument) {
    this.helpId = "vat_sa1s2018.js";
 
    //errors
-   this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
    this.ID_ERR_ORGANISATIONID = "ID_ERR_ORGANISATIONID";
    this.ID_ERR_TAXRATE_NOTONGROSS = "ID_ERR_TAXRATE_NOTONGROSS";
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
    this.ID_ERR_TAXRATE_TOOMANY = "ID_ERR_TAXRATE_TOOMANY";
-   this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
+   this.ID_ERR_VERSION_NOTSUPPORTED = "ERR_VERSION_NOTSUPPORTED";
  
    this.dataObject = {};
 }
@@ -198,14 +197,14 @@ VatCHSaldo.prototype.checkTaxRates = function (vatBalances, grText) {
 	         msg = msg.replace("%1", object.vatGr);
             msg = msg.replace("%2", object.vatRate);
             msg = msg.replace("%3", object.vatCode);
-            this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_NOTVALID);
+            this.banDocument.addMessage(msg, this.ID_ERR_TAXRATE_NOTVALID);
          }*/
          if (usedTaxRates.length<=0)
             usedTaxRates.push(object.vatRate);
          if (usedTaxRates.indexOf(object.vatRate)<0) {
             var msg = this.getErrorMessage(this.ID_ERR_TAXRATE_TOOMANY, this.getLang());
 	         msg = msg.replace("%1", object.vatGr);
-            this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_TOOMANY);
+            this.banDocument.addMessage(msg, this.ID_ERR_TAXRATE_TOOMANY);
          }
          //controlla anche se l'iva è calcolata sul lordo
          var rowVatCodes = tableVatCodes.findRowByValue('VatCode', object.vatCode);
@@ -214,7 +213,7 @@ VatCHSaldo.prototype.checkTaxRates = function (vatBalances, grText) {
             if (!vatRateOnGross) {
                var msg = this.getErrorMessage(this.ID_ERR_TAXRATE_NOTONGROSS, this.getLang());
 	            msg = msg.replace("%1", object.vatCode);
-               this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_NOTONGROSS);
+               this.banDocument.addMessage(msg, this.ID_ERR_TAXRATE_NOTONGROSS);
             }
          }
       }
@@ -276,13 +275,6 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
    if (!lang)
       lang = 'en';
    switch (errorId) {
-      case this.ID_ERR_METHOD_NOTSUPPORTED:
-         if (lang == 'it')
-            return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
-         else if (lang == 'de')
-            return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
-         else
-            return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_ORGANISATIONID:
          if (lang == 'it')
             return "Il numero IVA della vostra società non è valido oppure mancante. Impostare o correggere con il comando a menu 'File' - 'Proprietà file', scheda 'indirizzo'";
@@ -313,11 +305,13 @@ VatCHSaldo.prototype.getErrorMessage = function (errorId, lang) {
             return "At group %1 only one tax rate is allowed. Please check the tax rates related to this group";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare a Banana Experimental";
+            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità.\nVersione minimina richiesta: %1.\nPer aggiornare o per maggiori informazioni cliccare su Aiuto";
+         else if (lang == 'fr')
+            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité.\nVersion minimale requise: %1.\nPour mettre à jour ou pour plus d'informations, cliquez sur Aide";
          else if (lang == 'de')
-            return "Das Skript funktionert mit Ihrer Version von Banana Buchhaltung nicht. Bitte auf Banana Experimental aktualisieren";
+            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt.\nMindestversion erforderlich: %1.\nKlicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
          else
-            return "This script does not run with your version of Banana Accounting. Please update to Banana Experimental";
+            return "This script does not run with your current version of Banana Accounting.\nMinimum version required: %1.\nTo update or for more information click on Help";
 	}
    return '';
 }
@@ -363,8 +357,12 @@ VatCHSaldo.prototype.getJournal = function () {
 }
 
 VatCHSaldo.prototype.getLang = function () {
-   var lang = this.banDocument.locale;
-   if (lang && lang.length > 2)
+   var lang = 'en';
+   if (Banana.application.locale)
+      lang = Banana.application.locale;
+   else if (this.banDocument)
+      lang = this.banDocument.locale;
+   if (lang.length > 2)
       lang = lang.substr(0, 2);
    return lang;
 }
@@ -1114,10 +1112,11 @@ VatCHSaldo.prototype.verifyBananaVersion = function () {
    var lang = this.getLang();
 
    //From Experimental 06/09/2018
-   var requiredVersion = "9.0.3.180906";
+   var requiredVersion = "9.0.4";
    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
       var msg = this.getErrorMessage(this.ID_ERR_VERSION_NOTSUPPORTED, lang);
-      this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_VERSION_NOTSUPPORTED);
+      msg = msg.replace("%1", requiredVersion);
+      this.banDocument.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
       return false;
    }
 

@@ -136,7 +136,7 @@ VatCHSaldoXml.prototype.addGeneralInformation = function (xml) {
    }
    if (uidOrganisationId.length != 9) {
       var msg = this.vatCHSaldo.getErrorMessage(this.vatCHSaldo.ID_ERR_ORGANISATIONID, this.vatCHSaldo.getLang());
-      this.banDocument.addMessage(msg, this.vatCHSaldo.helpId + "::" + this.vatCHSaldo.ID_ERR_ORGANISATIONID);
+      this.banDocument.addMessage(msg, this.vatCHSaldo.ID_ERR_ORGANISATIONID);
    }
    var organisationName = '';
    if (company) {

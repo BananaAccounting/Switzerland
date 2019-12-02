@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.addon.swissvatreport2018.toCHF.summary
 // @api = 1.0
-// @pubdate = 2019-03-15
+// @pubdate = 2019-10-22
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Report since 2018, Summary currency to CHF (Beta)
 // @task = app.command
@@ -557,13 +557,13 @@ function getGr1VatBalance(banDoc, transactions, grText, vatClass, startDate, end
 
     //The "vatClass" decides which value to use
     if (vatClass == "1") {
-        return Banana.Converter.toInternalNumberFormat(currentBal.vatTaxableCHF);
+        return currentBal.vatTaxableCHF;
     }
     else if (vatClass == "2") {
         return Banana.SDecimal.invert(currentBal.vatTaxableCHF);
     }
     else if (vatClass == "3") {
-        return Banana.Converter.toInternalNumberFormat(currentBal.vatPostedCHF);
+        return currentBal.vatPostedCHF;
     }
     else if (vatClass == "4") {
         return Banana.SDecimal.invert(currentBal.vatPostedCHF);

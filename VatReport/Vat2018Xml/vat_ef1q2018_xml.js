@@ -157,7 +157,7 @@ VatCHEffXml.prototype.addGeneralInformation = function (xml) {
    }
    if (uidOrganisationId.length != 9) {
       var msg = this.vatCHEff.getErrorMessage(this.vatCHEff.ID_ERR_ORGANISATIONID, this.vatCHEff.getLang());
-      this.banDocument.addMessage(msg, this.vatCHEff.helpId + "::" + this.vatCHEff.ID_ERR_ORGANISATIONID);
+      this.banDocument.addMessage(msg, this.vatCHEff.ID_ERR_ORGANISATIONID);
    }
    
    var organisationName = '';

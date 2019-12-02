@@ -14,7 +14,7 @@
 //
 // @id = vat_ef1q2018.js
 // @api = 1.0
-// @pubdate = 2018-09-25
+// @pubdate = 2019-11-15
 // @publisher = Banana.ch SA
 // @description = VAT return since 2018
 // @description.it = Rendiconto IVA dal 2018
@@ -101,10 +101,9 @@ function VatCHEff(banDocument) {
    this.helpId = "vat_ef1q2018.js";
 
    //errors
-   this.ID_ERR_METHOD_NOTSUPPORTED = "ID_ERR_METHOD_NOTSUPPORTED";
    this.ID_ERR_ORGANISATIONID = "ID_ERR_ORGANISATIONID";
    this.ID_ERR_TAXRATE_NOTVALID = "ID_ERR_TAXRATE_NOTVALID";
-   this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
+   this.ID_ERR_VERSION_NOTSUPPORTED = "ERR_VERSION_NOTSUPPORTED";
    
    this.dataObject = {};
    //from 200 to 299 and from 400 to 910 no tax rate definition
@@ -176,7 +175,7 @@ VatCHEff.prototype.checkTaxRates = function (vatBalances, grText) {
 	         msg = msg.replace("%1", object.vatGr);
             msg = msg.replace("%2", object.vatRate);
             msg = msg.replace("%3", object.vatCode);
-            this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_TAXRATE_NOTVALID);
+            this.banDocument.addMessage(msg, this.ID_ERR_TAXRATE_NOTVALID);
          }
       }
    }
@@ -236,13 +235,6 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
    if (!lang)
       lang = 'en';
    switch (errorId) {
-      case this.ID_ERR_METHOD_NOTSUPPORTED:
-         if (lang == 'it')
-            return "Metodo %1 non supportato. Aggiornare Banana alla versione più recente";
-         else if (lang == 'de')
-            return "Methode %1 nicht unterstützt. Auf neuste Version von Banana Buchhaltung aktualisieren";
-         else
-            return "Method %1 not supported. Please update to a more recent version of Banana Accounting";
       case this.ID_ERR_ORGANISATIONID:
          if (lang == 'it')
             return "Il numero IVA della vostra società non è valido oppure mancante. Impostare o correggere con il comando a menu 'File' - 'Proprietà file', scheda 'indirizzo'";
@@ -259,11 +251,13 @@ VatCHEff.prototype.getErrorMessage = function (errorId, lang) {
             return "At group %1 the tax rate %2 is not permitted. Please check the vat code %3";   
       case this.ID_ERR_VERSION_NOTSUPPORTED:
          if (lang == 'it')
-            return "Lo script non funziona con la vostra versione di Banana Contabilità. Aggiornare a Banana Experimental";
+            return "Lo script non funziona con la vostra attuale versione di Banana Contabilità.\nVersione minimina richiesta: %1.\nPer aggiornare o per maggiori informazioni cliccare su Aiuto";
+         else if (lang == 'fr')
+            return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité.\nVersion minimale requise: %1.\nPour mettre à jour ou pour plus d'informations, cliquez sur Aide";
          else if (lang == 'de')
-            return "Das Skript funktionert mit Ihrer Version von Banana Buchhaltung nicht. Bitte auf Banana Experimental aktualisieren";
+            return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt.\nMindestversion erforderlich: %1.\nKlicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
          else
-            return "This script does not run with your version of Banana Accounting. Please update to Banana Experimental";
+            return "This script does not run with your current version of Banana Accounting.\nMinimum version required: %1.\nTo update or for more information click on Help";
 	}
    return '';
 }
@@ -309,8 +303,12 @@ VatCHEff.prototype.getJournal = function () {
 }
 
 VatCHEff.prototype.getLang = function () {
-   var lang = this.banDocument.locale;
-   if (lang && lang.length > 2)
+   var lang = 'en';
+   if (Banana.application.locale)
+      lang = Banana.application.locale;
+   else if (this.banDocument)
+      lang = this.banDocument.locale;
+   if (lang.length > 2)
       lang = lang.substr(0, 2);
    return lang;
 }
@@ -986,11 +984,12 @@ VatCHEff.prototype.verifyBananaVersion = function () {
 
    var lang = this.getLang();
 
-   //From Experimental 06/09/2018
-   var requiredVersion = "9.0.3.180906";
+   //Version 9.0.4 is required for method addItems (used by dialogs)
+   var requiredVersion = "9.0.4";
    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
       var msg = this.getErrorMessage(this.ID_ERR_VERSION_NOTSUPPORTED, lang);
-      this.banDocument.addMessage(msg, this.helpId + "::" + this.ID_ERR_VERSION_NOTSUPPORTED);
+      msg = msg.replace("%1", requiredVersion);
+      this.banDocument.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
       return false;
    }
 
