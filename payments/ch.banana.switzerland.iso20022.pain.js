@@ -151,8 +151,8 @@ function evAccountIdChanged(selectedAccountId, paymentData) {
 	}
 
     data.accountId = accountId;
-    data.iban = "iban";
-    data.name = "name";
+    data.iban = "iban " + accountId;
+    data.name = "name " + accountId;
     return JSON.stringify(data, null, '   ');
 }
 
