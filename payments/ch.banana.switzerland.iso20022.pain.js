@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// @id = ch.banana.ch.export.pain001.js
+// @id = ch.banana.switzerland.iso20022.pain
 // @api = 1.0
 // @pubdate = 2019-12-04
 // @publisher = Banana.ch SA
