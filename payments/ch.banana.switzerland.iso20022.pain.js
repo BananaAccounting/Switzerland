@@ -17,7 +17,7 @@
 // @pubdate = 2019-12-04
 // @publisher = Banana.ch SA
 // @description =  Credit transfer files creation for Switzerland (Swiss Payment Standards PAIN.001)
-// @task = payment
+// @task = accounting.payment
 // @doctype = *
 
 var ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
@@ -208,7 +208,7 @@ function getEditorParamsIban(paymentData) {
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentData.accountId ? paymentData.accountId : '';
     currentParam.items = loadAccounts();
-    currentParam.currentIndexChanged = 'evAccountIdChanged';
+    //currentParam.currentIndexChanged = 'evAccountIdChanged';
     currentParam.readValue = function () {
         paymentData.accountId = this.value;
     }
@@ -665,7 +665,7 @@ function loadAccounts() {
         var tRow = table.row(i);
         var accountId = tRow.value('Account');
         var bClass = tRow.value('BClass');
-        if (accountId.length > 0 && (bClass == "1" || bClass == "2")) {
+        if (accountId.length > 0 && (bClass != "3" || bClass != "4")) {
             var description = tRow.value('Description');
             str.push(accountId + SEPARATOR_CHAR + description);
         }
