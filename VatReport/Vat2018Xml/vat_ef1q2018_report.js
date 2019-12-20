@@ -293,9 +293,8 @@ VatCHEffReport.prototype.createVatReport = function () {
    tableRow.addCell("", "", 1);
 
    //280
-   var descriptionVariousDeduction = this.vatCHEff.param.xml.descriptionVariousDeduction;
    tableRow = table.addRow();
-   tableRow.addCell(descriptionVariousDeduction, "", 6);
+   tableRow.addCell(this.vatCHEff.texts.description12, "", 6);
    tableRow.addCell("280", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange ", 1);
    tableRow.addCell(this.vatCHEff.dataObject["280"].taxableformatted, "right dataCell ", 1);

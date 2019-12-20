@@ -284,9 +284,8 @@ VatCHSaldoReport.prototype.createVatReport = function () {
    tableRow.addCell("", "", 1);
 
    //280
-   var descriptionVariousDeduction = this.vatCHSaldo.param.xml.descriptionVariousDeduction;
    tableRow = table.addRow();
-   tableRow.addCell(descriptionVariousDeduction, "", 6);
+   tableRow.addCell(this.vatCHSaldo.texts.description11, "", 6);
    tableRow.addCell("280", "borderLeft underline bold", 1);
    tableRow.addCell("+", "orange ", 1);
    tableRow.addCell(this.vatCHSaldo.dataObject["280"].taxableformatted, "right dataCell ", 1);

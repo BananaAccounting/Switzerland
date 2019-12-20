@@ -358,10 +358,10 @@ VatCHSaldo.prototype.getJournal = function () {
 
 VatCHSaldo.prototype.getLang = function () {
    var lang = 'en';
-   if (Banana.application.locale)
-      lang = Banana.application.locale;
-   else if (this.banDocument)
+   if (this.banDocument)
       lang = this.banDocument.locale;
+   else if (Banana.application.locale)
+      lang = Banana.application.locale;
    if (lang.length > 2)
       lang = lang.substr(0, 2);
    return lang;
@@ -1155,11 +1155,12 @@ VatCHSaldo.prototype.verifyParam = function () {
       this.param.xml.typeOfSubmission = '1';
    if (!this.param.xml.formOfReporting)
       this.param.xml.formOfReporting = '1';
-   var variousDeduction = '';
-   if (this.texts.description11)
-      variousDeduction = this.texts.description11;
-   if (!this.param.xml.descriptionVariousDeduction || this.param.xml.descriptionVariousDeduction.length<=0)
+   if (!this.param.xml.descriptionVariousDeduction) {
+      var variousDeduction = '';
+      if  (this.texts && this.texts.variousDeduction)
+         variousDeduction = this.texts.variousDeduction;
       this.param.xml.descriptionVariousDeduction = variousDeduction;
+   }
    if (!this.param.xml.activity322)
       this.param.xml.activity322 = 'Activity 322...';
    if (!this.param.xml.activity332)
