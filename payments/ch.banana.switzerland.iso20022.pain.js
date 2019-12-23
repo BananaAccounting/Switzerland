@@ -23,14 +23,26 @@
 var ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
 var ID_ERR_PAYMENTMETHOD_NOTSUPPORTED = "ID_ERR_PAYMENTMETHOD_NOTSUPPORTED";
 var ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
+
+var ID_PAIN_001_001_03 = "PAIN_001_001_03";
+var ID_PAIN_001_001_03_CH_02 = "PAIN_001_001_03_CH_02";
+
+var ID_PAYMENT_IBAN = "IBAN";
+var ID_PAYMENT_IS = "IS";
+var ID_PAYMENT_ISR = "ISR";
+var ID_PAYMENT_QRCODE = "QRCODE";
+
 var SEPARATOR_CHAR = '\xa0';
 
-function createTransferFile(msgId, executionDate, accountData, paymentData) {
+
+function createTransferFile(msgId, executionDate, accountData, paymentData, schema) {
 
     /*Banana.console.debug("msgId: " + msgId);
     Banana.console.debug("executionDate: " + executionDate);
     Banana.console.debug("accountDataObj: " + JSON.stringify(accountData, null, '   '));
     Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentData, null, '   '));*/
+	
+	Banana.console.debug("schema: " + schema);
 
     if (!Banana.document)
         return "@cancel";
@@ -106,10 +118,10 @@ function createTransferFile(msgId, executionDate, accountData, paymentData) {
         transfer.setIban(paymentDataObj[i].iban);	//IBAN or account number
         transfer.setCreditorReference(paymentDataObj[i].referenceNumber);	//Creditor Reference Information
 
-        if (methodId == ID_PAYMENT_METHOD_ISR) {
+        if (methodId == ID_PAYMENT_ISR) {
             transfer.setLocalInstrumentProprietary("CH01");
         }
-        else if (methodId == ID_PAYMENT_METHOD_IS) {
+        else if (methodId == ID_PAYMENT_IS) {
             transfer.setLocalInstrumentProprietary("CH03");
         }
 
@@ -135,6 +147,14 @@ function createTransferFile(msgId, executionDate, accountData, paymentData) {
     return "@cancel";
 }
 
+/**
+ * Return a document patch which contains the changes to apply to a banana document
+ */
+function dataToDocumentPatch(paymentData) 
+{ 
+    return paymentData;
+}
+
 function evAccountIdChanged(selectedAccountId, paymentData) {
     var data = {};
     try {
@@ -142,13 +162,13 @@ function evAccountIdChanged(selectedAccountId, paymentData) {
     } catch (e) {
         Banana.document.addMessage(e);
     }
-	
-    var posStart=0;
-	var accountId = selectedAccountId;
-	if (accountId.lastIndexOf(SEPARATOR_CHAR)>0) {
-		posStart = accountId.lastIndexOf(SEPARATOR_CHAR);
-		accountId = accountId.substr(0, posStart);
-	}
+
+    var posStart = 0;
+    var accountId = selectedAccountId;
+    if (accountId.lastIndexOf(SEPARATOR_CHAR) > 0) {
+        posStart = accountId.lastIndexOf(SEPARATOR_CHAR);
+        accountId = accountId.substr(0, posStart);
+    }
 
     data.accountId = accountId;
     data.iban = "iban " + accountId;
@@ -160,15 +180,20 @@ function getEditorParams(paymentData) {
     var convertedParam = {};
 
     var methodId = getPaymentMethodSelected(paymentData);
-    if (methodId == ID_PAYMENT_METHOD_ISR) {
+	Banana.console.debug("xxxxxxxxx" + methodId);
+    Banana.console.debug("paymentData----------: " + JSON.stringify(paymentData, null, '   '));
+    if (methodId == ID_PAYMENT_ISR) {
         convertedParam = getEditorParamsIsr(paymentData);
     }
-    else if (methodId == ID_PAYMENT_METHOD_IS || methodId == ID_PAYMENT_METHOD_IBAN) {
+    else if (methodId == ID_PAYMENT_IS || methodId == ID_PAYMENT_IBAN) {
         convertedParam = getEditorParamsIban(paymentData);
     }
-    else if (methodId == ID_PAYMENT_METHOD_QRCODE) {
+    else if (methodId == ID_PAYMENT_QRCODE) {
         convertedParam = getEditorParamsQrCode(paymentData);
     }
+	else {
+		return convertedParam;
+	}
 
     convertedParam.readValues = function () {
         for (var i = 0; i < convertedParam.data.length; i++) {
@@ -208,7 +233,7 @@ function getEditorParamsIban(paymentData) {
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentData.accountId ? paymentData.accountId : '';
     currentParam.items = loadAccounts();
-    //currentParam.currentIndexChanged = 'evAccountIdChanged';
+    currentParam.currentIndexChanged = 'evAccountIdChanged';
     currentParam.readValue = function () {
         paymentData.accountId = this.value;
     }
@@ -614,11 +639,8 @@ function getErrorMessage(errorId) {
     return '';
 }
 
-var ID_PAYMENT_METHOD_IBAN = "IBAN";
-var ID_PAYMENT_METHOD_IS = "IS";
-var ID_PAYMENT_METHOD_ISR = "ISR";
-var ID_PAYMENT_METHOD_QRCODE = "QRCODE";
-
+/** Return the list of supported transactions types as an object with the properties 'id' and 'description'. 
+*/
 function getPaymentMethods() {
     var lang = 'en';
     if (Banana.document && Banana.document.locale)
@@ -629,10 +651,10 @@ function getPaymentMethods() {
     //texts.DescriptionIban
 
     var jsonArray = [];
-    jsonArray.push({ "methodId": ID_PAYMENT_METHOD_ISR, "description": "Orange ESR/BVR payment slip (CHF/EUR)" });
-    jsonArray.push({ "methodId": ID_PAYMENT_METHOD_IS, "description": "Red payment slip (CHF/EUR)" });
-    jsonArray.push({ "methodId": ID_PAYMENT_METHOD_IBAN, "description":  "Domestic bank payment (all currencies)"});
-    jsonArray.push({ "methodId": ID_PAYMENT_METHOD_QRCODE, "description": "QR-Code (CHF/EUR)" });
+    jsonArray.push({ "id": ID_PAYMENT_ISR, "description": "Orange ESR/BVR payment slip (CHF/EUR)" });
+    jsonArray.push({ "id": ID_PAYMENT_IS, "description": "Red payment slip (CHF/EUR)" });
+    jsonArray.push({ "id": ID_PAYMENT_IBAN, "description": "Domestic bank payment (all currencies)" });
+    jsonArray.push({ "id": ID_PAYMENT_QRCODE, "description": "QR-Code (CHF/EUR)" });
 
     return JSON.stringify(jsonArray, null, '   ');
 }
@@ -648,6 +670,16 @@ function getScriptVersion() {
     var scriptVersion = "19.0.0";
     return scriptVersion;
 }
+
+/** Return the list of the supported transfer files
+*/
+/*function getTransferFileSchemas() {
+    var jsonArray = [];
+    jsonArray.push({ "id": ID_PAIN_001_001_03, "description": "ISO 20022 Schema  (pain.001.001.03)" });
+    jsonArray.push({ "id": ID_PAIN_001_001_03_CH_02, "description": "Swiss Payment Standard (pain.001.001.03.ch.02)" });
+
+    return JSON.stringify(jsonArray, null, '   ');
+}*/
 
 /*Return all assets and liabilities accounts from table Accounts*/
 function loadAccounts() {
@@ -728,7 +760,7 @@ function scanCode(code) {
         paymentData.currency = swissQRCodeData.Currency;
     }
     else {
-        paymentData.id.methodId = ID_PAYMENT_METHOD_ISR;
+        paymentData.id.methodId = ID_PAYMENT_ISR;
         paymentData.referenceNumber = code;
     }
     return paymentData;
@@ -777,10 +809,10 @@ function validateParams(paymentData) {
             paymentData.data[i].errorId = ID_ERR_ELEMENT_EMPTY;
             paymentData.data[i].errorMsg = getErrorMessage(ID_ERR_ELEMENT_EMPTY);
         }
-		else if (key === 'accountId' && value.lastIndexOf(SEPARATOR_CHAR)>0) {
-			var posStart = value.lastIndexOf(SEPARATOR_CHAR);
-			paymentData.data[i].value = value.substr(0, posStart);
-		}
+        else if (key === 'accountId' && value.lastIndexOf(SEPARATOR_CHAR) > 0) {
+            var posStart = value.lastIndexOf(SEPARATOR_CHAR);
+            paymentData.data[i].value = value.substr(0, posStart);
+        }
         if (methodId == 'ISR') {
             if (key === 'referenceNumber' && value.length <= 0) {
                 paymentData.data[i].errorId = ID_ERR_ELEMENT_EMPTY;
