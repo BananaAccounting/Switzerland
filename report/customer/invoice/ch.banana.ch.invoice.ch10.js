@@ -1797,6 +1797,8 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
     }
   }
 
+  var decimals = getQuantityDecimals(invoiceObj);
+
   //ITEMS
   for (var i = 0; i < invoiceObj.items.length; i++) {
 
@@ -1825,13 +1827,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
       else if (columnsSelected[j] === "Quantity" || columnsSelected[j] === "quantity") {
         // If referenceUnit is empty we do not print the quantity.
         // With this we can avoit to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
-        // Default quantity uses 2 decimals. We check if there is a quantity with 4 decimals and in case we use it.
         if (item.mesure_unit) {
-          var decimals = 2;
-          var res = item.quantity.split(".");
-          if (res[1] && res[1].length == 4) {
-            decimals = 4;
-          }
           if (variables.decimals_quantity) {
             decimals = variables.decimals_quantity;
           }
@@ -1939,6 +1935,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
     }
   }
 
+  var decimals = getQuantityDecimals(invoiceObj);
+
   //ITEMS
   for (var i = 0; i < invoiceObj.items.length; i++) {
 
@@ -1967,13 +1965,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
       else if (columnsSelected[j] === "Quantity" || columnsSelected[j] === "quantity") {
         // If referenceUnit is empty we do not print the quantity.
         // With this we can avoit to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
-        // Default quantity uses 2 decimals. We check if there is a quantity with 4 decimals and in case we use it.
         if (item.mesure_unit) {
-          var decimals = 2;
-          var res = item.quantity.split(".");
-          if (res[1] && res[1].length == 4) {
-            decimals = 4;
-          }
           if (variables.decimals_quantity) {
             decimals = variables.decimals_quantity;
           }
@@ -2205,6 +2197,41 @@ function print_footer(repDocObj, texts, userParam) {
 //====================================================================//
 // OTHER UTILITIES FUNCTIONS
 //====================================================================//
+function getQuantityDecimals(invoiceObj) {
+  /*
+    For the given invoice check the decimal used for the quantity.
+    Decimals can be 2 or 4.
+    Returns the greater value.
+  */
+  var arr = [];
+  var decimals = "";
+  for (var i = 0; i < invoiceObj.items.length; i++) { //check the qty of each item of the invoice
+    var item = invoiceObj.items[i];
+    var qty = item.quantity;
+    var res = qty.split(".");
+    if (res[1] && res[1] !== "0000" && res[1].substring(1,4) !== "000" && res[1].substring(2,4) !== "00") {
+      decimals = 4;
+      //Banana.console.log(res[1] + " => " + decimals);
+    } else {
+      decimals = 2;
+      //Banana.console.log(res[1] + " => " + decimals);
+    }
+    arr.push(decimals);
+  }
+  //Remove duplicates
+  for (var i = 0; i < arr.length; i++) {
+    for (var x = i+1; x < arr.length; x++) {
+      if (arr[x] === arr[i]) {
+        arr.splice(x,1);
+        --x;
+      }
+    }
+  }
+  arr.sort();
+  arr.reverse();
+  return arr[0]; //first element is the bigger
+}
+
 function bananaRequiredVersion(requiredVersion, expmVersion) {
 
   var language = "en";
