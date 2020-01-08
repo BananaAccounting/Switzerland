@@ -16,7 +16,7 @@
 // @api = 1.0
 // @pubdate = 2019-12-04
 // @publisher = Banana.ch SA
-// @description =  Credit transfer files creation for Switzerland (Swiss Payment Standards PAIN.001)
+// @description =  ISO20022 pain.001 CH (Switzerland)
 // @task = accounting.payment
 // @doctype = *
 
@@ -34,6 +34,10 @@ var ID_PAYMENT_QRCODE = "QRCODE";
 
 var SEPARATOR_CHAR = '\xa0';
 
+/*function createTransferFile(jsonPaymentObject, format) {
+//if format == "pain001"
+....
+}*/
 
 function createTransferFile(msgId, executionDate, accountData, paymentData, schema) {
 
@@ -42,8 +46,6 @@ function createTransferFile(msgId, executionDate, accountData, paymentData, sche
     Banana.console.debug("accountDataObj: " + JSON.stringify(accountData, null, '   '));
     Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentData, null, '   '));*/
 	
-	Banana.console.debug("schema: " + schema);
-
     if (!Banana.document)
         return "@cancel";
 
@@ -150,10 +152,44 @@ function createTransferFile(msgId, executionDate, accountData, paymentData, sche
 /**
  * Return a document patch which contains the changes to apply to a banana document
  */
-function dataToDocumentPatch(paymentData) 
+/*function dataToDocumentPatch(paymentData) 
 { 
-    return paymentData;
-}
+    var paymentDataObj = null;
+    if (typeof (paymentData) === 'object') {
+        paymentDataObj = paymentData;
+    } else if (typeof (paymentData) === 'string') {
+        try {
+            paymentDataObj = JSON.parse(paymentData);
+        } catch (e) {
+            Banana.document.addMessage(e);
+        }
+    }
+    if (!paymentDataObj)
+        return "@cancel";
+		
+	var var1 = paymentDataObj.uuid;
+	var var2 = paymentDataObj.name;
+	var var3 = paymentDataObj.amount;
+	var var4 = paymentDataObj.currency;
+	var var5 = paymentDataObj.additionalInformation;
+	var var6 = paymentDataObj.iban;
+	var var7 = paymentDataObj.referenceNumber;
+
+	
+	var d = new Date();
+    var datestring = d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2);
+    datestring = Banana.Converter.toInternalDateFormat(datestring, "yyyymmdd");
+    var timestring = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+    timestring = Banana.Converter.toInternalTimeFormat(timestring, "hh:mm");
+    var scriptId = Banana.script.getParamValue('id');
+	
+	var fields = {};
+	fields["Date"] = datestring;
+	fields["Description"] = "hello world from " + scriptId;
+	fields["Amount"] = ;
+
+    return JSON.stringify(fields);
+}*/
 
 function evAccountIdChanged(selectedAccountId, paymentData) {
     var data = {};
@@ -180,8 +216,6 @@ function getEditorParams(paymentData) {
     var convertedParam = {};
 
     var methodId = getPaymentMethodSelected(paymentData);
-	Banana.console.debug("xxxxxxxxx" + methodId);
-    Banana.console.debug("paymentData----------: " + JSON.stringify(paymentData, null, '   '));
     if (methodId == ID_PAYMENT_ISR) {
         convertedParam = getEditorParamsIsr(paymentData);
     }
@@ -639,6 +673,18 @@ function getErrorMessage(errorId) {
     return '';
 }
 
+/** Return the list of the supported transfer files
+*/
+function getFileFormats() {
+	
+	var jsonArray = [];
+    jsonArray.push({ "id": ID_PAIN_001_001_03, "description": "ISO 20022 Schema pain.001.001.03)" });
+    jsonArray.push({ "id": ID_PAIN_001_001_03_CH_02, "description": "Swiss Payment Standard (pain.001.001.03.ch.02)" });
+
+    return JSON.stringify(jsonArray, null, '   ');
+	return false;
+}
+
 /** Return the list of supported transactions types as an object with the properties 'id' and 'description'. 
 */
 function getPaymentMethods() {
@@ -671,16 +717,6 @@ function getScriptVersion() {
     return scriptVersion;
 }
 
-/** Return the list of the supported transfer files
-*/
-/*function getTransferFileSchemas() {
-    var jsonArray = [];
-    jsonArray.push({ "id": ID_PAIN_001_001_03, "description": "ISO 20022 Schema  (pain.001.001.03)" });
-    jsonArray.push({ "id": ID_PAIN_001_001_03_CH_02, "description": "Swiss Payment Standard (pain.001.001.03.ch.02)" });
-
-    return JSON.stringify(jsonArray, null, '   ');
-}*/
-
 /*Return all assets and liabilities accounts from table Accounts*/
 function loadAccounts() {
     var str = [];
@@ -697,7 +733,7 @@ function loadAccounts() {
         var tRow = table.row(i);
         var accountId = tRow.value('Account');
         var bClass = tRow.value('BClass');
-        if (accountId.length > 0 && (bClass != "3" || bClass != "4")) {
+        if (accountId.length > 0 && bClass !== "3" && bClass !== "4") {
             var description = tRow.value('Description');
             str.push(accountId + SEPARATOR_CHAR + description);
         }
@@ -745,7 +781,7 @@ function scanCode(code) {
 
     var paymentData = {};
     paymentData.id = {};
-    //paymentData.id.appUri = Banana.script.getParamValue('id');
+    //paymentData.id.scriptId = Banana.script.getParamValue('id');
     if (swissQRCodeData.QRType === "SPC") {
         paymentData.id.methodId = "QRCode";
         paymentData.iban = swissQRCodeData.Account;
