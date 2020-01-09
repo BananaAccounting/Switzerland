@@ -34,12 +34,23 @@ var ID_PAYMENT_QRCODE = "QRCODE";
 
 var SEPARATOR_CHAR = '\xa0';
 
-/*function createTransferFile(jsonPaymentObject, format) {
-//if format == "pain001"
-....
-}*/
-
-function createTransferFile(msgId, executionDate, accountData, paymentData, schema) {
+//function createTransferFile(msgId, executionDate, accountData, paymentData, schema) {
+function createTransferFile(paymentData) {
+    var paymentDataObj = null;
+    if (typeof (paymentData) === 'object') {
+        paymentDataObj = paymentData;
+    } else if (typeof (paymentData) === 'string') {
+        try {
+            paymentDataObj = JSON.parse(paymentData);
+        } catch (e) {
+            Banana.document.addMessage(e);
+        }
+    }
+	return JSON.stringify(paymentDataObj, null, '   ');
+	
+	//if format == "pain001"
+	//....
+	//}
 
     /*Banana.console.debug("msgId: " + msgId);
     Banana.console.debug("executionDate: " + executionDate);
