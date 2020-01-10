@@ -51,7 +51,6 @@ function createTransferFile(paymentData) {
     }
 	
     //Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentDataObj, null, '   '));
-	
 	var format = paymentDataObj.GroupHeader.id.fileFormat;
 	var msgId = paymentDataObj.GroupHeader.uuid;
 	
@@ -126,20 +125,13 @@ function createTransferFile(paymentData) {
 		}
 	}
 
-
     // Attach a domBuilder to the Transfer to create the XML output
     var domBuilder = new DomBuilder('pain.001.001.03.ch.02', true);
     transferFile.accept(domBuilder);
 
     // Create the file
     var xmlData = domBuilder.asXml();
-return xmlData;
-    // Validate the file
-    //validateTransferFile(xmlData);
-
-    if (domBuilder.save(xmlData))
-        return xmlData;
-    return "@cancel";
+	return xmlData;
 }
 
 /**
@@ -203,6 +195,16 @@ function evAccountIdChanged(selectedAccountId, paymentData) {
     data.iban = "iban " + accountId;
     data.name = "name " + accountId;
     return JSON.stringify(data, null, '   ');
+}
+
+function exportTransferFile(xml) {
+    if (xml.length <= 0)
+        return false;
+
+	if (save(xmlData))
+        return true;
+
+	return false;
 }
 
 function getEditorParams(paymentData) {
@@ -734,6 +736,54 @@ function readPaymentMethod(paymentData) {
     return '';
 }
 
+function save(inData) {
+    var fileName = "PAIN001_<Date>.xml";
+
+    //var fileName = "PAIN001_<AccountingName>_<Date>.xml";
+    /*if (Banana.document && Banana.document.info) {
+        var accountingFileName = Banana.document.info("Base", "FileName");
+        if (accountingFileName.length > 0) {
+            var posStart=0;
+			if (accountingFileName.lastIndexOf("/")>0 && accountingFileName.lastIndexOf("/")<accountingFileName.length)
+				posStart = accountingFileName.lastIndexOf("/");
+			accountingFileName = accountingFileName.substr(posStart+1);
+			if (accountingFileName.indexOf(".ac2")>0);
+				accountingFileName = accountingFileName.replace(".ac2","");
+			if (accountingFileName.indexOf(".")>0);
+				accountingFileName = accountingFileName.replace('.','');
+			fileName = fileName.replace("<AccountingName>", accountingFileName);
+        }
+		else {
+			fileName = fileName.replace("_<AccountingName>", "");
+		}
+    }*/
+
+    var date = _formatDate(new Date());
+    if (date.indexOf(":") > 0);
+    date = date.replace(/:/g, '');
+    if (date.indexOf("-") > 0);
+    date = date.replace(/-/g, '');
+    var time = _formatTime(new Date());
+    if (time.indexOf(":") > 0);
+    time = time.replace(/:/g, '');
+    fileName = fileName.replace("<Date>", date + time);
+    fileName = Banana.IO.getSaveFileName("Save as", fileName, "XML file (*.xml);;All files (*)");
+    if (fileName.length) {
+        var file = Banana.IO.getLocalFile(fileName);
+        file.codecName = "UTF-8";
+        file.write(inData);
+        if (file.errorString) {
+            Banana.Ui.showInformation("Write error", file.errorString);
+            return false;
+        }
+        else {
+            Banana.IO.openUrl(fileName);
+        }
+        return true;
+    }
+    return false;
+}
+
 function scanCode(code) {
     var parsedCode = code.split(/\r?\n/);
     var swissQRCodeData = {};
@@ -855,6 +905,7 @@ function validateParams(paymentData) {
 function validateTransferFile(xml) {
     if (xml.length <= 0)
         return false;
+		
     // Validate against schema (schema is passed as a file path relative to the script)
     var schemaFileName = Banana.IO.getOpenFileName("Select schema file to validate", "pain.001.001.03.ch.02.xsd", "XSD schema file (*.xsd);;All files (*)");
     var file = Banana.IO.getLocalFile(schemaFileName)
@@ -862,10 +913,11 @@ function validateTransferFile(xml) {
         Banana.Ui.showInformation("Read error", file.errorString);
         return false;
     }
-    var fileContent = file.read();
+    
+	/*var fileContent = file.read();
     if (fileContent.length <= 0) {
         return false;
-    }
+    }*/
 
     if (!Banana.Xml.validate(Banana.Xml.parse(xml), schemaFileName)) {
         //Test.logger.addText("Validation result => Xml document is not valid against " + schemaFileName + Banana.Xml.errorString);
@@ -1405,54 +1457,6 @@ DomBuilder.prototype.appendStructuredRemittanceElement = function (node, transac
 DomBuilder.prototype.asXml = function () {
     var indent = true;
     return Banana.Xml.save(this.doc, indent);
-}
-
-DomBuilder.prototype.save = function (inData) {
-    var fileName = "PAIN001_<Date>.xml";
-
-    //var fileName = "PAIN001_<AccountingName>_<Date>.xml";
-    /*if (Banana.document && Banana.document.info) {
-        var accountingFileName = Banana.document.info("Base", "FileName");
-        if (accountingFileName.length > 0) {
-            var posStart=0;
-			if (accountingFileName.lastIndexOf("/")>0 && accountingFileName.lastIndexOf("/")<accountingFileName.length)
-				posStart = accountingFileName.lastIndexOf("/");
-			accountingFileName = accountingFileName.substr(posStart+1);
-			if (accountingFileName.indexOf(".ac2")>0);
-				accountingFileName = accountingFileName.replace(".ac2","");
-			if (accountingFileName.indexOf(".")>0);
-				accountingFileName = accountingFileName.replace('.','');
-			fileName = fileName.replace("<AccountingName>", accountingFileName);
-        }
-		else {
-			fileName = fileName.replace("_<AccountingName>", "");
-		}
-    }*/
-
-    var date = _formatDate(new Date());
-    if (date.indexOf(":") > 0);
-    date = date.replace(/:/g, '');
-    if (date.indexOf("-") > 0);
-    date = date.replace(/-/g, '');
-    var time = _formatTime(new Date());
-    if (time.indexOf(":") > 0);
-    time = time.replace(/:/g, '');
-    fileName = fileName.replace("<Date>", date + time);
-    fileName = Banana.IO.getSaveFileName("Save as", fileName, "XML file (*.xml);;All files (*)");
-    if (fileName.length) {
-        var file = Banana.IO.getLocalFile(fileName);
-        file.codecName = "UTF-8";
-        file.write(inData);
-        if (file.errorString) {
-            Banana.Ui.showInformation("Write error", file.errorString);
-            return false;
-        }
-        else {
-            Banana.IO.openUrl(fileName);
-        }
-        return true;
-    }
-    return false;
 }
 
 /**
