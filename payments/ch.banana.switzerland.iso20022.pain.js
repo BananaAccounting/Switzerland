@@ -36,41 +36,10 @@ var SEPARATOR_CHAR = '\xa0';
 
 //function createTransferFile(msgId, executionDate, accountData, paymentData, schema) {
 function createTransferFile(paymentData) {
-    var paymentDataObj = null;
-    if (typeof (paymentData) === 'object') {
-        paymentDataObj = paymentData;
-    } else if (typeof (paymentData) === 'string') {
-        try {
-            paymentDataObj = JSON.parse(paymentData);
-        } catch (e) {
-            Banana.document.addMessage(e);
-        }
-    }
-	return JSON.stringify(paymentDataObj, null, '   ');
-	
-	//if format == "pain001"
-	//....
-	//}
-
-    /*Banana.console.debug("msgId: " + msgId);
-    Banana.console.debug("executionDate: " + executionDate);
-    Banana.console.debug("accountDataObj: " + JSON.stringify(accountData, null, '   '));
-    Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentData, null, '   '));*/
-	
     if (!Banana.document)
         return "@cancel";
 
-    var accountDataObj = null;
     var paymentDataObj = null;
-    if (typeof (accountData) === 'object') {
-        accountDataObj = accountData;
-    } else if (typeof (accountData) === 'string') {
-        try {
-            accountDataObj = JSON.parse(accountData);
-        } catch (e) {
-            Banana.document.addMessage(e);
-        }
-    }
     if (typeof (paymentData) === 'object') {
         paymentDataObj = paymentData;
     } else if (typeof (paymentData) === 'string') {
@@ -80,9 +49,12 @@ function createTransferFile(paymentData) {
             Banana.document.addMessage(e);
         }
     }
-    if (!accountDataObj || !paymentDataObj)
-        return "@cancel";
-
+	
+    //Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentDataObj, null, '   '));
+	
+	var format = paymentDataObj.GroupHeader.id.fileFormat;
+	var msgId = paymentDataObj.GroupHeader.uuid;
+	
     // Create message's header <GrpHdr>
     var groupHeader = new GroupHeader(msgId);
     if (Banana.document.info) {
@@ -101,49 +73,59 @@ function createTransferFile(paymentData) {
     // Create a transfer file which contains all data to transfer
     var transferFile = new CustomerCreditTransferFile(groupHeader);
 
-    // Create a PaymentInformation the Transfer belongs to
-    var payment = new PaymentInformation(
-        accountDataObj.accountId,	// Payment Information Identification
-        accountDataObj.iban, // IBAN the money is transferred from
-        accountDataObj.bic,  // BIC
-        accountDataObj.name, // Debitor Name
-        accountDataObj.currency
-    );
-    payment.setDueDate(executionDate);
+    // Create PaymentInformations the Transfer belongs to
+    for (var i = 0; i < paymentDataObj.PaymentInformation.length; i++) {
+	    var paymentInfoObj = paymentDataObj.PaymentInformation[i];
+		var executionDate = paymentInfoObj.requestExecutionDate;
+		if (executionDate === undefined)
+			continue;
 
-    for (var i = 0; i < paymentDataObj.length; i++) {
+		var payment = new PaymentInformation(
+			paymentInfoObj.accountId,	// Payment Information Identification
+			paymentInfoObj.iban, // IBAN the money is transferred from
+			paymentInfoObj.bic,  // BIC
+			paymentInfoObj.name, // Debitor Name
+			paymentInfoObj.currency
+		);
+		payment.setDueDate(executionDate);
+		
+		for (var j = 0; j < paymentInfoObj.TransactionInformation.length; j++) {
+			var transactionInfoObj = paymentInfoObj.TransactionInformation[j];
+	        //Get payment method: ISR, QR, IBAN, ...
+    	    var methodId = readPaymentMethod(transactionInfoObj);
+        	if (methodId.length <= 0)
+            	continue;
+			Banana.console.debug(methodId);
 
-        //Get payment method: ISR, QR, IBAN, ...
-        var methodId = getPaymentMethodSelected(paymentDataObj[i]);
-        if (methodId.length <= 0)
-            continue;
+        	var transfer = new CustomerCreditTransferInformation(
+            	transactionInfoObj.uuid, //EndToEndIdentification
+            	transactionInfoObj.name, //Name of Creditor
+            	transactionInfoObj.amount // Amount
+        	);
 
-        var transfer = new CustomerCreditTransferInformation(
-            paymentDataObj[i].uuid, //EndToEndIdentification
-            paymentDataObj[i].name, //Name of Creditor
-            paymentDataObj[i].amount // Amount
-        );
+			// Set Instruction Identification for any transfer (unique within B-LEVEL)
+        	transfer.setInstructionId("INSTRID-" + parseInt(j + 1).toString());
+        	transfer.setCurrency(transactionInfoObj.currency); // Set the amount currency
+        	transfer.setRemittanceInformation(transactionInfoObj.additionalInformation);	//Additional information
+        	transfer.setIban(transactionInfoObj.iban);	//IBAN or account number
+        	transfer.setCreditorReference(transactionInfoObj.referenceNumber);	//Creditor Reference Information
 
-        // Set Instruction Identification for any transfer (unique within B-LEVEL)
-        transfer.setInstructionId("INSTRID-" + parseInt(i + 1).toString());
-        transfer.setCurrency(paymentDataObj[i].currency); // Set the amount currency
-        transfer.setRemittanceInformation(paymentDataObj[i].additionalInformation);	//Additional information
-        transfer.setIban(paymentDataObj[i].iban);	//IBAN or account number
-        transfer.setCreditorReference(paymentDataObj[i].referenceNumber);	//Creditor Reference Information
+        	if (methodId == ID_PAYMENT_ISR) {
+            	transfer.setLocalInstrumentProprietary("CH01");
+        	}
+        	else if (methodId == ID_PAYMENT_IS) {
+            	transfer.setLocalInstrumentProprietary("CH03");
+        	}
 
-        if (methodId == ID_PAYMENT_ISR) {
-            transfer.setLocalInstrumentProprietary("CH01");
-        }
-        else if (methodId == ID_PAYMENT_IS) {
-            transfer.setLocalInstrumentProprietary("CH03");
-        }
+        	// It's possible to add multiple Transfers in one payment
+        	payment.addTransfer(transfer);
 
-        // It's possible to add multiple Transfers in one payment
-        payment.addTransfer(transfer);
-    }
+			// It's possible to add multiple payments to one Transfer
+			transferFile.addPaymentInformation(payment);
 
-    // It's possible to add multiple payments to one Transfer
-    transferFile.addPaymentInformation(payment);
+		}
+	}
+
 
     // Attach a domBuilder to the Transfer to create the XML output
     var domBuilder = new DomBuilder('pain.001.001.03.ch.02', true);
@@ -151,7 +133,7 @@ function createTransferFile(paymentData) {
 
     // Create the file
     var xmlData = domBuilder.asXml();
-
+return xmlData;
     // Validate the file
     //validateTransferFile(xmlData);
 
@@ -226,7 +208,7 @@ function evAccountIdChanged(selectedAccountId, paymentData) {
 function getEditorParams(paymentData) {
     var convertedParam = {};
 
-    var methodId = getPaymentMethodSelected(paymentData);
+    var methodId = readPaymentMethod(paymentData);
     if (methodId == ID_PAYMENT_ISR) {
         convertedParam = getEditorParamsIsr(paymentData);
     }
@@ -716,13 +698,6 @@ function getPaymentMethods() {
     return JSON.stringify(jsonArray, null, '   ');
 }
 
-function getPaymentMethodSelected(paymentData) {
-    //Get payment method: ISR, QR, IBAN, ...
-    if (paymentData && paymentData.id && paymentData.id.methodId)
-        return paymentData.id.methodId;
-    return '';
-}
-
 function getScriptVersion() {
     var scriptVersion = "19.0.0";
     return scriptVersion;
@@ -750,6 +725,13 @@ function loadAccounts() {
         }
     }
     return str;
+}
+
+function readPaymentMethod(paymentData) {
+    //Get payment method: ISR, QR, IBAN, ...
+    if (paymentData && paymentData.id && paymentData.id.methodId)
+        return paymentData.id.methodId;
+    return '';
 }
 
 function scanCode(code) {
@@ -830,7 +812,7 @@ function setTexts(language) {
 }
 
 function validateParams(paymentData) {
-    var methodId = getPaymentMethodSelected(paymentData);
+    var methodId = readPaymentMethod(paymentData);
     if (methodId.length <= 0 || !paymentData.data)
         return paymentData;
     for (var i = 0; i < paymentData.data.length; i++) {
