@@ -51,7 +51,7 @@ function createTransferFile(paymentData) {
     }
 	
     //Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentDataObj, null, '   '));
-	var format = paymentDataObj.GroupHeader.id.fileFormat;
+	var format = paymentDataObj.id.fileFormat;
 	var msgId = paymentDataObj.GroupHeader.uuid;
 	
     // Create message's header <GrpHdr>
@@ -94,7 +94,6 @@ function createTransferFile(paymentData) {
     	    var methodId = readPaymentMethod(transactionInfoObj);
         	if (methodId.length <= 0)
             	continue;
-			Banana.console.debug(methodId);
 
         	var transfer = new CustomerCreditTransferInformation(
             	transactionInfoObj.uuid, //EndToEndIdentification
@@ -176,7 +175,7 @@ function createTransferFile(paymentData) {
     return JSON.stringify(fields);
 }*/
 
-function evAccountIdChanged(selectedAccountId, paymentData) {
+function currentIndexChanged_accountId(selectedAccountId, paymentData) {
     var data = {};
     try {
         data = JSON.parse(paymentData);
@@ -262,7 +261,6 @@ function getEditorParamsIban(paymentData) {
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentData.accountId ? paymentData.accountId : '';
     currentParam.items = loadAccounts();
-    currentParam.currentIndexChanged = 'evAccountIdChanged';
     currentParam.readValue = function () {
         paymentData.accountId = this.value;
     }
@@ -416,7 +414,6 @@ function getEditorParamsIsr(paymentData) {
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentData.accountId ? paymentData.accountId : '';
     currentParam.items = loadAccounts();
-    currentParam.currentIndexChanged = 'evAccountIdChanged';
     currentParam.readValue = function () {
         paymentData.accountId = this.value;
     }
@@ -505,7 +502,6 @@ function getEditorParamsQrCode(paymentData) {
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentData.accountId ? paymentData.accountId : '';
     currentParam.items = loadAccounts();
-    currentParam.currentIndexChanged = 'evAccountIdChanged';
     currentParam.readValue = function () {
         paymentData.accountId = this.value;
     }
@@ -716,7 +712,9 @@ function loadAccounts() {
     if (!table) {
         return str;
     }
-
+	//empty value
+	str.push("");
+	
     for (var i = 0; i < table.rowCount; i++) {
         var tRow = table.row(i);
         var accountId = tRow.value('Account');
@@ -826,7 +824,8 @@ function scanCode(code) {
     paymentData.id = {};
     //paymentData.id.scriptId = Banana.script.getParamValue('id');
     if (swissQRCodeData.QRType === "SPC") {
-        paymentData.id.methodId = "QRCode";
+        paymentData.id.methodId = "QRCODE";
+		paymentData.accountId = "ROB";
         paymentData.iban = swissQRCodeData.Account;
         paymentData.name = swissQRCodeData.CRName;
         paymentData.street = swissQRCodeData.CRStreet1;
