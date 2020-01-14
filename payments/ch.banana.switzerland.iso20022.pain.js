@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.iso20022.pain
 // @api = 1.0
-// @pubdate = 2019-12-04
+// @pubdate = 2020-01-14
 // @publisher = Banana.ch SA
 // @description =  ISO20022 pain.001 CH (Switzerland)
 // @task = accounting.payment
@@ -51,8 +51,8 @@ function createTransferFile(paymentData) {
     }
 	
     //Banana.console.debug("paymentDataObj: " + JSON.stringify(paymentDataObj, null, '   '));
-	var format = paymentDataObj.id.fileFormat;
-	var msgId = paymentDataObj.GroupHeader.uuid;
+	var format = paymentDataObj.document.id.fileFormat;
+	var msgId = paymentDataObj.document.uuid;
 	
     // Create message's header <GrpHdr>
     var groupHeader = new GroupHeader(msgId);
@@ -73,23 +73,23 @@ function createTransferFile(paymentData) {
     var transferFile = new CustomerCreditTransferFile(groupHeader);
 
     // Create PaymentInformations the Transfer belongs to
-    for (var i = 0; i < paymentDataObj.PaymentInformation.length; i++) {
-	    var paymentInfoObj = paymentDataObj.PaymentInformation[i];
+    for (var i = 0; i < paymentDataObj.document.payments.length; i++) {
+	    var paymentInfoObj = paymentDataObj.document.payments[i];
 		var executionDate = paymentInfoObj.requestExecutionDate;
 		if (executionDate === undefined)
 			continue;
 
 		var payment = new PaymentInformation(
-			paymentInfoObj.accountId,	// Payment Information Identification
-			paymentInfoObj.iban, // IBAN the money is transferred from
-			paymentInfoObj.bic,  // BIC
-			paymentInfoObj.name, // Debitor Name
-			paymentInfoObj.currency
+			paymentInfoObj.debtorAccount.accountId,	// Payment Information Identification
+			paymentInfoObj.debtorAccount.iban, // IBAN the money is transferred from
+			paymentInfoObj.debtorAccount.bic,  // BIC
+			paymentInfoObj.debtorAccount.name, // Debitor Name
+			paymentInfoObj.debtorAccount.currency
 		);
 		payment.setDueDate(executionDate);
 		
-		for (var j = 0; j < paymentInfoObj.TransactionInformation.length; j++) {
-			var transactionInfoObj = paymentInfoObj.TransactionInformation[j];
+		for (var j = 0; j < paymentInfoObj.transactions.length; j++) {
+			var transactionInfoObj = paymentInfoObj.transactions[j];
 	        //Get payment method: ISR, QR, IBAN, ...
     	    var methodId = readPaymentMethod(transactionInfoObj);
         	if (methodId.length <= 0)
@@ -117,11 +117,9 @@ function createTransferFile(paymentData) {
 
         	// It's possible to add multiple Transfers in one payment
         	payment.addTransfer(transfer);
-
-			// It's possible to add multiple payments to one Transfer
-			transferFile.addPaymentInformation(payment);
-
 		}
+		// It's possible to add multiple payments to one Transfer
+		transferFile.addPaymentInformation(payment);
 	}
 
     // Attach a domBuilder to the Transfer to create the XML output
@@ -669,7 +667,7 @@ function getErrorMessage(errorId) {
 function getFileFormats() {
 	
 	var jsonArray = [];
-    jsonArray.push({ "id": ID_PAIN_001_001_03, "description": "ISO 20022 Schema pain.001.001.03)" });
+    jsonArray.push({ "id": ID_PAIN_001_001_03, "description": "ISO 20022 Schema (pain.001.001.03)" });
     jsonArray.push({ "id": ID_PAIN_001_001_03_CH_02, "description": "Swiss Payment Standard (pain.001.001.03.ch.02)" });
 
     return JSON.stringify(jsonArray, null, '   ');
@@ -964,9 +962,7 @@ CustomerCreditTransferFile.prototype.accept = function (domBuilder) {
 CustomerCreditTransferFile.prototype.addPaymentInformation = function (paymentInformation) {
     paymentInformation.setValidPaymentMethods(['TRF']);
     paymentInformation.setPaymentMethod('TRF');
-
-    var numberOfTransactions = this.getGroupHeader().getNumberOfTransactions(
-    ) + paymentInformation.getNumberOfTransactions();
+    var numberOfTransactions = this.getGroupHeader().getNumberOfTransactions() + paymentInformation.getNumberOfTransactions();
     var transactionTotal = Banana.SDecimal.add(this.groupHeader.getControlSumCents(), paymentInformation.getControlSumCents());
     this.groupHeader.setNumberOfTransactions(numberOfTransactions);
     this.groupHeader.setControlSumCents(transactionTotal);
