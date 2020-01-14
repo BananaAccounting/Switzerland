@@ -198,7 +198,7 @@ function exportTransferFile(xml) {
     if (xml.length <= 0)
         return false;
 
-	if (save(xmlData))
+	if (save(xml))
         return true;
 
 	return false;
@@ -907,8 +907,7 @@ function validateTransferFile(xml) {
     var schemaFileName = Banana.IO.getOpenFileName("Select schema file to validate", "pain.001.001.03.ch.02.xsd", "XSD schema file (*.xsd);;All files (*)");
     var file = Banana.IO.getLocalFile(schemaFileName)
     if (file.errorString) {
-        Banana.Ui.showInformation("Read error", file.errorString);
-        return false;
+        return file.errorString;
     }
     
 	/*var fileContent = file.read();
@@ -918,8 +917,7 @@ function validateTransferFile(xml) {
 
     if (!Banana.Xml.validate(Banana.Xml.parse(xml), schemaFileName)) {
         //Test.logger.addText("Validation result => Xml document is not valid against " + schemaFileName + Banana.Xml.errorString);
-        Banana.console.debug("Validation result => Xml document is not valid against " + schemaFileName + Banana.Xml.errorString);
-        return false;
+        return Banana.Xml.errorString;
     }
     return true;
 }
