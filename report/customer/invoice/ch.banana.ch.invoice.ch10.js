@@ -2643,7 +2643,6 @@ function replaceVariables(cssText, variables) {
 
 
 
-
 //====================================================================//
 // ISR FUNCTIONS
 //====================================================================//
@@ -3093,10 +3092,6 @@ function set_isr_style(reportObj, repStyleObj, userParam) {
   style = repStyleObj.addStyle(".pvr_reference");
   style.setAttribute("font-size", "8px");
 }
-
-
-
-
 
 
 

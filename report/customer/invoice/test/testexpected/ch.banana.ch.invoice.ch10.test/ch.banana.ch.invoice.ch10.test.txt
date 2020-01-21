@@ -1,0 +1,365 @@
+%%info_test_name{ch.banana.ch.invoice.ch10.test}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/test/ch.banana.ch.invoice.ch10.test.js}
+%
+\begin{testcase}{ReportInvoiceTemplate10}
+\begin{test}{testReport}
+%Test ch.banana.ch.invoice.ch10.js
+\section{Invoice tests}
+\subsection{Test Invoice 35}
+\begin{reportvalue}{Test Invoice 35}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 35 \\
+Date:  & 29.01.2019 \\
+Customer No:  & 100002 \\
+VAT No:  & 123 456 789 \\
+Fiscal No:  & 001 002 003 \\
+Payment:  & 30 days \\
+Page:  & \#page-nr \\
+\end{longtable}
+Banana.ch SA \\
+Via alla Santa 7 - 6962 Viganello \\
+www.banana.ch - info@banana.ch \\
+IVA 123 456 789 \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 35 \\
+Date:  & 29.01.2019 \\
+Customer No:  & 100002 \\
+VAT No:  & 123 456 789 \\
+Fiscal No:  & 001 002 003 \\
+Payment:  & 30 days \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello \\
+Mario Bianchi \newline Via Trevano \newline 6963 Pregassona \newline \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Shipping address \newline Sig. \newline Aaaa Bbbb \newline Via Cccccc 7 \newline 9999 Paese xx \newline \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 35 \newline \newline \newline \\
+This is the  beginning text  using the '10:beg' command in DocType column. \newline   \newline   \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Sales merchandise, invoice \#35, customer B \newline \newline  &  &  & 1'851.85  & 1'851.85 \\
+Sales merchandise, invoice \#35, customer B \newline \newline  & 4.9876  & pz.  & 96.43  & 480.96 \\
+Sales merchandise, invoice \#35, customer B \newline \newline  & 10.0000  & pz..  & 97.56  & 975.61 \\
+\multicolumn{5}{l}{}\\
+\multicolumn{4}{l}{Total net } & 3'308.42 \\
+\multicolumn{4}{l}{VAT 8.00\% (1'851.85) } & 148.15 \\
+\multicolumn{4}{l}{VAT 3.70\% (480.96) } & 17.80 \\
+\multicolumn{4}{l}{VAT 2.50\% (975.61) } & 24.39 \\
+\multicolumn{4}{l}{Rounding } & -0.01 \\
+\multicolumn{5}{l}{}\\
+\multicolumn{4}{l}{TOTAL CHF } & 3'498.75 \\
+\multicolumn{5}{l}{}\\
+\multicolumn{5}{l}{  }\\
+\multicolumn{5}{l}{Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings. \newline }\\
+\multicolumn{5}{l}{Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' settings.  Final text taken from the 'Print invoices' ,'Template options' settings. \newline }\\
+\multicolumn{5}{l}{  \newline }\\
+\multicolumn{5}{l}{This is a note using the '10:not' command in the DocType column. \newline }\\
+\multicolumn{5}{l}{This is another note using the '10:not' command in the DocType column. \newline }\\
+\multicolumn{5}{l}{  \newline }\\
+\multicolumn{5}{l}{  \newline }\\
+\multicolumn{5}{l}{Greetings text  using the  '10:gre' command  in the DocType column \newline }\\
+\end{longtable}
+  \\
+  \\
+  \\
+Banca XYZ \\
+Via abc 34 \\
+Banca XYZ \\
+Via abc 34 \\
+Banana.ch SA \\
+Via alla Santa 7 \\
+6962 Viganello \\
+Banana.ch SA \\
+Via alla Santa 7 \\
+6962 Viganello \\
+0-00000-0 \\
+0-00000-0 \\
+3498 \\
+75 \\
+3498 \\
+75 \\
+00 00000 00000 10000 20000 03505  \\
+Mario Bianchi \\
+Via Trevano \\
+6963 Pregassona \\
+Mario Bianchi \\
+Via Trevano \\
+6963 Pregassona \\
+00 00000 00000 10000 20000 03505  \\
+0100003498753>000000000000100002000003505+ 000000000> \\
+\begin{longtable}[l]{ l  l  l }
+Invoice \newline  &  & Page  \#page-nr \newline \\
+\end{longtable}
+\end{reportvalue}
+\subsection{Test Invoice 36}
+\begin{reportvalue}{Test Invoice 36}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 36 \\
+Date:  & 01.02.2018 \\
+Customer No:  & 100004 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Payment:  & 03.03.2018 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Banana.ch SA \\
+Via alla Santa 7 - 6962 Viganello \\
+www.banana.ch - info@banana.ch \\
+IVA 123 456 789 \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 36 \\
+Date:  & 01.02.2018 \\
+Customer No:  & 100004 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Payment:  & 03.03.2018 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello \\
+Susanna Lanfranchi \newline V.Meggiagra 3 \newline 6599 Robasacco \newline Switzerland \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 36 \newline \newline \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Sales merchandise, invoice \#36, customer D \newline \newline  &  &  & 6'481.48  & 6'481.48 \\
+\multicolumn{10}{l}{}\\
+\multicolumn{9}{l}{Total net } & 6'481.48 \\
+\multicolumn{9}{l}{VAT 8.00\% (6'481.48) } & 518.52 \\
+\multicolumn{10}{l}{}\\
+\multicolumn{9}{l}{TOTAL CHF } & 7'000.00 \\
+\multicolumn{10}{l}{}\\
+\multicolumn{10}{l}{  }\\
+\multicolumn{10}{l}{\newline }\\
+\end{longtable}
+  \\
+  \\
+  \\
+Banca XYZ \\
+Via abc 34 \\
+Banca XYZ \\
+Via abc 34 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+0-00000-0 \\
+0-00000-0 \\
+7000 \\
+00 \\
+7000 \\
+00 \\
+00 00000 00000 10000 40000 03607  \\
+Susanna Lanfranchi \\
+V.Meggiagra 3 \\
+6599 Robasacco \\
+Susanna Lanfranchi \\
+V.Meggiagra 3 \\
+6599 Robasacco \\
+00 00000 00000 10000 40000 03607  \\
+0100007000003>000000000000100004000003607+ 000000000> \\
+\begin{longtable}[l]{ l  l  l }
+Invoice \newline  &  & Page  \#page-nr \newline \\
+\end{longtable}
+\end{reportvalue}
+\subsection{Test Invoice 37}
+\begin{reportvalue}{Test Invoice 37}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 37 \\
+Date:  & 03.02.2018 \\
+Customer No:  & 100001 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Payment:  & 05.03.2018 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Banana.ch SA \\
+Via alla Santa 7 - 6962 Viganello \\
+www.banana.ch - info@banana.ch \\
+IVA 123 456 789 \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 37 \\
+Date:  & 03.02.2018 \\
+Customer No:  & 100001 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Payment:  & 05.03.2018 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello \\
+Rossi SA \newline Carlo Rossi \newline Via Trevano \newline 6963 Pregassona \newline Switzerland \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 37 \newline \newline \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Sales merchandise, invoice \#37, customer A \newline \newline  &  &  & 7'407.41  & 7'407.41 \\
+Consultancy \newline \newline  &  &  & 92.59  & 92.59 \\
+Consultancy \newline \newline  &  &  & 92.59  & 92.59 \\
+Consultancy \newline \newline  &  &  & 92.59  & 92.59 \\
+Consultancy \newline \newline  &  &  & 92.59  & 92.59 \\
+Consultancy \newline \newline  &  &  & 92.59  & 92.59 \\
+Consultancy \newline \newline  &  &  & 92.59  & 92.59 \\
+\multicolumn{15}{l}{}\\
+\multicolumn{14}{l}{Total net } & 7'962.95 \\
+\multicolumn{14}{l}{VAT 8.00\% (7'962.95) } & 637.05 \\
+\multicolumn{15}{l}{}\\
+\multicolumn{14}{l}{TOTAL CHF } & 8'600.00 \\
+\multicolumn{15}{l}{}\\
+\multicolumn{15}{l}{  }\\
+\multicolumn{15}{l}{\newline }\\
+\end{longtable}
+  \\
+  \\
+  \\
+Banca XYZ \\
+Via abc 34 \\
+Banca XYZ \\
+Via abc 34 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+0-00000-0 \\
+0-00000-0 \\
+8600 \\
+00 \\
+8600 \\
+00 \\
+00 00000 00000 10000 10000 03702  \\
+Rossi SA \\
+Carlo Rossi \\
+Via Trevano \\
+6963 Pregassona \\
+Rossi SA \\
+Carlo Rossi \\
+Via Trevano \\
+6963 Pregassona \\
+00 00000 00000 10000 10000 03702  \\
+0100008600005>000000000000100001000003702+ 000000000> \\
+\begin{longtable}[l]{ l  l  l }
+Invoice \newline  &  & Page  \#page-nr \newline \\
+\end{longtable}
+\end{reportvalue}
+\subsection{Test Invoice 47}
+\begin{reportvalue}{Test Invoice 47}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 47 \\
+Date:  & 11.11.2018 \\
+Customer No:  & 100003 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Payment:  & 11.12.2018 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Banana.ch SA \\
+Via alla Santa 7 - 6962 Viganello \\
+www.banana.ch - info@banana.ch \\
+IVA 123 456 789 \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 47 \\
+Date:  & 11.11.2018 \\
+Customer No:  & 100003 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Payment:  & 11.12.2018 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello \\
+Marco Alberti \newline V. Campuréta 40 \newline 6883 Novazzano \newline Switzerland \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 47 \newline \newline \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 20.37  & 20.37 \\
+Product B \newline \newline  &  &  & 27.78  & 27.78 \\
+Discount 10\% product B \newline \newline  &  &  & -2.78  & -2.78 \\
+\multicolumn{20}{l}{}\\
+\multicolumn{19}{l}{Total net } & 45.37 \\
+\multicolumn{19}{l}{VAT 8.00\% (45.37) } & 3.63 \\
+\multicolumn{20}{l}{}\\
+\multicolumn{19}{l}{TOTAL CHF } & 49.00 \\
+\multicolumn{20}{l}{}\\
+\multicolumn{20}{l}{  }\\
+\multicolumn{20}{l}{\newline }\\
+\end{longtable}
+  \\
+  \\
+  \\
+Banca XYZ \\
+Via abc 34 \\
+Banca XYZ \\
+Via abc 34 \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+Banana.ch SA \\
+Via Trevano 7a \\
+6900 Lugano \\
+0-00000-0 \\
+0-00000-0 \\
+49 \\
+00 \\
+49 \\
+00 \\
+00 00000 00000 10000 30000 04704  \\
+Marco Alberti \\
+V. Campuréta 40 \\
+6883 Novazzano \\
+Marco Alberti \\
+V. Campuréta 40 \\
+6883 Novazzano \\
+00 00000 00000 10000 30000 04704  \\
+0100000049006>000000000000100003000004704+ 000000000> \\
+\begin{longtable}[l]{ l  l  l }
+Invoice \newline  &  & Page  \#page-nr \newline \\
+\end{longtable}
+\end{reportvalue}
+\keyvalue{Result}{Passed}
+\end{test}
+\end{testcase}
+\end{document}
