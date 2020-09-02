@@ -1,0 +1,288 @@
+
+/* CSS update: 2020-07-24  */
+
+@page {
+  margin-top: 0cm;
+  margin-bottom: 0cm;
+  margin-left: 0cm;
+  margin-right: 0cm;
+}
+
+body {
+  font-family: $font_family;
+  font-size: $font_size;
+  color: $text_color;
+}
+
+td {
+  vertical-align: top;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.padding-right {
+  padding-right: 20px;
+}
+
+.padding-left {
+  padding-left: 20px;
+}
+
+.border-bottom {
+  border-bottom-style: solid;
+  border-bottom-color: $background_color_details_header;
+  border-bottom-width: 2px;
+}
+
+.thin-border-top {
+  border-top-style: solid;
+  border-top-color: $background_color_details_header;
+  border-top-width: thin;
+}
+
+.thin-border-bottom {
+  border-bottom-style: solid;
+  border-bottom-color: $background_color_details_header;
+  border-bottom-width: thin;
+}
+
+.header_left_text {
+  margin-top: 1.2cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+
+.header_right_text {
+  margin-top: 1.2cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  text-align: right;
+  position: absolute;
+}
+
+.header_row_1 {
+  font-weight: bold;
+  font-size:16pt;
+}
+
+.header_row_2_to_5 {
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.logo {
+  margin-top: 1.2cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+
+.info_table_left {
+  font-size: $font_size;
+  margin-top: 4.5cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+}
+
+.info_table_right {
+  font-size: $font_size;
+  margin-top: 5.5cm;
+  margin-left: 12.3cm;
+  margin-right: 1.2cm;
+}
+
+.info_table_row0 {
+  font-size: $font_size;
+  margin-top: 4.5cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+}
+
+table.info_table_left td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+table.info_table_right td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+table.info_table_row0 td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+@page:first-view table.info_table_row0 {
+  display: none;
+}
+
+.address_table_right {
+  font-size: $font_size;
+  margin-top: 4.5cm;
+  margin-left: 12.3cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+
+.address_table_left {
+  margin-top: 5.5cm;
+  margin-left: 2.2cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+
+.custom_address_table_right {
+  font-size: $font_size;
+  margin-top: $right_address_margin_top;
+  margin-left: $right_address_margin_left;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+
+.custom_address_table_left {
+  margin-top: $left_address_margin_top;
+  margin-left: $left_address_margin_left;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+
+.small_address {
+  font-size: 7pt;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+}
+
+.shipping_address {
+  font-size: $font_size;
+  margin-top: 0.4cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+}
+
+.title_shipping_address {
+  font-weight: bold;
+  color: $background_color_details_header;
+}
+
+.title_text {
+  font-size: $font_size_title;
+  font-weight: bold;
+  color: $background_color_details_header;
+}
+
+.section_class_begin {
+  margin-top: 1.0cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  width: 100%;
+}
+
+.begin_text_table {
+  width: 100%;
+}
+
+.begin_text {
+  font-size: $font_size;
+}
+
+.section_class_details:first-view {
+  margin-top: 0.5cm;
+}
+
+.section_class_details {
+  font-size: $font_size;
+  margin-top: 0.5cm;
+  margin-bottom: 0.5cm;
+  margin-left: 1.3cm;
+  margin-right: 1.2cm;
+}
+
+.doc_table {
+  width: 100%;
+}
+
+.doc_table_header {
+  font-size: $font_size_header;
+  font-weight: bold;
+  color: $text_color_details_header;
+  background-color: $background_color_details_header;
+}
+
+.doc_table td {
+  padding-top: 5px;
+  padding-bottom: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.doc_table_header td {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.total_cell {
+  font-size: $font_size_total;
+  font-weight: bold;
+  color: $background_color_details_header;
+  border-bottom-style: double;
+  border-bottom-color: $background_color_details_header;
+  border-bottom-width: 1px;
+}
+
+.subtotal_cell {
+  font-weight: bold;
+  border-bottom-style: solid;
+  border-bottom-color: $background_color_details_header;
+  border-bottom-width: thin;
+}
+
+.header_cell {
+  font-weight: bold;
+}
+
+.vat_info {
+  font-size: $font_size;
+}
+
+.even_rows_background_color {
+  background-color: $background_color_alternate_lines;
+}
+
+.section_class_final_texts {
+  margin-top: 0cm;
+  margin-bottom: 0.5cm;
+  margin-left: 1.2cm;
+  margin-right: 1.0cm;
+}
+
+.footer_line {
+  margin-left: 1.2cm;
+  margin-right: 1.0cm;
+  border-top-style: solid;
+  border-top-color: $background_color_details_header;
+  border-top-width: thin;
+}
+
+.footer_table {
+  font-size: 8pt;
+  margin-bottom: 2.0cm;
+  margin-left: 1.2cm;
+  margin-right: 1.0cm;
+  width: 100%;
+}

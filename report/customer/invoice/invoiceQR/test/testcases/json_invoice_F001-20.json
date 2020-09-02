@@ -1,0 +1,177 @@
+{
+   "billing_info":{
+      "payment_term":"",
+      "total_amount_vat_exclusive":"139.21",
+      "total_amount_vat_exclusive_before_discount":"139.21",
+      "total_amount_vat_inclusive":"150.35",
+      "total_amount_vat_inclusive_before_discount":"150.35",
+      "total_categories":[
+
+      
+],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"150.35",
+      "total_vat_amount":"11.14",
+      "total_vat_amount_before_discount":"11.14",
+      "total_vat_codes":[
+
+      
+],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"139.21",
+            "total_amount_vat_inclusive":"150.35",
+            "total_vat_amount":"11.14",
+            "vat_rate":"8.00"
+         
+}
+      
+]
+   
+},
+   "customer_info":{
+      "address1":"V.Meggiagra 3",
+      "balance":"2474286.15",
+      "balance_base_currency":"2474286.15",
+      "business_name":"ABC SA",
+      "city":"Robasacco",
+      "country":"Switzerland",
+      "country_code":"CH",
+      "courtesy":"Signora",
+      "first_name":"Susanna",
+      "last_name":"Lanfranchi",
+      "number":"100004",
+      "origin_row":"107",
+      "origin_table":"Accounts",
+      "postal_code":"6599"
+   
+},
+   "document_info":{
+      "currency":"CHF",
+      "date":"2022-03-06",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "locale":"en",
+      "number":"F001-20",
+      "origin_row":"50",
+      "origin_table":"Transactions",
+      "printed":"",
+      "rounding_total":"0.05",
+      "type":"invoice"
+   
+},
+   "items":[
+      {
+         "account_assignment":"100004",
+         "description":"Sales merchandise, invoice #36, customer D",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"50",
+         "origin_table":"Transactions",
+         "quantity":"1",
+         "total_amount_vat_exclusive":"139.21",
+         "total_amount_vat_inclusive":"150.35",
+         "total_vat_amount":"11.14",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"150.35",
+            "calculated_amount_vat_exclusive":"139.21",
+            "calculated_amount_vat_inclusive":"150.35",
+            "calculated_vat_amount":"11.14",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+}
+   
+],
+   "note":[
+
+   
+],
+   "parameters":{
+
+   
+},
+   "payment_info":{
+      "date_expected":"2022-04-05",
+      "due_date":"2022-04-05",
+      "due_days":"",
+      "due_period":"4_Current",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   
+},
+   "shipping_info":{
+      "different_shipping_address":false
+   
+},
+   "supplier_info":{
+      "address1":"Via alla Santa 7",
+      "business_name":"Banana.ch SA",
+      "city":"Viganello",
+      "country":"CH",
+      "email":"info@banana.ch",
+      "fiscal_number":"1122334455",
+      "postal_code":"6962",
+      "vat_number":"CHE-123.456.789",
+      "web":"www.banana.ch"
+   
+},
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"en",
+            "text":[
+               "Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings.",
+               "Paragraph 2, **final text** taken from the 'Print invoices' ,'Template options' settings. **Final text taken from the 'Print invoices' ,'Template options' settings."
+            
+]
+         
+},
+         {
+            "lang":"it",
+            "text":[
+               "Testo finale definito in **Stampa fatture** -> **Opzioni modelli** selezionando la lingua **it**."
+            
+]
+         
+},
+         {
+            "lang":"nl",
+            "text":[
+               "Prova prova",
+               ""
+            
+]
+         
+}
+      
+]
+   
+},
+   "transactions":[
+
+   
+],
+   "type":"invoice",
+   "version":"1.0"
+}

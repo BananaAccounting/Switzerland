@@ -1,0 +1,284 @@
+{
+   "billing_info":{
+      "payment_term":"",
+      "total_amount_vat_exclusive":"459.15",
+      "total_amount_vat_exclusive_before_discount":"459.15",
+      "total_amount_vat_inclusive":"494.50",
+      "total_amount_vat_inclusive_before_discount":"494.50",
+      "total_categories":[
+
+      
+],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"494.50",
+      "total_vat_amount":"35.35",
+      "total_vat_amount_before_discount":"35.35",
+      "total_vat_codes":[
+         {
+            "total_amount_vat_exclusive":"459.15",
+            "total_amount_vat_inclusive":"494.50",
+            "total_vat_amount":"35.35",
+            "vat_code":"V77"
+         
+}
+      
+],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"459.15",
+            "total_amount_vat_inclusive":"494.50",
+            "total_vat_amount":"35.35",
+            "vat_rate":"7.70"
+         
+}
+      
+]
+   
+},
+   "customer_info":{
+      "address1":"V. Campagnola 7",
+      "balance":"494.50",
+      "balance_base_currency":"494.50",
+      "city":"Manno",
+      "country":"Switzerland",
+      "country_code":"CH",
+      "first_name":"Germano",
+      "last_name":"Simoni",
+      "number":"100005",
+      "origin_row":"108",
+      "origin_table":"Accounts",
+      "postal_code":"6928"
+   
+},
+   "document_info":{
+      "currency":"CHF",
+      "date":"2022-06-05",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "locale":"en",
+      "number":"60",
+      "origin_row":"122",
+      "origin_table":"Transactions",
+      "printed":"1",
+      "rounding_total":"0.05",
+      "type":"invoice"
+   
+},
+   "items":[
+      {
+         "account_assignment":"100005",
+         "description":"Consulting services",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"hrs",
+         "number":"",
+         "origin_row":"122",
+         "origin_table":"Transactions",
+         "quantity":"8.0000",
+         "total_amount_vat_exclusive":"89.14",
+         "total_amount_vat_inclusive":"96.00",
+         "total_vat_amount":"6.86",
+         "unit_price":{
+            "amount_vat_inclusive":"12.00",
+            "calculated_amount_vat_exclusive":"11.14",
+            "calculated_amount_vat_inclusive":"12.00",
+            "calculated_vat_amount":"0.86",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100005",
+         "description":"Consulting services",
+         "details":"",
+         "index":"1",
+         "item_type":"item",
+         "mesure_unit":"hrs",
+         "number":"",
+         "origin_row":"123",
+         "origin_table":"Transactions",
+         "quantity":"6.5000",
+         "total_amount_vat_exclusive":"72.42",
+         "total_amount_vat_inclusive":"78.00",
+         "total_vat_amount":"5.58",
+         "unit_price":{
+            "amount_vat_inclusive":"12.00",
+            "calculated_amount_vat_exclusive":"11.14",
+            "calculated_amount_vat_inclusive":"12.00",
+            "calculated_vat_amount":"0.86",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100005",
+         "description":"Consulting services",
+         "details":"",
+         "index":"2",
+         "item_type":"item",
+         "mesure_unit":"hrs",
+         "number":"",
+         "origin_row":"124",
+         "origin_table":"Transactions",
+         "quantity":"5.2500",
+         "total_amount_vat_exclusive":"58.50",
+         "total_amount_vat_inclusive":"63.00",
+         "total_vat_amount":"4.50",
+         "unit_price":{
+            "amount_vat_inclusive":"12.00",
+            "calculated_amount_vat_exclusive":"11.14",
+            "calculated_amount_vat_inclusive":"12.00",
+            "calculated_vat_amount":"0.86",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100005",
+         "description":"Consulting services",
+         "details":"",
+         "index":"3",
+         "item_type":"item",
+         "mesure_unit":"hrs",
+         "number":"",
+         "origin_row":"125",
+         "origin_table":"Transactions",
+         "quantity":"9.7500",
+         "total_amount_vat_exclusive":"181.06",
+         "total_amount_vat_inclusive":"195.00",
+         "total_vat_amount":"13.94",
+         "unit_price":{
+            "amount_vat_inclusive":"20.00",
+            "calculated_amount_vat_exclusive":"18.57",
+            "calculated_amount_vat_inclusive":"20.00",
+            "calculated_vat_amount":"1.43",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100005",
+         "description":"Consulting services",
+         "details":"",
+         "index":"4",
+         "item_type":"item",
+         "mesure_unit":"hrs",
+         "number":"",
+         "origin_row":"126",
+         "origin_table":"Transactions",
+         "quantity":"5.0000",
+         "total_amount_vat_exclusive":"58.03",
+         "total_amount_vat_inclusive":"62.50",
+         "total_vat_amount":"4.47",
+         "unit_price":{
+            "amount_vat_inclusive":"12.50",
+            "calculated_amount_vat_exclusive":"11.61",
+            "calculated_amount_vat_inclusive":"12.50",
+            "calculated_vat_amount":"0.89",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+}
+   
+],
+   "note":[
+
+   
+],
+   "parameters":{
+
+   
+},
+   "payment_info":{
+      "date_expected":"2022-07-05",
+      "due_date":"2022-07-05",
+      "due_days":"",
+      "due_period":"4_Current",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   
+},
+   "shipping_info":{
+      "different_shipping_address":false
+   
+},
+   "supplier_info":{
+      "address1":"Via alla Santa 7",
+      "business_name":"Banana.ch SA",
+      "city":"Viganello",
+      "country":"Svizzera",
+      "country_code":"CH",
+      "email":"info@banana.ch",
+      "fiscal_number":"1122334455",
+      "iban_number":"CH58 0900 0000 6525 0122 4",
+      "postal_code":"6962",
+      "vat_number":"CHE-101.734.967 IVA",
+      "web":"www.banana.ch"
+   
+},
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"en",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"it",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"nl",
+            "text":[
+               ""
+            
+]
+         
+}
+      
+]
+   
+},
+   "transactions":[
+
+   
+],
+   "type":"invoice",
+   "version":"1.0"
+}

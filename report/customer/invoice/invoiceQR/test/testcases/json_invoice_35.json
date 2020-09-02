@@ -1,0 +1,257 @@
+{
+   "billing_info":{
+      "payment_term":"30 days",
+      "total_amount_vat_exclusive":"1081.89",
+      "total_amount_vat_exclusive_before_discount":"1081.89",
+      "total_amount_vat_inclusive":"1130.00",
+      "total_amount_vat_inclusive_before_discount":"1130.00",
+      "total_categories":[
+
+      ],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"1130.00",
+      "total_vat_amount":"48.11",
+      "total_vat_amount_before_discount":"48.11",
+      "total_vat_codes":[
+
+      ],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"277.78",
+            "total_amount_vat_inclusive":"300.00",
+            "total_vat_amount":"22.22",
+            "vat_rate":"8.00"
+         },
+         {
+            "total_amount_vat_exclusive":"482.16",
+            "total_amount_vat_inclusive":"500.00",
+            "total_vat_amount":"17.84",
+            "vat_rate":"3.70"
+         },
+         {
+            "total_amount_vat_exclusive":"321.95",
+            "total_amount_vat_inclusive":"330.00",
+            "total_vat_amount":"8.05",
+            "vat_rate":"2.50"
+         }
+      ]
+   },
+   "customer_info":{
+      "address1":"Via Trevano",
+      "balance":"6220.00",
+      "balance_base_currency":"6220.00",
+      "city":"Pregassona",
+      "country":"CH",
+      "courtesy":"Sig.",
+      "first_name":"Mario",
+      "fiscal_number":"001 002 003",
+      "last_name":"Bianchi",
+      "number":"100002",
+      "origin_row":"105",
+      "origin_table":"Accounts",
+      "postal_code":"6963",
+      "vat_number":"123 456 789"
+   },
+   "document_info":{
+      "currency":"CHF",
+      "date":"2022-01-29",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "greetings":"**Testo saluti finali** utilizzando il comando **'10:gre'** nella colonna **DocType**.",
+      "locale":"it",
+      "number":"35",
+      "origin_row":"11",
+      "origin_table":"Transactions",
+      "printed":"1",
+      "rounding_total":"0.05",
+      "text_begin":"**Testo iniziale** definito con il comando '10:beg' nella colonna DocType.",
+      "type":"invoice"
+   },
+   "items":[
+      {
+         "account_assignment":"100002",
+         "description":"Vendita merce prodotto A, fattura #35, cliente B",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"11",
+         "origin_table":"Transactions",
+         "quantity":"15.0000",
+         "total_amount_vat_exclusive":"277.78",
+         "total_amount_vat_inclusive":"300.00",
+         "total_vat_amount":"22.22",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"20.00",
+            "calculated_amount_vat_exclusive":"18.52",
+            "calculated_amount_vat_inclusive":"20.00",
+            "calculated_vat_amount":"1.48",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         }
+      },
+      {
+         "account_assignment":"100002",
+         "description":"Vendita merce prodotto B, fattura #35, cliente B",
+         "details":"",
+         "index":"1",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"12",
+         "origin_table":"Transactions",
+         "quantity":"5.0000",
+         "total_amount_vat_exclusive":"482.16",
+         "total_amount_vat_inclusive":"500.00",
+         "total_vat_amount":"17.84",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"100.00",
+            "calculated_amount_vat_exclusive":"96.43",
+            "calculated_amount_vat_inclusive":"100.00",
+            "calculated_vat_amount":"3.57",
+            "currency":"CHF",
+            "vat_code":"V37",
+            "vat_rate":"3.70"
+         }
+      },
+      {
+         "account_assignment":"100002",
+         "description":"Vendita merce prodotto C, fattura #35, cliente B",
+         "details":"",
+         "index":"2",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"13",
+         "origin_table":"Transactions",
+         "quantity":"22.0000",
+         "total_amount_vat_exclusive":"321.95",
+         "total_amount_vat_inclusive":"330.00",
+         "total_vat_amount":"8.05",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"15.00",
+            "calculated_amount_vat_exclusive":"14.63",
+            "calculated_amount_vat_inclusive":"15.00",
+            "calculated_vat_amount":"0.37",
+            "currency":"CHF",
+            "vat_code":"V25",
+            "vat_rate":"2.50"
+         }
+      }
+   ],
+   "note":[
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"24",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":"Prima nota definita con il comando '10:not' nella colonna DocType.",
+         "origin_row":"25",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":"**Seconda nota definita con il comando '10:not' nella colonna DocType**.",
+         "origin_row":"26",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"27",
+         "origin_table":"Transactions"
+      },
+      {
+         "date":"",
+         "description":" ",
+         "origin_row":"28",
+         "origin_table":"Transactions"
+      }
+   ],
+   "parameters":{
+
+   },
+   "payment_info":{
+      "date_expected":"2022-02-28",
+      "due_date":"2022-02-28",
+      "due_days":"",
+      "due_period":"4_Corrente",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   },
+   "shipping_info":{
+      "address1":"Via Regina",
+      "city":"Agno",
+      "courtesy":"Sig.",
+      "different_shipping_address":true,
+      "first_name":"Robert",
+      "last_name":"Schwartz",
+      "postal_code":"6982"
+   },
+   "supplier_info":{
+      "address1":"Via alla Santa 7",
+      "business_name":"Banana.ch SA",
+      "city":"Viganello",
+      "country":"CH",
+      "email":"info@banana.ch",
+      "fiscal_number":"1122334455",
+      "postal_code":"6962",
+      "vat_number":"CHE-123.456.789",
+      "web":"www.banana.ch"
+   },
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            ]
+         },
+         {
+            "lang":"en",
+            "text":[
+               "Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings.",
+               "Paragraph 2, **final text** taken from the 'Print invoices' ,'Template options' settings. **Final text taken from the 'Print invoices' ,'Template options' settings."
+            ]
+         },
+         {
+            "lang":"it",
+            "text":[
+               "Testo finale definito in **Stampa fatture** -> **Opzioni modelli** selezionando la lingua **it**."
+            ]
+         },
+         {
+            "lang":"nl",
+            "text":[
+               "Prova prova",
+               ""
+            ]
+         }
+      ]
+   },
+   "transactions":[
+      {
+         "amount":"-5000.00",
+         "currency":"CHF",
+         "date":"2022-01-31",
+         "description":"Payment Client B",
+         "origin_row":"30",
+         "origin_table":"Transactions"
+      }
+   ],
+   "type":"invoice",
+   "version":"1.0"
+}
