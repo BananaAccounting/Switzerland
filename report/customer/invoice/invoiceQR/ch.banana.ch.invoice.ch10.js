@@ -1766,8 +1766,7 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     // Invoice texts which need translation
     if (invoiceObj.customer_info.lang) {
       lang = invoiceObj.customer_info.lang.toLowerCase(); //in case user insert uppercase language
-    }
-    if (lang.length <= 0) {
+    } else if (invoiceObj.document_info.locale) {
       lang = invoiceObj.document_info.locale;
     }
     //Check that lan is in parameter languages
