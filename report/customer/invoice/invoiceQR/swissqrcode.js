@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-09-01 */
+/* Script update: 2020-09-11 */
 
 
 
@@ -956,6 +956,19 @@ var QRBill = class QRBill {
 		/* Further information */
 		qrcodeData.furtherInformation1 = "";//"UV;UltraPay005;12345";
 		qrcodeData.furtherInformation2 = "";//"XY;XYService;54321";
+
+		
+		//////////////////////////////////////////////////////
+		/* User can define qr settings with a hook function */
+		//////////////////////////////////////////////////////
+		if (typeof(hook_modify_settings_qr) === typeof(Function)) {
+			hook_modify_settings_qr(invoiceObj, qrcodeData);
+		
+			qrcodeData.supplierIbanNumber = this.formatIban(qrcodeData.supplierIbanNumber);
+			if (isValidIBAN(qrcodeData.supplierIbanNumber) !== 1) {
+				qrcodeData.supplierIbanNumber = "@error Incorrect IBAN: "+ qrcodeData.supplierIbanNumber;
+			}
+		}
 
 		return qrcodeData;
 	}

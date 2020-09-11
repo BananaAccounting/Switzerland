@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-09-01
+// @pubdate = 2020-09-11
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code (BETA)
 // @description.it = [CH10] Layout with Swiss QR Code (BETA)
@@ -49,7 +49,7 @@
 // Define the required version of Banana Accounting / Banana Experimental
 var BAN_VERSION = "9.1.0";
 var BAN_EXPM_VERSION = "200615";
-var BAN_ADVANCED_VERSION = true;
+var BAN_LICENSE_TYPE = "";
 
 // Counter for the columns of the Details table
 var columnsNumber = 0;
@@ -58,6 +58,12 @@ var columnsNumber = 0;
 var lang = "en";
 
 
+
+function bananaLicenseType() {
+  if (Banana.application.license) {
+    BAN_LICENSE_TYPE = Banana.application.license.licenseType;
+  }
+}
 
 //====================================================================//
 // SETTINGS DIALOG FUNCTIONS USED TO SET, INITIALIZE AND VERIFY ALL
@@ -1748,6 +1754,9 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
   var isCurrentBananaVersionSupported = bananaRequiredVersion(BAN_VERSION, BAN_EXPM_VERSION);
   if (isCurrentBananaVersionSupported) {
 
+    //Get the license type
+    bananaLicenseType();
+
     var userParam = initParam();
     var savedParam = Banana.document.getScriptSettings();
     if (savedParam.length > 0) {
@@ -1776,7 +1785,7 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     var texts = setInvoiceTexts(lang);
 
     // Include the embedded javascript file entered by the user
-    includeEmbeddedJavascriptFile(texts, userParam);
+    includeEmbeddedJavascriptFile(Banana.document, texts, userParam);
     
     // Variable starts with $
     var variables = {};
@@ -1784,9 +1793,10 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     
     // Function call to print the invoice document
     repDocObj = printInvoice(Banana.document, repDocObj, texts, userParam, repStyleObj, invoiceObj, variables);
-        
+    
+    // Load the predefined invoice.css styles and the embedded css file entered by the user
     set_css_style(Banana.document, repStyleObj, variables, userParam);
-  
+
   }
 }
 
@@ -1814,28 +1824,28 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
 
   /* PRINT HEADER */
-  if (BAN_ADVANCED_VERSION && typeof(hook_print_header) === typeof(Function)) {
+  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_header) === typeof(Function)) {
     hook_print_header(repDocObj);
   } else {
     print_header(repDocObj, userParam, repStyleObj, invoiceObj, texts);
   }
 
   /* PRINT INVOICE INFO FIRST PAGE */
-  if (BAN_ADVANCED_VERSION && typeof(hook_print_info_first_page) === typeof(Function)) {
+  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_info_first_page) === typeof(Function)) {
     hook_print_info_first_page(repDocObj, invoiceObj, texts, userParam);
   } else {
     print_info_first_page(repDocObj, invoiceObj, texts, userParam);
   }
 
   /* PRINT INVOICE INFO PAGES 2+ */
-  if (BAN_ADVANCED_VERSION && typeof(hook_print_info_other_pages) === typeof(Function)) {
+  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_info_other_pages) === typeof(Function)) {
     hook_print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
   } else {
     print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
   }
 
   /* PRINT CUSTOMER ADDRESS */
-  if (BAN_ADVANCED_VERSION && typeof(hook_print_customer_address) === typeof(Function)) {
+  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_customer_address) === typeof(Function)) {
     hook_print_customer_address(repDocObj, invoiceObj, userParam);
   } else {
     print_customer_address(repDocObj, invoiceObj, userParam);
@@ -1843,7 +1853,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT SHIPPING ADDRESS */
   if (userParam.shipping_address) {
-    if (BAN_ADVANCED_VERSION && typeof(hook_print_shipping_address) === typeof(Function)) {
+    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_shipping_address) === typeof(Function)) {
       hook_print_shipping_address(repDocObj, invoiceObj, texts, userParam);
     } else {
       print_shipping_address(repDocObj, invoiceObj, texts, userParam);
@@ -1852,7 +1862,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT BEGIN TEXT (BEFORE INVOICE DETAILS) */
   var sectionClassBegin = repDocObj.addSection("section_class_begin");
-  if (BAN_ADVANCED_VERSION && typeof(hook_print_text_begin) === typeof(Function)) {
+  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_text_begin) === typeof(Function)) {
     hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
   } else {
     print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
@@ -1862,14 +1872,14 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   var sectionClassDetails = repDocObj.addSection("section_class_details");
   var detailsTable = sectionClassDetails.addTable("doc_table");
   if (userParam.details_gross_amounts) {
-    if (BAN_ADVANCED_VERSION && typeof(hook_print_details_gross_amounts) === typeof(Function)) {
+    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_details_gross_amounts) === typeof(Function)) {
       hook_print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
       print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     }
   }
   else {
-    if (BAN_ADVANCED_VERSION && typeof(hook_print_details_net_amounts) === typeof(Function)) {
+    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_details_net_amounts) === typeof(Function)) {
       hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
       print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
@@ -1878,7 +1888,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FINAL TEXTS (AFTER INVOICE DETAILS) */
   var sectionClassFinalTexts = repDocObj.addSection("section_class_final_texts");
-  if (BAN_ADVANCED_VERSION && typeof(hook_print_final_texts) === typeof(Function)) {
+  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_final_texts) === typeof(Function)) {
     hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
   } else {
     print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
@@ -1892,7 +1902,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FOOTER */
   if (!userParam.qr_code_add) { //only if QRCode is not printed
-    if (BAN_ADVANCED_VERSION && typeof(hook_print_footer) === typeof(Function)) {
+    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_footer) === typeof(Function)) {
       hook_print_footer(repDocObj, texts, userParam);
     } else {
       print_footer(repDocObj, texts, userParam);
@@ -2279,6 +2289,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   var columnsAlignment = userParam.details_columns_alignment.split(";");
 
   //ITEMS
+  var customColumnMsg = "";
   for (var i = 0; i < invoiceObj.items.length; i++) {
 
     var item = invoiceObj.items[i];
@@ -2352,13 +2363,22 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
         //This prevent conflicts with JSON fields.
         if (columnsName.startsWith("T.")) {
-          columnsName = columnsName.substring(2);
-          userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
-          itemValue = formatItemsValue(userColumnValue, variables, columnsName, className);         
+          if (BAN_LICENSE_TYPE === "advanced") {
+            columnsName = columnsName.substring(2);
+            userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className);         
+          }
+          else {
+            customColumnMsg = "Custom columns require Banana Accounting+ Advanced";
+          }
         }
         tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
       }
     }
+  }
+  // Show message when using "T.Column" with a non advanced version of Banana+
+  if (customColumnMsg.length > 0) {
+    banDoc.addMessage(customColumnMsg);
   }
 
   tableRow = repTableObj.addRow();
@@ -2459,6 +2479,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   var columnsAlignment = userParam.details_columns_alignment.split(";");
 
   //ITEMS
+  var customColumnMsg = "";
   for (var i = 0; i < invoiceObj.items.length; i++) {
 
     var item = invoiceObj.items[i];
@@ -2532,13 +2553,22 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
         //This prevent conflicts with JSON fields.
         if (columnsName.startsWith("T.")) {
-          columnsName = columnsName.substring(2);
-          userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
-          itemValue = formatItemsValue(userColumnValue, variables, columnsName, className);         
+          if (BAN_LICENSE_TYPE === "advanced") {
+            columnsName = columnsName.substring(2);
+            userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className);
+          }
+          else {
+            customColumnMsg = "Custom columns require Banana Accounting+ Advanced";
+          }
         }
         tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
       }
     }
+  }
+  // Show message when using "T.Column" with a non advanced version of Banana+
+  if (customColumnMsg.length > 0) {
+    banDoc.addMessage(customColumnMsg);
   }
 
   tableRow = repTableObj.addRow();
@@ -3066,7 +3096,7 @@ function bananaRequiredVersion(requiredVersion, expmVersion) {
   return true;
 }
 
-function includeEmbeddedJavascriptFile(texts, userParam) {
+function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
 
   /*
     Include the javascript file (.js) entered by the user.
@@ -3079,33 +3109,39 @@ function includeEmbeddedJavascriptFile(texts, userParam) {
   // User entered a javascript file name
   // Take from the table documents all the javascript file names
   if (userParam.embedded_javascript_filename) {
+
+    if (BAN_LICENSE_TYPE === "advanced") {
     
-    var jsFiles = [];
-    
-    // If Documents table exists, take all the ".js" file names
-    var documentsTable = Banana.document.table("Documents");
-    if (documentsTable) {
-      for (var i = 0; i < documentsTable.rowCount; i++) {
-        var tRow = documentsTable.row(i);
-        var id = tRow.value("RowId");
-        if (id.indexOf(".js") > -1) {
-          jsFiles.push(id);
+      var jsFiles = [];
+      
+      // If Documents table exists, take all the ".js" file names
+      var documentsTable = Banana.document.table("Documents");
+      if (documentsTable) {
+        for (var i = 0; i < documentsTable.rowCount; i++) {
+          var tRow = documentsTable.row(i);
+          var id = tRow.value("RowId");
+          if (id.indexOf(".js") > -1) {
+            jsFiles.push(id);
+          }
+        }
+      }
+
+      // Table documents contains javascript files
+      if (jsFiles.length > 0) {
+
+        // The javascript file name entered by user exists on documents table: include this file
+        if (jsFiles.indexOf(userParam.embedded_javascript_filename) > -1) {
+          try {
+            Banana.include("documents:" + userParam.embedded_javascript_filename);
+          }
+          catch(error) {
+            banDoc.addMessage(texts.embedded_javascript_file_not_found);
+          }
         }
       }
     }
-
-    // Table documents contains javascript files
-    if (jsFiles.length > 0) {
-
-      // The javascript file name entered by user exists on documents table: include this file
-      if (jsFiles.indexOf(userParam.embedded_javascript_filename) > -1) {
-        try {
-          Banana.include("documents:" + userParam.embedded_javascript_filename);
-        }
-        catch(error) {
-          Banana.document.addMessage(texts.embedded_javascript_file_not_found);
-        }
-      }
+    else {
+      banDoc.addMessage("The customization with Javascript file requires Banana Accounting+ Advanced");
     }
   }
 }
@@ -3472,18 +3508,23 @@ function set_css_style(banDoc, repStyleObj, variables, userParam) {
 
     Only available with Banana ADVANCED.
   */
-  if (BAN_ADVANCED_VERSION) {
-    var cssFiles = [];
-    var documentsTable = banDoc.table("Documents");
-    if (documentsTable) {
-      for (var i = 0; i < documentsTable.rowCount; i++) {
-        var tRow = documentsTable.row(i);
-        var id = tRow.value("RowId");
-        if (userParam.embedded_css_filename && id === userParam.embedded_css_filename) {
-          // The CSS file name entered by user exists on documents table: use it as CSS
-          textCSS += banDoc.table("Documents").findRowByValue("RowId",userParam.embedded_css_filename).value("Attachments");       
+  if (userParam.embedded_css_filename) {
+    if (BAN_LICENSE_TYPE === "advanced") {
+      var cssFiles = [];
+      var documentsTable = banDoc.table("Documents");
+      if (documentsTable) {
+        for (var i = 0; i < documentsTable.rowCount; i++) {
+          var tRow = documentsTable.row(i);
+          var id = tRow.value("RowId");
+          if (id === userParam.embedded_css_filename) {
+            // The CSS file name entered by user exists on documents table: use it as CSS
+            textCSS += banDoc.table("Documents").findRowByValue("RowId",userParam.embedded_css_filename).value("Attachments");       
+          }
         }
       }
+    }
+    else {
+      banDoc.addMessage("The customization with CSS file requires Banana Accounting+ Advanced");
     }
   }
 

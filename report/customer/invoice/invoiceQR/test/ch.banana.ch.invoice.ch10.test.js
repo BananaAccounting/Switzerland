@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2020-08-31
+// @pubdate = 2020-09-11
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -40,7 +40,7 @@
 
 
 
-
+var BAN_LICENSE_TYPE = "";
 
 // Register test case to be executed
 Test.registerTestCase(new ReportInvoiceQrCode());
@@ -79,6 +79,9 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   if (!banDoc) {
     return;
   }
+
+  //Get the license type => BAN_LICENSE_TYPE="advanced" || BAN_LICENSE_TYPE="professional";
+  bananaLicenseType();
 
   Test.logger.addSection("Invoice tests - file: " + fileAC2);
 
