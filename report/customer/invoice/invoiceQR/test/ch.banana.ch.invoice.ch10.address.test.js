@@ -87,109 +87,109 @@ ReportInvoiceQrCodeWithAddress.prototype.testReport = function() {
   //Test QRR
   Test.logger.addSubSection("Test1: QRR");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_qrr_1(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_qrr_1(banDoc, jsonInvoices[i]);
   }
 
   //Test QRR, without address and without amount (settings parameters)
   Test.logger.addSubSection("Test2: QRR, no address, no amount");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_qrr_2(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_qrr_2(banDoc, jsonInvoices[i]);
   }
 
   //Test QRR, NEGATIVE: QR Reference with IBAN (should be QR-IBAN)
   Test.logger.addSubSection("Test3 negative: QRR with IBAN");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_qrr_3(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_qrr_3(banDoc, jsonInvoices[i]);
   }
 
   //Test QRR, NEGATIVE: QR-IBAN ok, QR Reference error
   Test.logger.addSubSection("Test4 negative: QR-IBAN ok, QR Reference error");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_qrr_4(banDoc, jsonInvoices[i], "Invoice F001-20");
+    this.add_test_qrr_4(banDoc, jsonInvoices[i]);
   }
 
   //Test SCOR
   Test.logger.addSubSection("Test5: SCOR");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_1(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_scor_1(banDoc, jsonInvoices[i]);
   }
 
   //Test SCOR, without amount (settings)
   Test.logger.addSubSection("Test6: SCOR, no amount");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_2(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_scor_2(banDoc, jsonInvoices[i]);
   }
   
   //Test SCOR, NEGATIVE: Creditor Reference with QR-IBAN (wrong, should be IBAN)
   Test.logger.addSubSection("Test7 negative: SCOR, Creditor Reference and QR-IBAN");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_3(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_scor_3(banDoc, jsonInvoices[i]);
   }
 
   //Test SCOR, with 140 chars of unstructured message
   //The message is cut with "..." at the end
   Test.logger.addSubSection("Test8: SCOR, 140 chars of unstructured message");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_4(banDoc, jsonInvoices[i], "Invoice 364");
+    this.add_test_scor_4(banDoc, jsonInvoices[i]);
   }
 
   //Test NON
   Test.logger.addSubSection("Test9: NON");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_non_1(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_non_1(banDoc, jsonInvoices[i]);
   }
 
   //Test NON, NEGATIVE: Without reference with QR-IBAN (wrong, should be IBAN)
   Test.logger.addSubSection("Test10 negative: NON with QR-IBAN");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_non_2(banDoc, jsonInvoices[i], "Invoice 35");
+    this.add_test_non_2(banDoc, jsonInvoices[i]);
   }
 
   //Test SCOR, NEGATIVE: IBAN EUR but invoice currency CHF
   Test.logger.addSubSection("Test11: SCOR with IBAN EUR");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_5(banDoc, jsonInvoices[i], "Invoice F001-20");
+    this.add_test_scor_5(banDoc, jsonInvoices[i]);
   }
 
   //Test Invoice on 4 pages: details table 3 pages, long final texts, QRCode on new page
   Test.logger.addSubSection("Test12: Invoice on 4 pages: details table 3 pages, long final texts, QRCode on new page");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_6(banDoc, jsonInvoices[i], "Invoice 47");
+    this.add_test_scor_6(banDoc, jsonInvoices[i]);
   }
 
   //Test SCOR: use IBAN defined in File->Properties->Address
   Test.logger.addSubSection("Test13: use IBAN defined in File->Properties->Address");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_scor_7(banDoc, jsonInvoices[i], "Invoice 47");
+    this.add_test_scor_7(banDoc, jsonInvoices[i]);
   }
 
   //Test INVOICE, custom column 'DateWork'
   Test.logger.addSubSection("Test14: custom invoice DateWork");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_invoice_1(banDoc, jsonInvoices[i], "Invoice 60");
+    this.add_test_invoice_1(banDoc, jsonInvoices[i]);
   }
 
   //Test INVOICE, details with headers and subtotals
   Test.logger.addSubSection("Test15: details with headers and subtotals");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_invoice_2(banDoc, jsonInvoices[i], "Invoice 64");
+    this.add_test_invoice_2(banDoc, jsonInvoices[i]);
   }
 
   //Test INVOICE, discount used for the "Application Invoice"
   Test.logger.addSubSection("Test16: discount, VAT exclusive (net amounts)");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_invoice_3(banDoc, jsonInvoices[i], "Invoice 401");
+    this.add_test_invoice_3(banDoc, jsonInvoices[i]);
   }
 
   //Test INVOICE, discount used for the "Application Invoice"
   Test.logger.addSubSection("Test17: discount, VAT inclusive (gross amounts)");
   for(var i = 0; i < jsonInvoices.length; i++) {
-    this.add_test_invoice_4(banDoc, jsonInvoices[i], "Invoice 401");
+    this.add_test_invoice_4(banDoc, jsonInvoices[i]);
   }
 
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_1 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_1 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -200,15 +200,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_1 = function(banDoc, jsonI
   userParam.qr_code_reference_type = 'QRR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest1 = printInvoice(banDoc, reportTest1, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest1);
+  // var reportTest1 = printInvoice(banDoc, reportTest1, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest1);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_2 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_2 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -221,15 +229,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_2 = function(banDoc, jsonI
   userParam.qr_code_billing_information = true;
   userParam.qr_code_empty_address = true;
   userParam.qr_code_empty_amount = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest4 = printInvoice(banDoc, reportTest4, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest4);
+  // var reportTest4 = printInvoice(banDoc, reportTest4, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest4);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_3 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_3 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -241,15 +257,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_3 = function(banDoc, jsonI
   userParam.qr_code_reference_type = 'QRR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest1a = printInvoice(banDoc, reportTest1a, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest1a);
+  // var reportTest1a = printInvoice(banDoc, reportTest1a, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest1a);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_4 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_4 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -261,15 +285,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_4 = function(banDoc, jsonI
   userParam.qr_code_reference_type = 'QRR'
   userParam.qr_code_additional_information = '';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest);
+  // var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_1 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_1 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -282,15 +314,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_1 = function(banDoc, json
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_2 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_2 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -304,15 +344,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_2 = function(banDoc, json
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
   userParam.qr_code_empty_amount = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_3 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_3 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -325,15 +373,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_3 = function(banDoc, json
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_4 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_4 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -346,15 +402,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_4 = function(banDoc, json
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_5 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_5 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -367,15 +431,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_5 = function(banDoc, json
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = '';
   userParam.qr_code_billing_information = false;
+  userParam.qr_code_debtor_address_type = "S";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_6 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_6 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -395,15 +467,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_6 = function(banDoc, json
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_7 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_7 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   // var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = jsonInvoice;
@@ -424,15 +504,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_scor_7 = function(banDoc, json
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_non_1 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_non_1 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -444,15 +532,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_non_1 = function(banDoc, jsonI
   userParam.qr_code_reference_type = 'NON'
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest3 = printInvoice(banDoc, reportTest3, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest3);
+  // var reportTest3 = printInvoice(banDoc, reportTest3, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest3);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_non_2 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_non_2 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -464,15 +560,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_non_2 = function(banDoc, jsonI
   userParam.qr_code_reference_type = 'NON' // NON with QR-IBAN not allowed
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest3 = printInvoice(banDoc, reportTest3, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest3);
+  // var reportTest3 = printInvoice(banDoc, reportTest3, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest3);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_1 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_1 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -491,15 +595,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_1 = function(banDoc, j
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = '';
   userParam.qr_code_billing_information = true;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest2);
+  // var reportTest2 = printInvoice(banDoc, reportTest2, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest2);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_2 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_2 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -514,15 +626,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_2 = function(banDoc, j
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = '';
   userParam.qr_code_billing_information = false;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest);
+  // var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_3 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_3 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -539,15 +659,23 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_3 = function(banDoc, j
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = '';
   userParam.qr_code_billing_information = false;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest);
+  // var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_4 = function(banDoc, jsonInvoice, reportName) {
+ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_4 = function(banDoc, jsonInvoice) {
   var variables = setVariables(variables);
   var invoiceObj = jsonInvoice;
   var texts = setInvoiceTexts('en');
@@ -564,9 +692,17 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_invoice_4 = function(banDoc, j
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_additional_information = '';
   userParam.qr_code_billing_information = false;
+  userParam.qr_code_debtor_address_type = "K";
+  userParam.qr_code_payable_to = true;
+  userParam.qr_code_creditor_name = "Banana.ch SA";
+  userParam.qr_code_creditor_address1 = "Via la Santa";
+  userParam.qr_code_creditor_address2 = "7";
+  userParam.qr_code_creditor_postalcode = "6962";
+  userParam.qr_code_creditor_city = "Viganello";
+  userParam.qr_code_creditor_country = "CH";
   //Report invoice
-  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
-  Test.logger.addReport(reportName, reportTest);
+  // var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  // Test.logger.addReport(reportName, reportTest);
   //QRCode text
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
@@ -654,6 +790,7 @@ function setUserParam(texts) {
   userParam.qr_code_payable_to = false;
   userParam.qr_code_creditor_name = "";
   userParam.qr_code_creditor_address1 = "";
+  userParam.qr_code_creditor_address2 = "";
   userParam.qr_code_creditor_postalcode = "";
   userParam.qr_code_creditor_city = "";
   userParam.qr_code_creditor_country = "";
