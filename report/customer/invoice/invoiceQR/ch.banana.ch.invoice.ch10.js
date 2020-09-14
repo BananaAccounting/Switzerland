@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-09-11
+// @pubdate = 2020-09-14
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code (BETA)
 // @description.it = [CH10] Layout with Swiss QR Code (BETA)
@@ -47,8 +47,8 @@
 
 
 // Define the required version of Banana Accounting / Banana Experimental
-var BAN_VERSION = "9.1.0";
-var BAN_EXPM_VERSION = "200615";
+var BAN_VERSION = "10.0.0";
+var BAN_EXPM_VERSION = "";
 var BAN_LICENSE_TYPE = "";
 
 // Counter for the columns of the Details table
