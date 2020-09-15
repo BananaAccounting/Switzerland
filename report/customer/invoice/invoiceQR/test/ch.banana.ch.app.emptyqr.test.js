@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.emptyqr.test
 // @api = 1.0
-// @pubdate = 2020-06-15
+// @pubdate = 2020-09-15
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.emptyqr.js>
 // @task = app.command
@@ -117,17 +117,19 @@ ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
   var invoiceObj = initJSON(banDoc);
   var qrSettings = initQRSettings();
   qrSettings.qr_code_add = true;
-  qrSettings.qr_code_reference_type = 'NON'
+  qrSettings.qr_code_reference_type = 'NON';
+  qrSettings.qr_code_debtor_address_type = "K";
   qrSettings.qr_code_qriban = '';
   qrSettings.qr_code_iban = '';
   qrSettings.qr_code_iban_eur = '';
   qrSettings.qr_code_isr_id = '';
   qrSettings.qr_code_payable_to = false;
-  qrSettings.qr_code_creditor_name = "";
-  qrSettings.qr_code_creditor_address1 = "";
-  qrSettings.qr_code_creditor_postalcode = "";
-  qrSettings.qr_code_creditor_city = "";
-  qrSettings.qr_code_creditor_country = "";
+  qrSettings.qr_code_creditor_name = '';
+  qrSettings.qr_code_creditor_address1 = '';
+  qrSettings.qr_code_creditor_address2 = '';
+  qrSettings.qr_code_creditor_postalcode = '';
+  qrSettings.qr_code_creditor_city = '';
+  qrSettings.qr_code_creditor_country = '';
   qrSettings.qr_code_additional_information = '';
   qrSettings.qr_code_billing_information = false;
   qrSettings.qr_code_empty_address = true;
@@ -140,7 +142,7 @@ ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
 
   var report = printReport(banDoc, invoiceObj, report, "", qrSettings);
   Test.logger.addReport("Test 1", report);
-  var text = getQRCodeText(banDoc, qrSettings, invoiceObj, 'en');
+  var text = getQRCodeText(banDoc, qrSettings, invoiceObj, "", 'en');
   Test.logger.addText(text);
 }
 
@@ -150,17 +152,19 @@ ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
   invoiceObj.supplier_info.iban_number = 'CH09 3000 0001 6525 0122 4'; //wrong, it's a QR-IBAN
   var qrSettings = initQRSettings();
   qrSettings.qr_code_add = true;
-  qrSettings.qr_code_reference_type = 'NON'
+  qrSettings.qr_code_reference_type = 'NON';
+  qrSettings.qr_code_debtor_address_type = "K";
   qrSettings.qr_code_qriban = '';
   qrSettings.qr_code_iban = '';
   qrSettings.qr_code_iban_eur = '';
   qrSettings.qr_code_isr_id = '';
   qrSettings.qr_code_payable_to = false;
-  qrSettings.qr_code_creditor_name = "";
-  qrSettings.qr_code_creditor_address1 = "";
-  qrSettings.qr_code_creditor_postalcode = "";
-  qrSettings.qr_code_creditor_city = "";
-  qrSettings.qr_code_creditor_country = "";
+  qrSettings.qr_code_creditor_name = '';
+  qrSettings.qr_code_creditor_address1 = '';
+  qrSettings.qr_code_creditor_address2 = '';
+  qrSettings.qr_code_creditor_postalcode = '';
+  qrSettings.qr_code_creditor_city = '';
+  qrSettings.qr_code_creditor_country = '';
   qrSettings.qr_code_additional_information = '';
   qrSettings.qr_code_billing_information = false;
   qrSettings.qr_code_empty_address = true;
@@ -173,7 +177,7 @@ ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
 
   var report = printReport(banDoc, invoiceObj, report, "", qrSettings);
   Test.logger.addReport("Test 1", report);
-  var text = getQRCodeText(banDoc, qrSettings, invoiceObj, 'en');
+  var text = getQRCodeText(banDoc, qrSettings, invoiceObj, "", 'en');
   Test.logger.addText(text);
 }
 
@@ -181,9 +185,9 @@ ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
 
 
 
-function getQRCodeText(banDoc, qrSettings, invoiceObj, langCode) {
+function getQRCodeText(banDoc, qrSettings, invoiceObj, texts, langCode) {
   var qrBill = new QRBill(banDoc, qrSettings);
-  qrBill.defineQrBillType(invoiceObj, qrSettings);
+  qrBill.defineQrBillType(qrSettings);
   var texts = qrBill.getQrCodeTexts(langCode);
   var qrcodeData = qrBill.getQrCodeData(invoiceObj, qrSettings, texts, langCode);
   var text = qrBill.createTextQrImage(qrcodeData, texts);
@@ -198,16 +202,18 @@ function initQRSettings() {
   
   qrSettings.qr_code_add = true;
   qrSettings.qr_code_reference_type = 'SCOR'
+  qrSettings.qr_code_debtor_address_type = "K";
   qrSettings.qr_code_qriban = '';
   qrSettings.qr_code_iban = '';
   qrSettings.qr_code_iban_eur = '';
   qrSettings.qr_code_isr_id = '';
   qrSettings.qr_code_payable_to = false;
-  qrSettings.qr_code_creditor_name = "";
-  qrSettings.qr_code_creditor_address1 = "";
-  qrSettings.qr_code_creditor_postalcode = "";
-  qrSettings.qr_code_creditor_city = "";
-  qrSettings.qr_code_creditor_country = "";
+  qrSettings.qr_code_creditor_name = '';
+  qrSettings.qr_code_creditor_address1 = '';
+  qrSettings.qr_code_creditor_address2 = '';
+  qrSettings.qr_code_creditor_postalcode = '';
+  qrSettings.qr_code_creditor_city = '';
+  qrSettings.qr_code_creditor_country = '';
   qrSettings.qr_code_additional_information = '';
   qrSettings.qr_code_billing_information = false;
   qrSettings.qr_code_empty_address = true;
