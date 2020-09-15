@@ -14,17 +14,17 @@
 //
 
 
-// @id = ch.banana.ch.invoice.ch10.address.test
+// @id = ch.banana.ch.invoice.ch10.testaddress
 // @api = 1.0
 // @pubdate = 2020-09-07
 // @publisher = Banana.ch SA
-// @description = <TEST ch.banana.ch.invoice.ch10.address.js>
+// @description = <TEST ADDRESS ch.banana.ch.invoice.ch10.js>
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.ch.invoice.ch10.address.js
+// @includejs = ../ch.banana.ch.invoice.ch10.js
 // @includejs = ../swissqrcode.js
 // @timeout = -1
 
@@ -201,7 +201,7 @@ ReportInvoiceQrCodeWithAddress.prototype.add_test_qrr_1 = function(banDoc, jsonI
   userParam.qr_code_additional_information = 'Notes';
   userParam.qr_code_billing_information = true;
   userParam.qr_code_debtor_address_type = "S";
-  userParam.qr_code_payable_to = true;
+  userParam.qr_code_payable_to = false;
   userParam.qr_code_creditor_name = "Banana.ch SA";
   userParam.qr_code_creditor_address1 = "Via la Santa";
   userParam.qr_code_creditor_address2 = "7";
