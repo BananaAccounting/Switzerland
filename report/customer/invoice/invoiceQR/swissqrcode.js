@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-09-16 */
+/* Script update: 2020-09-18 */
 
 
 
@@ -642,6 +642,114 @@ var QRBill = class QRBill {
 		convertedParam.data.push(currentParam);
 	}
 	
+
+	/**
+	 * Initializes the QR parameters of the invoice settings
+	 */
+	initParamQR(userParam)
+	{
+		userParam.qr_code_add = true;
+		userParam.qr_code_reference_type = 'SCOR';
+		userParam.qr_code_qriban = '';
+		userParam.qr_code_iban = '';
+		userParam.qr_code_iban_eur = '';
+		userParam.qr_code_isr_id = '';
+		userParam.qr_code_payable_to = false;
+		userParam.qr_code_creditor_name = "";
+		userParam.qr_code_creditor_address1 = "";
+		userParam.qr_code_creditor_address2 = "";
+		userParam.qr_code_creditor_postalcode = "";
+		userParam.qr_code_creditor_city = "";
+		userParam.qr_code_creditor_country = "";
+		userParam.qr_code_debtor_address_type = 'K';
+		userParam.qr_code_additional_information = 'Notes';
+		userParam.qr_code_billing_information = false;
+		userParam.qr_code_empty_address = false;
+		userParam.qr_code_empty_amount = false;
+		userParam.qr_code_add_border_separator = true;
+		userParam.qr_code_add_symbol_scissors = false;
+		userParam.qr_code_new_page = false;
+		userParam.qr_code_position_dX = '0';
+		userParam.qr_code_position_dY = '0';
+	}
+
+
+	/**
+	 * Verifies the QR parameters of the settings dialog
+	 */
+	verifyParamQR(userParam)
+	{
+		if (!userParam.qr_code_add) {
+			userParam.qr_code_add = false;
+		}
+		if (!userParam.qr_code_reference_type) {
+			userParam.qr_code_reference_type = 'SCOR';
+		}
+		if (!userParam.qr_code_qriban) {
+			userParam.qr_code_qriban = '';
+		}
+		if (!userParam.qr_code_iban) {
+			userParam.qr_code_iban = '';
+		}
+		if (!userParam.qr_code_iban_eur) {
+			userParam.qr_code_iban_eur = '';
+		}
+		if (!userParam.qr_code_isr_id) {
+			userParam.qr_code_isr_id = '';
+		}
+		if (!userParam.qr_code_payable_to) {
+			userParam.qr_code_payable_to = false;
+		}
+		if (!userParam.qr_code_creditor_name) {
+			userParam.qr_code_creditor_name = '';
+		}
+		if (!userParam.qr_code_creditor_address1) {
+			userParam.qr_code_creditor_address1 = '';
+		}
+		if (!userParam.qr_code_creditor_address2) {
+			userParam.qr_code_creditor_address2 = '';
+		}
+		if (!userParam.qr_code_creditor_postalcode) {
+			userParam.qr_code_creditor_postalcode = '';
+		}
+		if (!userParam.qr_code_creditor_city) {
+			userParam.qr_code_creditor_city = '';
+		}
+		if (!userParam.qr_code_creditor_country) {
+			userParam.qr_code_creditor_country = '';
+		}
+		if (!userParam.qr_code_debtor_address_type) {
+			userParam.qr_code_debtor_address_type = 'K';
+		}
+		if (!userParam.qr_code_additional_information) {
+			userParam.qr_code_additional_information = '';
+		}
+		if (!userParam.qr_code_billing_information) {
+			userParam.qr_code_billing_information = '';
+		}
+		if (!userParam.qr_code_empty_address) {
+			userParam.qr_code_empty_address = false;
+		}
+		if (!userParam.qr_code_empty_amount) {
+			userParam.qr_code_empty_amount = false;
+		}
+		if (!userParam.qr_code_add_border_separator) {
+			userParam.qr_code_add_border_separator = false;
+		}
+		if (!userParam.qr_code_add_symbol_scissors) {
+			userParam.qr_code_add_symbol_scissors = false;
+		}
+		if (!userParam.qr_code_new_page) {
+			userParam.qr_code_new_page = false;
+		}
+		if (!userParam.qr_code_position_dX) {
+			userParam.qr_code_position_dX = '0';
+		}
+		if (!userParam.qr_code_position_dY) {
+			userParam.qr_code_position_dY = '0';
+		}
+	}
+
 
 	/**
 	 * Defines translations texts for the QRCode section of the invoice settings parmaters.

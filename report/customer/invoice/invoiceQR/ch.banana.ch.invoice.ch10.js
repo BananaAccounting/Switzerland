@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-09-16
+// @pubdate = 2020-09-18
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code (BETA)
 // @description.it = [CH10] Layout with Swiss QR Code (BETA)
@@ -1078,29 +1078,11 @@ function initParam() {
   userParam.footer_add = false;
   userParam.footer_horizontal_line = true;
 
-  userParam.qr_code_add = true;
-  userParam.qr_code_reference_type = 'SCOR';
-  userParam.qr_code_qriban = '';
-  userParam.qr_code_iban = '';
-  userParam.qr_code_iban_eur = '';
-  userParam.qr_code_isr_id = '';
-  userParam.qr_code_payable_to = false;
-  userParam.qr_code_creditor_name = "";
-  userParam.qr_code_creditor_address1 = "";
-  userParam.qr_code_creditor_address2 = "";
-  userParam.qr_code_creditor_postalcode = "";
-  userParam.qr_code_creditor_city = "";
-  userParam.qr_code_creditor_country = "";
-  userParam.qr_code_debtor_address_type = 'K';
-  userParam.qr_code_additional_information = 'Notes';
-  userParam.qr_code_billing_information = false;
-  userParam.qr_code_empty_address = false;
-  userParam.qr_code_empty_amount = false;
-  userParam.qr_code_add_border_separator = true;
-  userParam.qr_code_add_symbol_scissors = false;
-  userParam.qr_code_new_page = false;
-  userParam.qr_code_position_dX = '0';
-  userParam.qr_code_position_dY = '0';
+
+  //QR Code
+  var qrBill = new QRBill();
+  qrBill.initParamQR(userParam);
+
 
   //Texts
   userParam.languages = 'de;en;fr;it';
@@ -1248,75 +1230,11 @@ function verifyParam(userParam) {
   if (!userParam.footer_horizontal_line) {
     userParam.footer_horizontal_line = false;
   }
-  if (!userParam.qr_code_add) {
-    userParam.qr_code_add = false;
-  }
-  if (!userParam.qr_code_reference_type) {
-    userParam.qr_code_reference_type = 'SCOR';
-  }
-  if (!userParam.qr_code_qriban) {
-    userParam.qr_code_qriban = '';
-  }
-  if (!userParam.qr_code_iban) {
-    userParam.qr_code_iban = '';
-  }
-  if (!userParam.qr_code_iban_eur) {
-    userParam.qr_code_iban_eur = '';
-  }
-  if (!userParam.qr_code_isr_id) {
-    userParam.qr_code_isr_id = '';
-  }
-  if (!userParam.qr_code_payable_to) {
-    userParam.qr_code_payable_to = false;
-  }
-  if (!userParam.qr_code_creditor_name) {
-    userParam.qr_code_creditor_name = '';
-  }
-  if (!userParam.qr_code_creditor_address1) {
-    userParam.qr_code_creditor_address1 = '';
-  }
-  if (!userParam.qr_code_creditor_address2) {
-    userParam.qr_code_creditor_address2 = '';
-  }
-  if (!userParam.qr_code_creditor_postalcode) {
-    userParam.qr_code_creditor_postalcode = '';
-  }
-  if (!userParam.qr_code_creditor_city) {
-    userParam.qr_code_creditor_city = '';
-  }
-  if (!userParam.qr_code_creditor_country) {
-    userParam.qr_code_creditor_country = '';
-  }
-  if (!userParam.qr_code_debtor_address_type) {
-    userParam.qr_code_debtor_address_type = 'K';
-  }
-  if (!userParam.qr_code_additional_information) {
-    userParam.qr_code_additional_information = '';
-  }
-  if (!userParam.qr_code_billing_information) {
-    userParam.qr_code_billing_information = '';
-  }
-  if (!userParam.qr_code_empty_address) {
-    userParam.qr_code_empty_address = false;
-  }
-  if (!userParam.qr_code_empty_amount) {
-    userParam.qr_code_empty_amount = false;
-  }
-  if (!userParam.qr_code_add_border_separator) {
-    userParam.qr_code_add_border_separator = false;
-  }
-  if (!userParam.qr_code_add_symbol_scissors) {
-    userParam.qr_code_add_symbol_scissors = false;
-  }
-  if (!userParam.qr_code_new_page) {
-    userParam.qr_code_new_page = false;
-  }
-  if (!userParam.qr_code_position_dX) {
-    userParam.qr_code_position_dX = '0';
-  }
-  if (!userParam.qr_code_position_dY) {
-    userParam.qr_code_position_dY = '0';
-  }
+
+
+  //QR Code
+  var qrBill = new QRBill();
+  qrBill.verifyParamQR(userParam);
 
 
 
