@@ -14,13 +14,13 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-09-18
+// @pubdate = 2020-09-21
 // @publisher = Banana.ch SA
-// @description = [CH10] Layout with Swiss QR Code (BETA)
-// @description.it = [CH10] Layout with Swiss QR Code (BETA)
-// @description.de = [CH10] Layout with Swiss QR Code (BETA)
-// @description.fr = [CH10] Layout with Swiss QR Code (BETA)
-// @description.en = [CH10] Layout with Swiss QR Code (BETA)
+// @description = [CH10] Layout with Swiss QR Code
+// @description.it = [CH10] Layout with Swiss QR Code
+// @description.de = [CH10] Layout with Swiss QR Code
+// @description.fr = [CH10] Layout with Swiss QR Code
+// @description.en = [CH10] Layout with Swiss QR Code
 // @doctype = *
 // @task = report.customer.invoice
 // @includejs = swissqrcode.js
@@ -47,7 +47,7 @@
 
 
 // Define the required version of Banana Accounting / Banana Experimental
-var BAN_VERSION = "10.0.0";
+var BAN_VERSION = "10.0.1";
 var BAN_EXPM_VERSION = "";
 var BAN_LICENSE_TYPE = "";
 
