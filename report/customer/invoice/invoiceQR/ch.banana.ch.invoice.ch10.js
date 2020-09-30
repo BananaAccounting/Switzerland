@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-09-23
+// @pubdate = 2020-09-30
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -49,7 +49,7 @@
 // Define the required version of Banana Accounting / Banana Experimental
 var BAN_VERSION = "10.0.1";
 var BAN_EXPM_VERSION = "";
-var BAN_LICENSE_TYPE = "";
+var BAN_ADVANCED;
 
 // Counter for the columns of the Details table
 var columnsNumber = 0;
@@ -58,12 +58,6 @@ var columnsNumber = 0;
 var lang = "en";
 
 
-
-function bananaLicenseType() {
-  if (Banana.application.license) {
-    BAN_LICENSE_TYPE = Banana.application.license.licenseType;
-  }
-}
 
 //====================================================================//
 // SETTINGS DIALOG FUNCTIONS USED TO SET, INITIALIZE AND VERIFY ALL
@@ -1341,9 +1335,6 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
   var isCurrentBananaVersionSupported = bananaRequiredVersion(BAN_VERSION, BAN_EXPM_VERSION);
   if (isCurrentBananaVersionSupported) {
 
-    //Get the license type
-    bananaLicenseType();
-
     var userParam = initParam();
     var savedParam = Banana.document.getScriptSettings();
     if (savedParam.length > 0) {
@@ -1411,28 +1402,28 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
 
   /* PRINT HEADER */
-  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_header) === typeof(Function)) {
+  if (BAN_ADVANCED && typeof(hook_print_header) === typeof(Function)) {
     hook_print_header(repDocObj);
   } else {
     print_header(repDocObj, userParam, repStyleObj, invoiceObj, texts);
   }
 
   /* PRINT INVOICE INFO FIRST PAGE */
-  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_info_first_page) === typeof(Function)) {
+  if (BAN_ADVANCED && typeof(hook_print_info_first_page) === typeof(Function)) {
     hook_print_info_first_page(repDocObj, invoiceObj, texts, userParam);
   } else {
     print_info_first_page(repDocObj, invoiceObj, texts, userParam);
   }
 
   /* PRINT INVOICE INFO PAGES 2+ */
-  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_info_other_pages) === typeof(Function)) {
+  if (BAN_ADVANCED && typeof(hook_print_info_other_pages) === typeof(Function)) {
     hook_print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
   } else {
     print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
   }
 
   /* PRINT CUSTOMER ADDRESS */
-  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_customer_address) === typeof(Function)) {
+  if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
     hook_print_customer_address(repDocObj, invoiceObj, userParam);
   } else {
     print_customer_address(repDocObj, invoiceObj, userParam);
@@ -1440,7 +1431,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT SHIPPING ADDRESS */
   if (userParam.shipping_address) {
-    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_shipping_address) === typeof(Function)) {
+    if (BAN_ADVANCED && typeof(hook_print_shipping_address) === typeof(Function)) {
       hook_print_shipping_address(repDocObj, invoiceObj, texts, userParam);
     } else {
       print_shipping_address(repDocObj, invoiceObj, texts, userParam);
@@ -1449,7 +1440,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT BEGIN TEXT (BEFORE INVOICE DETAILS) */
   var sectionClassBegin = repDocObj.addSection("section_class_begin");
-  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_text_begin) === typeof(Function)) {
+  if (BAN_ADVANCED && typeof(hook_print_text_begin) === typeof(Function)) {
     hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
   } else {
     print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
@@ -1459,14 +1450,14 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   var sectionClassDetails = repDocObj.addSection("section_class_details");
   var detailsTable = sectionClassDetails.addTable("doc_table");
   if (userParam.details_gross_amounts) {
-    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_details_gross_amounts) === typeof(Function)) {
+    if (BAN_ADVANCED && typeof(hook_print_details_gross_amounts) === typeof(Function)) {
       hook_print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
       print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     }
   }
   else {
-    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_details_net_amounts) === typeof(Function)) {
+    if (BAN_ADVANCED && typeof(hook_print_details_net_amounts) === typeof(Function)) {
       hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
       print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
@@ -1475,7 +1466,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FINAL TEXTS (AFTER INVOICE DETAILS) */
   var sectionClassFinalTexts = repDocObj.addSection("section_class_final_texts");
-  if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_final_texts) === typeof(Function)) {
+  if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
     hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
   } else {
     print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
@@ -1489,7 +1480,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FOOTER */
   if (!userParam.qr_code_add) { //only if QRCode is not printed
-    if (BAN_LICENSE_TYPE === "advanced" && typeof(hook_print_footer) === typeof(Function)) {
+    if (BAN_ADVANCED && typeof(hook_print_footer) === typeof(Function)) {
       hook_print_footer(repDocObj, texts, userParam);
     } else {
       print_footer(repDocObj, texts, userParam);
@@ -1812,6 +1803,7 @@ function print_text_begin(repDocObj, invoiceObj, texts, userParam) {
   var tableRow;
   
   if (textTitle) {
+    textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
     textTitle = columnNamesToValues(invoiceObj, textTitle);
     tableRow = table.addRow();
     var titleCell = tableRow.addCell("","",1);
@@ -1910,11 +1902,11 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
           tableRow.addCell(" ", classNameEvenRow, 1);
         }
         else {
-          var itemValue = formatItemsValue(item.description, variables, columnsNames[j], className);
-          var itemValue2 = formatItemsValue(item.description2, variables, columnsNames[j], className);
+          var itemValue = formatItemsValue(item.description, variables, columnsNames[j], className, item);
+          var itemValue2 = formatItemsValue(item.description2, variables, columnsNames[j], className, item);
           var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
-          descriptionCell.addParagraph(itemValue);
-          descriptionCell.addParagraph(itemValue2);
+          descriptionCell.addParagraph(itemValue.value, itemValue.className);
+          descriptionCell.addParagraph(itemValue2.value, itemValue2.className);
         }
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
@@ -1924,23 +1916,27 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
           if (variables.decimals_quantity) {
             decimals = variables.decimals_quantity;
           }
-          var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className);
-          tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+          var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
+          tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
         } else {
           tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
         }
       }
       else if (columnsNames[j].trim().toLowerCase() === "referenceunit" || columnsNames[j] === "mesure_unit") {
-        var itemValue = formatItemsValue(item.mesure_unit, variables, columnsNames[j], className);
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        var itemValue = formatItemsValue(item.mesure_unit, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else if (columnsNames[j].trim().toLowerCase() === "unitprice" || columnsNames[j] === "unit_price") {
-        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_exclusive, variables, columnsNames[j], className);
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_exclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else if (columnsNames[j].trim().toLowerCase() === "amount" || columnsNames[j] === "total_amount_vat_exclusive") {
-        var itemValue = formatItemsValue(item.total_amount_vat_exclusive, variables, columnsNames[j], className);
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        var itemValue = formatItemsValue(item.total_amount_vat_exclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "vatrate" || columnsNames[j] === "vat_rate") {
+        var itemValue = formatItemsValue(item.unit_price.vat_rate, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else {
         var userColumnValue = "";
@@ -1950,16 +1946,16 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
         //This prevent conflicts with JSON fields.
         if (columnsName.startsWith("T.")) {
-          if (BAN_LICENSE_TYPE === "advanced") {
+          if (BAN_ADVANCED) {
             columnsName = columnsName.substring(2);
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
-            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className);         
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);         
           }
           else {
-            customColumnMsg = "Custom columns require Banana Accounting+ Advanced";
+            customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
           }
         }
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
     }
   }
@@ -2100,11 +2096,11 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
           tableRow.addCell(" ", classNameEvenRow, 1);
         }
         else {
-          var itemValue = formatItemsValue(item.description, variables, columnsNames[j], className);
-          var itemValue2 = formatItemsValue(item.description2, variables, columnsNames[j], className);
+          var itemValue = formatItemsValue(item.description, variables, columnsNames[j], className, item);
+          var itemValue2 = formatItemsValue(item.description2, variables, columnsNames[j], className, item);
           var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
-          descriptionCell.addParagraph(itemValue);
-          descriptionCell.addParagraph(itemValue2);
+          descriptionCell.addParagraph(itemValue.value, itemValue.className);
+          descriptionCell.addParagraph(itemValue2.value, itemValue2.className);
         }
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
@@ -2114,23 +2110,27 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
           if (variables.decimals_quantity) {
             decimals = variables.decimals_quantity;
           }
-          var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className);
-          tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+          var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
+          tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
         } else {
           tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
         }
       }
       else if (columnsNames[j].trim().toLowerCase() === "referenceunit" || columnsNames[j] === "mesure_unit") {
-        var itemValue = formatItemsValue(item.mesure_unit, variables, columnsNames[j], className);
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        var itemValue = formatItemsValue(item.mesure_unit, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else if (columnsNames[j].trim().toLowerCase() === "unitprice" || columnsNames[j] === "unit_price") {
-        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_inclusive, variables, columnsNames[j], className);
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_inclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else if (columnsNames[j].trim().toLowerCase() === "amount" || columnsNames[j] === "total_amount_vat_inclusive") {
-        var itemValue = formatItemsValue(item.total_amount_vat_inclusive, variables, columnsNames[j], className);
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        var itemValue = formatItemsValue(item.total_amount_vat_inclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "vatrate" || columnsNames[j] === "vat_rate") {
+        var itemValue = formatItemsValue(item.unit_price.vat_rate, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else {
         var userColumnValue = "";
@@ -2140,16 +2140,16 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
         //This prevent conflicts with JSON fields.
         if (columnsName.startsWith("T.")) {
-          if (BAN_LICENSE_TYPE === "advanced") {
+          if (BAN_ADVANCED) {
             columnsName = columnsName.substring(2);
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
-            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className);
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);
           }
           else {
-            customColumnMsg = "Custom columns require Banana Accounting+ Advanced";
+            customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
           }
         }
-        tableRow.addCell(itemValue, classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
     }
   }
@@ -2406,6 +2406,65 @@ function print_footer(repDocObj, texts, userParam) {
   }
 }
 
+function formatItemsValue(value, variables, columnName, className, item) {
+  /**
+   * Formats the value and classname of the item. 
+   */
+  columnName = columnName.trim().toLowerCase();
+
+  if (typeof(hook_formatItemsValue) === typeof(Function)) {
+    var newItemFormatted = {};
+    newItemFormatted = hook_formatItemsValue(value, columnName, className, item);
+    if (newItemFormatted.value || newItemFormatted.className) {
+      return newItemFormatted;
+    }
+  }
+
+  var itemFormatted = {};
+  itemFormatted.value = "";
+  itemFormatted.className = "";
+
+  if (columnName === "description") {
+    itemFormatted.value = value;
+    itemFormatted.className = className;
+  }
+  else if (columnName === "quantity") {
+    itemFormatted.value = Banana.Converter.toLocaleNumberFormat(value,variables);
+    itemFormatted.className = className;
+  }
+  else if (columnName === "unitprice" || columnName === "unit_price") {
+    itemFormatted.value = Banana.Converter.toLocaleNumberFormat(value, variables.decimals_unit_price, true);
+    itemFormatted.className = className;
+  }
+  else if (columnName === "referenceunit" || columnName === "mesure_unit") {
+    itemFormatted.value = value;
+    itemFormatted.className = className;
+  }
+  else if (columnName === "amount" || columnName === "total_amount_vat_exclusive") {
+    if (className === "header_cell") { //do not print 0.00 amount for header rows
+      itemFormatted.value = "";
+      itemFormatted.className = className;
+    }
+    else{
+      itemFormatted.value = Banana.Converter.toLocaleNumberFormat(value, variables.decimals_amounts, true);
+      itemFormatted.className = className;
+    }
+  }
+  else if (columnName.startsWith("date")) {
+    itemFormatted.value = Banana.Converter.toLocaleDateFormat(value);
+    itemFormatted.className = className;
+  }
+  else if (columnName === "vatrate" || columnName === "vat_rate") {
+    itemFormatted.value = Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(value));
+    itemFormatted.className = className;
+  }
+  else if (columnName) {
+    itemFormatted.value = value;
+    itemFormatted.className = className;
+  }
+
+  return itemFormatted;
+}
 
 
 //====================================================================//
@@ -2430,130 +2489,81 @@ function columnNamesToValues(invoiceObj, text) {
   var country = invoiceObj.customer_info.country;
   var countryCode = invoiceObj.customer_info.country_code;
 
-  if (docInvoice && text.indexOf("<DocInvoice>") > -1) {
-    text = text.replace(/<DocInvoice>/g, docInvoice.trim());
-  } else {
-    text = text.replace(/<DocInvoice>/g, "<>");
+  // Replaces column names with values (only with the advanced license)
+  if (BAN_ADVANCED) {
+    if (docInvoice && text.indexOf("<DocInvoice>") > -1) {
+      text = text.replace(/<DocInvoice>/g, docInvoice.trim());
+    } else {
+      text = text.replace(/<DocInvoice>/g, "<>");
+    }
+    if (courtesy && text.indexOf("<NamePrefix>") > -1) {
+      text = text.replace(/<NamePrefix>/g, courtesy.trim());
+    } else {
+      text = text.replace(/<NamePrefix>/g, "<>");
+    }
+    if (businessName && text.indexOf("<OrganisationName>") > -1) {
+      text = text.replace(/<OrganisationName>/g, businessName.trim());
+    } else {
+      text = text.replace(/<OrganisationName>/g, "<>");
+    }
+    if (firstName && text.indexOf("<FirstName>") > -1) {
+      text = text.replace(/<FirstName>/g, firstName.trim());
+    } else {
+      text = text.replace(/<FirstName>/g, "<>");
+    }
+    if (lastName && text.indexOf("<FamilyName>") > -1) {
+      text = text.replace(/<FamilyName>/g, lastName.trim());
+    } else {
+      text = text.replace(/<FamilyName>/g, "<>");
+    }
+    if (address1 && text.indexOf("<Street>") > -1) {
+      text = text.replace(/<Street>/g, address1.trim());
+    } else {
+      text = text.replace(/<Street>/g, "<>");
+    }
+    if (address2 && text.indexOf("<AddressExtra>") > -1) {
+      text = text.replace(/<AddressExtra>/g, address2.trim());
+    } else {
+      text = text.replace(/<AddressExtra>/g, "<>");
+    }
+    if (address3 && text.indexOf("<POBox>") > -1) {
+      text = text.replace(/<POBox>/g, address3.trim());
+    } else {
+      text = text.replace(/<POBox>/g, "<>");
+    }
+    if (postalCode && text.indexOf("<PostalCode>") > -1) {
+      text = text.replace(/<PostalCode>/g, postalCode.trim());
+    } else {
+      text = text.replace(/<PostalCode>/g, "<>");
+    }
+    if (city && text.indexOf("<Locality>") > -1) {
+      text = text.replace(/<Locality>/g, city.trim());
+    } else {
+      text = text.replace(/<Locality>/g, "<>");
+    }
+    if (state && text.indexOf("<Region>") > -1) {
+      text = text.replace(/<Region>/g, state.trim());
+    } else {
+      text = text.replace(/<Region>/g, "<>");
+    }
+    if (country && text.indexOf("<Country>") > -1) {
+      text = text.replace(/<Country>/g, country.trim());
+    } else {
+      text = text.replace(/<Country>/g, "<>");
+    }
+    if (countryCode && text.indexOf("<CountryCode>") > -1) {
+      text = text.replace(/<CountryCode>/g, countryCode.trim());
+    } else {
+      text = text.replace(/<CountryCode>/g, "<>");
+    }
+    text = text.replace(/ \n/g,"");
+    text = text.replace(/<> /g,"");
+    text = text.replace(/ <>/g,"");
+    text = text.replace(/<>\n/g,"");
+    text = text.replace(/<>/g,"");
   }
-  if (courtesy && text.indexOf("<NamePrefix>") > -1) {
-    text = text.replace(/<NamePrefix>/g, courtesy.trim());
-  } else {
-    text = text.replace(/<NamePrefix>/g, "<>");
-  }
-  if (businessName && text.indexOf("<OrganisationName>") > -1) {
-    text = text.replace(/<OrganisationName>/g, businessName.trim());
-  } else {
-    text = text.replace(/<OrganisationName>/g, "<>");
-  }
-  if (firstName && text.indexOf("<FirstName>") > -1) {
-    text = text.replace(/<FirstName>/g, firstName.trim());
-  } else {
-    text = text.replace(/<FirstName>/g, "<>");
-  }
-  if (lastName && text.indexOf("<FamilyName>") > -1) {
-    text = text.replace(/<FamilyName>/g, lastName.trim());
-  } else {
-    text = text.replace(/<FamilyName>/g, "<>");
-  }
-  if (address1 && text.indexOf("<Street>") > -1) {
-    text = text.replace(/<Street>/g, address1.trim());
-  } else {
-    text = text.replace(/<Street>/g, "<>");
-  }
-  if (address2 && text.indexOf("<AddressExtra>") > -1) {
-    text = text.replace(/<AddressExtra>/g, address2.trim());
-  } else {
-    text = text.replace(/<AddressExtra>/g, "<>");
-  }
-  if (address3 && text.indexOf("<POBox>") > -1) {
-    text = text.replace(/<POBox>/g, address3.trim());
-  } else {
-    text = text.replace(/<POBox>/g, "<>");
-  }
-  if (postalCode && text.indexOf("<PostalCode>") > -1) {
-    text = text.replace(/<PostalCode>/g, postalCode.trim());
-  } else {
-    text = text.replace(/<PostalCode>/g, "<>");
-  }
-  if (city && text.indexOf("<Locality>") > -1) {
-    text = text.replace(/<Locality>/g, city.trim());
-  } else {
-    text = text.replace(/<Locality>/g, "<>");
-  }
-  if (state && text.indexOf("<Region>") > -1) {
-    text = text.replace(/<Region>/g, state.trim());
-  } else {
-    text = text.replace(/<Region>/g, "<>");
-  }
-  if (country && text.indexOf("<Country>") > -1) {
-    text = text.replace(/<Country>/g, country.trim());
-  } else {
-    text = text.replace(/<Country>/g, "<>");
-  }
-  if (countryCode && text.indexOf("<CountryCode>") > -1) {
-    text = text.replace(/<CountryCode>/g, countryCode.trim());
-  } else {
-    text = text.replace(/<CountryCode>/g, "<>");
-  }
-  text = text.replace(/ \n/g,"");
-  text = text.replace(/<> /g,"");
-  text = text.replace(/ <>/g,"");
-  text = text.replace(/<>\n/g,"");
-  text = text.replace(/<>/g,"");
 
   return text;
-}
-
-function formatItemsValue(value, variables, columnName, className) {
-
-  columnName = columnName.trim().toLowerCase();
-  var itemValue = "";
-
-  if (typeof(hook_formatItemsValue) === typeof(Function)) {
-    var newValue = hook_formatItemsValue(value, columnName, className);
-    if (newValue) {
-      return newValue;
-    }
-  }
-
-  if (columnName === "description") {
-    itemValue = value;
-  }
-
-  else if (columnName === "quantity") {
-    itemValue = Banana.Converter.toLocaleNumberFormat(value,variables);
-  }
-
-  else if (columnName === "unitprice" || columnName === "unit_price") {
-    itemValue = Banana.Converter.toLocaleNumberFormat(value, variables.decimals_unit_price, true);
-  }
-
-  else if (columnName === "referenceunit" || columnName === "mesure_unit") {
-    itemValue = value;
-  }
-
-  else if (columnName === "amount" || columnName === "total_amount_vat_exclusive") {
-    if (className === "header_cell") { //do not print 0.00 amount for header header rows
-      itemValue = "";
-    }
-    else{
-      itemValue = Banana.Converter.toLocaleNumberFormat(value, variables.decimals_amounts, true);
-    }
-  }
-
-  else if (columnName.startsWith("date")) {
-    itemValue = Banana.Converter.toLocaleDateFormat(value);
-  }
-
-  else if (columnName === "vatrate" || columnName === "vat_rate") {
-    itemValue = Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(value));
-  }
-
-  else if (columnName) {
-    itemValue = value;
-  }
-
-  return itemValue;
 }
 
 function getQuantityDecimals(invoiceObj) {
@@ -2591,102 +2601,6 @@ function getQuantityDecimals(invoiceObj) {
   return arr[0]; //first element is the bigger
 }
 
-function bananaRequiredVersion(requiredVersion, expmVersion) {
-
-  var language = "en";
-  if (Banana.document.locale) {
-    language = Banana.document.locale;
-  }
-  if (language.length > 2) {
-    language = language.substr(0, 2);
-  }
-  if (expmVersion) {
-    requiredVersion = requiredVersion + "." + expmVersion;
-  }
-  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
-    var msg = "";
-    switch(language) {
-      
-      case "en":
-        if (expmVersion) {
-          msg = "This script does not run with this version of Banana Accounting. Please update to Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
-        }
-        break;
-
-      case "it":
-        if (expmVersion) {
-          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare a Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare alla versione " + requiredVersion + " o successiva.";
-        }
-        break;
-      
-      case "fr":
-        if (expmVersion) {
-          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour vers Banana Experimental (" + requiredVersion + ")";
-        } else {
-          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour à " + requiredVersion + " ou plus récente.";
-        }
-        break;
-      
-      case "de":
-        if (expmVersion) {
-          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Banana Experimental aktualisieren (" + requiredVersion + ").";
-        } else {
-          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Version " + requiredVersion + " oder neuer aktualisiern.";
-        }
-        break;
-      
-      case "nl":
-        if (expmVersion) {
-          msg = "Het script werkt niet met deze versie van Banana Accounting. Upgrade naar Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Het script werkt niet met deze versie van Banana Accounting. Upgrade naar de versie " + requiredVersion + " of meer recent.";
-        }
-        break;
-      
-      case "zh":
-        if (expmVersion) {
-          msg = "脚本无法在此版本的Banana财务会计软件中运行。请更新至 Banana实验版本 (" + requiredVersion + ").";
-        } else {
-          msg = "脚本无法在此版本的Banana财务会计软件中运行。请更新至 " + requiredVersion + "版本或之后的版本。";
-        }
-        break;
-      
-      case "es":
-        if (expmVersion) {
-          msg = "Este script no se ejecuta con esta versión de Banana Accounting. Por favor, actualice a Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Este script no se ejecuta con esta versión de Banana Contabilidad. Por favor, actualice a la versión " + requiredVersion + " o posterior.";
-        }
-        break;
-      
-      case "pt":
-        if (expmVersion) {
-          msg = "Este script não é executado com esta versão do Banana Accounting. Por favor, atualize para Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Este script não é executado com esta versão do Banana Contabilidade. Por favor, atualize para a versão " + requiredVersion + " ou posterior.";
-        }
-        break;
-      
-      default:
-        if (expmVersion) {
-          msg = "This script does not run with this version of Banana Accounting. Please update to Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
-        }
-    }
-
-    Banana.application.showMessages();
-    Banana.document.addMessage(msg);
-
-    return false;
-  }
-  return true;
-}
-
 function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
 
   /*
@@ -2701,7 +2615,7 @@ function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
   // Take from the table documents all the javascript file names
   if (userParam.embedded_javascript_filename) {
 
-    if (BAN_LICENSE_TYPE === "advanced") {
+    if (BAN_ADVANCED) {
     
       var jsFiles = [];
       
@@ -2732,7 +2646,7 @@ function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
       }
     }
     else {
-      banDoc.addMessage("The customization with Javascript file requires Banana Accounting+ Advanced");
+      banDoc.addMessage("The customization with Javascript requires Banana Accounting+ Advanced");
     }
   }
 }
@@ -2745,11 +2659,16 @@ function getUserColumnValue(banDoc, originRow, column) {
     them into the invoice details table.
   */
 
-  var table = banDoc.table('Transactions');
-  for (var i = 0; i < table.rowCount; i++) {
-    var tRow = table.row(i);
-    if (tRow.rowNr.toString() === originRow.toString()) {      
-      return tRow.value(column);
+  var fileTypeGroup = banDoc.info("Base", "FileTypeGroup");
+  var fileTypeNumber = banDoc.info("Base", "FileTypeNumber");
+
+  if (fileTypeGroup !== "400" && fileTypeNumber !== "400") { // 400.400 = Estimates and invoices
+    var table = banDoc.table('Transactions');
+    for (var i = 0; i < table.rowCount; i++) {
+      var tRow = table.row(i);
+      if (tRow.rowNr.toString() === originRow.toString()) {      
+        return tRow.value(column);
+      }
     }
   }
 }
@@ -3100,7 +3019,7 @@ function set_css_style(banDoc, repStyleObj, variables, userParam) {
     Only available with Banana ADVANCED.
   */
   if (userParam.embedded_css_filename) {
-    if (BAN_LICENSE_TYPE === "advanced") {
+    if (BAN_ADVANCED) {
       var cssFiles = [];
       var documentsTable = banDoc.table("Documents");
       if (documentsTable) {
@@ -3115,7 +3034,7 @@ function set_css_style(banDoc, repStyleObj, variables, userParam) {
       }
     }
     else {
-      banDoc.addMessage("The customization with CSS file requires Banana Accounting+ Advanced");
+      banDoc.addMessage("The customization with CSS requires Banana Accounting+ Advanced");
     }
   }
 
@@ -3757,4 +3676,163 @@ function setInvoiceTexts(language) {
 }
 
 
+//====================================================================//
+// OTHER
+//====================================================================//
+function bananaRequiredVersion(requiredVersion, expmVersion) {
+  /**
+   * Check Banana version and license type
+   */
+
+  BAN_ADVANCED = isBananaAdvanced(requiredVersion, expmVersion);
+
+  var language = "en";
+  if (Banana.document.locale) {
+    language = Banana.document.locale;
+  }
+  if (language.length > 2) {
+    language = language.substr(0, 2);
+  }
+  if (expmVersion) {
+    requiredVersion = requiredVersion + "." + expmVersion;
+  }
+  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
+    var msg = "";
+    switch(language) {
+      
+      case "en":
+        if (expmVersion) {
+          msg = "This script does not run with this version of Banana Accounting. Please update to Banana Experimental (" + requiredVersion + ").";
+        } else {
+          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
+        }
+        break;
+
+      case "it":
+        if (expmVersion) {
+          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare a Banana Experimental (" + requiredVersion + ").";
+        } else {
+          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare alla versione " + requiredVersion + " o successiva.";
+        }
+        break;
+      
+      case "fr":
+        if (expmVersion) {
+          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour vers Banana Experimental (" + requiredVersion + ")";
+        } else {
+          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour à " + requiredVersion + " ou plus récente.";
+        }
+        break;
+      
+      case "de":
+        if (expmVersion) {
+          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Banana Experimental aktualisieren (" + requiredVersion + ").";
+        } else {
+          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Version " + requiredVersion + " oder neuer aktualisiern.";
+        }
+        break;
+      
+      case "nl":
+        if (expmVersion) {
+          msg = "Het script werkt niet met deze versie van Banana Accounting. Upgrade naar Banana Experimental (" + requiredVersion + ").";
+        } else {
+          msg = "Het script werkt niet met deze versie van Banana Accounting. Upgrade naar de versie " + requiredVersion + " of meer recent.";
+        }
+        break;
+      
+      case "zh":
+        if (expmVersion) {
+          msg = "脚本无法在此版本的Banana财务会计软件中运行。请更新至 Banana实验版本 (" + requiredVersion + ").";
+        } else {
+          msg = "脚本无法在此版本的Banana财务会计软件中运行。请更新至 " + requiredVersion + "版本或之后的版本。";
+        }
+        break;
+      
+      case "es":
+        if (expmVersion) {
+          msg = "Este script no se ejecuta con esta versión de Banana Accounting. Por favor, actualice a Banana Experimental (" + requiredVersion + ").";
+        } else {
+          msg = "Este script no se ejecuta con esta versión de Banana Contabilidad. Por favor, actualice a la versión " + requiredVersion + " o posterior.";
+        }
+        break;
+      
+      case "pt":
+        if (expmVersion) {
+          msg = "Este script não é executado com esta versão do Banana Accounting. Por favor, atualize para Banana Experimental (" + requiredVersion + ").";
+        } else {
+          msg = "Este script não é executado com esta versão do Banana Contabilidade. Por favor, atualize para a versão " + requiredVersion + " ou posterior.";
+        }
+        break;
+      
+      default:
+        if (expmVersion) {
+          msg = "This script does not run with this version of Banana Accounting. Please update to Banana Experimental (" + requiredVersion + ").";
+        } else {
+          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
+        }
+    }
+
+    Banana.application.showMessages();
+    Banana.document.addMessage(msg);
+
+    return false;
+  }
+  return true;
+}
+
+function isBananaAdvanced(requiredVersion, expmVersion) {
+  /*
+   * Check version and license type for advanced features.
+   *
+   * Case 1: Banana >= 10, advanced, return TRUE
+   * Case 2: Banana >= 10, professional, file type 'Invoices', rows <= 20, return TRUE
+   * Case 3: Banana >= 10, professional, file type 'Invoices', rows > 20, return FALSE
+   * Case 4: Banana >= 10, professional, file type 'Double,...', number of invoices <= 20, return TRUE
+   * Case 5: Banana >= 10, professional, file type 'Double,...', number of invoices > 20, return FALSE
+   * Case 6: Banana < 10, return FALSE
+   */
+  
+  if (expmVersion) {
+    requiredVersion = requiredVersion + "." + expmVersion;
+  }
+  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+    if (Banana.application.license) {
+      if (Banana.application.license.licenseType === "advanced") { //Case 1
+        return true;
+      }
+      else {
+        var fileTypeGroup = Banana.document.info("Base", "FileTypeGroup");
+        var fileTypeNumber = Banana.document.info("Base", "FileTypeNumber");
+        if (fileTypeGroup === "400" && fileTypeNumber === "400") {
+          if (Banana.document.table('Invoices').rowCount <= 20) { //Case 2
+            return true;
+          }
+          else { //Case 3
+            return false;
+          }
+        }
+        else {
+          var invoicesList = new Set();
+          for (var i = 0; i < Banana.document.table('Transactions').rowCount; i++) {
+            var tRow = Banana.document.table('Transactions').row(i);
+            var docInvoice = tRow.value("DocInvoice");
+            if (docInvoice) {
+              invoicesList.add(docInvoice);
+            }
+          }
+          var numInvoices = invoicesList.size;
+          if (numInvoices <= 20) { //Case 4
+            return true;
+          }
+          else { //Case 5
+            return false;
+          }
+        }
+      }
+    }
+  }
+  else { //Case 6
+    return false;
+  }
+}
 

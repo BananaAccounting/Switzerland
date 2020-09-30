@@ -1,4 +1,4 @@
-/* CSS update: 2020-09-11  */
+/* CSS update: 2020-09-29  */
 
 /* Page definition.
    Sets margins of the document.
@@ -285,6 +285,11 @@ table.info_table_row0 td {
   padding-bottom: 2px;
   padding-left: 4px;
   padding-right: 4px;
+}
+/* Item row of the invoice details.
+   Sets font weight. */
+.item_cell {
+  
 }
 /* Total row of the invoice details.
    Sets font size, font weight and text color. 
