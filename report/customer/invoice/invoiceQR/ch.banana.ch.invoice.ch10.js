@@ -14,13 +14,13 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-09-30
+// @pubdate = 2020-10-21
 // @publisher = Banana.ch SA
-// @description = [CH10] Layout with Swiss QR Code
-// @description.it = [CH10] Layout with Swiss QR Code
-// @description.de = [CH10] Layout with Swiss QR Code
-// @description.fr = [CH10] Layout with Swiss QR Code
-// @description.en = [CH10] Layout with Swiss QR Code
+// @description = dev [CH10] Layout with Swiss QR Code
+// @description.it = dev [CH10] Layout with Swiss QR Code
+// @description.de = dev [CH10] Layout with Swiss QR Code
+// @description.fr = dev [CH10] Layout with Swiss QR Code
+// @description.en = dev [CH10] Layout with Swiss QR Code
 // @doctype = *
 // @task = report.customer.invoice
 // @includejs = swissqrcode.js
@@ -882,10 +882,109 @@ function convertParam(userParam) {
      userParam[langCode+'_footer_right'] = this.value;
     }
     convertedParam.data.push(currentParam);
+  
+
+    /*******************************************************************************************
+    * ESTIMATE PARAMETERS
+    ********************************************************************************************/
+    var currentParam = {};
+    currentParam.name = langCode+'_offer';
+    currentParam.parentObject = langCode;
+    currentParam.title = langTexts.offer;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam.texts = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_offer_number';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_offer_number'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_offer_number'] ? userParam[langCode+'_text_info_offer_number'] : '';
+    currentParam.defaultvalue = langTexts.offer;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_offer_number'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_info_offer_number'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_date_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_date_offer'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_date_offer'] ? userParam[langCode+'_text_info_date_offer'] : '';
+    currentParam.defaultvalue = langTexts.date;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_date_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_info_date_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_validity_date_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_validity_date_offer'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_validity_date_offer'] ? userParam[langCode+'_text_info_validity_date_offer'] : '';
+    currentParam.defaultvalue = langTexts.validity_terms_label;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_validity_date_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_info_validity_date_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_title_doctype_17';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_title_doctype_17'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_title_doctype_17'] ? userParam[langCode+'_title_doctype_17'] : '';
+    currentParam.defaultvalue = langTexts.offer  + " <DocInvoice>";
+    currentParam.tooltip = langTexts['param_tooltip_title_doctype_17'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_title_doctype_17'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_begin_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_begin_offer'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_begin_offer'] ? userParam[langCode+'_text_begin_offer'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_begin_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_begin_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_final_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_final_offer'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_final_offer'] ? userParam[langCode+'_text_final_offer'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_final_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_final_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
   }
-
-
-
 
 
   /*******************************************************************************************
@@ -1108,6 +1207,15 @@ function initParam() {
     userParam[langCodes[i]+'_footer_left'] = langTexts.invoice;
     userParam[langCodes[i]+'_footer_center'] = '';
     userParam[langCodes[i]+'_footer_right'] = langTexts.page+' <'+langTexts.page+'>';
+
+    //Estimate parameters
+    userParam[langCodes[i]+'_text_info_offer_number'] = langTexts.offer;
+    userParam[langCodes[i]+'_text_info_date_offer'] = langTexts.date;
+    userParam[langCodes[i]+'_text_info_validity_date_offer'] = langTexts.validity_terms_label;
+    userParam[langCodes[i]+'_title_doctype_17'] = langTexts.offer + " <DocInvoice>";
+    userParam[langCodes[i]+'_text_begin_offer'] = '';
+    userParam[langCodes[i]+'_text_final_offer'] = '';
+
   }
 
   //Styles
@@ -1289,6 +1397,26 @@ function verifyParam(userParam) {
     }
     if (!userParam[langCodes[i]+'_footer_right']) {
       userParam[langCodes[i]+'_footer_right'] = langTexts.page+' <'+langTexts.page+'>';
+    }
+
+    //Estimate parameters
+    if (!userParam[langCodes[i]+'_text_info_offer_number']) {
+      userParam[langCodes[i]+'_text_info_offer_number'] = langTexts.offer;
+    }
+    if (!userParam[langCodes[i]+'_text_info_date_offer']) {
+      userParam[langCodes[i]+'_text_info_date_offer'] = langTexts.date;
+    }
+    if (!userParam[langCodes[i]+'_text_info_validity_date_offer']) {
+      userParam[langCodes[i]+'_text_info_validity_date_offer'] = langTexts.validity_terms_label;
+    }
+    if (!userParam[langCodes[i]+'_title_doctype_17']) {
+      userParam[langCodes[i]+'_title_doctype_17'] = langTexts.offer + " <DocInvoice>";
+    }
+    if (!userParam[langCodes[i]+'_text_begin_offer']) {
+      userParam[langCodes[i]+'_text_begin_offer'] = "";
+    }
+    if (!userParam[langCodes[i]+'_text_final_offer']) {
+      userParam[langCodes[i]+'_text_final_offer'] = "";
     }
   }
 
@@ -1565,14 +1693,22 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
 
   if (userParam.info_invoice_number) {
     tableRow = infoTable.addRow();
-    tableRow.addCell(userParam[lang+'_text_info_invoice_number'] + ":","",1);
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      tableRow.addCell(userParam[lang+'_text_info_invoice_number'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_offer_number'] + ":","",1);
+    }
     tableRow.addCell(invoiceObj.document_info.number,"",1);
   } else {
     rows++;
   }
   if (userParam.info_date) {
     tableRow = infoTable.addRow();
-    tableRow.addCell(userParam[lang+'_text_info_date'] + ":","",1);
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      tableRow.addCell(userParam[lang+'_text_info_date'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_date_offer'] + ":","",1);
+    }
     tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);    
   } else {
     rows++;
@@ -1602,16 +1738,20 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
     //Payment Terms
     var payment_terms_label = texts.payment_terms_label;
     var payment_terms = '';
-    if (invoiceObj.billing_info.payment_term) {
+    if (invoiceObj.billing_info.payment_term) { //10:ter
       payment_terms = invoiceObj.billing_info.payment_term;
     }
-    else if (invoiceObj.payment_info.due_date) {
+    else if (invoiceObj.payment_info.due_date) { //automatic
       payment_terms_label = texts.payment_due_date_label
       payment_terms = Banana.Converter.toLocaleDateFormat(invoiceObj.payment_info.due_date);
     }
 
     tableRow = infoTable.addRow();
-    tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_validity_date_offer'] + ":","",1);
+    }
     if (invoiceObj.billing_info.payment_term) { //bold markdown when 10:ter
       var paymentCell = tableRow.addCell("","",1);
       addMdBoldText(paymentCell, payment_terms);
@@ -1649,12 +1789,20 @@ function print_info_other_pages(repDocObj, invoiceObj, texts, userParam) {
   infoTable = repDocObj.addTable("info_table_row0");
   if (userParam.info_invoice_number) {
     tableRow = infoTable.addRow();
-    tableRow.addCell(userParam[lang+'_text_info_invoice_number'] + ":","",1);
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      tableRow.addCell(userParam[lang+'_text_info_invoice_number'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_offer_number'] + ":","",1);
+    }
     tableRow.addCell(invoiceObj.document_info.number,"",1);
   }
   if (userParam.info_date) {
     tableRow = infoTable.addRow();
-    tableRow.addCell(userParam[lang+'_text_info_date'] + ":","",1);
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      tableRow.addCell(userParam[lang+'_text_info_date'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_date_offer'] + ":","",1);
+    }
     tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);    
   }
   if (userParam.info_customer) {
@@ -1685,7 +1833,11 @@ function print_info_other_pages(repDocObj, invoiceObj, texts, userParam) {
     }
 
     tableRow = infoTable.addRow();
-    tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
+    if (invoiceObj.document_info.doc_type !== "17") {
+      tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_validity_date_offer'] + ":","",1);
+    }
     if (invoiceObj.billing_info.payment_term) { //bold markdown when 10:ter
       var paymentCell = tableRow.addCell("","",1);
       addMdBoldText(paymentCell, payment_terms);
@@ -1799,6 +1951,7 @@ function print_text_begin(repDocObj, invoiceObj, texts, userParam) {
   */
   var textTitle = getTitle(invoiceObj, texts, userParam);
   var textBegin = invoiceObj.document_info.text_begin;
+  var textBeginOffer = userParam[lang+'_text_begin_offer'];
   var table = repDocObj.addTable("begin_text_table");
   var tableRow;
   
@@ -1815,6 +1968,12 @@ function print_text_begin(repDocObj, invoiceObj, texts, userParam) {
     tableRow = table.addRow();
     var textCell = tableRow.addCell("","begin_text",1);
     addMdBoldText(textCell, textBegin);  
+  }
+  else if (!textBegin && textBeginOffer && invoiceObj.document_info.doc_type === "17") {
+    textBeginOffer = columnNamesToValues(invoiceObj, textBeginOffer);
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    addMdBoldText(textCell, textBeginOffer);
   }
 }
 
@@ -1911,7 +2070,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
         // If referenceUnit is empty we do not print the quantity.
-        // With this we can avoit to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
+        // With this we can avoid to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
         if (item.mesure_unit) {
           if (variables.decimals_quantity) {
             decimals = variables.decimals_quantity;
@@ -2238,51 +2397,72 @@ function print_final_texts(repDocObj, invoiceObj, userParam) {
   }
 
   //Text taken from the Settings dialog's parameter "Final text"
-  if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
-    var text = userParam[lang+'_text_final'];
-    text = text.split('\n');
-    if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-      repDocObj.addParagraph(" ", "");
+  if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
+      var text = userParam[lang+'_text_final'];
+      text = text.split('\n');
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
     }
-    for (var i = 0; i < text.length; i++) {
-      var paragraph = repDocObj.addParagraph("","final_texts");
-      if (text[i]) {
-        text[i] = columnNamesToValues(invoiceObj, text[i]);
-        addMdBoldText(paragraph, text[i]);
-      } else {
-        addMdBoldText(paragraph, " "); //empty lines
+
+    // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
+    else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
+      var textDefault = [];
+      var text = [];
+      for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
+        var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
+        if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
+          textDefault = invoiceObj.template_parameters.footer_texts[i].text;
+        }
+        else if (textLang == lang) {
+          text = invoiceObj.template_parameters.footer_texts[i].text;
+        }
+      }
+      if (text.join().length <= 0) {
+        text = textDefault;
+      }
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
       }
     }
   }
+  else { //estimates
+    if (userParam[lang+'_text_final_offer'] && userParam[lang+'_text_final_offer'] !== "<none>") {
+      var text = userParam[lang+'_text_final_offer'];
+      text = text.split('\n');
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
+    }
 
-  // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
-  else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
-    var textDefault = [];
-    var text = [];
-    for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
-      var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
-      if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
-        textDefault = invoiceObj.template_parameters.footer_texts[i].text;
-      }
-      else if (textLang == lang) {
-        text = invoiceObj.template_parameters.footer_texts[i].text;
-      }
-    }
-    if (text.join().length <= 0) {
-      text = textDefault;
-    }
-    if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-      repDocObj.addParagraph(" ", "");
-    }
-    for (var i = 0; i < text.length; i++) {
-      var paragraph = repDocObj.addParagraph("","final_texts");
-      if (text[i]) {
-        text[i] = columnNamesToValues(invoiceObj, text[i]);
-        addMdBoldText(paragraph, text[i]);
-      } else {
-        addMdBoldText(paragraph, " "); //empty lines
-      }
-    }
   }
 }
 
@@ -2578,12 +2758,10 @@ function getQuantityDecimals(invoiceObj) {
     var item = invoiceObj.items[i];
     var qty = item.quantity;
     var res = qty.split(".");
-    if (res[1] && res[1] !== "0000" && res[1].substring(1,4) !== "000" && res[1].substring(2,4) !== "00") {
+    if (res[1] && res[1].length == 4 && res[1] !== "0000" && res[1].substring(1,4) !== "000" && res[1].substring(2,4) !== "00") {
       decimals = 4;
-      //Banana.console.log(res[1] + " => " + decimals);
     } else {
       decimals = 2;
-      //Banana.console.log(res[1] + " => " + decimals);
     }
     arr.push(decimals);
   }
@@ -2845,7 +3023,7 @@ function getInvoiceSupplier(invoiceSupplier, userParam, texts) {
 function getTitle(invoiceObj, texts, userParam) {
 
   /*
-    Returns the title based on the DocType value (10=Invoice, 12=Credit note)
+    Returns the title based on the DocType value (10=Invoice, 12=Credit note, 17=Offer)
     By default are used these values.
     User can enter a different text in parameters settings ("<none>" to not print any title).
     User can define a title in Transactions table by using the command "10:tit" (this has priority over all)
@@ -2868,6 +3046,14 @@ function getTitle(invoiceObj, texts, userParam) {
       documentTitle = texts.credit_note;
       if (userParam[lang+'_title_doctype_12'] && userParam[lang+'_title_doctype_12'] !== "<none>") {
         documentTitle = userParam[lang+'_title_doctype_12'];
+      } else {
+        documentTitle = "";
+      }
+    }
+    if (invoiceObj.document_info.doc_type && invoiceObj.document_info.doc_type === "17") {
+      documentTitle = texts.offer;
+      if (userParam[lang+'_title_doctype_17'] && userParam[lang+'_title_doctype_17'] !== "<none>") {
+        documentTitle = userParam[lang+'_title_doctype_17'];
       } else {
         documentTitle = "";
       }
@@ -3242,6 +3428,20 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_javascript_filename = "Inserisci il nome del file JavaScript (.js) della colonna 'ID' tabella Documenti (ad es. File.js)";
     texts.error1 = "I nomi delle colonne non corrispondono ai testi da stampare. Verificare impostazioni fattura.";
     texts.it_error1_msg = "Nomi testi e colonne non corrispondono";
+    texts.offer = "Offerta";
+    texts.it_param_text_info_offer_number = "Numero offerta";
+    texts.param_tooltip_text_info_offer_number = "Inserisci un testo per sostituire quello predefinito";
+    texts.it_param_text_info_date_offer = "Data offerta";
+    texts.param_tooltip_text_info_date_offer = "Inserisci un testo per sostituire quello predefinito";
+    texts.it_param_text_info_validity_date_offer = "Validità offerta";
+    texts.validity_terms_label = "Validità";
+    texts.param_tooltip_text_info_validity_date_offer = "Inserisci un testo per sostituire quello predefinito";
+    texts.it_param_text_title_doctype_17 = "Titolo offerta";
+    texts.param_tooltip_title_doctype_17 = "Inserisci un testo per sostituire quello predefinito";
+    texts.it_param_text_begin_offer = "Testo iniziale offerta";
+    texts.param_tooltip_text_begin_offer = "Inserisci un testo per sostituire quello predefinito";
+    texts.it_param_text_final_offer = "Testo finale offerta";
+    texts.param_tooltip_text_final_offer = "Inserisci un testo per sostituire quello predefinito";
   }
   else if (language === 'de') {
     // DE
@@ -3385,6 +3585,20 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_javascript_filename = "Javaskript-Dateiname der 'ID'-Spalte Dokumente-Tabelle eingeben (z.B. Filejs)";
     texts.error1 = "Die Spaltennamen stimmen nicht mit den zu druckenden Texten überein. Prüfen Sie die Rechnungseinstellungen.";
     texts.de_error1_msg = "Die Namen von Text und Spalten stimmen nicht überein.";
+    texts.offer = "Angebot";
+    texts.de_param_text_info_offer_number = "Angebotsnummer";
+    texts.param_tooltip_text_info_offer_number = "Text eingeben, um Standardtext zu ersetzen";
+    texts.de_param_text_info_date_offer = "Angebotsdatum";
+    texts.param_tooltip_text_info_date_offer = "Text eingeben, um Standardtext zu ersetzen";
+    texts.de_param_text_info_validity_date_offer = "Angebotsgültigkeit";
+    texts.validity_terms_label = "Gültigkeit";
+    texts.param_tooltip_text_info_validity_date_offer = "Text eingeben, um Standardtext zu ersetzen";
+    texts.de_param_text_title_doctype_17 = "Angebotstitel";
+    texts.param_tooltip_title_doctype_17 = "Text eingeben, um Standardtext zu ersetzen";
+    texts.de_param_text_begin_offer = "Text zu Beginn Angebot";
+    texts.param_tooltip_text_begin_offer = "Text eingeben, um Standardtext zu ersetzen";
+    texts.de_param_text_final_offer = "Text am Ende Angebot";
+    texts.param_tooltip_text_final_offer = "Text eingeben, um Standardtext zu ersetzen";
   }
   else if (language === 'fr') {
     //FR
@@ -3460,7 +3674,7 @@ function setInvoiceTexts(language) {
     texts.fr_param_text_info_page = "Numéro de page";
     texts.fr_param_text_shipping_address = "Adresse de livraison";
     texts.fr_param_text_title_doctype_10 = "Titre de la facture";
-    texts.fr_param_text_title_doctype_12 = "Titre note de crédit ";
+    texts.fr_param_text_title_doctype_12 = "Titre note de crédit";
     texts.fr_param_text_details_columns = "Noms des colonnes des détails de la facture";
     texts.fr_param_text_total = "Total facture";
     texts.fr_param_text_final = "Texte final";
@@ -3528,6 +3742,20 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_javascript_filename = "Insérer le nom du fichier JavaScript (.js) de la colonne 'ID' du tableau Documents (p. ex. File.js)";    
     texts.error1 = "Les noms des colonnes ne correspondent pas aux textes à imprimer. Vérifiez les paramètres de la facture.";
     texts.fr_error1_msg = "Le texte et les noms des colonnes ne correspondent pas";
+    texts.offer = "Offre";
+    texts.fr_param_text_info_offer_number = "Numéro offre";
+    texts.param_tooltip_text_info_offer_number = "Insérez un texte pour remplacer le texte par défaut";
+    texts.fr_param_text_info_date_offer = "Date offre";
+    texts.param_tooltip_text_info_date_offer = "Insérez un texte pour remplacer le texte par défaut";
+    texts.fr_param_text_info_validity_date_offer = "Validité de l'offre";
+    texts.validity_terms_label = "Validité";
+    texts.param_tooltip_text_info_validity_date_offer = "Insérez un texte pour remplacer le texte par défaut";
+    texts.fr_param_text_title_doctype_17 = "Titre offre";
+    texts.param_tooltip_title_doctype_17 = "Insérez un texte pour remplacer le texte par défaut";     
+    texts.fr_param_text_begin_offer = "Texte de début offre";
+    texts.param_tooltip_text_begin_offer = "Insérez un texte pour remplacer le texte par défaut";
+    texts.fr_param_text_final_offer = "Texte final offre";
+    texts.param_tooltip_text_final_offer = "Insérez un texte pour remplacer le texte par défaut"; 
   }
   else {
     //EN
@@ -3671,7 +3899,22 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_javascript_filename = "Enter name of the javascript file taken from the 'ID' column of the table 'Documents' (i.e. file.js)";  
     texts.error1 = "Column names do not match with the text to print. Check invoice settings.";
     texts.en_error1_msg = "Text names and columns do not match";
+    texts.offer = "Offer";
+    texts.en_param_text_info_offer_number = "Offer number";
+    texts.param_tooltip_text_info_offer_number = "Enter text to replace the default";
+    texts.en_param_text_info_date_offer = "Offer date";
+    texts.param_tooltip_text_info_date_offer = "Enter text to replace the default";
+    texts.en_param_text_info_validity_date_offer = "Offer validity";
+    texts.validity_terms_label = "Validity";
+    texts.param_tooltip_text_info_validity_date_offer = "Enter text to replace the default";
+    texts.en_param_text_title_doctype_17 = "Offer title";
+    texts.param_tooltip_title_doctype_17 = "Enter text to replace the default";
+    texts.en_param_text_begin_offer = "Begin text offer";
+    texts.param_tooltip_text_begin_offer = "Enter text to replace the default";
+    texts.en_param_text_final_offer = "Final text offer";
+    texts.param_tooltip_text_final_offer = "Enter text to replace the default";
   }
+
   return texts;
 }
 
