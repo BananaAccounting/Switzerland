@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-10-21
+// @pubdate = 2020-10-26
 // @publisher = Banana.ch SA
 // @description = dev [CH10] Layout with Swiss QR Code
 // @description.it = dev [CH10] Layout with Swiss QR Code
@@ -3585,19 +3585,19 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_javascript_filename = "Javaskript-Dateiname der 'ID'-Spalte Dokumente-Tabelle eingeben (z.B. Filejs)";
     texts.error1 = "Die Spaltennamen stimmen nicht mit den zu druckenden Texten überein. Prüfen Sie die Rechnungseinstellungen.";
     texts.de_error1_msg = "Die Namen von Text und Spalten stimmen nicht überein.";
-    texts.offer = "Angebot";
-    texts.de_param_text_info_offer_number = "Angebotsnummer";
+    texts.offer = "Offerte";
+    texts.de_param_text_info_offer_number = "Offerte Nr.";
     texts.param_tooltip_text_info_offer_number = "Text eingeben, um Standardtext zu ersetzen";
-    texts.de_param_text_info_date_offer = "Angebotsdatum";
+    texts.de_param_text_info_date_offer = "Datum Offerte";
     texts.param_tooltip_text_info_date_offer = "Text eingeben, um Standardtext zu ersetzen";
-    texts.de_param_text_info_validity_date_offer = "Angebotsgültigkeit";
+    texts.de_param_text_info_validity_date_offer = "Gültigkeit Offerte";
     texts.validity_terms_label = "Gültigkeit";
     texts.param_tooltip_text_info_validity_date_offer = "Text eingeben, um Standardtext zu ersetzen";
-    texts.de_param_text_title_doctype_17 = "Angebotstitel";
+    texts.de_param_text_title_doctype_17 = "Titel Offerte";
     texts.param_tooltip_title_doctype_17 = "Text eingeben, um Standardtext zu ersetzen";
-    texts.de_param_text_begin_offer = "Text zu Beginn Angebot";
+    texts.de_param_text_begin_offer = "Anfangstext Offerte";
     texts.param_tooltip_text_begin_offer = "Text eingeben, um Standardtext zu ersetzen";
-    texts.de_param_text_final_offer = "Text am Ende Angebot";
+    texts.de_param_text_final_offer = "Schlusstext Offerte";
     texts.param_tooltip_text_final_offer = "Text eingeben, um Standardtext zu ersetzen";
   }
   else if (language === 'fr') {
@@ -3899,19 +3899,19 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_javascript_filename = "Enter name of the javascript file taken from the 'ID' column of the table 'Documents' (i.e. file.js)";  
     texts.error1 = "Column names do not match with the text to print. Check invoice settings.";
     texts.en_error1_msg = "Text names and columns do not match";
-    texts.offer = "Offer";
-    texts.en_param_text_info_offer_number = "Offer number";
+    texts.offer = "Estimate";
+    texts.en_param_text_info_offer_number = "Estimate number";
     texts.param_tooltip_text_info_offer_number = "Enter text to replace the default";
-    texts.en_param_text_info_date_offer = "Offer date";
+    texts.en_param_text_info_date_offer = "Estimate date";
     texts.param_tooltip_text_info_date_offer = "Enter text to replace the default";
-    texts.en_param_text_info_validity_date_offer = "Offer validity";
+    texts.en_param_text_info_validity_date_offer = "Estimate validity";
     texts.validity_terms_label = "Validity";
     texts.param_tooltip_text_info_validity_date_offer = "Enter text to replace the default";
-    texts.en_param_text_title_doctype_17 = "Offer title";
+    texts.en_param_text_title_doctype_17 = "Estimate title";
     texts.param_tooltip_title_doctype_17 = "Enter text to replace the default";
-    texts.en_param_text_begin_offer = "Begin text offer";
+    texts.en_param_text_begin_offer = "Begin text estimate";
     texts.param_tooltip_text_begin_offer = "Enter text to replace the default";
-    texts.en_param_text_final_offer = "Final text offer";
+    texts.en_param_text_final_offer = "Final text estimate";
     texts.param_tooltip_text_final_offer = "Enter text to replace the default";
   }
 
