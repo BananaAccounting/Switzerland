@@ -16,11 +16,11 @@
 // @api = 1.0
 // @pubdate = 2020-10-26
 // @publisher = Banana.ch SA
-// @description = dev [CH10] Layout with Swiss QR Code
-// @description.it = dev [CH10] Layout with Swiss QR Code
-// @description.de = dev [CH10] Layout with Swiss QR Code
-// @description.fr = dev [CH10] Layout with Swiss QR Code
-// @description.en = dev [CH10] Layout with Swiss QR Code
+// @description = [CH10] Layout with Swiss QR Code
+// @description.it = [CH10] Layout with Swiss QR Code
+// @description.de = [CH10] Layout with Swiss QR Code
+// @description.fr = [CH10] Layout with Swiss QR Code
+// @description.en = [CH10] Layout with Swiss QR Code
 // @doctype = *
 // @task = report.customer.invoice
 // @includejs = swissqrcode.js
