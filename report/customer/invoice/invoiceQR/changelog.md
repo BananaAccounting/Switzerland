@@ -1,6 +1,6 @@
 # Changelog
 
-All changes to the [[CH10] Layout with Swiss QR Code](https://www.banana.ch/apps/en/node/9338) extension will be documented in this file.
+All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana.ch/apps/en/node/9338) extension will be documented in this file.
 
 * 2020-09-02
 	* Added structured (S) and combined (K) addresses for the QRCode.
