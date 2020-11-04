@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-09-18 */
+/* Script update: 2020-11-04 */
 
 
 
@@ -818,7 +818,7 @@ var QRBill = class QRBill {
 			texts.param_qr_code_creditor_country = "Ländercode";
 			texts.param_qr_code_add_border_separator = "Trennlinie drucken";
 			texts.param_qr_code_add_symbol_scissors = "Scherensymbol drucken";
-			texts.param_qr_code_debtor_address_type = "Kunden-Address-Typ (S=Strukturierte Adresse, K=Kombinierte Adresse)";
+			texts.param_qr_code_debtor_address_type = "Kunden-Adress-Typ (S=Strukturierte Adresse, K=Kombinierte Adresse)";
 			texts.param_qr_code_additional_information = "XML-Namen der Spalte mit zusätzlichen Informationen angeben";
 			texts.param_qr_code_billing_information = "Rechnungsinformationen einschliessen";
 			texts.param_qr_code_empty_address = "Rechnungsadresse ausschliessen";
