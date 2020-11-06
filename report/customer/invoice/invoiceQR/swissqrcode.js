@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-11-04 */
+/* Script update: 2020-11-06 */
 
 
 
@@ -2614,7 +2614,7 @@ var QRBill = class QRBill {
 			style.setAttribute("color", "black");
 			style.setAttribute("font-family", fontFamily);
 			style.setAttribute("font-size", fontSizePayment);
-			style.setAttribute("width","55mm");
+			style.setAttribute("width","56mm");
 			if (userParam.qr_code_add_border_separator) {
 				style.setAttribute("border-top","thin dashed black");
 			}
