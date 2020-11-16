@@ -2063,9 +2063,9 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         else {
           var itemValue = formatItemsValue(item.description, variables, columnsNames[j], className, item);
           var itemValue2 = formatItemsValue(item.description2, variables, columnsNames[j], className, item);
-          var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
-          descriptionCell.addParagraph(itemValue.value, itemValue.className);
-          descriptionCell.addParagraph(itemValue2.value, itemValue2.className);
+          var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          descriptionCell.addParagraph(itemValue.value, "");
+          descriptionCell.addParagraph(itemValue2.value, "");
         }
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
@@ -2257,9 +2257,9 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         else {
           var itemValue = formatItemsValue(item.description, variables, columnsNames[j], className, item);
           var itemValue2 = formatItemsValue(item.description2, variables, columnsNames[j], className, item);
-          var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
-          descriptionCell.addParagraph(itemValue.value, itemValue.className);
-          descriptionCell.addParagraph(itemValue2.value, itemValue2.className);
+          var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          descriptionCell.addParagraph(itemValue.value, "");
+          descriptionCell.addParagraph(itemValue2.value, "");
         }
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
