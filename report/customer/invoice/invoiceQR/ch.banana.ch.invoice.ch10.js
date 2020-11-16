@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-10-26
+// @pubdate = 2020-11-16
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -1531,7 +1531,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT HEADER */
   if (BAN_ADVANCED && typeof(hook_print_header) === typeof(Function)) {
-    hook_print_header(repDocObj);
+    hook_print_header(repDocObj, userParam, repStyleObj, invoiceObj, texts);
   } else {
     print_header(repDocObj, userParam, repStyleObj, invoiceObj, texts);
   }
@@ -1637,10 +1637,10 @@ function print_header(repDocObj, userParam, repStyleObj, invoiceObj, texts) {
       var logoElement = logoFormat.createDocNode(headerParagraph, repStyleObj, "logo");
       repDocObj.getHeader().addChild(logoElement);
     } else {
-       headerParagraph.addClass("header_right_text");
+       headerParagraph.addClass("header_text");
     }
   } else {
-     headerParagraph.addClass("header_right_text");
+     headerParagraph.addClass("header_text");
   }
 
   if (userParam.header_print) {
@@ -2124,7 +2124,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   }
 
   tableRow = repTableObj.addRow();
-  tableRow.addCell("", "thin-border-top", columnsNumber);
+  tableRow.addCell("", "border-top", columnsNumber);
 
   //DISCOUNT
   //used only for the "Application Invoice"
@@ -2157,7 +2157,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
 
   tableRow = repTableObj.addRow();
   if (invoiceObj.billing_info.total_vat_rates.length > 0 || invoiceObj.billing_info.total_rounding_difference.length) {
-    tableRow.addCell("", "thin-border-top", columnsNumber);
+    tableRow.addCell("", "border-top", columnsNumber);
   } else {
     tableRow.addCell("", "", columnsNumber);
   }
@@ -2318,7 +2318,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   }
 
   tableRow = repTableObj.addRow();
-  tableRow.addCell("", "thin-border-top", columnsNumber);
+  tableRow.addCell("", "border-top", columnsNumber);
 
   //DISCOUNT
   //used only for the "Application Invoice"
@@ -2338,7 +2338,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   tableRow = repTableObj.addRow();
   if (invoiceObj.billing_info.total_rounding_difference.length) {
-    tableRow.addCell("", "thin-border-top", columnsNumber);
+    tableRow.addCell("", "border-top", columnsNumber);
   } else {
     tableRow.addCell("", "", columnsNumber);
   }

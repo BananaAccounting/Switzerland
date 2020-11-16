@@ -1,4 +1,4 @@
-/* CSS update: 2020-09-29  */
+/* CSS update: 2020-11-16  */
 
 /* Page definition.
    Sets margins of the document.
@@ -45,39 +45,18 @@ td {
 .padding-left {
   padding-left: 20px;
 }
-/* The bottom border of an element.
-   Sets the line style, the line color and the line width of the border. */
-.border-bottom {
-  border-bottom-style: solid;
-  border-bottom-color: $background_color_details_header;
-  border-bottom-width: 2px;
-}
 /* The top border of an element.
-   Sets the line style, the line color and the line width of the border. */
-.thin-border-top {
+   Sets the line style, the line color and the line width of the border. 
+   Used for example as horizontal line between the items and the total net */
+.border-top {
   border-top-style: solid;
   border-top-color: $background_color_details_header;
   border-top-width: thin;
 }
-/* The bottom border of an element.
-   Sets the line style, the line color and the line width of the border. */
-.thin-border-bottom {
-  border-bottom-style: solid;
-  border-bottom-color: $background_color_details_header;
-  border-bottom-width: thin;
-}
-/* Text of the header when printed on the left of the document.
-   Sets margins and position relative to the document. */
-.header_left_text {
-  margin-top: 1.2cm;
-  margin-left: 1.2cm;
-  margin-right: 1.2cm;
-  position: absolute;
-}
 /* Text of the header when printed on the right of the document.
    Sets margins and position relative to the document.
-   Sets text alignment to the right. */
-.header_right_text {
+   When no logo is used, text alignment is set to right. */
+.header_text {
   margin-top: 1.2cm;
   margin-left: 1.2cm;
   margin-right: 1.2cm;
