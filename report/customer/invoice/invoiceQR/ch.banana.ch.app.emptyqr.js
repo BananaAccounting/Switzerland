@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2020-06-15
+// @pubdate = 2020-11-20
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-bill with empty amount and address
@@ -38,8 +38,8 @@
 
 
 // Define the required version of Banana Accounting / Banana Experimental
-var BAN_VERSION = "9.1.0";
-var BAN_EXPM_VERSION = "200615";
+var BAN_VERSION = "10.0.1";
+var BAN_EXPM_VERSION = "";
 
 
 function exec(string) {
@@ -151,7 +151,15 @@ function initJSON(banDoc) {
   // invoiceObj.supplier_info.vat_number = banDoc.info("AccountingDataBase","VatNumber");
   
   //currency and amount
-  invoiceObj.document_info.currency = banDoc.info("AccountingDataBase","BasicCurrency");
+  var fileTypeGroup = banDoc.info("Base", "FileTypeGroup");
+  var fileTypeNumber = banDoc.info("Base", "FileTypeNumber");
+  var currency = banDoc.info("AccountingDataBase","BasicCurrency");
+  if (fileTypeGroup === "400" && fileTypeNumber === "400" && !currency) {
+    // For application "estimates-invoices" without currency we set as default currency "CHF"
+    invoiceObj.document_info.currency = 'CHF';
+  } else {
+    invoiceObj.document_info.currency = currency;
+  }
   invoiceObj.billing_info.total_to_pay = "";
 
   //Payable by
