@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-11-16
+// @pubdate = 2020-11-23
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -596,6 +596,7 @@ function convertParam(userParam) {
   currentParam.tooltip = texts.param_tooltip_languages;
   currentParam.readValue = function() {
 
+    this.value = this.value.replace(/^\;|\;$/g,''); //removes ";" at the beginning/end of the string (i.e. ";de;en;it;" => "de;en;it")    
     var before = userParam.languages; //languages before remove
     userParam.languages = this.value;
     var after = userParam.languages; //languages after remove
