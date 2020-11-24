@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-11-06 */
+/* Script update: 2020-11-24 */
 
 
 
@@ -2057,16 +2057,36 @@ var QRBill = class QRBill {
 		var textNotes = "";
 		var infoSet = new Set();
 		if (this.banDoc) {
+
 			var invoiceNumber = invoiceObj.document_info.number;
-			var transTable = this.banDoc.table("Transactions");
-			if (transTable) {
-				for (var i = 0; i < transTable.rowCount; i++) {
-					var tRow = transTable.row(i);
-					var docInvoice = tRow.value("DocInvoice");
-					if (invoiceNumber === docInvoice) {
-						var info = tRow.value(column);
-						if (info) {
-							infoSet.add(info);
+
+			// Application Estimates-Invoices: read the data from the table Invoices
+			if (this.banDoc.info("Base", "FileTypeGroup") === "400" && this.banDoc.info("Base", "FileTypeNumber") === "400") {
+				var invoicesTable = this.banDoc.table("Invoices");
+				if (invoicesTable) {
+					for (var i = 0; i < invoicesTable.rowCount; i++) {
+						var tRow = invoicesTable.row(i);
+						var idInvoice = tRow.value("RowId");
+						if (invoiceNumber === idInvoice) {
+							var info = tRow.value(column);
+							if (info) {
+								infoSet.add(info);
+							}
+						}
+					}
+				}
+			}
+			else {
+				var transTable = this.banDoc.table("Transactions");
+				if (transTable) {
+					for (var i = 0; i < transTable.rowCount; i++) {
+						var tRow = transTable.row(i);
+						var docInvoice = tRow.value("DocInvoice");
+						if (invoiceNumber === docInvoice) {
+							var info = tRow.value(column);
+							if (info) {
+								infoSet.add(info);
+							}
 						}
 					}
 				}
