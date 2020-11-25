@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-11-24 */
+/* Script update: 2020-11-25 */
 
 
 
@@ -532,7 +532,7 @@ var QRBill = class QRBill {
 		currentParam.title = texts.param_qr_code_additional_information;
 		currentParam.type = 'string';
 		currentParam.value = userParam.qr_code_additional_information ? userParam.qr_code_additional_information : '';
-		currentParam.defaultvalue = 'Notes';
+		currentParam.defaultvalue = '';
 		currentParam.tooltip = texts.param_tooltip_qr_code_additional_information;
 		currentParam.readValue = function() {
 			userParam.qr_code_additional_information = this.value;
@@ -662,7 +662,7 @@ var QRBill = class QRBill {
 		userParam.qr_code_creditor_city = "";
 		userParam.qr_code_creditor_country = "";
 		userParam.qr_code_debtor_address_type = 'K';
-		userParam.qr_code_additional_information = 'Notes';
+		userParam.qr_code_additional_information = '';
 		userParam.qr_code_billing_information = false;
 		userParam.qr_code_empty_address = false;
 		userParam.qr_code_empty_amount = false;
