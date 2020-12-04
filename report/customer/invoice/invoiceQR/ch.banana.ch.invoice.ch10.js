@@ -2342,7 +2342,11 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   //on normal invoices discounts are entered as items in transactions
   if (invoiceObj.billing_info.total_discount_vat_inclusive) {
     tableRow = repTableObj.addRow();
-    tableRow.addCell(texts.discount, "padding-left padding-right", columnsNumber-1);
+    if (invoiceObj.billing_info.discount.description) {
+      tableRow.addCell(invoiceObj.billing_info.discount.description, "padding-left padding-right", columnsNumber-1);
+    } else {
+      tableRow.addCell(texts.discount, "padding-left padding-right", columnsNumber-1);
+    }
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_discount_vat_inclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
@@ -2351,6 +2355,18 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
     tableRow = repTableObj.addRow();
     tableRow.addCell(texts.rounding, "padding-left padding-right", columnsNumber-1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //DEPOSIT
+  //Only used for the Application Invoice
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow = repTableObj.addRow();
+    if (invoiceObj.billing_info.total_advance_payment_description) {
+      tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
+    } else {
+      tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
+    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
   tableRow = repTableObj.addRow();
