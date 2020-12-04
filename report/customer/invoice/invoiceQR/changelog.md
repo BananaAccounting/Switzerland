@@ -15,3 +15,5 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* All the advanced customizations like invoice details custom columns, javascript hook functions and CSS styles, require the Advanced plan of Banana Accounting Plus.
 * 2020-10-26
 	* Updated invoice layout to allow the insertion of texts for estimates. Added a separate texts section for estimates within the settings dialog. Only works for [Estimates and Invoices application](https://www.banana.ch/doc/en/node/9752).
+* 2020-12-04
+	* Added the Deposit field to the print. Deposit can only be used for the Estimates and Invoices application.
