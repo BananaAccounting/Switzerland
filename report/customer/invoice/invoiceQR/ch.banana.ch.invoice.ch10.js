@@ -1646,7 +1646,7 @@ function print_header(repDocObj, userParam, repStyleObj, invoiceObj, texts) {
 
   if (userParam.header_print) {
 
-    if (userParam.header_row_1) {
+    if (userParam.header_row_1 || userParam.header_row_2 || userParam.header_row_3 || userParam.header_row_4 || userParam.header_row_5) {
       if (userParam.header_row_1.length > 0) {
         headerParagraph.addParagraph(userParam.header_row_1, "header_row_1");
       }
@@ -2132,7 +2132,11 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   //on normal invoices discounts are entered as items in transactions
   if (invoiceObj.billing_info.total_discount_vat_exclusive) {
     tableRow = repTableObj.addRow();
-    tableRow.addCell(texts.discount, "padding-left padding-right", columnsNumber-1);
+    if (invoiceObj.billing_info.discount.description) {
+      tableRow.addCell(invoiceObj.billing_info.discount.description, "padding-left padding-right", columnsNumber-1);
+    } else {
+      tableRow.addCell(texts.discount, "padding-left padding-right", columnsNumber-1);
+    }
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_discount_vat_exclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
@@ -2154,6 +2158,18 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
     tableRow = repTableObj.addRow();
     tableRow.addCell(texts.rounding, "padding-left padding-right", columnsNumber-1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //DEPOSIT
+  //Only used for the Application Invoice
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow = repTableObj.addRow();
+    if (invoiceObj.billing_info.total_advance_payment_description) {
+      tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
+    } else {
+      tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
+    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
   tableRow = repTableObj.addRow();
@@ -3311,6 +3327,7 @@ function setInvoiceTexts(language) {
     texts.unit_price = "Prezzo Unità";
     texts.amount = "Importo";
     texts.discount = "Sconto";
+    texts.deposit = "Acconto";
     texts.totalnet = "Totale netto";
     texts.vat = "IVA";
     texts.rounding = "Arrotondamento";
@@ -3468,6 +3485,7 @@ function setInvoiceTexts(language) {
     texts.unit_price = "Preiseinheit";
     texts.amount = "Betrag";
     texts.discount = "Rabatt";
+    texts.deposit = "Anzahlung";
     texts.totalnet = "Netto-Betrag";
     texts.vat = "MwSt";
     texts.rounding = "Rundung";
@@ -3625,6 +3643,7 @@ function setInvoiceTexts(language) {
     texts.unit_price = "Prix Unitaire";
     texts.amount = "Montant";
     texts.discount = "Rabais";
+    texts.deposit = "Acompte";
     texts.totalnet = "Total net";
     texts.vat = "TVA";
     texts.rounding = "Arrondi";
@@ -3782,6 +3801,7 @@ function setInvoiceTexts(language) {
     texts.unit_price = "Unit Price";
     texts.amount = "Amount";
     texts.discount = "Discount";
+    texts.deposit = "Deposit";
     texts.totalnet = "Total net";
     texts.vat = "VAT";
     texts.rounding = "Rounding";
