@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2020-09-29
+// @pubdate = 2020-12-07
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -192,19 +192,34 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   Test.logger.addSubSection("Test15: details with headers and subtotals");
   this.add_test_invoice_2(banDoc, "64", "Invoice 64");
 
-  //Test INVOICE, discount used for the "Application Invoice"
+  //Test INVOICE, discount used for the Application Estimates & Invoices
   Test.logger.addSubSection("Test16: discount, VAT exclusive (net amounts)");
   this.add_test_invoice_3(banDoc, "401", "Invoice 401");
   this.add_test_invoice_3(banDoc, "402", "Invoice 402");
   this.add_test_invoice_3(banDoc, "403", "Invoice 403");
 
-  //Test INVOICE, discount used for the "Application Invoice"
+  //Test INVOICE, discount used for the Application Estimates & Invoices
   Test.logger.addSubSection("Test17: discount, VAT inclusive (gross amounts)");
   this.add_test_invoice_4(banDoc, "401", "Invoice 401");
   this.add_test_invoice_4(banDoc, "402", "Invoice 402");
   this.add_test_invoice_4(banDoc, "403", "Invoice 403");
 
+  //Test INVOICES, deposit only used for the Application Estimates & Invoices
+  //invoice_deposit_test.ac2
+  Test.logger.addSubSection("Test18: cases with/without deposit, discount and VAT");
+  this.add_test_invoice_5(banDoc, "5", "Invoice 5");
+  this.add_test_invoice_6(banDoc, "6", "Invoice 6");
+  this.add_test_invoice_7(banDoc, "7", "Invoice 7");
+  this.add_test_invoice_8(banDoc, "8", "Invoice 8");
+  this.add_test_invoice_9(banDoc, "9", "Invoice 9");
+  this.add_test_invoice_10(banDoc, "10", "Invoice 10");
+  this.add_test_invoice_11(banDoc, "11", "Invoice 11");
+  this.add_test_invoice_12(banDoc, "12", "Invoice 12");
+
 }
+
+
+
 
 ReportInvoiceQrCode.prototype.add_test_qrr_1 = function(banDoc, invoiceNumber, reportName) {
   var variables = setVariables(variables);
@@ -605,6 +620,213 @@ ReportInvoiceQrCode.prototype.add_test_invoice_4 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
+ReportInvoiceQrCode.prototype.add_test_invoice_5 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_6 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_7 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_8 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_9 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_10 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_11 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_12 = function(banDoc, invoiceNumber, reportName) {
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0900 0000 6525 0122 4';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
 
 function getQRCodeText(banDoc, userParam, invoiceObj, texts, langCode) {
   var qrBill = new QRBill(banDoc, userParam);
@@ -792,6 +1014,54 @@ function getJsonInvoice(invoiceNumber) {
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "5") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_5.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "6") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_6.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "7") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_7.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "8") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_8.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "9") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_9.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "10") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_10.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "11") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_11.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "12") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_12.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
   }
   return jsonInvoice;
 }

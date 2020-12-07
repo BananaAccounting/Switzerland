@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/ivan/Documents/GitHub/BananaInternal/Switzerland/InvoiceQRCode/version_2020/test/ch.banana.ch.invoice.ch10.test.js}
+%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.test.js}
 %
 \begin{testcase}{ReportInvoiceQrCode}
 \begin{test}{testReport}
@@ -7423,6 +7423,871 @@ ewline
 ewline CH
 ewline SCOR
 ewline RF24133403
+ewline 
+ewline EPD}\\
+\subsection{Test18: cases with/without deposit, discount and VAT}
+\begin{reportvalue}{Invoice 5}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 5 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 5 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 5 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+aaa \newline \newline  & 2.0000  & pz  & 23.00  & 46.00 \\
+\multicolumn{325}{l}{}\\
+\multicolumn{325}{l}{}\\
+\multicolumn{324}{l}{TOTAL CHF } & 46.00 \\
+\multicolumn{325}{l}{}\\
+\multicolumn{325}{l}{}\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF82 1215  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+46.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+46.00 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF82 1215  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 46.00
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF821215
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 6}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 6 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 6 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+senza iva, con sconto, senza acconto \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
+\multicolumn{330}{l}{}\\
+\multicolumn{329}{l}{testo sconto } & 1.30 \\
+\multicolumn{330}{l}{}\\
+\multicolumn{329}{l}{TOTAL CHF } & 24.70 \\
+\multicolumn{330}{l}{}\\
+\multicolumn{330}{l}{}\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF55 1216  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+24.70 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+24.70 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF55 1216  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 24.70
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF551216
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 7}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 7 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 7 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 7 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
+\multicolumn{335}{l}{}\\
+\multicolumn{334}{l}{testo acconto } & 20.00 \\
+\multicolumn{335}{l}{}\\
+\multicolumn{334}{l}{TOTAL CHF } & 22.00 \\
+\multicolumn{335}{l}{}\\
+\multicolumn{335}{l}{}\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF28 1217  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+22.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+22.00 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF28 1217  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 22.00
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF281217
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 8}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 8 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 8 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 8 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
+\multicolumn{340}{l}{}\\
+\multicolumn{339}{l}{testo sconto } & 10.00 \\
+\multicolumn{339}{l}{testo acconto } & 40.00 \\
+\multicolumn{340}{l}{}\\
+\multicolumn{339}{l}{TOTAL CHF } & 50.00 \\
+\multicolumn{340}{l}{}\\
+\multicolumn{340}{l}{}\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF98 1218  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+50.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+50.00 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF98 1218  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 50.00
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF981218
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 9}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 9 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 9 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+con iva, senza sconto, senza acconto \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+aaa \newline \newline  & 2.0000  & pz  & 23.00  & 46.00 \\
+\multicolumn{345}{l}{}\\
+\multicolumn{345}{l}{}\\
+\multicolumn{344}{l}{TOTAL CHF } & 46.00 \\
+\multicolumn{345}{l}{}\\
+\multicolumn{345}{l}{VAT 7.70\% = 3.29 CHF \newline }\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF71 1219  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+46.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+46.00 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF71 1219  \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 46.00
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF711219
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 10}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 10 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 10 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 10 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
+\multicolumn{350}{l}{}\\
+\multicolumn{349}{l}{testo sconto } & 1.30 \\
+\multicolumn{350}{l}{}\\
+\multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
+\multicolumn{350}{l}{}\\
+\multicolumn{350}{l}{VAT 7.70\% = 1.77 CHF \newline }\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF37 1221 0 \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+24.70 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+24.70 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF37 1221 0 \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 24.70
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF3712210
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 11}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 11 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 11 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 11 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
+\multicolumn{355}{l}{}\\
+\multicolumn{354}{l}{testo acconto } & 20.00 \\
+\multicolumn{355}{l}{}\\
+\multicolumn{354}{l}{TOTAL CHF } & 22.00 \\
+\multicolumn{355}{l}{}\\
+\multicolumn{355}{l}{VAT 7.70\% = 3.00 CHF \newline }\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF10 1221 1 \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+22.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+22.00 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF10 1221 1 \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 22.00
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF1012211
+ewline 
+ewline EPD}\\
+\begin{reportvalue}{Invoice 12}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 12 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 12 \\
+Date:  & 04.12.2020 \\
+Customer No:  & 2 \\
+Payment:  & 03.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei Rustici 9 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 12 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
+\multicolumn{360}{l}{}\\
+\multicolumn{359}{l}{testo sconto } & 10.00 \\
+\multicolumn{359}{l}{testo acconto } & 40.00 \\
+\multicolumn{360}{l}{}\\
+\multicolumn{359}{l}{TOTAL CHF } & 50.00 \\
+\multicolumn{360}{l}{}\\
+\multicolumn{360}{l}{VAT 7.70\% = 6.44 CHF \newline }\\
+\end{longtable}
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF80 1221 2 \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+Valuta \\
+CHF \\
+Importo \\
+50.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+50.00 \\
+Conto / Pagabile a \\
+CH58 0900 0000 6525 0122 4 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Riferimento \\
+RF80 1221 2 \\
+  \\
+Pagabile da \\
+Carlo Bianchi \\
+Via dei Rustici 9 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5809000000652501224
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 50.00
+ewline CHF
+ewline K
+ewline Carlo Bianchi
+ewline Via dei Rustici 9
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF8012212
 ewline 
 ewline EPD}\\
 \keyvalue{Result}{Passed}
