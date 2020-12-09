@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.camt
 // @api = 1.0
-// @pubdate = 2019-10-28
+// @pubdate = 2020-12-09
 // @publisher = Banana.ch SA
 // @description = Bank statement Camt ISO 20022 (Switzerland)
 // @description.de = Bankauszug Camt ISO 20022 (Schweiz)
@@ -776,9 +776,17 @@ ISO20022CamtFile.prototype.readStatementEntryDetailsAddress = function(detailsNo
       return '';
 
    var addressStrings = [];
-   addressStrings.push(addressNode.firstChildElement('Nm').text);
+   if (addressNode.firstChildElement('Nm'))
+      addressStrings.push(addressNode.firstChildElement('Nm').text);
    var pstlAdrNode = addressNode.firstChildElement('PstlAdr');
    if (pstlAdrNode) {
+      if (pstlAdrNode.hasChildElements('AdrLine')) {
+         var adrLineNode = pstlAdrNode.firstChildElement('AdrLine');
+         while(adrLineNode) {
+            addressStrings.push(adrLineNode.text);
+            adrLineNode = adrLineNode.nextSiblingElement('AdrLine');
+         }
+      }
       if (pstlAdrNode.hasChildElements('TwnNm'))
          addressStrings.push(pstlAdrNode.firstChildElement('TwnNm').text);
       if (pstlAdrNode.hasChildElements('Ctry'))
