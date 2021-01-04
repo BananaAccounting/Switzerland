@@ -1,0 +1,1656 @@
+{
+   "billing_info":{
+      "payment_term":"",
+      "total_amount_vat_exclusive":"1475.00",
+      "total_amount_vat_exclusive_before_discount":"1475.00",
+      "total_amount_vat_inclusive":"1593.00",
+      "total_amount_vat_inclusive_before_discount":"1593.00",
+      "total_categories":[
+
+      
+],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"1593.00",
+      "total_vat_amount":"118.00",
+      "total_vat_amount_before_discount":"118.00",
+      "total_vat_codes":[
+
+      
+],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"1475.00",
+            "total_amount_vat_inclusive":"1593.00",
+            "total_vat_amount":"118.00",
+            "vat_rate":"8.00"
+         
+}
+      
+]
+   
+},
+   "customer_info":{
+      "address1":"V. Campuréta 40",
+      "balance":"1593.00",
+      "balance_base_currency":"1593.00",
+      "city":"Novazzano",
+      "country":"Switzerland",
+      "country_code":"CH",
+      "first_name":"Marco",
+      "last_name":"Alberti",
+      "number":"100003",
+      "origin_row":"106",
+      "origin_table":"Accounts",
+      "postal_code":"6883"
+   
+},
+   "document_info":{
+      "currency":"CHF",
+      "date":"2022-11-11",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "greetings":"Saluti finali stampati con il comando '10:gre' nella colonna DocType",
+      "locale":"en",
+      "number":"47",
+      "origin_row":"62",
+      "origin_table":"Transactions",
+      "printed":"1",
+      "rounding_total":"0.05",
+      "text_begin":"Fattura con tabella dettagli su tre pagine.",
+      "type":"invoice"
+   
+},
+   "items":[
+      {
+         "account_assignment":"100003",
+         "description":"Product A",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"62",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"0.93",
+         "total_amount_vat_inclusive":"1.00",
+         "total_vat_amount":"0.07",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"1.00",
+            "calculated_amount_vat_exclusive":"0.93",
+            "calculated_amount_vat_inclusive":"1.00",
+            "calculated_vat_amount":"0.07",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product B",
+         "details":"",
+         "index":"1",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"63",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"1.85",
+         "total_amount_vat_inclusive":"2.00",
+         "total_vat_amount":"0.15",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"2.00",
+            "calculated_amount_vat_exclusive":"1.85",
+            "calculated_amount_vat_inclusive":"2.00",
+            "calculated_vat_amount":"0.15",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product C",
+         "details":"",
+         "index":"2",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"64",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"3.70",
+         "total_amount_vat_inclusive":"4.00",
+         "total_vat_amount":"0.30",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"4.00",
+            "calculated_amount_vat_exclusive":"3.70",
+            "calculated_amount_vat_inclusive":"4.00",
+            "calculated_vat_amount":"0.30",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product D",
+         "details":"",
+         "index":"3",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"65",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"4.63",
+         "total_amount_vat_inclusive":"5.00",
+         "total_vat_amount":"0.37",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"5.00",
+            "calculated_amount_vat_exclusive":"4.63",
+            "calculated_amount_vat_inclusive":"5.00",
+            "calculated_vat_amount":"0.37",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product E",
+         "details":"",
+         "index":"4",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"66",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"5.56",
+         "total_amount_vat_inclusive":"6.00",
+         "total_vat_amount":"0.44",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"6.00",
+            "calculated_amount_vat_exclusive":"5.56",
+            "calculated_amount_vat_inclusive":"6.00",
+            "calculated_vat_amount":"0.44",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product F",
+         "details":"",
+         "index":"5",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"67",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"6.48",
+         "total_amount_vat_inclusive":"7.00",
+         "total_vat_amount":"0.52",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"7.00",
+            "calculated_amount_vat_exclusive":"6.48",
+            "calculated_amount_vat_inclusive":"7.00",
+            "calculated_vat_amount":"0.52",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product G",
+         "details":"",
+         "index":"6",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"68",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"7.41",
+         "total_amount_vat_inclusive":"8.00",
+         "total_vat_amount":"0.59",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"8.00",
+            "calculated_amount_vat_exclusive":"7.41",
+            "calculated_amount_vat_inclusive":"8.00",
+            "calculated_vat_amount":"0.59",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product H",
+         "details":"",
+         "index":"7",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"69",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"8.33",
+         "total_amount_vat_inclusive":"9.00",
+         "total_vat_amount":"0.67",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"9.00",
+            "calculated_amount_vat_exclusive":"8.33",
+            "calculated_amount_vat_inclusive":"9.00",
+            "calculated_vat_amount":"0.67",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product I",
+         "details":"",
+         "index":"8",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"70",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"9.26",
+         "total_amount_vat_inclusive":"10.00",
+         "total_vat_amount":"0.74",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"10.00",
+            "calculated_amount_vat_exclusive":"9.26",
+            "calculated_amount_vat_inclusive":"10.00",
+            "calculated_vat_amount":"0.74",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product J",
+         "details":"",
+         "index":"9",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"71",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"10.19",
+         "total_amount_vat_inclusive":"11.00",
+         "total_vat_amount":"0.81",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"11.00",
+            "calculated_amount_vat_exclusive":"10.19",
+            "calculated_amount_vat_inclusive":"11.00",
+            "calculated_vat_amount":"0.81",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product K",
+         "details":"",
+         "index":"10",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"72",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"11.11",
+         "total_amount_vat_inclusive":"12.00",
+         "total_vat_amount":"0.89",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"12.00",
+            "calculated_amount_vat_exclusive":"11.11",
+            "calculated_amount_vat_inclusive":"12.00",
+            "calculated_vat_amount":"0.89",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product L",
+         "details":"",
+         "index":"11",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"73",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"12.04",
+         "total_amount_vat_inclusive":"13.00",
+         "total_vat_amount":"0.96",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"13.00",
+            "calculated_amount_vat_exclusive":"12.04",
+            "calculated_amount_vat_inclusive":"13.00",
+            "calculated_vat_amount":"0.96",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product M",
+         "details":"",
+         "index":"12",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"74",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"12.96",
+         "total_amount_vat_inclusive":"14.00",
+         "total_vat_amount":"1.04",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"14.00",
+            "calculated_amount_vat_exclusive":"12.96",
+            "calculated_amount_vat_inclusive":"14.00",
+            "calculated_vat_amount":"1.04",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product N",
+         "details":"",
+         "index":"13",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"75",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"13.89",
+         "total_amount_vat_inclusive":"15.00",
+         "total_vat_amount":"1.11",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"15.00",
+            "calculated_amount_vat_exclusive":"13.89",
+            "calculated_amount_vat_inclusive":"15.00",
+            "calculated_vat_amount":"1.11",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product O",
+         "details":"",
+         "index":"14",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"76",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"14.81",
+         "total_amount_vat_inclusive":"16.00",
+         "total_vat_amount":"1.19",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"16.00",
+            "calculated_amount_vat_exclusive":"14.81",
+            "calculated_amount_vat_inclusive":"16.00",
+            "calculated_vat_amount":"1.19",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product P",
+         "details":"",
+         "index":"15",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"77",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"15.74",
+         "total_amount_vat_inclusive":"17.00",
+         "total_vat_amount":"1.26",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"17.00",
+            "calculated_amount_vat_exclusive":"15.74",
+            "calculated_amount_vat_inclusive":"17.00",
+            "calculated_vat_amount":"1.26",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product Q",
+         "details":"",
+         "index":"16",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"78",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"16.67",
+         "total_amount_vat_inclusive":"18.00",
+         "total_vat_amount":"1.33",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"18.00",
+            "calculated_amount_vat_exclusive":"16.67",
+            "calculated_amount_vat_inclusive":"18.00",
+            "calculated_vat_amount":"1.33",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product R",
+         "details":"",
+         "index":"17",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"79",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"17.59",
+         "total_amount_vat_inclusive":"19.00",
+         "total_vat_amount":"1.41",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"19.00",
+            "calculated_amount_vat_exclusive":"17.59",
+            "calculated_amount_vat_inclusive":"19.00",
+            "calculated_vat_amount":"1.41",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product S",
+         "details":"",
+         "index":"18",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"80",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"18.52",
+         "total_amount_vat_inclusive":"20.00",
+         "total_vat_amount":"1.48",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"20.00",
+            "calculated_amount_vat_exclusive":"18.52",
+            "calculated_amount_vat_inclusive":"20.00",
+            "calculated_vat_amount":"1.48",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product T",
+         "details":"",
+         "index":"19",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"81",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"19.44",
+         "total_amount_vat_inclusive":"21.00",
+         "total_vat_amount":"1.56",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"21.00",
+            "calculated_amount_vat_exclusive":"19.44",
+            "calculated_amount_vat_inclusive":"21.00",
+            "calculated_vat_amount":"1.56",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product U",
+         "details":"",
+         "index":"20",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"82",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"20.37",
+         "total_amount_vat_inclusive":"22.00",
+         "total_vat_amount":"1.63",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"22.00",
+            "calculated_amount_vat_exclusive":"20.37",
+            "calculated_amount_vat_inclusive":"22.00",
+            "calculated_vat_amount":"1.63",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product V",
+         "details":"",
+         "index":"21",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"83",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"21.30",
+         "total_amount_vat_inclusive":"23.00",
+         "total_vat_amount":"1.70",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"23.00",
+            "calculated_amount_vat_exclusive":"21.30",
+            "calculated_amount_vat_inclusive":"23.00",
+            "calculated_vat_amount":"1.70",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product W",
+         "details":"",
+         "index":"22",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"84",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"22.22",
+         "total_amount_vat_inclusive":"24.00",
+         "total_vat_amount":"1.78",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"24.00",
+            "calculated_amount_vat_exclusive":"22.22",
+            "calculated_amount_vat_inclusive":"24.00",
+            "calculated_vat_amount":"1.78",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product X",
+         "details":"",
+         "index":"23",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"85",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"23.15",
+         "total_amount_vat_inclusive":"25.00",
+         "total_vat_amount":"1.85",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"25.00",
+            "calculated_amount_vat_exclusive":"23.15",
+            "calculated_amount_vat_inclusive":"25.00",
+            "calculated_vat_amount":"1.85",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product Y",
+         "details":"",
+         "index":"24",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"86",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"24.07",
+         "total_amount_vat_inclusive":"26.00",
+         "total_vat_amount":"1.93",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"26.00",
+            "calculated_amount_vat_exclusive":"24.07",
+            "calculated_amount_vat_inclusive":"26.00",
+            "calculated_vat_amount":"1.93",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product Z",
+         "details":"",
+         "index":"25",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"87",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"25.00",
+         "total_amount_vat_inclusive":"27.00",
+         "total_vat_amount":"2.00",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"27.00",
+            "calculated_amount_vat_exclusive":"25.00",
+            "calculated_amount_vat_inclusive":"27.00",
+            "calculated_vat_amount":"2.00",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product AA",
+         "details":"",
+         "index":"26",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"88",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"25.93",
+         "total_amount_vat_inclusive":"28.00",
+         "total_vat_amount":"2.07",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"28.00",
+            "calculated_amount_vat_exclusive":"25.93",
+            "calculated_amount_vat_inclusive":"28.00",
+            "calculated_vat_amount":"2.07",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product BB",
+         "details":"",
+         "index":"27",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"89",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"26.85",
+         "total_amount_vat_inclusive":"29.00",
+         "total_vat_amount":"2.15",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"29.00",
+            "calculated_amount_vat_exclusive":"26.85",
+            "calculated_amount_vat_inclusive":"29.00",
+            "calculated_vat_amount":"2.15",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product CC",
+         "details":"",
+         "index":"28",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"90",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"27.78",
+         "total_amount_vat_inclusive":"30.00",
+         "total_vat_amount":"2.22",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"30.00",
+            "calculated_amount_vat_exclusive":"27.78",
+            "calculated_amount_vat_inclusive":"30.00",
+            "calculated_vat_amount":"2.22",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product DD",
+         "details":"",
+         "index":"29",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"91",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"28.70",
+         "total_amount_vat_inclusive":"31.00",
+         "total_vat_amount":"2.30",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"31.00",
+            "calculated_amount_vat_exclusive":"28.70",
+            "calculated_amount_vat_inclusive":"31.00",
+            "calculated_vat_amount":"2.30",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product EE",
+         "details":"",
+         "index":"30",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"92",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"29.63",
+         "total_amount_vat_inclusive":"32.00",
+         "total_vat_amount":"2.37",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"32.00",
+            "calculated_amount_vat_exclusive":"29.63",
+            "calculated_amount_vat_inclusive":"32.00",
+            "calculated_vat_amount":"2.37",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product FF",
+         "details":"",
+         "index":"31",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"93",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"30.56",
+         "total_amount_vat_inclusive":"33.00",
+         "total_vat_amount":"2.44",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"33.00",
+            "calculated_amount_vat_exclusive":"30.56",
+            "calculated_amount_vat_inclusive":"33.00",
+            "calculated_vat_amount":"2.44",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product GG",
+         "details":"",
+         "index":"32",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"94",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"31.48",
+         "total_amount_vat_inclusive":"34.00",
+         "total_vat_amount":"2.52",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"34.00",
+            "calculated_amount_vat_exclusive":"31.48",
+            "calculated_amount_vat_inclusive":"34.00",
+            "calculated_vat_amount":"2.52",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product HH",
+         "details":"",
+         "index":"33",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"95",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"32.41",
+         "total_amount_vat_inclusive":"35.00",
+         "total_vat_amount":"2.59",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"35.00",
+            "calculated_amount_vat_exclusive":"32.41",
+            "calculated_amount_vat_inclusive":"35.00",
+            "calculated_vat_amount":"2.59",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product II",
+         "details":"",
+         "index":"34",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"96",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"33.33",
+         "total_amount_vat_inclusive":"36.00",
+         "total_vat_amount":"2.67",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"36.00",
+            "calculated_amount_vat_exclusive":"33.33",
+            "calculated_amount_vat_inclusive":"36.00",
+            "calculated_vat_amount":"2.67",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product JJ",
+         "details":"",
+         "index":"35",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"97",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"34.26",
+         "total_amount_vat_inclusive":"37.00",
+         "total_vat_amount":"2.74",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"37.00",
+            "calculated_amount_vat_exclusive":"34.26",
+            "calculated_amount_vat_inclusive":"37.00",
+            "calculated_vat_amount":"2.74",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product KK",
+         "details":"",
+         "index":"36",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"98",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"35.19",
+         "total_amount_vat_inclusive":"38.00",
+         "total_vat_amount":"2.81",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"38.00",
+            "calculated_amount_vat_exclusive":"35.19",
+            "calculated_amount_vat_inclusive":"38.00",
+            "calculated_vat_amount":"2.81",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product LL",
+         "details":"",
+         "index":"37",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"99",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"36.11",
+         "total_amount_vat_inclusive":"39.00",
+         "total_vat_amount":"2.89",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"39.00",
+            "calculated_amount_vat_exclusive":"36.11",
+            "calculated_amount_vat_inclusive":"39.00",
+            "calculated_vat_amount":"2.89",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product MM",
+         "details":"",
+         "index":"38",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"100",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"37.04",
+         "total_amount_vat_inclusive":"40.00",
+         "total_vat_amount":"2.96",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"40.00",
+            "calculated_amount_vat_exclusive":"37.04",
+            "calculated_amount_vat_inclusive":"40.00",
+            "calculated_vat_amount":"2.96",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product NN",
+         "details":"",
+         "index":"39",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"101",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"37.96",
+         "total_amount_vat_inclusive":"41.00",
+         "total_vat_amount":"3.04",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"41.00",
+            "calculated_amount_vat_exclusive":"37.96",
+            "calculated_amount_vat_inclusive":"41.00",
+            "calculated_vat_amount":"3.04",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product OO",
+         "details":"",
+         "index":"40",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"102",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"38.89",
+         "total_amount_vat_inclusive":"42.00",
+         "total_vat_amount":"3.11",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"42.00",
+            "calculated_amount_vat_exclusive":"38.89",
+            "calculated_amount_vat_inclusive":"42.00",
+            "calculated_vat_amount":"3.11",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product PP",
+         "details":"",
+         "index":"41",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"103",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"39.81",
+         "total_amount_vat_inclusive":"43.00",
+         "total_vat_amount":"3.19",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"43.00",
+            "calculated_amount_vat_exclusive":"39.81",
+            "calculated_amount_vat_inclusive":"43.00",
+            "calculated_vat_amount":"3.19",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product QQ",
+         "details":"",
+         "index":"42",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"104",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"40.74",
+         "total_amount_vat_inclusive":"44.00",
+         "total_vat_amount":"3.26",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"44.00",
+            "calculated_amount_vat_exclusive":"40.74",
+            "calculated_amount_vat_inclusive":"44.00",
+            "calculated_vat_amount":"3.26",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product RR",
+         "details":"",
+         "index":"43",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"105",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"41.67",
+         "total_amount_vat_inclusive":"45.00",
+         "total_vat_amount":"3.33",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"45.00",
+            "calculated_amount_vat_exclusive":"41.67",
+            "calculated_amount_vat_inclusive":"45.00",
+            "calculated_vat_amount":"3.33",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product SS",
+         "details":"",
+         "index":"44",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"106",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"42.59",
+         "total_amount_vat_inclusive":"46.00",
+         "total_vat_amount":"3.41",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"46.00",
+            "calculated_amount_vat_exclusive":"42.59",
+            "calculated_amount_vat_inclusive":"46.00",
+            "calculated_vat_amount":"3.41",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product TT",
+         "details":"",
+         "index":"45",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"107",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"43.52",
+         "total_amount_vat_inclusive":"47.00",
+         "total_vat_amount":"3.48",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"47.00",
+            "calculated_amount_vat_exclusive":"43.52",
+            "calculated_amount_vat_inclusive":"47.00",
+            "calculated_vat_amount":"3.48",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product UU",
+         "details":"",
+         "index":"46",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"108",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"44.44",
+         "total_amount_vat_inclusive":"48.00",
+         "total_vat_amount":"3.56",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"48.00",
+            "calculated_amount_vat_exclusive":"44.44",
+            "calculated_amount_vat_inclusive":"48.00",
+            "calculated_vat_amount":"3.56",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product VV",
+         "details":"",
+         "index":"47",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"109",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"45.37",
+         "total_amount_vat_inclusive":"49.00",
+         "total_vat_amount":"3.63",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"49.00",
+            "calculated_amount_vat_exclusive":"45.37",
+            "calculated_amount_vat_inclusive":"49.00",
+            "calculated_vat_amount":"3.63",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product WW",
+         "details":"",
+         "index":"48",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"110",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"46.30",
+         "total_amount_vat_inclusive":"50.00",
+         "total_vat_amount":"3.70",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"50.00",
+            "calculated_amount_vat_exclusive":"46.30",
+            "calculated_amount_vat_inclusive":"50.00",
+            "calculated_vat_amount":"3.70",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product XX",
+         "details":"",
+         "index":"49",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"111",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"47.22",
+         "total_amount_vat_inclusive":"51.00",
+         "total_vat_amount":"3.78",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"51.00",
+            "calculated_amount_vat_exclusive":"47.22",
+            "calculated_amount_vat_inclusive":"51.00",
+            "calculated_vat_amount":"3.78",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product YY",
+         "details":"",
+         "index":"50",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"112",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"48.15",
+         "total_amount_vat_inclusive":"52.00",
+         "total_vat_amount":"3.85",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"52.00",
+            "calculated_amount_vat_exclusive":"48.15",
+            "calculated_amount_vat_inclusive":"52.00",
+            "calculated_vat_amount":"3.85",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product ZZ",
+         "details":"",
+         "index":"51",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"113",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"49.07",
+         "total_amount_vat_inclusive":"53.00",
+         "total_vat_amount":"3.93",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"53.00",
+            "calculated_amount_vat_exclusive":"49.07",
+            "calculated_amount_vat_inclusive":"53.00",
+            "calculated_vat_amount":"3.93",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product AAA",
+         "details":"",
+         "index":"52",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"114",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"50.00",
+         "total_amount_vat_inclusive":"54.00",
+         "total_vat_amount":"4.00",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"54.00",
+            "calculated_amount_vat_exclusive":"50.00",
+            "calculated_amount_vat_inclusive":"54.00",
+            "calculated_vat_amount":"4.00",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product BBB",
+         "details":"",
+         "index":"53",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"115",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"50.93",
+         "total_amount_vat_inclusive":"55.00",
+         "total_vat_amount":"4.07",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"55.00",
+            "calculated_amount_vat_exclusive":"50.93",
+            "calculated_amount_vat_inclusive":"55.00",
+            "calculated_vat_amount":"4.07",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Product CCC",
+         "details":"",
+         "index":"54",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"116",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"51.85",
+         "total_amount_vat_inclusive":"56.00",
+         "total_vat_amount":"4.15",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"56.00",
+            "calculated_amount_vat_exclusive":"51.85",
+            "calculated_amount_vat_inclusive":"56.00",
+            "calculated_vat_amount":"4.15",
+            "currency":"CHF",
+            "vat_code":"V80",
+            "vat_rate":"8.00"
+         
+}
+      
+}
+   
+],
+   "note":[
+      {
+         "date":"2022-11-11",
+         "description":"Prima nota finale stampata con il comando '10:not' nella colonna DocType",
+         "origin_row":"118",
+         "origin_table":"Transactions"
+      
+},
+      {
+         "date":"2022-11-11",
+         "description":"Seconda **Nota finale** stampata con il comando **'10:not'** nella **colonna DocType**",
+         "origin_row":"119",
+         "origin_table":"Transactions"
+      
+},
+      {
+         "date":"2022-11-11",
+         "description":"**Terza Nota finale stampata con il comando '10:not' nella colonna DocType**",
+         "origin_row":"120",
+         "origin_table":"Transactions"
+      
+}
+   
+],
+   "parameters":{
+
+   
+},
+   "payment_info":{
+      "date_expected":"2022-12-11",
+      "due_date":"2022-12-11",
+      "due_days":"",
+      "due_period":"4_Current",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   
+},
+   "shipping_info":{
+      "different_shipping_address":false
+   
+},
+   "supplier_info":{
+      "address1":"Via alla Santa 7",
+      "business_name":"Banana.ch SA",
+      "city":"Viganello",
+      "country":"CH",
+      "email":"info@banana.ch",
+      "iban_number":"CH58 0900 0000 6525 0122 4",
+      "fiscal_number":"1122334455",
+      "postal_code":"6962",
+      "vat_number":"CHE-101.734.967 IVA",
+      "web":"www.banana.ch"
+   
+},
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"en",
+            "text":[
+               "Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings.",
+               "Paragraph 2, **final text** taken from the 'Print invoices' ,'Template options' settings. **Final text taken from the 'Print invoices' ,'Template options' settings."
+            
+]
+         
+},
+         {
+            "lang":"it",
+            "text":[
+               "Testo finale definito in **Stampa fatture** -> **Opzioni modelli** selezionando la lingua **it**."
+            
+]
+         
+},
+         {
+            "lang":"nl",
+            "text":[
+               "Prova prova",
+               ""
+            
+]
+         
+}
+      
+]
+   
+},
+   "transactions":[
+
+   
+],
+   "type":"invoice",
+   "version":"1.0"
+}

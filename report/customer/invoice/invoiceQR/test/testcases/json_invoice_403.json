@@ -1,0 +1,140 @@
+{
+   "billing_info": {
+      "discount": {
+         "amount": "2.54",
+         "percent": null
+      },
+      "due_date": "2020-06-17",
+      "total_amount_vat_exclusive": "23.60",
+      "total_amount_vat_exclusive_before_discount": "26.00",
+      "total_amount_vat_inclusive": "25.00",
+      "total_amount_vat_inclusive_before_discount": "27.54",
+      "total_categories": [],
+      "total_discount_percent": "9.2",
+      "total_discount_vat_exclusive": "2.40",
+      "total_discount_vat_inclusive": "2.54",
+      "total_rounding_difference": "",
+      "total_to_pay": "25.00",
+      "total_vat_amount": "1.40",
+      "total_vat_amount_before_discount": "1.54",
+      "total_vat_codes": [
+         {
+            "total_amount_vat_exclusive": "18.16",
+            "total_amount_vat_inclusive": "19.55",
+            "total_vat_amount": "1.40",
+            "vat_code": "V77"
+         }
+      ],
+      "total_vat_rates": [
+         {
+            "total_amount_vat_exclusive": "18.16",
+            "total_amount_vat_inclusive": "19.55",
+            "total_vat_amount": "1.40",
+            "vat_rate": "7.70"
+         }
+      ]
+   },
+   "customer_info": {
+      "address1": "Vicolo Mariotti 5",
+      "address2": "",
+      "address3": "",
+      "business_name": "Domotica Sagl",
+      "city": "Bironico",
+      "country": "",
+      "country_code": "CH",
+      "courtesy": "",
+      "email": "",
+      "first_name": "Ludovico",
+      "iban": "",
+      "last_name": "Di Carli",
+      "mobile": "",
+      "number": "3",
+      "phone": "",
+      "postal_code": "6808",
+      "web": ""
+   },
+   "document_info": {
+      "currency": "CHF",
+      "date": "2020-06-17",
+      "decimals_amounts": 2,
+      "description": "Fornitura merce (esempio iva esclusa)",
+      "locale": "en",
+      "number": "403",
+      "rounding_totals": "0.05",
+      "vat_mode": "vat_excl"
+   },
+   "items": [
+      {
+         "description": "Te e tisane",
+         "item_type": "",
+         "mesure_unit": "",
+         "number": "1000",
+         "price": "",
+         "quantity": "4.00",
+         "total": "",
+         "total_amount_vat_exclusive": "20.00",
+         "total_amount_vat_inclusive": "21.54",
+         "total_vat_amount": "1.54",
+         "unit_price": {
+            "amount_vat_exclusive": "5.00",
+            "amount_vat_inclusive": null,
+            "calculated_amount_vat_exclusive": "5.00",
+            "calculated_amount_vat_inclusive": "5.39",
+            "calculated_vat_amount": "0.38",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "vat_code": "",
+         "vat_rate": ""
+      },
+      {
+         "description": "Spese di spedizione",
+         "item_type": "",
+         "mesure_unit": "",
+         "number": "4000",
+         "price": "",
+         "quantity": "1.00",
+         "total": "",
+         "total_amount_vat_exclusive": "6.00",
+         "total_amount_vat_inclusive": "6.00",
+         "total_vat_amount": "",
+         "unit_price": {
+            "amount_vat_exclusive": "6.00",
+            "amount_vat_inclusive": null
+         },
+         "vat_code": "",
+         "vat_rate": ""
+      }
+   ],
+   "note": [
+      {
+         "date": null,
+         "description": ""
+      }
+   ],
+   "payment_info": {
+      "due_date": ""
+   },
+   "supplier_info": {
+      "courtesy": "",
+      "business_name": "Banana.ch",
+      "first_name": "",
+      "last_name": "",
+      "address1": "VIa la Santa 7",
+      "address2": "",
+      "address3": "",
+      "postal_code": "6962",
+      "city": "Viganello",
+      "country": "Svizzera",
+      "country_code": "CH",
+      "web": "support@banana.ch",
+      "email": "info@banana.ch",
+      "phone": "+41 91 921 30 29",
+      "mobile": "",
+      "fiscal_number": "",
+      "vat_number": "CHE-101.734.967 IVA",
+      "iban_number": "CH58 0900 0000 6525 0122 4"
+   },
+   "type": "invoice",
+   "version": "1.0"
+}

@@ -1,0 +1,336 @@
+/* CSS update: 2020-11-16  */
+
+/* Page definition.
+   Sets margins of the document.
+   Each elements of the invoice is positioned relative to these margins. */
+@page {
+  margin-top: 0cm;
+  margin-bottom: 0cm;
+  margin-left: 0cm;
+  margin-right: 0cm;
+}
+/* Properties for all the content of the document.
+   This values will be used for all elements, unless there is not a specific definition.
+   Sets font family, font size and text color. */
+body {
+  font-family: $font_family;
+  font-size: $font_size;
+  color: $text_color;
+}
+/* Vertically align the content of a cell in a table. */
+td {
+  vertical-align: top;
+}
+/* Text that is right aligned. 
+   This class is used in combination of others */
+.right {
+  text-align: right;
+}
+/* Text that is center aligned. 
+   This class is used in combination of others */
+.center {
+  text-align: center;
+}
+/* Font that is bold. */
+.bold {
+  font-weight: bold;
+}
+/* The width of the area on the right of an element.
+   This value is the space between an element and its border. */
+.padding-right {
+  padding-right: 20px;
+}
+/* The width of the area on the left of an element.
+   This value is the space between an element and its border. */
+.padding-left {
+  padding-left: 20px;
+}
+/* The top border of an element.
+   Sets the line style, the line color and the line width of the border. 
+   Used for example as horizontal line between the items and the total net */
+.border-top {
+  border-top-style: solid;
+  border-top-color: $background_color_details_header;
+  border-top-width: thin;
+}
+/* Text of the header when printed on the right of the document.
+   Sets margins and position relative to the document.
+   When no logo is used, text alignment is set to right. */
+.header_text {
+  margin-top: 1.2cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  text-align: right;
+  position: absolute;
+}
+/* Text of the row 1 of the header (if defined through Invoice settings).
+   Sets bold and size 16 of the font. */
+.header_row_1 {
+  font-weight: bold;
+  font-size:16pt;
+}
+/* Text of the row 2, row 3, row 4 and row 5 of the header (if defined through Invoice settings).
+   Sets bold and size 10 of the font. */
+.header_row_2_to_5 {
+  font-weight: bold;
+  font-size: 10pt;
+}
+/* Logo positioning.
+   Sets margins and position relative to the document. */
+.logo {
+  margin-top: 1.2cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+/* Text of the information table when printed on the left of the document.
+   Sets font size and margins relative to the document and the prior element. */
+.info_table_left {
+  font-size: $font_size;
+  margin-top: 4.5cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+}
+/* Text of the information table when printed on the right of the document.
+   Sets font size and margins relative to the document and the prior element. */
+.info_table_right {
+  font-size: $font_size;
+  margin-top: 5.5cm;
+  margin-left: 12.3cm;
+  margin-right: 1.2cm;
+}
+/* Text of the information table when printed on page 2 and above.
+   Sets font size and margins relative to the document and the prior element. */
+.info_table_row0 {
+  font-size: $font_size;
+  margin-top: 4.5cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+}
+/* Cells of the information table rows when printed on the left.
+   Sets the space between the text in the cell and the cell border (top and bottom). */
+table.info_table_left td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+/* Cells of the information table rows when printed on the right.
+   Sets the space between the text in the cell and the cell border (top and bottom). */
+table.info_table_right td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+/* Cells of the information table rows when printed on page 2 and above.
+   Sets the space between the text in the cell and the cell border (top and bottom). */
+table.info_table_row0 td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+/* Display the information table for pages 2 and above.
+   For pages 2 and above it is used a different information table (.info_table_row0).
+   This table is not displayed on first view of the document (page 1).
+   On first page it is used the other one (.info_table_left or .info_table_right). */
+@page:first-view table.info_table_row0 {
+  display: none;
+}
+/* Address positioning when printed on the right.
+   Sets margins and position relative to the document.
+   Sets also the font size. */
+.address_table_right {
+  font-size: $font_size;
+  margin-top: 4.5cm;
+  margin-left: 12.3cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+/* Address positioning when printed on the left.
+   Sets margins and position relative to the document.
+   Sets also the font size. */
+.address_table_left {
+  margin-top: 5.5cm;
+  margin-left: 2.2cm;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+/* Address positioning when printed on the right,
+   and moved horizontally/vertically through Invoice settings.
+   Sets margins and position relative to the document.
+   Sets also the font size. */
+.custom_address_table_right {
+  font-size: $font_size;
+  margin-top: $right_address_margin_top;
+  margin-left: $right_address_margin_left;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+/* Address positioning when printed on the left,
+   and moved horizontally/vertically through Invoice settings.
+   Sets margins and position relative to the document.
+   Sets also the font size. */
+.custom_address_table_left {
+  margin-top: $left_address_margin_top;
+  margin-left: $left_address_margin_left;
+  margin-right: 1.2cm;
+  position: absolute;
+}
+/* Small address line of the sender, above the customer's address.
+   Sets font size, text alignment.
+   Sets also a bottom border used as underline. */
+.small_address {
+  font-size: 7pt;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+}
+/* Shipping address positioning.
+   Sets font size and margins relative to the information table. */
+.shipping_address {
+  font-size: $font_size;
+  margin-top: 0.4cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+}
+/* Shipping address title.
+   Sets font weight and color of the text. */
+.title_shipping_address {
+  font-weight: bold;
+  color: $background_color_details_header;
+}
+/* Invoice title.
+   Sets font size, font weight and color of the text. */
+.title_text {
+  font-size: $font_size_title;
+  font-weight: bold;
+  color: $background_color_details_header;
+}
+/* Begin text positioning.
+   Sets margins relative to the prior element (invoice title).
+   It is used all the available width of the document to insert the text. */
+.section_class_begin {
+  margin-top: 1.0cm;
+  margin-left: 1.2cm;
+  margin-right: 1.2cm;
+  width: 100%;
+}
+/* Table for the begin text.
+   Use all the available width of the document. */
+.begin_text_table {
+  width: 100%;
+}
+/* Begin text style.
+   Sets the font size of the text. */
+.begin_text {
+  font-size: $font_size;
+}
+/* Invoice details positioning, first page.
+   Sets the top margin relative to the prior element (begin text/title) */
+.section_class_details:first-view {
+  margin-top: 0.5cm;
+}
+/* Invoice details positioning, page 2 and above.
+   Sets the margins relative to the prior element (information) */
+.section_class_details {
+  font-size: $font_size;
+  margin-top: 0.5cm;
+  margin-bottom: 0.5cm;
+  margin-left: 1.3cm;
+  margin-right: 1.2cm;
+}
+/* Invoice details table width.
+   Use all the available width of the document. */
+.doc_table {
+  width: 100%;
+}
+/* Header row of the invoice details.
+   Sets font size, font weight, text color and background color. */
+.doc_table_header {
+  font-size: $font_size_header;
+  font-weight: bold;
+  color: $text_color_details_header;
+  background-color: $background_color_details_header;
+}
+/* Cells of the invoice details table.
+   Sets the space between the text in the cell and the cell border (top, bottom, left and right). */
+.doc_table td {
+  padding-top: 5px;
+  padding-bottom: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* Cells of header row of the invoice details table.
+   Sets the space between the text in the cell and the cell border (top, bottom, left and right). */
+.doc_table_header td {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* Item row of the invoice details.
+   Sets font weight. */
+.item_cell {
+  
+}
+/* Total row of the invoice details.
+   Sets font size, font weight and text color. 
+   Sets also a bottom border used as double underline for the entire row. */
+.total_cell {
+  font-size: $font_size_total;
+  font-weight: bold;
+  color: $background_color_details_header;
+  border-bottom-style: double;
+  border-bottom-color: $background_color_details_header;
+  border-bottom-width: 1px;
+}
+/* Subtotal row of the invoice details.
+   Sets the font weight and a bottom border used as underline for the entire row. */
+.subtotal_cell {
+  font-weight: bold;
+  border-bottom-style: solid;
+  border-bottom-color: $background_color_details_header;
+  border-bottom-width: thin;
+}
+/* Header cell of the invoice details.
+   Sets the font weight as bold. */
+.header_cell {
+  font-weight: bold;
+}
+/* VAT text style of the invoice details.
+   Sets the font size of the text.
+   Used when printing the invoice details using gross amounts, through Invoice settings. */
+.vat_info {
+  font-size: $font_size;
+}
+/* Even rows style of the invoice details.
+   Sets the background color for even rows. */
+.even_rows_background_color {
+  background-color: $background_color_alternate_lines;
+}
+/* Final texts positioning.
+   Sets margins relative to the prior element (invoice details).
+   Applied to notes, greetings and final texts. */
+.section_class_final_texts {
+  margin-top: 0cm;
+  margin-bottom: 0.5cm;
+  margin-left: 1.2cm;
+  margin-right: 1.0cm;
+}
+/* Footer top border positioning. 
+   Sets margins relative to the prior element (final texts).
+   Sets also a top border line over the text. */
+.footer_line {
+  margin-left: 1.2cm;
+  margin-right: 1.0cm;
+  border-top-style: solid;
+  border-top-color: $background_color_details_header;
+  border-top-width: thin;
+}
+/* Footer positioning and style.
+   Sets margins relative to the prior element (footer line). 
+   Sets also font size and use all the available width of the document. */
+.footer_table {
+  font-size: 8pt;
+  margin-bottom: 2.0cm;
+  margin-left: 1.2cm;
+  margin-right: 1.0cm;
+  width: 100%;
+}

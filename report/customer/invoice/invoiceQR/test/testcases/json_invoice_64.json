@@ -1,0 +1,1026 @@
+{
+   "billing_info":{
+      "payment_term":"",
+      "total_amount_vat_exclusive":"3356.18",
+      "total_amount_vat_exclusive_before_discount":"3356.18",
+      "total_amount_vat_inclusive":"3614.60",
+      "total_amount_vat_inclusive_before_discount":"3614.60",
+      "total_categories":[
+
+      
+],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"3614.60",
+      "total_vat_amount":"258.42",
+      "total_vat_amount_before_discount":"258.42",
+      "total_vat_codes":[
+         {
+            "total_amount_vat_exclusive":"3356.18",
+            "total_amount_vat_inclusive":"3614.60",
+            "total_vat_amount":"258.42",
+            "vat_code":"V77"
+         
+}
+      
+],
+      "total_vat_rates":[
+         {
+            "total_amount_vat_exclusive":"3356.18",
+            "total_amount_vat_inclusive":"3614.60",
+            "total_vat_amount":"258.42",
+            "vat_rate":"7.70"
+         
+}
+      
+]
+   
+},
+   "customer_info":{
+      "address1":"V. Campuréta 40",
+      "balance":"5207.60",
+      "balance_base_currency":"5207.60",
+      "city":"Novazzano",
+      "country":"Switzerland",
+      "country_code":"CH",
+      "first_name":"Marco",
+      "last_name":"Alberti",
+      "number":"100003",
+      "origin_row":"106",
+      "origin_table":"Accounts",
+      "postal_code":"6883"
+   
+},
+   "document_info":{
+      "currency":"CHF",
+      "date":"2022-06-04",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "locale":"en",
+      "number":"64",
+      "origin_row":"131",
+      "origin_table":"Transactions",
+      "printed":"",
+      "rounding_total":"0.05",
+      "text_begin":"**Begin text** defined with the command '10:beg' using the DocType column.",
+      "type":"invoice"
+   
+},
+   "items":[
+      {
+         "account_assignment":"100003",
+         "description":"",
+         "details":"",
+         "index":"0",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"129",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"PC hardware components",
+         "details":"",
+         "index":"1",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"130",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Case",
+         "details":"",
+         "index":"2",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"131",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"92.85",
+         "total_amount_vat_inclusive":"100.00",
+         "total_vat_amount":"7.15",
+         "unit_price":{
+            "amount_vat_inclusive":"100.00",
+            "calculated_amount_vat_exclusive":"92.85",
+            "calculated_amount_vat_inclusive":"100.00",
+            "calculated_vat_amount":"7.15",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Motherboard",
+         "details":"",
+         "index":"3",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"132",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"242.34",
+         "total_amount_vat_inclusive":"261.00",
+         "total_vat_amount":"18.66",
+         "unit_price":{
+            "amount_vat_inclusive":"261.00",
+            "calculated_amount_vat_exclusive":"242.34",
+            "calculated_amount_vat_inclusive":"261.00",
+            "calculated_vat_amount":"18.66",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"CPU processor",
+         "details":"",
+         "index":"4",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"133",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"394.61",
+         "total_amount_vat_inclusive":"425.00",
+         "total_vat_amount":"30.39",
+         "unit_price":{
+            "amount_vat_inclusive":"425.00",
+            "calculated_amount_vat_exclusive":"394.61",
+            "calculated_amount_vat_inclusive":"425.00",
+            "calculated_vat_amount":"30.39",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Graphic card",
+         "details":"",
+         "index":"5",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"134",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"609.10",
+         "total_amount_vat_inclusive":"656.00",
+         "total_vat_amount":"46.90",
+         "unit_price":{
+            "amount_vat_inclusive":"656.00",
+            "calculated_amount_vat_exclusive":"609.10",
+            "calculated_amount_vat_inclusive":"656.00",
+            "calculated_vat_amount":"46.90",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"RAM Memory, 16GB",
+         "details":"",
+         "index":"6",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"135",
+         "origin_table":"Transactions",
+         "quantity":"2.0000",
+         "total_amount_vat_exclusive":"163.42",
+         "total_amount_vat_inclusive":"176.00",
+         "total_vat_amount":"12.58",
+         "unit_price":{
+            "amount_vat_inclusive":"88.00",
+            "calculated_amount_vat_exclusive":"81.71",
+            "calculated_amount_vat_inclusive":"88.00",
+            "calculated_vat_amount":"6.29",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"SSD data storage 500 GB",
+         "details":"",
+         "index":"7",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"136",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"129.99",
+         "total_amount_vat_inclusive":"140.00",
+         "total_vat_amount":"10.01",
+         "unit_price":{
+            "amount_vat_inclusive":"140.00",
+            "calculated_amount_vat_exclusive":"129.99",
+            "calculated_amount_vat_inclusive":"140.00",
+            "calculated_vat_amount":"10.01",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"HDD data storage 2000 GB",
+         "details":"",
+         "index":"8",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"137",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"167.13",
+         "total_amount_vat_inclusive":"180.00",
+         "total_vat_amount":"12.87",
+         "unit_price":{
+            "amount_vat_inclusive":"180.00",
+            "calculated_amount_vat_exclusive":"167.13",
+            "calculated_amount_vat_inclusive":"180.00",
+            "calculated_vat_amount":"12.87",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Power supply 650W",
+         "details":"",
+         "index":"9",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"138",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"50.97",
+         "total_amount_vat_inclusive":"54.90",
+         "total_vat_amount":"3.93",
+         "unit_price":{
+            "amount_vat_inclusive":"54.90",
+            "calculated_amount_vat_exclusive":"50.97",
+            "calculated_amount_vat_inclusive":"54.90",
+            "calculated_vat_amount":"3.93",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Total PC hardware components",
+         "details":"",
+         "index":"10",
+         "item_type":"total",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"139",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"1850.41",
+         "total_amount_vat_inclusive":"1992.90",
+         "total_vat_amount":"142.49",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"",
+         "details":"",
+         "index":"11",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"140",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"PC software components",
+         "details":"",
+         "index":"12",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"141",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Windows 10 Pro",
+         "details":"",
+         "index":"13",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"142",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"138.35",
+         "total_amount_vat_inclusive":"149.00",
+         "total_vat_amount":"10.65",
+         "unit_price":{
+            "amount_vat_inclusive":"149.00",
+            "calculated_amount_vat_exclusive":"138.35",
+            "calculated_amount_vat_inclusive":"149.00",
+            "calculated_vat_amount":"10.65",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Office 365 Home",
+         "details":"",
+         "index":"14",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"143",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"91.92",
+         "total_amount_vat_inclusive":"99.00",
+         "total_vat_amount":"7.08",
+         "unit_price":{
+            "amount_vat_inclusive":"99.00",
+            "calculated_amount_vat_exclusive":"91.92",
+            "calculated_amount_vat_inclusive":"99.00",
+            "calculated_vat_amount":"7.08",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Antivirus",
+         "details":"",
+         "index":"15",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"144",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"54.78",
+         "total_amount_vat_inclusive":"59.00",
+         "total_vat_amount":"4.22",
+         "unit_price":{
+            "amount_vat_inclusive":"59.00",
+            "calculated_amount_vat_exclusive":"54.78",
+            "calculated_amount_vat_inclusive":"59.00",
+            "calculated_vat_amount":"4.22",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Adobe Photoshop",
+         "details":"",
+         "index":"16",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"145",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"185.70",
+         "total_amount_vat_inclusive":"200.00",
+         "total_vat_amount":"14.30",
+         "unit_price":{
+            "amount_vat_inclusive":"200.00",
+            "calculated_amount_vat_exclusive":"185.70",
+            "calculated_amount_vat_inclusive":"200.00",
+            "calculated_vat_amount":"14.30",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Total PC software components",
+         "details":"",
+         "index":"17",
+         "item_type":"total",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"146",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"470.75",
+         "total_amount_vat_inclusive":"507.00",
+         "total_vat_amount":"36.25",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"",
+         "details":"",
+         "index":"18",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"147",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"External devices",
+         "details":"",
+         "index":"19",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"148",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Monitor 27\"",
+         "details":"",
+         "index":"20",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"149",
+         "origin_table":"Transactions",
+         "quantity":"2.0000",
+         "total_amount_vat_exclusive":"332.40",
+         "total_amount_vat_inclusive":"358.00",
+         "total_vat_amount":"25.60",
+         "unit_price":{
+            "amount_vat_inclusive":"179.00",
+            "calculated_amount_vat_exclusive":"166.20",
+            "calculated_amount_vat_inclusive":"179.00",
+            "calculated_vat_amount":"12.80",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Keyboard",
+         "details":"",
+         "index":"21",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"150",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"65.00",
+         "total_amount_vat_inclusive":"70.00",
+         "total_vat_amount":"5.00",
+         "unit_price":{
+            "amount_vat_inclusive":"70.00",
+            "calculated_amount_vat_exclusive":"65.00",
+            "calculated_amount_vat_inclusive":"70.00",
+            "calculated_vat_amount":"5.00",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Mouse",
+         "details":"",
+         "index":"22",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"151",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"60.17",
+         "total_amount_vat_inclusive":"64.80",
+         "total_vat_amount":"4.63",
+         "unit_price":{
+            "amount_vat_inclusive":"64.80",
+            "calculated_amount_vat_exclusive":"60.17",
+            "calculated_amount_vat_inclusive":"64.80",
+            "calculated_vat_amount":"4.63",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Speakers",
+         "details":"",
+         "index":"23",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"152",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"114.21",
+         "total_amount_vat_inclusive":"123.00",
+         "total_vat_amount":"8.79",
+         "unit_price":{
+            "amount_vat_inclusive":"123.00",
+            "calculated_amount_vat_exclusive":"114.21",
+            "calculated_amount_vat_inclusive":"123.00",
+            "calculated_vat_amount":"8.79",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Headset",
+         "details":"",
+         "index":"24",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"153",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"101.21",
+         "total_amount_vat_inclusive":"109.00",
+         "total_vat_amount":"7.79",
+         "unit_price":{
+            "amount_vat_inclusive":"109.00",
+            "calculated_amount_vat_exclusive":"101.21",
+            "calculated_amount_vat_inclusive":"109.00",
+            "calculated_vat_amount":"7.79",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Printer",
+         "details":"",
+         "index":"25",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"154",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"138.35",
+         "total_amount_vat_inclusive":"149.00",
+         "total_vat_amount":"10.65",
+         "unit_price":{
+            "amount_vat_inclusive":"149.00",
+            "calculated_amount_vat_exclusive":"138.35",
+            "calculated_amount_vat_inclusive":"149.00",
+            "calculated_vat_amount":"10.65",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"USB Memory stick",
+         "details":"",
+         "index":"26",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"155",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"30.55",
+         "total_amount_vat_inclusive":"32.90",
+         "total_vat_amount":"2.35",
+         "unit_price":{
+            "amount_vat_inclusive":"32.90",
+            "calculated_amount_vat_exclusive":"30.55",
+            "calculated_amount_vat_inclusive":"32.90",
+            "calculated_vat_amount":"2.35",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Total external devices",
+         "details":"",
+         "index":"27",
+         "item_type":"total",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"156",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"841.89",
+         "total_amount_vat_inclusive":"906.70",
+         "total_vat_amount":"64.81",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"",
+         "details":"",
+         "index":"28",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"157",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Extra services",
+         "details":"",
+         "index":"29",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"158",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Warranty extension",
+         "details":"",
+         "index":"30",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"159",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"74.28",
+         "total_amount_vat_inclusive":"80.00",
+         "total_vat_amount":"5.72",
+         "unit_price":{
+            "amount_vat_inclusive":"80.00",
+            "calculated_amount_vat_exclusive":"74.28",
+            "calculated_amount_vat_inclusive":"80.00",
+            "calculated_vat_amount":"5.72",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Delivery to the place",
+         "details":"",
+         "index":"31",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"160",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"36.21",
+         "total_amount_vat_inclusive":"39.00",
+         "total_vat_amount":"2.79",
+         "unit_price":{
+            "amount_vat_inclusive":"39.00",
+            "calculated_amount_vat_exclusive":"36.21",
+            "calculated_amount_vat_inclusive":"39.00",
+            "calculated_vat_amount":"2.79",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Installation",
+         "details":"",
+         "index":"32",
+         "item_type":"item",
+         "mesure_unit":"pcs",
+         "number":"",
+         "origin_row":"161",
+         "origin_table":"Transactions",
+         "quantity":"1.0000",
+         "total_amount_vat_exclusive":"82.64",
+         "total_amount_vat_inclusive":"89.00",
+         "total_vat_amount":"6.36",
+         "unit_price":{
+            "amount_vat_inclusive":"89.00",
+            "calculated_amount_vat_exclusive":"82.64",
+            "calculated_amount_vat_inclusive":"89.00",
+            "calculated_vat_amount":"6.36",
+            "currency":"CHF",
+            "vat_code":"V77",
+            "vat_rate":"7.70"
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"Total extra services",
+         "details":"",
+         "index":"33",
+         "item_type":"total",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"162",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"193.13",
+         "total_amount_vat_inclusive":"208.00",
+         "total_vat_amount":"14.87",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+},
+      {
+         "account_assignment":"100003",
+         "description":"",
+         "details":"",
+         "index":"34",
+         "item_type":"header0",
+         "mesure_unit":"",
+         "number":"",
+         "origin_row":"163",
+         "origin_table":"Transactions",
+         "quantity":"",
+         "total_amount_vat_exclusive":"",
+         "total_amount_vat_inclusive":"",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_inclusive":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         
+}
+      
+}
+   
+],
+   "note":[
+
+   
+],
+   "parameters":{
+
+   
+},
+   "payment_info":{
+      "date_expected":"2022-07-04",
+      "due_date":"2022-07-04",
+      "due_days":"",
+      "due_period":"4_Current",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   
+},
+   "shipping_info":{
+      "different_shipping_address":false
+   
+},
+   "supplier_info":{
+      "address1":"Via alla Santa 7",
+      "business_name":"Banana.ch SA",
+      "city":"Viganello",
+      "country":"Svizzera",
+      "country_code":"CH",
+      "email":"info@banana.ch",
+      "fiscal_number":"1122334455",
+      "iban_number":"CH58 0900 0000 6525 0122 4",
+      "postal_code":"6962",
+      "vat_number":"CHE-101.734.967 IVA",
+      "web":"www.banana.ch"
+   
+},
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"en",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"it",
+            "text":[
+               ""
+            
+]
+         
+},
+         {
+            "lang":"nl",
+            "text":[
+               ""
+            
+]
+         
+}
+      
+]
+   
+},
+   "transactions":[
+
+   
+],
+   "type":"invoice",
+   "version":"1.0"
+}

@@ -1,0 +1,139 @@
+{
+   "billing_info":{
+      "payment_term":"",
+      "total_amount_vat_exclusive":"90.00",
+      "total_amount_vat_exclusive_before_discount":"90.00",
+      "total_amount_vat_inclusive":"90.00",
+      "total_amount_vat_inclusive_before_discount":"90.00",
+      "total_categories":[
+
+      ],
+      "total_discount_percent":"",
+      "total_discount_vat_exclusive":"",
+      "total_discount_vat_inclusive":"",
+      "total_rounding_difference":"",
+      "total_to_pay":"90.00",
+      "total_vat_amount":"",
+      "total_vat_amount_before_discount":"",
+      "total_vat_codes":[
+
+      ],
+      "total_vat_rates":[
+
+      ]
+   },
+   "customer_info":{
+      "balance":"6220.00",
+      "balance_base_currency":"6220.00",
+      "fiscal_number":"001 002 003",
+      "number":"100002",
+      "origin_row":"105",
+      "origin_table":"Accounts",
+      "vat_number":"123 456 789"
+   },
+   "document_info":{
+      "currency":"CHF",
+      "date":"2022-02-03",
+      "decimals_amounts":2,
+      "description":"",
+      "doc_type":"10",
+      "locale":"it",
+      "number":"363",
+      "origin_row":"47",
+      "origin_table":"Transactions",
+      "printed":"1",
+      "rounding_total":"0.05",
+      "type":"invoice"
+   },
+   "items":[
+      {
+         "account_assignment":"100002",
+         "description":"Senza indirizzo cilente, con importo",
+         "details":"",
+         "index":"0",
+         "item_type":"item",
+         "mesure_unit":"pz.",
+         "number":"",
+         "origin_row":"47",
+         "origin_table":"Transactions",
+         "quantity":"2.0000",
+         "total_amount_vat_exclusive":"90.00",
+         "total_amount_vat_inclusive":"90.00",
+         "total_vat_amount":"",
+         "unit_price":{
+            "amount_vat_exclusive":null,
+            "amount_vat_inclusive":"45.00",
+            "calculated_amount_vat_exclusive":"45.00",
+            "calculated_amount_vat_inclusive":"45.00",
+            "calculated_vat_amount":"",
+            "currency":"CHF",
+            "vat_code":"",
+            "vat_rate":""
+         }
+      }
+   ],
+   "note":[
+
+   ],
+   "parameters":{
+
+   },
+   "payment_info":{
+      "date_expected":"2022-03-05",
+      "due_date":"2022-03-05",
+      "due_days":"",
+      "due_period":"4_Corrente",
+      "last_reminder":"",
+      "last_reminder_date":"",
+      "payment_date":""
+   },
+   "shipping_info":{
+      "different_shipping_address":false
+   },
+   "supplier_info":{
+      "address1":"Via alla Santa 7",
+      "business_name":"Banana.ch SA",
+      "city":"Viganello",
+      "country":"CH",
+      "email":"info@banana.ch",
+      "fiscal_number":"1122334455",
+      "postal_code":"6962",
+      "vat_number":"CHE-123.456.789",
+      "web":"www.banana.ch"
+   },
+   "template_parameters":{
+      "footer_texts":[
+         {
+            "lang":"(default)",
+            "text":[
+               ""
+            ]
+         },
+         {
+            "lang":"en",
+            "text":[
+               "Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings.",
+               "Paragraph 2, **final text** taken from the 'Print invoices' ,'Template options' settings. **Final text taken from the 'Print invoices' ,'Template options' settings."
+            ]
+         },
+         {
+            "lang":"it",
+            "text":[
+               "Testo finale definito in **Stampa fatture** -> **Opzioni modelli** selezionando la lingua **it**."
+            ]
+         },
+         {
+            "lang":"nl",
+            "text":[
+               "Prova prova",
+               ""
+            ]
+         }
+      ]
+   },
+   "transactions":[
+
+   ],
+   "type":"invoice",
+   "version":"1.0"
+}

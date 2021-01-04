@@ -1,0 +1,115 @@
+{
+    "billing_info": {
+        "discount": {
+            "amount": null,
+            "description": "testo sconto",
+            "percent": "5"
+        },
+        "total_amount_vat_exclusive": "22.93",
+        "total_amount_vat_exclusive_before_discount": "24.14",
+        "total_amount_vat_inclusive": "24.70",
+        "total_amount_vat_inclusive_before_discount": "26.00",
+        "total_categories": [],
+        "total_discount_percent": "5.0",
+        "total_discount_vat_exclusive": "1.21",
+        "total_discount_vat_inclusive": "1.30",
+        "total_rounding_difference": "",
+        "total_to_pay": "24.70",
+        "total_vat_amount": "1.77",
+        "total_vat_amount_before_discount": "1.86",
+        "total_vat_codes": [
+            {
+                "total_amount_vat_exclusive": "22.93",
+                "total_amount_vat_inclusive": "24.70",
+                "total_vat_amount": "1.77",
+                "vat_code": "V77"
+            }
+        ],
+        "total_vat_rates": [
+            {
+                "total_amount_vat_exclusive": "22.93",
+                "total_amount_vat_inclusive": "24.70",
+                "total_vat_amount": "1.77",
+                "vat_rate": "7.70"
+            }
+        ]
+    },
+    "customer_info": {
+        "number": "2",
+        "business_name": "",
+        "first_name": "Carlo",
+        "last_name": "Bianchi",
+        "address1": "Via dei Rustici 9",
+        "address2": "",
+        "address3": "",
+        "postal_code": "6500",
+        "city": "Bellinzona",
+        "country_code": "CH",
+        "country": "",
+        "phone": "",
+        "email": "",
+        "web": "",
+        "iban": "",
+        "courtesy": "",
+        "mobile": ""
+    },
+    "document_info": {
+        "currency": "CHF",
+        "date": "2020-12-04",
+        "decimals_amounts": 2,
+        "description": "con iva, con sconto, senza acconto",
+        "doc_type": "10",
+        "locale": "it",
+        "number": "10",
+        "rounding_total": "0.05",
+        "text_begin": "",
+        "vat_mode": "vat_excl"
+    },
+    "items": [
+        {
+            "description": "bbb",
+            "item_type": "",
+            "mesure_unit": "pz",
+            "quantity": "2",
+            "total": "",
+            "total_amount_vat_exclusive": "24.14",
+            "total_amount_vat_inclusive": "26.00",
+            "total_vat_amount": "1.86",
+            "unit_price": {
+                "amount_vat_exclusive": null,
+                "amount_vat_inclusive": "13.00",
+                "calculated_amount_vat_exclusive": "12.07",
+                "calculated_amount_vat_inclusive": "13.00",
+                "calculated_vat_amount": "0.93",
+                "vat_code": "V77",
+                "vat_rate": "7.70"
+            }
+        }
+    ],
+    "note": [],
+    "payment_info": {
+        "due_date": "2021-01-03"
+    },
+    "supplier_info": {
+        "courtesy": "",
+        "business_name": "My Company",
+        "first_name": "",
+        "last_name": "",
+        "address1": "VIa alle colline 12",
+        "address2": "",
+        "address3": "",
+        "postal_code": "600",
+        "city": "Lugano",
+        "country": "Svizzera",
+        "country_code": "CH",
+        "web": "https://www.mycompany.zz",
+        "email": "info@mycompany.zz",
+        "phone": "+41 56 777 999",
+        "mobile": "",
+        "fiscal_number": "",
+        "vat_number": "CHE-111.333.999 IVA",
+        "iban_number": "CH93 0076 2011 6238 5295 7"
+    },
+    "type": "invoice",
+    "version": "1.0"
+}
