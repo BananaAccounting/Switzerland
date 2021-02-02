@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2020-12-04
+// @pubdate = 2021-02-02
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -2032,15 +2032,15 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   for (var i = 0; i < invoiceObj.items.length; i++) {
 
     var item = invoiceObj.items[i];
-    var className = "item_cell";
+    var className = "item_cell"; // row with amount
     if (item.item_type && item.item_type.indexOf("total") === 0) {
-      className = "subtotal_cell";
+      className = "subtotal_cell"; // row with DocType 10:tot
     }
     if (item.item_type && item.item_type.indexOf("note") === 0) {
-      className = "note_cell";
+      className = "note_cell"; // row without amount
     }
     if (item.item_type && item.item_type.indexOf("header") === 0) {
-      className = "header_cell";
+      className = "header_cell"; // row with DocType 10:hdr
     }
 
     var classNameEvenRow = "";
@@ -2242,15 +2242,15 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   for (var i = 0; i < invoiceObj.items.length; i++) {
 
     var item = invoiceObj.items[i];
-    var className = "item_cell";
+    var className = "item_cell"; // row with amount
     if (item.item_type && item.item_type.indexOf("total") === 0) {
-      className = "subtotal_cell";
+      className = "subtotal_cell"; // row with DocType 10:tot
     }
     if (item.item_type && item.item_type.indexOf("note") === 0) {
-      className = "note_cell";
+      className = "note_cell"; // row without amount
     }
     if (item.item_type && item.item_type.indexOf("header") === 0) {
-      className = "header_cell";
+      className = "header_cell"; // row with DocType 10:hdr
     }
 
     var classNameEvenRow = "";
@@ -2653,15 +2653,13 @@ function formatItemsValue(value, variables, columnName, className, item) {
     itemFormatted.value = value;
     itemFormatted.className = className;
   }
-  else if (columnName === "amount" || columnName === "total_amount_vat_exclusive") {
-    if (className === "header_cell") { //do not print 0.00 amount for header rows
+  else if (columnName === "amount" || columnName === "total_amount_vat_exclusive" || columnName === "total_amount_vat_inclusive") {
+    if (className === "header_cell" || className === "note_cell") { //do not print 0.00 amount for header rows and notes (rows without amounts)
       itemFormatted.value = "";
-      itemFormatted.className = className;
-    }
-    else{
+    } else {
       itemFormatted.value = Banana.Converter.toLocaleNumberFormat(value, variables.decimals_amounts, true);
-      itemFormatted.className = className;
     }
+    itemFormatted.className = className;
   }
   else if (columnName.startsWith("date")) {
     itemFormatted.value = Banana.Converter.toLocaleDateFormat(value);
