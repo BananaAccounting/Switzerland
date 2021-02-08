@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-02-02
+// @pubdate = 2021-02-08
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -2663,6 +2663,10 @@ function formatItemsValue(value, variables, columnName, className, item) {
   }
   else if (columnName.startsWith("date")) {
     itemFormatted.value = Banana.Converter.toLocaleDateFormat(value);
+    itemFormatted.className = className;
+  }
+  else if (columnName.startsWith("time")) {
+    itemFormatted.value = Banana.Converter.toLocaleTimeFormat(value);
     itemFormatted.className = className;
   }
   else if (columnName === "vatrate" || columnName === "vat_rate") {
