@@ -1,4 +1,4 @@
-// Copyright [2020] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2021-02-02 */
+/* Script update: 2021-02-17 */
 
 
 
@@ -1384,17 +1384,19 @@ var QRBill = class QRBill {
 		if (!qrcodeData.debtorName) {
 			qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_NAME, langDoc);
 			//this.banDoc.addMessage(msg, this.ID_ERR_DEBTOR_NAME);
-			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_NAME, langDoc);
-			if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
-				var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_NAME);
+			if (!this.ID_QRBILL_WITHOUT_DEBTOR) {
+				var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_NAME, langDoc);
+				if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
+					var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_NAME);
+					}
 				}
-			}
-			else { //estimates & invoices app
-				var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_NAME);
+				else { //estimates & invoices app
+					var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_NAME);
+					}
 				}
 			}
 		}
@@ -1407,68 +1409,76 @@ var QRBill = class QRBill {
 		if (!qrcodeData.debtorPostalcode) {
 			qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_POSTALCODE, langDoc);
 			//this.banDoc.addMessage(msg, this.ID_ERR_DEBTOR_POSTALCODE);
-			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_POSTALCODE, langDoc);
-			if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
-				var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_POSTALCODE);
+			if (!this.ID_QRBILL_WITHOUT_DEBTOR) {
+				var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_POSTALCODE, langDoc);
+				if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
+					var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_POSTALCODE);
+					}
 				}
-			}
-			else { //estimates & invoices app
-				var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_POSTALCODE);
+				else { //estimates & invoices app
+					var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_POSTALCODE);
+					}
 				}
 			}
 		}
 		if (!qrcodeData.debtorCity) {
 			qrcodeData.debtorCity = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_CITY, langDoc);
 			//this.banDoc.addMessage(msg, this.ID_ERR_DEBTOR_CITY);
-			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_CITY, langDoc);
-			if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
-				var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_CITY);
+			if (!this.ID_QRBILL_WITHOUT_DEBTOR) {
+				var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_CITY, langDoc);
+				if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
+					var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_CITY);
+					}
 				}
-			}
-			else { //estimates & invoices app
-				var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_CITY);
+				else { //estimates & invoices app
+					var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_CITY);
+					}
 				}
 			}
 		}
 		if (!qrcodeData.debtorCountry) {
 			qrcodeData.debtorCountry = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY, langDoc);
 			//this.banDoc.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY);
-			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY, langDoc);
-			if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
-				var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY);
+			if (!this.ID_QRBILL_WITHOUT_DEBTOR) {
+				var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY, langDoc);
+				if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
+					var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY);
+					}
 				}
-			}
-			else { //estimates & invoices app
-				var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY);
+				else { //estimates & invoices app
+					var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY);
+					}
 				}
 			}
 		}
 		else if (!isValidCountryCode(qrcodeData.debtorCountry)) {
 			qrcodeData.debtorCountry = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY_WRONG, langDoc);
 			//this.banDoc.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY_WRONG);
-			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY_WRONG, langDoc);
-			if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
-				var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY_WRONG);
+			if (!this.ID_QRBILL_WITHOUT_DEBTOR) {
+				var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY_WRONG, langDoc);
+				if (this.banDoc.info("Base", "FileTypeGroup") !== "400" && this.banDoc.info("Base", "FileTypeNumber") !== "400") { //integrated invoices
+					var row = this.banDoc.table("Accounts").row(invoiceObj.customer_info.origin_row);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY_WRONG);
+					}
 				}
-			}
-			else { //estimates & invoices app
-				var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
-				if (row) {
-					row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY_WRONG);
+				else { //estimates & invoices app
+					var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+					if (row) {
+						row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY_WRONG);
+					}
 				}
 			}
 		}
@@ -2145,6 +2155,8 @@ var QRBill = class QRBill {
 						if (invoiceNumber === idInvoice) {
 							var info = tRow.value(column);
 							if (info) {
+								//removes all newlines
+								info = info.replace(/\r?\n|\r/g, "").trim();
 								infoSet.add(info);
 							}
 						}
@@ -2160,6 +2172,8 @@ var QRBill = class QRBill {
 						if (invoiceNumber === docInvoice) {
 							var info = tRow.value(column);
 							if (info) {
+								//removes all newlines
+								info = info.replace(/\r?\n|\r/g, "").trim();
 								infoSet.add(info);
 							}
 						}

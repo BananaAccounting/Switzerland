@@ -20,3 +20,6 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 * 2021-02-02
 	* Descriptions rows that are not invoice items (without amount) are now printed without 0.00 amount (only for integrated invoices).
 	* QR @errors of customer's address are shown in the Message panel with the rows of the Accounts/Contacts tables.
+* 2021-02-17
+	* QR 'Additional information' text is now printed without newlines and spaces.
+	* QR @errors of customer's address are not displayed when printing an invoice without debtor address (empty box).
