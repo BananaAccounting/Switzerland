@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.camt
 // @api = 1.0
-// @pubdate = 2020-12-09
+// @pubdate = 2021-02-08
 // @publisher = Banana.ch SA
 // @description = Bank statement Camt ISO 20022 (Switzerland)
 // @description.de = Bankauszug Camt ISO 20022 (Schweiz)
@@ -118,10 +118,22 @@ function settingsDialog() {
       currentParam.name = 'invoice_no_extract';
       currentParam.title = isoCamtReader.tr('invoice_no_extract', lang);
       currentParam.type = 'bool';
-      currentParam.defaultvalue = false;
+      currentParam.defaultvalue = true;
       currentParam.value = params.invoice_no.extract ? true : false;
       currentParam.readValue = function() {
          params.invoice_no.extract = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'invoice_no_banana_format';
+      currentParam.parentObject = 'invoice_no_extract';
+      currentParam.title = isoCamtReader.tr('invoice_no_banana_format', lang);
+      currentParam.type = 'bool';
+      currentParam.defaultvalue = true;
+      currentParam.value = params.invoice_no.banana_format ? true : false;
+      currentParam.readValue = function() {
+         params.invoice_no.banana_format = this.value;
       }
       convertedParam.data.push(currentParam);
 
@@ -170,6 +182,18 @@ function settingsDialog() {
       currentParam.value = params.customer_no.extract ? true : false;
       currentParam.readValue = function() {
          params.customer_no.extract = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = 'customer_no_banana_format';
+      currentParam.parentObject = 'customer_no_extract';
+      currentParam.title = isoCamtReader.tr('customer_no_banana_format', lang);
+      currentParam.type = 'bool';
+      currentParam.defaultvalue = true;
+      currentParam.value = params.customer_no.banana_format ? true : false;
+      currentParam.readValue = function() {
+         params.customer_no.banana_format = this.value;
       }
       convertedParam.data.push(currentParam);
 
@@ -235,6 +259,7 @@ function settingsDialog() {
       }
       convertedParam.data.push(currentParam);
 
+
       if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam))
          return;
 
@@ -262,13 +287,13 @@ function settingsDialog() {
       params.invoice_no.extract = value === '1' ? true : false;
 
       if (params.invoice_no.extract) {
-         value = params.invoice_no.start ? params.invoice_no.start : 0;
+         value = params.invoice_no.start ? params.invoice_no.start : '0';
          value = Banana.Ui.getInt(dialogTitle, isoCamtReader.tr('legacy_invoice_no_start', lang), value, 0, 256);
          if (typeof(value) === 'undefined')
             return;
          params.invoice_no.start = value ;
 
-         value = params.invoice_no.count ? params.invoice_no.count : -1;
+         value = params.invoice_no.count ? params.invoice_no.count : '-1';
          value = Banana.Ui.getInt(dialogTitle, isoCamtReader.tr('legacy_invoice_no_length', lang), value, -1, 256);
          if (typeof(value) === 'undefined')
             return;
@@ -313,15 +338,17 @@ ISO20022CamtFile.prototype.defaultParameters = function() {
    params.add_counterpart_transaction = true;
 
    params.invoice_no = {};
-   params.invoice_no.extract = false;
-   params.invoice_no.start = 0;
-   params.invoice_no.count = -1;
+   params.invoice_no.extract = true;
+   params.invoice_no.banana_format = true;
+   params.invoice_no.start = '0';
+   params.invoice_no.count = '-1';
    params.invoice_no.method = '';
 
    params.customer_no = {};
    params.customer_no.extract = false;
-   params.customer_no.start = 0;
-   params.customer_no.count = -1;
+   params.customer_no.banana_format = true;
+   params.customer_no.start = '0';
+   params.customer_no.count = '-1';
    params.customer_no.use_cc = '';
    params.customer_no.method = '';
    params.customer_no.keep_initial_zeros = false;
@@ -846,24 +873,80 @@ ISO20022CamtFile.prototype.extractInvoiceNumber = function(esrNumber) {
 
    var invoiceNumber = esrNumber;
 
-   // First apply start / length extraction
-   if (this.params.invoice_no.start !== 0 || this.params.invoice_no.count !== -1) {
-      if (this.params.invoice_no.count === -1)
-         invoiceNumber = invoiceNumber.substr(this.params.invoice_no.start);
-      else
-         invoiceNumber = invoiceNumber.substr(this.params.invoice_no.start, this.params.invoice_no.count);
-   }
+   // Use Banana format for PVR and QR
+   if (this.params.invoice_no.banana_format) {
+   
+      // Extract invoice number from QR reference
+      if (invoiceNumber.startsWith("RF")) {
 
-   // Second apply method if defined
-   if (this.params.invoice_no.method.length > 0) {
-      var invoiceMethod = eval(this.params.invoice_no.method);
-      if (typeof(invoiceMethod) === 'function') {
-         invoiceNumber = invoiceMethod(invoiceNumber);
+          /*
+             - RF
+             - 2 control digits
+             - customer no. length (min 1, max 7), hexadecimal string
+             - customer no.
+             - invoice no. length (min 1, max 7), hexadecimal string
+             - invoice no.
+             When account/invoice numbers doesn't exist we use "0" as value
+          */
+
+          ///////////////////////////////////////
+          // TEST
+          //   reference number = RF02411003101
+          //   ref+control digits = RF02
+          //   customer length = 4
+          //   customer = 1100
+          //   invoice length = 3
+          //   invoice = 101 */
+          //invoiceNumber = "RF02411003101";
+          ///////////////////////////////////////
+          var invLen = invoiceNumber.substr(4,1);
+          var inv = invoiceNumber.substr(5,invLen);
+          var invNoBegin = 5+Number(invLen);
+          var invNoLen = invoiceNumber.substr(invNoBegin,1);
+          var invNo = invoiceNumber.substr(invNoBegin+1,invNoLen);
+          invoiceNumber = invNo;
+      }
+      else {
+         
+         // Extract invoice number from PVR reference
+
+         /////////////////////////////////////////////////////////
+         // TEST
+         //   reference number = 00 00000 00007 65432 11234 56700
+         //   customer = 7654321
+         //   invoice =  1234567*/
+         //invoiceNumber = "00 00000 00007 65432 11234 56700";
+         /////////////////////////////////////////////////////////
+         var inv = invoiceNumber.substr(18,7);
+         invoiceNumber = inv;
+
+          // Remove traling zeros
+          invoiceNumber = invoiceNumber.replace(/^0+/, '')
       }
    }
+   else {
 
-   // Remove traling zeros
-   invoiceNumber = invoiceNumber.replace(/^0+/, '')
+      // First apply start / length extraction
+      if (this.params.invoice_no.start !== "0" || this.params.invoice_no.count !== "-1") {
+         if (this.params.invoice_no.count === "-1") {
+            invoiceNumber = invoiceNumber.substr(this.params.invoice_no.start);
+         }
+         else {
+            invoiceNumber = invoiceNumber.substr(this.params.invoice_no.start, this.params.invoice_no.count);
+         }
+      }
+
+      // Second apply method if defined
+      if (this.params.invoice_no.method.length > 0) {
+         var invoiceMethod = eval(this.params.invoice_no.method);
+         if (typeof(invoiceMethod) === 'function') {
+            invoiceNumber = invoiceMethod(invoiceNumber);
+         }
+      }
+
+      // Remove traling zeros
+      invoiceNumber = invoiceNumber.replace(/^0+/, '')
+   }
 
    return invoiceNumber;
 }
@@ -875,26 +958,78 @@ ISO20022CamtFile.prototype.extractCustomerNumber = function(esrNumber) {
 
    var customerNumber = esrNumber;
 
-   if (this.params.customer_no) {
-      // First apply start / length extraction
-      if (this.params.customer_no.start !== 0 || this.params.customer_no.count !== -1) {
-         if (this.params.customer_no.count === -1)
-            customerNumber = customerNumber.substr(this.params.customer_no.start);
-         else
-            customerNumber = customerNumber.substr(this.params.customer_no.start, this.params.customer_no.count);
-      }
 
-      // Second apply method if defined
-      if (this.params.customer_no.method.length > 0) {
-         var customerMethod = eval(this.params.customer_no.method);
-         if (typeof(customerMethod) === 'function') {
-            customerNumber = customerMethod(customerNumber);
+   // Use Banana format for PVR and QR
+   if (this.params.customer_no.banana_format) {
+      
+      // Extract customer number from QR reference
+      if (customerNumber.startsWith("RF")) {
+
+          /*
+            - RF
+            - 2 control digits
+            - customer no. length (min 1, max 7), hexadecimal string
+            - customer no.
+            - invoice no. length (min 1, max 7), hexadecimal string
+            - invoice no.
+            When account/invoice numbers doesn't exist we use "0" as value
+         */
+
+          ///////////////////////////////////////
+          // TEST
+          //   reference number = RF02411003101
+          //   ref+control digits = RF02
+          //   customer length = 4
+          //   customer = 1100
+          //   invoice length = 3
+          //   invoice = 101 */
+          //customerNumber = "RF02411003101";
+          ///////////////////////////////////////
+          var invLen = customerNumber.substr(4,1);
+          var cust = customerNumber.substr(5,invLen);
+          customerNumber = cust;
+      }
+      else {
+         // Extract customer number from PVR reference
+
+         /////////////////////////////////////////////////////////
+         // TEST
+         //   reference number = 00 00000 00007 65432 11234 56700
+         //   customer = 7654321
+         //   invoice =  1234567*/
+         //customerNumber = "00 00000 00007 65432 11234 56700";
+         /////////////////////////////////////////////////////////
+         var cust = customerNumber.substr(11,7);
+         customerNumber = cust;
+
+          // Remove traling zeros
+          if (!this.params.customer_no.keep_initial_zeros) {
+             customerNumber = customerNumber.replace(/^0+/, '');
+          }
+      }
+   }
+   else {
+      if (this.params.customer_no) {
+         // First apply start / length extraction
+         if (this.params.customer_no.start !== "0" || this.params.customer_no.count !== "-1") {
+            if (this.params.customer_no.count === "-1")
+               customerNumber = customerNumber.substr(this.params.customer_no.start);
+            else
+               customerNumber = customerNumber.substr(this.params.customer_no.start, this.params.customer_no.count);
          }
-      }
 
-      // Remove traling zeros
-      if (!this.params.customer_no.keep_initial_zeros) {
-         customerNumber = customerNumber.replace(/^0+/, '');
+         // Second apply method if defined
+         if (this.params.customer_no.method.length > "0") {
+            var customerMethod = eval(this.params.customer_no.method);
+            if (typeof(customerMethod) === 'function') {
+               customerNumber = customerMethod(customerNumber);
+            }
+         }
+
+         // Remove traling zeros
+         if (!this.params.customer_no.keep_initial_zeros) {
+            customerNumber = customerNumber.replace(/^0+/, '');
+         }
       }
    }
 
@@ -928,12 +1063,12 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
    texts.isr = 'Isr: ';
 
    texts.add_counterpart_transaction = 'Add counterpart transaction';
-   texts.invoice_no_extract = 'Extract invoice number from Isr reference';
+   texts.invoice_no_extract = 'Extract invoice number from reference';
    texts.invoice_no_start = 'Start position';
    texts.invoice_no_length = 'Number of characters (-1 = all)';
    texts.invoice_no_method = 'Function (optional)';
    texts.invoice_no_method_tooltip = 'Function to extract the invoice number, ex.: "(function(text) {return text.substr(11,7);})"';
-   texts.customer_no_extract = 'Extract customer account from Isr reference';
+   texts.customer_no_extract = 'Extract customer account from reference';   
    texts.customer_no_start = 'Start position';
    texts.customer_no_length = 'Number of characters (-1 = all)';
    texts.customer_no_use_cc = 'Cost center for customer accounts (optional)';
@@ -947,6 +1082,9 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
    texts.legacy_invoice_no_start = 'Extract invoice number from Isr reference: Start position';
    texts.legacy_invoice_no_length = 'Extract invoice number from Isr reference: Number of characters (-1 = all)';
    texts.legacy_invoice_no_method = 'Extract invoice number from Isr reference: Function (optional)';
+   texts.invoice_no_banana_format = 'Use Banana format';
+   texts.customer_no_banana_format = 'Use Banana format';
+
 
    // The translations will overwrite the default texts
    if (language === 'it') {
@@ -954,12 +1092,12 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.isr = 'Pvr: ';
 
       texts.add_counterpart_transaction = 'Aggiungi registrazione di contropartita';
-      texts.invoice_no_extract = 'Estrai numero fattura dal numero di riferimento PVR';
+      texts.invoice_no_extract = 'Estrai numero fattura dal numero di riferimento';
       texts.invoice_no_start = 'Posizione di inizio';
       texts.invoice_no_length = 'Numero di caratteri (-1 = tutti)';
       texts.invoice_no_method = 'Funzione (opzionale)';
       texts.invoice_no_method_tooltip = 'Funzione per estrarre il numero di fattura, es.: "(function(text) {return text.substr(11,7);})"';
-      texts.customer_no_extract = 'Estrai conto cliente dal numero di riferimento PVR';
+      texts.customer_no_extract = 'Estrai conto cliente dal numero di riferimento';
       texts.customer_no_start = 'Posizione di inizio';
       texts.customer_no_length = 'Numero di caratteri (-1 = tutti)';
       texts.customer_no_use_cc = 'Centro di costo per i conti cliente (opzionale)';
@@ -973,18 +1111,20 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.legacy_invoice_no_start = 'Estrai numero fattura dal numero di riferimento PVR: Posizione di inizio';
       texts.legacy_invoice_no_length = 'Estrai numero fattura dal numero di riferimento PVR: Numero di caratteri (-1 = tutti)';
       texts.legacy_invoice_no_method = 'Estrai numero fattura dal numero di riferimento PVR: Funzione (opzionale)';
+      texts.invoice_no_banana_format = 'Usa il formato Banana';
+      texts.customer_no_banana_format = 'Usa il formato Banana';
 
    } else if (language === 'de') {
       texts.settings = 'Einstellungen';
       texts.isr = 'ESR: ';
 
       texts.add_counterpart_transaction = 'Gegenbuchung hinzufügen';
-      texts.invoice_no_extract = 'Rechnungsnummer aus ESR-Referenznummer extrahieren';
+      texts.invoice_no_extract = 'Rechnungsnummer aus Referenznummer extrahieren';
       texts.invoice_no_start = 'Anfangsposition';
       texts.invoice_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.invoice_no_method = 'Funktion (optional)';
       texts.invoice_no_method_tooltip = 'Funktion zum Extrahieren der Rechnungsnummer, zB: "(function(text) {return text.substr(11,7);})"';
-      texts.customer_no_extract = 'Kundenkonte aus ESR-Referenznummer extrahieren';
+      texts.customer_no_extract = 'Kundenkonte aus Referenznummer extrahieren';
       texts.customer_no_start = 'Anfangsposition';
       texts.customer_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.customer_no_use_cc = 'Kostenstelle für die Kundenkonten (optional)';
@@ -998,18 +1138,21 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.legacy_invoice_no_start = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Anfangsposition';
       texts.legacy_invoice_no_length = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Anzahl Zeichen (-1 = Alle)';
       texts.legacy_invoice_no_method = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Funktion (optional)';
+      texts.invoice_no_banana_format = 'Banana-Format verwenden';
+      texts.customer_no_banana_format = 'Banana-Format verwenden';
+
 
    } else if (language === 'fr') {
       texts.settings = 'Paramètres';
       texts.isr = 'Bvr: ';
 
       texts.add_counterpart_transaction = 'Ajouter écriture de contrepartie';
-      texts.invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence BVR';
+      texts.invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence';
       texts.invoice_no_start = 'Position de départ';
       texts.invoice_no_length = 'Nombre de caractères (-1 = tous)';
       texts.invoice_no_method = 'Fonction (optionnel)';
       texts.invoice_no_method_tooltip = 'Fonction pour extraire le numéro de facture, ex.: "(function(text) {return text.substr(11,7);})"';
-      texts.customer_no_extract = 'Extraire le compte client depuis le numéro de référence BVR';
+      texts.customer_no_extract = 'Extraire le compte client depuis le numéro de référence';
       texts.customer_no_start = 'Position de départ';
       texts.customer_no_length = 'Nombre de caractères (-1 = tous)';
       texts.customer_no_use_cc = 'Centre de coût pour les comptes clients (optional)';
@@ -1023,6 +1166,8 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.legacy_invoice_no_start = 'Extraire le numéro de facture depuis le numéro de référence BVR: Position de départ';
       texts.legacy_invoice_no_length = 'Extraire le numéro de facture depuis le numéro de référence BVR: Nombre de caractères (-1 = tous)';
       texts.legacy_invoice_no_method = 'Extraire le numéro de facture depuis le numéro de référence BVR: Fonction (optionnel)';
+      texts.invoice_no_banana_format = "Utiliser le format Banana" ;
+      texts.customer_no_banana_format = "Utiliser le format Banana" ;
 
    }
 

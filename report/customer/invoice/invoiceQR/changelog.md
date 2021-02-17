@@ -17,3 +17,9 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Updated invoice layout to allow the insertion of texts for estimates. Added a separate texts section for estimates within the settings dialog. Only works for [Estimates and Invoices application](https://www.banana.ch/doc/en/node/9752).
 * 2020-12-04
 	* Added the Deposit field to the print. Deposit can only be used for the Estimates and Invoices application.
+* 2021-02-02
+	* Descriptions rows that are not invoice items (without amount) are now printed without 0.00 amount (only for integrated invoices).
+	* QR @errors of customer's address are shown in the Message panel with the rows of the Accounts/Contacts tables.
+* 2021-02-17
+	* QR 'Additional information' text is now printed without newlines and spaces.
+	* QR @errors of customer's address are not displayed when printing an invoice without debtor address (empty box).
