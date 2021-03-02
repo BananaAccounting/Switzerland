@@ -181,7 +181,7 @@ table.info_table_row0 td {
   border-bottom-style: solid;
   border-bottom-color: $text_color;
   border-bottom-width: 1px;
-  margin-bottom: 0.5cm;
+  margin-bottom: 0.3cm;
 }
 /* Shipping address positioning.
    Sets font size and margins relative to the information table. */
