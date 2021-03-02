@@ -23,3 +23,7 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 * 2021-02-17
 	* QR 'Additional information' text is now printed without newlines and spaces.
 	* QR @errors of customer's address are not displayed when printing an invoice without debtor address (empty box).
+* 2021-02-26
+	* Print the discount percentage if the discount is set through a percentage.
+* 2021-03-02
+	* Add space between the small sender address and receiver address.

@@ -7565,7 +7565,7 @@ senza iva, con sconto, senza acconto \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
 \multicolumn{330}{l}{}\\
-\multicolumn{329}{l}{testo sconto } & 1.30 \\
+\multicolumn{329}{l}{testo sconto 5\% } & 1.30 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{330}{l}{}\\
@@ -7997,7 +7997,7 @@ Invoice 10 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
-\multicolumn{349}{l}{testo sconto } & 1.30 \\
+\multicolumn{349}{l}{testo sconto 5\% } & 1.30 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{350}{l}{}\\

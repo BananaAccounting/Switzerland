@@ -1,4 +1,4 @@
-/* CSS update: 2020-11-16  */
+/* CSS update: 2021-03-02  */
 
 /* Page definition.
    Sets margins of the document.
@@ -179,8 +179,9 @@ table.info_table_row0 td {
   font-size: 7pt;
   text-align: center;
   border-bottom-style: solid;
-  border-bottom-color: black;
+  border-bottom-color: $text_color;
   border-bottom-width: 1px;
+  margin-bottom: 0.5cm;
 }
 /* Shipping address positioning.
    Sets font size and margins relative to the information table. */
