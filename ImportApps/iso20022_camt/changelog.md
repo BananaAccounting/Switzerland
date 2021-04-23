@@ -8,3 +8,6 @@
  * [Enahncement] Add customer/invoice number extraction from QR reference.
  * [Enahncement] Add "Use Banana format" parameter that allows to extract customer and invoice numbers from the QR/PVR reference created by Banana.
  * [Bug] Fix parameters for custom extraction (converted from numbers to strings).
+
+ 2021-04-23
+ * [Bug] Correct German text in script parameters.

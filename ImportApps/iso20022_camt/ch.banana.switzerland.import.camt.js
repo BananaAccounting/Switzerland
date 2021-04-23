@@ -1124,7 +1124,7 @@ ISO20022CamtFile.prototype.tr = function(textid, language) {
       texts.invoice_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.invoice_no_method = 'Funktion (optional)';
       texts.invoice_no_method_tooltip = 'Funktion zum Extrahieren der Rechnungsnummer, zB: "(function(text) {return text.substr(11,7);})"';
-      texts.customer_no_extract = 'Kundenkonte aus Referenznummer extrahieren';
+      texts.customer_no_extract = 'Kundenkonto aus Referenznummer extrahieren';
       texts.customer_no_start = 'Anfangsposition';
       texts.customer_no_length = 'Anzahl Zeichen (-1 = Alle)';
       texts.customer_no_use_cc = 'Kostenstelle für die Kundenkonten (optional)';
