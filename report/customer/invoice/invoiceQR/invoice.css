@@ -1,4 +1,4 @@
-/* CSS update: 2021-03-02  */
+/* CSS update: 2021-05-25  */
 
 /* Page definition.
    Sets margins of the document.
@@ -131,6 +131,14 @@ table.info_table_row0 td {
    On first page it is used the other one (.info_table_left or .info_table_right). */
 @page:first-view table.info_table_row0 {
   display: none;
+}
+/* Can be used to set the column width of the first column of info table 
+   width: 100px */
+.info_table_first_column {
+}
+/* Can be used to set the column width of the second column of info table 
+   width: 100px */
+.info_table_second_column {
 }
 /* Address positioning when printed on the right.
    Sets margins and position relative to the document.

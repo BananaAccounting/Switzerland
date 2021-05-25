@@ -1,4 +1,4 @@
-// Copyright [2020] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-02-08
+// @pubdate = 2021-05-25
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -1692,6 +1692,9 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
     infoTable = repDocObj.addTable("info_table_left");
   }
 
+  var infoFirstColumn = infoTable.addColumn("info_table_first_column");
+  var infoSecondColumn = infoTable.addColumn("info_table_second_column");
+
   if (userParam.info_invoice_number) {
     tableRow = infoTable.addRow();
     if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
@@ -3331,7 +3334,7 @@ function setInvoiceTexts(language) {
     texts.vat_number = "No IVA";
     texts.fiscal_number = "No fiscale";
     texts.payment_due_date_label = "Scadenza";
-    texts.payment_terms_label = "Pagamento";
+    texts.payment_terms_label = "Scadenza";
     texts.page = "Pagina";
     texts.credit_note = "Nota di credito";
     texts.column_description = "Description";
@@ -3489,7 +3492,7 @@ function setInvoiceTexts(language) {
     texts.vat_number = "MwSt/USt-Nummer";
     texts.fiscal_number = "Steuernummer";
     texts.payment_due_date_label = "Fälligkeitsdatum";
-    texts.payment_terms_label = "Bezahlung";
+    texts.payment_terms_label = "Fälligkeitsdatum";
     texts.page = "Seite";
     texts.credit_note = "Gutschrift";
     texts.column_description = "Description";
@@ -3647,7 +3650,7 @@ function setInvoiceTexts(language) {
     texts.vat_number = "Numéro de TVA";
     texts.fiscal_number = "Numéro fiscal";
     texts.payment_due_date_label = "Échéance";
-    texts.payment_terms_label = "Paiement";
+    texts.payment_terms_label = "Échéance";
     texts.page = "Page";
     texts.credit_note = "Note de crédit";
     texts.column_description = "Description";
@@ -3805,7 +3808,7 @@ function setInvoiceTexts(language) {
     texts.vat_number = "VAT No";
     texts.fiscal_number = "Fiscal No";
     texts.payment_due_date_label = "Due date";
-    texts.payment_terms_label = "Payment";
+    texts.payment_terms_label = "Due date";
     texts.page = "Page";
     texts.credit_note = "Credit note";
     texts.column_description = "Description";
