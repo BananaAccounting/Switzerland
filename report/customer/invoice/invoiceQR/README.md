@@ -24,6 +24,6 @@ Documentation:
 
 Other
 * RF creditor reference generator, validator and reference converter: https://www.mobilefish.com/services/creditor_reference/creditor_reference.php
+* La facture QR du point de vue du développeur: https://www.swiss-qr-invoice.org/fr/
 * Validator für QR-Rechnung und strukturierte Rechnungsinformationen: https://www.swiss-qr-invoice.org/validator/?lang=de
 * QR-Rechnung: https://qr-rechnung.net/#/write
-* La facture QR du point de vue du développeur: https://www.swiss-qr-invoice.org/fr/
