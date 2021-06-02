@@ -1,4 +1,4 @@
-// Copyright [2020] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2020-03-10 */
+/* Script update: 2021-06-02 */
 
 
 /*
@@ -36,8 +36,16 @@ function isQRIBAN(input) {
  * Returns 1 if the IBAN is valid 
  * Returns FALSE if the IBAN's length is not as should be (for CH the IBAN Should be 21 chars long starting with CH )
  * Returns any other number (checksum) when the IBAN is invalid (check digits do not match)
+ * Returns nothing if Banana.ch IBAN is used (considered not valid)
  */
 function isValidIBAN(input) {
+
+    // Not valid when using Banana.ch IBAN (CHF and EUR iban accunts)
+    var normalizedIban = input.replace(/ /g,"");
+    if (normalizedIban === "CH5809000000652501224" || normalizedIban === "CH3409000000918741048") {
+        return;
+    }
+
     var CODE_LENGTHS = {
         AD: 24, AE: 23, AT: 20, AZ: 28, BA: 20, BE: 16, BG: 22, BH: 22, BR: 29,
         CH: 21, CR: 21, CY: 28, CZ: 24, DE: 22, DK: 18, DO: 28, EE: 20, ES: 24,

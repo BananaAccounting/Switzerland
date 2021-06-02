@@ -2242,7 +2242,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2265,7 +2265,7 @@ CHF \\
 Importo \\
 1  130.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2284,7 +2284,7 @@ Via Trevano \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -2357,7 +2357,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2380,7 +2380,7 @@ CHF \\
 Importo \\
 1  234  567.90 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2400,7 +2400,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -2471,7 +2471,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2495,7 +2495,7 @@ CHF \\
 Importo \\
 0.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2515,7 +2515,7 @@ Pagabile da \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -2584,7 +2584,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2607,7 +2607,7 @@ CHF \\
 Importo \\
 0.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2626,7 +2626,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -2695,7 +2695,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2719,7 +2719,7 @@ CHF \\
 Importo \\
 90.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2739,7 +2739,7 @@ Pagabile da \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -2811,7 +2811,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2834,7 +2834,7 @@ CHF \\
 Importo \\
 1  234  567.90 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2854,7 +2854,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -2926,7 +2926,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2949,7 +2949,7 @@ CHF \\
 Amount \\
 150.35 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -2968,7 +2968,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3057,7 +3057,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3078,7 +3078,7 @@ Valuta \\
 CHF \\
 Importo \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3097,7 +3097,7 @@ Via Trevano \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3170,7 +3170,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3191,7 +3191,7 @@ Valuta \\
 CHF \\
 Importo \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3211,7 +3211,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3282,7 +3282,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3304,7 +3304,7 @@ Valuta \\
 CHF \\
 Importo \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3321,7 +3321,7 @@ Pagabile da \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3390,7 +3390,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3411,7 +3411,7 @@ Valuta \\
 CHF \\
 Importo \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3427,7 +3427,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3496,7 +3496,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3518,7 +3518,7 @@ Valuta \\
 CHF \\
 Importo \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3538,7 +3538,7 @@ Pagabile da \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3610,7 +3610,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3631,7 +3631,7 @@ Valuta \\
 CHF \\
 Importo \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3651,7 +3651,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -3723,7 +3723,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3744,7 +3744,7 @@ Currency \\
 CHF \\
 Amount \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -3763,7 +3763,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -4651,7 +4651,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -4674,7 +4674,7 @@ CHF \\
 Amount \\
 4  500.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -4694,7 +4694,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -4783,7 +4783,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -4803,7 +4803,7 @@ CHF \\
 Importo \\
 1  130.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -4819,7 +4819,7 @@ Via Trevano \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -4892,7 +4892,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -4912,7 +4912,7 @@ CHF \\
 Importo \\
 1  234  567.90 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -4929,7 +4929,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -5000,7 +5000,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5021,7 +5021,7 @@ CHF \\
 Importo \\
 0.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5038,7 +5038,7 @@ Pagabile da \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -5107,7 +5107,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5127,7 +5127,7 @@ CHF \\
 Importo \\
 0.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5143,7 +5143,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -5212,7 +5212,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5233,7 +5233,7 @@ CHF \\
 Importo \\
 90.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5250,7 +5250,7 @@ Pagabile da \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -5322,7 +5322,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5342,7 +5342,7 @@ CHF \\
 Importo \\
 1  234  567.90 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -5359,7 +5359,7 @@ V.Meggiagra 3 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -6269,7 +6269,7 @@ Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, tur
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6292,7 +6292,7 @@ CHF \\
 Amount \\
 1  593.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6311,7 +6311,7 @@ V. Campuréta 40 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -6445,7 +6445,7 @@ Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' se
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+@error Incorrect IBAN: CH58 0900 0000 6525 0122 4 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6468,7 +6468,7 @@ CHF \\
 Amount \\
 1  593.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+@error Incorrect IBAN: CH58 0900 0000 6525 0122 4 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6487,7 +6487,7 @@ V. Campuréta 40 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline @errorIncorrectIBAN:CH5809000000652501224
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -6563,7 +6563,7 @@ Consulting services \newline \newline  & 05.05.2022  & 5.0000  & hrs  & 12.50  &
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6586,7 +6586,7 @@ CHF \\
 Amount \\
 494.50 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6605,7 +6605,7 @@ V. Campagnola 7 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -6710,7 +6710,7 @@ Total extra services \newline \newline  &  &  &  & 193.13 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6733,7 +6733,7 @@ CHF \\
 Amount \\
 3  614.60 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
 Via alla Santa 7 \\
 6962 Viganello \\
@@ -6749,7 +6749,7 @@ V. Campuréta 40 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch SA
 ewline Via alla Santa 7
@@ -6817,7 +6817,7 @@ Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -6840,7 +6840,7 @@ CHF \\
 Amount \\
 25.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -6856,7 +6856,7 @@ Via ai Salici 12 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch
 ewline VIa la Santa 7
@@ -6925,7 +6925,7 @@ Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -6948,7 +6948,7 @@ CHF \\
 Amount \\
 30.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -6964,7 +6964,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch
 ewline VIa la Santa 7
@@ -7033,7 +7033,7 @@ Spese di spedizione \newline \newline  &  &  &  & 6.00 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7056,7 +7056,7 @@ CHF \\
 Amount \\
 25.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7072,7 +7072,7 @@ Vicolo Mariotti 5 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch
 ewline VIa la Santa 7
@@ -7142,7 +7142,7 @@ Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7165,7 +7165,7 @@ CHF \\
 Amount \\
 25.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7181,7 +7181,7 @@ Via ai Salici 12 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch
 ewline VIa la Santa 7
@@ -7250,7 +7250,7 @@ Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7273,7 +7273,7 @@ CHF \\
 Amount \\
 30.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7289,7 +7289,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch
 ewline VIa la Santa 7
@@ -7358,7 +7358,7 @@ Spese di spedizione \newline \newline  &  &  &  & 6.00 \\
 Receipt \\
   \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7381,7 +7381,7 @@ CHF \\
 Amount \\
 25.00 \\
 Account / Payable to \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Banana.ch \\
 VIa la Santa 7 \\
 6962 Viganello \\
@@ -7397,7 +7397,7 @@ Vicolo Mariotti 5 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline Banana.ch
 ewline VIa la Santa 7
@@ -7466,7 +7466,7 @@ aaa \newline \newline  & 2.0000  & pz  & 23.00  & 46.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7489,7 +7489,7 @@ CHF \\
 Importo \\
 46.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7505,7 +7505,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -7574,7 +7574,7 @@ bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7597,7 +7597,7 @@ CHF \\
 Importo \\
 24.70 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7613,7 +7613,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -7682,7 +7682,7 @@ ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7705,7 +7705,7 @@ CHF \\
 Importo \\
 22.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7721,7 +7721,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -7791,7 +7791,7 @@ ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7814,7 +7814,7 @@ CHF \\
 Importo \\
 50.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7830,7 +7830,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -7898,7 +7898,7 @@ aaa \newline \newline  & 2.0000  & pz  & 23.00  & 46.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7921,7 +7921,7 @@ CHF \\
 Importo \\
 46.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -7937,7 +7937,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -8006,7 +8006,7 @@ bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -8029,7 +8029,7 @@ CHF \\
 Importo \\
 24.70 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -8045,7 +8045,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -8114,7 +8114,7 @@ ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -8137,7 +8137,7 @@ CHF \\
 Importo \\
 22.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -8153,7 +8153,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
@@ -8223,7 +8223,7 @@ ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -8246,7 +8246,7 @@ CHF \\
 Importo \\
 50.00 \\
 Conto / Pagabile a \\
-CH58 0900 0000 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 My Company \\
 VIa alle colline 12 \\
 600 Lugano \\
@@ -8262,7 +8262,7 @@ Via dei Rustici 9 \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline CH5809000000652501224
+ewline CH5800791123000889012
 ewline K
 ewline My Company
 ewline VIa alle colline 12
