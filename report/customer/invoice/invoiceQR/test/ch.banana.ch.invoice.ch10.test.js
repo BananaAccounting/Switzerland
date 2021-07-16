@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2021-06-02
+// @pubdate = 2021-07-16
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -858,7 +858,7 @@ function setUserParam(texts) {
   userParam.info_customer_fiscal_number = true;
   userParam.info_due_date = true;
   userParam.info_page = true;
-  userParam.details_columns = texts.column_description+";"+texts.column_quantity+";"+texts.column_reference_unit+";"+texts.column_unit_price+";"+texts.column_amount;
+  userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
   userParam.details_columns_widths = '50%;10%;10%;15%;15%';
   userParam.details_columns_titles_alignment = 'center;center;center;center;center';
   userParam.details_columns_alignment = 'left;right;center;right;right';

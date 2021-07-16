@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-05-25
+// @pubdate = 2021-07-16
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -464,7 +464,7 @@ function convertParam(userParam) {
   currentParam.title = texts.param_details_columns;
   currentParam.type = 'string';
   currentParam.value = userParam.details_columns ? userParam.details_columns : '';
-  currentParam.defaultvalue = texts.column_description+";"+texts.column_quantity+";"+texts.column_reference_unit+";"+texts.column_unit_price+";"+texts.column_amount;
+  currentParam.defaultvalue = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
   currentParam.tooltip = texts.param_tooltip_details_columns;
   //take the number of columns
   lengthDetailsColumns = userParam.details_columns.split(";").length;
@@ -1164,7 +1164,7 @@ function initParam() {
   userParam.info_customer_fiscal_number = false;
   userParam.info_due_date = true;
   userParam.info_page = true;
-  userParam.details_columns = texts.column_description+";"+texts.column_quantity+";"+texts.column_reference_unit+";"+texts.column_unit_price+";"+texts.column_amount;
+  userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
   userParam.details_columns_widths = '45%;10%;10%;20%;15%';
   userParam.details_columns_titles_alignment = 'left;right;center;right;right';
   userParam.details_columns_alignment = 'left;right;center;right;right';
@@ -1313,7 +1313,7 @@ function verifyParam(userParam) {
     userParam.info_page = false;
   }
   if (!userParam.details_columns) {
-    userParam.details_columns = texts.column_description+";"+texts.column_quantity+";"+texts.column_reference_unit+";"+texts.column_unit_price+";"+texts.column_amount;
+    userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
   }
   if (!userParam.details_columns_widths) {
     userParam.details_columns_widths = '45%;10%;10%;20%;15%';
@@ -3337,11 +3337,11 @@ function setInvoiceTexts(language) {
     texts.payment_terms_label = "Scadenza";
     texts.page = "Pagina";
     texts.credit_note = "Nota di credito";
-    texts.column_description = "Description";
-    texts.column_quantity = "Quantity";
-    texts.column_reference_unit = "ReferenceUnit";
-    texts.column_unit_price = "UnitPrice";
-    texts.column_amount = "Amount";
+    // texts.column_description = "Description";
+    // texts.column_quantity = "Quantity";
+    // texts.column_reference_unit = "ReferenceUnit";
+    // texts.column_unit_price = "UnitPrice";
+    // texts.column_amount = "Amount";
     texts.description = "Descrizione";
     texts.quantity = "Quantità";
     texts.reference_unit = "Unità";
@@ -3495,11 +3495,11 @@ function setInvoiceTexts(language) {
     texts.payment_terms_label = "Fälligkeitsdatum";
     texts.page = "Seite";
     texts.credit_note = "Gutschrift";
-    texts.column_description = "Description";
-    texts.column_quantity = "Quantity";
-    texts.column_reference_unit = "ReferenceUnit";
-    texts.column_unit_price = "UnitPrice";
-    texts.column_amount = "Amount";
+    // texts.column_description = "Description";
+    // texts.column_quantity = "Quantity";
+    // texts.column_reference_unit = "ReferenceUnit";
+    // texts.column_unit_price = "UnitPrice";
+    // texts.column_amount = "Amount";
     texts.description = "Beschreibung";
     texts.quantity = "Menge";
     texts.reference_unit = "Einheit";
@@ -3653,11 +3653,11 @@ function setInvoiceTexts(language) {
     texts.payment_terms_label = "Échéance";
     texts.page = "Page";
     texts.credit_note = "Note de crédit";
-    texts.column_description = "Description";
-    texts.column_quantity = "Quantity";
-    texts.column_reference_unit = "ReferenceUnit";
-    texts.column_unit_price = "UnitPrice";
-    texts.column_amount = "Amount";
+    // texts.column_description = "Description";
+    // texts.column_quantity = "Quantity";
+    // texts.column_reference_unit = "ReferenceUnit";
+    // texts.column_unit_price = "UnitPrice";
+    // texts.column_amount = "Amount";
     texts.description = "Description";
     texts.quantity = "Quantité";
     texts.reference_unit = "Unité";
@@ -3811,11 +3811,11 @@ function setInvoiceTexts(language) {
     texts.payment_terms_label = "Due date";
     texts.page = "Page";
     texts.credit_note = "Credit note";
-    texts.column_description = "Description";
-    texts.column_quantity = "Quantity";
-    texts.column_reference_unit = "ReferenceUnit";
-    texts.column_unit_price = "UnitPrice";
-    texts.column_amount = "Amount";
+    // texts.column_description = "Description";
+    // texts.column_quantity = "Quantity";
+    // texts.column_reference_unit = "ReferenceUnit";
+    // texts.column_unit_price = "UnitPrice";
+    // texts.column_amount = "Amount";
     texts.description = "Description";
     texts.quantity = "Quantity";
     texts.reference_unit = "Unit";
