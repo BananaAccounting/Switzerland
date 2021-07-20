@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2021-02-17 */
+/* Script update: 2021-07-16 */
 
 
 
@@ -1190,27 +1190,34 @@ var QRBill = class QRBill {
 		qrcodeData.creditorCity = "";
 		qrcodeData.creditorCountry = "";
 
-		if (invoiceObj.supplier_info.business_name) {
-			qrcodeData.creditorName += invoiceObj.supplier_info.business_name;
+		var supplierBusinessName = invoiceObj.supplier_info.business_name;
+		if (supplierBusinessName) {
+			supplierBusinessName = supplierBusinessName.trim();
+		}
+		
+		if (supplierBusinessName) {
+			qrcodeData.creditorName += supplierBusinessName;
 		} else {
 			if (invoiceObj.supplier_info.first_name) {
-				qrcodeData.creditorName += invoiceObj.supplier_info.first_name;
+				qrcodeData.creditorName += invoiceObj.supplier_info.first_name.trim();
 			}
 			if (invoiceObj.supplier_info.last_name) {
-				qrcodeData.creditorName += " " + invoiceObj.supplier_info.last_name;
+				qrcodeData.creditorName += " " + invoiceObj.supplier_info.last_name.trim();
 			}		
 		}
+		qrcodeData.creditorName = qrcodeData.creditorName.trim();
+
 		if (invoiceObj.supplier_info.address1) {
-			qrcodeData.creditorAddress1 = invoiceObj.supplier_info.address1;
+			qrcodeData.creditorAddress1 = invoiceObj.supplier_info.address1.trim();
 		}
 		if (invoiceObj.supplier_info.address2) {
-			qrcodeData.creditorAddress2 = invoiceObj.supplier_info.address2;
+			qrcodeData.creditorAddress2 = invoiceObj.supplier_info.address2.trim();
 		}
 		if (invoiceObj.supplier_info.postal_code) {
-			qrcodeData.creditorPostalcode = invoiceObj.supplier_info.postal_code;
+			qrcodeData.creditorPostalcode = invoiceObj.supplier_info.postal_code.trim();
 		}
 		if (invoiceObj.supplier_info.city) {
-			qrcodeData.creditorCity = invoiceObj.supplier_info.city;
+			qrcodeData.creditorCity = invoiceObj.supplier_info.city.trim();
 		}
 		if (invoiceObj.supplier_info.country_code) {
 			qrcodeData.creditorCountry = invoiceObj.supplier_info.country_code.toUpperCase().trim();
@@ -1239,22 +1246,22 @@ var QRBill = class QRBill {
 			qrcodeData.creditorAddressType = "S";
 
 			if (userParam.qr_code_creditor_name) {
-				qrcodeData.creditorName = userParam.qr_code_creditor_name;
+				qrcodeData.creditorName = userParam.qr_code_creditor_name.trim();
 			}
 			if (userParam.qr_code_creditor_address1) {
-				qrcodeData.creditorAddress1 = userParam.qr_code_creditor_address1;
+				qrcodeData.creditorAddress1 = userParam.qr_code_creditor_address1.trim();
 			}
 			if (userParam.qr_code_creditor_address2) {
-				qrcodeData.creditorAddress2 = userParam.qr_code_creditor_address2;
+				qrcodeData.creditorAddress2 = userParam.qr_code_creditor_address2.trim();
 			}
 			if (userParam.qr_code_creditor_postalcode) {
-				qrcodeData.creditorPostalcode = userParam.qr_code_creditor_postalcode;
+				qrcodeData.creditorPostalcode = userParam.qr_code_creditor_postalcode.trim();
 			}
 			if (userParam.qr_code_creditor_city) {
-				qrcodeData.creditorCity = userParam.qr_code_creditor_city;
+				qrcodeData.creditorCity = userParam.qr_code_creditor_city.trim();
 			}
 			if (userParam.qr_code_creditor_country) {
-				qrcodeData.creditorCountry = userParam.qr_code_creditor_country.toUpperCase();
+				qrcodeData.creditorCountry = userParam.qr_code_creditor_country.toUpperCase().trim();
 			}
 		}
 		
