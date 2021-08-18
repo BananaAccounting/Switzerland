@@ -52,13 +52,21 @@ function exec(string) {
     var fieldSeparator = findSeparator(string);
     var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
 
-    //format 1: prodotti e servizi
+   //format 1: prodotti e servizi
    var format_ps = new formatPS();
    if (format_ps.match(transactions))
    {
       var format = format_ps.convertInDocChange(transactions,initJsonDoc);
       jsonDocArray=format;
    }
+   //Format 2: Contatti
+   var format_cnt = new formatCnt();
+   if (format_cnt.match(transactions))
+   {
+      //var format = format_ps.convertInDocChange(transactions,initJsonDoc);
+      //jsonDocArray=format;
+   }
+
 
    var documentChange = { "format": "documentChange", "error": "","data":[]};
    documentChange["data"].push(jsonDocArray); 
@@ -85,6 +93,84 @@ function getCurrentDate() {
    var d = new Date();
    var datestring = d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2);
    return Banana.Converter.toInternalDateFormat(datestring, "yyyymmdd");
+}
+
+/**
+ * "relations";"type";"gender";"number";"name";"addition";"salutation";"language";"email";"phone";"fax";"website";"vat_id";"groups";"sendpreference";"notes";"address_street_1";"address_street2_1";"address_streetno_1";"address_code_1";"address_city_1";"address_country_1";"person_name_1";"person_surname_1";"person_gender_1";"person_email_1";"person_phone_1";"person_salutation_1";"person_department_1";"person_name_2";"person_surname_2";"person_gender_2";"person_email_2";"person_phone_2";"person_salutation_2";"person_department_2"
+ * "CL";"P";"M";"8247";"Pinco Pallino";"";"";"it";"";"";"";"";"";"N. Sportivo";"U";"";"Via Alle Stalle";"";"28";"6593";"Cadenazzo";"CH";"";"";"";"";"";"";"";"";"";"";"";"";"";""
+ * "CL";"C";"";"4";"Pinco Pallino SA";"";"";"it";"";"";"";"";"";"";"U";"noleggio autogru,trasporti, piattaforme,";"Via la Stampa";"";"21";"6965";"Cadro";"CH";"Paolo";"VISMARA";"M";"paolo@vismara.ch";"";"";"";"";"";"";"";"";"";""
+ */
+
+var formatCnt=class formatCnt{
+   constructor(){
+      this.relations=0;
+      this.type=1;
+      this.gender=2;
+      this.number=3;
+      this.name=4;
+      this.addition=5;
+      this.salutation=6;
+      this.language=7;
+      this.email=8;
+      this.phone=9;
+      this.fax=10;
+      this.website=11;
+      this.vat_id=12;
+      this.groups=13;
+      this.sendpreference=14;
+      this.notes=15;
+      this.address_street_1=16;
+      this.address_street_2=17;
+      this.address_streetno_1=18;
+      this.address_code_1=19;
+      this.address_city_1=20;
+      this.address_country_1=21;
+      this.person_name_1=22;
+      this.person_surname_1=23;
+      this.person_gender_1=24;
+      this.person_email_1=25;
+      this.person_phone_1=26;
+      this.person_salutation_1=27;
+      this.department_1=28;
+      this.person_name_2=29;
+      this.person_surname_2=30;
+      this.person_gender_2=31;
+      this.person_email_2=32;
+      this.person_phone_2=33;
+      this.person_salutation_2=34;
+      this.department_2=35;
+
+   }
+
+   /** Return true if the transactions match this format */
+   match(transactions) {
+      if ( transactions.length === 0)
+         return false;
+      for (var i=0;i<transactions.length;i++){
+         var transaction = transactions[i];
+   
+         var formatMatched = false;
+   //controllo che la lunghezza dell array sia effettivamente quella controllando la prima riga
+         if (transaction.length  === (this.department_2+1))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if ( formatMatched && transaction[this.number].match(/[0-9\.]+/g))
+            formatMatched = true;
+         else
+            formatMatched = false;
+         if ( formatMatched && transaction[this.name])
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+   
+      return false;
+   }
 }
 
 /**Esempio struttura file prodotti e servizi
@@ -125,7 +211,7 @@ var formatPS =class formatPS {
  
          var formatMatched = false;
  //controllo che la lunghezza dell array sia effettivamente quella controllando la prima riga
-         if (transaction.length  === (this.selfcost+1)  )
+         if (transaction.length  === (this.selfcost+1) || transaction.length == (this.notes+1))
             formatMatched = true;
          else
             formatMatched = false;
@@ -172,8 +258,13 @@ var formatPS =class formatPS {
          row.fields["Notes"] = transaction[this.notes];
          row.fields["SelfCost"] = transaction[this.selfcost];
 
+
+         //controllare che la riga non esista già
+         if(verifyIfNotExist(row.fields,"Items","RowId","UnitPrice")){
+            rows.push(row);
+         }
  
-         rows.push(row);
+
       }
 
       var dataUnitTransactions = {};
@@ -189,6 +280,42 @@ var formatPS =class formatPS {
       return jsonDoc;
    }
 }
+
+
+function verifyIfNotExist(rows,ref_table,ref_field_1,ref_field_2){
+
+   var NotExist=false;
+   var existingElements=[];
+
+   if (!Banana.document) {
+      return "";
+  }
+     //carico le righe esistenti dalla tabella corretta
+  var table = Banana.document.table(ref_table);
+    if (!table) {
+        return "";
+    }
+
+    for (var i = 1; i < table.rowCount; i++) {
+        let existingRows = {};
+        var tRow = table.row(i);
+
+        existingRows.field_1= tRow.value(ref_field_1)
+        existingRows.field_2= tRow.value(ref_field_2)
+
+        existingElements.push(existingRows);
+    }
+
+    for(var row in existingElements){
+       if(rows[ref_field_1]!==existingElements[row].field_1 && Banana.Converter.toLocaleNumberFormat(rows[ref_field_2],2])!==existingElements[row].field_2){
+         Banana.console.debug(NotExist);
+         NotExist=true;
+       }
+    }
+    return NotExist;
+
+}
+
 
 /**
  * The function findSeparator is used to find the field separator.

@@ -17,3 +17,4 @@ PREVENTIVO DETTAGLIATO:
 PREVENTIVO SINGOLARIGA:
 "number";"client_name";"client_number";"client_groups";"date";"period";"due";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"total_vat_split";"currency";"status";"service_total";"service_exclvat";"service_vat";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference"
 CONTATTI:
+"relations";"type";"gender";"number";"name";"addition";"salutation";"language";"email";"phone";"fax";"website";"vat_id";"groups";"sendpreference";"notes";"address_street_1";"address_street_2";"address_streetno_1";"address_code_1";"address_city_1";"address_country_1";"person_name_1";"person_surname_1";"person_gender_1";"person_email_1";"person_phone_1";"person_salutation_1";"person_department_1";"person_name_2";"person_surname_2";"person_gender_2";"person_email_2";"person_phone_2";"person_salutation_2";"person_department_2"
