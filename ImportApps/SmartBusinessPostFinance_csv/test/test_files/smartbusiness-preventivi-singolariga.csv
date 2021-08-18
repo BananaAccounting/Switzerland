@@ -1,0 +1,4 @@
+"number";"client_name";"client_number";"client_groups";"date";"period";"due";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"total_vat_split";"currency";"status";"service_total";"service_exclvat";"service_vat";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference"
+"10002";"Coiffure Kathrin";"1002";"A-Kunde";"09.08.2021";"";"08.09.2021";"1511.07";"1403.04";"1403.04";"108.03";"7.70:108.03";"CHF";"Accettato";"1507.80";"1400.00";"107.80";"3.27";"3.04";"0.23";"7.70:0.23";"0"
+"10001";"Coiffure Kathrin";"1002";"A-Kunde";"09.08.2021";"";"08.09.2021";"1079.27";"1002.11";"1002.11";"77.16";"7.70:77.16";"CHF";"Inviato";"1077.00";"1000.00";"77.00";"2.27";"2.11";"0.16";"7.70:0.16";"0"
+"10000";"Garage Zylinder AG";"1000";"B-Kunde";"09.08.2021";"";"08.09.2021";"431.80";"400.93";"400.93";"30.87";"7.70:30.87";"CHF";"Bozza";"430.80";"400.00";"30.80";"1.00";"0.93";"0.07";"7.70:0.07";"0"

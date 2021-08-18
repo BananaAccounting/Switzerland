@@ -1,0 +1,19 @@
+prime righe differenze:
+
+PRODOTTI:
+"number";"name";"description";"price";"unit";"vat";"category";"including_vat";"default_amount";"notes";"selfcost"
+SERVIZI:
+"number";"name";"description";"price";"unit";"vat";"category";"including_vat";"default_amount";"notes"
+BOLLETTINI CONSEGNA:
+"number";"client_name";"client_number";"client_groups";"date";"period";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"total_vat_split";"currency";"status";"notes";"service_total";"service_exclvat";"service_vat";"service_vat_split";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference"
+CONFERME D'ORDINE:
+"number";"client_name";"client_number";"client_groups";"date";"period";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"total_vat_split";"currency";"status";"notes";"service_total";"service_exclvat";"service_vat";"service_vat_split";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference"
+FATTURE DETTAGLIATE:
+"number";"client_name";"client_number";"client_groups";"date";"period";"due";"period_from";"period_to";"currency";"status";"paid_date";"esr_number";"cash_discount_date";"cash_discount_value";"position_name";"position_description";"position_number";"position_type";"position_category";"position_amount";"position_nettotal";"position_nettotal_afterdiscount";"position_vat";"position_vattotal";"position_total"
+FATTURE SINGOLARIGA:
+"number";"client_name";"client_number";"client_groups";"date";"period";"due";"period_from";"period_to";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"currency";"status";"paid_date";"paid_amount";"esr_number";"cash_discount_date";"cash_discount_value";"service_total";"service_exclvat";"service_vat";"service_vat_split";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference";"payments"
+PREVENTIVO DETTAGLIATO:
+"number";"client_name";"client_number";"client_groups";"date";"period";"due";"currency";"status";"notes";"position_name";"position_description";"position_number";"position_type";"position_category";"position_amount";"position_nettotal";"position_nettotal_afterdiscount";"position_vat";"position_vattotal";"position_total"
+PREVENTIVO SINGOLARIGA:
+"number";"client_name";"client_number";"client_groups";"date";"period";"due";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"total_vat_split";"currency";"status";"service_total";"service_exclvat";"service_vat";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference"
+CONTATTI:

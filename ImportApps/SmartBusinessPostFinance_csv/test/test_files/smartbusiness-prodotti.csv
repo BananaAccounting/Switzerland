@@ -1,0 +1,6 @@
+"number";"name";"description";"price";"unit";"vat";"category";"including_vat";"default_amount";"notes";"selfcost"
+"100";"Schrauben 8x30mm";"";"0.18";"Pezzi";"7.70";"";"N";"1.00";"";""
+"102";"Schrauben 10x50mm";"";"0.25";"Pezzi";"7.70";"";"N";"1.00";"";""
+"103";"AC/DC Umwandler 200Watt";"";"260.00";"Pezzi";"7.70";"";"N";"1.00";"";""
+"104";"Kabel RJ45";"";"10.00";"ml";"7.70";"";"N";"1.00";"";""
+"105";"Kabel RJ11";"";"6.50";"ml";"7.70";"";"N";"1.00";"";""

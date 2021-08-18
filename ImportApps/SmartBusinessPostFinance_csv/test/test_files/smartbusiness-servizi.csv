@@ -1,0 +1,4 @@
+"number";"name";"description";"price";"unit";"vat";"category";"including_vat";"default_amount";"notes"
+"101";"Lieferung";"";"200.00";"Forfait";"7.70";"";"N";"1.00";""
+"106";"Beratung & Projektierung";"";"120.00";"Ora";"7.70";"";"N";"1.00";""
+"107";"Wartung";"";"80.00";"Ora";"7.70";"";"N";"1.00";""
