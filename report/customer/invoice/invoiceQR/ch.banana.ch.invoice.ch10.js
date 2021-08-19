@@ -2105,14 +2105,24 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         var userColumnValue = "";
         var columnsName = columnsNames[j];
         var itemValue = "";
-        //User defined columns, in settings dialog, must start with "T."
-        //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
-        //This prevent conflicts with JSON fields.
         if (columnsName.startsWith("T.")) {
+          //User defined columns, in settings dialog, must start with "T."
+          //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
+          //This prevent conflicts with JSON fields.
           if (BAN_ADVANCED) {
             columnsName = columnsName.substring(2);
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
             itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);         
+          }
+          else {
+            customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
+          }
+        } else if (item[columnsName.trim().toLowerCase()]) {
+          // An item's property with the column's name exists
+          if (BAN_ADVANCED) {
+            columnsName = columnsName.trim().toLowerCase();
+            userColumnValue = item[columnsName];
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);
           }
           else {
             customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
@@ -2315,13 +2325,23 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         var userColumnValue = "";
         var columnsName = columnsNames[j];
         var itemValue = "";
-        //User defined columns, in settings dialog, must start with "T."
-        //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
-        //This prevent conflicts with JSON fields.
         if (columnsName.startsWith("T.")) {
+          //User defined columns, in settings dialog, must start with "T."
+          //ex. column transaction table = "DateWork"; column in settings dialog = "T.DateWork"
+          //This prevent conflicts with JSON fields.
           if (BAN_ADVANCED) {
             columnsName = columnsName.substring(2);
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, columnsName);
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);
+          }
+          else {
+            customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
+          }
+        } else if (item[columnsName.trim().toLowerCase()]) {
+          // An item's property with the column's name exists
+          if (BAN_ADVANCED) {
+            columnsName = columnsName.trim().toLowerCase();
+            userColumnValue = item[columnsName];
             itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);
           }
           else {
