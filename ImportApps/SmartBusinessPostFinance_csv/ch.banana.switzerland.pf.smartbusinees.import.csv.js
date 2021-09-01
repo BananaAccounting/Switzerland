@@ -51,20 +51,23 @@ function exec(string) {
     var initJsonDoc=initDocument();
     var fieldSeparator = findSeparator(string);
     var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+    var transactions_header=transactions[0];
+    transactions.splice(0,1);
+    var transactionsObjs=Banana.Converter.arrayToObject(transactions_header,transactions,true);
 
    //format 1: prodotti e servizi
    var format_ps = new formatPS();
-   if (format_ps.match(transactions))
+   if (format_ps.match(transactionsObjs,transactions_header))
    {
-      var format = format_ps.convertInDocChange(transactions,initJsonDoc);
+      var format = format_ps.convertInDocChange(transactionsObjs,initJsonDoc);
       jsonDocArray=format;
    }
    //Format 2: Contatti
    var format_cnt = new formatCnt();
-   if (format_cnt.match(transactions))
+   if (format_cnt.match(transactionsObjs,transactions_header))
    {
-      //var format = format_ps.convertInDocChange(transactions,initJsonDoc);
-      //jsonDocArray=format;
+      var format = format_cnt.convertInDocChange(transactionsObjs,initJsonDoc);
+      jsonDocArray=format;
    }
 
 
@@ -143,24 +146,24 @@ var formatCnt=class formatCnt{
    }
 
    /** Return true if the transactions match this format */
-   match(transactions) {
+   match(transactions,transactions_header) {
       if ( transactions.length === 0)
          return false;
-      for (var i=0;i<transactions.length;i++){
-         var transaction = transactions[i];
+      for (var row in transactions){
+         var transaction = transactions[row];
    
          var formatMatched = false;
    //controllo che la lunghezza dell array sia effettivamente quella controllando la prima riga
-         if (transaction.length  === (this.department_2+1))
+         if (transactions_header.length  === (this.department_2+1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.number].match(/[0-9\.]+/g))
+         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
             formatMatched = true;
          else
             formatMatched = false;
-         if ( formatMatched && transaction[this.name])
+         if (formatMatched && transaction["name"])
             formatMatched = true;
          else
             formatMatched = false;
@@ -170,6 +173,57 @@ var formatCnt=class formatCnt{
       }
    
       return false;
+   }
+
+   convertInDocChange(transactionsObjs,initJsonDoc){
+      var jsonDoc=[];
+      //rows
+      let rows = [];
+      for (var row_ in transactionsObjs){
+         var transaction=transactionsObjs[row_];
+
+         let row = {};
+         row.operation = {};
+         row.operation.name = "add";
+
+         row.fields = {};
+         row.fields["RowId"] = transaction["number"];
+         row.fields["FirstName"] = transaction["name"];
+         row.fields["PhoneMain"] = transaction["phone"];
+         row.fields["PhoneHome"] = transaction["person_phone_1"];
+         row.fields["PhoneMobile"] = transaction["person_phone_2"];
+         row.fields["EmailWork"] = transaction["email"];
+         row.fields["EmailHome"] = transaction["person_email_1"];
+         row.fields["EmailOther"] = transaction["person_email_2"];
+         row.fields["Language"] = transaction["language"];
+         row.fields["Notes"] = transaction["notes"];
+         row.fields["Street"] = transaction["address_street_1"]+" "+transaction["address_street_no"];
+         row.fields["PostalCode"] = transaction["address_code_1"];
+         row.fields["Locality"] = transaction["address_city_1"];
+         row.fields["Country"] = transaction["address_country_1"];
+         //controllare bene i campi da aggiungere (Vedere con Domenico)
+
+
+         //controllare che la riga non esista già
+        /* if(verifyIfNotExist(row.fields,"Contacts","RowId","UnitPrice")){
+            
+         }*/
+         rows.push(row);
+ 
+
+      }
+
+      var dataUnitTransactions = {};
+      dataUnitTransactions.nameXml = "Contacts";
+      dataUnitTransactions.data = {};
+      dataUnitTransactions.data.rowLists = [];
+      dataUnitTransactions.data.rowLists.push({ "rows": rows });
+
+      var jsonDoc=initJsonDoc;
+
+      jsonDoc.document.dataUnits.push(dataUnitTransactions);
+
+      return jsonDoc;
    }
 }
 
@@ -202,25 +256,26 @@ var formatPS =class formatPS {
  
  
    /** Return true if the transactions match this format */
-   match(transactions) {
+   match(transactions,transactions_header) {
       if ( transactions.length === 0)
          return false;
 
-      for (var i=0;i<transactions.length;i++){
-         var transaction = transactions[i];
- 
+      for (var row in transactions){
+         var transaction=transactions[row];
+         //aggiungere un controllo
          var formatMatched = false;
- //controllo che la lunghezza dell array sia effettivamente quella controllando la prima riga
-         if (transaction.length  === (this.selfcost+1) || transaction.length == (this.notes+1))
+
+         if (transactions_header.length  === (this.selfcost+1) || transactions_header.length == (this.notes+1))
+            formatMatched=true;
+         else
+            formatMatched=false;
+
+         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.number].match(/[0-9\.]+/g))
-            formatMatched = true;
-         else
-            formatMatched = false;
-         if ( formatMatched && transaction[this.price].match(/[0-9\.]+/g))
+         if (formatMatched && transaction["price"].match(/[0-9\.]+/g))
             formatMatched = true;
          else
             formatMatched = false;
@@ -237,30 +292,30 @@ var formatPS =class formatPS {
  */
    convertInDocChange(transactions,initJsonDoc){
       var jsonDoc=[];
+      var existingElements=getExistingItemsFromTable("Items","RowId","UnitPrice");
       //rows
       let rows = [];
-
-      for (var i=1;i<transactions.length;i++){
-         var transaction = transactions[i];
+      for (var row_ in transactions){
+         var transaction=transactions[row_];
          let row = {};
          row.operation = {};
          row.operation.name = "add";
 
          row.fields = {};
-         row.fields["RowId"] = transaction[this.number];
-         row.fields["Description"] = transaction[this.name];
-         row.fields["UnitPrice"] = transaction[this.price];
-         row.fields["ReferenceUnit"] = transaction[this.unit];
-         row.fields["VatImport"] = transaction[this.vat];
-         row.fields["RowGroup"] = transaction[this.category];
-         row.fields["IncludeVat"] = transaction[this.including_vat];
-         row.fields["ValueBegin"] = transaction[this.default_amount];
-         row.fields["Notes"] = transaction[this.notes];
-         row.fields["SelfCost"] = transaction[this.selfcost];
+         row.fields["RowId"] = transaction["number"];
+         row.fields["Description"] = transaction["name"];
+         row.fields["UnitPrice"] = transaction["price"];
+         row.fields["ReferenceUnit"] = transaction["unit"];
+         row.fields["VatImport"] = transaction["vat"];
+         row.fields["RowGroup"] = transaction["category"];
+         row.fields["IncludeVat"] = transaction["including_vat"];
+         row.fields["ValueBegin"] = transaction["default_amount"];
+         row.fields["Notes"] = transaction["notes"];
+         row.fields["SelfCost"] = transaction["selfcost"];
 
 
          //controllare che la riga non esista già
-         if(verifyIfNotExist(row.fields,"Items","RowId","UnitPrice")){
+         if(verifyIfNotExist(existingElements,row.fields)){
             rows.push(row);
          }
  
@@ -280,40 +335,37 @@ var formatPS =class formatPS {
       return jsonDoc;
    }
 }
+function getExistingItemsFromTable(tableName,ref_field_1,ref_field_2){
 
+     var table = Banana.document.table(tableName);
+     var existingElements=[];
+     
+     if (!table) {
+         return "";
+     }
 
-function verifyIfNotExist(rows,ref_table,ref_field_1,ref_field_2){
+     for (var i = 1; i < table.rowCount; i++) {
+         var rowObj={};
+         var tRow = table.row(i);
 
+         rowObj.field_1= tRow.value(ref_field_1);
+         rowObj.field_2= tRow.value(ref_field_2);
+ 
+         existingElements.push(rowObj);
+     }
+
+     return existingElements;
+}
+
+function verifyIfNotExist(existingElements,newEelements){
    var NotExist=false;
-   var existingElements=[];
 
    if (!Banana.document) {
       return "";
-  }
-     //carico le righe esistenti dalla tabella corretta
-  var table = Banana.document.table(ref_table);
-    if (!table) {
-        return "";
-    }
-
-    for (var i = 1; i < table.rowCount; i++) {
-        let existingRows = {};
-        var tRow = table.row(i);
-
-        existingRows.field_1= tRow.value(ref_field_1)
-        existingRows.field_2= tRow.value(ref_field_2)
-
-        existingElements.push(existingRows);
-    }
-
-    for(var row in existingElements){
-       if(rows[ref_field_1]!==existingElements[row].field_1 && Banana.Converter.toLocaleNumberFormat(rows[ref_field_2],2])!==existingElements[row].field_2){
-         Banana.console.debug(NotExist);
-         NotExist=true;
-       }
-    }
+   }
+   for (var row in existingElements){
+   }
     return NotExist;
-
 }
 
 
@@ -346,4 +398,4 @@ function verifyIfNotExist(rows,ref_table,ref_field_1,ref_field_2){
     }
  
     return ',';
- }
+}
