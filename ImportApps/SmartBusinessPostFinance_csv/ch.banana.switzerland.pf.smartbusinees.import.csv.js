@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.pf.smartbusinees.import.csv.js
 // @api = 1.0
-// @pubdate = 2021-08-10
+// @pubdate = 2021-09-01
 // @publisher = Banana.ch SA
 // @description = Import Postfinance Smart business data (*.csv)
 // @doctype = *
@@ -70,6 +70,14 @@ function exec(string) {
       jsonDocArray=format;
    }
 
+   //Format 3: Fatture
+   var format_invs = new formatInvS();
+   if (format_invs.match(transactionsObjs,transactions_header))
+   {
+      var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
+     // jsonDocArray=format;
+   }
+   
 
    var documentChange = { "format": "documentChange", "error": "","data":[]};
    documentChange["data"].push(jsonDocArray); 
@@ -99,62 +107,26 @@ function getCurrentDate() {
 }
 
 /**
- * "relations";"type";"gender";"number";"name";"addition";"salutation";"language";"email";"phone";"fax";"website";"vat_id";"groups";"sendpreference";"notes";"address_street_1";"address_street2_1";"address_streetno_1";"address_code_1";"address_city_1";"address_country_1";"person_name_1";"person_surname_1";"person_gender_1";"person_email_1";"person_phone_1";"person_salutation_1";"person_department_1";"person_name_2";"person_surname_2";"person_gender_2";"person_email_2";"person_phone_2";"person_salutation_2";"person_department_2"
- * "CL";"P";"M";"8247";"Pinco Pallino";"";"";"it";"";"";"";"";"";"N. Sportivo";"U";"";"Via Alle Stalle";"";"28";"6593";"Cadenazzo";"CH";"";"";"";"";"";"";"";"";"";"";"";"";"";""
- * "CL";"C";"";"4";"Pinco Pallino SA";"";"";"it";"";"";"";"";"";"";"U";"noleggio autogru,trasporti, piattaforme,";"Via la Stampa";"";"21";"6965";"Cadro";"CH";"Paolo";"VISMARA";"M";"paolo@vismara.ch";"";"";"";"";"";"";"";"";"";""
+ * "number";"client_name";"client_number";"client_groups";"date";"period";"due";"period_from";"period_to";"total";"total_exclvat";"total_exclvat_afterdiscount";"total_vat";"currency";"status";"paid_date";"paid_amount";"esr_number";"cash_discount_date";"cash_discount_value";"service_total";"service_exclvat";"service_vat";"service_vat_split";"product_total";"product_exclvat";"product_vat";"product_vat_split";"rounding_difference";"payments"
+ * "10002";"Garage Zylinder AG";"1000";"B-Kunde";"09.08.2021";"";"08.09.2021";"";"";"1079.27";"1002.11";"1002.11";"77.16";"CHF";"1° sollecito";"";"0.00";"000000000000000000000001029";"";"";"1077.00";"1000.00";"77.00";"7.70:77.00";"2.27";"2.11";"0.16";"7.70:0.16";"0";""
+ * "10001";"Garage Zylinder AG";"1000";"B-Kunde";"09.08.2021";"";"08.09.2021";"";"";"647.93";"601.61";"601.61";"46.32";"CHF";"Inviato";"";"0.00";"000000000000000000000001013";"";"";"646.20";"600.00";"46.20";7."70:46.20";"1.73";"1.61";"0.12";"7.70:0.12";"-0";""
+ * "10000";"Garage Zylinder AG";"1000";"B-Kunde";"09.08.2021";"";"08.09.2021";"";"";"431.53";"400.68";"400.68";"30.85";"CHF";"Bozza";"";"0.00";"000000000000000000000001008";"";"";"430.80";"400.00";"30.80";"7.70:30.80";"0.73";"0.68";"0.05";"7.70:0.05";"-0";""
+ * struttura file fatture(singola riga)
  */
-
-var formatCnt=class formatCnt{
-   constructor(){
-      this.relations=0;
-      this.type=1;
-      this.gender=2;
-      this.number=3;
-      this.name=4;
-      this.addition=5;
-      this.salutation=6;
-      this.language=7;
-      this.email=8;
-      this.phone=9;
-      this.fax=10;
-      this.website=11;
-      this.vat_id=12;
-      this.groups=13;
-      this.sendpreference=14;
-      this.notes=15;
-      this.address_street_1=16;
-      this.address_street_2=17;
-      this.address_streetno_1=18;
-      this.address_code_1=19;
-      this.address_city_1=20;
-      this.address_country_1=21;
-      this.person_name_1=22;
-      this.person_surname_1=23;
-      this.person_gender_1=24;
-      this.person_email_1=25;
-      this.person_phone_1=26;
-      this.person_salutation_1=27;
-      this.department_1=28;
-      this.person_name_2=29;
-      this.person_surname_2=30;
-      this.person_gender_2=31;
-      this.person_email_2=32;
-      this.person_phone_2=33;
-      this.person_salutation_2=34;
-      this.department_2=35;
-
-   }
-
+ var formatInvS =class formatInvS { 
+ 
    /** Return true if the transactions match this format */
-   match(transactions,transactions_header) {
+   match(transactions) {
       if ( transactions.length === 0)
          return false;
+
       for (var row in transactions){
-         var transaction = transactions[row];
-   
+         var transaction=transactions[row];
+         //aggiungere un controllo
          var formatMatched = false;
-   //controllo che la lunghezza dell array sia effettivamente quella controllando la prima riga
-         if (transactions_header.length  === (this.department_2+1))
+         
+
+         if (transaction["client_number"])
             formatMatched = true;
          else
             formatMatched = false;
@@ -163,7 +135,243 @@ var formatCnt=class formatCnt{
             formatMatched = true;
          else
             formatMatched = false;
-         if (formatMatched && transaction["name"])
+
+         if (formatMatched && transaction["date"].match(/[0-9\.]+/g) && transaction["date"].length==10)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+ 
+      return false;
+   }
+
+   convertInDocChange(transactionsObjs,initJsonDoc){
+      var jsonDoc=[];
+      var docInfo=getDocumentInfo();
+      var rows=[];
+
+      for (var row_ in transactionsObjs){
+         var invoiceObj={};
+         var transaction=transactionsObjs[row_];
+
+         invoiceObj=this.setInvoiceStructure(transaction,docInfo);
+
+         // Recalculate invoice
+         invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
+        //Banana.console.debug("AFTER:"+JSON.stringify(invoiceObj));
+
+        let row = {};
+        row.operation = {};
+        row.operation.name = "add";
+        row.fields={};
+
+        row.fields["InvoiceData"]=invoiceObj;
+
+        rows.push(row);
+
+
+      }
+
+      var dataUnitInvoices = {};
+      dataUnitInvoices.nameXml = "Invoices";
+      dataUnitInvoices.data = {};
+      dataUnitInvoices.data.rowLists = [];
+      dataUnitInvoices.data.rowLists.push({ "rows": rows });
+
+      var jsonDoc=initJsonDoc;
+
+      jsonDoc.document.dataUnits.push(dataUnitInvoices);
+
+      return;
+   }
+
+
+
+//questo metodo dovrò richiamarlo per ogni riga di fattura presente, gli passo una transazione
+   setInvoiceStructure(transaction,docInfo){
+
+      var invoiceObj={};
+      var invoiceTransaction=transaction;
+      var supInfo=docInfo
+
+      invoiceObj.customer_info=this.setInvoiceStructure_customerInfo(invoiceTransaction);
+      invoiceObj.document_info=this.setInvoiceStructure_documentInfo(invoiceTransaction);
+      invoiceObj.items=this.setInvoiceStructure_items(invoiceTransaction);
+      invoiceObj.note={};
+      invoiceObj.parameters={};
+      invoiceObj.payment_info=this.setInvoiceStructure_paymentInfo(invoiceTransaction);
+      invoiceObj.shipping_info=this.setInvoiceStructure_shippingInfo(invoiceTransaction);
+      invoiceObj.supplier_info=this.setInvoiceStructure_supplierInfo(supInfo);
+      invoiceObj.type="invoice";
+      invoiceObj.version="1.0";
+
+
+
+
+      return invoiceObj;
+   }
+
+   setInvoiceStructure_customerInfo(invoiceTransaction){
+      var invoiceObj_customerInfo={};
+
+         invoiceObj_customerInfo.address1="";
+         invoiceObj_customerInfo.address2="";
+         invoiceObj_customerInfo.address3="";
+         invoiceObj_customerInfo.balance="";
+         invoiceObj_customerInfo.balance_base_currency="";
+         invoiceObj_customerInfo.business_name="";
+         invoiceObj_customerInfo.city="";
+         invoiceObj_customerInfo.country="";
+         invoiceObj_customerInfo.country_code="";
+         invoiceObj_customerInfo.courtesy="";
+         invoiceObj_customerInfo.currency="";
+         invoiceObj_customerInfo.date_birth="";
+         invoiceObj_customerInfo.email="";
+         invoiceObj_customerInfo.first_name=invoiceTransaction["client_name"];
+         invoiceObj_customerInfo.lang="";
+         invoiceObj_customerInfo.last_name="";
+         invoiceObj_customerInfo.mobile="";
+         invoiceObj_customerInfo.number="";
+         invoiceObj_customerInfo.origin_row="";
+         invoiceObj_customerInfo.origin_table="";
+         invoiceObj_customerInfo.postal_code="";
+         invoiceObj_customerInfo.vat_number="";
+
+
+      return invoiceObj_customerInfo;
+
+   }
+   setInvoiceStructure_documentInfo(invoiceTransaction){
+      var invoiceObj_documentInfo={};
+
+      invoiceObj_documentInfo.currency=invoiceTransaction["currency"];
+      invoiceObj_documentInfo.date=invoiceTransaction["date"];
+      invoiceObj_documentInfo.decimals_amounts=2;
+      invoiceObj_documentInfo.description="";
+      invoiceObj_documentInfo.doc_type="";
+      invoiceObj_documentInfo.locale="";
+      invoiceObj_documentInfo.number=invoiceTransaction["number"];
+      invoiceObj_documentInfo.origin_row="";
+      invoiceObj_documentInfo.origin_table="";
+      invoiceObj_documentInfo.printed="";
+      invoiceObj_documentInfo.rounding_total="";
+      invoiceObj_documentInfo.type="";
+
+
+      return invoiceObj_documentInfo;
+
+   }
+   setInvoiceStructure_items(invoiceTransaction){
+      var invoiceArr_items=[];
+      var invoiceObj_items={};
+      var invTransaction=invoiceTransaction;
+
+
+      invoiceObj_items.account_assignment="3000";
+      invoiceObj_items.description="various";
+      invoiceObj_items.details="";
+      invoiceObj_items.index="0";
+      invoiceObj_items.item_type="0";
+      invoiceObj_items.mesure_unit="";
+      invoiceObj_items.number="";
+      invoiceObj_items.quantity="1";
+      invoiceObj_items.unit_price=this.setInvoiceStructure_items_unitPrice(invTransaction);
+      
+
+      invoiceArr_items.push(invoiceObj_items);
+
+
+      return invoiceArr_items;
+   }
+
+   setInvoiceStructure_items_unitPrice(invoiceTransaction){
+      var unitPrice={};
+
+      unitPrice.amount_vat_inclusive=null;
+      unitPrice.amount_vat_exclusive=invoiceTransaction["total_exclvat"];
+      unitPrice.currency=invoiceTransaction["currency"];
+      unitPrice.vat_code="";
+      //CAMBIARE METODO PER TROVARE L'IVA,PERCHE DA SERVIZIO A PRODOTTO POTREBBE NON ESSERE LA STESSA
+      var pos=invoiceTransaction["service_vat_split"].indexOf(":");
+      Banana.console.debug(pos);
+      unitPrice.vat_rate=invoiceTransaction["service_vat_split"].substring(0,pos);
+
+
+      return unitPrice;
+
+   }
+
+   setInvoiceStructure_paymentInfo(invoiceTransaction){
+      var invoiceObj_paymentInfo={};
+
+      invoiceObj_paymentInfo.due_date="";
+      invoiceObj_paymentInfo.due_days="";
+      invoiceObj_paymentInfo.payment_date=invoiceTransaction["paid_date"];
+
+      return invoiceObj_paymentInfo;
+
+   }
+
+   setInvoiceStructure_shippingInfo(invoiceTransaction){
+      var invoiceObj_shippingInfo={};
+
+      invoiceObj_shippingInfo.different_shipping_address=false;
+
+      return invoiceObj_shippingInfo={};
+   }
+
+   setInvoiceStructure_supplierInfo(supInfo){
+      var invoiceObj_supplierInfo={};
+
+
+      invoiceObj_supplierInfo.address1=supInfo.address1;
+      invoiceObj_supplierInfo.address2=supInfo.address2;
+      invoiceObj_supplierInfo.business_name=supInfo.business_name;
+      invoiceObj_supplierInfo.city=supInfo.city;
+      invoiceObj_supplierInfo.courtesy=supInfo.courtesy;
+      invoiceObj_supplierInfo.email=supInfo.email;
+      invoiceObj_supplierInfo.fax=supInfo.fax;
+      invoiceObj_supplierInfo.first_name=supInfo.first_name;
+      invoiceObj_supplierInfo.fiscal_number=supInfo.fiscal_number;
+      invoiceObj_supplierInfo.last_name=supInfo.last_name;
+      invoiceObj_supplierInfo.phone=supInfo.phone;
+      invoiceObj_supplierInfo.postal_code=supInfo.postal_code;
+      invoiceObj_supplierInfo.state=supInfo.state;
+      invoiceObj_supplierInfo.vat_number=supInfo.vat_number;
+      invoiceObj_supplierInfo.web=supInfo.web;
+
+      return invoiceObj_supplierInfo;
+
+   }
+
+}
+
+/**
+ * "relations";"type";"gender";"number";"name";"addition";"salutation";"language";"email";"phone";"fax";"website";"vat_id";"groups";"sendpreference";"notes";"address_street_1";"address_street2_1";"address_streetno_1";"address_code_1";"address_city_1";"address_country_1";"person_name_1";"person_surname_1";"person_gender_1";"person_email_1";"person_phone_1";"person_salutation_1";"person_department_1";"person_name_2";"person_surname_2";"person_gender_2";"person_email_2";"person_phone_2";"person_salutation_2";"person_department_2"
+ * "CL";"P";"M";"8247";"Pinco Pallino";"";"";"it";"";"";"";"";"";"N. Sportivo";"U";"";"Via Alle Stalle";"";"28";"6593";"Cadenazzo";"CH";"";"";"";"";"";"";"";"";"";"";"";"";"";""
+ * "CL";"C";"";"4";"Pinco Pallino SA";"";"";"it";"";"";"";"";"";"";"U";"noleggio autogru,trasporti, piattaforme,";"Via la Stampa";"";"21";"6965";"Cadro";"CH";"Paolo";"VISMARA";"M";"paolo@vismara.ch";"";"";"";"";"";"";"";"";"";""
+ */
+
+var formatCnt=class formatCnt{
+
+   /** Return true if the transactions match this format */
+   match(transactions) {
+      if ( transactions.length === 0)
+         return false;
+      for (var row in transactions){
+         var transaction = transactions[row];
+   
+         var formatMatched = false;
+
+         if (transaction["number"] && transaction["name"] && transaction["type"])
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
             formatMatched = true;
          else
             formatMatched = false;
@@ -238,44 +446,26 @@ var formatCnt=class formatCnt{
  */
 
 var formatPS =class formatPS {
-   constructor() {
-      this.number=0;
-      this.name=1;
-      this.description=2;
-      this.price=3;
-      this.unit=4;
-      this.vat=5;
-      this.category=6;
-      this.including_vat=7;
-      this.default_amount=8;
-      this.notes=9;
-      this.selfcost=10;
-   
-      this.decimalSeparator = ".";
-   }
  
- 
-   /** Return true if the transactions match this format */
-   match(transactions,transactions_header) {
+   /** Return true if the transactions match this format 
+    * controllo che tutte le righe siano valide controllando aluni campi
+    * 
+   */
+   match(transactions) {
       if ( transactions.length === 0)
          return false;
 
       for (var row in transactions){
          var transaction=transactions[row];
-         //aggiungere un controllo
+         
          var formatMatched = false;
 
-         if (transactions_header.length  === (this.selfcost+1) || transactions_header.length == (this.notes+1))
-            formatMatched=true;
-         else
-            formatMatched=false;
-
-         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
+         if (transaction["price"] && transaction["unit"])
             formatMatched = true;
          else
             formatMatched = false;
 
-         if (formatMatched && transaction["price"].match(/[0-9\.]+/g))
+         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
             formatMatched = true;
          else
             formatMatched = false;
@@ -315,7 +505,8 @@ var formatPS =class formatPS {
 
 
          //controllare che la riga non esista già
-         if(verifyIfNotExist(existingElements,row.fields)){
+         var rowExist=verifyIfExist(existingElements,row.fields["RowId"],row.fields["UnitPrice"]);
+         if(!rowExist){
             rows.push(row);
          }
  
@@ -335,6 +526,7 @@ var formatPS =class formatPS {
       return jsonDoc;
    }
 }
+
 function getExistingItemsFromTable(tableName,ref_field_1,ref_field_2){
 
      var table = Banana.document.table(tableName);
@@ -357,15 +549,44 @@ function getExistingItemsFromTable(tableName,ref_field_1,ref_field_2){
      return existingElements;
 }
 
-function verifyIfNotExist(existingElements,newEelements){
-   var NotExist=false;
+function verifyIfExist(existingElements,newEelements_field_1,newEelements_field_2){
+   var exists=false;
 
-   if (!Banana.document) {
+   if (!Banana.document)
       return "";
+   for(var row in existingElements){
+      /*Banana.console.debug("existing 1: "+existingElements[row].field_1);
+      Banana.console.debug("new 1: "+newEelements_field_1);
+      Banana.console.debug("existing 2: "+existingElements[row].field_2);
+      Banana.console.debug("new 2: "+newEelements_field_2);*/
+      if(existingElements[row].field_1==newEelements_field_1 && existingElements[row].field_2==newEelements_field_2){
+         exists=true;
+      }
    }
-   for (var row in existingElements){
+    return exists;
+}
+
+function getDocumentInfo(){
+   var docInfo={};
+   if (Banana.document){
+      docInfo.address1=Banana.document.info("AccountingDataBase","Address1");
+      docInfo.address2=Banana.document.info("AccountingDataBase","Address2");
+      docInfo.business_name=Banana.document.info("AccountingDataBase","Company");
+      docInfo.city=Banana.document.info("AccountingDataBase","City");
+      docInfo.courtesy=Banana.document.info("AccountingDataBase","Courtesy");
+      docInfo.email=Banana.document.info("AccountingDataBase","Email");
+      docInfo.fax="";
+      docInfo.first_name=Banana.document.info("AccountingDataBase","Name");
+      docInfo.fiscal_number=Banana.document.info("AccountingDataBase","FiscalNumber");
+      docInfo.last_name=Banana.document.info("AccountingDataBase","LastName");
+      docInfo.phone=Banana.document.info("AccountingDataBase","Phone");
+      docInfo.postal_code=Banana.document.info("AccountingDataBase","Zip");
+      docInfo.state=Banana.document.info("AccountingDataBase","State");
+      docInfo.vat_number=Banana.document.info("AccountingDataBase","VatNumber");
+      docInfo.web=Banana.document.info("AccountingDataBase","Web");
    }
-    return NotExist;
+
+   return docInfo;
 }
 
 
