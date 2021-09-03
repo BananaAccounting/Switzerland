@@ -57,23 +57,24 @@ function exec(string) {
 
    //format 1: prodotti e servizi
    var format_ps = new formatPS();
-   if (format_ps.match(transactionsObjs,transactions_header))
+   if (format_ps.match(transactionsObjs))
    {
       var format = format_ps.convertInDocChange(transactionsObjs,initJsonDoc);
       jsonDocArray=format;
    }
    //Format 2: Contatti
    var format_cnt = new formatCnt();
-   if (format_cnt.match(transactionsObjs,transactions_header))
+   if (format_cnt.match(transactionsObjs))
    {
       var format = format_cnt.convertInDocChange(transactionsObjs,initJsonDoc);
       jsonDocArray=format;
    }
 
-   //Format 3: Fatture
+   //Format 3: Fatture (dettagliate)
    var format_invs = new formatInvS();
-   if (format_invs.match(transactionsObjs,transactions_header))
+   if (format_invs.match(transactionsObjs))
    {
+      format_invs.getInvoiceId(transactionsObjs);
       var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
      // jsonDocArray=format;
    }
@@ -114,6 +115,10 @@ function getCurrentDate() {
  * struttura file fatture(singola riga)
  */
  var formatInvS =class formatInvS { 
+
+   constructor(){
+      this.placeHolder="";
+   }
  
    /** Return true if the transactions match this format */
    match(transactions) {
@@ -125,14 +130,14 @@ function getCurrentDate() {
          //aggiungere un controllo
          var formatMatched = false;
          
-
-         if (transaction["client_number"])
+         if (transaction["client_number"] && transaction["client_number"].match(/[0-9\.]+/g))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
+         if (formatMatched && transaction["number"].match(/[0-9\.]+/g)){
             formatMatched = true;
+         }
          else
             formatMatched = false;
 
@@ -153,39 +158,44 @@ function getCurrentDate() {
       var docInfo=getDocumentInfo();
       var rows=[];
 
+      
+
+      var invoiceObj={};
+      invoiceObj=setInvoiceStructure()
+
+      /**
+       * per ogni riga creo l'oggetto items e poi lo butto dentro a quello principale (invoiceObj)
+       */
+
       for (var row_ in transactionsObjs){
-         var invoiceObj={};
-         var transaction=transactionsObjs[row_];
+            var invoiceTransaction=transactionsObjs[row_];
 
-         invoiceObj=this.setInvoiceStructure(transaction,docInfo);
-
-         // Recalculate invoice
-         invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
-        //Banana.console.debug("AFTER:"+JSON.stringify(invoiceObj));
-
-        let row = {};
-        row.operation = {};
-        row.operation.name = "add";
-        row.fields={};
-
-        row.fields["InvoiceData"]=invoiceObj;
-
-        rows.push(row);
-
-
+            invoiceObj.items=this.setInvoiceStructure_items(invoiceTransaction);
       }
 
-      var dataUnitInvoices = {};
-      dataUnitInvoices.nameXml = "Invoices";
-      dataUnitInvoices.data = {};
-      dataUnitInvoices.data.rowLists = [];
-      dataUnitInvoices.data.rowLists.push({ "rows": rows });
+            // Recalculate invoice
+            invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
+
+         let row = {};
+         row.operation = {};
+         row.operation.name = "add";
+         row.fields={};
+
+         row.fields["InvoiceData"]={"invoice_json":invoiceObj};
+
+         rows.push(row);
+
+      var dataUnitTransactions = {};
+      dataUnitTransactions.nameXml = "Invoices";
+      dataUnitTransactions.data = {};
+      dataUnitTransactions.data.rowLists = [];
+      dataUnitTransactions.data.rowLists.push({ "rows": rows });
 
       var jsonDoc=initJsonDoc;
 
-      jsonDoc.document.dataUnits.push(dataUnitInvoices);
+      jsonDoc.document.dataUnits.push(dataUnitTransactions);
 
-      return;
+      return jsonDoc;
    }
 
 
@@ -193,25 +203,22 @@ function getCurrentDate() {
 //questo metodo dovrò richiamarlo per ogni riga di fattura presente, gli passo una transazione
    setInvoiceStructure(transaction,docInfo){
 
-      var invoiceObj={};
-      var invoiceTransaction=transaction;
-      var supInfo=docInfo
+         var invoiceObj={};
+         var invoiceTransaction=transaction;
+         var supInfo=docInfo
 
-      invoiceObj.customer_info=this.setInvoiceStructure_customerInfo(invoiceTransaction);
-      invoiceObj.document_info=this.setInvoiceStructure_documentInfo(invoiceTransaction);
-      invoiceObj.items=this.setInvoiceStructure_items(invoiceTransaction);
-      invoiceObj.note={};
-      invoiceObj.parameters={};
-      invoiceObj.payment_info=this.setInvoiceStructure_paymentInfo(invoiceTransaction);
-      invoiceObj.shipping_info=this.setInvoiceStructure_shippingInfo(invoiceTransaction);
-      invoiceObj.supplier_info=this.setInvoiceStructure_supplierInfo(supInfo);
-      invoiceObj.type="invoice";
-      invoiceObj.version="1.0";
-
+         invoiceObj.customer_info=this.setInvoiceStructure_customerInfo(invoiceTransaction);
+         invoiceObj.document_info=this.setInvoiceStructure_documentInfo(invoiceTransaction);
+         invoiceObj.note={};
+         invoiceObj.parameters={};
+         invoiceObj.payment_info=this.setInvoiceStructure_paymentInfo(invoiceTransaction);
+         invoiceObj.shipping_info=this.setInvoiceStructure_shippingInfo(invoiceTransaction);
+         invoiceObj.supplier_info=this.setInvoiceStructure_supplierInfo(supInfo);
+         invoiceObj.type="invoice";
+         invoiceObj.version="1.0";
 
 
-
-      return invoiceObj;
+         return invoiceObj;
    }
 
    setInvoiceStructure_customerInfo(invoiceTransaction){
@@ -291,13 +298,10 @@ function getCurrentDate() {
       var unitPrice={};
 
       unitPrice.amount_vat_inclusive=null;
-      unitPrice.amount_vat_exclusive=invoiceTransaction["total_exclvat"];
+      unitPrice.amount_vat_exclusive=invoiceTransaction[""];
       unitPrice.currency=invoiceTransaction["currency"];
       unitPrice.vat_code="";
-      //CAMBIARE METODO PER TROVARE L'IVA,PERCHE DA SERVIZIO A PRODOTTO POTREBBE NON ESSERE LA STESSA
-      var pos=invoiceTransaction["service_vat_split"].indexOf(":");
-      Banana.console.debug(pos);
-      unitPrice.vat_rate=invoiceTransaction["service_vat_split"].substring(0,pos);
+      unitPrice.vat_rate=invoiceTransaction[""];
 
 
       return unitPrice;
