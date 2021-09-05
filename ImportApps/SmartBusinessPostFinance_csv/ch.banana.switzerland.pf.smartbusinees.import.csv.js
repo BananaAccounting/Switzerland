@@ -74,7 +74,6 @@ function exec(string) {
    var format_invs = new formatInvS();
    if (format_invs.match(transactionsObjs))
    {
-      format_invs.getInvoiceId(transactionsObjs);
       var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
      // jsonDocArray=format;
    }
@@ -158,42 +157,49 @@ function getCurrentDate() {
       var docInfo=getDocumentInfo();
       var rows=[];
 
-      
-
       var invoiceObj={};
-      invoiceObj=setInvoiceStructure()
+
 
       /**
-       * per ogni riga creo l'oggetto items e poi lo butto dentro a quello principale (invoiceObj)
+       * ciclo le righe e creo gli oggetti
+       * 
        */
+       for (var row_ in transactionsObjs){
+         var invoiceTransaction=transactionsObjs[row_];
 
-      for (var row_ in transactionsObjs){
-            var invoiceTransaction=transactionsObjs[row_];
+         if(this.placeHolder!=invoiceTransaction["number"]){
+            invoiceObj=this.setInvoiceStructure(invoiceTransaction,docInfo);
+            invoiceObj.items=this.setInvoiceStructure_items(transactionsObjs,invoiceTransaction["number"]);
 
-            invoiceObj.items=this.setInvoiceStructure_items(invoiceTransaction);
-      }
 
             // Recalculate invoice
             invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
 
-         let row = {};
-         row.operation = {};
-         row.operation.name = "add";
-         row.fields={};
+            let row = {};
+            row.operation = {};
+            row.operation.name = "add";
+            row.fields={};
 
-         row.fields["InvoiceData"]={"invoice_json":invoiceObj};
+            row.fields["InvoiceData"]={"invoice_json":invoiceObj};
 
-         rows.push(row);
+            rows.push(row);
 
-      var dataUnitTransactions = {};
-      dataUnitTransactions.nameXml = "Invoices";
-      dataUnitTransactions.data = {};
-      dataUnitTransactions.data.rowLists = [];
-      dataUnitTransactions.data.rowLists.push({ "rows": rows });
+         }
 
-      var jsonDoc=initJsonDoc;
+         this.placeHolder=invoiceTransaction["number"];
+       }
 
-      jsonDoc.document.dataUnits.push(dataUnitTransactions);
+       var dataUnitTransactions = {};
+       dataUnitTransactions.nameXml = "Invoices";
+       dataUnitTransactions.data = {};
+       dataUnitTransactions.data.rowLists = [];
+       dataUnitTransactions.data.rowLists.push({ "rows": rows });
+   
+       var jsonDoc=initJsonDoc;
+   
+       jsonDoc.document.dataUnits.push(dataUnitTransactions);
+
+       Banana.console.debug(JSON.stringify(dataUnitTransactions));
 
       return jsonDoc;
    }
@@ -271,26 +277,28 @@ function getCurrentDate() {
       return invoiceObj_documentInfo;
 
    }
-   setInvoiceStructure_items(invoiceTransaction){
-      var invoiceArr_items=[];
-      var invoiceObj_items={};
-      var invTransaction=invoiceTransaction;
+   setInvoiceStructure_items(invoiceTransactions,ref_number){
+      for(var row in invoiceTransactions){
+         var invTransaction=invoiceTransactions[row];
+         if(invTransaction["number"]==ref_number){
+            var invoiceArr_items=[];
+            var invoiceObj_items={};
 
 
-      invoiceObj_items.account_assignment="3000";
-      invoiceObj_items.description="various";
-      invoiceObj_items.details="";
-      invoiceObj_items.index="0";
-      invoiceObj_items.item_type="0";
-      invoiceObj_items.mesure_unit="";
-      invoiceObj_items.number="";
-      invoiceObj_items.quantity="1";
-      invoiceObj_items.unit_price=this.setInvoiceStructure_items_unitPrice(invTransaction);
-      
+            invoiceObj_items.account_assignment="3000";
+            invoiceObj_items.description="various";
+            invoiceObj_items.details="";
+            invoiceObj_items.index="0";
+            invoiceObj_items.item_type="0";
+            invoiceObj_items.mesure_unit="";
+            invoiceObj_items.number="";
+            invoiceObj_items.quantity="1";
+            invoiceObj_items.unit_price=this.setInvoiceStructure_items_unitPrice(invTransaction);
+            
 
-      invoiceArr_items.push(invoiceObj_items);
-
-
+            invoiceArr_items.push(invoiceObj_items);
+          }
+      }
       return invoiceArr_items;
    }
 
