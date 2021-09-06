@@ -46,6 +46,9 @@ function exec(string) {
 
     if (!Banana.document || string.length <= 0)
         return "@Cancel";
+   
+   if (!verifyBananaVersion())
+         return "@Cancel";
 
     var jsonDocArray={};
     var initJsonDoc=initDocument();
@@ -555,9 +558,6 @@ var formatPS =class formatPS {
          row.fields["Description"] = transaction["name"]+" "+transaction["description"];
          row.fields["UnitPrice"] = transaction["price"];
          row.fields["Unit"] = transaction["unit"];
-         row.fields["VatImport"] = transaction["vat"];
-         row.fields["RowGroup"] = transaction["category"];
-         row.fields["IncludeVat"] = transaction["including_vat"];
          row.fields["QuantityBegin"] = transaction["default_amount"];
          row.fields["Notes"] = transaction["notes"];
          row.fields["Cost"] = transaction["selfcost"];
@@ -655,23 +655,56 @@ function bananaRequiredVersion(requiredVersion, expmVersion) {
 }
 
 function verifyBananaVersion() {
+
    if (!Banana.document)
        return false;
 
-   var lang = this.getLang();
+   var lang = getLang();
 
    var ban_version_min = "10.0.9";
    var ban_dev_version_min = "";
    var curr_version = bananaRequiredVersion(ban_version_min, ban_dev_version_min);
 
    if (!curr_version) {
-       var msg = this.getErrorMessage(this.ID_ERR_VERSION_NOTSUPPORTED, lang);
-       msg = msg.replace("%1", BAN_VERSION_MIN);
-       Banana.document.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
+       var msg = this.getErrorMessage("ID_ERR_VERSION_NOTSUPPORTED", lang);
+       msg = msg.replace("%1", ban_version_min);
+       Banana.document.addMessage(msg,"ID_ERR_VERSION_NOTSUPPORTED");
        return false;
    }
 
    return true;
+}
+
+function getLang() {
+   var lang = 'en';
+   if (this.banDocument)
+       lang = this.banDocument.locale;
+   else if (Banana.application.locale)
+       lang = Banana.application.locale;
+   if (lang.length > 2)
+       lang = lang.substr(0, 2);
+   return lang;
+}
+
+function getErrorMessage(errorId, lang) {
+   if (!lang)
+       lang = 'en';
+   switch (errorId) {
+       case "ID_ERR_EXPERIMENTAL_REQUIRED":
+           return "The Experimental version is required";
+       case "ID_ERR_LICENSE_NOTVALID":
+           return "This extension requires Banana Accounting+ Advanced";
+       case "ID_ERR_VERSION_NOTSUPPORTED":
+           if (lang == 'it')
+               return "Lo script non funziona con la vostra attuale versione di Banana Contabilità.\nVersione minimina richiesta: %1.\nPer aggiornare o per maggiori informazioni cliccare su Aiuto";
+           else if (lang == 'fr')
+               return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité.\nVersion minimale requise: %1.\nPour mettre à jour ou pour plus d'informations, cliquez sur Aide";
+           else if (lang == 'de')
+               return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt.\nMindestversion erforderlich: %1.\nKlicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
+           else
+               return "This script does not run with your current version of Banana Accounting.\nMinimum version required: %1.\nTo update or for more information click on Help";
+   }
+   return '';
 }
 
 
