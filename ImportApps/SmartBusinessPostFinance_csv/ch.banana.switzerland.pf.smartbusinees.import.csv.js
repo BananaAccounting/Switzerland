@@ -15,9 +15,9 @@
 //
 // @id = ch.banana.switzerland.pf.smartbusinees.import.csv.js
 // @api = 1.0
-// @pubdate = 2021-09-01
+// @pubdate = 2021-09-06
 // @publisher = Banana.ch SA
-// @description = Import Postfinance Smart business data (*.csv)
+// @description = Import PostFinance SmartbBusiness data (*.csv)
 // @doctype = *
 // @encoding = utf-8
 // @task = import.rows
@@ -117,6 +117,11 @@ function getCurrentDate() {
 
    constructor(){
       this.placeHolder="";
+      this.invoiceNetTotal="";
+      this.invoiceNetTotalAfterDisc="";
+      this.invoiceVatTotal="";
+      this.NetTotalIsOk=false;
+      this.VatTotalIsOk=false;
    }
  
    /** Return true if the transactions match this format */
@@ -171,9 +176,29 @@ function getCurrentDate() {
             invoiceObj=this.setInvoiceStructure(invoiceTransaction,docInfo);
             invoiceObj.items=this.setInvoiceStructure_items(transactionsObjs,invoiceTransaction["number"]);
 
-
             // Recalculate invoice
             invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
+
+            /*Banana.console.debug("invoice net total: "+this.invoiceNetTotal);
+            Banana.console.debug("calc net total: "+invoiceObj.billing_info.total_amount_vat_exclusive);
+            Banana.console.debug("invoice vat total: "+this.invoiceVatTotal);
+            Banana.console.debug("calc vat total: "+invoiceObj.billing_info.total_amount_vat_inclusive);*/
+
+            //controllo che le informazioni nella proprietà billing info coincidano con i totali presi dalle righe della fattura
+            if(invoiceObj.billing_info.total_amount_vat_exclusive==this.invoiceNetTotal){
+               this.NetTotalIsOk=true;
+            }else{
+               //ritornare messaggio di errore/warning
+            }
+            if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
+               this.VatTotalIsOk=true;
+            }else{
+               //ritornare messaggio di errore/warning
+            }
+
+           /* Banana.console.debug("Net total: "+this.NetTotalIsOk);
+            Banana.console.debug("Vat total: "+this.VatTotalIsOk);
+            Banana.console.debug("************************************");*/
 
             let row = {};
             row.operation = {};
@@ -183,6 +208,10 @@ function getCurrentDate() {
             row.fields["InvoiceData"]={"invoice_json":invoiceObj};
 
             rows.push(row);
+
+            this.invoiceNetTotal="";
+            this.invoiceVatTotal="";
+
 
          }
 
@@ -203,6 +232,12 @@ function getCurrentDate() {
 
       return jsonDoc;
    }
+
+   getInvoiceAmountsSum(){
+
+
+   }
+
 
 
 
@@ -278,18 +313,18 @@ function getCurrentDate() {
 
    }
    setInvoiceStructure_items(invoiceTransactions,ref_number){
+      var invoiceArr_items=[];
       for(var row in invoiceTransactions){
          var invTransaction=invoiceTransactions[row];
          if(invTransaction["number"]==ref_number){
-            var invoiceArr_items=[];
             var invoiceObj_items={};
 
 
-            invoiceObj_items.account_assignment="3000";
-            invoiceObj_items.description="various";
-            invoiceObj_items.details="";
-            invoiceObj_items.index="0";
-            invoiceObj_items.item_type="0";
+            invoiceObj_items.account_assignment="";
+            invoiceObj_items.description=invTransaction["position_name"];
+            invoiceObj_items.details=invTransaction["position_category"];
+            invoiceObj_items.index="";
+            invoiceObj_items.item_type=invTransaction["type"];
             invoiceObj_items.mesure_unit="";
             invoiceObj_items.number="";
             invoiceObj_items.quantity="1";
@@ -306,10 +341,15 @@ function getCurrentDate() {
       var unitPrice={};
 
       unitPrice.amount_vat_inclusive=null;
-      unitPrice.amount_vat_exclusive=invoiceTransaction[""];
+      unitPrice.amount_vat_exclusive=invoiceTransaction["position_nettotal"];
       unitPrice.currency=invoiceTransaction["currency"];
       unitPrice.vat_code="";
-      unitPrice.vat_rate=invoiceTransaction[""];
+      unitPrice.vat_rate=invoiceTransaction["position_vat"];
+
+      //salvo i valori per confrontarli con quelli calcolati
+
+      this.invoiceNetTotal=Banana.SDecimal.add(this.invoiceNetTotal,invoiceTransaction["position_nettotal"]);
+      this.invoiceVatTotal=Banana.SDecimal.add(this.invoiceVatTotal,invoiceTransaction["position_total"]);
 
 
       return unitPrice;
@@ -397,6 +437,7 @@ var formatCnt=class formatCnt{
 
    convertInDocChange(transactionsObjs,initJsonDoc){
       var jsonDoc=[];
+      var existingElements=getExistingItemsFromTable("Contacts","RowId");
       //rows
       let rows = [];
       for (var row_ in transactionsObjs){
@@ -409,15 +450,21 @@ var formatCnt=class formatCnt{
          row.fields = {};
          row.fields["RowId"] = transaction["number"];
          row.fields["FirstName"] = transaction["name"];
+         row.fields["FamilyName"] = transaction["addition"];
+         row.fields["Gender"] = transaction["gender"];
+         row.fields["NamePrefix"] = transaction["title_active"];
          row.fields["PhoneMain"] = transaction["phone"];
          row.fields["PhoneHome"] = transaction["person_phone_1"];
          row.fields["PhoneMobile"] = transaction["person_phone_2"];
          row.fields["EmailWork"] = transaction["email"];
          row.fields["EmailHome"] = transaction["person_email_1"];
          row.fields["EmailOther"] = transaction["person_email_2"];
+         row.fields["Fax"] = transaction["fax"];
+         row.fields["GroupsId"] = transaction["groups"];
          row.fields["Language"] = transaction["language"];
          row.fields["Notes"] = transaction["notes"];
-         row.fields["Street"] = transaction["address_street_1"]+" "+transaction["address_street_no"];
+         row.fields["Street"] = transaction["address_street_1"]+" "+transaction["address_streetno_1"];
+         row.fields["Street"] = transaction["address_street2_1"];
          row.fields["PostalCode"] = transaction["address_code_1"];
          row.fields["Locality"] = transaction["address_city_1"];
          row.fields["Country"] = transaction["address_country_1"];
@@ -425,10 +472,10 @@ var formatCnt=class formatCnt{
 
 
          //controllare che la riga non esista già
-        /* if(verifyIfNotExist(row.fields,"Contacts","RowId","UnitPrice")){
-            
-         }*/
-         rows.push(row);
+        if(!verifyIfExist(existingElements,row.fields["RowId"])){
+          rows.push(row);
+         }
+
  
 
       }
@@ -494,7 +541,7 @@ var formatPS =class formatPS {
  */
    convertInDocChange(transactions,initJsonDoc){
       var jsonDoc=[];
-      var existingElements=getExistingItemsFromTable("Items","RowId","UnitPrice");
+      var existingElements=getExistingItemsFromTable("Items","RowId");
       //rows
       let rows = [];
       for (var row_ in transactions){
@@ -505,19 +552,19 @@ var formatPS =class formatPS {
 
          row.fields = {};
          row.fields["RowId"] = transaction["number"];
-         row.fields["Description"] = transaction["name"];
+         row.fields["Description"] = transaction["name"]+" "+transaction["description"];
          row.fields["UnitPrice"] = transaction["price"];
-         row.fields["ReferenceUnit"] = transaction["unit"];
+         row.fields["Unit"] = transaction["unit"];
          row.fields["VatImport"] = transaction["vat"];
          row.fields["RowGroup"] = transaction["category"];
          row.fields["IncludeVat"] = transaction["including_vat"];
-         row.fields["ValueBegin"] = transaction["default_amount"];
+         row.fields["QuantityBegin"] = transaction["default_amount"];
          row.fields["Notes"] = transaction["notes"];
-         row.fields["SelfCost"] = transaction["selfcost"];
+         row.fields["Cost"] = transaction["selfcost"];
 
 
          //controllare che la riga non esista già
-         var rowExist=verifyIfExist(existingElements,row.fields["RowId"],row.fields["UnitPrice"]);
+         var rowExist=verifyIfExist(existingElements,row.fields["RowId"]);
          if(!rowExist){
             rows.push(row);
          }
@@ -539,7 +586,7 @@ var formatPS =class formatPS {
    }
 }
 
-function getExistingItemsFromTable(tableName,ref_field_1,ref_field_2){
+function getExistingItemsFromTable(tableName,rowId){
 
      var table = Banana.document.table(tableName);
      var existingElements=[];
@@ -552,8 +599,7 @@ function getExistingItemsFromTable(tableName,ref_field_1,ref_field_2){
          var rowObj={};
          var tRow = table.row(i);
 
-         rowObj.field_1= tRow.value(ref_field_1);
-         rowObj.field_2= tRow.value(ref_field_2);
+         rowObj.field_1= tRow.value(rowId);
  
          existingElements.push(rowObj);
      }
@@ -561,21 +607,15 @@ function getExistingItemsFromTable(tableName,ref_field_1,ref_field_2){
      return existingElements;
 }
 
-function verifyIfExist(existingElements,newEelements_field_1,newEelements_field_2){
-   var exists=false;
+function verifyIfExist(existingElements,newEelements_id){
 
    if (!Banana.document)
       return "";
    for(var row in existingElements){
-      /*Banana.console.debug("existing 1: "+existingElements[row].field_1);
-      Banana.console.debug("new 1: "+newEelements_field_1);
-      Banana.console.debug("existing 2: "+existingElements[row].field_2);
-      Banana.console.debug("new 2: "+newEelements_field_2);*/
-      if(existingElements[row].field_1==newEelements_field_1 && existingElements[row].field_2==newEelements_field_2){
-         exists=true;
+      if(existingElements[row].field_1==newEelements_id){
+         return true;
       }
-   }
-    return exists;
+   }return false;
 }
 
 function getDocumentInfo(){
@@ -599,6 +639,39 @@ function getDocumentInfo(){
    }
 
    return docInfo;
+}
+
+function bananaRequiredVersion(requiredVersion, expmVersion) {
+   /**
+    * Check Banana version
+    */
+   if (expmVersion) {
+       requiredVersion = requiredVersion + "." + expmVersion;
+   }
+   if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
+       return true;
+   }
+   return false;
+}
+
+function verifyBananaVersion() {
+   if (!Banana.document)
+       return false;
+
+   var lang = this.getLang();
+
+   var ban_version_min = "10.0.9";
+   var ban_dev_version_min = "";
+   var curr_version = bananaRequiredVersion(ban_version_min, ban_dev_version_min);
+
+   if (!curr_version) {
+       var msg = this.getErrorMessage(this.ID_ERR_VERSION_NOTSUPPORTED, lang);
+       msg = msg.replace("%1", BAN_VERSION_MIN);
+       Banana.document.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
+       return false;
+   }
+
+   return true;
 }
 
 
