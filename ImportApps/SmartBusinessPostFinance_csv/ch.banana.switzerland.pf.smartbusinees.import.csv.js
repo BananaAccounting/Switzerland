@@ -24,6 +24,7 @@
 // @outputformat = tablewithheaders
 // @inputdatasource = openfiledialog
 // @inputencoding = utf-8
+// @timeout = -1
 // @inputfilefilter = CSV files (*.csv);;All files (*.*)
 
 /*
@@ -78,12 +79,12 @@ function exec(string) {
    if (format_invs.match(transactionsObjs))
    {
       var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
-     // jsonDocArray=format;
+      jsonDocArray=format;
    }
    
 
    var documentChange = { "format": "documentChange", "error": "","data":[]};
-   documentChange["data"].push(jsonDocArray); 
+   documentChange["data"].push(jsonDocArray);
 
    return documentChange;
 
@@ -125,6 +126,7 @@ function getCurrentDate() {
       this.invoiceVatTotal="";
       this.NetTotalIsOk=false;
       this.VatTotalIsOk=false;
+      this.discountTotal="";
    }
  
    /** Return true if the transactions match this format */
@@ -181,39 +183,36 @@ function getCurrentDate() {
 
             // Recalculate invoice
             invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
+            Banana.console.debug(this.discountTotal);
+            invoiceObj.billing_info.discount={}
+            invoiceObj.billing_info.discount.amount_vat_exclusive=this.discountTotal;
 
-            /*Banana.console.debug("invoice net total: "+this.invoiceNetTotal);
-            Banana.console.debug("calc net total: "+invoiceObj.billing_info.total_amount_vat_exclusive);
-            Banana.console.debug("invoice vat total: "+this.invoiceVatTotal);
-            Banana.console.debug("calc vat total: "+invoiceObj.billing_info.total_amount_vat_inclusive);*/
+
 
             //controllo che le informazioni nella proprietà billing info coincidano con i totali presi dalle righe della fattura
-            if(invoiceObj.billing_info.total_amount_vat_exclusive==this.invoiceNetTotal){
-               this.NetTotalIsOk=true;
-            }else{
-               //ritornare messaggio di errore/warning
-            }
-            if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
-               this.VatTotalIsOk=true;
-            }else{
-               //ritornare messaggio di errore/warning
-            }
+            this.checkCalculatedAmounts(invoiceObj);
 
-           /* Banana.console.debug("Net total: "+this.NetTotalIsOk);
+           Banana.console.debug("Net total: "+this.NetTotalIsOk);
+            Banana.console.debug("Net calculated: "+invoiceObj.billing_info.total_amount_vat_exclusive);
+            Banana.console.debug("Net red: "+this.invoiceNetTotal);
+            Banana.console.debug("######");
             Banana.console.debug("Vat total: "+this.VatTotalIsOk);
-            Banana.console.debug("************************************");*/
+            Banana.console.debug("Vat calculated: "+invoiceObj.billing_info.total_amount_vat_inclusive);
+            Banana.console.debug("Vat red: "+this.invoiceVatTotal);
+            Banana.console.debug("************************************");
 
             let row = {};
             row.operation = {};
             row.operation.name = "add";
             row.fields={};
 
-            row.fields["InvoiceData"]={"invoice_json":invoiceObj};
+            row.fields["InvoiceData"]={"invoice_json":JSON.stringify(invoiceObj)};
 
             rows.push(row);
 
             this.invoiceNetTotal="";
             this.invoiceVatTotal="";
+            this.discountTotal="";
 
 
          }
@@ -231,18 +230,28 @@ function getCurrentDate() {
    
        jsonDoc.document.dataUnits.push(dataUnitTransactions);
 
-       Banana.console.debug(JSON.stringify(dataUnitTransactions));
+       //Banana.console.debug(JSON.stringify(dataUnitTransactions));
 
       return jsonDoc;
    }
 
-   getInvoiceAmountsSum(){
+   checkCalculatedAmounts(invoiceObj){
 
+      if(invoiceObj.billing_info.total_amount_vat_exclusive==this.invoiceNetTotal){
+         this.NetTotalIsOk=true;
+      }else{
+         //ritornare messaggio di errore/warning
+      }
+      if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
+         this.VatTotalIsOk=true;
+      }else{
+         //ritornare messaggio di errore/warning
+      }
 
-   }
+      //controllare anche totale importo iva
 
-
-
+      return true;
+}
 
 //questo metodo dovrò richiamarlo per ogni riga di fattura presente, gli passo una transazione
    setInvoiceStructure(transaction,docInfo){
@@ -281,6 +290,7 @@ function getCurrentDate() {
          invoiceObj_customerInfo.currency="";
          invoiceObj_customerInfo.date_birth="";
          invoiceObj_customerInfo.email="";
+         invoiceObj_customerInfo.phone="";
          invoiceObj_customerInfo.first_name=invoiceTransaction["client_name"];
          invoiceObj_customerInfo.lang="";
          invoiceObj_customerInfo.last_name="";
@@ -299,7 +309,7 @@ function getCurrentDate() {
       var invoiceObj_documentInfo={};
 
       invoiceObj_documentInfo.currency=invoiceTransaction["currency"];
-      invoiceObj_documentInfo.date=invoiceTransaction["date"];
+      invoiceObj_documentInfo.date=Banana.Converter.toInternalDateFormat(invoiceTransaction["date"]);
       invoiceObj_documentInfo.decimals_amounts=2;
       invoiceObj_documentInfo.description="";
       invoiceObj_documentInfo.doc_type="";
@@ -329,7 +339,7 @@ function getCurrentDate() {
             invoiceObj_items.index="";
             invoiceObj_items.item_type=invTransaction["type"];
             invoiceObj_items.mesure_unit="";
-            invoiceObj_items.number="";
+            invoiceObj_items.number=invTransaction["position_number"];
             invoiceObj_items.quantity="1";
             invoiceObj_items.unit_price=this.setInvoiceStructure_items_unitPrice(invTransaction);
             
@@ -346,6 +356,9 @@ function getCurrentDate() {
       unitPrice.amount_vat_inclusive=null;
       unitPrice.amount_vat_exclusive=invoiceTransaction["position_nettotal"];
       unitPrice.currency=invoiceTransaction["currency"];
+      unitPrice.discount={};
+      unitPrice.discount.amount=null;
+      unitPrice.discount.percent=null;
       unitPrice.vat_code="";
       unitPrice.vat_rate=invoiceTransaction["position_vat"];
 
@@ -353,6 +366,10 @@ function getCurrentDate() {
 
       this.invoiceNetTotal=Banana.SDecimal.add(this.invoiceNetTotal,invoiceTransaction["position_nettotal"]);
       this.invoiceVatTotal=Banana.SDecimal.add(this.invoiceVatTotal,invoiceTransaction["position_total"]);
+
+      this.discountTotal=Banana.SDecimal.add(this.discountTotal,Banana.SDecimal.subtract(invoiceTransaction["position_nettotal"],invoiceTransaction["position_nettotal_afterdiscount"]));
+
+
 
 
       return unitPrice;
