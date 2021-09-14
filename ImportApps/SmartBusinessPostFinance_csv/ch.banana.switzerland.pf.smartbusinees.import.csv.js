@@ -15,10 +15,10 @@
 //
 // @id = ch.banana.switzerland.pf.smartbusinees.import.csv.js
 // @api = 1.0
-// @pubdate = 2021-09-06
+// @pubdate = 2021-09-14
 // @publisher = Banana.ch SA
 // @description = Import PostFinance SmartbBusiness data (*.csv)
-// @doctype = *
+// @doctype = 400.400
 // @encoding = utf-8
 // @task = import.rows
 // @outputformat = tablewithheaders
@@ -37,15 +37,14 @@
  *   -services
  *   -customers
  *   -invoices
- *   - ...
- * 
- * 
  * 
  */
 
 function exec(string) {
 
-    if (!Banana.document || string.length <= 0)
+   var banDoc=Banana.document;
+
+    if (!banDoc || string.length <= 0)
         return "@Cancel";
    
    if (!verifyBananaVersion())
@@ -63,14 +62,14 @@ function exec(string) {
    var format_ps = new formatPS();
    if (format_ps.match(transactionsObjs))
    {
-      var format = format_ps.convertInDocChange(transactionsObjs,initJsonDoc);
+      var format = format_ps.convertInDocChange(transactionsObjs,initJsonDoc,banDoc);
       jsonDocArray=format;
    }
    //Format 2: Contatti
    var format_cnt = new formatCnt();
    if (format_cnt.match(transactionsObjs))
    {
-      var format = format_cnt.convertInDocChange(transactionsObjs,initJsonDoc);
+      var format = format_cnt.convertInDocChange(transactionsObjs,initJsonDoc,banDoc);
       jsonDocArray=format;
    }
 
@@ -78,13 +77,14 @@ function exec(string) {
    var format_invs = new formatInvS();
    if (format_invs.match(transactionsObjs))
    {
-      var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
+      var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc,banDoc);
       jsonDocArray=format;
    }
    
 
    var documentChange = { "format": "documentChange", "error": "","data":[]};
    documentChange["data"].push(jsonDocArray);
+
 
    return documentChange;
 
@@ -127,6 +127,7 @@ function getCurrentDate() {
       this.NetTotalIsOk=false;
       this.VatTotalIsOk=false;
       this.discountTotal="";
+      this.lang="";
    }
  
    /** Return true if the transactions match this format */
@@ -162,7 +163,7 @@ function getCurrentDate() {
       return false;
    }
 
-   convertInDocChange(transactionsObjs,initJsonDoc){
+   convertInDocChange(transactionsObjs,initJsonDoc,banDoc){
       var jsonDoc=[];
       var docInfo=getDocumentInfo();
       var rows=[];
@@ -174,32 +175,28 @@ function getCurrentDate() {
        * ciclo le righe e creo gli oggetti
        * 
        */
-       for (var row_ in transactionsObjs){
-         var invoiceTransaction=transactionsObjs[row_];
+       for (var trRow in transactionsObjs){
+         var invoiceTransaction=transactionsObjs[trRow];
 
-         if(this.placeHolder!=invoiceTransaction["number"]){
+
+         if(this.placeHolder!==invoiceTransaction["number"]){
             invoiceObj=this.setInvoiceStructure(invoiceTransaction,docInfo);
             invoiceObj.items=this.setInvoiceStructure_items(transactionsObjs,invoiceTransaction["number"]);
 
             // Recalculate invoice
-            invoiceObj = JSON.parse(Banana.document.calculateInvoice(JSON.stringify(invoiceObj)));
-            Banana.console.debug(this.discountTotal);
-            invoiceObj.billing_info.discount={}
+            if(!invoiceObj.billing_info)
+               invoiceObj.billing_info={};
+
+            invoiceObj.billing_info.discount={};
+            if(this.discountTotal=="0"){
+               this.discountTotal=null;
+            }
             invoiceObj.billing_info.discount.amount_vat_exclusive=this.discountTotal;
-
-
+            invoiceObj = JSON.parse(banDoc.calculateInvoice(JSON.stringify(invoiceObj)));
 
             //controllo che le informazioni nella proprietà billing info coincidano con i totali presi dalle righe della fattura
             this.checkCalculatedAmounts(invoiceObj);
 
-           Banana.console.debug("Net total: "+this.NetTotalIsOk);
-            Banana.console.debug("Net calculated: "+invoiceObj.billing_info.total_amount_vat_exclusive);
-            Banana.console.debug("Net red: "+this.invoiceNetTotal);
-            Banana.console.debug("######");
-            Banana.console.debug("Vat total: "+this.VatTotalIsOk);
-            Banana.console.debug("Vat calculated: "+invoiceObj.billing_info.total_amount_vat_inclusive);
-            Banana.console.debug("Vat red: "+this.invoiceVatTotal);
-            Banana.console.debug("************************************");
 
             let row = {};
             row.operation = {};
@@ -227,30 +224,68 @@ function getCurrentDate() {
        dataUnitTransactions.data.rowLists.push({ "rows": rows });
    
        var jsonDoc=initJsonDoc;
+       
+
+       //Banana.console.debug(JSON.stringify(dataUnitTransactions));
+
    
        jsonDoc.document.dataUnits.push(dataUnitTransactions);
 
-       //Banana.console.debug(JSON.stringify(dataUnitTransactions));
 
       return jsonDoc;
    }
 
    checkCalculatedAmounts(invoiceObj){
 
-      if(invoiceObj.billing_info.total_amount_vat_exclusive==this.invoiceNetTotal){
+      if(invoiceObj.billing_info.total_amount_vat_exclusive_before_discount==this.invoiceNetTotal){
          this.NetTotalIsOk=true;
       }else{
-         //ritornare messaggio di errore/warning
+         Banana.application.addMessage("The calculated amount excluding VAT is different from the one in your file, invoice nr. "+invoiceObj.document_info.number);
+
+         Banana.console.debug("excl vat file"+this.invoiceNetTotal);
+         Banana.console.debug("excl vat calculated"+invoiceObj.billing_info.total_amount_vat_exclusive_before_discount);
       }
       if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
          this.VatTotalIsOk=true;
       }else{
-         //ritornare messaggio di errore/warning
+         Banana.application.addMessage("The calculated amount including vat is different from that in your file,invoice nr. "+invoiceObj.document_info.number);
+         Banana.console.debug("incl vat file"+this.invoiceVatTotal);
+         Banana.console.debug("incl vat calculated"+invoiceObj.billing_info.total_amount_vat_inclusive);
       }
 
-      //controllare anche totale importo iva
-
       return true;
+}
+
+getTranslateWords(language){
+   var transWords={};
+
+   if (language.length > 2) {
+      language = language.substr(0, 2);
+   }
+
+   switch(language){
+       case  'it':
+         transWords.invoice="Fattura";
+         transWords.reference="N. di riferimento: ";
+         break;
+      case 'fr':
+         transWords.invoice="Facture";
+         transWords.reference="N.de la facture: ";
+         break;
+      case 'de':
+         transWords.invoice="Rechnung";
+         transWords.reference="Rechnungsnummer: ";
+         break;
+      default:
+         transWords.invoice="Invoice";
+         transWords.reference="Reference nr: ";
+         break;
+   }
+
+   return transWords;
+
+
+
 }
 
 //questo metodo dovrò richiamarlo per ogni riga di fattura presente, gli passo una transazione
@@ -259,9 +294,10 @@ function getCurrentDate() {
          var invoiceObj={};
          var invoiceTransaction=transaction;
          var supInfo=docInfo
+         var transWord=this.getTranslateWords(this.lang)
 
          invoiceObj.customer_info=this.setInvoiceStructure_customerInfo(invoiceTransaction);
-         invoiceObj.document_info=this.setInvoiceStructure_documentInfo(invoiceTransaction);
+         invoiceObj.document_info=this.setInvoiceStructure_documentInfo(invoiceTransaction,transWord);
          invoiceObj.note={};
          invoiceObj.parameters={};
          invoiceObj.payment_info=this.setInvoiceStructure_paymentInfo(invoiceTransaction);
@@ -295,7 +331,7 @@ function getCurrentDate() {
          invoiceObj_customerInfo.lang="";
          invoiceObj_customerInfo.last_name="";
          invoiceObj_customerInfo.mobile="";
-         invoiceObj_customerInfo.number="";
+         invoiceObj_customerInfo.number=invoiceTransaction["client_number"];
          invoiceObj_customerInfo.origin_row="";
          invoiceObj_customerInfo.origin_table="";
          invoiceObj_customerInfo.postal_code="";
@@ -305,13 +341,14 @@ function getCurrentDate() {
       return invoiceObj_customerInfo;
 
    }
-   setInvoiceStructure_documentInfo(invoiceTransaction){
+   setInvoiceStructure_documentInfo(invoiceTransaction,transWord){
       var invoiceObj_documentInfo={};
+
 
       invoiceObj_documentInfo.currency=invoiceTransaction["currency"];
       invoiceObj_documentInfo.date=Banana.Converter.toInternalDateFormat(invoiceTransaction["date"]);
       invoiceObj_documentInfo.decimals_amounts=2;
-      invoiceObj_documentInfo.description="";
+      invoiceObj_documentInfo.description=transWord.invoice;
       invoiceObj_documentInfo.doc_type="";
       invoiceObj_documentInfo.locale="";
       invoiceObj_documentInfo.number=invoiceTransaction["number"];
@@ -320,6 +357,8 @@ function getCurrentDate() {
       invoiceObj_documentInfo.printed="";
       invoiceObj_documentInfo.rounding_total="";
       invoiceObj_documentInfo.type="";
+      invoiceObj_documentInfo.text_begin=transWord.reference+ invoiceTransaction["esr_number"];
+      invoiceObj_documentInfo.vat_mode="vat_excl";
 
 
       return invoiceObj_documentInfo;
@@ -340,7 +379,7 @@ function getCurrentDate() {
             invoiceObj_items.item_type=invTransaction["type"];
             invoiceObj_items.mesure_unit="";
             invoiceObj_items.number=invTransaction["position_number"];
-            invoiceObj_items.quantity="1";
+            invoiceObj_items.quantity=invTransaction["position_amount"];
             invoiceObj_items.unit_price=this.setInvoiceStructure_items_unitPrice(invTransaction);
             
 
@@ -354,7 +393,9 @@ function getCurrentDate() {
       var unitPrice={};
 
       unitPrice.amount_vat_inclusive=null;
-      unitPrice.amount_vat_exclusive=invoiceTransaction["position_nettotal"];
+      //arrotondare a 4 dec
+      unitPrice.amount_vat_exclusive=Banana.SDecimal.divide(invoiceTransaction["position_nettotal"],invoiceTransaction["position_amount"],{'decimals':4});
+      //Banana.console.debug(unitPrice.amount_vat_exclusive);
       unitPrice.currency=invoiceTransaction["currency"];
       unitPrice.discount={};
       unitPrice.discount.amount=null;
@@ -379,9 +420,9 @@ function getCurrentDate() {
    setInvoiceStructure_paymentInfo(invoiceTransaction){
       var invoiceObj_paymentInfo={};
 
-      invoiceObj_paymentInfo.due_date="";
+      invoiceObj_paymentInfo.due_date=Banana.Converter.toInternalDateFormat(invoiceTransaction["due"]);
       invoiceObj_paymentInfo.due_days="";
-      invoiceObj_paymentInfo.payment_date=invoiceTransaction["paid_date"];
+      invoiceObj_paymentInfo.payment_date=Banana.Converter.toInternalDateFormat(invoiceTransaction["paid_date"]);
 
       return invoiceObj_paymentInfo;
 
@@ -455,13 +496,13 @@ var formatCnt=class formatCnt{
       return false;
    }
 
-   convertInDocChange(transactionsObjs,initJsonDoc){
+   convertInDocChange(transactionsObjs,initJsonDoc,banDoc){
       var jsonDoc=[];
       var existingElements=getExistingItemsFromTable("Contacts","RowId");
       //rows
       let rows = [];
-      for (var row_ in transactionsObjs){
-         var transaction=transactionsObjs[row_];
+      for (var trRow in transactionsObjs){
+         var transaction=transactionsObjs[trRow];
 
          let row = {};
          row.operation = {};
@@ -559,13 +600,13 @@ var formatPS =class formatPS {
 /**
  * inserisco i dati in banana usando il DocChange
  */
-   convertInDocChange(transactions,initJsonDoc){
+   convertInDocChange(transactions,initJsonDoc,banDoc){
       var jsonDoc=[];
       var existingElements=getExistingItemsFromTable("Items","RowId");
       //rows
       let rows = [];
-      for (var row_ in transactions){
-         var transaction=transactions[row_];
+      for (var trRow in transactions){
+         var transaction=transactions[trRow];
          let row = {};
          row.operation = {};
          row.operation.name = "add";
