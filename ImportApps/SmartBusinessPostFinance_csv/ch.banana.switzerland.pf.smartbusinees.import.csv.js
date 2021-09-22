@@ -542,7 +542,7 @@ var formatCnt=class formatCnt{
          row.fields["Address2Street"] = transaction["address_street2_1"];
          row.fields["PostalCode"] = transaction["address_code_1"];
          row.fields["Locality"] = transaction["address_city_1"];
-         row.fields["Country"] = transaction["address_country_1"];
+         row.fields["CountryCode"] = transaction["address_country_1"];
          //controllare bene i campi da aggiungere (Vedere con Domenico)
 
 
