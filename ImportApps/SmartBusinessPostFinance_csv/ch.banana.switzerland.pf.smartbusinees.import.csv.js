@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.pf.smartbusinees.import.csv.js
 // @api = 1.0
-// @pubdate = 2021-09-14
+// @pubdate = 2021-09-22
 // @publisher = Banana.ch SA
 // @description = Import PostFinance SmartbBusiness data (*.csv)
 // @doctype = 400.400
@@ -242,15 +242,15 @@ function getCurrentDate() {
       }else{
          Banana.application.addMessage("The calculated amount excluding VAT is different from the one in your file, invoice nr. "+invoiceObj.document_info.number);
 
-         Banana.console.debug("excl vat file"+this.invoiceNetTotal);
-         Banana.console.debug("excl vat calculated"+invoiceObj.billing_info.total_amount_vat_exclusive_before_discount);
+        /* Banana.console.debug("excl vat file"+this.invoiceNetTotal);
+         Banana.console.debug("excl vat calculated"+invoiceObj.billing_info.total_amount_vat_exclusive_before_discount);*/
       }
       if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
          this.VatTotalIsOk=true;
       }else{
          Banana.application.addMessage("The calculated amount including vat is different from that in your file,invoice nr. "+invoiceObj.document_info.number);
-         Banana.console.debug("incl vat file"+this.invoiceVatTotal);
-         Banana.console.debug("incl vat calculated"+invoiceObj.billing_info.total_amount_vat_inclusive);
+         /*Banana.console.debug("incl vat file"+this.invoiceVatTotal);
+         Banana.console.debug("incl vat calculated"+invoiceObj.billing_info.total_amount_vat_inclusive);*/
       }
 
       return true;
@@ -295,7 +295,9 @@ getTranslateWords(language){
          var invoiceTransaction=transaction;
          var supInfo=docInfo
          var transWord=this.getTranslateWords(this.lang)
-
+         
+         invoiceObj.creator_info=this.setInvoiceStructure_creatorInfo();
+         invoiceObj.author_info={};
          invoiceObj.customer_info=this.setInvoiceStructure_customerInfo(invoiceTransaction);
          invoiceObj.document_info=this.setInvoiceStructure_documentInfo(invoiceTransaction,transWord);
          invoiceObj.note={};
@@ -310,6 +312,18 @@ getTranslateWords(language){
          return invoiceObj;
    }
 
+
+   setInvoiceStructure_creatorInfo(){
+      var invoiceObj_creatorInfo={};
+
+      invoiceObj_creatorInfo.name=Banana.script.getParamValue('id');
+      invoiceObj_creatorInfo.pubblisher="Banana.ch SA";
+      invoiceObj_creatorInfo.version="";
+      invoiceObj_creatorInfo.pubdate=Banana.script.getParamValue('pubdate');
+
+      return invoiceObj_creatorInfo;
+
+   }
    setInvoiceStructure_customerInfo(invoiceTransaction){
       var invoiceObj_customerInfo={};
 
@@ -525,7 +539,7 @@ var formatCnt=class formatCnt{
          row.fields["Language"] = transaction["language"];
          row.fields["Notes"] = transaction["notes"];
          row.fields["Street"] = transaction["address_street_1"]+" "+transaction["address_streetno_1"];
-         row.fields["Street"] = transaction["address_street2_1"];
+         row.fields["Address2Street"] = transaction["address_street2_1"];
          row.fields["PostalCode"] = transaction["address_code_1"];
          row.fields["Locality"] = transaction["address_city_1"];
          row.fields["Country"] = transaction["address_country_1"];
