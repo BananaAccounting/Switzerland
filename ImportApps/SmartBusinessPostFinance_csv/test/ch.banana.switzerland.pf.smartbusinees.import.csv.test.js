@@ -102,8 +102,8 @@ SBImportCsvTest.prototype.testJsonInvoiceStructure = function() {
     var transactions_header=transactions[0];
     transactions.splice(0,1);
     var transactionsObjs=Banana.Converter.arrayToObject(transactions_header,transactions,true);
-    var format_invs = new formatInvS();
-    var format = format_invs.convertInDocChange(transactionsObjs,this.jsonDoc,banDoc);
+    var format_invs = new formatInvS(banDoc);
+    var format = format_invs.convertInDocChange(transactionsObjs,this.jsonDoc);
     jsonDocArray=format;
     var documentChange = { "format": "documentChange", "error": "","data":[]};
     documentChange["data"].push(jsonDocArray);

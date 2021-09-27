@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.pf.smartbusinees.import.csv.js
 // @api = 1.0
-// @pubdate = 2021-09-22
+// @pubdate = 2021-09-27
 // @publisher = Banana.ch SA
 // @description = Import PostFinance SmartbBusiness data (*.csv)
 // @doctype = 400.400
@@ -62,14 +62,14 @@ function exec(string) {
    var format_ps = new formatPS();
    if (format_ps.match(transactionsObjs))
    {
-      var format = format_ps.convertInDocChange(transactionsObjs,initJsonDoc,banDoc);
+      var format = format_ps.convertInDocChange(transactionsObjs,initJsonDoc);
       jsonDocArray=format;
    }
    //Format 2: Contatti
    var format_cnt = new formatCnt();
    if (format_cnt.match(transactionsObjs))
    {
-      var format = format_cnt.convertInDocChange(transactionsObjs,initJsonDoc,banDoc);
+      var format = format_cnt.convertInDocChange(transactionsObjs,initJsonDoc);
       jsonDocArray=format;
    }
 
@@ -77,7 +77,7 @@ function exec(string) {
    var format_invs = new formatInvS();
    if (format_invs.match(transactionsObjs))
    {
-      var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc,banDoc);
+      var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
       jsonDocArray=format;
    }
    
@@ -119,7 +119,7 @@ function getCurrentDate() {
  */
  var formatInvS =class formatInvS { 
 
-   constructor(){
+   constructor(banDocument){
       this.placeHolder="";
       this.invoiceNetTotal="";
       this.invoiceNetTotalAfterDisc="";
@@ -128,6 +128,11 @@ function getCurrentDate() {
       this.VatTotalIsOk=false;
       this.discountTotal="";
       this.lang="";
+      this.banDoc=banDocument;
+
+      //error messages
+      this.ID_ERR_AMOUNTS_WITH_DIFFERENCES="ID_ERR_AMOUNTS_WITH_DIFFERENCES";
+      this.ID_ERR_COSTUMERID_NOT_FOUND="ID_ERR_COSTUMERID_NOT_FOUND";
    }
  
    /** Return true if the transactions match this format */
@@ -163,7 +168,7 @@ function getCurrentDate() {
       return false;
    }
 
-   convertInDocChange(transactionsObjs,initJsonDoc,banDoc){
+   convertInDocChange(transactionsObjs,initJsonDoc){
       var jsonDoc=[];
       var docInfo=getDocumentInfo();
       var rows=[];
@@ -192,7 +197,7 @@ function getCurrentDate() {
                this.discountTotal=null;
             }
             invoiceObj.billing_info.discount.amount_vat_exclusive=this.discountTotal;
-            invoiceObj = JSON.parse(banDoc.calculateInvoice(JSON.stringify(invoiceObj)));
+            invoiceObj = JSON.parse(this.banDoc.calculateInvoice(JSON.stringify(invoiceObj)));
 
             //controllo che le informazioni nella proprietà billing info coincidano con i totali presi dalle righe della fattura
             this.checkCalculatedAmounts(invoiceObj);
@@ -237,10 +242,13 @@ function getCurrentDate() {
 
    checkCalculatedAmounts(invoiceObj){
 
+      var lang=getLang();
+      var msg=this.getErrorMessage(this.ID_ERR_AMOUNTS_WITH_DIFFERENCES,lang,invoiceObj.document_info.number);
+
       if(invoiceObj.billing_info.total_amount_vat_exclusive_before_discount==this.invoiceNetTotal){
          this.NetTotalIsOk=true;
       }else{
-         Banana.application.addMessage("The calculated amount excluding VAT is different from the one in your file, invoice nr. "+invoiceObj.document_info.number);
+         Banana.application.addMessage(msg,this.ID_ERR_AMOUNTS_WITH_DIFFERENCES);
 
         /* Banana.console.debug("excl vat file"+this.invoiceNetTotal);
          Banana.console.debug("excl vat calculated"+invoiceObj.billing_info.total_amount_vat_exclusive_before_discount);*/
@@ -248,7 +256,7 @@ function getCurrentDate() {
       if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
          this.VatTotalIsOk=true;
       }else{
-         Banana.application.addMessage("The calculated amount including vat is different from that in your file,invoice nr. "+invoiceObj.document_info.number);
+         Banana.application.addMessage(msg,this.ID_ERR_AMOUNTS_WITH_DIFFERENCES);
          /*Banana.console.debug("incl vat file"+this.invoiceVatTotal);
          Banana.console.debug("incl vat calculated"+invoiceObj.billing_info.total_amount_vat_inclusive);*/
       }
@@ -327,34 +335,87 @@ getTranslateWords(language){
    setInvoiceStructure_customerInfo(invoiceTransaction){
       var invoiceObj_customerInfo={};
 
-         invoiceObj_customerInfo.address1="";
-         invoiceObj_customerInfo.address2="";
-         invoiceObj_customerInfo.address3="";
-         invoiceObj_customerInfo.balance="";
-         invoiceObj_customerInfo.balance_base_currency="";
-         invoiceObj_customerInfo.business_name="";
-         invoiceObj_customerInfo.city="";
-         invoiceObj_customerInfo.country="";
-         invoiceObj_customerInfo.country_code="";
-         invoiceObj_customerInfo.courtesy="";
-         invoiceObj_customerInfo.currency="";
-         invoiceObj_customerInfo.date_birth="";
-         invoiceObj_customerInfo.email="";
-         invoiceObj_customerInfo.phone="";
-         invoiceObj_customerInfo.first_name=invoiceTransaction["client_name"];
-         invoiceObj_customerInfo.lang="";
-         invoiceObj_customerInfo.last_name="";
-         invoiceObj_customerInfo.mobile="";
-         invoiceObj_customerInfo.number=invoiceTransaction["client_number"];
-         invoiceObj_customerInfo.origin_row="";
-         invoiceObj_customerInfo.origin_table="";
-         invoiceObj_customerInfo.postal_code="";
-         invoiceObj_customerInfo.vat_number="";
+      var customer_info=this.getContactAddress(invoiceTransaction["client_number"],invoiceTransaction["client_name"]);
+
+      invoiceObj_customerInfo.address1=customer_info.address1;
+      invoiceObj_customerInfo.address2=customer_info.address2;
+      invoiceObj_customerInfo.address3="";
+      invoiceObj_customerInfo.balance="";
+      invoiceObj_customerInfo.balance_base_currency="";
+      invoiceObj_customerInfo.business_name=customer_info.business_name;
+      invoiceObj_customerInfo.city=customer_info.city;
+      invoiceObj_customerInfo.country=customer_info.country;
+      invoiceObj_customerInfo.country_code=customer_info.country_code;
+      invoiceObj_customerInfo.courtesy="";
+      invoiceObj_customerInfo.currency="";
+      invoiceObj_customerInfo.date_birth="";
+      invoiceObj_customerInfo.email=customer_info.email;
+      invoiceObj_customerInfo.phone=customer_info.phone;
+      invoiceObj_customerInfo.first_name=customer_info.first_name;
+      invoiceObj_customerInfo.lang=customer_info.lang;
+      invoiceObj_customerInfo.last_name=customer_info.last_name;
+      invoiceObj_customerInfo.mobile=customer_info.mobile;
+      invoiceObj_customerInfo.number=invoiceTransaction["client_number"];
+      invoiceObj_customerInfo.origin_row="";
+      invoiceObj_customerInfo.origin_table="";
+      invoiceObj_customerInfo.postal_code=customer_info.postal_code;
+      invoiceObj_customerInfo.vat_number="";
 
 
       return invoiceObj_customerInfo;
 
    }
+
+   getContactAddress(id,name) {
+      var tableContacts = this.banDoc.table("Contacts");
+      var customer_info = {
+         'number': id,
+         'business_name': '',
+         'first_name': '',
+         'last_name': '',
+         'address1': '',
+         'address2': '',
+         'address3': '',
+         'postal_code': '',
+         'city': '',
+         'country_code': '',
+         'country': '',
+         'phone': '',
+         'email': '',
+         'web': ''
+     };
+      if (tableContacts) {
+          var contactRow = tableContacts.findRowByValue("RowId", id);
+          if (contactRow) {
+              customer_info.courtesy = contactRow.value('NamePrefix');
+              customer_info.business_name = contactRow.value('OrganisationName');
+              customer_info.first_name = contactRow.value('FirstName');
+              customer_info.last_name = contactRow.value('FamilyName');
+              customer_info.address1 = contactRow.value('Street');
+              customer_info.address2 = contactRow.value('AddressExtra');
+              customer_info.address3 = "";
+              customer_info.postal_code = contactRow.value('PostalCode');
+              customer_info.city = contactRow.value('Locality');
+              customer_info.country = contactRow.value('Country');
+              customer_info.country_code = contactRow.value('CountryCode');
+              customer_info.web = contactRow.value('Website');
+              customer_info.email = contactRow.value('EmailWork');
+              customer_info.phone = contactRow.value('PhoneWork');
+              customer_info.mobile = contactRow.value('PhoneMobile');
+              return customer_info;
+          }
+         let table = this.banDoc.table("Invoices");
+         var rowNumber = -1;
+         var lang=getLang();
+         var msg=this.getErrorMessage(this.ID_ERR_COSTUMERID_NOT_FOUND,lang,id);
+         table.addMessage(msg, rowNumber, "ContactId",this.ID_ERR_COSTUMERID_NOT_FOUND);
+         customer_info.first_name=name;
+         return customer_info;
+      }
+      return;
+  }
+
+
    setInvoiceStructure_documentInfo(invoiceTransaction,transWord){
       var invoiceObj_documentInfo={};
 
@@ -474,6 +535,32 @@ getTranslateWords(language){
 
    }
 
+   getErrorMessage(errorId,lang,refNr){
+      if (!lang)
+      lang = 'en';
+   switch (errorId) {
+      case this.ID_ERR_COSTUMERID_NOT_FOUND:
+         if (lang == 'it')
+            return "Id del contatto: "+refNr+" non trovato nella tabella dei contatti. Hai importato i contatti?";
+         else if (lang == 'de')
+            return "Kontakt-ID: "+refNr+" wurde nicht in der Kontakt-Tabelle gefunden. Haben Sie Ihre Kontakte schon importiert? ";
+         else if (lang=='fr')
+            return "Contact id: "+refNr+" not found in contact table. Did you import the contacts?";
+         else
+            return "Contact id: "+refNr+" not found in contact table. Did you import the contacts?";
+      case this.ID_ERR_AMOUNTS_WITH_DIFFERENCES:
+         if (lang == 'it')
+            return "L'importo calcolato è diverso da quello presente del tuo file, fattura nr"+": "+refNr;
+         else if (lang == 'de')
+            return "Der berechnete Betrag entspricht nicht demjenigen Ihrer Datei, Rechnungsnummer"+": "+refNr;
+         else if (lang=='fr')
+            return "The calculated amount is different from the amount in your file, invoice nr"+": "+refNr;
+         else
+            return "The calculated amount is different from the amount in your file, invoice nr"+": "+refNr;  
+	}
+   return '';
+   }
+
 }
 
 /**
@@ -510,7 +597,7 @@ var formatCnt=class formatCnt{
       return false;
    }
 
-   convertInDocChange(transactionsObjs,initJsonDoc,banDoc){
+   convertInDocChange(transactionsObjs,initJsonDoc){
       var jsonDoc=[];
       var existingElements=getExistingItemsFromTable("Contacts","RowId");
       //rows
@@ -614,7 +701,7 @@ var formatPS =class formatPS {
 /**
  * inserisco i dati in banana usando il DocChange
  */
-   convertInDocChange(transactions,initJsonDoc,banDoc){
+   convertInDocChange(transactions,initJsonDoc){
       var jsonDoc=[];
       var existingElements=getExistingItemsFromTable("Items","RowId");
       //rows
