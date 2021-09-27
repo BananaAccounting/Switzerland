@@ -74,7 +74,7 @@ function exec(string) {
    }
 
    //Format 3: Fatture (dettagliate)
-   var format_invs = new formatInvS();
+   var format_invs = new formatInvS(banDoc);
    if (format_invs.match(transactionsObjs))
    {
       var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
