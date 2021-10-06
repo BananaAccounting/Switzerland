@@ -81,7 +81,7 @@ function exec(string) {
       //controllo che questa fattura sia dettagliata, altrimenti do un avviso e ritorno il docChange vuoto
       if(!transactionsObjs[0]["position_name"]){
          var msg=format_invs.getInvoiceErrorMessage(format_invs.ID_ERR_WRONG_INVOICE_TYPE,format_invs.lang,"");
-         Banana.application.addMessage(msg,format_invs.ID_ERR_WRONG_INVOICE_TYPE);
+         banDoc.addMessage(msg,format_invs.ID_ERR_WRONG_INVOICE_TYPE);
       }else{
          format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
       }
