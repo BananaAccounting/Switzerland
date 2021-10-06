@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.pf.smartbusinees.import.csv.js
 // @api = 1.0
-// @pubdate = 2021-09-27
+// @pubdate = 2021-10-06
 // @publisher = Banana.ch SA
 // @description = Import PostFinance SmartbBusiness data (*.csv)
 // @doctype = 400.400
@@ -77,7 +77,14 @@ function exec(string) {
    var format_invs = new formatInvS(banDoc);
    if (format_invs.match(transactionsObjs))
    {
-      var format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
+      var format={};
+      //controllo che questa fattura sia dettagliata, altrimenti do un avviso e ritorno il docChange vuoto
+      if(!transactionsObjs[0]["position_name"]){
+         var msg=format_invs.getInvoiceErrorMessage(format_invs.ID_ERR_WRONG_INVOICE_TYPE,format_invs.lang,"");
+         Banana.application.addMessage(msg,format_invs.ID_ERR_WRONG_INVOICE_TYPE);
+      }else{
+         format = format_invs.convertInDocChange(transactionsObjs,initJsonDoc);
+      }
       jsonDocArray=format;
    }
    
@@ -127,12 +134,13 @@ function getCurrentDate() {
       this.NetTotalIsOk=false;
       this.VatTotalIsOk=false;
       this.discountTotal="";
-      this.lang="";
+      this.lang=getLang();
       this.banDoc=banDocument;
 
       //error messages
       this.ID_ERR_AMOUNTS_WITH_DIFFERENCES="ID_ERR_AMOUNTS_WITH_DIFFERENCES";
       this.ID_ERR_COSTUMERID_NOT_FOUND="ID_ERR_COSTUMERID_NOT_FOUND";
+      this.ID_ERR_WRONG_INVOICE_TYPE="ID_ERR_WRONG_INVOICE_TYPE";
    }
  
    /** Return true if the transactions match this format */
@@ -140,41 +148,35 @@ function getCurrentDate() {
       if ( transactions.length === 0)
          return false;
 
-      for (var row in transactions){
-         var transaction=transactions[row];
-         //aggiungere un controllo
-         var formatMatched = false;
-         
-         if (transaction["client_number"] && transaction["client_number"].match(/[0-9\.]+/g))
-            formatMatched = true;
-         else
-            formatMatched = false;
+      var formatMatched = false;
+      
+      if (transactions[0]["client_number"] && transactions[0]["client_number"].match(/[0-9\.]+/g))
+         formatMatched = true;
+      else
+         formatMatched = false;
 
-         if (formatMatched && transaction["number"].match(/[0-9\.]+/g)){
-            formatMatched = true;
-         }
-         else
-            formatMatched = false;
-
-         if (formatMatched && transaction["date"].match(/[0-9\.]+/g) && transaction["date"].length==10)
-            formatMatched = true;
-         else
-            formatMatched = false;
-
-         if (formatMatched)
-            return true;
+      if (formatMatched && transactions[0]["number"].match(/[0-9\.]+/g)){
+         formatMatched = true;
       }
- 
-      return false;
+      else
+         formatMatched = false;
+
+      if (formatMatched && transactions[0]["date"].match(/[0-9\.]+/g) && transactions[0]["date"].length==10)
+         formatMatched = true;
+      else
+         formatMatched = false;
+
+      if (formatMatched)
+         return true;
+      else
+         return false;
    }
 
    convertInDocChange(transactionsObjs,initJsonDoc){
       var jsonDoc=[];
       var docInfo=getDocumentInfo();
       var rows=[];
-
       var invoiceObj={};
-
 
       /**
        * ciclo le righe e creo gli oggetti
@@ -216,7 +218,6 @@ function getCurrentDate() {
             this.invoiceVatTotal="";
             this.discountTotal="";
 
-
          }
 
          this.placeHolder=invoiceTransaction["number"];
@@ -242,22 +243,20 @@ function getCurrentDate() {
 
    checkCalculatedAmounts(invoiceObj){
 
-      var lang=getLang();
-      var msg=this.getErrorMessage(this.ID_ERR_AMOUNTS_WITH_DIFFERENCES,lang,invoiceObj.document_info.number);
+      var msg=this.getInvoiceErrorMessage(this.ID_ERR_AMOUNTS_WITH_DIFFERENCES,this.lang,invoiceObj.document_info.number);
 
       if(invoiceObj.billing_info.total_amount_vat_exclusive_before_discount==this.invoiceNetTotal){
          this.NetTotalIsOk=true;
       }else{
          Banana.application.addMessage(msg,this.ID_ERR_AMOUNTS_WITH_DIFFERENCES);
-
-        /* Banana.console.debug("excl vat file"+this.invoiceNetTotal);
+         /*Banana.console.debug("excl vat file"+this.invoiceNetTotal);
          Banana.console.debug("excl vat calculated"+invoiceObj.billing_info.total_amount_vat_exclusive_before_discount);*/
       }
       if(invoiceObj.billing_info.total_amount_vat_inclusive==this.invoiceVatTotal){
          this.VatTotalIsOk=true;
       }else{
          Banana.application.addMessage(msg,this.ID_ERR_AMOUNTS_WITH_DIFFERENCES);
-         /*Banana.console.debug("incl vat file"+this.invoiceVatTotal);
+        /* Banana.console.debug("incl vat file"+this.invoiceVatTotal);
          Banana.console.debug("incl vat calculated"+invoiceObj.billing_info.total_amount_vat_inclusive);*/
       }
 
@@ -406,8 +405,7 @@ getTranslateWords(language){
           }
          let table = this.banDoc.table("Invoices");
          var rowNumber = -1;
-         var lang=getLang();
-         var msg=this.getErrorMessage(this.ID_ERR_COSTUMERID_NOT_FOUND,lang,id);
+         var msg=this.getInvoiceErrorMessage(this.ID_ERR_COSTUMERID_NOT_FOUND,this.lang,id);
          table.addMessage(msg, rowNumber, "ContactId",this.ID_ERR_COSTUMERID_NOT_FOUND);
          customer_info.first_name=name;
          return customer_info;
@@ -445,10 +443,9 @@ getTranslateWords(language){
          var invTransaction=invoiceTransactions[row];
          if(invTransaction["number"]==ref_number){
             var invoiceObj_items={};
-
-
+            var itemDescription=this.replaceNewLine(invTransaction["position_description"]);
             invoiceObj_items.account_assignment="";
-            invoiceObj_items.description=invTransaction["position_name"];
+            invoiceObj_items.description=invTransaction["position_name"]+itemDescription;
             invoiceObj_items.details=invTransaction["position_category"];
             invoiceObj_items.index="";
             invoiceObj_items.item_type=invTransaction["type"];
@@ -479,9 +476,8 @@ getTranslateWords(language){
       unitPrice.vat_rate=invoiceTransaction["position_vat"];
 
       //salvo i valori per confrontarli con quelli calcolati
-
-      this.invoiceNetTotal=Banana.SDecimal.add(this.invoiceNetTotal,invoiceTransaction["position_nettotal"]);
-      this.invoiceVatTotal=Banana.SDecimal.add(this.invoiceVatTotal,invoiceTransaction["position_total"]);
+      this.invoiceNetTotal=Banana.SDecimal.add(this.invoiceNetTotal,invoiceTransaction["position_nettotal"],{'decimals':2});
+      this.invoiceVatTotal=Banana.SDecimal.add(this.invoiceVatTotal,invoiceTransaction["position_total"],{'decimals':2});
 
       this.discountTotal=Banana.SDecimal.add(this.discountTotal,Banana.SDecimal.subtract(invoiceTransaction["position_nettotal"],invoiceTransaction["position_nettotal_afterdiscount"]));
 
@@ -535,7 +531,17 @@ getTranslateWords(language){
 
    }
 
-   getErrorMessage(errorId,lang,refNr){
+   replaceNewLine(itemDescription){
+      var newItemDescription="";
+      if(itemDescription && itemDescription.indexOf("<br>")!==0){
+         newItemDescription=itemDescription.replace("<br>","\n");
+         newItemDescription="\n"+newItemDescription;
+         return newItemDescription;
+      }
+      return newItemDescription;
+   }
+
+   getInvoiceErrorMessage(errorId,lang,refNr){
       if (!lang)
       lang = 'en';
    switch (errorId) {
@@ -557,6 +563,15 @@ getTranslateWords(language){
             return "The calculated amount is different from the amount in your file, invoice nr"+": "+refNr;
          else
             return "The calculated amount is different from the amount in your file, invoice nr"+": "+refNr;  
+      case this.ID_ERR_WRONG_INVOICE_TYPE:
+         if (lang == 'it')
+            return "Stai provando ad importare una fattura tipo 'Singola riga',importa invece una fattura tipo 'Dettagliata'";
+         else if (lang == 'de')
+            return "Sie versuchen, eine 'einzeilige' Rechnung zu importieren, importieren Sie stattdessen eine 'detaillierte' Rechnung.";
+         else if (lang=='fr')
+            return "You are trying to import a 'Single line' invoice, import a 'Detailed' invoice instead.";
+         else
+            return "You are trying to import a 'Single line' invoice, import a 'Detailed' invoice instead.";
 	}
    return '';
    }
@@ -575,24 +590,21 @@ var formatCnt=class formatCnt{
    match(transactions) {
       if ( transactions.length === 0)
          return false;
-      for (var row in transactions){
-         var transaction = transactions[row];
    
-         var formatMatched = false;
+      var formatMatched = false;
 
-         if (transaction["number"] && transaction["name"] && transaction["type"])
-            formatMatched = true;
-         else
-            formatMatched = false;
+      if (transactions[0]["number"] && transactions[0]["name"] && transactions[0]["type"])
+         formatMatched = true;
+      else
+         formatMatched = false;
 
-         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
-            formatMatched = true;
-         else
-            formatMatched = false;
+      if (formatMatched && transactions[0]["number"].match(/[0-9\.]+/g))
+         formatMatched = true;
+      else
+         formatMatched = false;
 
-         if (formatMatched)
-            return true;
-      }
+      if (formatMatched)
+         return true;
    
       return false;
    }
@@ -675,25 +687,21 @@ var formatPS =class formatPS {
    match(transactions) {
       if ( transactions.length === 0)
          return false;
-
-      for (var row in transactions){
-         var transaction=transactions[row];
          
-         var formatMatched = false;
+      var formatMatched = false;
 
-         if (transaction["price"] && transaction["unit"])
-            formatMatched = true;
-         else
-            formatMatched = false;
+      if (transactions[0]["price"] && transactions[0]["unit"])
+         formatMatched = true;
+      else
+         formatMatched = false;
 
-         if (formatMatched && transaction["number"].match(/[0-9\.]+/g))
-            formatMatched = true;
-         else
-            formatMatched = false;
+      if (formatMatched && transactions[0]["number"].match(/[0-9\.]+/g))
+         formatMatched = true;
+      else
+         formatMatched = false;
 
-         if (formatMatched)
-            return true;
-      }
+      if (formatMatched)
+         return true;
  
       return false;
    }
