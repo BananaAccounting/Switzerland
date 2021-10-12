@@ -1,4 +1,4 @@
-// Copyright [2020] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2020-11-20
+// @pubdate = 2021-09-15
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-bill with empty amount and address
@@ -23,6 +23,7 @@
 // @description.en = QR-bill with empty amount and address
 // @doctype = *
 // @task = app.command
+// @timeout = -1
 // @includejs = swissqrcode.js
 // @includejs = checkfunctions.js
 
@@ -51,47 +52,48 @@ function exec(string) {
   var isCurrentBananaVersionSupported = bananaRequiredVersion(BAN_VERSION, BAN_EXPM_VERSION);
   if (isCurrentBananaVersionSupported) {
 
-    /* 1. Initialize QR settings */
-    var qrSettings = initQRSettings();
+    /* 1. Initialize user parameters */
+    var userParam = initUserParam();
+    var savedParam = Banana.document.getScriptSettings();
+    if (savedParam && savedParam.length > 0) {
+        userParam = JSON.parse(savedParam);
+    }
+    if (!options || !options.useLastSettings) {
+        userParam = settingsDialog();
+    }
+    if (!userParam) {
+        return "@Cancel";
+    }
 
-    /* 2. Initialize JSON */
+    /* 2. Initialize QR settings */
+    var qrSettings = initQRSettings(userParam);
+
+    /* 3. Initialize JSON */
     var invoiceObj = initJSON(Banana.document);
 
+    /* 4. Print the report */
     var stylesheet = Banana.Report.newStyleSheet();
-
-    var report = printReport(Banana.document, invoiceObj, report, stylesheet, qrSettings);
-    
-    style = stylesheet.addStyle(".suggestion");
-    style.setAttribute("margin-top","10mm");
-    style.setAttribute("margin-left","10mm;");
-    
-    // stylesheet.addStyle("@page").setAttribute("size", "210mm 105mm");
-    // stylesheet.addStyle(".qrcode_receipt_Form").setAttribute("top", "0mm");
-    // stylesheet.addStyle(".qrcode_receipt_currency_Form").setAttribute("top", "68mm");
-    // stylesheet.addStyle(".qrcode_receipt_amount_Form").setAttribute("top", "68mm");
-    // stylesheet.addStyle(".qrcode_receipt_acceptancepoint_Form").setAttribute("top", "82mm");
-    // stylesheet.addStyle(".qrcode_payment_Form").setAttribute("top", "0mm");
-    // stylesheet.addStyle(".qrcode_payment_image_Form").setAttribute("top", "16mm");
-    // stylesheet.addStyle(".qrcode_payment_currency_Form").setAttribute("top", "68mm");
-    // stylesheet.addStyle(".qrcode_payment_amount_Form").setAttribute("top", "68mm");
-    // stylesheet.addStyle(".qrcode_payment_text_Form").setAttribute("top", "0mm");
-    // stylesheet.addStyle(".qrcode_payment_further_info_Form").setAttribute("top", "88mm");
-
+    var report = printReport(Banana.document, invoiceObj, report, stylesheet, userParam, qrSettings);
     Banana.Report.preview(report, stylesheet);
   }
 }
 
-function printReport(banDoc, invoiceObj, report, stylesheet, qrSettings) {
+function printReport(banDoc, invoiceObj, report, stylesheet, userParam, qrSettings) {
   var report = Banana.Report.newReport("QR with empty amount and address");
-  report.addParagraph("The QR payment part without address and amount is at the bottom of the page.", "suggestion");
-    
+
+  // Add notes on top of the page
+  if (userParam.print_msg_text) {
+    report.addParagraph(userParam.print_msg_text, "").setStyleAttributes("margin-top:10mm; margin-left:10mm;");;
+  }
+
+  // Add QR section
   var qrBill = new QRBill(banDoc, qrSettings);
   qrBill.printQRCode(invoiceObj, report, stylesheet, qrSettings);
 
   return report;
 }
 
-function initQRSettings() {
+function initQRSettings(userParam) {
   /*
     Initialize the QR settings
   */
@@ -114,11 +116,17 @@ function initQRSettings() {
   qrSettings.qr_code_empty_address = true;
   qrSettings.qr_code_empty_amount = true;
   qrSettings.qr_code_add_border_separator = true;
+  if (!userParam.print_separating_border) {
+    qrSettings.qr_code_add_border_separator = false;
+  }
   qrSettings.qr_code_add_symbol_scissors = false;
+  if (userParam.print_scissors_symbol) {
+    qrSettings.qr_code_add_symbol_scissors = true;
+  }
   qrSettings.qr_code_new_page = false;
   qrSettings.qr_code_position_dX = '0';
   qrSettings.qr_code_position_dY = '0';
-  
+
   return qrSettings;
 }
 
@@ -283,4 +291,156 @@ function bananaRequiredVersion(requiredVersion, expmVersion) {
     return false;
   }
   return true;
+}
+
+
+
+function convertParam(userParam) {
+
+  //language
+  var lang = 'en';
+  if (Banana.document.locale) {
+    lang = Banana.document.locale;
+  }
+  if (lang.length > 2) {
+    lang = lang.substr(0, 2);
+  }
+
+  //parameters
+  var convertedParam = {};
+  convertedParam.version = '1.0';
+  convertedParam.data = [];
+
+  // Notes top page
+  var currentParam = {};
+  currentParam.name = 'print_msg_text';
+  currentParam.title = '';
+  if (lang === 'it') {
+    currentParam.title = 'Note a inizio pagina';
+  } else if (lang === 'fr') {
+    currentParam.title = 'Notes en haut de la page';
+  } else if (lang === 'de') {
+    currentParam.title = 'Anmerkungen am Anfang der Seite';
+  } else {
+    currentParam.title = 'Notes at the top of the page';
+  }
+  currentParam.type = 'multilinestring';
+  currentParam.value = userParam.print_msg_text ? userParam.print_msg_text : '';
+  currentParam.defaultvalue = 'The QR payment part without address and amount is at the bottom of the page.';
+  currentParam.readValue = function() {
+    userParam.print_msg_text = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Print separating border
+  currentParam = {};
+  currentParam.name = 'print_separating_border';
+  currentParam.title = '';
+  if (lang === 'it') {
+    currentParam.title = 'Stampa bordo di separazione';
+  } else if (lang === 'fr') {
+    currentParam.title = 'Impression de la bordure de séparation';
+  } else if (lang === 'de') {
+    currentParam.title = 'Trennlinie drucken';
+  } else {
+    currentParam.title = 'Print separating border';
+  }
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_separating_border ? true : false;
+  currentParam.defaultvalue = true;
+  currentParam.readValue = function() {
+    userParam.print_separating_border = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Print scissors symbol
+  currentParam = {};
+  currentParam.name = 'print_scissors_symbol';
+  currentParam.title = '';
+  if (lang === 'it') {
+    currentParam.title = 'Stampa simbolo forbici';
+  } else if (lang === 'fr') {
+    currentParam.title = 'Imprimer le symbole des ciseaux';
+  } else if (lang === 'de') {
+    currentParam.title = 'Scherensymbol drucken';
+  } else {
+    currentParam.title = 'Print scissors symbol';
+  }
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_scissors_symbol ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_scissors_symbol = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  return convertedParam;
+}
+
+function initUserParam() {
+
+  var userParam = {};
+  userParam.print_msg_text = 'The QR payment part without address and amount is at the bottom of the page.';
+  userParam.print_separating_border = true;
+  userParam.print_scissors_symbol = false;
+  return userParam;
+
+}
+
+function parametersDialog(userParam) {
+
+  if (typeof(Banana.Ui.openPropertyEditor) !== 'undefined') {
+      //language
+      var lang = 'en';
+      if (Banana.document.locale) {
+        lang = Banana.document.locale;
+      }
+      if (lang.length > 2) {
+        lang = lang.substr(0, 2);
+      }
+
+      //parameters
+      var dialogTitle = '';
+      if (lang === 'it') {
+        dialogTitle = 'Impostazioni';
+      } else if (lang === 'fr') {
+        dialogTitle = 'Paramètres';
+      } else if (lang === 'de') {
+        dialogTitle = 'Einstellungen';
+      } else {
+        dialogTitle = 'Settings';
+      }
+      var convertedParam = convertParam(userParam);
+      var pageAnchor = 'dlgSettings';
+      if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor)) {
+          return null;
+      }
+      
+      for (var i = 0; i < convertedParam.data.length; i++) {
+          // Read values to userParam (through the readValue function)
+          convertedParam.data[i].readValue();
+      }
+  }
+  
+  return userParam;
+}
+
+/* Save the period for the next time the script is run */
+function settingsDialog() {
+  
+  var scriptform = initUserParam();
+
+  // Retrieve saved param
+  var savedParam = Banana.document.getScriptSettings();
+  if (savedParam && savedParam.length > 0) {
+      scriptform = JSON.parse(savedParam);
+  }
+
+  scriptform = parametersDialog(scriptform); // From propertiess
+  if (scriptform) {
+      var paramToString = JSON.stringify(scriptform);
+      Banana.document.setScriptSettings(paramToString);
+  }
+  
+  return scriptform;
 }

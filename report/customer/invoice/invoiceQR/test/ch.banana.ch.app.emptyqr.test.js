@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.emptyqr.test
 // @api = 1.0
-// @pubdate = 2020-09-15
+// @pubdate = 2021-09-15
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.emptyqr.js>
 // @task = app.command
@@ -114,8 +114,14 @@ ReportEmptyQr.prototype.testReport = function() {
 
 ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
   
+  var userParam = {};
+  userParam.print_msg_text = 'The QR payment part without address and amount is at the bottom of the page.';
+  userParam.print_separating_border = true;
+  userParam.print_scissors_symbol = false;
+  
   var invoiceObj = initJSON(banDoc);
-  var qrSettings = initQRSettings();
+  
+  var qrSettings = initQRSettings(userParam);
   qrSettings.qr_code_add = true;
   qrSettings.qr_code_reference_type = 'NON';
   qrSettings.qr_code_debtor_address_type = "K";
@@ -140,17 +146,23 @@ ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
   qrSettings.qr_code_position_dX = '0';
   qrSettings.qr_code_position_dY = '0';
 
-  var report = printReport(banDoc, invoiceObj, report, "", qrSettings);
+  var report = printReport(banDoc, invoiceObj, report, "", userParam, qrSettings);
   Test.logger.addReport("Test 1", report);
   var text = getQRCodeText(banDoc, qrSettings, invoiceObj, "", 'en');
   Test.logger.addText(text);
 }
 
 ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
+
+  var userParam = {};
+  userParam.print_msg_text = 'The QR payment part without address and amount is at the bottom of the page.';
+  userParam.print_separating_border = true;
+  userParam.print_scissors_symbol = false;
   
   var invoiceObj = initJSON(banDoc);
   invoiceObj.supplier_info.iban_number = 'CH09 3000 0001 6525 0122 4'; //wrong, it's a QR-IBAN
-  var qrSettings = initQRSettings();
+  
+  var qrSettings = initQRSettings(userParam);
   qrSettings.qr_code_add = true;
   qrSettings.qr_code_reference_type = 'NON';
   qrSettings.qr_code_debtor_address_type = "K";
@@ -175,7 +187,7 @@ ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
   qrSettings.qr_code_position_dX = '0';
   qrSettings.qr_code_position_dY = '0';
 
-  var report = printReport(banDoc, invoiceObj, report, "", qrSettings);
+  var report = printReport(banDoc, invoiceObj, report, "", userParam, qrSettings);
   Test.logger.addReport("Test 1", report);
   var text = getQRCodeText(banDoc, qrSettings, invoiceObj, "", 'en');
   Test.logger.addText(text);
@@ -194,7 +206,7 @@ function getQRCodeText(banDoc, qrSettings, invoiceObj, texts, langCode) {
   return text;
 }
 
-function initQRSettings() {
+function initQRSettings(userParam) {
   /*
     Initialize the QR settings
   */
@@ -218,8 +230,13 @@ function initQRSettings() {
   qrSettings.qr_code_billing_information = false;
   qrSettings.qr_code_empty_address = true;
   qrSettings.qr_code_empty_amount = true;
-  qrSettings.qr_code_add_border_separator = true;
+  if (!userParam.print_separating_border) {
+    qrSettings.qr_code_add_border_separator = false;
+  }
   qrSettings.qr_code_add_symbol_scissors = false;
+  if (userParam.print_scissors_symbol) {
+    qrSettings.qr_code_add_symbol_scissors = true;
+  }
   qrSettings.qr_code_new_page = false;
   qrSettings.qr_code_position_dX = '0';
   qrSettings.qr_code_position_dY = '0';

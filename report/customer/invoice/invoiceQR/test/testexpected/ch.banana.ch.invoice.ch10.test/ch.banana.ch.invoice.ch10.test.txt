@@ -7133,6 +7133,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Te e tisane \newline \newline  &  &  & 5.30  & 21.20 \\
 Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
 \multicolumn{310}{l}{}\\
+\multicolumn{309}{l}{Subtotal } & 27.20 \\
 \multicolumn{309}{l}{Discount } & 2.20 \\
 \multicolumn{310}{l}{}\\
 \multicolumn{309}{l}{TOTAL CHF } & 25.00 \\
@@ -7241,6 +7242,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Tisane e te \newline \newline  &  &  & 5.30  & 26.50 \\
 Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
 \multicolumn{315}{l}{}\\
+\multicolumn{314}{l}{Subtotal } & 32.50 \\
 \multicolumn{314}{l}{Discount } & 2.50 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{TOTAL CHF } & 30.00 \\
@@ -7349,6 +7351,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Te e tisane \newline \newline  &  &  & 5.39  & 21.54 \\
 Spese di spedizione \newline \newline  &  &  &  & 6.00 \\
 \multicolumn{320}{l}{}\\
+\multicolumn{319}{l}{Subtotal } & 27.54 \\
 \multicolumn{319}{l}{Discount } & 2.54 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{TOTAL CHF } & 25.00 \\
@@ -7565,6 +7568,7 @@ senza iva, con sconto, senza acconto \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
 \multicolumn{330}{l}{}\\
+\multicolumn{329}{l}{Subtotal } & 26.00 \\
 \multicolumn{329}{l}{testo sconto 5\% } & 1.30 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{TOTAL CHF } & 24.70 \\
@@ -7673,6 +7677,7 @@ Invoice 7 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
 \multicolumn{335}{l}{}\\
+\multicolumn{334}{l}{Subtotal } & 42.00 \\
 \multicolumn{334}{l}{testo acconto } & 20.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{334}{l}{TOTAL CHF } & 22.00 \\
@@ -7781,6 +7786,7 @@ Invoice 8 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
 \multicolumn{340}{l}{}\\
+\multicolumn{339}{l}{Subtotal } & 100.00 \\
 \multicolumn{339}{l}{testo sconto } & 10.00 \\
 \multicolumn{339}{l}{testo acconto } & 40.00 \\
 \multicolumn{340}{l}{}\\
@@ -7997,6 +8003,7 @@ Invoice 10 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
+\multicolumn{349}{l}{Subtotal } & 26.00 \\
 \multicolumn{349}{l}{testo sconto 5\% } & 1.30 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
@@ -8105,6 +8112,7 @@ Invoice 11 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
 \multicolumn{355}{l}{}\\
+\multicolumn{354}{l}{Subtotal } & 42.00 \\
 \multicolumn{354}{l}{testo acconto } & 20.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{TOTAL CHF } & 22.00 \\
@@ -8213,6 +8221,7 @@ Invoice 12 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
 \multicolumn{360}{l}{}\\
+\multicolumn{359}{l}{Subtotal } & 100.00 \\
 \multicolumn{359}{l}{testo sconto } & 10.00 \\
 \multicolumn{359}{l}{testo acconto } & 40.00 \\
 \multicolumn{360}{l}{}\\

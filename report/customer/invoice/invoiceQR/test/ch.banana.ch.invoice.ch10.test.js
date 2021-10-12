@@ -85,6 +85,7 @@ ReportInvoiceQrCode.prototype.testReport = function() {
 
   //Tests executed with banana advanced license type
   BAN_ADVANCED = true;
+  IS_INTEGRATED_INVOICE = true;
 
   Test.logger.addSection("Invoice tests - file: " + fileAC2);
 

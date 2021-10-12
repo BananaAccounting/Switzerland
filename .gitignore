@@ -4,3 +4,4 @@
 *.test.diff.txt
 **/test/testresults
 VatEU
+*.user
