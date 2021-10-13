@@ -33,7 +33,7 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* print begin text of the estimate on several lines. Text can also be defined in Layout parameters, section Texts->Estimate->Text begin estimate.
 	* add the subtotal for invoice with gross amounts in case of discount, deposit or rounding.
 	* Specific changes for Integrated invoice:
-		* print additional descriptions on several lines using additiona columns “Description2”, “Description3",… of Transactions table. Can be activated/deactivated in the layout parameters, section Print->Invoice details.   
+		* print additional descriptions on several lines using custom columns “Description2”, “Description3",… in Transactions table. Can be activated/deactivated in the layout parameters, section Print->Invoice details.   
 	* Specific changes for Estimates and Invoices application:
 		* print columns “Item”, “Date” and “Discount”. Columns can be added in layout parameters, section Print->Invoice Details->Column names
 		* print custom columns of Items table. The syntax is “I.ColumnName”, where ColumnName is the XML name of a column (Advanced plan required).  
