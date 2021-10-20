@@ -130,22 +130,18 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
         }
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
+
+      //
+      // Add images from the column Links of the table Items
+      // We set the height of the images to 1cm
+      //
       else if (columnsNames[j].trim().toLowerCase() === "i.links") {
-        var userColumnValue = "";
-        var columnsName = columnsNames[j];
-        var itemValue = "";
-        var table = banDoc.table('Items');
-        for (var k = 0; k < table.rowCount; k++) {
-           var tRow = table.row(k);
-           var id = tRow.value("RowId");
-           if (id === item.number) {      
-        	  userColumnValue = tRow.value('Links');
-      		}
-        }
-        itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item); 
+        var userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsNames[j]);
         var cell = tableRow.addCell();
         cell.addImage("file:document/"+userColumnValue, "", "1cm");
       }
+
+
       else {
         var userColumnValue = "";
         var columnsName = columnsNames[j];
