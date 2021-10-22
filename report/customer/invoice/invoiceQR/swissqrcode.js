@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2021-07-16 */
+/* Script update: 2021-10-20 */
 
 
 
@@ -51,6 +51,7 @@ var QRBill = class QRBill {
 		this.ID_QRBILL_WITHOUT_DEBTOR = false;
 
 		//errors
+		this.ERROR = false;
 		this.ID_ERR_CURRENCY = "ID_ERR_CURRENCY";
 		this.ID_ERR_QRCODE = "ID_ERR_QRCODE";
 		this.ID_ERR_QRIBAN = "ID_ERR_QRIBAN";
@@ -90,6 +91,9 @@ var QRBill = class QRBill {
 	 */
 	getErrorMessage(errorId, lang, value)
 	{
+		//There is an error: set error flag, so we do not show QR code image
+		this.ERROR = true;
+
 		if (!lang) {
 			lang = 'en';
 		}
@@ -717,6 +721,9 @@ var QRBill = class QRBill {
 		}
 		if (!userParam.qr_code_creditor_country) {
 			userParam.qr_code_creditor_country = '';
+		}
+		if (!userParam.qr_code_creditor_name && !userParam.qr_code_creditor_postalcode && !userParam.qr_code_creditor_city && !userParam.qr_code_creditor_country) {
+			userParam.qr_code_payable_to = false;
 		}
 		if (!userParam.qr_code_debtor_address_type) {
 			userParam.qr_code_debtor_address_type = 'K';
@@ -1907,8 +1914,12 @@ var QRBill = class QRBill {
 		*	PAYMENT QRCODE
 		*/
 		qrcodePaymentForm.addParagraph(texts.paymentTitle, "qrcode_title qrcode_paddingTop qrcode_paddingLeft");
-		qrcodePymentImageForm.addImage(qrCodeSvgImage, 'qrcode_image');
-		qrcodePymentImageForm.addImage(this.swiss_cross, "qrcode_cross");
+		
+		// The QR image is added only if there is no error/missing data
+		if (!this.ERROR) {
+			qrcodePymentImageForm.addImage(qrCodeSvgImage, 'qrcode_image');
+			qrcodePymentImageForm.addImage(this.swiss_cross, "qrcode_cross");
+		}
 
 
 		/**

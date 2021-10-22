@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-10-12
+// @pubdate = 2021-10-22
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -3167,24 +3167,41 @@ function getUserColumnValue(banDoc, originRow, itemNumber, column) {
     them into the invoice details table.
   */
 
-  // Integrated invoice, table Transactions, column name in settings dialog must start with "T."
-  if (column.startsWith("T.") && IS_INTEGRATED_INVOICE) {
-    var table = banDoc.table('Transactions');
-    for (var i = 0; i < table.rowCount; i++) {
-      var tRow = table.row(i);
-      if (tRow.rowNr.toString() === originRow.toString()) {      
-        return tRow.value(column.substring(2)); //without "T."
+  // Integrated invoice
+  // - table Transactions, column name in settings dialog must start with "T."
+  // - table Items, column name in settings dialog must start with "I."
+  if (IS_INTEGRATED_INVOICE) {
+    if (column.startsWith("T.")) {
+      var table = banDoc.table('Transactions');
+      for (var i = 0; i < table.rowCount; i++) {
+        var tRow = table.row(i);
+        if (tRow.rowNr.toString() === originRow.toString()) {      
+          return tRow.value(column.substring(2)); //without "T."
+        }
+      }
+    }
+    else if (column.startsWith("I.")) {
+      var table = banDoc.table('Items');
+      for (var i = 0; i < table.rowCount; i++) {
+        var tRow = table.row(i);
+        var id = tRow.value("ItemsId");
+        if (id === itemNumber) {      
+          return tRow.value(column.substring(2)); //without "I."
+        }
       }
     }
   }
-  // Estimates & Invoices application, table Items, column name in settings dialog must start with "I."
-  else if (column.startsWith("I.") && !IS_INTEGRATED_INVOICE) {
-    var table = banDoc.table('Items');
-    for (var i = 0; i < table.rowCount; i++) {
-      var tRow = table.row(i);
-      var id = tRow.value("RowId");
-      if (id === itemNumber) {      
-        return tRow.value(column.substring(2)); //without "I."
+  else {
+    // Estimates & Invoices application
+    // - table Items, column name in settings dialog must start with "I."
+    if (column.startsWith("I.")) {
+      var table = banDoc.table('Items');
+      for (var i = 0; i < table.rowCount; i++) {
+        var tRow = table.row(i);
+        var id = tRow.value("RowId");
+        if (id === itemNumber) {      
+          return tRow.value(column.substring(2)); //without "I."
+        }
       }
     }
   }

@@ -37,3 +37,5 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Specific changes for Estimates and Invoices application:
 		* print columns “Item”, “Date” and “Discount”. Columns can be added in layout parameters, section Print->Invoice Details->Column names
 		* print custom columns of Items table. The syntax is “I.ColumnName”, where ColumnName is the XML name of a column (Advanced plan required).  
+* 2021-10-22
+	* QR code image is no longer printed in case of error/missing data.  
