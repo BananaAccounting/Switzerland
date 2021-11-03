@@ -1,0 +1,371 @@
+{
+   "billing_info": {
+      "discount": {
+         "amount_vat_exclusive": "2.20"
+      },
+      "due_date": "2020-06-17",
+      "total_advance_payment": "",
+      "total_amount_vat_exclusive": "122.15",
+      "total_amount_vat_exclusive_before_discount": "124.35",
+      "total_amount_vat_inclusive": "131.56",
+      "total_amount_vat_inclusive_before_discount": "133.93",
+      "total_categories": [],
+      "total_discount_percent": "1.8",
+      "total_discount_vat_exclusive": "2.20",
+      "total_discount_vat_inclusive": "2.37",
+      "total_rounding_difference": "",
+      "total_to_pay": "131.56",
+      "total_vat_amount": "9.41",
+      "total_vat_amount_before_discount": "9.58",
+      "total_vat_codes": [
+         {
+            "total_amount_vat_exclusive": "122.15",
+            "total_amount_vat_inclusive": "131.56",
+            "total_vat_amount": "9.41",
+            "vat_code": "V77"
+         }
+      ],
+      "total_vat_rates": [
+         {
+            "total_amount_vat_exclusive": "122.15",
+            "total_amount_vat_inclusive": "131.56",
+            "total_vat_amount": "9.41",
+            "vat_rate": "7.70"
+         }
+      ]
+   },
+   "creator_info": {
+      "name": "ch.banana.application.invoice.default",
+      "pubdate": "2021-10-28",
+      "publisher": "Banana.ch SA",
+      "version": ""
+   },
+   "customer_info": {
+      "number": "1",
+      "business_name": "La stanza del Te SA",
+      "first_name": "",
+      "last_name": "",
+      "address1": "Via ai Salici 12",
+      "address2": "",
+      "address3": "CP 69",
+      "postal_code": "6900",
+      "city": "Lugano",
+      "country_code": "CH",
+      "country": "",
+      "phone": "",
+      "email": "",
+      "web": "",
+      "iban": "",
+      "courtesy": "",
+      "mobile": ""
+   },
+   "document_info": {
+      "currency": "CHF",
+      "customer_reference": "asdf",
+      "date": "2020-06-17",
+      "decimals_amounts": 2,
+      "description": "Invoice 3 - <OrganisationName>",
+      "doc_type": "10",
+      "locale": "en",
+      "number": "3",
+      "rounding_totals": "0.05",
+      "text_begin": "aFASD\nF AS\nDF",
+      "title": "Invoice 3 - <OrganisationName>",
+      "vat_mode": "vat_excl",
+      "order_number": "1234",
+      "order_date": "2020-06-01"
+   },
+   "items": [
+      {
+         "description": "Te\n1\n2\n3",
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "price": "",
+         "quantity": "4.00",
+         "total": "",
+         "total_amount_vat_exclusive": "19.68",
+         "total_amount_vat_inclusive": "21.20",
+         "total_vat_amount": "1.52",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "5.30",
+            "calculated_amount_vat_exclusive": "4.92",
+            "calculated_amount_vat_inclusive": "5.30",
+            "calculated_vat_amount": "0.38",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "vat_code": "",
+         "vat_rate": "",
+         "date": "2020-06-02",
+         "item": "1000"
+      },
+      {
+         "description": "Te",
+         "discount": {
+            "percent": "30."
+         },
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "quantity": "4.00",
+         "total": "",
+         "total_amount_vat_exclusive": "13.78",
+         "total_amount_vat_inclusive": "14.84",
+         "total_vat_amount": "1.06",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "5.30",
+            "calculated_amount_vat_exclusive": "4.92",
+            "calculated_amount_vat_inclusive": "5.30",
+            "calculated_vat_amount": "0.38",
+            "discounted_amount_vat_exclusive": "3.44",
+            "discounted_amount_vat_inclusive": "3.71",
+            "discounted_vat_amount": "0.27",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-03",
+         "item": "1000"
+      },
+      {
+         "description": "Te",
+         "discount": {
+            "amount": "1.60"
+         },
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "quantity": "4.00",
+         "total": "",
+         "total_amount_vat_exclusive": "13.74",
+         "total_amount_vat_inclusive": "14.80",
+         "total_vat_amount": "1.06",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "5.30",
+            "calculated_amount_vat_exclusive": "4.92",
+            "calculated_amount_vat_inclusive": "5.30",
+            "calculated_vat_amount": "0.38",
+            "discounted_amount_vat_exclusive": "3.44",
+            "discounted_amount_vat_inclusive": "3.70",
+            "discounted_vat_amount": "0.26",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-04",
+         "item": "1000"
+      },
+      {
+         "description": "Te",
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "",
+         "quantity": "10000",
+         "total_amount_vat_exclusive": "17.18",
+         "total_amount_vat_inclusive": "18.50",
+         "total_vat_amount": "1.32",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "0.00185",
+            "calculated_amount_vat_exclusive": "0.00172",
+            "calculated_amount_vat_inclusive": "0.00185",
+            "calculated_vat_amount": "0.00013",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-05",
+         "item": ""
+      },
+      {
+         "description": "Te",
+         "discount": {
+            "amount": "0.00035"
+         },
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "quantity": "10000",
+         "total": "",
+         "total_amount_vat_exclusive": "13.93",
+         "total_amount_vat_inclusive": "15.00",
+         "total_vat_amount": "1.07",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "0.00185",
+            "calculated_amount_vat_exclusive": "0.00172",
+            "calculated_amount_vat_inclusive": "0.00185",
+            "calculated_vat_amount": "0.00013",
+            "discounted_amount_vat_exclusive": "0.00139",
+            "discounted_amount_vat_inclusive": "0.00150",
+            "discounted_vat_amount": "0.00011",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-06",
+         "item": "1000"
+      },
+      {
+         "description": "Te",
+         "discount": {
+            "percent": "3."
+         },
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "quantity": "10000",
+         "total": "",
+         "total_amount_vat_exclusive": "16.67",
+         "total_amount_vat_inclusive": "17.95",
+         "total_vat_amount": "1.28",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "0.00185",
+            "calculated_amount_vat_exclusive": "0.00172",
+            "calculated_amount_vat_inclusive": "0.00185",
+            "calculated_vat_amount": "0.00013",
+            "discounted_amount_vat_exclusive": "0.00167",
+            "discounted_amount_vat_inclusive": "0.00179",
+            "discounted_vat_amount": "0.00013",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-07",
+         "item": "1000"
+      },
+      {
+         "description": "Te",
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "",
+         "quantity": "0.00025",
+         "total_amount_vat_exclusive": "9.33",
+         "total_amount_vat_inclusive": "10.05",
+         "total_vat_amount": "0.72",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "40200.00",
+            "calculated_amount_vat_exclusive": "37325.91",
+            "calculated_amount_vat_inclusive": "40200.00",
+            "calculated_vat_amount": "2874.09",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-08",
+         "item": ""
+      },
+      {
+         "description": "Te",
+         "discount": {
+            "amount": "8000"
+         },
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "quantity": "0.00025",
+         "total": "",
+         "total_amount_vat_exclusive": "7.47",
+         "total_amount_vat_inclusive": "8.05",
+         "total_vat_amount": "0.58",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "40200.00",
+            "calculated_amount_vat_exclusive": "37325.91",
+            "calculated_amount_vat_inclusive": "40200.00",
+            "calculated_vat_amount": "2874.09",
+            "discounted_amount_vat_exclusive": "29897.86",
+            "discounted_amount_vat_inclusive": "32200.00",
+            "discounted_vat_amount": "2302.14",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-09",
+         "item": "1000"
+      },
+      {
+         "description": "Te",
+         "discount": {
+            "percent": "25."
+         },
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "1000",
+         "quantity": "0.00025",
+         "total": "",
+         "total_amount_vat_exclusive": "7.00",
+         "total_amount_vat_inclusive": "7.54",
+         "total_vat_amount": "0.54",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "40200.00",
+            "calculated_amount_vat_exclusive": "37325.91",
+            "calculated_amount_vat_inclusive": "40200.00",
+            "calculated_vat_amount": "2874.09",
+            "discounted_amount_vat_exclusive": "27994.43",
+            "discounted_amount_vat_inclusive": "30150.00",
+            "discounted_vat_amount": "2155.57",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "date": "2020-06-10",
+         "item": "1000"
+      },
+      {
+         "description": "Spese di spedizione",
+         "item_type": "item",
+         "mesure_unit": "",
+         "number": "4000",
+         "price": "",
+         "quantity": "1.00",
+         "total": "",
+         "total_amount_vat_exclusive": "5.57",
+         "total_amount_vat_inclusive": "6.00",
+         "total_vat_amount": "0.43",
+         "unit_price": {
+            "amount_vat_exclusive": null,
+            "amount_vat_inclusive": "6.00",
+            "calculated_amount_vat_exclusive": "5.57",
+            "calculated_amount_vat_inclusive": "6.00",
+            "calculated_vat_amount": "0.43",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         },
+         "vat_code": "",
+         "vat_rate": "",
+         "date": "",
+         "item": "4000"
+      }
+   ],
+   "note": [
+      {
+         "date": null,
+         "description": "aFASD\nF AS\nDF\n AS\nDF ASDF"
+      }
+   ],
+   "payment_info": {
+      "due_date": "2020-07-17"
+   },
+   "supplier_info": {
+      "address1": "VIa alle colline 12",
+      "address2": "",
+      "address3": "",
+      "business_name": "My Company",
+      "city": "Lugano",
+      "country": "Svizzera",
+      "country_code": "CH",
+      "courtesy": "",
+      "email": "info@mycompany.zz",
+      "first_name": "",
+      "fiscal_number": "",
+      "iban_number": "CH93 0076 2011 6238 5295 7",
+      "last_name": "",
+      "mobile": "",
+      "phone": "+41 56 777 999",
+      "postal_code": "600",
+      "vat_number": "CHE-111.333.999 IVA",
+      "web": "https://www.mycompany.zz"
+   },
+   "type": "invoice",
+   "version": "1.0"
+}

@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2021-07-16
+// @pubdate = 2021-11-03
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -40,8 +40,8 @@
 
 
 
-
-var BAN_ADVANCED;
+//Tests executed with banana advanced license type
+var BAN_ADVANCED = true;
 
 
 
@@ -74,156 +74,188 @@ ReportInvoiceQrCode.prototype.cleanup = function() {
 }
 
 ReportInvoiceQrCode.prototype.testReport = function() {
-   
+
   Test.logger.addComment("Test [CH10] Layout 10 Programmable Invoice with Swiss QR Code");
 
-  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
-  var banDoc = Banana.application.openDocument(fileAC2);
-  if (!banDoc) {
-    return;
-  }
-
-  //Tests executed with banana advanced license type
-  BAN_ADVANCED = true;
-  IS_INTEGRATED_INVOICE = true;
-
-  Test.logger.addSection("Invoice tests - file: " + fileAC2);
-
   //Test QRR
+  //Integrated invoice
   Test.logger.addSubSection("Test1: QRR");
-  this.add_test_qrr_1(banDoc, "35", "Invoice 35");
-  this.add_test_qrr_1(banDoc, "36", "Invoice 36");
-  this.add_test_qrr_1(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_qrr_1(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_qrr_1(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_qrr_1(banDoc, "36-2020", "Invoice 36-2020");
+  this.add_test_qrr_1("35", "Invoice 35");
+  this.add_test_qrr_1("36", "Invoice 36");
+  this.add_test_qrr_1("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_qrr_1("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_qrr_1("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_qrr_1("36-2020", "Invoice 36-2020");
 
   //Test QRR, without address and without amount (settings parameters)
+  //Integrated invoice
   Test.logger.addSubSection("Test2: QRR, no address, no amount");
-  this.add_test_qrr_2(banDoc, "35", "Invoice 35");
-  this.add_test_qrr_2(banDoc, "36", "Invoice 36");
-  this.add_test_qrr_2(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_qrr_2(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_qrr_2(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_qrr_2(banDoc, "36-2020", "Invoice 36-2020");
+  this.add_test_qrr_2("35", "Invoice 35");
+  this.add_test_qrr_2("36", "Invoice 36");
+  this.add_test_qrr_2("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_qrr_2("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_qrr_2("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_qrr_2("36-2020", "Invoice 36-2020");
 
   //Test QRR, NEGATIVE: QR Reference with IBAN (should be QR-IBAN)
+  //Integrated invoice
   Test.logger.addSubSection("Test3 negative: QRR with IBAN");
-  this.add_test_qrr_3(banDoc, "35", "Invoice 35");
-  this.add_test_qrr_3(banDoc, "36", "Invoice 36");
-  this.add_test_qrr_3(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_qrr_3(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_qrr_3(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_qrr_3(banDoc, "36-2020", "Invoice 36-2020");
+  this.add_test_qrr_3("35", "Invoice 35");
+  this.add_test_qrr_3("36", "Invoice 36");
+  this.add_test_qrr_3("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_qrr_3("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_qrr_3("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_qrr_3("36-2020", "Invoice 36-2020");
 
   //Test QRR, NEGATIVE: QR-IBAN ok, QR Reference error
+  //Integrated invoice
   Test.logger.addSubSection("Test4 negative: QR-IBAN ok, QR Reference error");
-  this.add_test_qrr_4(banDoc, "F001-20", "Invoice F001-20");
+  this.add_test_qrr_4("F001-20", "Invoice F001-20");
 
   //Test SCOR
+  //Integrated invoice
   Test.logger.addSubSection("Test5: SCOR");
-  this.add_test_scor_1(banDoc, "35", "Invoice 35");
-  this.add_test_scor_1(banDoc, "36", "Invoice 36");
-  this.add_test_scor_1(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_scor_1(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_scor_1(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_scor_1(banDoc, "36-2020", "Invoice 36-2020");
-  this.add_test_scor_1(banDoc, "F001-20", "Invoice F001-20");
+  this.add_test_scor_1("35", "Invoice 35");
+  this.add_test_scor_1("36", "Invoice 36");
+  this.add_test_scor_1("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_scor_1("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_scor_1("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_scor_1("36-2020", "Invoice 36-2020");
+  this.add_test_scor_1("F001-20", "Invoice F001-20");
 
   //Test SCOR, without amount (settings)
+  //Integrated invoice
   Test.logger.addSubSection("Test6: SCOR, no amount");
-  this.add_test_scor_2(banDoc, "35", "Invoice 35");
-  this.add_test_scor_2(banDoc, "36", "Invoice 36");
-  this.add_test_scor_2(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_scor_2(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_scor_2(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_scor_2(banDoc, "36-2020", "Invoice 36-2020");
-  this.add_test_scor_2(banDoc, "F001-20", "Invoice F001-20");
+  this.add_test_scor_2("35", "Invoice 35");
+  this.add_test_scor_2("36", "Invoice 36");
+  this.add_test_scor_2("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_scor_2("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_scor_2("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_scor_2("36-2020", "Invoice 36-2020");
+  this.add_test_scor_2("F001-20", "Invoice F001-20");
   
   //Test SCOR, NEGATIVE: Creditor Reference with QR-IBAN (wrong, should be IBAN)
+  //Integrated invoice
   Test.logger.addSubSection("Test7 negative: SCOR, Creditor Reference and QR-IBAN");
-  this.add_test_scor_3(banDoc, "35", "Invoice 35");
-  this.add_test_scor_3(banDoc, "36", "Invoice 36");
-  this.add_test_scor_3(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_scor_3(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_scor_3(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_scor_3(banDoc, "36-2020", "Invoice 36-2020");
-  this.add_test_scor_3(banDoc, "F001-20", "Invoice F001-20");
+  this.add_test_scor_3("35", "Invoice 35");
+  this.add_test_scor_3("36", "Invoice 36");
+  this.add_test_scor_3("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_scor_3("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_scor_3("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_scor_3("36-2020", "Invoice 36-2020");
+  this.add_test_scor_3("F001-20", "Invoice F001-20");
 
   //Test SCOR, with 140 chars of unstructured message
   //The message is cut with "..." at the end
+  //Integrated invoice
   Test.logger.addSubSection("Test8: SCOR, 140 chars of unstructured message");
-  this.add_test_scor_4(banDoc, "364", "Invoice 364");
+  this.add_test_scor_4("364", "Invoice 364");
 
   //Test NON
+  //Integrated invoice
   Test.logger.addSubSection("Test9: NON");
-  this.add_test_non_1(banDoc, "35", "Invoice 35");
-  this.add_test_non_1(banDoc, "36", "Invoice 36");
-  this.add_test_non_1(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_non_1(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_non_1(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_non_1(banDoc, "36-2020", "Invoice 36-2020");
+  this.add_test_non_1("35", "Invoice 35");
+  this.add_test_non_1("36", "Invoice 36");
+  this.add_test_non_1("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_non_1("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_non_1("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_non_1("36-2020", "Invoice 36-2020");
 
   //Test NON, NEGATIVE: Without reference with QR-IBAN (wrong, should be IBAN)
+  //Integrated invoice
   Test.logger.addSubSection("Test10 negative: NON with QR-IBAN");
-  this.add_test_non_2(banDoc, "35", "Invoice 35");
-  this.add_test_non_2(banDoc, "36", "Invoice 36");
-  this.add_test_non_2(banDoc, "361", "Invoice 361"); //without customer address and amount 0.00
-  this.add_test_non_2(banDoc, "362", "Invoice 362"); //with customer address and amount 0.00
-  this.add_test_non_2(banDoc, "363", "Invoice 363"); //without customer address, with amount
-  this.add_test_non_2(banDoc, "36-2020", "Invoice 36-2020");
+  this.add_test_non_2("35", "Invoice 35");
+  this.add_test_non_2("36", "Invoice 36");
+  this.add_test_non_2("361", "Invoice 361"); //without customer address and amount 0.00
+  this.add_test_non_2("362", "Invoice 362"); //with customer address and amount 0.00
+  this.add_test_non_2("363", "Invoice 363"); //without customer address, with amount
+  this.add_test_non_2("36-2020", "Invoice 36-2020");
 
   //Test SCOR, NEGATIVE: IBAN EUR but invoice currency CHF
+  //Integrated invoice
   Test.logger.addSubSection("Test11: SCOR with IBAN EUR");
-  this.add_test_scor_5(banDoc, "F001-20", "Invoice F001-20");
+  this.add_test_scor_5("F001-20", "Invoice F001-20");
 
   //Test Invoice on 4 pages: details table 3 pages, long final texts, QRCode on new page
+  //Integrated invoice
   Test.logger.addSubSection("Test12: Invoice on 4 pages: details table 3 pages, long final texts, QRCode on new page");
-  this.add_test_scor_6(banDoc, "47", "Invoice 47");
+  this.add_test_scor_6("47", "Invoice 47");
 
   //Test SCOR: use IBAN defined in File->Properties->Address
   //In the file it's defined the Banana IBAN: it's considered invalid and an error is displayed
+  //Integrated invoice
   Test.logger.addSubSection("Test13: use IBAN defined in File->Properties->Address");
-  this.add_test_scor_7(banDoc, "47", "Invoice 47");
+  this.add_test_scor_7("47", "Invoice 47");
 
   //Test INVOICE, custom column 'DateWork'
+  //Integrated invoice
   Test.logger.addSubSection("Test14: custom invoice DateWork");
-  this.add_test_invoice_1(banDoc, "60", "Invoice 60");
+  this.add_test_invoice_1("60", "Invoice 60");
 
   //Test INVOICE, details with headers and subtotals
+  //Integrated invoice
   Test.logger.addSubSection("Test15: details with headers and subtotals");
-  this.add_test_invoice_2(banDoc, "64", "Invoice 64");
+  this.add_test_invoice_2("64", "Invoice 64");
 
-  //Test INVOICE, discount used for the Application Estimates & Invoices
+  //Test INVOICE, discount
+  //Application Estimates & Invoices
   Test.logger.addSubSection("Test16: discount, VAT exclusive (net amounts)");
-  this.add_test_invoice_3(banDoc, "401", "Invoice 401");
-  this.add_test_invoice_3(banDoc, "402", "Invoice 402");
-  this.add_test_invoice_3(banDoc, "403", "Invoice 403");
+  this.add_test_invoice_3("401", "Invoice 401");
+  this.add_test_invoice_3("402", "Invoice 402");
+  this.add_test_invoice_3("403", "Invoice 403");
 
-  //Test INVOICE, discount used for the Application Estimates & Invoices
+  //Test INVOICE, discount
+  //Application Estimates & Invoices
   Test.logger.addSubSection("Test17: discount, VAT inclusive (gross amounts)");
-  this.add_test_invoice_4(banDoc, "401", "Invoice 401");
-  this.add_test_invoice_4(banDoc, "402", "Invoice 402");
-  this.add_test_invoice_4(banDoc, "403", "Invoice 403");
+  this.add_test_invoice_4("401", "Invoice 401");
+  this.add_test_invoice_4("402", "Invoice 402");
+  this.add_test_invoice_4("403", "Invoice 403");
 
-  //Test INVOICES, deposit only used for the Application Estimates & Invoices
+  //Test INVOICES, deposit only
   //invoice_deposit_test.ac2
+  //Application Estimates & Invoices
   Test.logger.addSubSection("Test18: cases with/without deposit, discount and VAT");
-  this.add_test_invoice_5(banDoc, "5", "Invoice 5");
-  this.add_test_invoice_6(banDoc, "6", "Invoice 6");
-  this.add_test_invoice_7(banDoc, "7", "Invoice 7");
-  this.add_test_invoice_8(banDoc, "8", "Invoice 8");
-  this.add_test_invoice_9(banDoc, "9", "Invoice 9");
-  this.add_test_invoice_10(banDoc, "10", "Invoice 10");
-  this.add_test_invoice_11(banDoc, "11", "Invoice 11");
-  this.add_test_invoice_12(banDoc, "12", "Invoice 12");
+  this.add_test_invoice_5("5", "Invoice 5");
+  this.add_test_invoice_6("6", "Invoice 6");
+  this.add_test_invoice_7("7", "Invoice 7");
+  this.add_test_invoice_8("8", "Invoice 8");
+  this.add_test_invoice_9("9", "Invoice 9");
+  this.add_test_invoice_10("10", "Invoice 10");
+  this.add_test_invoice_11("11", "Invoice 11");
+  this.add_test_invoice_12("12", "Invoice 12");
 
+  //Test INVOICE, missing customer address data
+  //userParam QR "Print Empty Address" (settings) is FALSE => retrieve error, QR code is not printed
+  //"@error" messages showed on QR
+  //Integrated invoice
+  Test.logger.addSubSection("Test19: Missing customer address; userParam 'QR - Print Empty Address' set to FALSE; QR code is not printed");
+  this.add_test_invoice_13("363", "Invoice 363"); //without customer address, with amount
+
+  //Test INVOICE, missing customer address data
+  //userParam QR "Print Empty Address" (settings) is TRUE => no errors retrieved, QR code is printed
+  //Integrated invoice
+  Test.logger.addSubSection("Test20: Missing customer address; userParam 'QR - Print Empty Address' set to TRUE; QR code printed");
+  this.add_test_invoice_14("363", "Invoice 363"); //without customer address, with amount
+
+  //Test INVOICE, order number/date, Items/Date/Discount columns, begin/final texts on multiple lines, subtotal
+  //invoice_estimates_test.ac2
+  //Application Estimates & Invoices
+  Test.logger.addSubSection("Test21: order number/date, Items/Date/Discount columns, begin/final texts on multiple lines, subtotal");
+  this.add_test_invoice_15("3", "Invoice 3");
+
+  //Test INVOICE, order number/date, Items/Image columns, additional descriptions
+  //Integrated invoice
+  Test.logger.addSubSection("Test22: order number/date, Items/Image columns, additional descriptions");
+  this.add_test_invoice_16("2", "Invoice 2");
 }
 
 
 
 
-ReportInvoiceQrCode.prototype.add_test_qrr_1 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_qrr_1 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -243,7 +275,10 @@ ReportInvoiceQrCode.prototype.add_test_qrr_1 = function(banDoc, invoiceNumber, r
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_qrr_2 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_qrr_2 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -265,7 +300,10 @@ ReportInvoiceQrCode.prototype.add_test_qrr_2 = function(banDoc, invoiceNumber, r
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_qrr_3 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_qrr_3 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -286,7 +324,10 @@ ReportInvoiceQrCode.prototype.add_test_qrr_3 = function(banDoc, invoiceNumber, r
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_qrr_4 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_qrr_4 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -307,7 +348,10 @@ ReportInvoiceQrCode.prototype.add_test_qrr_4 = function(banDoc, invoiceNumber, r
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_1 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_1 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -329,7 +373,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_1 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_2 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_2 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -352,7 +399,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_2 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_3 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_3 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -374,7 +424,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_3 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_4 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_4 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -396,7 +449,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_4 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_5 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_5 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -418,7 +474,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_5 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_6 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_6 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -447,7 +506,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_6 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_scor_7 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_scor_7 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -476,7 +538,10 @@ ReportInvoiceQrCode.prototype.add_test_scor_7 = function(banDoc, invoiceNumber, 
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_non_1 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_non_1 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -497,7 +562,10 @@ ReportInvoiceQrCode.prototype.add_test_non_1 = function(banDoc, invoiceNumber, r
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_non_2 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_non_2 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -518,7 +586,10 @@ ReportInvoiceQrCode.prototype.add_test_non_2 = function(banDoc, invoiceNumber, r
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_1 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_1 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -546,7 +617,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_1 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_2 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_2 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -570,7 +644,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_2 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_3 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_3 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -596,7 +673,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_3 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_4 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_4 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -622,7 +702,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_4 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_5 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_5 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -648,7 +731,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_5 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_6 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_6 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -674,7 +760,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_6 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_7 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_7 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -700,7 +789,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_7 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_8 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_8 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -726,7 +818,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_8 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_9 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_9 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -752,7 +847,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_9 = function(banDoc, invoiceNumbe
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_10 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_10 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -778,7 +876,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_10 = function(banDoc, invoiceNumb
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_11 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_11 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -804,7 +905,10 @@ ReportInvoiceQrCode.prototype.add_test_invoice_11 = function(banDoc, invoiceNumb
   Test.logger.addText(text);
 }
 
-ReportInvoiceQrCode.prototype.add_test_invoice_12 = function(banDoc, invoiceNumber, reportName) {
+ReportInvoiceQrCode.prototype.add_test_invoice_12 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_deposit_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
@@ -829,6 +933,146 @@ ReportInvoiceQrCode.prototype.add_test_invoice_12 = function(banDoc, invoiceNumb
   var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
   Test.logger.addText(text);
 }
+
+ReportInvoiceQrCode.prototype.add_test_invoice_13 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  userParam.qr_code_empty_address = false; // false = print customer address on QR
+  userParam.qr_code_empty_amount = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_14 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_development_chf.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.details_gross_amounts = true;
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  userParam.qr_code_empty_address = true; // true = print empty box instead of address on QR
+  userParam.qr_code_empty_amount = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_15 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_estimates_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = false;
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.shipping_address = false;
+  userParam.info_order_number = true;
+  userParam.info_order_date = true;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.details_columns = 'Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount';
+  userParam.details_columns_widths = '10%;10%;25%;10%;10%;10%;10%;15%';
+  userParam.details_columns_titles_alignment = 'left;left;left;right;center;right;right;right';
+  userParam.details_columns_alignment = 'left;left;left;right;center;right;right;right';
+  userParam.details_gross_amounts = true;
+  userParam.en_text_details_columns = 'Item;Date;Description;Quantity;Unit;Unit Price;Discount;Amount';
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_16 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/invoice_integrated_items_images.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  variables.decimals_quantity = '';
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.shipping_address = false;
+  userParam.info_order_number = true;
+  userParam.info_order_date = true;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.details_columns = 'I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount';
+  userParam.details_columns_widths = '12%;10%;28%;10%;10%;15%;15%';
+  userParam.details_columns_titles_alignment = 'left;left;left;right;center;right;right';
+  userParam.details_columns_alignment = 'left;left;left;right;center;right;right';
+  userParam.details_gross_amounts = false;
+  userParam.details_additional_descriptions = true;
+  userParam.en_text_details_columns = 'Image;Item;Description;Quantity;Unit;Unit Price;Amount';
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = false;
+  userParam.embedded_javascript_filename = "itemsImages.js";
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
+
+
 
 function getQRCodeText(banDoc, userParam, invoiceObj, texts, langCode) {
   var qrBill = new QRBill(banDoc, userParam);
@@ -854,6 +1098,8 @@ function setUserParam(texts) {
   userParam.shipping_address = true;
   userParam.info_invoice_number = true;
   userParam.info_date = true;
+  userParam.info_order_number = false;
+  userParam.info_order_date = false;
   userParam.info_customer = true;
   userParam.info_customer_vat_number = true;
   userParam.info_customer_fiscal_number = true;
@@ -871,6 +1117,8 @@ function setUserParam(texts) {
   userParam.languages = 'en;it;de';
   userParam.en_text_info_invoice_number = texts.invoice;
   userParam.en_text_info_date = texts.date;
+  userParam.en_text_info_order_number = texts.order_number;
+  userParam.en_text_info_order_date = texts.order_date;
   userParam.en_text_info_customer = texts.customer;
   userParam.en_text_info_customer_vat_number = texts.vat_number;
   userParam.en_text_info_customer_fiscal_number = texts.fiscal_number;
@@ -1061,6 +1309,18 @@ function getJsonInvoice(invoiceNumber) {
   }
   else if (invoiceNumber === "12") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_12.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "3") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_3.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "2") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_2.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);

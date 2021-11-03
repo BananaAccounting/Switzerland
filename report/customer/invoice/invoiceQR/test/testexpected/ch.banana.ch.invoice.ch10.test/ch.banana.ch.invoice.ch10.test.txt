@@ -23,7 +23,6 @@
 \begin{testcase}{ReportInvoiceQrCode}
 \begin{test}{testReport}
 %Test [CH10] Layout 10 Programmable Invoice with Swiss QR Code
-\section{Invoice tests - file: file:script/../test/testcases/invoice\_development\_chf.ac2}
 \subsection{Test1: QRR}
 \begin{reportvalue}{Invoice 35}
 \begin{longtable}[l]{ l  l }
@@ -7459,7 +7458,7 @@ Invoice 5 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-aaa \newline \newline  & 2.0000  & pz  & 23.00  & 46.00 \\
+aaa \newline \newline  & 2  & pz  & 23.00  & 46.00 \\
 \multicolumn{325}{l}{}\\
 \multicolumn{325}{l}{}\\
 \multicolumn{324}{l}{TOTAL CHF } & 46.00 \\
@@ -7566,7 +7565,7 @@ senza iva, con sconto, senza acconto \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
+bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{Subtotal } & 26.00 \\
 \multicolumn{329}{l}{testo sconto 5\% } & 1.30 \\
@@ -7675,7 +7674,7 @@ Invoice 7 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
+ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{334}{l}{Subtotal } & 42.00 \\
 \multicolumn{334}{l}{testo acconto } & 20.00 \\
@@ -7784,7 +7783,7 @@ Invoice 8 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
+ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{339}{l}{Subtotal } & 100.00 \\
 \multicolumn{339}{l}{testo sconto } & 10.00 \\
@@ -7894,7 +7893,7 @@ con iva, senza sconto, senza acconto \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-aaa \newline \newline  & 2.0000  & pz  & 23.00  & 46.00 \\
+aaa \newline \newline  & 2  & pz  & 23.00  & 46.00 \\
 \multicolumn{345}{l}{}\\
 \multicolumn{345}{l}{}\\
 \multicolumn{344}{l}{TOTAL CHF } & 46.00 \\
@@ -8001,7 +8000,7 @@ Invoice 10 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-bbb \newline \newline  & 2.0000  & pz  & 13.00  & 26.00 \\
+bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{Subtotal } & 26.00 \\
 \multicolumn{349}{l}{testo sconto 5\% } & 1.30 \\
@@ -8110,7 +8109,7 @@ Invoice 11 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-ccc \newline \newline  & 3.0000  & pz  & 14.00  & 42.00 \\
+ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{Subtotal } & 42.00 \\
 \multicolumn{354}{l}{testo acconto } & 20.00 \\
@@ -8219,7 +8218,7 @@ Invoice 12 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-ddd \newline \newline  & 1.0000  & pz  & 100.00  & 100.00 \\
+ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{Subtotal } & 100.00 \\
 \multicolumn{359}{l}{testo sconto } & 10.00 \\
@@ -8297,6 +8296,460 @@ ewline
 ewline CH
 ewline SCOR
 ewline RF8012212
+ewline 
+ewline EPD}\\
+\subsection{Test19: Missing customer address; userParam 'QR - Print Empty Address' set to FALSE; QR code is not printed}
+\begin{reportvalue}{Invoice 363}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 363 \\
+Date:  & 03.02.2022 \\
+Customer No:  & 100002 \\
+Due date:  & 05.03.2022 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Banana.ch SA \\
+Via alla Santa 7, 6962 Viganello \\
+info@banana.ch, www.banana.ch \\
+CHE-123.456.789 \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 363 \\
+Date:  & 03.02.2022 \\
+Customer No:  & 100002 \\
+Due date:  & 05.03.2022 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 363 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Senza indirizzo cilente, con importo \newline \newline  & 2.0000  & pz.  & 45.00  & 90.00 \\
+\multicolumn{365}{l}{}\\
+\multicolumn{365}{l}{}\\
+\multicolumn{364}{l}{TOTAL CHF } & 90.00 \\
+\multicolumn{365}{l}{}\\
+\multicolumn{365}{l}{}\\
+\end{longtable}
+Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings. \\
+Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' settings.  Final text taken from the 'Print invoices' ,'Template options' settings. \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0079 1123 0008 8901 2 \\
+Banana.ch SA \\
+Via alla Santa 7 \\
+6962 Viganello \\
+  \\
+Riferimento \\
+RF62 6100 0023 363 \\
+  \\
+Pagabile da \\
+@error Indirizzo: nome/società mancante \\
+@error Indirizzo: CAP mancante \\
+@error Indirizzo: località mancante \\
+@error Indirizzo: codice nazione mancante \\
+Valuta \\
+CHF \\
+Importo \\
+90.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+90.00 \\
+Conto / Pagabile a \\
+CH58 0079 1123 0008 8901 2 \\
+Banana.ch SA \\
+Via alla Santa 7 \\
+6962 Viganello \\
+  \\
+Riferimento \\
+RF62 6100 0023 363 \\
+  \\
+Pagabile da \\
+@error Indirizzo: nome/società mancante \\
+@error Indirizzo: CAP mancante \\
+@error Indirizzo: località mancante \\
+@error Indirizzo: codice nazione mancante \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Banana.ch SA
+ewline Via alla Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline CHF
+ewline K
+ewline @error Address: missing name/business
+ewline 
+ewline @error Address: missing ZIP code @error Address: missing locality
+ewline 
+ewline 
+ewline @error Address: missing country code
+ewline SCOR
+ewline RF6261000023363
+ewline 
+ewline EPD}\\
+\subsection{Test20: Missing customer address; userParam 'QR - Print Empty Address' set to TRUE; QR code printed}
+\begin{reportvalue}{Invoice 363}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 363 \\
+Date:  & 03.02.2022 \\
+Customer No:  & 100002 \\
+Due date:  & 05.03.2022 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Banana.ch SA \\
+Via alla Santa 7, 6962 Viganello \\
+info@banana.ch, www.banana.ch \\
+CHE-123.456.789 \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 363 \\
+Date:  & 03.02.2022 \\
+Customer No:  & 100002 \\
+Due date:  & 05.03.2022 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 363 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Senza indirizzo cilente, con importo \newline \newline  & 2.0000  & pz.  & 45.00  & 90.00 \\
+\multicolumn{370}{l}{}\\
+\multicolumn{370}{l}{}\\
+\multicolumn{369}{l}{TOTAL CHF } & 90.00 \\
+\multicolumn{370}{l}{}\\
+\multicolumn{370}{l}{}\\
+\end{longtable}
+Paragraph 1, final text taken from the 'Print invoices' ,'Template options' settings. \\
+Paragraph 2,  final text  taken from the 'Print invoices' ,'Template options' settings.  Final text taken from the 'Print invoices' ,'Template options' settings. \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH58 0079 1123 0008 8901 2 \\
+Banana.ch SA \\
+Via alla Santa 7 \\
+6962 Viganello \\
+  \\
+Riferimento \\
+RF62 6100 0023 363 \\
+  \\
+Pagabile da (nome/indirizzo) \\
+Valuta \\
+CHF \\
+Importo \\
+90.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+90.00 \\
+Conto / Pagabile a \\
+CH58 0079 1123 0008 8901 2 \\
+Banana.ch SA \\
+Via alla Santa 7 \\
+6962 Viganello \\
+  \\
+Riferimento \\
+RF62 6100 0023 363 \\
+  \\
+Pagabile da (nome/indirizzo) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Banana.ch SA
+ewline Via alla Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline SCOR
+ewline RF6261000023363
+ewline 
+ewline EPD}\\
+\subsection{Test21: order number/date, Items/Date/Discount columns, begin/final texts on multiple lines, subtotal}
+\begin{reportvalue}{Invoice 3}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 3 \\
+Date:  & 17.06.2020 \\
+Order No:  & 1234 \\
+Order date:  & 01.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+VIa alle colline 12, 600 Lugano \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 3 \\
+Date:  & 17.06.2020 \\
+Order No:  & 1234 \\
+Order date:  & 01.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello La stanza del Te SA \newline Via ai Salici 12 \newline CP 69 \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 3 - La stanza del Te SA \newline \\
+aFASD \newline F AS \newline DF \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Item  & Date  & Description  & Quantity  & Unit  & Unit Price  & Discount  & Amount \\
+1000  & 02.06.2020  & Te\P 1\P 2\P 3 \newline \newline  & 4.00  & pz  & 5.30  &  & 21.20 \\
+1000  & 03.06.2020  & Te \newline \newline  & 4.00  & pz  & 5.30  & 30.\%  & 14.84 \\
+1000  & 04.06.2020  & Te \newline \newline  & 4.00  & pz  & 5.30  & 1.60  & 14.80 \\
+ & 05.06.2020  & Te \newline \newline  & 10'000  & pz  & 0.00185  &  & 18.50 \\
+1000  & 06.06.2020  & Te \newline \newline  & 10'000  & pz  & 0.00185  & 0.00035  & 15.00 \\
+1000  & 07.06.2020  & Te \newline \newline  & 10'000  & pz  & 0.00185  & 3.\%  & 17.95 \\
+ & 08.06.2020  & Te \newline \newline  & 0.00025  & pz  & 40'200.00  &  & 10.05 \\
+1000  & 09.06.2020  & Te \newline \newline  & 0.00025  & pz  & 40'200.00  & 8000  & 8.05 \\
+1000  & 10.06.2020  & Te \newline \newline  & 0.00025  & pz  & 40'200.00  & 25.\%  & 7.54 \\
+4000  &  & Spese di spedizione \newline \newline  &  &  & 6.00  &  & 6.00 \\
+\multicolumn{378}{l}{}\\
+\multicolumn{377}{l}{Subtotal } & 133.93 \\
+\multicolumn{377}{l}{Discount } & 2.37 \\
+\multicolumn{378}{l}{}\\
+\multicolumn{377}{l}{TOTAL CHF } & 131.56 \\
+\multicolumn{378}{l}{}\\
+\multicolumn{378}{l}{VAT 7.70\% = 9.41 CHF \newline }\\
+\end{longtable}
+aFASD\P F AS\P DF\P  AS\P DF ASDF \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Reference \\
+RF23 1113  \\
+  \\
+Payable by \\
+La stanza del Te SA \\
+Via ai Salici 12 \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+131.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+131.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+VIa alle colline 12 \\
+600 Lugano \\
+  \\
+Reference \\
+RF23 1113  \\
+  \\
+Payable by \\
+La stanza del Te SA \\
+Via ai Salici 12 \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline My Company
+ewline VIa alle colline 12
+ewline 600 Lugano
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 131.56
+ewline CHF
+ewline K
+ewline La stanza del Te SA
+ewline Via ai Salici 12
+ewline 6900 Lugano
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF231113
+ewline 
+ewline EPD}\\
+\subsection{Test22: order number/date, Items/Image columns, additional descriptions}
+\begin{reportvalue}{Invoice 2}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 2 \\
+Date:  & 01.01.2021 \\
+Order No:  & 1234 \\
+Order date:  & 20.12.2020 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2021 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 2 \\
+Date:  & 01.01.2021 \\
+Order No:  & 1234 \\
+Order date:  & 20.12.2020 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2021 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 2 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Image  & Item  & Description  & Quantity  & Unit  & Unit Price  & Amount \\
+items/001-keyboard.png  & 1000  & Keyboard \newline \newline -Colour  white, silver \newline -Connection  Bluetooth \newline  & 1.00  & pz  & 74.28  & 74.28 \\
+items/002-mouse.png  & 1001  & Mouse \newline \newline -Colour  white, silver \newline -Connection  Bluetooth \newline  & 1.00  & pz  & 65.00  & 65.00 \\
+items/003-pc.png  & 1002  & Laptop \newline \newline -Display size  13'' \newline -Memory  16GB \newline  & 1.00  & pz  & 2'321.26  & 2'321.26 \\
+items/004-smartphone.png  & 1003  & Smartphone \newline \newline -Colour  gold \newline -Memory  512GB \newline  & 1.00  & pz  & 1'197.77  & 1'197.77 \\
+\multicolumn{385}{l}{}\\
+\multicolumn{384}{l}{Total net } & 3'658.31 \\
+\multicolumn{384}{l}{VAT 7.70\% (3'658.31) } & 281.69 \\
+\multicolumn{385}{l}{}\\
+\multicolumn{384}{l}{TOTAL CHF } & 3'940.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF08 4110 012 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+3  940.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+3  940.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF08 4110 012 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 3940.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF084110012
 ewline 
 ewline EPD}\\
 \keyvalue{Result}{Passed}
