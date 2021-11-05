@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>ch.banana.switzerland.import.cornerbank.trans.js</file>
+     <file>import.apps.js</file>
+     <file>ch.banana.switzerland.import.cornerbank.trans.manifest.json</file>
+ </qresource>
+ </RCC>
