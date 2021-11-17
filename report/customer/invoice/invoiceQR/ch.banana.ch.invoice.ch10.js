@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-10-22
+// @pubdate = 2021-11-17
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -105,6 +105,322 @@ function settingsDialog() {
   }
 }
 
+function onCurrentIndexChanged_details_columns_predefined(index, value, userParam) {
+  /**
+  * function called by combobox 'details_columns_predefined', event currentIndexChanged
+  */
+  
+  // 1. Description;Amount
+  // 2. Description;Quantity;ReferenceUnit;UnitPrice;Amount
+  // 3. Number;Description;Amount
+  // 4. Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount
+  // 5. I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount (ADVANCED)
+  // 6. Description;Discount;Amount (ADVANCED)
+  // 7. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+  // 8. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+
+  var texts = setInvoiceTexts(lang);
+
+  if (parseInt(index) == 1) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_1));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Description;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '80%;20%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Description;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Descrizione;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Beschreibung;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Description;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 2) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_2));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '40%;15%;15%;15%;15%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;center;center;right;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;center;center;right;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Description;Quantity;Unit;UnitPrice;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Descrizione;Quantità;Unità;Prezzo Unità;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Description;Quantité;Unité;Prix Unitaire;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 3) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_3));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Number;Description;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '20%;60%;20%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;left;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;left;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Item;Description;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Articolo;Descrizione;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Artikel;Beschreibung;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Article;Description;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 4) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_4));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '10%;30%;15%;15%;15%;15%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;left;center;center;right;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;left;center;center;right;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Item;Description;Quantity;Unit;UnitPrice;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Articolo;Descrizione;Quantità;Unità;Prezzo Unità;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Artikel;Beschreibung;Menge;Einheit;Preiseinheit;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Article;Description;Quantité;Unité;Prix Unitaire;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 5) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_5).replace(" (ADVANCED)",""));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '10%;10%;30%;10%;10%;15%;15%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;left;left;right;center;right;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;left;left;right;center;right;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Image;Item;Description;Quantity;Unit;Unit Price;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Immagine;Articolo;Descrizione;Quantità;Unità;Prezzo Unità;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Bild;Artikel;Beschreibung;Menge;Einheit;Preiseinheit;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Image;Article;Description;Quantité;Unité;Prix Unitaire;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 6 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_6).replace(" (ADVANCED)",""));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Description;Discount;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '60%;20%;20%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;right;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;right;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Description;Discount;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Descrizione;Sconto;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Beschreibung;Rabatt;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Description;Rabais;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 7 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_7).replace(" (ADVANCED)",""));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '35%;10%;10%;15%;15%;15%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;center;center;right;right;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;center;center;right;right;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Description;Quantity;Unit;Unit Price;Discount;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Descrizione;Quantità;Unità;Prezzo Unità;Sconto;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;Rabatt;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Description;Quantité;Unité;Prix Unitaire;Rabais;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 8 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_8).replace(" (ADVANCED)",""));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '8%;12%;25%;10%;7%;14%;12%;12%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;center;left;right;center;right;right;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;center;left;right;center;right;right;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Item;Date;Description;Quantity;Unit;Unit Price;Discount;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Articolo;Data;Descrizione;Quantità;Unità;Prezzo Unità;Sconto;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Artikel;Datum;Beschreibung;Menge;Einheit;Preiseinheit;Rabatt;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Article;Date;Description;Quantité;Unité;Prix Unitaire;Rabais;Montant';
+      }
+    }
+  }
+
+  return userParam;
+}
+
 function convertParam(userParam) {
 
   /*
@@ -126,6 +442,7 @@ function convertParam(userParam) {
 
   var lengthDetailsColumns = "";
   var lengthDetailsTexts = "";
+
 
   /*******************************************************************************************
   * INCLUDE
@@ -474,6 +791,22 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  if (!IS_INTEGRATED_INVOICE) {
+    currentParam = {};
+    currentParam.name = 'info_custom_fields';
+    currentParam.parentObject = 'info_include';
+    currentParam.title = texts.param_info_custom_fields;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.info_custom_fields ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_info_custom_fields;
+    currentParam.readValue = function() {
+      userParam.info_custom_fields = this.value;
+    }
+    convertedParam.data.push(currentParam);
+  } else {
+    userParam.info_custom_fields = false;
+  }
 
   currentParam = {};
   currentParam.name = 'details_include';
@@ -486,6 +819,53 @@ function convertParam(userParam) {
     userParam.details_include = this.value;
   }
   convertedParam.data.push(currentParam);
+
+
+  /**
+    Predefined columns.
+
+    Integrated invoices and Estimates-Invoices:
+      1. Description;Amount
+      2. Description;Quantity;ReferenceUnit;UnitPrice;Amount
+      3. Number;Description;Amount
+      4. Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount
+      5. I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount (ADVANCED)
+    Estimates-Invoices only:
+      6. Description;Discount;Amount (ADVANCED)
+      7. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+      8. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+   */
+  var predefinedColumns = [];
+  predefinedColumns.push(texts.predefined_columns_0);
+  predefinedColumns.push(texts.predefined_columns_1);
+  predefinedColumns.push(texts.predefined_columns_2);
+  predefinedColumns.push(texts.predefined_columns_3);
+  predefinedColumns.push(texts.predefined_columns_4);
+  predefinedColumns.push(texts.predefined_columns_5);
+
+  var predefinedColumnsEstInv = [];
+  predefinedColumnsEstInv.push(texts.predefined_columns_6);
+  predefinedColumnsEstInv.push(texts.predefined_columns_7);
+  predefinedColumnsEstInv.push(texts.predefined_columns_8);
+
+  var currentParam = {};
+  currentParam.name = 'details_columns_predefined';
+  currentParam.parentObject = 'details_include';
+  currentParam.title = texts.param_details_columns_predefined;
+  currentParam.type = 'combobox';
+  if (IS_INTEGRATED_INVOICE) {
+    currentParam.items = predefinedColumns;
+  } else {
+    currentParam.items = predefinedColumns.concat(predefinedColumnsEstInv);
+  }
+  currentParam.value = userParam.details_columns_predefined ? userParam.details_columns_predefined : '';
+  currentParam.defaultvalue = texts.predefined_columns_0;
+  currentParam.tooltip = texts.param_tooltip_details_columns_predefined;
+  currentParam.readValue = function () {
+    userParam.details_columns_predefined = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
 
   currentParam = {};
   currentParam.name = 'details_columns';
@@ -1254,6 +1634,8 @@ function initParam() {
   userParam.info_customer_fiscal_number = false;
   userParam.info_due_date = true;
   userParam.info_page = true;
+  userParam.info_custom_fields = false;
+  userParam.details_columns_predefined = texts.predefined_columns_0;
   userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
   userParam.details_columns_widths = '45%;10%;10%;20%;15%';
   userParam.details_columns_titles_alignment = 'left;right;center;right;right';
@@ -1411,6 +1793,12 @@ function verifyParam(userParam) {
   }
   if (!userParam.info_page) {
     userParam.info_page = false;
+  }
+  if (!userParam.info_custom_fields) {
+    userParam.info_custom_fields = false;
+  }
+  if (!userParam.details_columns_predefined) {
+    userParam.details_columns_predefined = texts.predefined_columns_0;
   }
   if (!userParam.details_columns) {
     userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
@@ -1901,6 +2289,19 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
     rows++;
   }
 
+  //Adds custom fields
+  //Works only with the estimates and invoices application
+  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+    if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
+      for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
+        var customField = invoiceObj.document_info.custom_fields[i];
+        tableRow = infoTable.addRow();
+        tableRow.addCell(customField.title + ":","",1);
+        tableRow.addCell(customField.value,"",1);
+      }
+    }
+  }
+
   //Empty rows for each non-used info
   for (var i = 0; i < rows; i++) {
     tableRow = infoTable.addRow();
@@ -1995,6 +2396,18 @@ function print_info_other_pages(repDocObj, invoiceObj, texts, userParam) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
     tableRow.addCell("","",1).addFieldPageNr();    
+  }
+  //Adds custom fields
+  //Works only with the estimates and invoices application
+  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+    if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
+      for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
+        var customField = invoiceObj.document_info.custom_fields[i];
+        tableRow = infoTable.addRow();
+        tableRow.addCell(customField.title + ":","",1);
+        tableRow.addCell(customField.value,"",1);
+      }
+    }
   }
 }
 
@@ -3696,6 +4109,7 @@ function setInvoiceTexts(language) {
     texts.param_info_customer_fiscal_number = "Numero fiscale cliente";
     texts.param_info_due_date = "Scadenza fattura";
     texts.param_info_page = "Numero pagina";
+    texts.param_info_custom_fields = "Campi personalizzati";
     texts.param_details_include = "Dettagli fattura";
     texts.param_details_columns = "Nomi colonne";
     texts.param_details_columns_widths = "Larghezza colonne";
@@ -3751,6 +4165,7 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_info_customer_fiscal_number = "Vista per includere il numero fiscale del cliente";
     texts.param_tooltip_info_due_date = "Vista per includere la data di scadenza della fattura";
     texts.param_tooltip_info_page = "Vista per includere il numero di pagina";
+    texts.param_tooltip_info_custom_fields = "Vista per includere i campi personalizzati";
     texts.param_tooltip_languages = "Aggiungi o rimuovi una o più lingue";
     texts.param_tooltip_text_info_invoice_number = "Inserisci un testo per sostituire quello predefinito";
     texts.param_tooltip_text_info_date = "Inserisci un testo per sostituire quello predefinito";
@@ -3809,6 +4224,20 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_offer = "Inserisci un testo per sostituire quello predefinito";
     texts.it_param_text_final_offer = "Testo finale offerta";
     texts.param_tooltip_text_final_offer = "Inserisci un testo per sostituire quello predefinito";
+
+    texts.param_details_columns_predefined = "Colonne predefinite";
+    texts.param_tooltip_details_columns_predefined = "Seleziona le colonne da includere nella fattura";
+    texts.predefined_columns_0 = "- Seleziona -";
+    texts.predefined_columns_1 = "Descrizione,Importo";
+    texts.predefined_columns_2 = "Descrizione,Quantità,Unità,Prezzo Unità,Importo";
+    texts.predefined_columns_3 = "Articolo,Descrizione,Importo";
+    texts.predefined_columns_4 = "Articolo,Descrizione,Quantità,Unità,Prezzo Unità,Importo";
+    texts.predefined_columns_5 = "Immagine articolo,Articolo,Descrizione,Quantità,Unità,Prezzo Unità,Importo (ADVANCED)";
+    texts.predefined_columns_6 = "Descrizione,Sconto,Importo (ADVANCED)";
+    texts.predefined_columns_7 = "Descrizione,Quantità,Unità,Prezzo Unità,Sconto,Importo (ADVANCED)";
+    texts.predefined_columns_8 = "Articolo,Data,Descrizione,Quantità,Unit,Unit Price,Sconto,Importo (ADVANCED)";
+    texts.style_change_confirm_title = "Colonne predefinite";
+    texts.style_change_confirm_msg = "Applicare le colonne '%1'?\nLe attuali impostazioni delle colonne saranno sostituite.";
   }
   else if (language === 'de') {
     // DE
@@ -3864,6 +4293,7 @@ function setInvoiceTexts(language) {
     texts.param_info_customer_fiscal_number = "Kunden-Steuernummer";
     texts.param_info_due_date = "Fälligkeitsdatum";
     texts.param_info_page = "Seitenzahlen";
+    texts.param_info_custom_fields = "Benutzerdefinierte Felder";
     texts.param_details_include = "Rechnungsdetails einschliessen";
     texts.param_details_columns = "Spaltennamen";
     texts.param_details_columns_widths = "Spaltenbreite";
@@ -3919,6 +4349,7 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_info_customer_fiscal_number = "Aktivieren, um Kunden-Steuernummer einzuschliessen";
     texts.param_tooltip_info_due_date = "Aktivieren, um Fälligkeitsdatum der Rechnung einzuschliessen";
     texts.param_tooltip_info_page = "Aktivieren, um Seitennummer einzuschliessen";
+    texts.param_tooltip_info_custom_fields = "Aktivieren, um benutzerdefinierte Felder einzuschliessen";
     texts.param_tooltip_languages = "Sprachen hinzufügen oder entfernen";
     texts.param_tooltip_text_info_invoice_number = "Text eingeben, um Standardtext zu ersetzen";
     texts.param_tooltip_text_info_date = "Text eingeben, um Standardtext zu ersetzen";
@@ -3977,6 +4408,20 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_offer = "Text eingeben, um Standardtext zu ersetzen";
     texts.de_param_text_final_offer = "Schlusstext Offerte";
     texts.param_tooltip_text_final_offer = "Text eingeben, um Standardtext zu ersetzen";
+
+    texts.param_details_columns_predefined = "Vordefinierte Spalten";
+    texts.param_tooltip_details_columns_predefined = "Wählen Sie die Spalten aus, die in die Rechnung aufgenommen werden sollen";
+    texts.predefined_columns_0 = "- Auswählen -";
+    texts.predefined_columns_1 = "Beschreibung,Betrag";
+    texts.predefined_columns_2 = "Beschreibung,Menge,Einheit,Preiseinheit,Betrag";
+    texts.predefined_columns_3 = "Artikel,Beschreibung,Betrag";
+    texts.predefined_columns_4 = "Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag";
+    texts.predefined_columns_5 = "Bild-Artikel,Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag (ADVANCED)";
+    texts.predefined_columns_6 = "Beschreibung,Rabatt,Betrag (ADVANCED)";
+    texts.predefined_columns_7 = "Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
+    texts.predefined_columns_8 = "Artikel,Datum,Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
+    texts.style_change_confirm_title = "Vordefinierte Spalten";
+    texts.style_change_confirm_msg = "'%1' Spalten anwenden?\nDie aktuellen Spalteneinstellungen werden ersetzt.";
   }
   else if (language === 'fr') {
     //FR
@@ -4032,6 +4477,7 @@ function setInvoiceTexts(language) {
     texts.param_info_customer_fiscal_number = "Numéro fiscal client";
     texts.param_info_due_date = "Échéance facture";
     texts.param_info_page = "Numéro de page";
+    texts.param_info_custom_fields = "Champs personnalisés";
     texts.param_details_include = "Détails de la facture";
     texts.param_details_columns = "Noms des colonnes";
     texts.param_details_columns_widths = "Largeur des colonnes";
@@ -4087,6 +4533,7 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_info_customer_fiscal_number = "Activer pour inclure le numéro fiscal du client";
     texts.param_tooltip_info_due_date = "Activer pour inclure la date d'échéance de la facture";
     texts.param_tooltip_info_page = "Activer pour inclure le numéro de page";
+    texts.param_tooltip_info_custom_fields = "Activer pour inclure les champs personnalisés";
     texts.param_tooltip_languages = "Ajouter ou supprimer une ou plusieurs langues";
     texts.param_tooltip_text_info_invoice_number = "Insérez un texte pour remplacer le texte par défaut";
     texts.param_tooltip_text_info_date = "Insérez un texte pour remplacer le texte par défaut";
@@ -4144,7 +4591,21 @@ function setInvoiceTexts(language) {
     texts.fr_param_text_begin_offer = "Texte de début offre";
     texts.param_tooltip_text_begin_offer = "Insérez un texte pour remplacer le texte par défaut";
     texts.fr_param_text_final_offer = "Texte final offre";
-    texts.param_tooltip_text_final_offer = "Insérez un texte pour remplacer le texte par défaut"; 
+    texts.param_tooltip_text_final_offer = "Insérez un texte pour remplacer le texte par défaut";
+
+    texts.param_details_columns_predefined = "Colonnes prédéfinies" ;
+    texts.param_tooltip_details_columns_predefined = "Sélectionnez les colonnes à inclure dans la facture" ;
+    texts.predefined_columns_0 = "- Sélectionnez -" ;
+    texts.predefined_columns_1 = "Description,Montant" ;
+    texts.predefined_columns_2 = "Description,Quantité,Unité,Prix Unitaire,Montant" ;
+    texts.predefined_columns_3 = "Article,Description,Montant" ;
+    texts.predefined_columns_4 = "Article,Description,Quantité,Unité,Prix Unitaire,Montant" ;
+    texts.predefined_columns_5 = "Image article,Article,Description,Quantité,Unité,Prix Unitaire,Montant (ADVANCED)" ;
+    texts.predefined_columns_6 = "Description,Rabais,Montant (ADVANCED)" ;
+    texts.predefined_columns_7 = "Description,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)" ;
+    texts.predefined_columns_8 = "Article,Date,Description,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)" ;
+    texts.style_change_confirm_title = "Colonnes prédéfinies" ;
+    texts.style_change_confirm_msg = "Appliquer les colonnes '%1'?\nLes paramètres actuels des colonnes seront remplacés.";
   }
   else {
     //EN
@@ -4200,6 +4661,7 @@ function setInvoiceTexts(language) {
     texts.param_info_customer_fiscal_number = "Customer fiscal number";
     texts.param_info_due_date = "Invoice due date";
     texts.param_info_page = "Page number";
+    texts.param_info_custom_fields = "Custom fields";
     texts.param_details_include = "Invoice details";
     texts.param_details_columns = "Column names";
     texts.param_details_columns_widths = "Column width";
@@ -4255,6 +4717,7 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_info_customer_fiscal_number = "Check to include customer's fiscal number";
     texts.param_tooltip_info_due_date = "Check to include the due date of the invoice";
     texts.param_tooltip_info_page = "Check to include the page number";
+    texts.param_tooltip_info_custom_fields = "Check to include the custom fields";
     texts.param_tooltip_languages = "Add or remove one or more languages";
     texts.param_tooltip_text_info_invoice_number = "Enter text to replace the default one";
     texts.param_tooltip_text_info_date = "Enter text to replace the default";
@@ -4313,6 +4776,20 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_offer = "Enter text to replace the default";
     texts.en_param_text_final_offer = "Final text estimate";
     texts.param_tooltip_text_final_offer = "Enter text to replace the default";
+
+    texts.param_details_columns_predefined = "Predefined columns";
+    texts.param_tooltip_details_columns_predefined = "Select the columns to include in the invoice";
+    texts.predefined_columns_0 = "- Select -";
+    texts.predefined_columns_1 = "Description,Amount";
+    texts.predefined_columns_2 = "Description,Quantity,Unit,Unit Price,Amount";
+    texts.predefined_columns_3 = "Item,Description,Amount";
+    texts.predefined_columns_4 = "Item,Description,Quantity,Unit,Unit Price,Amount";
+    texts.predefined_columns_5 = "Item Image,Item,Description,Quantity,Unit,Unit Price,Amount (ADVANCED)";
+    texts.predefined_columns_6 = "Description,Discount,Amount (ADVANCED)";
+    texts.predefined_columns_7 = "Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
+    texts.predefined_columns_8 = "Item,Date,Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
+    texts.style_change_confirm_title = "Predefined columns";
+    texts.style_change_confirm_msg = "Apply '%1' columns?\nCurrent column settings will be replaced.";
   }
 
   return texts;
