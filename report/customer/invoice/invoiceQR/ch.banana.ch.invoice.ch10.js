@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-11-17
+// @pubdate = 2021-11-19
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -154,7 +154,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Beschreibung;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Description;Montant';
+        userParam.data[i].value = 'Libellé;Montant';
       }
     }
   }
@@ -191,7 +191,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Description;Quantité;Unité;Prix Unitaire;Montant';
+        userParam.data[i].value = 'Libellé;Quantité;Unité;Prix Unitaire;Montant';
       }
     }
   }
@@ -228,7 +228,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Artikel;Beschreibung;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Article;Description;Montant';
+        userParam.data[i].value = 'Article;Libellé;Montant';
       }
     }
   }
@@ -265,7 +265,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Artikel;Beschreibung;Menge;Einheit;Preiseinheit;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Article;Description;Quantité;Unité;Prix Unitaire;Montant';
+        userParam.data[i].value = 'Article;Libellé;Quantité;Unité;Prix Unitaire;Montant';
       }
     }
   }
@@ -302,7 +302,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Bild;Artikel;Beschreibung;Menge;Einheit;Preiseinheit;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Image;Article;Description;Quantité;Unité;Prix Unitaire;Montant';
+        userParam.data[i].value = 'Image;Article;Libellé;Quantité;Unité;Prix Unitaire;Montant';
       }
     }
   }
@@ -339,7 +339,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Beschreibung;Rabatt;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Description;Rabais;Montant';
+        userParam.data[i].value = 'Libellé;Rabais;Montant';
       }
     }
   }
@@ -376,7 +376,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;Rabatt;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Description;Quantité;Unité;Prix Unitaire;Rabais;Montant';
+        userParam.data[i].value = 'Libellé;Quantité;Unité;Prix Unitaire;Rabais;Montant';
       }
     }
   }
@@ -413,7 +413,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Artikel;Datum;Beschreibung;Menge;Einheit;Preiseinheit;Rabatt;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
-        userParam.data[i].value = 'Article;Date;Description;Quantité;Unité;Prix Unitaire;Rabais;Montant';
+        userParam.data[i].value = 'Article;Date;Libellé;Quantité;Unité;Prix Unitaire;Rabais;Montant';
       }
     }
   }
@@ -4410,13 +4410,13 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_final_offer = "Text eingeben, um Standardtext zu ersetzen";
 
     texts.param_details_columns_predefined = "Vordefinierte Spalten";
-    texts.param_tooltip_details_columns_predefined = "Wählen Sie die Spalten aus, die in die Rechnung aufgenommen werden sollen";
+    texts.param_tooltip_details_columns_predefined = "Wählen Sie die Spalten aus, die in der Rechnung einbezogen werden sollen";
     texts.predefined_columns_0 = "- Auswählen -";
     texts.predefined_columns_1 = "Beschreibung,Betrag";
     texts.predefined_columns_2 = "Beschreibung,Menge,Einheit,Preiseinheit,Betrag";
     texts.predefined_columns_3 = "Artikel,Beschreibung,Betrag";
     texts.predefined_columns_4 = "Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag";
-    texts.predefined_columns_5 = "Bild-Artikel,Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag (ADVANCED)";
+    texts.predefined_columns_5 = "Produktbild,Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag (ADVANCED)";
     texts.predefined_columns_6 = "Beschreibung,Rabatt,Betrag (ADVANCED)";
     texts.predefined_columns_7 = "Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
     texts.predefined_columns_8 = "Artikel,Datum,Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
@@ -4594,17 +4594,17 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_final_offer = "Insérez un texte pour remplacer le texte par défaut";
 
     texts.param_details_columns_predefined = "Colonnes prédéfinies" ;
-    texts.param_tooltip_details_columns_predefined = "Sélectionnez les colonnes à inclure dans la facture" ;
-    texts.predefined_columns_0 = "- Sélectionnez -" ;
-    texts.predefined_columns_1 = "Description,Montant" ;
-    texts.predefined_columns_2 = "Description,Quantité,Unité,Prix Unitaire,Montant" ;
-    texts.predefined_columns_3 = "Article,Description,Montant" ;
-    texts.predefined_columns_4 = "Article,Description,Quantité,Unité,Prix Unitaire,Montant" ;
-    texts.predefined_columns_5 = "Image article,Article,Description,Quantité,Unité,Prix Unitaire,Montant (ADVANCED)" ;
-    texts.predefined_columns_6 = "Description,Rabais,Montant (ADVANCED)" ;
-    texts.predefined_columns_7 = "Description,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)" ;
-    texts.predefined_columns_8 = "Article,Date,Description,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)" ;
-    texts.style_change_confirm_title = "Colonnes prédéfinies" ;
+    texts.param_tooltip_details_columns_predefined = "Sélectionner les colonnes à inclure dans la facture" ;
+    texts.predefined_columns_0 = "- Sélectionner -";
+    texts.predefined_columns_1 = "Libellé,Montant";
+    texts.predefined_columns_2 = "Libellé,Quantité,Unité,Prix Unitaire,Montant";
+    texts.predefined_columns_3 = "Article,Libellé,Montant";
+    texts.predefined_columns_4 = "Article,Libellé,Quantité,Unité,Prix Unitaire,Montant";
+    texts.predefined_columns_5 = "Image article,Article,Libellé,Quantité,Unité,Prix Unitaire,Montant (ADVANCED)";
+    texts.predefined_columns_6 = "Libellé,Rabais,Montant (ADVANCED)";
+    texts.predefined_columns_7 = "Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
+    texts.predefined_columns_8 = "Article,Date,Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
+    texts.style_change_confirm_title = "Colonnes prédéfinies";
     texts.style_change_confirm_msg = "Appliquer les colonnes '%1'?\nLes paramètres actuels des colonnes seront remplacés.";
   }
   else {
