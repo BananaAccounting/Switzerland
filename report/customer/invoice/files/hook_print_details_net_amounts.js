@@ -136,9 +136,11 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
       // We set the height of the images to 1cm
       //
       else if (columnsNames[j].trim().toLowerCase() === "i.links") {
-        var userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsNames[j]);
         var cell = tableRow.addCell();
-        cell.addImage("file:document/"+userColumnValue, "", "1cm");
+        var userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsNames[j]);
+        if (userColumnValue) {
+          cell.addImage("file:document/"+userColumnValue, "", "1cm");
+        }
       }
 
 
