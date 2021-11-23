@@ -39,3 +39,5 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 		* print custom columns of Items table. The syntax is “I.ColumnName”, where ColumnName is the XML name of a column (Advanced plan required).  
 * 2021-10-22
 	* QR code image is no longer printed in case of error/missing data.  
+* 2021-11-23
+	* Add custom fields parameter (only for Estimates and Invoices Application). This allows to print custom fields in the information section.  
