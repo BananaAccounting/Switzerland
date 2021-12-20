@@ -41,3 +41,5 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* QR code image is no longer printed in case of error/missing data.  
 * 2021-11-23
 	* Add custom fields parameter (only for Estimates and Invoices Application). This allows to print custom fields in the information section.  
+* 2021-12-20
+	* Add a list of predefined columns in layout settings. By selecting a predefined column style, the program automatically inserts XML column names, widths, alignments and column header texts.  
