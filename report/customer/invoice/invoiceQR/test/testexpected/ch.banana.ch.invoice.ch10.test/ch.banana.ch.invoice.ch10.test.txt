@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.test.js}
+%%SCRIPT{/Users/ivan/Documents/GitHub/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.test.js}
 %
 \begin{testcase}{ReportInvoiceQrCode}
 \begin{test}{testReport}
@@ -6806,8 +6806,8 @@ Banana.ch SA - Via alla Santa 7 - 6962 Viganello Artemisia SA \newline Via ai Sa
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Te e tisane \newline \newline  &  &  & 5.30  & 21.20 \\
-Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
+Te e tisane \newline \newline  & 4.00  &  & 5.30  & 21.20 \\
+Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{295}{l}{}\\
 \multicolumn{294}{l}{Discount } & 2.20 \\
 \multicolumn{295}{l}{}\\
@@ -6912,8 +6912,8 @@ Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei 
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Tisane e te \newline \newline  &  &  & 4.92  & 24.61 \\
-Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
+Tisane e te \newline \newline  & 5.00  &  & 4.92  & 24.61 \\
+Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{300}{l}{}\\
 \multicolumn{299}{l}{Discount } & 2.35 \\
 \multicolumn{299}{l}{Total net } & 28.26 \\
@@ -7020,8 +7020,8 @@ Banana.ch SA - Via alla Santa 7 - 6962 Viganello Domotica Sagl \newline Ludovico
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Te e tisane \newline \newline  &  &  & 5.00  & 20.00 \\
-Spese di spedizione \newline \newline  &  &  &  & 6.00 \\
+Te e tisane \newline \newline  & 4.00  &  & 5.00  & 20.00 \\
+Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{305}{l}{}\\
 \multicolumn{304}{l}{Discount } & 2.40 \\
 \multicolumn{304}{l}{Total net } & 23.60 \\
@@ -7129,8 +7129,8 @@ Banana.ch SA - Via alla Santa 7 - 6962 Viganello Artemisia SA \newline Via ai Sa
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Te e tisane \newline \newline  &  &  & 5.30  & 21.20 \\
-Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
+Te e tisane \newline \newline  & 4.00  &  & 5.30  & 21.20 \\
+Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{310}{l}{}\\
 \multicolumn{309}{l}{Subtotal } & 27.20 \\
 \multicolumn{309}{l}{Discount } & 2.20 \\
@@ -7238,8 +7238,8 @@ Banana.ch SA - Via alla Santa 7 - 6962 Viganello Carlo Bianchi \newline Via dei 
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Tisane e te \newline \newline  &  &  & 5.30  & 26.50 \\
-Spese di spedizione \newline \newline  &  &  & 6.00  & 6.00 \\
+Tisane e te \newline \newline  & 5.00  &  & 5.30  & 26.50 \\
+Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{Subtotal } & 32.50 \\
 \multicolumn{314}{l}{Discount } & 2.50 \\
@@ -7347,8 +7347,8 @@ Banana.ch SA - Via alla Santa 7 - 6962 Viganello Domotica Sagl \newline Ludovico
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Te e tisane \newline \newline  &  &  & 5.39  & 21.54 \\
-Spese di spedizione \newline \newline  &  &  &  & 6.00 \\
+Te e tisane \newline \newline  & 4.00  &  & 5.39  & 21.54 \\
+Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{Subtotal } & 27.54 \\
 \multicolumn{319}{l}{Discount } & 2.54 \\
@@ -8557,7 +8557,7 @@ Item  & Date  & Description  & Quantity  & Unit  & Unit Price  & Discount  & Amo
  & 08.06.2020  & Te \newline \newline  & 0.00025  & pz  & 40'200.00  &  & 10.05 \\
 1000  & 09.06.2020  & Te \newline \newline  & 0.00025  & pz  & 40'200.00  & 8000  & 8.05 \\
 1000  & 10.06.2020  & Te \newline \newline  & 0.00025  & pz  & 40'200.00  & 25.\%  & 7.54 \\
-4000  &  & Spese di spedizione \newline \newline  &  &  & 6.00  &  & 6.00 \\
+4000  &  & Spese di spedizione \newline \newline  & 1.00  &  & 6.00  &  & 6.00 \\
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{Subtotal } & 133.93 \\
 \multicolumn{377}{l}{Discount } & 2.37 \\
