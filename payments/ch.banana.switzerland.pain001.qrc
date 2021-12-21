@@ -1,0 +1,11 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+    <file>ch.banana.pain001.js</file>
+    <file>ch.banana.switzerland.pain001.js</file>
+    <file>ch.banana.switzerland.pain001.manifest.json</file>
+    <file>checkfunctions.js</file>
+    <file>documentchange.js</file>
+    <file>pain.001.001.03.xsd</file>
+    <file>pain.001.001.03.ch.02.xsd</file>
+ </qresource>
+</RCC>

@@ -1,0 +1,11 @@
+{
+    "category": "productivity",
+    "country":"switzerland",
+    "countryCode":"ch",
+    "description": "Credit Transfer File for Switzerland ISO20022 (pain.001)",
+    "id":"ch.banana.switzerland.pain001",
+    "language":"",
+    "publisher": "Banana.ch",
+    "title": "Credit Transfer File for Switzerland (pain.001)",
+    "version": "1.0"
+}
