@@ -2672,7 +2672,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
           // If referenceUnit is empty we do not print the quantity.
           // With this we can avoid to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
           if (item.mesure_unit) {
-            if (variables.decimals_quantity) {
+            if (variables.decimals_quantity !== "") {
               decimals = variables.decimals_quantity;
             }
             var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
@@ -2915,7 +2915,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
           // If referenceUnit is empty we do not print the quantity.
           // With this we can avoit to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
           if (item.mesure_unit) {
-            if (variables.decimals_quantity) {
+            if (variables.decimals_quantity !== "") {
               decimals = variables.decimals_quantity;
             }
             var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
