@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-12-20
+// @pubdate = 2021-12-27
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -2557,7 +2557,7 @@ function print_text_begin(repDocObj, invoiceObj, texts, userParam) {
       }
     }
   }
-  if (textBeginSettings) {
+  else if (!textBegin && textBeginSettings) {
     tableRow = table.addRow();
     var textCell = tableRow.addCell("","begin_text",1);
     var textBeginLines = textBeginSettings.split('\n');
