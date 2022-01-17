@@ -1,0 +1,79 @@
+%%info_test_name{ch.banana.switzerland.import.soba.20180403}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l }
+Date & DateValue & Description & Income & Expenses\\
+2018-03-01 & 2018-03-01 & Gutschrift 12 34567 00000 81700 00000 57105 & 2520.70 & \\
+2018-03-01 & 2018-03-01 & Vergütung Inland GTSM - Info - - MIETZINSZAHLUNGEN &  & 1475.00\\
+2018-03-01 & 2018-03-01 & Vergütung Inland MOUSAAB - Info - - LOHN &  & 79.50\\
+2018-03-01 & 2018-03-01 & Vergütung Inland MONIKA - Info - - PARKPLATZMIETE MEINRADSTRASSE 6 &  & 100.00\\
+2018-03-01 & 2018-03-01 & Vergütung Inland WALTER - Info - - MIETZINS MEINRADSTR. 5 &  & 3400.00\\
+2018-03-02 & 2018-03-02 & Gutschrift 12 34567 00000 81790 00000 57400 & 1917.90 & \\
+2018-03-02 & 2018-03-02 & Vergütung Inland WERNER - Info - - PARKPLATZ MEINRADSTRASSE 3 &  & 150.00\\
+2018-03-02 & 2018-03-02 & Belastung LSV+ ESA  &  & 3771.20\\
+2018-03-05 & 2018-03-05 & Gutschrift 12 34567 00000 81170 00000 56413 & 321.55 & \\
+2018-03-05 & 2018-03-05 & Gutschrift 12 34567 00000 79970 00000 55276 & 166.55 & \\
+2018-03-06 & 2018-03-06 & Vergütung Inland MOUSAAB - Info - - RESTLOHN &  & 714.00\\
+2018-03-07 & 2018-03-07 & Gutschrift 12 34567 00000 81740 00000 57468 & 299.35 & \\
+2018-03-07 & 2018-03-07 & Gutschrift 12 34567 00000 80140 00000 53608 & 400.00 & \\
+2018-03-07 & 2018-03-07 & Gutschrift 12 34567 00000 81750 00000 57488 & 150.75 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 81880 00000 57709 & 344.40 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 81870 00000 57692 & 224.75 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 81850 00000 57671 & 224.75 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 81860 00000 57688 & 224.75 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 82020 00000 57907 & 1148.15 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 81890 00000 57511 & 981.35 & \\
+2018-03-09 & 2018-03-09 & Gutschrift 12 34567 00000 81910 00000 57733 & 611.35 & \\
+2018-03-12 & 2018-03-12 & Gutschrift 12 34567 00000 81900 00000 57721 & 582.70 & \\
+2018-03-13 & 2018-03-13 & Gutschrift Easy - Info - - RE 7830 vom 16.11.2017 & 345.35 & \\
+2018-03-14 & 2018-03-14 & Gutschrift 12 34567 00000 82010 00000 57801 & 2302.05 & \\
+2018-03-14 & 2018-03-14 & Gutschrift 12 34567 00000 81840 00000 57646 & 986.25 & \\
+2018-03-15 & 2018-03-15 & Gutschrift 12 34567 00000 82260 00000 58190 & 571.85 & \\
+2018-03-16 & 2018-03-16 & Gutschrift 12 34567 00000 81820 00000 57600 & 2309.10 & \\
+2018-03-16 & 2018-03-16 & Gutschrift 12 34567 00000 81830 00000 57632 & 1222.75 & \\
+2018-03-16 & 2018-03-16 & Gutschrift 12 34567 00000 82030 00000 57925 & 359.55 & \\
+2018-03-19 & 2018-03-19 & Gutschrift 12 34567 00000 81710 00000 57432 & 2184.45 & \\
+2018-03-19 & 2018-03-19 & Gutschrift 12 34567 00000 82150 00000 58029 & 3713.50 & \\
+2018-03-20 & 2018-03-20 & Gutschrift 12 34567 00000 81800 00000 57571 & 66.75 & \\
+2018-03-21 & 2018-03-21 & Belastung LSV+ CORNER BANCA- Info - - BOUHOUCH RECHNUNGSEINHEIT &  & 1071.20\\
+2018-03-21 & 2018-03-21 & Gutschrift 12 34567 00000 82170 00000 58099 & 549.45 & \\
+2018-03-23 & 2018-03-23 & Gutschrift 12 34567 00000 81920 00000 57743 & 150.75 & \\
+2018-03-23 & 2018-03-23 & Gutschrift 12 34567 00000 82220 00000 58143 & 319.20 & \\
+2018-03-23 & 2018-03-23 & Gutschrift Autoteile- Info - - Pfandrueckerstattung Turbolader & 150.00 & \\
+2018-03-23 & 2018-03-23 & Gutschrift 12 34567 00000 81930 00000 57766 & 163.20 & \\
+2018-03-26 & 2018-03-26 & Gutschrift 12 34567 00000 82270 00000 58206 & 496.35 & \\
+2018-03-26 & 2018-03-26 & Gutschrift 12 34567 00000 66190 00000 36713 & 433.15 & \\
+2018-03-26 & 2018-03-26 & Gutschrift 12 34567 00000 66190 00000 36713 & 433.15 & \\
+2018-03-26 & 2018-03-26 & Gutschrift 12 34567 00000 82210 00000 58130 & 224.75 & \\
+2018-03-26 & 2018-03-26 & Gutschrift 12 34567 00000 82190 00000 58118 & 224.75 & \\
+2018-03-26 & 2018-03-26 & Gutschrift 12 34567 00000 82200 00000 58126 & 141.10 & \\
+2018-03-27 & 2018-03-27 & Vergütung Inland BOUHOUCH &  & 3517.00\\
+2018-03-27 & 2018-03-27 & Vergütung Inland BOUHOUCH &  & 4501.70\\
+2018-03-27 & 2018-03-27 & Vergütung Inland ERB - Info - - LOHN &  & 5000.00\\
+2018-03-28 & 2018-03-28 & Gutschrift 12 34567 00000 82350 00000 58258 & 274.85 & \\
+2018-03-28 & 2018-03-28 & Gutschrift 12 34567 00000 82370 00000 58333 & 2788.35 & \\
+2018-03-28 & 2018-03-28 & Vergütung Inland ANNA MARIE - Info - - MIEZINS MEIERWEG &  & 585.00\\
+2018-03-29 & 2018-03-29 & Vergütung Inland MONIKA - Info - - PARKPLATZMIETE MEINRADSTRASSE 6 &  & 100.00\\
+2018-03-29 & 2018-03-29 & Vergütung Inland WALTER - Info - - MIETZINS MEINRADSTR. 5 &  & 3400.00\\
+2018-03-29 & 2018-03-29 & Vergütung Inland WERNER - Info - - PARKPLATZ MEINRADSTRASSE 3 &  & 150.00\\
+2018-03-29 & 2018-03-29 & Vergütung Inland GTSM - Info - - MIETZINSZAHLUNGEN &  & 1475.00\\
+\\
+\end{tablevalue}
+\end{document}
