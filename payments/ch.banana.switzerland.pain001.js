@@ -2153,16 +2153,15 @@ var JsAction = class JsAction {
         if (!pain001CH.verifyBananaVersion())
             return null;
 
-        var paymentObj = pain001CH.scanCode(code);
-
-        var row = null;
         var table = this.banDocument.table(tabPos.tableName);
-        if (tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
-            row = table.row(tabPos.rowNr);
-        }
-        else {
+        if (tabPos.tableName !== "Transactions") {
             return null;
         }
+
+        var paymentObj = pain001CH.scanCode(code);
+        paymentObj["@uuid"] = uuid;
+        paymentObj["transactionDate"] = this._currentDate();
+        // Banana.console.debug("scanCode, columnName:" + tabPos.columnName + " uuid " + paymentObj["@uuid"]);
 
         var dialogTitle = 'Payment data';
         var pageAnchor = 'dlgPaymentData';
@@ -2172,10 +2171,6 @@ var JsAction = class JsAction {
         paymentObj = pain001CH.openEditor(dialogTitle, editorData, pageAnchor);
         if (!paymentObj)
             return null;
-
-        paymentObj["@uuid"] = uuid;
-        paymentObj["transactionDate"] = this._currentDate();
-        // Banana.console.debug("scanCode, columnName:" + tabPos.columnName + " uuid " + paymentObj["@uuid"]);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
