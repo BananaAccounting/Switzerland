@@ -1,4 +1,4 @@
-// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2021-12-27
+// @pubdate = 2022-01-15
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -2766,6 +2766,14 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
       discountText += " " + invoiceObj.billing_info.discount.percent + "%";
     tableRow.addCell(discountText, "padding-left padding-right", columnsNumber-1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_discount_vat_exclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //PRINT 0% VAT RATE
+  //only when a VatCode with 0% VAT is used (i.e. V0)
+  //when VAT is 0 but no VatCode is used (without VAT), the VAT rate is not printed
+  if (invoiceObj.billing_info.total_vat_rate_zero) {
+    invoiceObj.billing_info.total_vat_rate_zero.vat_rate = Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rate_zero.total_vat_amount,variables.decimals_amounts,true); //"0.00";
+    invoiceObj.billing_info.total_vat_rates.unshift(invoiceObj.billing_info.total_vat_rate_zero);
   }
 
   //TOTAL NET

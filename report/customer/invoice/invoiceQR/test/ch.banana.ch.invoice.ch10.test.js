@@ -1,4 +1,4 @@
-// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2021-11-03
+// @pubdate = 2022-01-15
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -247,6 +247,20 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   //Integrated invoice
   Test.logger.addSubSection("Test22: order number/date, Items/Image columns, additional descriptions");
   this.add_test_invoice_16("2", "Invoice 2");
+
+  //Test INVOICE, 0% VAT rate
+  //Integrated invoice
+  Test.logger.addSubSection("Test23: 0% VAT rate");
+  this.add_test_invoice_17("13", "Invoice 13"); //prints all vat rates, including vat 0.00% (V0)
+  this.add_test_invoice_17("14", "Invoice 14"); //prints all vat rates, excluding no vat (empty)
+  this.add_test_invoice_17("15", "Invoice 15"); //no vat rates printed
+
+  //Test INVOICE, 0% VAT rate
+  //Application Estimates & Invoices
+  Test.logger.addSubSection("Test24: 0% VAT rate");
+  this.add_test_invoice_18("16", "Invoice 16"); //prints all vat rates, including vat 0.00% (V0)
+  this.add_test_invoice_18("17", "Invoice 17"); //prints all vat rates, excluding no vat (empty)
+  this.add_test_invoice_18("18", "Invoice 18"); //no vat rates printed
 }
 
 
@@ -1071,8 +1085,81 @@ ReportInvoiceQrCode.prototype.add_test_invoice_16 = function(invoiceNumber, repo
   Test.logger.addText(text);
 }
 
+ReportInvoiceQrCode.prototype.add_test_invoice_17 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/v0_integrated_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  variables.decimals_quantity = '';
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.shipping_address = false;
+  userParam.info_order_number = false;
+  userParam.info_order_date = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
+  userParam.details_columns_widths = '50%;10%;10%;15%;15%';
+  userParam.details_columns_titles_alignment = 'eft;center;center;right;right';
+  userParam.details_columns_alignment = 'eft;center;center;right;right';
+  userParam.details_gross_amounts = false;
+  userParam.details_additional_descriptions = false;
+  userParam.en_text_details_columns = 'Description;Quantity;Unit;Unit Price;Amount';
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = true;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
 
-
+ReportInvoiceQrCode.prototype.add_test_invoice_18 = function(invoiceNumber, reportName) {
+  var fileAC2 = "file:script/../test/testcases/v0_estimates_invoices_test.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  variables.decimals_quantity = '';
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.shipping_address = false;
+  userParam.info_order_number = false;
+  userParam.info_order_date = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.details_columns = 'Description;Quantity;ReferenceUnit;UnitPrice;Amount';
+  userParam.details_columns_widths = '50%;10%;10%;15%;15%';
+  userParam.details_columns_titles_alignment = 'eft;center;center;right;right';
+  userParam.details_columns_alignment = 'eft;center;center;right;right';
+  userParam.details_gross_amounts = false;
+  userParam.details_additional_descriptions = false;
+  userParam.en_text_details_columns = 'Description;Quantity;Unit;Unit Price;Amount';
+  userParam.qr_code_add = true;
+  userParam.qr_code_qriban = '';
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_iban_eur = '';
+  userParam.qr_code_isr_id = '';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = true;
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
 
 function getQRCodeText(banDoc, userParam, invoiceObj, texts, langCode) {
   var qrBill = new QRBill(banDoc, userParam);
@@ -1180,90 +1267,18 @@ function getJsonInvoice(invoiceNumber) {
   var file;
   var parsedfile;
   var jsonInvoice;
-  
-  if (invoiceNumber === "35") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_35.json");
+
+  if (invoiceNumber === "2") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_2.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);
   }
-  else if (invoiceNumber === "36") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_36.json");
+  else if (invoiceNumber === "3") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_3.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);
-  }
-  else if (invoiceNumber === "361") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_361.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);
-  }
-  else if (invoiceNumber === "362") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_362.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);
-  }
-  else if (invoiceNumber === "363") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_363.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);
-  }
-  else if (invoiceNumber === "364") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_364.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);
-  }
-  else if (invoiceNumber === "36-2020") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_36-2020.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);
-  }
-  else if (invoiceNumber === "F001-20") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_F001-20.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
-  }
-  else if (invoiceNumber === "47") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_47.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
-  }
-  else if (invoiceNumber === "60") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_60.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
-  }
-  else if (invoiceNumber === "64") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_64.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
-  }
-  else if (invoiceNumber === "401") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_401.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
-  }
-  else if (invoiceNumber === "402") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_402.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
-  }
-  else if (invoiceNumber === "403") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_403.json");
-    parsedfile = JSON.stringify(file.read(), "", "");
-    jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
   }
   else if (invoiceNumber === "5") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_5.json");
@@ -1313,17 +1328,126 @@ function getJsonInvoice(invoiceNumber) {
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);
   }
-  else if (invoiceNumber === "3") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_3.json");
+  else if (invoiceNumber === "13") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_13.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);
   }
-  else if (invoiceNumber === "2") {
-    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_2.json");
+  else if (invoiceNumber === "14") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_14.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);
   }
+  else if (invoiceNumber === "15") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_15.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "16") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_16.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "17") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_17.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "18") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_18.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "35") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_35.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "36") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_36.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "36-2020") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_36-2020.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "47") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_47.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "60") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_60.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "64") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_64.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "361") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_361.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "362") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_362.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "363") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_363.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "364") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_364.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "401") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_401.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "402") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_402.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "403") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_403.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+  else if (invoiceNumber === "F001-20") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_F001-20.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);    
+  }
+
   return jsonInvoice;
 }

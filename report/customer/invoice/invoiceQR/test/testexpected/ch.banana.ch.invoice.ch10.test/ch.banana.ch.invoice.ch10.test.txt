@@ -8752,6 +8752,703 @@ ewline SCOR
 ewline RF084110012
 ewline 
 ewline EPD}\\
+\subsection{Test23: 0\% VAT rate}
+\begin{reportvalue}{Invoice 13}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 13 \\
+Date:  & 02.01.2022 \\
+Customer No:  & 1101 \\
+Due date:  & 01.02.2022 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 13 \\
+Date:  & 02.01.2022 \\
+Customer No:  & 1101 \\
+Due date:  & 01.02.2022 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 13 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 92.85  & 92.85 \\
+Product B \newline \newline  &  &  & 67.50  & 67.50 \\
+Product C \newline \newline  &  &  & 50.00  & 50.00 \\
+Product D \newline \newline  &  &  & 92.85  & 92.85 \\
+Product E \newline \newline  &  &  & 50.00  & 50.00 \\
+\multicolumn{390}{l}{}\\
+\multicolumn{389}{l}{Total net } & 353.20 \\
+\multicolumn{389}{l}{VAT 0.00\% (100.00) } & 0.00 \\
+\multicolumn{389}{l}{VAT 7.70\% (185.70) } & 14.30 \\
+\multicolumn{389}{l}{VAT 3.70\% (67.50) } & 2.50 \\
+\multicolumn{390}{l}{}\\
+\multicolumn{389}{l}{TOTAL CHF } & 370.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF21 4110 1213  \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF21 4110 1213  \\
+  \\
+Additional information \\
+//S1/10/13/11/220102/20/1101/31/220102/32/0:100;7.7:185.7;3.7:67.5/40/0:30 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 370.00
+ewline CHF
+ewline K
+ewline James Johnson
+ewline Via Carlo Cattaneo
+ewline 6900 Lugano
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF2141101213
+ewline 
+ewline EPD
+ewline //S1/10/13/11/220102/20/1101/31/220102/32/0:100;7.7:185.7;3.7:67.5/40/0:30}\\
+\begin{reportvalue}{Invoice 14}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 14 \\
+Date:  & 02.01.2022 \\
+Customer No:  & 1101 \\
+Due date:  & 01.02.2022 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 14 \\
+Date:  & 02.01.2022 \\
+Customer No:  & 1101 \\
+Due date:  & 01.02.2022 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 14 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 92.85  & 92.85 \\
+Product B \newline \newline  &  &  & 67.50  & 67.50 \\
+Product C \newline \newline  &  &  & 50.00  & 50.00 \\
+Product D \newline \newline  &  &  & 92.85  & 92.85 \\
+Product E \newline \newline  &  &  & 50.00  & 50.00 \\
+\multicolumn{395}{l}{}\\
+\multicolumn{394}{l}{Total net } & 353.20 \\
+\multicolumn{394}{l}{VAT 7.70\% (185.70) } & 14.30 \\
+\multicolumn{394}{l}{VAT 3.70\% (67.50) } & 2.50 \\
+\multicolumn{395}{l}{}\\
+\multicolumn{394}{l}{TOTAL CHF } & 370.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF91 4110 1214  \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF91 4110 1214  \\
+  \\
+Additional information \\
+//S1/10/14/11/220102/20/1101/31/220102/32/7.7:185.7;3.7:67.5/40/0:30 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 370.00
+ewline CHF
+ewline K
+ewline James Johnson
+ewline Via Carlo Cattaneo
+ewline 6900 Lugano
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF9141101214
+ewline 
+ewline EPD
+ewline //S1/10/14/11/220102/20/1101/31/220102/32/7.7:185.7;3.7:67.5/40/0:30}\\
+\begin{reportvalue}{Invoice 15}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 15 \\
+Date:  & 02.01.2022 \\
+Customer No:  & 1101 \\
+Due date:  & 01.02.2022 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 15 \\
+Date:  & 02.01.2022 \\
+Customer No:  & 1101 \\
+Due date:  & 01.02.2022 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 15 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 100.00  & 100.00 \\
+Product B \newline \newline  &  &  & 70.00  & 70.00 \\
+Product C \newline \newline  &  &  & 50.00  & 50.00 \\
+Product D \newline \newline  &  &  & 100.00  & 100.00 \\
+Product E \newline \newline  &  &  & 50.00  & 50.00 \\
+\multicolumn{400}{l}{}\\
+\multicolumn{400}{l}{}\\
+\multicolumn{399}{l}{TOTAL CHF } & 370.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF64 4110 1215  \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF64 4110 1215  \\
+  \\
+Additional information \\
+//S1/10/15/11/220102/20/1101/31/220102/40/0:30 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 370.00
+ewline CHF
+ewline K
+ewline James Johnson
+ewline Via Carlo Cattaneo
+ewline 6900 Lugano
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF6441101215
+ewline 
+ewline EPD
+ewline //S1/10/15/11/220102/20/1101/31/220102/40/0:30}\\
+\subsection{Test24: 0\% VAT rate}
+\begin{reportvalue}{Invoice 16}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 16 \\
+Date:  & 17.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+Rue aux lapins 2, 1002 Lausanne \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 16 \\
+Date:  & 17.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello The Tea corner \newline Rue des salines 44 \newline 1007 Lausanne \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 16 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
+Product B \newline \newline  & 1.00  & pc  & 67.50  & 67.50 \\
+Product C \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+Product D \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
+Product E \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+\multicolumn{405}{l}{}\\
+\multicolumn{404}{l}{Total net } & 353.20 \\
+\multicolumn{404}{l}{VAT 0.00\% (100.00) } & 0.00 \\
+\multicolumn{404}{l}{VAT 7.70\% (185.70) } & 14.30 \\
+\multicolumn{404}{l}{VAT 3.70\% (67.50) } & 2.50 \\
+\multicolumn{405}{l}{}\\
+\multicolumn{404}{l}{TOTAL CHF } & 370.00 \\
+\end{longtable}
+Please make your payment to the following bank account\P IBAN: CHXX XXXX XXXX XXXX 0203 X\P \P Thank you very much. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+Rue aux lapins 2 \\
+1002 Lausanne \\
+  \\
+Reference \\
+RF06 1121 6 \\
+  \\
+Payable by \\
+The Tea corner \\
+Rue des salines 44 \\
+1007 Lausanne \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+Rue aux lapins 2 \\
+1002 Lausanne \\
+  \\
+Reference \\
+RF06 1121 6 \\
+  \\
+Additional information \\
+//S1/10/16/11/200617/20/1/30/111333999/31/200617/32/0:100;7.7:185.7;3.7:67.5/40/0:30 \\
+  \\
+Payable by \\
+The Tea corner \\
+Rue des salines 44 \\
+1007 Lausanne \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline My Company
+ewline Rue aux lapins 2
+ewline 1002 Lausanne
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 370.00
+ewline CHF
+ewline K
+ewline The Tea corner
+ewline Rue des salines 44
+ewline 1007 Lausanne
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF0611216
+ewline 
+ewline EPD
+ewline //S1/10/16/11/200617/20/1/30/111333999/31/200617/32/0:100;7.7:185.7;3.7:67.5/40/0:30}\\
+\begin{reportvalue}{Invoice 17}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 17 \\
+Date:  & 17.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+Rue aux lapins 2, 1002 Lausanne \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 17 \\
+Date:  & 17.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello The Tea corner \newline Rue des salines 44 \newline 1007 Lausanne \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+SENZA IVA 0\% \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
+Product B \newline \newline  & 1.00  & pc  & 67.50  & 67.50 \\
+Product C \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+Product D \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
+Product E \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+\multicolumn{410}{l}{}\\
+\multicolumn{409}{l}{Total net } & 353.20 \\
+\multicolumn{409}{l}{VAT 7.70\% (185.70) } & 14.30 \\
+\multicolumn{409}{l}{VAT 3.70\% (67.50) } & 2.50 \\
+\multicolumn{410}{l}{}\\
+\multicolumn{409}{l}{TOTAL CHF } & 370.00 \\
+\end{longtable}
+Please make your payment to the following bank account\P IBAN: CHXX XXXX XXXX XXXX 0203 X\P \P Thank you very much. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+Rue aux lapins 2 \\
+1002 Lausanne \\
+  \\
+Reference \\
+RF76 1121 7 \\
+  \\
+Payable by \\
+The Tea corner \\
+Rue des salines 44 \\
+1007 Lausanne \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+Rue aux lapins 2 \\
+1002 Lausanne \\
+  \\
+Reference \\
+RF76 1121 7 \\
+  \\
+Additional information \\
+//S1/10/17/11/200617/20/1/30/111333999/31/200617/32/7.7:185.7;3.7:67.5/40/0:30 \\
+  \\
+Payable by \\
+The Tea corner \\
+Rue des salines 44 \\
+1007 Lausanne \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline My Company
+ewline Rue aux lapins 2
+ewline 1002 Lausanne
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 370.00
+ewline CHF
+ewline K
+ewline The Tea corner
+ewline Rue des salines 44
+ewline 1007 Lausanne
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF7611217
+ewline 
+ewline EPD
+ewline //S1/10/17/11/200617/20/1/30/111333999/31/200617/32/7.7:185.7;3.7:67.5/40/0:30}\\
+\begin{reportvalue}{Invoice 18}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 18 \\
+Date:  & 17.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\end{longtable}
+My Company \\
+Rue aux lapins 2, 1002 Lausanne \\
+Tel: +41 56 777 999 \\
+info@mycompany.zz, https://www.mycompany.zz \\
+CHE-111.333.999 IVA \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 18 \\
+Date:  & 17.06.2020 \\
+Customer No:  & 1 \\
+Due date:  & 17.07.2020 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello The Tea corner \newline Rue des salines 44 \newline 1007 Lausanne \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+SENZA IVA \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  & 1.00  & pc  & 100.00  & 100.00 \\
+Product B \newline \newline  & 1.00  & pc  & 70.00  & 70.00 \\
+Product C \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+Product D \newline \newline  & 1.00  & pc  & 100.00  & 100.00 \\
+Product E \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+\multicolumn{415}{l}{}\\
+\multicolumn{415}{l}{}\\
+\multicolumn{414}{l}{TOTAL CHF } & 370.00 \\
+\end{longtable}
+Please make your payment to the following bank account\P IBAN: CHXX XXXX XXXX XXXX 0203 X\P \P Thank you very much. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+Rue aux lapins 2 \\
+1002 Lausanne \\
+  \\
+Reference \\
+RF49 1121 8 \\
+  \\
+Payable by \\
+The Tea corner \\
+Rue des salines 44 \\
+1007 Lausanne \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+370.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+My Company \\
+Rue aux lapins 2 \\
+1002 Lausanne \\
+  \\
+Reference \\
+RF49 1121 8 \\
+  \\
+Additional information \\
+//S1/10/18/11/200617/20/1/30/111333999/31/200617/40/0:30 \\
+  \\
+Payable by \\
+The Tea corner \\
+Rue des salines 44 \\
+1007 Lausanne \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline My Company
+ewline Rue aux lapins 2
+ewline 1002 Lausanne
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 370.00
+ewline CHF
+ewline K
+ewline The Tea corner
+ewline Rue des salines 44
+ewline 1007 Lausanne
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF4911218
+ewline 
+ewline EPD
+ewline //S1/10/18/11/200617/20/1/30/111333999/31/200617/40/0:30}\\
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}

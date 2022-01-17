@@ -1,0 +1,218 @@
+{
+    "billing_info": {
+        "discount": {
+            "amount": "",
+            "percent": null
+        },
+        "due_date": "2020-06-17",
+        "total_amount_vat_exclusive": "353.20",
+        "total_amount_vat_exclusive_before_discount": "353.20",
+        "total_amount_vat_inclusive": "370.00",
+        "total_amount_vat_inclusive_before_discount": "370.00",
+        "total_categories": [],
+        "total_discount_percent": "",
+        "total_discount_vat_exclusive": "",
+        "total_discount_vat_inclusive": "",
+        "total_rounding_difference": "",
+        "total_to_pay": "370.00",
+        "total_vat_amount": "16.80",
+        "total_vat_amount_before_discount": "16.80",
+        "total_vat_codes": [
+            {
+                "total_amount_vat_exclusive": "185.70",
+                "total_amount_vat_inclusive": "200.00",
+                "total_vat_amount": "14.30",
+                "vat_code": "V77"
+            },
+            {
+                "total_amount_vat_exclusive": "67.50",
+                "total_amount_vat_inclusive": "70.00",
+                "total_vat_amount": "2.50",
+                "vat_code": "V37"
+            }
+        ],
+        "total_vat_rates": [
+            {
+                "total_amount_vat_exclusive": "185.70",
+                "total_amount_vat_inclusive": "200.00",
+                "total_vat_amount": "14.30",
+                "vat_rate": "7.70"
+            },
+            {
+                "total_amount_vat_exclusive": "67.50",
+                "total_amount_vat_inclusive": "70.00",
+                "total_vat_amount": "2.50",
+                "vat_rate": "3.70"
+            }
+        ]
+    },
+    "creator_info": {
+        "name": "ch.banana.application.invoice.default",
+        "pubdate": "2022-01-12",
+        "publisher": "Banana.ch SA",
+        "version": ""
+    },
+    "customer_info": {
+        "address1": "Rue des salines 44",
+        "address2": "",
+        "address3": "",
+        "business_name": "The Tea corner",
+        "city": "Lausanne",
+        "country": "",
+        "country_code": "CH",
+        "courtesy": "",
+        "email": "",
+        "first_name": "",
+        "iban": "",
+        "last_name": "",
+        "mobile": "",
+        "number": "1",
+        "phone": "",
+        "postal_code": "1007",
+        "web": ""
+    },
+    "document_info": {
+        "currency": "CHF",
+        "date": "2020-06-17",
+        "decimals_amounts": 2,
+        "description": "SENZA IVA 0%",
+        "doc_type": "10",
+        "locale": "en",
+        "number": "17",
+        "rounding_total": "0.05",
+        "rounding_totals": "0.05",
+        "text_begin": "",
+        "title": "SENZA IVA 0%",
+        "vat_mode": "vat_excl",
+        "custom_fields": []
+    },
+    "items": [
+        {
+            "description": "Product A",
+            "item_type": "item",
+            "mesure_unit": "pc",
+            "number": "1200",
+            "quantity": "1",
+            "total": "",
+            "total_amount_vat_exclusive": "92.85",
+            "total_amount_vat_inclusive": "100.00",
+            "total_vat_amount": "7.15",
+            "unit_price": {
+                "amount_vat_exclusive": null,
+                "amount_vat_inclusive": "100.00",
+                "calculated_amount_vat_exclusive": "92.85",
+                "calculated_amount_vat_inclusive": "100.00",
+                "calculated_vat_amount": "7.15",
+                "vat_code": "V77",
+                "vat_rate": "7.70"
+            }
+        },
+        {
+            "description": "Product B",
+            "item_type": "item",
+            "mesure_unit": "pc",
+            "number": "",
+            "quantity": "1",
+            "total_amount_vat_exclusive": "67.50",
+            "total_amount_vat_inclusive": "70.00",
+            "total_vat_amount": "2.50",
+            "unit_price": {
+                "amount_vat_exclusive": null,
+                "amount_vat_inclusive": "70.00",
+                "calculated_amount_vat_exclusive": "67.50",
+                "calculated_amount_vat_inclusive": "70.00",
+                "calculated_vat_amount": "2.50",
+                "vat_code": "V37",
+                "vat_rate": "3.70"
+            }
+        },
+        {
+            "description": "Product C",
+            "item_type": "item",
+            "mesure_unit": "pc",
+            "number": "",
+            "quantity": "1",
+            "total_amount_vat_exclusive": "50.00",
+            "total_amount_vat_inclusive": "50.00",
+            "total_vat_amount": "",
+            "unit_price": {
+                "amount_vat_exclusive": null,
+                "amount_vat_inclusive": "50.00",
+                "calculated_amount_vat_exclusive": "50.00",
+                "calculated_amount_vat_inclusive": "50.00",
+                "calculated_vat_amount": "",
+                "vat_code": "",
+                "vat_rate": ""
+            }
+        },
+        {
+            "description": "Product D",
+            "item_type": "item",
+            "mesure_unit": "pc",
+            "number": "",
+            "quantity": "1",
+            "total_amount_vat_exclusive": "92.85",
+            "total_amount_vat_inclusive": "100.00",
+            "total_vat_amount": "7.15",
+            "unit_price": {
+                "amount_vat_exclusive": null,
+                "amount_vat_inclusive": "100.00",
+                "calculated_amount_vat_exclusive": "92.85",
+                "calculated_amount_vat_inclusive": "100.00",
+                "calculated_vat_amount": "7.15",
+                "vat_code": "V77",
+                "vat_rate": "7.70"
+            }
+        },
+        {
+            "description": "Product E",
+            "item_type": "item",
+            "mesure_unit": "pc",
+            "number": "",
+            "quantity": "1",
+            "total_amount_vat_exclusive": "50.00",
+            "total_amount_vat_inclusive": "50.00",
+            "total_vat_amount": "",
+            "unit_price": {
+                "amount_vat_exclusive": null,
+                "amount_vat_inclusive": "50.00",
+                "calculated_amount_vat_exclusive": "50.00",
+                "calculated_amount_vat_inclusive": "50.00",
+                "calculated_vat_amount": "",
+                "vat_code": "",
+                "vat_rate": ""
+            }
+        }
+    ],
+    "note": [
+        {
+            "date": null,
+            "description": "Please make your payment to the following bank account\nIBAN: CHXX XXXX XXXX XXXX 0203 X\n\nThank you very much."
+        }
+    ],
+    "payment_info": {
+        "due_date": "2020-07-17"
+    },
+    "supplier_info": {
+        "courtesy": "",
+        "business_name": "My Company",
+        "first_name": "",
+        "last_name": "",
+        "address1": "Rue aux lapins 2",
+        "address2": "",
+        "address3": "",
+        "postal_code": "1002",
+        "city": "Lausanne",
+        "country": "Svizzera",
+        "country_code": "CH",
+        "web": "https://www.mycompany.zz",
+        "email": "info@mycompany.zz",
+        "phone": "+41 56 777 999",
+        "mobile": "",
+        "fiscal_number": "",
+        "vat_number": "CHE-111.333.999 IVA",
+        "iban_number": ""
+    },
+    "type": "invoice",
+    "version": "1.0"
+}

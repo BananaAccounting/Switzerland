@@ -1,4 +1,4 @@
-// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2021-10-20 */
+/* Script update: 2022-01-15 */
 
 
 
@@ -1148,7 +1148,7 @@ var QRBill = class QRBill {
 				if (userParam.qr_code_iban_eur) {
 					qrcodeData.supplierIbanNumber = this.formatIban(userParam.qr_code_iban_eur);
 					if (isValidIBAN(userParam.qr_code_iban_eur) !== 1 || isQRIBAN(userParam.qr_code_iban_eur)) { // || invoiceObj.document_info.currency !== "EUR" && invoiceObj.document_info.currency !== "eur") {
-						qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_IBAN_WRONG, langDoc, qr_code_iban_eur);
+						qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_IBAN_WRONG, langDoc, userParam.qr_code_iban_eur);
 					}
 				}
 				else {
