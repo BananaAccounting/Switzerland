@@ -14,11 +14,11 @@
 //
 
 
-// @id = pain001.ch.test
+// @id = ch.banana.switzerland.pain001.test
 // @api = 1.0
-// @pubdate = 2020-02-27
+// @pubdate = 2022-01-17
 // @publisher = Banana.ch SA
-// @description = <TEST pain001.ch.js>
+// @description = <TEST ch.banana.switzerland.pain001.js>
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
@@ -70,9 +70,7 @@ Pain001CHTest.prototype.initTestCase = function () {
     this.progressBar = Banana.application.progressBar;
 
     this.fileNameList = [];
-    this.fileNameList.push("file:script/../test/testcases/de_payments2020.ac2");
-    this.fileNameList.push("file:script/../test/testcases/def_payments2020.ac2");
-    this.fileNameList.push("file:script/../test/testcases/ie_payments2020.ac2");
+    this.fileNameList.push("file:script/../test/testcases/payments_2022.ac2");
 
 }
 
@@ -93,39 +91,39 @@ Pain001CHTest.prototype.cleanup = function () {
 
 //Test1
 Pain001CHTest.prototype.test1 = function () {
+    this.testLogger = Test.logger.newGroupLogger("ConvertPaymData");
+    this.testLogger.addKeyValue("ConvertPaymDataTest", "ConvertPaymData");
+    this.testLogger.addComment("Test the function convertPaymData() reading payment/data in Transactions table");
+    this.startTest("convertPaymData");
+    this.testLogger.close();
+}
+
+//Test2
+/*Pain001CHTest.prototype.test2 = function () {
     this.testLogger = Test.logger.newGroupLogger("CreateTransferFile");
     this.testLogger.addKeyValue("CreateTransferFileTest", "CreateTransferFile");
     this.testLogger.addComment("Test the function createTransferFile() & validateTransferFile() reading payment/file in Transactions table");
     this.startTest("createTransferFile");
     this.testLogger.close();
-}
-
-//Test2
-Pain001CHTest.prototype.test2 = function () {
-    this.testLogger = Test.logger.newGroupLogger("GetEditorParams");
-    this.testLogger.addKeyValue("GetEditorParamsTest", "GetEditorParams");
-    this.testLogger.addComment("Test the function getEditorParams() reading payment/data in Transactions table");
-    this.startTest("getEditorParams");
-    this.testLogger.close();
-}
+}*/
 
 //Test3
-Pain001CHTest.prototype.test3 = function () {
+/*Pain001CHTest.prototype.test3 = function () {
     this.testLogger = Test.logger.newGroupLogger("UpdateRow");
     this.testLogger.addKeyValue("UpdateRowTest", "UpdateRow");
     this.testLogger.addComment("Test the function updateRow() reading payment/data in Transactions table");
     this.startTest("updateRow");
     this.testLogger.close();
-}
+}*/
 
 //Test4
-Pain001CHTest.prototype.test4 = function () {
+/*Pain001CHTest.prototype.test4 = function () {
     this.testLogger = Test.logger.newGroupLogger("ValidateParams");
     this.testLogger.addKeyValue("ValidateParamsTest", "ValidateParams");
     this.testLogger.addComment("Test the function validateParams() reading payment/data in Transactions table");
     this.startTest("validateParams");
     this.testLogger.close();
-}
+}*/
 
 //Test the function CreateTransferFile() reading paymentFiles in Transactions table
 Pain001CHTest.prototype.createTransferFile = function (banDocument, fileName) {
@@ -168,8 +166,8 @@ Pain001CHTest.prototype.createTransferFile = function (banDocument, fileName) {
     }
 }
 
-//Test the function getEditorParams() passing paymentData from table Transactions
-Pain001CHTest.prototype.getEditorParams = function (banDocument, fileName) {
+//Test the function convertPaymData() passing paymentData from table Transactions
+Pain001CHTest.prototype.convertPaymData = function (banDocument, fileName) {
     var tableTransactions = banDocument.table('Transactions');
     if (!tableTransactions) {
         this.testLogger.addFatalError("Transaction table not valid " + fileName);
@@ -188,20 +186,14 @@ Pain001CHTest.prototype.getEditorParams = function (banDocument, fileName) {
             continue;
         }
 		try {
-			if (paymentObj["@type"] && jsonObj["@type"]=="payment/data") {
+			if (paymentObj["@type"] && paymentObj["@type"]=="payment/data") {
 				var pain001 = new Pain001Switzerland(banDocument);
-				var convertedParam = pain001.getEditorParams(paymentObj, i);
-				this.testLogger.addComment("---------------- GETEDITORPARAM of payment/data - transaction row " + i.toString() + " ----------------");
-				this.testLogger.addXml("getEditorParams input", JSON.stringify(paymentObj, null, '   '));
-				for (var j = 0; j < convertedParam.data.length; j++) {
-					var value = convertedParam.data[j].value;
-					if (value)
-						value = value.toString();
-					var placeholder = convertedParam.data[j].placeholder;
-					if (placeholder)
-						placeholder = placeholder.toString();
-					this.testLogger.addKeyValue(convertedParam.data[j].name, "value: " + value + " placeholder: " + placeholder);
-				}
+				var convertedParam = pain001.convertPaymData(paymentObj);
+				this.testLogger.addComment("---------------- CONVERTPAYMDATA of payment/data - transaction row " + i.toString() + " ----------------");
+				this.testLogger.addXml("convertPaymData input", JSON.stringify(paymentObj, null, '   '));
+                for (var j = 0; j < convertedParam.data.length; j++) {
+                    this.testLogger.addKeyValue(convertedParam.data[j].name, "value: " + convertedParam.data[j].value);
+                }
 			}
         } catch (e) {
             banDocument.addMessage(e);
@@ -223,8 +215,8 @@ Pain001CHTest.prototype.startTest = function (functionName) {
             this.testLogger.addInfo("FILENAME", fileName.toUpperCase());
 			if (functionName=="createTransferFile")
 				this.createTransferFile(banDocument, fileName);
-			else if (functionName=="getEditorParams")
-				this.getEditorParams(banDocument, fileName);
+			else if (functionName=="convertPaymData")
+				this.convertPaymData(banDocument, fileName);
 			else if (functionName=="updateRow")
 				this.updateRow(banDocument, fileName);
 			else if (functionName=="validateParams")
@@ -304,7 +296,7 @@ Pain001CHTest.prototype.validateParams = function (banDocument, fileName) {
 				if (paymentObj.id.methodId == "ISR" && paymentObj.creditor && paymentObj.referenceNumber)
                 paymentObj.referenceNumber = '';
 				var pain001 = new Pain001Switzerland(banDocument);
-				var convertedParam = pain001.getEditorParams(paymentObj, i);
+				var convertedParam = pain001.convertPaymData(paymentObj, i);
 				convertedParam.id = paymentObj.id;
 				var validatedParam = pain001.validateParams(convertedParam);
 				this.testLogger.addComment("---------------- VALIDATEPARAMS of payment/data - transaction row " + i.toString() + " ----------------");
