@@ -244,4 +244,79 @@
 \keyvalue{invoiceNo}{value: 13316}
 \keyvalue{description}{value: Invoice QRR / K Address}
 \keyvalue{syncTransaction}{value: true}
+%---------------- CONVERTPAYMDATA of payment/data - transaction row 10 ----------------
+\begin{xmlvalue}{convertPaymData input}
+{
+   "methodId": "QRCODE",
+   "creditorAccountId": "200002",
+   "creditorName": "Fiori malcantonesi SA",
+   "creditorStreet1": "strada ai Boschi",
+   "creditorStreet2": "",
+   "creditorCity": "Neggio",
+   "creditorPostalCode": "6991",
+   "creditorCountry": "CH",
+   "creditorBankName": "",
+   "creditorBankAddress1": "",
+   "creditorBankAddress2": "",
+   "creditorBankAccount": "",
+   "creditorIban": "CH8109000000657970543",
+   "creditorBic": "",
+   "ultimateDebtorName": "Bellini Locanda Ticinese",
+   "ultimateDebtorStreet1": "Murbacherstrasse",
+   "ultimateDebtorStreet2": "",
+   "ultimateDebtorCity": "Luzern",
+   "ultimateDebtorPostalCode": "6003",
+   "ultimateDebtorCountry": "CH",
+   "amount": "640.80",
+   "currency": "CHF",
+   "referenceType": "NON",
+   "reference": "",
+   "unstructuredMessage": "AI_200002_254",
+   "billingInfo": "BI_200002_254",
+   "categoryPurpose": "",
+   "invoiceNo": "254",
+   "transactionDate": "20220119",
+   "dueDate": "",
+   "description": "Fattura NON / Indirizzo K",
+   "syncTransaction": true,
+   "@appId": "ch.banana.switzerland.pain001",
+   "@type": "payment/data",
+   "@version": "1.0",
+   "@uuid": "73afc015471e421482d645a12e4530a4"
+}\end{xmlvalue}
+\keyvalue{methodId}{value: QRCODE}
+\keyvalue{creditor}{value: undefined}
+\keyvalue{creditorAccountId}{value: 200002}
+\keyvalue{creditorName}{value: Fiori malcantonesi SA}
+\keyvalue{creditorStreet1}{value: strada ai Boschi}
+\keyvalue{creditorStreet2}{value: }
+\keyvalue{creditorCity}{value: Neggio}
+\keyvalue{creditorPostalCode}{value: 6991}
+\keyvalue{creditorCountry}{value: CH}
+\keyvalue{creditorBankName}{value: }
+\keyvalue{creditorBankAddress1}{value: }
+\keyvalue{creditorBankAddress2}{value: }
+\keyvalue{creditorBankAccount}{value: }
+\keyvalue{creditorIban}{value: CH8109000000657970543}
+\keyvalue{creditorBic}{value: }
+\keyvalue{amount}{value: 640.80}
+\keyvalue{currency}{value: CHF}
+\keyvalue{referenceType}{value: NON}
+\keyvalue{reference}{value: }
+\keyvalue{unstructuredMessage}{value: AI\_200002\_254}
+\keyvalue{billingInfo}{value: BI\_200002\_254}
+\keyvalue{categoryPurpose}{value: }
+\keyvalue{ultimateDebtor}{value: undefined}
+\keyvalue{ultimateDebtorName}{value: Bellini Locanda Ticinese}
+\keyvalue{ultimateDebtorStreet1}{value: Murbacherstrasse}
+\keyvalue{ultimateDebtorStreet2}{value: }
+\keyvalue{ultimateDebtorCity}{value: Luzern}
+\keyvalue{ultimateDebtorPostalCode}{value: 6003}
+\keyvalue{ultimateDebtorCountry}{value: CH}
+\keyvalue{transaction}{value: undefined}
+\keyvalue{transactionDate}{value: 20220119}
+\keyvalue{dueDate}{value: }
+\keyvalue{invoiceNo}{value: 254}
+\keyvalue{description}{value: Fattura NON / Indirizzo K}
+\keyvalue{syncTransaction}{value: true}
 \end{document}
