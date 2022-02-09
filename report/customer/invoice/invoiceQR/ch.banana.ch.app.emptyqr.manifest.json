@@ -3,8 +3,16 @@
     "country":"switzerland",
     "countryCode":"ch",
     "description": "QR-bill with empty amount and address",
+    "description.en": "QR-bill with empty amount and address",
+    "description.it": "QR-Fattura senza importo e indirizzo",
+    "description.de": "QR-Rechnung ohne Betrag und ohne Adresse",
+    "description.fr": "QR-Facture sans montant et adresse",
     "language":"",
     "publisher": "Banana.ch",
     "title": "QR-bill with empty amount and address",
+    "title.en": "QR-bill with empty amount and address",
+    "title.it": "QR-Fattura senza importo e indirizzo",
+    "title.de": "QR-Rechnung ohne Betrag und ohne Adresse",
+    "title.fr": "QR-Facture sans montant et adresse",
     "version": "1.0"
 }

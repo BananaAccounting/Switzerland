@@ -1,4 +1,4 @@
-// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2021-09-15
+// @pubdate = 2022-02-08
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
-// @description.it = QR-bill with empty amount and address
-// @description.de = QR-bill with empty amount and address
-// @description.fr = QR-bill with empty amount and address
+// @description.it = QR-Fattura senza importo e indirizzo
+// @description.de = QR-Rechnung ohne Betrag und ohne Adresse
+// @description.fr = QR-Facture sans montant et adresse
 // @description.en = QR-bill with empty amount and address
 // @doctype = *
 // @task = app.command
