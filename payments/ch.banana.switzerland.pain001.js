@@ -1741,7 +1741,7 @@ var JsAction = class JsAction {
             this._rowGetAccount(paymentObj, row);
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
-            if (paymentObj["transactionDate"].length <= 0)
+            if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
                 paymentObj["transactionDate"] = pain001CH.toDateLocaleFormat(this._currentDate());
         }
 
