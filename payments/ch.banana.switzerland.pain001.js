@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2021-12-17
+// @pubdate = 2022-02-16
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -1748,7 +1748,6 @@ var JsAction = class JsAction {
         var dialogTitle = 'Payment data';
         var pageAnchor = 'dlgPaymentData';
         var editorData = pain001CH.convertPaymData(paymentObj);
-
         // Open dialog
         paymentObj = pain001CH.openEditor(dialogTitle, editorData, pageAnchor);
         if (!paymentObj)
@@ -2350,11 +2349,11 @@ var JsAction = class JsAction {
         }
 
         if (!accountId || creditors.indexOf(accountId) < 0)
-            accountId = row.value("Cc3");
+            accountId = ";" + row.value("Cc3");
         if (!accountId || creditors.indexOf(accountId) < 0)
-            accountId = row.value("Cc2");
+            accountId = "," + row.value("Cc2");
         if (!accountId || creditors.indexOf(accountId) < 0)
-            accountId = row.value("Cc1");
+            accountId = "." + row.value("Cc1");
         if (!accountId || creditors.indexOf(accountId) < 0)
             accountId = '';
 
