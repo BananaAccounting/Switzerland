@@ -2348,12 +2348,26 @@ var JsAction = class JsAction {
             accountId = row.value("Account");
         }
 
-        if (!accountId || creditors.indexOf(accountId) < 0)
-            accountId = ";" + row.value("Cc3");
-        if (!accountId || creditors.indexOf(accountId) < 0)
-            accountId = "," + row.value("Cc2");
-        if (!accountId || creditors.indexOf(accountId) < 0)
-            accountId = "." + row.value("Cc1");
+        //cost centers
+        if (!accountId || creditors.indexOf(accountId) < 0) {
+            accountId = row.value("Cc3");
+            if (accountId.startsWith("-"))
+                accountId = accountId.substr(1);
+            accountId = ";" + accountId;
+        }
+        if (!accountId || creditors.indexOf(accountId) < 0) {
+            accountId = row.value("Cc2");
+            if (accountId.startsWith("-"))
+                accountId = accountId.substr(1);
+            accountId = "," + accountId;
+        }
+        if (!accountId || creditors.indexOf(accountId) < 0) {
+            accountId = row.value("Cc1");
+            if (accountId.startsWith("-"))
+                accountId = accountId.substr(1);
+            accountId = "." + accountId;
+        }
+        
         if (!accountId || creditors.indexOf(accountId) < 0)
             accountId = '';
 
