@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2022-01-15 */
+/* Script update: 2022-02-21 */
 
 
 
@@ -1730,6 +1730,7 @@ var QRBill = class QRBill {
 			repDocObj.addPageBreak();
 		}
 		repDocObj.addParagraph("", "qrcode_rectangle"); //rettangolo trasparente per non sovrascrivere il testo con il QRCode
+		repDocObj.addParagraph("", "qrcode_background"); //rettangolo trasparente dietro al bollettino QRCode
 
 		// QRCode Receipt/Payment sections
 		var qrcodeReceiptForm = repDocObj.addSection("qrcode_receipt_Form");
@@ -2631,6 +2632,14 @@ var QRBill = class QRBill {
 			rectangleStyle.setAttribute("width","10px");
 			rectangleStyle.setAttribute("height","100mm");
 			rectangleStyle.setAttribute("background-color","white");
+
+			var backgroundStyle = repStyleObj.addStyle(".qrcode_background");
+			backgroundStyle.setAttribute("position","absolute");
+			backgroundStyle.setAttribute("top","192mm");
+			backgroundStyle.setAttribute("left","0mm");
+			backgroundStyle.setAttribute("height","104mm");
+			backgroundStyle.setAttribute("width","209mm");
+			backgroundStyle.setAttribute("background-color","white");
 
 			var title = repStyleObj.addStyle(".qrcode_title");
 			title.setAttribute("font-size","11pt");
