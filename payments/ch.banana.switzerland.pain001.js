@@ -1450,16 +1450,18 @@ Pain001Switzerland.prototype.setCreditorByName = function (paymentObj) {
     var name = paymentObj.creditorName;
 
     //Look for name in different columns
-    var tableAccounts = this.banDocument.table('Accounts');
-    if (name.length > 0 && tableAccounts) {
-        var row = tableAccounts.findRowByValue('OrganisationName', name);
-        if (!row)
-            row = tableAccounts.findRowByValue('FamilyName', name);
-        if (!row)
-            row = tableAccounts.findRowByValue('FirstName', name);
-        if (row) {
-            if (row.value("Account")) {
-                paymentObj.creditorAccountId = row.value("Account");
+    if (this.banDocument) {
+        var tableAccounts = this.banDocument.table('Accounts');
+        if (name.length > 0 && tableAccounts) {
+            var row = tableAccounts.findRowByValue('OrganisationName', name);
+            if (!row)
+                row = tableAccounts.findRowByValue('FamilyName', name);
+            if (!row)
+                row = tableAccounts.findRowByValue('FirstName', name);
+            if (row) {
+                if (row.value("Account")) {
+                    paymentObj.creditorAccountId = row.value("Account");
+                }
             }
         }
     }
