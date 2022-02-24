@@ -825,7 +825,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             executionDates.push(dueDate);
 
         var currency = paymentObj.transactions[i].currency;
-        if (currency.length > 0 && currencies.indexOf(currency) < 0)
+        if (currency && currencies.indexOf(currency) < 0)
             currencies.push(currency);
     }
 
@@ -863,7 +863,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             for (var j = 0; paymentObj.transactions && j < paymentObj.transactions.length; j++) {
                 if (this.toISODate(paymentObj.transactions[j].dueDate) !== executionDates[i])
                     continue;
-                if (paymentObj.transactions[j].currency.length <= 0 || paymentObj.transactions[j].currency !== currencies[h])
+                if (!paymentObj.transactions[j].currency || paymentObj.transactions[j].currency !== currencies[h])
                     continue;
                 var transactionInfoObj = paymentObj.transactions[j];
                 //Get payment method: IBAN/QR-IBAN, SEPA, ...
@@ -2339,14 +2339,16 @@ var JsAction = class JsAction {
 
         var res = {};
 
-        for (var k of Object.keys(obj)) {
-            var val = obj[k],
-                key = prefix ? prefix + '.' + k : k;
+        if (obj) {
+            for (var k of Object.keys(obj)) {
+                var val = obj[k],
+                    key = prefix ? prefix + '.' + k : k;
 
-            if (typeof val === 'object')
-                Object.assign(res, this._getInfoUnwrap(val, key)); // <-- recursion
-            else
-                res[key] = val;
+                if (typeof val === 'object')
+                    Object.assign(res, this._getInfoUnwrap(val, key)); // <-- recursion
+                else
+                    res[key] = val;
+            }
         }
 
         return res;
