@@ -206,6 +206,7 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY";
     this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID";
     this.ID_ERR_PAYMENTMETHOD_NOTSUPPORTED = "ID_ERR_PAYMENTMETHOD_NOTSUPPORTED";
+    this.ID_ERR_PAYMENTOBJECT_EMPTY = "ID_ERR_PAYMENTOBJECT_EMPTY";
     this.ID_ERR_QRIBAN_NOTVALID = "ID_ERR_QRIBAN_NOTVALID";
     this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
 
@@ -756,8 +757,8 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
     if (!paymentObj || paymentObj === 'undefined') {
         var lang = this.getLang();
-        var msg = this.getErrorMessage(this.ID_ERR_MESSAGE_EMPTY, lang);
-        this.banDocument.addMessage(msg, this.ID_ERR_MESSAGE_EMPTY);
+        var msg = this.getErrorMessage(this.ID_ERR_PAYMENTOBJECT_EMPTY, lang);
+        this.banDocument.addMessage(msg, this.ID_ERR_PAYMENTOBJECT_EMPTY);
         return "";
     }
 
@@ -819,6 +820,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             paymentObj.transactions[i].dueDate = paymentObj.requestExecutionDate;
             dueDate = paymentObj.requestExecutionDate;
         }
+        dueDate = this.toISODate(dueDate);
         if (executionDates.indexOf(dueDate) < 0)
             executionDates.push(dueDate);
 
@@ -831,7 +833,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
         for (var i = 0; i < executionDates.length; i++) {
 
-            // msgInfId
+            // msgInfId max length 35
             var id = h * 100 + i;
             var zero = 3 - id.toString().length + 1;
             var counter = Array(+(zero > 0 && zero)).join("0") + id;
@@ -859,7 +861,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 payment.setOriginAdvice("CND");
 
             for (var j = 0; paymentObj.transactions && j < paymentObj.transactions.length; j++) {
-                if (paymentObj.transactions[j].dueDate !== executionDates[i])
+                if (this.toISODate(paymentObj.transactions[j].dueDate) !== executionDates[i])
                     continue;
                 if (paymentObj.transactions[j].currency.length <= 0 || paymentObj.transactions[j].currency !== currencies[h])
                     continue;
@@ -917,7 +919,8 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 payment.addTransfer(transfer);
             }
             // It's possible to add multiple payments to one Transfer, in Banana at the 
-            transferFile.addPaymentInformation(payment);
+            if (payment.transfers.length > 0)
+                transferFile.addPaymentInformation(payment);
 
             //end execution dates
         }
@@ -932,6 +935,14 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     var xmlData = domBuilder.asXml();
     xmlData = xmlData.replace("encoding=\"utf-8\"", "encoding=\"UTF-8\"");
     return xmlData;
+}
+
+Pain001Switzerland.prototype.currentDate = function () {
+    var d = new Date();
+    var datestring = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+    if (this.isTest)
+        datestring = "2020-07-01";
+    return datestring;
 }
 
 Pain001Switzerland.prototype.getCreditor = function (accountId) {
@@ -1079,9 +1090,9 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
         case this.ID_ERR_ELEMENT_EMPTY:
             return "Required field";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
-            return "No message found";
+            return "The pain message is empty, impossible to validate or save the message";
         case this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID":
-            return "The message is not valid: %1";
+            return "The pain message is not valid: %1";
         case this.ID_ERR_EXPERIMENTAL_REQUIRED:
             return "The Experimental version is required";
         case this.ID_ERR_IBAN_NOTVALID:
@@ -1090,6 +1101,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "This extension requires Banana Accounting+ Advanced";
         case this.ID_ERR_PAYMENTMETHOD_NOTSUPPORTED:
             return "The payment method %1 is not supported";
+        case this.ID_ERR_PAYMENTOBJECT_EMPTY = "ID_ERR_PAYMENTOBJECT_EMPTY":
+            return "The payment object is undefined or invalid. Impossible to create the pain message";
         case this.ID_ERR_QRIBAN_NOTVALID:
             return "QRIBAN number is not valid";
         case this.ID_ERR_VERSION_NOTSUPPORTED:
@@ -1244,7 +1257,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
             editorData.data[i].value = this.ID_PAYMENT_SEPA_DESCRIPTION;
         }
         else if (key == 'transactionDate' || key == 'dueDate') {
-            editorData.data[i].value = this.toDateLocaleFormat(value);
+            editorData.data[i].value = this.toISODate(value);
         }
         else if (key == 'amount') {
             editorData.data[i].value = this.toAmountLocaleFormat(value);
@@ -1273,7 +1286,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
             value = this.ID_PAYMENT_SEPA;
         }
         else if (key == 'transactionDate' || key == 'dueDate') {
-            value = this.toDateFormatInternal(value);
+            value = this.toISODate(value);
         }
         else if (key == 'amount') {
             //remove spaces
@@ -1512,15 +1525,32 @@ Pain001Switzerland.prototype.toAmountLocaleFormat = function (value) {
 Pain001Switzerland.prototype.toDateFormatInternal = function (value) {
     if (!value)
         return "";
-
     var internalValue = Banana.Converter.toInternalDateFormat(value);
     internalValue = internalValue.replace(/-/g, '');
     return internalValue;
 }
 
-/* This method convert an internal date to the local date format */
-Pain001Switzerland.prototype.toDateLocaleFormat = function (value) {
-    return Banana.Converter.toLocaleDateFormat(value);
+/* This method convert an internal date to the ISO date format */
+Pain001Switzerland.prototype.toISODate = function (value) {
+    //empty strings does nothing
+    if (!value)
+        return "";
+
+    //internal format yyyymmdd transforms to ISO date
+    let formattedDate = value;
+    if (value.length == 8) {
+        let year = value.substr(0, 4);
+        let month = value.substr(4, 2);
+        let day = value.substr(6, 2);
+        formattedDate = year + "-" + month + "-" + day;
+    }
+    //checks if is a valid date
+    var timestamp = Date.parse(formattedDate);
+    if (!timestamp) {
+        formattedDate = this.currentDate();
+    }
+
+    return formattedDate;
 }
 
 Pain001Switzerland.prototype.validatePaymData = function (params) {
@@ -1744,7 +1774,7 @@ var JsAction = class JsAction {
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
             if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
-                paymentObj["transactionDate"] = pain001CH.toDateLocaleFormat(this._currentDate());
+                paymentObj["transactionDate"] = pain001CH.currentDate();
         }
 
         var dialogTitle = 'Payment data';
@@ -2161,7 +2191,7 @@ var JsAction = class JsAction {
 
         var paymentObj = pain001CH.scanCode(code);
         paymentObj["@uuid"] = uuid;
-        paymentObj["transactionDate"] = this._currentDate();
+        paymentObj["transactionDate"] = pain001CH.currentDate();
         // Banana.console.debug("scanCode, columnName:" + tabPos.columnName + " uuid " + paymentObj["@uuid"]);
 
         var dialogTitle = 'Payment data';
@@ -2302,17 +2332,6 @@ var JsAction = class JsAction {
             return null;
 
         return pain001CH.validateTransferFile(xml, painFormat);
-    }
-
-    /**
-        * Private methods
-        */
-    _currentDate() {
-        var d = new Date();
-        var datestring = d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2);
-        if (this.isTest)
-            datestring = "20200701";
-        return datestring;
     }
 
     //Called from getInfo()
@@ -2498,10 +2517,12 @@ var JsAction = class JsAction {
         row["DocInvoice"] = invoiceNo;
 
         //Transaction date
-        row["Date"] =  paymentObj.transactionDate;
+        let internalDate = this.pain001CH.toDateFormatInternal(paymentObj.transactionDate);
+        row["Date"] =  internalDate;
 
         //Due date
-        row["DateExpiration"] = paymentObj.dueDate;
+        internalDate = this.pain001CH.toDateFormatInternal(paymentObj.dueDate);
+        row["DateExpiration"] = internalDate;
 
         //Description
         row["Description"] = paymentObj.description;
