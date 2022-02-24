@@ -1601,8 +1601,23 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
             params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
             isValid = false;
         }
-        if (methodId == this.ID_PAYMENT_QRCODE) {
+        if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
             if (key === 'creditorName' && value.length <= 0) {
+                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                isValid = false;
+            }
+            else if (key === 'creditorStreet1' && value.length <= 0) {
+                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                isValid = false;
+            }
+            else if (key === 'creditorCity' && value.length <= 0) {
+                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                isValid = false;
+            }
+            else if (key === 'creditorIban' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
                 isValid = false;
