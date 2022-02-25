@@ -1627,6 +1627,11 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_QRIBAN_NOTVALID);
                 isValid = false;
             }
+            else if (key === 'creditorIban' && referenceType !== 'QRR' && isQRIBAN(value)) {
+                params.data[i].errorId = this.ID_ERR_QRIBAN_NOTVALID;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_QRIBAN_NOTVALID);
+                isValid = false;
+            }
             else if (key === 'reference' && referenceType === 'QRR' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
@@ -2389,21 +2394,24 @@ var JsAction = class JsAction {
         //cost centers
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc3");
-            if (accountId.startsWith("-"))
+            if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
-            accountId = ";" + accountId;
+            if (accountId)
+                accountId = ";" + accountId;
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc2");
-            if (accountId.startsWith("-"))
+            if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
-            accountId = "," + accountId;
+            if (accountId)
+                accountId = "," + accountId;
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc1");
-            if (accountId.startsWith("-"))
+            if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
-            accountId = "." + accountId;
+            if (accountId)
+                accountId = "." + accountId;
         }
         
         if (!accountId || creditors.indexOf(accountId) < 0)
