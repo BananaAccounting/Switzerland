@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-02-16
+// @pubdate = 2022-03-01
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -202,12 +202,14 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
     this.ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
     this.ID_ERR_IBAN_NOTVALID = "ID_ERR_IBAN_NOTVALID";
+    this.ID_ERR_IBAN_REFERENCE_NOTVALID = "ID_ERR_IBAN_REFERENCE_NOTVALID";
     this.ID_ERR_LICENSE_NOTVALID = "ID_ERR_LICENSE_NOTVALID";
     this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY";
     this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID";
     this.ID_ERR_PAYMENTMETHOD_NOTSUPPORTED = "ID_ERR_PAYMENTMETHOD_NOTSUPPORTED";
     this.ID_ERR_PAYMENTOBJECT_EMPTY = "ID_ERR_PAYMENTOBJECT_EMPTY";
     this.ID_ERR_QRIBAN_NOTVALID = "ID_ERR_QRIBAN_NOTVALID";
+    this.ID_ERR_QRIBAN_REFERENCE_NOTVALID = "ID_ERR_QRIBAN_REFERENCE_NOTVALID";
     this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
 
     // payment methods
@@ -514,7 +516,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     if (paymentObj.methodId.indexOf("SEPA") >= 0)
         methodId = this.ID_PAYMENT_SEPA;
      if (methodId == this.ID_PAYMENT_QRCODE) {
-        var refTypes = [];
+        /*var refTypes = [];
         refTypes.push("QRR");
         refTypes.push("SCOR");
         refTypes.push("NON");
@@ -530,11 +532,11 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
         currentParam.readValue = function () {
             paymentObj.referenceType = this.value;
         }
-        convertedParam.data.push(currentParam);
+        convertedParam.data.push(currentParam);*/
 
         currentParam = {};
         currentParam.name = 'reference';
-        currentParam.title = "QR Creditor Reference";
+        currentParam.title = "Reference number";
         currentParam.type = 'string';
         currentParam.value = paymentObj.reference ? paymentObj.reference : '';
         currentParam.defaultvalue = '';
@@ -1097,6 +1099,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "The Experimental version is required";
         case this.ID_ERR_IBAN_NOTVALID:
             return "IBAN number is not valid";
+        case this.ID_ERR_IBAN_REFERENCE_NOTVALID:
+            return "QRIBAN is not valid";
         case this.ID_ERR_LICENSE_NOTVALID:
             return "This extension requires Banana Accounting+ Advanced";
         case this.ID_ERR_PAYMENTMETHOD_NOTSUPPORTED:
@@ -1105,6 +1109,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "The payment object is undefined or invalid. Impossible to create the pain message";
         case this.ID_ERR_QRIBAN_NOTVALID:
             return "QRIBAN number is not valid";
+        case this.ID_ERR_QRIBAN_REFERENCE_NOTVALID:
+            return "IBAN is not valid";
         case this.ID_ERR_VERSION_NOTSUPPORTED:
             return "This extension does not run with your current version of Banana Accounting %1.\nPlease update to the latest version available.\nTo update or for more information click on Help";
     }
@@ -1144,8 +1150,6 @@ Pain001Switzerland.prototype.initPaymData = function () {
 
     // if syncTransaction=true data is synchronized with transaction row
     var syncTransaction = true;
-    /*if (this.param)
-        syncTransaction = this.param.syncTransactionLast;*/
 
     var paymentObj = {
         "methodId": this.ID_PAYMENT_QRCODE,
@@ -1194,7 +1198,6 @@ Pain001Switzerland.prototype.initParam = function () {
     param.messageSenderName = "";
     param.fieldAdditionalInfo = "Notes";
     param.creditorGroups = "";
-    //param.syncTransactionLast = true;
     return param;
 }
 
@@ -1297,6 +1300,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
             paymentObj[key] = value;
         }
     }
+
     return paymentObj;
 }
 
@@ -1486,15 +1490,6 @@ Pain001Switzerland.prototype.setParam = function (param) {
     this.verifyParam();
 }
 
-/*Pain001Switzerland.prototype.setParamSyncTransactionLast = function (value) {
-    try {
-        this.param.syncTransactionLast = value;
-        var paramToString = JSON.stringify(this.param);
-        this.banDocument.setScriptSettings(paramToString);
-    } catch (e) {
-    }
-}*/
-
 Pain001Switzerland.prototype.setTest = function (bool) {
     this.isTest = bool;
 }
@@ -1566,20 +1561,20 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
         return false;
     }
 
+    var error = false;
     var methodId = '';
-    var referenceType = '';
-    var isValid = true;
+    var reference = '';
     for (var i = 0; i < params.data.length; i++) {
         if (params.data[i].name == 'methodId') {
             methodId = params.data[i].value;
             if (params.data[i].value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+                error = true;
             }
         }
-        else if (params.data[i].name === "referenceType") {
-            referenceType = params.data[i].value;
+        else if (params.data[i].name === "reference") {
+            reference = params.data[i].value;
         }
     }
 
@@ -1599,59 +1594,63 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
         if (value.length <= 0 && (key === 'amount' || key === 'currency')) {
             params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
             params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-            isValid = false;
+            error = true;
         }
         if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
             if (key === 'creditorName' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+                error = true;
             }
             else if (key === 'creditorStreet1' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+                error = true;
             }
             else if (key === 'creditorCity' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+                error = true;
             }
             else if (key === 'creditorIban' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+                error = true;
             }
-            else if (key === 'creditorIban' && referenceType === 'QRR' && !isQRIBAN(value)) {
-                params.data[i].errorId = this.ID_ERR_QRIBAN_NOTVALID;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_QRIBAN_NOTVALID);
-                isValid = false;
+            else if (key === 'creditorIban' &&  !isValidIBAN(value)) {
+                params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID);
+                error = true;
             }
-            else if (key === 'creditorIban' && referenceType !== 'QRR' && isQRIBAN(value)) {
-                params.data[i].errorId = this.ID_ERR_QRIBAN_NOTVALID;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_QRIBAN_NOTVALID);
-                isValid = false;
+            else if (key === 'creditorIban' && (!reference || reference.length < 0 || reference.startsWith("RF")) && isQRIBAN(value)) {
+                //QRIban needs reference
+                params.data[i].errorId = this.ID_ERR_QRIBAN_REFERENCE_NOTVALID;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_QRIBAN_REFERENCE_NOTVALID);
+                error = true;
             }
-            else if (key === 'reference' && referenceType === 'QRR' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+            else if (key === 'creditorIban' && reference.length > 0 && !reference.startsWith("RF")  && !isQRIBAN(value)) {
+                //Iban only with RF reference (SCOR) or without reference (NON)
+                params.data[i].errorId = this.ID_ERR_IBAN_REFERENCE_NOTVALID;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_IBAN_REFERENCE_NOTVALID);
+                error = true;
             }
         }
         else if (methodId == this.ID_PAYMENT_SEPA) {
             if (key === 'creditorIban' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
-                isValid = false;
+                error = true;
             }
             else if (key === 'creditorIban' && !isValidIBAN(value)) {
                 params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID);
-                isValid = false;
+                error = true;
             }
         }
     }
-    return isValid;
+    if (error)
+        return false;
+    return true;
 }
 
 Pain001Switzerland.prototype.validateTransferFile = function (xml, painFormat) {
@@ -1740,6 +1739,32 @@ Pain001Switzerland.prototype.verifyParam = function () {
         this.param.syncTransactionLast = false;*/
 }
 
+Pain001Switzerland.prototype.verifyPaymData = function (paymentObj) {
+    if (!paymentObj || !paymentObj.methodId || !paymentObj.creditorIban)
+        return paymentObj;
+
+    // Update reference type
+    if (paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
+        paymentObj.referenceType = "";
+        var iban = cleanIBAN(paymentObj.creditorIban);
+        if (isValidIBAN(iban)) {
+            if (isQRIBAN(iban)) {
+                if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
+                    paymentObj.referenceType = "QRR";
+            }
+            else {
+                if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
+                    paymentObj.referenceType = "SCOR";
+                }
+                else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
+                    paymentObj.referenceType = "NON";
+                }
+            }
+        }
+    }
+    return paymentObj;
+}
+
 /**
 * output integers with leading zeros
 */
@@ -1805,13 +1830,11 @@ var JsAction = class JsAction {
         if (!paymentObj)
             return null;
 
-        // Save last settings of sync
-        /*if (pain001CH.param.syncTransactionLast !== paymentObj.syncTransaction) {
-            pain001CH.setParamSyncTransactionLast(paymentObj.syncTransaction);
-        }*/
-
         paymentObj["@uuid"] = uuid;
         // Banana.console.debug("create, columnName " + tabPos.columnName + " uuid" + paymentObj["@uuid"] );
+
+        //verify all data
+        paymentObj = pain001CH.verifyPaymData(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -1914,6 +1937,9 @@ var JsAction = class JsAction {
 
         paymentObj["@uuid"] = uuid;
         // Banana.console.debug("edit, columnName:" + tabPos.columnName + " isModified " + isModified + " uuid" + paymentObj["@uuid"]);
+
+        //verify all data
+        paymentObj = pain001CH.verifyPaymData(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -2223,6 +2249,9 @@ var JsAction = class JsAction {
         if (!paymentObj)
             return null;
 
+        //verify all data
+        paymentObj = pain001CH.verifyPaymData(paymentObj);
+
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         this._rowSetAmount(paymentObj, changedRowFields);
@@ -2265,7 +2294,7 @@ var JsAction = class JsAction {
             paymentObj = JSON.parse(rowObj.paymentdata_json);
         }
         catch (e) {
-            return null;
+            paymentObj = pain001CH.initPaymData();
         }
 
         //Banana.console.debug("updateRow, columnName " + tabPos.columnName + " uuid:" + uuid);
@@ -2277,6 +2306,9 @@ var JsAction = class JsAction {
             //update paymentData object with values from transaction
             this._rowGetAmount(paymentObj, row);
 
+            //verify all data
+            paymentObj = pain001CH.verifyPaymData(paymentObj);
+
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "DocInvoice" || tabPos.columnName === "Date"
@@ -2284,6 +2316,9 @@ var JsAction = class JsAction {
 
             //update paymentData object with values from transaction
             this._rowGetDoc(paymentObj, row);
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymData(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2294,6 +2329,23 @@ var JsAction = class JsAction {
             //update paymentData object with values from transaction
             this._rowGetAccount(paymentObj, row);
 
+            //verify all data
+            paymentObj = pain001CH.verifyPaymData(paymentObj);
+
+            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+        }
+        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
+
+            //banana adds payment data automatically collecting data from transaction
+            this._rowGetAccount(paymentObj, row);
+            this._rowGetAmount(paymentObj, row);
+            this._rowGetDoc(paymentObj, row);
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymData(paymentObj);
+
+            //Uuid is set to a new value by copying or duplicating row
+            paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "PaymentData" || tabPos.columnName === "_AllRowDataChanged") {
@@ -2315,6 +2367,9 @@ var JsAction = class JsAction {
                 this._rowGetAmount(paymentObj, row);
                 this._rowGetDoc(paymentObj, row);
             }
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymData(paymentObj);
 
             //Uuid is set to a new value by copying or duplicating row
             paymentObj['@uuid'] = uuid;
