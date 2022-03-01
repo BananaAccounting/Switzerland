@@ -1090,7 +1090,7 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
 
     switch (errorId) {
         case this.ID_ERR_ELEMENT_EMPTY:
-            return "Required field";
+            return "%1 is missing or empty";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
             return "The pain message is empty, impossible to validate or save the message";
         case this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID":
@@ -1653,6 +1653,53 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
     return true;
 }
 
+Pain001Switzerland.prototype.validatePaymObject = function (paymentObj, tabPos, displayMsg) {
+    if (!paymentObj || !paymentObj.methodId || !paymentObj.creditorIban)
+        return paymentObj;
+
+    // Update reference type
+    if (paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
+        paymentObj.referenceType = "";
+        var iban = cleanIBAN(paymentObj.creditorIban);
+        if (isValidIBAN(iban)) {
+            if (isQRIBAN(iban)) {
+                if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
+                    paymentObj.referenceType = "QRR";
+            }
+            else {
+                if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
+                    paymentObj.referenceType = "SCOR";
+                }
+                else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
+                    paymentObj.referenceType = "NON";
+                }
+            }
+        }
+    }
+
+    if (displayMsg && tabPos && this.banDocument) {
+        var lang = this.getLang();
+        var msg = "[" + tabPos.tableName + ":" + "Row " + (tabPos.rowNr + 1).toString() + ", Column PaymentData] ";
+        if (!paymentObj.creditorName || paymentObj.creditorName.length <= 0) {
+            msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+            msg = msg.replace("%1", "creditorName");
+            this.banDocument.addMessage(msg, this.ID_ERR_ELEMENT_EMPTY);
+        }
+        if (!paymentObj.creditorStreet1 || paymentObj.creditorStreet1.length <= 0) {
+            msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+            msg = msg.replace("%1", "creditorStreet1");
+            this.banDocument.addMessage(msg, this.ID_ERR_ELEMENT_EMPTY);
+        }
+        if (!paymentObj.creditorCity || paymentObj.creditorCity.length <= 0) {
+            msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+            msg = msg.replace("%1", "creditorCity");
+            this.banDocument.addMessage(msg, this.ID_ERR_ELEMENT_EMPTY);
+        }
+    }
+
+    return paymentObj;
+}
+
 Pain001Switzerland.prototype.validateTransferFile = function (xml, painFormat) {
     var lang = this.getLang();
 
@@ -1739,32 +1786,6 @@ Pain001Switzerland.prototype.verifyParam = function () {
         this.param.syncTransactionLast = false;*/
 }
 
-Pain001Switzerland.prototype.verifyPaymData = function (paymentObj) {
-    if (!paymentObj || !paymentObj.methodId || !paymentObj.creditorIban)
-        return paymentObj;
-
-    // Update reference type
-    if (paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
-        paymentObj.referenceType = "";
-        var iban = cleanIBAN(paymentObj.creditorIban);
-        if (isValidIBAN(iban)) {
-            if (isQRIBAN(iban)) {
-                if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
-                    paymentObj.referenceType = "QRR";
-            }
-            else {
-                if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
-                    paymentObj.referenceType = "SCOR";
-                }
-                else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
-                    paymentObj.referenceType = "NON";
-                }
-            }
-        }
-    }
-    return paymentObj;
-}
-
 /**
 * output integers with leading zeros
 */
@@ -1834,7 +1855,7 @@ var JsAction = class JsAction {
         // Banana.console.debug("create, columnName " + tabPos.columnName + " uuid" + paymentObj["@uuid"] );
 
         //verify all data
-        paymentObj = pain001CH.verifyPaymData(paymentObj);
+        paymentObj = pain001CH.validatePaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -1939,7 +1960,7 @@ var JsAction = class JsAction {
         // Banana.console.debug("edit, columnName:" + tabPos.columnName + " isModified " + isModified + " uuid" + paymentObj["@uuid"]);
 
         //verify all data
-        paymentObj = pain001CH.verifyPaymData(paymentObj);
+        paymentObj = pain001CH.validatePaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -2250,7 +2271,7 @@ var JsAction = class JsAction {
             return null;
 
         //verify all data
-        paymentObj = pain001CH.verifyPaymData(paymentObj);
+        paymentObj = pain001CH.validatePaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -2310,7 +2331,7 @@ var JsAction = class JsAction {
             this._rowGetAmount(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.verifyPaymData(paymentObj);
+            paymentObj = pain001CH.validatePaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2321,7 +2342,7 @@ var JsAction = class JsAction {
             this._rowGetDoc(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.verifyPaymData(paymentObj);
+            paymentObj = pain001CH.validatePaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2333,7 +2354,7 @@ var JsAction = class JsAction {
             this._rowGetAccount(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.verifyPaymData(paymentObj);
+            paymentObj = pain001CH.validatePaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2345,7 +2366,8 @@ var JsAction = class JsAction {
             this._rowGetDoc(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.verifyPaymData(paymentObj);
+            var displayMsg = true;
+            paymentObj = pain001CH.validatePaymObject(paymentObj, tabPos, displayMsg);
 
             //Uuid is set to a new value by copying or duplicating row
             paymentObj['@uuid'] = uuid;
@@ -2372,7 +2394,7 @@ var JsAction = class JsAction {
             }
 
             //verify all data
-            paymentObj = pain001CH.verifyPaymData(paymentObj);
+            paymentObj = pain001CH.validatePaymObject(paymentObj);
 
             //Uuid is set to a new value by copying or duplicating row
             paymentObj['@uuid'] = uuid;
