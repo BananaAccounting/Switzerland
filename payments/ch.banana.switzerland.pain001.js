@@ -2294,6 +2294,9 @@ var JsAction = class JsAction {
             paymentObj = JSON.parse(rowObj.paymentdata_json);
         }
         catch (e) {
+            if (rowObj !== undefined) {
+                return null;
+            }
             paymentObj = pain001CH.initPaymData();
         }
 
