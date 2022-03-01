@@ -2358,7 +2358,7 @@ var JsAction = class JsAction {
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
-        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
+        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "program_add") {
 
             //banana adds payment data automatically collecting data from transaction
             this._rowGetAccount(paymentObj, row);
