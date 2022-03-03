@@ -2363,7 +2363,10 @@ var JsAction = class JsAction {
         else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
 
             //banana adds payment data automatically collecting data from transaction
+            //the account must belongs to the suppliers group
             this._rowGetAccount(paymentObj, row);
+            if (paymentObj.creditorAccountId.length <= 0)
+                return null;
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
 
