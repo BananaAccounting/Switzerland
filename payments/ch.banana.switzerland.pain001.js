@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-03-01
+// @pubdate = 2022-03-03
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -2358,7 +2358,7 @@ var JsAction = class JsAction {
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
-        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "program_add") {
+        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
 
             //banana adds payment data automatically collecting data from transaction
             this._rowGetAccount(paymentObj, row);
