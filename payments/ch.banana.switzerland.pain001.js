@@ -200,6 +200,7 @@ function Pain001Switzerland(banDocument) {
 
     // errors id
     this.ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
+    this.ID_ERR_ELEMENT_REQUIRED = "ID_ERR_ELEMENT_REQUIRED";
     this.ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
     this.ID_ERR_IBAN_NOTVALID = "ID_ERR_IBAN_NOTVALID";
     this.ID_ERR_IBAN_REFERENCE_NOTVALID = "ID_ERR_IBAN_REFERENCE_NOTVALID";
@@ -1091,6 +1092,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
     switch (errorId) {
         case this.ID_ERR_ELEMENT_EMPTY:
             return "%1 is missing or empty";
+        case this.ID_ERR_ELEMENT_REQUIRED:
+            return "This is a required field";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
             return "The pain message is empty, impossible to validate or save the message";
         case this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID":
@@ -1568,8 +1571,8 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
         if (params.data[i].name == 'methodId') {
             methodId = params.data[i].value;
             if (params.data[i].value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
         }
@@ -1592,29 +1595,29 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
             params.data[i].value = value.substr(0, posStart);
         }
         if (value.length <= 0 && (key === 'amount' || key === 'currency')) {
-            params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-            params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+            params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+            params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
             error = true;
         }
         if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
             if (key === 'creditorName' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
             else if (key === 'creditorStreet1' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
             else if (key === 'creditorCity' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
             else if (key === 'creditorIban' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
             else if (key === 'creditorIban' &&  !isValidIBAN(value)) {
@@ -1637,8 +1640,8 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
         }
         else if (methodId == this.ID_PAYMENT_SEPA) {
             if (key === 'creditorIban' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EMPTY;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY);
+                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
             else if (key === 'creditorIban' && !isValidIBAN(value)) {
@@ -1654,25 +1657,26 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
 }
 
 Pain001Switzerland.prototype.validatePaymObject = function (paymentObj, tabPos, displayMsg) {
-    if (!paymentObj || !paymentObj.methodId || !paymentObj.creditorIban)
+    if (!paymentObj || !paymentObj.methodId || paymentObj.methodId !== this.ID_PAYMENT_QRCODE)
         return paymentObj;
 
+    var iban = "";
+    if (paymentObj.creditorIban)
+        iban = cleanIBAN(paymentObj.creditorIban);
+    
     // Update reference type
-    if (paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
-        paymentObj.referenceType = "";
-        var iban = cleanIBAN(paymentObj.creditorIban);
-        if (isValidIBAN(iban)) {
-            if (isQRIBAN(iban)) {
-                if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
-                    paymentObj.referenceType = "QRR";
+    paymentObj.referenceType = "";
+    if (isValidIBAN(iban)) {
+        if (isQRIBAN(iban)) {
+            if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
+                paymentObj.referenceType = "QRR";
+        }
+        else {
+            if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
+                paymentObj.referenceType = "SCOR";
             }
-            else {
-                if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
-                    paymentObj.referenceType = "SCOR";
-                }
-                else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
-                    paymentObj.referenceType = "NON";
-                }
+            else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
+                paymentObj.referenceType = "NON";
             }
         }
     }
@@ -1680,20 +1684,18 @@ Pain001Switzerland.prototype.validatePaymObject = function (paymentObj, tabPos, 
     if (displayMsg && tabPos && this.banDocument) {
         var lang = this.getLang();
         var msg = "[" + tabPos.tableName + ":" + "Row " + (tabPos.rowNr + 1).toString() + ", Column PaymentData] ";
+        msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        if (!paymentObj.creditorIban || !isValidIBAN(iban)) {
+            this.banDocument.addMessage(msg.replace("%1", "creditorIban"), this.ID_ERR_ELEMENT_EMPTY);
+        }
         if (!paymentObj.creditorName || paymentObj.creditorName.length <= 0) {
-            msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
-            msg = msg.replace("%1", "creditorName");
-            this.banDocument.addMessage(msg, this.ID_ERR_ELEMENT_EMPTY);
+            this.banDocument.addMessage(msg.replace("%1", "creditorName"), this.ID_ERR_ELEMENT_EMPTY);
         }
         if (!paymentObj.creditorStreet1 || paymentObj.creditorStreet1.length <= 0) {
-            msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
-            msg = msg.replace("%1", "creditorStreet1");
-            this.banDocument.addMessage(msg, this.ID_ERR_ELEMENT_EMPTY);
+            this.banDocument.addMessage(msg.replace("%1", "creditorStreet1"), this.ID_ERR_ELEMENT_EMPTY);
         }
         if (!paymentObj.creditorCity || paymentObj.creditorCity.length <= 0) {
-            msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
-            msg = msg.replace("%1", "creditorCity");
-            this.banDocument.addMessage(msg, this.ID_ERR_ELEMENT_EMPTY);
+            this.banDocument.addMessage(msg.replace("%1", "creditorCity"), this.ID_ERR_ELEMENT_EMPTY);
         }
     }
 
@@ -1747,7 +1749,7 @@ Pain001Switzerland.prototype.verifyBananaVersion = function () {
     }
 
     var supportedVersion = true;
-    var requiredVersion = "10.0.10";
+    var requiredVersion = "10.0.12";
     if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
         supportedVersion = false;
     }
@@ -2569,6 +2571,8 @@ var JsAction = class JsAction {
         var accountId = "";
         if (paymentObj.creditorAccountId)
             accountId = paymentObj.creditorAccountId;
+        if (accountId.length <= 0)
+            return;
         var fieldName = "";
         if (accountId.startsWith("."))
             fieldName = "Cc1";
