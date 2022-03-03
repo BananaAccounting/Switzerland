@@ -1353,7 +1353,7 @@ Pain001Switzerland.prototype.saveTransferFile = function (inData) {
             return false;
         }
         else {
-            Banana.IO.openUrl(fileName);
+            // Banana.IO.openUrl(fileName);
         }
         return true;
     }
