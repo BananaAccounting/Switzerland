@@ -774,8 +774,8 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
         msgInfId = paymentObj["@title"];
         if (msgInfId.indexOf(" ") > 0)
             msgInfId = msgInfId.replace(/ /g, '');
-        if (msgInfId.length > 31)
-            msgInfId.substring(0, 31);
+        if (msgInfId.length > 35)
+            msgInfId.substring(0, 35);
     }
 
     // Create message's header <GrpHdr>
@@ -836,11 +836,27 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
         for (var i = 0; i < executionDates.length; i++) {
 
-            // msgInfId max length 35
-            var id = h * 100 + i;
+            // msgInfId max length 35 - length of counter
+            
+            // counter -000, -001, ....
+            /*var id = h * 100 + i;
             var zero = 3 - id.toString().length + 1;
             var counter = Array(+(zero > 0 && zero)).join("0") + id;
-            var currentMsgInfId = msgInfId + "-" + counter;
+            var currentMsgInfId = msgInfId + "-" + counter;*/
+            
+            // counter: yymmdd1, yymmdd2, ....
+            var id = h;
+            var counter = executionDates[i];
+            counter = counter.replace(/-/g, '');
+            if (counter.length == 8)
+                counter = counter.substr(2);
+            counter += id.toString();
+            if (counter.length > 7)
+                counter = counter.substr(0, 7);
+            var currentMsgInfId = msgInfId;
+            if (currentMsgInfId.length > 28)
+                currentMsgInfId = currentMsgInfId.substr(0, 28);
+            currentMsgInfId += counter;
 
             var payment = new PaymentInformation(
                 currentMsgInfId, // Payment Information Identification unique inside msg
@@ -1308,44 +1324,37 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
 }
 
 Pain001Switzerland.prototype.saveTransferFile = function (inData) {
-    var lang = this.getLang();
-
     if (inData.length <= 0) {
-        var msg = this.getErrorMessage(this.ID_ERR_MESSAGE_EMPTY, lang);
+        var msg = this.getErrorMessage(this.ID_ERR_MESSAGE_EMPTY, this.getLang());
         this.banDocument.addMessage(msg, this.ID_ERR_MESSAGE_EMPTY);
         return false;
     }
 
-    var fileName = "PAIN001_<Date>.xml";
+    //set filename according to PaymentInfo Tag
+    var fileName = "";
+    try {
+        var documentNode = Banana.Xml.parse(inData).firstChildElement('Document');
+        var transferFileNode = documentNode.firstChildElement('CstmrCdtTrfInitn');
+        fileName = transferFileNode.firstChildElement('PmtInf').firstChildElement('PmtInfId').text;
+        if (fileName.length > 0)
+            fileName += ".xml";
+    } catch (e) {
+        fileName = "";
+    }
 
-    //var fileName = "PAIN001_<AccountingName>_<Date>.xml";
-    /*if (this.banDocument && this.banDocument.info) {
-        var accountingFileName = this.banDocument.info("Base", "FileName");
-        if (accountingFileName.length > 0) {
-            var posStart=0;
-            if (accountingFileName.indexOf("/")>0 && accountingFileName.indexOf("/")<accountingFileName.length)
-                posStart = accountingFileName.indexOf("/");
-            accountingFileName = accountingFileName.substr(posStart+1);
-            if (accountingFileName.indexOf(".ac2")>0);
-                accountingFileName = accountingFileName.replace(".ac2","");
-            if (accountingFileName.indexOf(".")>0);
-                accountingFileName = accountingFileName.replace('.','');
-            fileName = fileName.replace("<AccountingName>", accountingFileName);
-        }
-        else {
-            fileName = fileName.replace("_<AccountingName>", "");
-        }
-    }*/
+    if (fileName.length <= 0 || !fileName) {
+        fileName = "PAIN001_<Date>.xml";
+        var date = _formatDate(new Date());
+        if (date.indexOf(":") > 0);
+        date = date.replace(/:/g, '');
+        if (date.indexOf("-") > 0);
+        date = date.replace(/-/g, '');
+        var time = _formatTime(new Date());
+        if (time.indexOf(":") > 0);
+        time = time.replace(/:/g, '');
+        fileName = fileName.replace("<Date>", date + time);
+    }
 
-    var date = _formatDate(new Date());
-    if (date.indexOf(":") > 0);
-    date = date.replace(/:/g, '');
-    if (date.indexOf("-") > 0);
-    date = date.replace(/-/g, '');
-    var time = _formatTime(new Date());
-    if (time.indexOf(":") > 0);
-    time = time.replace(/:/g, '');
-    fileName = fileName.replace("<Date>", date + time);
     fileName = Banana.IO.getSaveFileName("Save as", fileName, "XML file (*.xml);;All files (*)");
     if (fileName.length) {
         var file = Banana.IO.getLocalFile(fileName);
