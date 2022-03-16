@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-02-08
+// @pubdate = 2022-03-16
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-Fattura senza importo e indirizzo
@@ -32,13 +32,30 @@
 /*
   SUMMARY
   =======
-  Extensions that prints QR sections Receipt and Payment.
-  QR code is without amount and without debtor.
-  Only IBAN without reference, NON: no CUSTOMER and INVOICE numbers.
+  Extensions that prints the Swiss QR.
+
+  - Without customer and invoice numbers.
+    => IBAN without reference (NON) allowed.
+    => IBAN with reference (SCOR) or QR-IBAN with reference (QRR) not allowed. 
+  
+  - Supplier address/IBAN (Payable to)
+    => defined in accounting properties (combined "K" type address).
+    => or in extension parameters (structured "S" type address).
+
+  - Customer address (Payable by)
+    => without customer address (empty box).
+    => with customer address defined in extension parameters (structured "S" type address).
+
+  - Currency
+    => defined in extension parameters, CHF or EUR.
+
+  - Amount
+    => without amount (empty box).
+    => with amount defined in extension parameters.
 */
 
 
-// Define the required version of Banana Accounting / Banana Experimental
+// Define the required version of Banana Accounting / Banana Dev Channel
 var BAN_VERSION = "10.0.1";
 var BAN_EXPM_VERSION = "";
 
@@ -65,33 +82,232 @@ function exec(string) {
         return "@Cancel";
     }
 
-    /* 2. Initialize QR settings */
+    /* Set language */
+    var texts = {};
+    texts = setTexts(userParam.language.toLowerCase());
+
+    /* Initialize QR settings */
     var qrSettings = initQRSettings(userParam);
 
-    /* 3. Initialize JSON */
-    var invoiceObj = initJSON(Banana.document);
+    // Get QR section data
+    setSenderAddress(Banana.document, userParam, qrSettings);
+    setCustomerAddress(userParam, qrSettings);
+    setAmount(userParam, qrSettings);
 
-    /* 4. Print the report */
-    var stylesheet = Banana.Report.newStyleSheet();
-    var report = printReport(Banana.document, invoiceObj, report, stylesheet, userParam, qrSettings);
+    /* Print the report */
+    var stylesheet = createStyleSheet(userParam);
+    
+    var report = Banana.Report.newReport("QR-Bill report");
+
+
+
+    // Clone the object
+    var reportParam = JSON.parse(JSON.stringify(userParam));
+
+    // Merge the two objects
+    reportParam = Object.assign(reportParam, qrSettings);
+
+    //Banana.console.log(JSON.stringify(reportParam, "", " "));
+
+
+
+    //faccio un clone dei parametri "reportParam"
+    //quì dentro vado a impostare/cambiare con tutti i valori presi da userParam, invoiceObj e qrSettings
+    //=>in modo che poi posso usare solo quello per stampare la fattura (non ho più bisogno di userParam, invoiceObj e qrSettings)
+    //faccio due funzioni: una per stampare singolarmente, e una per stampare piu righe dalla tabella
+
+
+    
+
+    
+    /*
+    if (stampa dati tabella) // piu righe 
+
+      for (passo tutti i dati della tabella) {
+
+          inizializzo reportParam con i dati della tabella
+
+          reportParam.table = {};
+          reportParam.table.name = '';
+          reportParam.table.street = '';
+          ...
+
+          reportParam.table[nomeColonna] = '';
+
+
+          //riempire l'oggetto reportParam le colonne della tabella, anche quelle personalizzate
+          //API javascript, usare la funzione che mi restituisce tutte le colonne della tabella
+
+
+          reportParam.total_amount = valore nella tabella
+          reportParam.additional_information = valore nella tabella
+          //.. anche gli altri, da sostituire con i valori delle colonne tabella
+
+          //Stampa report solo se cè un importo
+          //se nella tabella ci sono importi nulli non stampare
+          if (!reportParam.print_amount || (reportParam.print_amount && reportParam.total_amount > 0) ) {
+            printReport(Banana.document, report, stylesheet, qrSettings, invoiceObj, reportParam); //stampa piu righe
+          }
+
+
+          
+
+    }
+    else {
+      //stampa singolo
+      printReportSingle(Banana.document, report, stylesheet, qrSettings, invoiceObj, reportParam); //stampa singolo
+    }
+    */
+
+
+
+
+
+    printReportSingle(Banana.document, report, stylesheet, texts, reportParam);
+
+
+
     Banana.Report.preview(report, stylesheet);
   }
 }
 
-function printReport(banDoc, invoiceObj, report, stylesheet, userParam, qrSettings) {
-  var report = Banana.Report.newReport("QR with empty amount and address");
+function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
 
-  // Add notes on top of the page
-  if (userParam.print_msg_text) {
-    report.addParagraph(userParam.print_msg_text, "").setStyleAttributes("margin-top:10mm; margin-left:10mm;");;
+  //================
+  // 1. Print letter
+  //================
+  if (reportParam.print_text && reportParam.print_msg_text) {
+
+    // Print sender address
+    if (reportParam.print_sender_address) {
+
+      var senderAddressSection = report.addSection("senderAddress");
+
+      if (reportParam.sender_address_from_accounting) {
+        if (reportParam.supplier_info_business_name) {
+          senderAddressSection.addParagraph(reportParam.supplier_info_business_name);
+        }
+        if (reportParam.supplier_info_first_name && reportParam.supplier_info_last_name) {
+          senderAddressSection.addParagraph(reportParam.supplier_info_first_name + " " + reportParam.supplier_info_last_name);
+        }
+        if (reportParam.supplier_info_address1) {
+          senderAddressSection.addParagraph(reportParam.supplier_info_address1);
+        }
+        if (reportParam.supplier_info_postal_code && reportParam.supplier_info_city) {
+          senderAddressSection.addParagraph(reportParam.supplier_info_postal_code + " " + reportParam.supplier_info_city);
+        }
+      }
+      else {
+        senderAddressSection.addParagraph(reportParam.sender_address_name);
+        senderAddressSection.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number);
+        senderAddressSection.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality);
+      }
+    }
+
+    // Print customer address
+    if (reportParam.print_customer_address && reportParam.customer_address_include) {
+      var customerAddressSection = report.addSection("customerAddress");
+      customerAddressSection.addParagraph(reportParam.customer_address_name);
+      customerAddressSection.addParagraph(reportParam.customer_address_address + " " + reportParam.customer_address_house_number);
+      customerAddressSection.addParagraph(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality);
+    }
+
+    // Print letter text
+    var letterSection = report.addSection("letter");
+    //letterSection.addParagraph(reportParam.print_msg_text, "");
+
+    var paragraph = letterSection.addParagraph("","");
+    addMdBoldText(paragraph, reportParam.print_msg_text);
+
+
+    if (reportParam.print_amount && reportParam.amount_include && reportParam.total_amount) {
+      letterSection.addParagraph(texts.print_amount_text + " " + reportParam.currency + " " + Banana.Converter.toLocaleNumberFormat(reportParam.total_amount,2,true));
+    }
   }
 
-  // Add QR section
-  var qrBill = new QRBill(banDoc, qrSettings);
-  qrBill.printQRCode(invoiceObj, report, stylesheet, qrSettings);
+  //========================
+  // 2. Print QRCode section
+  //========================
+  var qrBill = new QRBill(banDoc, reportParam);
+  qrBill.printQRCodeDirect(report, stylesheet, reportParam);
 
-  return report;
 }
+
+
+function setSenderAddress(banDoc, userParam, qrSettings) {
+
+  /**
+   * With extension parameter settins we use the 'Structured' address type (S)
+   * With address from accounting we use 'Combined' address type (K)
+   */
+
+  if (userParam.sender_address_from_accounting) { //from File->Properties
+
+    //add all the information in the userParam object
+    userParam.supplier_info_iban_number = banDoc.info("AccountingDataBase","IBAN");
+    userParam.supplier_info_business_name = banDoc.info("AccountingDataBase","Company");
+    userParam.supplier_info_first_name = banDoc.info("AccountingDataBase","Name");
+    userParam.supplier_info_last_name = banDoc.info("AccountingDataBase","FamilyName");
+    userParam.supplier_info_address1 = banDoc.info("AccountingDataBase","Address1");
+    userParam.supplier_info_address2 = banDoc.info("AccountingDataBase","Address2");
+    userParam.supplier_info_postal_code = banDoc.info("AccountingDataBase","Zip");
+    userParam.supplier_info_city = banDoc.info("AccountingDataBase","City");
+    userParam.supplier_info_country_code = banDoc.info("AccountingDataBase","CountryCode");
+    qrSettings.qr_code_iban_eur = banDoc.info("AccountingDataBase","IBAN");
+  }
+  else {
+    qrSettings.qr_code_payable_to = true;
+    qrSettings.qr_code_creditor_name = userParam.sender_address_name;
+    qrSettings.qr_code_creditor_address1 = userParam.sender_address_address;
+    qrSettings.qr_code_creditor_address2 = userParam.sender_address_house_number;
+    qrSettings.qr_code_creditor_postalcode = userParam.sender_address_postal_code;
+    qrSettings.qr_code_creditor_city = userParam.sender_address_locality;
+    qrSettings.qr_code_creditor_country = userParam.sender_address_country_code;
+    qrSettings.qr_code_iban = userParam.sender_address_iban;
+    qrSettings.qr_code_iban_eur = userParam.sender_address_iban;
+  }
+}
+
+function setCustomerAddress(userParam, qrSettings) {
+
+  /**
+   * With the address defined in extension parameter we use the 'Structured' address type (S)
+   * 
+   * All the address data are already on userParam object
+   */
+
+  if (userParam.customer_address_include) {
+    qrSettings.qr_code_empty_address = false;
+    qrSettings.qr_code_debtor_address_type = 'S';
+  }
+}
+
+function setAmount(userParam, qrSettings) {
+
+  if (userParam.amount_include) {
+    var amount = userParam.total_amount;
+
+    //replace decimals separator , with .
+    if (amount.indexOf(',')) {
+      amount = amount.replace(',','.');
+    }
+    //remove thousand separator '
+    if (amount.indexOf("'")) {
+      amount = amount.replace("'","");
+    }
+    //convert to add decimals separator in case it doesn't exist (. or , depending on OS settings)
+    amount = Banana.Converter.toLocaleNumberFormat(amount,2,true);
+    //convert to internal format number with . as decimal separator
+    amount = Banana.Converter.toInternalNumberFormat(amount);
+    
+    //invoiceObj.billing_info.total_to_pay = amount;
+    qrSettings.qr_code_empty_amount = false;
+
+    //add all the information in the userParam object
+    userParam.billing_info_total_to_pay = amount;
+  }
+}
+
 
 function initQRSettings(userParam) {
   /*
@@ -99,6 +315,7 @@ function initQRSettings(userParam) {
   */
   var qrSettings = {};
   
+  // Default settings
   qrSettings.qr_code_add = true;
   qrSettings.qr_code_reference_type = 'NON'
   qrSettings.qr_code_qriban = '';
@@ -111,7 +328,12 @@ function initQRSettings(userParam) {
   qrSettings.qr_code_creditor_postalcode = "";
   qrSettings.qr_code_creditor_city = "";
   qrSettings.qr_code_creditor_country = "";
+  
   qrSettings.qr_code_additional_information = '';
+  if (userParam.additional_information) {
+    qrSettings.qr_code_additional_information = "*"+userParam.additional_information; //we add * because its not a table column name
+  }
+
   qrSettings.qr_code_billing_information = false;
   qrSettings.qr_code_empty_address = true;
   qrSettings.qr_code_empty_amount = true;
@@ -130,171 +352,13 @@ function initQRSettings(userParam) {
   return qrSettings;
 }
 
-function initJSON(banDoc) {
-
-  var invoiceObj = null;
-  var jsonInvoice = '{"billing_info":{"payment_term":"","total_amount_vat_exclusive":"","total_amount_vat_exclusive_before_discount":"","total_amount_vat_inclusive":"","total_amount_vat_inclusive_before_discount":"","total_categories":[],"total_discount_percent":"","total_discount_vat_exclusive":"","total_discount_vat_inclusive":"","total_rounding_difference":"","total_to_pay":"","total_vat_amount":"","total_vat_amount_before_discount":"","total_vat_codes":[{"total_amount_vat_exclusive":"","total_amount_vat_inclusive":"","total_vat_amount":"","vat_code":""}],"total_vat_rates":[{"total_amount_vat_exclusive":"","total_amount_vat_inclusive":"","total_vat_amount":"","vat_rate":""}]},"customer_info":{"address1":"","balance":"","balance_base_currency":"","business_name":"","city":"","country_code":"","first_name":"","lang":"","last_name":"","member_fee":"","number":"","origin_row":"","origin_table":"","postal_code":""},"document_info":{"currency":"","date":"","decimals_amounts":"","description":"","doc_type":"","locale":"","number":"","origin_row":"","origin_table":"","printed":"","rounding_total":"","type":""},"items":[],"note":[],"parameters":{},"payment_info":{"date_expected":"","due_date":"","due_days":"","due_period":"","last_reminder":"","last_reminder_date":"","payment_date":""},"shipping_info":{"different_shipping_address":""},"supplier_info":{"address1":"Address1","business_name":"Company","city":"City","country":"Country","country_code":"CH","email":"info@myweb","first_name":"Firstname","last_name":"Lastname","postal_code":"Zip","web":"http://www.myweb"},"template_parameters":{"footer_texts":[]},"transactions":[],"type":"invoice","version":"1.0"}';
-  invoiceObj = JSON.parse(jsonInvoice);
-  
-  //Payable to
-  invoiceObj.supplier_info.iban_number = banDoc.info("AccountingDataBase","IBAN");
-  invoiceObj.supplier_info.business_name = banDoc.info("AccountingDataBase","Company");
-  invoiceObj.supplier_info.first_name = banDoc.info("AccountingDataBase","Name");
-  invoiceObj.supplier_info.last_name = banDoc.info("AccountingDataBase","FamilyName");
-  invoiceObj.supplier_info.address1 = banDoc.info("AccountingDataBase","Address1");
-  invoiceObj.supplier_info.postal_code = banDoc.info("AccountingDataBase","Zip");
-  invoiceObj.supplier_info.city = banDoc.info("AccountingDataBase","City");
-  invoiceObj.supplier_info.country_code = banDoc.info("AccountingDataBase","CountryCode");
-
-  // //Not used address data
-  // invoiceObj.supplier_info.courtesy = banDoc.info("AccountingDataBase","Courtesy");  
-  // invoiceObj.supplier_info.address2 = banDoc.info("AccountingDataBase","Address2");
-  // invoiceObj.supplier_info.state = banDoc.info("AccountingDataBase","State");
-  // invoiceObj.supplier_info.country = banDoc.info("AccountingDataBase","Country");  
-  // invoiceObj.supplier_info.web = banDoc.info("AccountingDataBase","Web");
-  // invoiceObj.supplier_info.email = banDoc.info("AccountingDataBase","Email");
-  // invoiceObj.supplier_info.phone = banDoc.info("AccountingDataBase","Phone");
-  // invoiceObj.supplier_info.mobile = banDoc.info("AccountingDataBase","Mobile");
-  // invoiceObj.supplier_info.fiscal_number = banDoc.info("AccountingDataBase","FiscalNumber");
-  // invoiceObj.supplier_info.vat_number = banDoc.info("AccountingDataBase","VatNumber");
-  
-  //currency and amount
-  var fileTypeGroup = banDoc.info("Base", "FileTypeGroup");
-  var fileTypeNumber = banDoc.info("Base", "FileTypeNumber");
-  var currency = banDoc.info("AccountingDataBase","BasicCurrency");
-  if (fileTypeGroup === "400" && fileTypeNumber === "400" && !currency) {
-    // For application "estimates-invoices" without currency we set as default currency "CHF"
-    invoiceObj.document_info.currency = 'CHF';
-  } else {
-    invoiceObj.document_info.currency = currency;
-  }
-  invoiceObj.billing_info.total_to_pay = "";
-
-  //Payable by
-  invoiceObj.customer_info.business_name = "";
-  invoiceObj.customer_info.first_name = "";
-  invoiceObj.customer_info.last_name = "";
-  invoiceObj.customer_info.address1 = "";
-  invoiceObj.customer_info.postal_code = "";
-  invoiceObj.customer_info.city = "";
-  invoiceObj.customer_info.country_code = "";
-
-  //customer and invoice numbers
-  invoiceObj.customer_info.number = "";
-  invoiceObj.document_info.number = "";
-
-  //language
-  var lang = "en";
-  if (banDoc.locale) {
-    lang = banDoc.locale;
-  }
-  if (lang.length > 2) {
-    lang = lang.substr(0, 2);
-  }
-  invoiceObj.document_info.locale = lang;
-
-  //Banana.console.log(JSON.stringify(invoiceObj, "", " "));
-  return invoiceObj;
-}
-
-function bananaRequiredVersion(requiredVersion, expmVersion) {
-
-  var language = "en";
-  if (Banana.document.locale) {
-    language = Banana.document.locale;
-  }
-  if (language.length > 2) {
-    language = language.substr(0, 2);
-  }
-  if (expmVersion) {
-    requiredVersion = requiredVersion + "." + expmVersion;
-  }
-  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
-    var msg = "";
-    switch(language) {
-      
-      case "en":
-        if (expmVersion) {
-          msg = "This script does not run with this version of Banana Accounting. Please update to Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
-        }
-        break;
-
-      case "it":
-        if (expmVersion) {
-          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare a Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare alla versione " + requiredVersion + " o successiva.";
-        }
-        break;
-      
-      case "fr":
-        if (expmVersion) {
-          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour vers Banana Experimental (" + requiredVersion + ")";
-        } else {
-          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour à " + requiredVersion + " ou plus récente.";
-        }
-        break;
-      
-      case "de":
-        if (expmVersion) {
-          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Banana Experimental aktualisieren (" + requiredVersion + ").";
-        } else {
-          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Version " + requiredVersion + " oder neuer aktualisiern.";
-        }
-        break;
-      
-      case "nl":
-        if (expmVersion) {
-          msg = "Het script werkt niet met deze versie van Banana Accounting. Upgrade naar Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Het script werkt niet met deze versie van Banana Accounting. Upgrade naar de versie " + requiredVersion + " of meer recent.";
-        }
-        break;
-      
-      case "zh":
-        if (expmVersion) {
-          msg = "脚本无法在此版本的Banana财务会计软件中运行。请更新至 Banana实验版本 (" + requiredVersion + ").";
-        } else {
-          msg = "脚本无法在此版本的Banana财务会计软件中运行。请更新至 " + requiredVersion + "版本或之后的版本。";
-        }
-        break;
-      
-      case "es":
-        if (expmVersion) {
-          msg = "Este script no se ejecuta con esta versión de Banana Accounting. Por favor, actualice a Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Este script no se ejecuta con esta versión de Banana Contabilidad. Por favor, actualice a la versión " + requiredVersion + " o posterior.";
-        }
-        break;
-      
-      case "pt":
-        if (expmVersion) {
-          msg = "Este script não é executado com esta versão do Banana Accounting. Por favor, atualize para Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "Este script não é executado com esta versão do Banana Contabilidade. Por favor, atualize para a versão " + requiredVersion + " ou posterior.";
-        }
-        break;
-      
-      default:
-        if (expmVersion) {
-          msg = "This script does not run with this version of Banana Accounting. Please update to Banana Experimental (" + requiredVersion + ").";
-        } else {
-          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
-        }
-    }
-
-    Banana.application.showMessages();
-    Banana.document.addMessage(msg);
-
-    return false;
-  }
-  return true;
-}
 
 
 
+
+//
+// PARAMETERS
+//
 function convertParam(userParam) {
 
   //language
@@ -306,24 +370,46 @@ function convertParam(userParam) {
     lang = lang.substr(0, 2);
   }
 
+  var texts = {};
+  texts = setTexts(lang);
+
   //parameters
   var convertedParam = {};
   convertedParam.version = '1.0';
   convertedParam.data = [];
 
-  // Notes top page
+
+  /*******************************************************************************************
+  * TEXT
+  *******************************************************************************************/
   var currentParam = {};
-  currentParam.name = 'print_msg_text';
-  currentParam.title = '';
-  if (lang === 'it') {
-    currentParam.title = 'Note a inizio pagina';
-  } else if (lang === 'fr') {
-    currentParam.title = 'Notes en haut de la page';
-  } else if (lang === 'de') {
-    currentParam.title = 'Anmerkungen am Anfang der Seite';
-  } else {
-    currentParam.title = 'Notes at the top of the page';
+  currentParam.name = 'text';
+  currentParam.title = texts.text;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.text = this.value;
   }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'print_text';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.print_text;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_text ? true : false;
+  currentParam.defaultvalue = true;
+  currentParam.readValue = function() {
+    userParam.print_text = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Notes top page
+  currentParam = {};
+  currentParam.name = 'print_msg_text';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.print_msg_text;
   currentParam.type = 'multilinestring';
   currentParam.value = userParam.print_msg_text ? userParam.print_msg_text : '';
   currentParam.defaultvalue = 'The QR payment part without address and amount is at the bottom of the page.';
@@ -332,19 +418,404 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  currentParam = {};
+  currentParam.name = 'print_sender_address';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.print_sender_address;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_sender_address ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_sender_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'print_customer_address';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.print_customer_address;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_customer_address ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_customer_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'print_amount';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.print_amount;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_amount ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_amount = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Font family
+  currentParam = {};
+  currentParam.name = 'font_family';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.font_family;
+  currentParam.type = 'string';
+  currentParam.value = userParam.font_family ? userParam.font_family : 'Helvetica';
+  currentParam.defaultvalue = 'Helvetica';
+  currentParam.readValue = function() {
+   userParam.font_family = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Font size
+  currentParam = {};
+  currentParam.name = 'font_size';
+  currentParam.parentObject = 'text';
+  currentParam.title = texts.font_size;
+  currentParam.type = 'string';
+  currentParam.value = userParam.font_size ? userParam.font_size : '10';
+  currentParam.defaultvalue = '10';
+  currentParam.readValue = function() {
+   userParam.font_size = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
+  /*******************************************************************************************
+  * SENDER ADDRESS
+  *******************************************************************************************/
+
+  //Sender address
+  currentParam = {};
+  currentParam.name = 'sender_address';
+  currentParam.title = texts.sender_address;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.sender_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Use accounting address
+  currentParam = {};
+  currentParam.name = 'sender_address_from_accounting';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_from_accounting;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.sender_address_from_accounting ? true : false;
+  currentParam.defaultvalue = true;
+  currentParam.readValue = function() {
+    userParam.sender_address_from_accounting = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Name
+  currentParam = {};
+  currentParam.name = 'sender_address_name';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_name;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_name ? userParam.sender_address_name : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_name = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Address
+  currentParam = {};
+  currentParam.name = 'sender_address_address';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_address;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_address ? userParam.sender_address_address : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // House number
+  currentParam = {};
+  currentParam.name = 'sender_address_house_number';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_house_number;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_house_number ? userParam.sender_address_house_number : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_house_number = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Postal code
+  currentParam = {};
+  currentParam.name = 'sender_address_postal_code';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_postal_code;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_postal_code ? userParam.sender_address_postal_code : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_postal_code = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Locality
+  currentParam = {};
+  currentParam.name = 'sender_address_locality';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_locality;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_locality ? userParam.sender_address_locality : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_locality = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Country code
+  currentParam = {};
+  currentParam.name = 'sender_address_country_code';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_country_code;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_country_code ? userParam.sender_address_country_code : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_country_code = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // IBAN
+  currentParam = {};
+  currentParam.name = 'sender_address_iban';
+  currentParam.parentObject = 'sender_address';
+  currentParam.title = texts.sender_address_iban;
+  currentParam.type = 'string';
+  currentParam.value = userParam.sender_address_iban ? userParam.sender_address_iban : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.sender_address_iban = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
+
+  /*******************************************************************************************
+  * CUSTOMER ADDRESS
+  *******************************************************************************************/
+
+  // Customer address
+  currentParam = {};
+  currentParam.name = 'customer_address';
+  currentParam.title = texts.customer_address;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.customer_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Include customer address
+  currentParam = {};
+  currentParam.name = 'customer_address_include';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_include;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.customer_address_include ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.customer_address_include = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Name
+  currentParam = {};
+  currentParam.name = 'customer_address_name';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_name;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_name ? userParam.customer_address_name : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_name = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Address
+  currentParam = {};
+  currentParam.name = 'customer_address_address';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_address;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_address ? userParam.customer_address_address : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // House number
+  currentParam = {};
+  currentParam.name = 'customer_address_house_number';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_house_number;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_house_number ? userParam.customer_address_house_number : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_house_number = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Postal code
+  currentParam = {};
+  currentParam.name = 'customer_address_postal_code';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_postal_code;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_postal_code ? userParam.customer_address_postal_code : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_postal_code = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Locality
+  currentParam = {};
+  currentParam.name = 'customer_address_locality';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_locality;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_locality ? userParam.customer_address_locality : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_locality = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Country code
+  currentParam = {};
+  currentParam.name = 'customer_address_country_code';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_country_code;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_country_code ? userParam.customer_address_country_code : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_country_code = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
+
+  /*******************************************************************************************
+  * CURRENCY and AMOUNT
+  *******************************************************************************************/
+
+  currentParam = {};
+  currentParam.name = 'amount';
+  currentParam.title = texts.amount;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.amount = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Include amount
+  currentParam = {};
+  currentParam.name = 'amount_include';
+  currentParam.parentObject = 'amount';
+  currentParam.title = texts.amount_include;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.amount_include ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.amount_include = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Currency
+  currentParam = {};
+  currentParam.name = 'currency';
+  currentParam.parentObject = 'amount';
+  currentParam.title = texts.currency;
+  currentParam.type = 'combobox';
+  currentParam.items = ["CHF","EUR"];
+  currentParam.value = userParam.currency ? userParam.currency : 'CHF';
+  currentParam.defaultvalue = "CHF";
+  currentParam.readValue = function() {
+    userParam.currency = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Amount
+  currentParam = {};
+  currentParam.name = 'total_amount';
+  currentParam.parentObject = 'amount';
+  currentParam.title = texts.total_amount;
+  currentParam.type = 'string';
+  currentParam.value = userParam.total_amount ? userParam.total_amount : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.total_amount = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Additional information
+  currentParam = {};
+  currentParam.name = 'additional_information';
+  currentParam.parentObject = 'amount';
+  currentParam.title = texts.additional_information;
+  currentParam.type = 'string';
+  currentParam.value = userParam.additional_information ? userParam.additional_information : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.additional_information = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
+
+  /*******************************************************************************************
+  * QR-CODE
+  *******************************************************************************************/
+  
+  currentParam = {};
+  currentParam.name = 'qrcode';
+  currentParam.title = texts.qrcode;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.text = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Language
+  currentParam = {};
+  currentParam.name = 'language';
+  currentParam.parentObject = 'qrcode';
+  currentParam.title = texts.language;
+  currentParam.type = 'combobox';
+  currentParam.items = ["DE","EN","FR","IT"];
+  currentParam.value = userParam.language ? userParam.language : 'EN';
+  currentParam.defaultvalue = "EN";
+  currentParam.readValue = function() {
+    userParam.language = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
   // Print separating border
   currentParam = {};
   currentParam.name = 'print_separating_border';
-  currentParam.title = '';
-  if (lang === 'it') {
-    currentParam.title = 'Stampa bordo di separazione';
-  } else if (lang === 'fr') {
-    currentParam.title = 'Impression de la bordure de séparation';
-  } else if (lang === 'de') {
-    currentParam.title = 'Trennlinie drucken';
-  } else {
-    currentParam.title = 'Print separating border';
-  }
+  currentParam.parentObject = 'qrcode';
+  currentParam.title = texts.print_separating_border;
   currentParam.type = 'bool';
   currentParam.value = userParam.print_separating_border ? true : false;
   currentParam.defaultvalue = true;
@@ -356,16 +827,8 @@ function convertParam(userParam) {
   // Print scissors symbol
   currentParam = {};
   currentParam.name = 'print_scissors_symbol';
-  currentParam.title = '';
-  if (lang === 'it') {
-    currentParam.title = 'Stampa simbolo forbici';
-  } else if (lang === 'fr') {
-    currentParam.title = 'Imprimer le symbole des ciseaux';
-  } else if (lang === 'de') {
-    currentParam.title = 'Scherensymbol drucken';
-  } else {
-    currentParam.title = 'Print scissors symbol';
-  }
+  currentParam.parentObject = 'qrcode';
+  currentParam.title = texts.print_scissors_symbol;
   currentParam.type = 'bool';
   currentParam.value = userParam.print_scissors_symbol ? true : false;
   currentParam.defaultvalue = false;
@@ -374,17 +837,63 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+
+  // // Use QRCode table
+  // // Show the parameter only if the table exists in the document
+  // var tableNames = Banana.document.tableNames;
+  // if (tableNames.indexOf("QRCode") > -1) {
+  //   currentParam = {};
+  //   currentParam.name = 'use_qrcode_table';
+  //   currentParam.parentObject = '';
+  //   currentParam.title = texts.use_qrcode_table;
+  //   currentParam.type = 'bool';
+  //   currentParam.value = userParam.use_qrcode_table ? true : false;
+  //   currentParam.defaultvalue = false;
+  //   currentParam.readValue = function() {
+  //     userParam.use_qrcode_table = this.value;
+  //   }
+  //   convertedParam.data.push(currentParam);
+  // }
+
+
+
   return convertedParam;
 }
 
 function initUserParam() {
-
   var userParam = {};
   userParam.print_msg_text = 'The QR payment part without address and amount is at the bottom of the page.';
+  userParam.print_text = true;
+  userParam.print_sender_address = false;
+  userParam.print_customer_address = false;
+  userParam.print_amount = false;
+  userParam.sender_address_from_accounting = true;
+  userParam.sender_address_name = '';
+  userParam.sender_address_address = '';
+  userParam.sender_address_house_number = '';
+  userParam.sender_address_postal_code = '';
+  userParam.sender_address_locality = '';
+  userParam.sender_address_country_code = '';
+  userParam.sender_address_iban = '';
+  userParam.customer_address_include = false;
+  userParam.customer_address_name = '';
+  userParam.customer_address_address = '';
+  userParam.customer_address_house_number = '';
+  userParam.customer_address_postal_code = '';
+  userParam.customer_address_locality = '';
+  userParam.customer_address_country_code = '';
+  userParam.amount_include = false;
+  userParam.total_amount = '';
+  userParam.currency = "CHF";
+  userParam.language = "EN";
   userParam.print_separating_border = true;
   userParam.print_scissors_symbol = false;
-  return userParam;
+  userParam.additional_information = '';
+  // userParam.use_qrcode_table = false;
+  userParam.font_family = 'Helvetica';
+  userParam.font_size = '10';
 
+  return userParam;
 }
 
 function parametersDialog(userParam) {
@@ -425,7 +934,6 @@ function parametersDialog(userParam) {
   return userParam;
 }
 
-/* Save the period for the next time the script is run */
 function settingsDialog() {
   
   var scriptform = initUserParam();
@@ -444,3 +952,309 @@ function settingsDialog() {
   
   return scriptform;
 }
+
+
+//
+// TEXTS
+//
+function setTexts(language) {
+  
+  var texts = {};
+
+  if (language === 'it') {
+    texts.text = 'Testo lettera';
+    texts.print_text = 'Stampa testo';
+    texts.print_msg_text = 'Testo libero';
+    texts.print_sender_address = 'Stampa indirizzo mittente';
+    texts.print_customer_address = 'Stampa indirizzo cliente';
+    texts.print_amount = 'Stampa importo';
+    texts.print_amount_text = 'Importo totale';
+    texts.sender_address = 'Indirizzo mittente (Pagabile a)';
+    texts.sender_address_from_accounting = 'Usa indrizzo contabilità';
+    texts.sender_address_name = 'Nome';
+    texts.sender_address_address = 'Via';
+    texts.sender_address_house_number = 'Numero civico';
+    texts.sender_address_postal_code = 'Codice postale';
+    texts.sender_address_locality = 'Località';
+    texts.sender_address_country_code = 'Codice nazione';
+    texts.sender_address_iban = 'IBAN';
+    texts.customer_address = 'Indirizzo cliente (Pagabile da)';
+    texts.customer_address_include = 'Includi cliente';
+    texts.customer_address_name = 'Nome';
+    texts.customer_address_address = 'Via';
+    texts.customer_address_house_number = 'Numero civico';
+    texts.customer_address_postal_code = 'Codice postale';
+    texts.customer_address_locality = 'Località';
+    texts.customer_address_country_code = 'Codice nazione';
+    texts.amount = 'Moneta/Importo';
+    texts.amount_include = 'Includi importo';
+    texts.currency = 'Moneta';
+    texts.total_amount = 'Importo';
+    texts.qrcode = 'Codice QR';
+    texts.language = 'Lingua';
+    texts.additional_information = 'Informazioni aggiuntive';
+    texts.print_separating_border = 'Stampa bordo di separazione';
+    texts.print_scissors_symbol = 'Stampa simbolo forbici';
+    //texts.use_qrcode_table = 'Utilizza tabella QRCode';
+    // texts.styles = 'Stili';
+    texts.font_family = 'Tipo carattere';
+    texts.font_size = 'Dimensione carattere';
+
+  }
+  else if (language === 'fr') {
+    texts.text = 'Texte';
+    texts.print_text = 'Imprimer le texte';
+    texts.print_msg_text = 'Notes en haut de la page';
+    texts.print_sender_address = 'Imprimer adresse expéditeur';
+    texts.print_customer_address = 'Imprimer adresse client';
+    texts.print_amount = 'Imprimer montant';
+    texts.print_amount_text = 'Total montant';
+    texts.sender_address = 'Adresse expéditeur (Payable à)';
+    texts.sender_address_from_accounting = 'Utiliser adresse comptabilité';
+    texts.sender_address_name = 'Nom';
+    texts.sender_address_address = 'Rue';
+    texts.sender_address_house_number = 'Numéro immeuble';
+    texts.sender_address_postal_code = 'Code postal NPA';
+    texts.sender_address_locality = 'Localité';
+    texts.sender_address_country_code = 'Code du pays';
+    texts.sender_address_iban = 'IBAN';
+    texts.customer_address = 'Adresse client (Payable par)';
+    texts.customer_address_include = 'Inclure le client';
+    texts.customer_address_name = 'Nom';
+    texts.customer_address_address = 'Rue';
+    texts.customer_address_house_number = 'Numéro immeuble';
+    texts.customer_address_postal_code = 'Code postal NPA';
+    texts.customer_address_locality = 'Localité';
+    texts.customer_address_country_code = 'Code du pays';
+    texts.amount = 'Devise/Montant';
+    texts.amount_include = 'Inclure le montant';
+    texts.currency = 'Devise';
+    texts.total_amount = 'Montant';
+    texts.qrcode = 'QR Code';
+    texts.language = 'Langue';
+    texts.additional_information = 'Informations additionnelles';
+    texts.print_separating_border = 'Imprimer la bordure de séparation';
+    texts.print_scissors_symbol = 'Imprimer le symbole des ciseaux';
+    //texts.use_qrcode_table = 'Use QRCode table (da tradurre!!!!!)';
+    // texts.styles = 'Styles';
+    texts.font_family = 'Type de caractère';
+    texts.font_size = 'Taille des caractères';
+  }
+  else if (language === 'de') {
+    texts.text = 'Text';
+    texts.print_text = 'Text drucken';
+    texts.print_msg_text = 'Anmerkungen am Anfang der Seite';
+    texts.print_sender_address = 'Absenderadresse drucken';
+    texts.print_customer_address = 'Kundenadresse ausdrucken';
+    texts.print_amount = 'Betrag ausdrucken';
+    texts.print_amount_text = 'Totalbetrag';
+    texts.sender_address = 'Absenderadresse (Zahlbar an)';
+    texts.sender_address_from_accounting = 'Buchhaltungsadresse verwenden';
+    texts.sender_address_name = 'Name';
+    texts.sender_address_address = 'Strasse';
+    texts.sender_address_house_number = 'Hausnummer';
+    texts.sender_address_postal_code = 'PLZ';
+    texts.sender_address_locality = 'Ort';
+    texts.sender_address_country_code = 'Ländercode';
+    texts.sender_address_iban = 'IBAN';
+    texts.customer_address = 'Kundenadresse (Zahlbar durch)';
+    texts.customer_address_include = 'Kunde einbeziehen';
+    texts.customer_address_name = 'Name';
+    texts.customer_address_address = 'Strasse';
+    texts.customer_address_house_number = 'Hausnummer';
+    texts.customer_address_postal_code = 'PLZ';
+    texts.customer_address_locality = 'Ort';
+    texts.customer_address_country_code = 'Ländercode';
+    texts.amount = 'Währung/Betrag';
+    texts.amount_include = 'Betrag einbeziehen';
+    texts.currency = 'Währung';
+    texts.total_amount = 'Betrag';
+    texts.qrcode = 'QR-Code';
+    texts.language = 'Sprache';
+    texts.additional_information = 'Zusätzliche Informationen';
+    texts.print_separating_border = 'Trennlinie drucken';
+    texts.print_scissors_symbol = 'Scherensymbol drucken';
+    //texts.use_qrcode_table = 'Use QRCode table (da tradurre!!!!!)';
+    // texts.styles = 'Schriftarten';
+    texts.font_family = 'Schriftzeichen';
+    texts.font_size = 'Schriftgrösse';
+  }
+  else {
+    texts.text = 'Text';
+    texts.print_text = 'Print text';
+    texts.print_msg_text = 'Notes at the top of the page';
+    texts.print_sender_address = 'Print sender address';
+    texts.print_customer_address = 'Print customer address';
+    texts.print_amount = 'Print amount';
+    texts.print_amount_text = 'Total amount';
+    texts.sender_address = 'Sender address (Payable to)';
+    texts.sender_address_from_accounting = 'Use accounting address';
+    texts.sender_address_name = 'Name';
+    texts.sender_address_address = 'Street';
+    texts.sender_address_house_number = 'House number';
+    texts.sender_address_postal_code = 'Postal code';
+    texts.sender_address_locality = 'Locality';
+    texts.sender_address_country_code = 'Country code';
+    texts.sender_address_iban = 'IBAN';
+    texts.customer_address = 'Customer address (Payable by)';
+    texts.customer_address_include = 'Include customer';
+    texts.customer_address_name = 'Name';
+    texts.customer_address_address = 'Street';
+    texts.customer_address_house_number = 'House number';
+    texts.customer_address_postal_code = 'Postal code';
+    texts.customer_address_locality = 'Locality';
+    texts.customer_address_country_code = 'Country code';
+    texts.amount = 'Currency/Amount';
+    texts.amount_include = 'Include amount';
+    texts.currency = 'Currency';
+    texts.total_amount = 'Amount';
+    texts.qrcode = 'QR Code';
+    texts.language = 'Language';
+    texts.additional_information = 'Additional information';
+    texts.print_separating_border = 'Print separating border';
+    texts.print_scissors_symbol = 'Print scissors symbol';
+    //texts.use_qrcode_table = 'Use QRCode table';
+    // texts.styles = 'Styles';
+    texts.font_family = 'Font family';
+    texts.font_size = 'Font size';
+  }
+
+  return texts;
+}
+
+
+//
+// STYLES
+//
+function createStyleSheet(userParam) {
+
+  var stylesheet = Banana.Report.newStyleSheet();
+  
+  var pageStyle = stylesheet.addStyle("@page");
+  pageStyle.setAttribute("margin", "0mm 0mm 0mm 0mm");
+
+  stylesheet.addStyle("body", "font-family:" + userParam.font_family+ "; font-size:" + userParam.font_size + ";");
+
+
+  var senderAddress = stylesheet.addStyle(".senderAddress");
+  senderAddress.setAttribute("margin-top", "2cm;");
+  senderAddress.setAttribute("margin-left", "2cm;");
+  senderAddress.setAttribute("text-align", "left;");
+  senderAddress.setAttribute("position", "absolute;");
+
+  var customerAddress = stylesheet.addStyle(".customerAddress");
+  customerAddress.setAttribute("margin-top", "2cm;");
+  customerAddress.setAttribute("margin-left", "12.3cm;");
+  customerAddress.setAttribute("text-align", "left;");
+  customerAddress.setAttribute("position", "absolute;");
+
+  var letter = stylesheet.addStyle(".letter");
+  letter.setAttribute("margin-top", "2cm;");
+  letter.setAttribute("margin-left", "2cm;");
+  letter.setAttribute("margin-right", "1.5cm");
+  letter.setAttribute("position", "absolute;");
+
+
+  return stylesheet;
+}
+
+function addMdBoldText(reportElement, text) {
+
+  // Applies the bold style to a text.
+  // It is used the Markdown syntax.
+  //
+  // Use '**' characters where the bold starts and ends.
+  // - set bold all the paragraph => **This is bold paragraph
+  //                              => **This is bold paragraph**
+  //
+  // - set bold single/multiple words => This is **bold** text
+  //                                  => This **is bold** text
+  //                                  => **This** is **bold** text
+  //
+
+  var p = reportElement.addParagraph();
+  var printBold = false;
+  var startPosition = 0;
+  var endPosition = -1;
+
+  do {
+      endPosition = text.indexOf("**", startPosition);
+      var charCount = endPosition === -1 ? text.length - startPosition : endPosition - startPosition;
+      if (charCount > 0) {
+          var span = p.addText(text.substr(startPosition, charCount), "");
+          if (printBold)
+              span.setStyleAttribute("font-weight", "bold");
+      }
+      printBold = !printBold;
+      startPosition = endPosition >= 0 ? endPosition + 2 : text.length;
+  } while (startPosition < text.length && endPosition >= 0);
+}
+
+
+//
+// OTHER
+//
+function bananaRequiredVersion(requiredVersion, expmVersion) {
+
+  var language = "en";
+  if (Banana.document.locale) {
+    language = Banana.document.locale;
+  }
+  if (language.length > 2) {
+    language = language.substr(0, 2);
+  }
+  if (expmVersion) {
+    requiredVersion = requiredVersion + "." + expmVersion;
+  }
+  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
+    var msg = "";
+    switch(language) {
+      
+      case "en":
+        if (expmVersion) {
+          msg = "This script does not run with this version of Banana Accounting. Please update to Banana+ Dev Channel (" + requiredVersion + ").";
+        } else {
+          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
+        }
+        break;
+
+      case "it":
+        if (expmVersion) {
+          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare a Banana+ Dev Channel (" + requiredVersion + ").";
+        } else {
+          msg = "Lo script non funziona con questa versione di Banana Contabilità. Aggiornare alla versione " + requiredVersion + " o successiva.";
+        }
+        break;
+      
+      case "fr":
+        if (expmVersion) {
+          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour vers Banana+ Dev Channel (" + requiredVersion + ")";
+        } else {
+          msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité. Faire la mise à jour à " + requiredVersion + " ou plus récente.";
+        }
+        break;
+      
+      case "de":
+        if (expmVersion) {
+          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Banana+ Dev Channel aktualisieren (" + requiredVersion + ").";
+        } else {
+          msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Version " + requiredVersion + " oder neuer aktualisiern.";
+        }
+        break;
+      
+      default:
+        if (expmVersion) {
+          msg = "This script does not run with this version of Banana Accounting. Please update to Banana+ Dev Channel (" + requiredVersion + ").";
+        } else {
+          msg = "This script does not run with this version of Banana Accounting. Please update to version " + requiredVersion + " or later.";
+        }
+    }
+
+    Banana.application.showMessages();
+    Banana.document.addMessage(msg);
+
+    return false;
+  }
+  return true;
+}
+
