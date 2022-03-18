@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.emptyqr.test
 // @api = 1.0
-// @pubdate = 2022-03-16
+// @pubdate = 2022-03-18
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.emptyqr.js>
 // @task = app.command

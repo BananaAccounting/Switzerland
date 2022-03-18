@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-03-16
+// @pubdate = 2022-03-18
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-Fattura senza importo e indirizzo
@@ -172,7 +172,6 @@ function exec(string) {
 }
 
 function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
-
   //================
   // 1. Print letter
   //================
@@ -181,35 +180,45 @@ function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
     // Print sender address
     if (reportParam.print_sender_address) {
 
-      var senderAddressSection = report.addSection("senderAddress");
+      var tableSenderAddress = report.addTable("tableSenderAddress");
 
       if (reportParam.sender_address_from_accounting) {
         if (reportParam.supplier_info_business_name) {
-          senderAddressSection.addParagraph(reportParam.supplier_info_business_name);
+          tableRow = tableSenderAddress.addRow();
+          tableRow.addCell(reportParam.supplier_info_business_name, "", 1);
         }
         if (reportParam.supplier_info_first_name && reportParam.supplier_info_last_name) {
-          senderAddressSection.addParagraph(reportParam.supplier_info_first_name + " " + reportParam.supplier_info_last_name);
+          tableRow = tableSenderAddress.addRow();
+          tableRow.addCell(reportParam.supplier_info_first_name + " " + reportParam.supplier_info_last_name, "", 1);
         }
         if (reportParam.supplier_info_address1) {
-          senderAddressSection.addParagraph(reportParam.supplier_info_address1);
+          tableRow = tableSenderAddress.addRow();
+          tableRow.addCell(reportParam.supplier_info_address1, "", 1);
         }
         if (reportParam.supplier_info_postal_code && reportParam.supplier_info_city) {
-          senderAddressSection.addParagraph(reportParam.supplier_info_postal_code + " " + reportParam.supplier_info_city);
+          tableRow = tableSenderAddress.addRow();
+          tableRow.addCell(reportParam.supplier_info_postal_code + " " + reportParam.supplier_info_city, "", 1);
         }
       }
       else {
-        senderAddressSection.addParagraph(reportParam.sender_address_name);
-        senderAddressSection.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number);
-        senderAddressSection.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality);
+        tableRow = tableSenderAddress.addRow();
+        tableRow.addCell(reportParam.sender_address_name, "", 1);
+        tableRow = tableSenderAddress.addRow();
+        tableRow.addCell(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "", 1);
+        tableRow = tableSenderAddress.addRow();
+        tableRow.addCell(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "", 1);
       }
     }
 
     // Print customer address
     if (reportParam.print_customer_address && reportParam.customer_address_include) {
-      var customerAddressSection = report.addSection("customerAddress");
-      customerAddressSection.addParagraph(reportParam.customer_address_name);
-      customerAddressSection.addParagraph(reportParam.customer_address_address + " " + reportParam.customer_address_house_number);
-      customerAddressSection.addParagraph(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality);
+      var tableCustomerAddress = report.addTable("tableCustomerAddress");
+      tableRow = tableCustomerAddress.addRow();
+      tableRow.addCell(reportParam.customer_address_name, "", 1);
+      tableRow = tableCustomerAddress.addRow();
+      tableRow.addCell(reportParam.customer_address_address + " " + reportParam.customer_address_house_number, "", 1);
+      tableRow = tableCustomerAddress.addRow();
+      tableRow.addCell(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality, "", 1);
     }
 
     // Print letter text
@@ -230,9 +239,7 @@ function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
   //========================
   var qrBill = new QRBill(banDoc, reportParam);
   qrBill.printQRCodeDirect(report, stylesheet, reportParam);
-
 }
-
 
 function setSenderAddress(banDoc, userParam, qrSettings) {
 
@@ -308,7 +315,6 @@ function setAmount(userParam, qrSettings) {
   }
 }
 
-
 function initQRSettings(userParam) {
   /*
     Initialize the QR settings
@@ -351,9 +357,6 @@ function initQRSettings(userParam) {
 
   return qrSettings;
 }
-
-
-
 
 
 //
@@ -1129,31 +1132,22 @@ function setTexts(language) {
 function createStyleSheet(userParam) {
 
   var stylesheet = Banana.Report.newStyleSheet();
-  
-  var pageStyle = stylesheet.addStyle("@page");
-  pageStyle.setAttribute("margin", "0mm 0mm 0mm 0mm");
 
+  stylesheet.addStyle("@page", "margin:0mm 0mm 0mm 0mm;");
   stylesheet.addStyle("body", "font-family:" + userParam.font_family+ "; font-size:" + userParam.font_size + ";");
 
+  if (userParam.print_sender_address || userParam.print_customer_address) {
+    stylesheet.addStyle(".letter", "margin-top:8cm; margin-left:2cm; margin-right:1.5cm; position:absolute;");
+  }
+  else {
+    stylesheet.addStyle(".letter", "margin-top:2cm; margin-left:2cm; margin-right:1.5cm; position:absolute;");
+  }
+  
+  stylesheet.addStyle(".tableSenderAddress", "font-size:" + userParam.font_size + "; margin-top:2cm; margin-left:2cm; position:absolute;");
+  //stylesheet.addStyle("table.tableSenderAddress td", "border: thin solid black;");
 
-  var senderAddress = stylesheet.addStyle(".senderAddress");
-  senderAddress.setAttribute("margin-top", "2cm;");
-  senderAddress.setAttribute("margin-left", "2cm;");
-  senderAddress.setAttribute("text-align", "left;");
-  senderAddress.setAttribute("position", "absolute;");
-
-  var customerAddress = stylesheet.addStyle(".customerAddress");
-  customerAddress.setAttribute("margin-top", "2cm;");
-  customerAddress.setAttribute("margin-left", "12.3cm;");
-  customerAddress.setAttribute("text-align", "left;");
-  customerAddress.setAttribute("position", "absolute;");
-
-  var letter = stylesheet.addStyle(".letter");
-  letter.setAttribute("margin-top", "2cm;");
-  letter.setAttribute("margin-left", "2cm;");
-  letter.setAttribute("margin-right", "1.5cm");
-  letter.setAttribute("position", "absolute;");
-
+  stylesheet.addStyle(".tableCustomerAddress", "font-size:" + userParam.font_size + "; margin-top:4.5cm; margin-left:12.3cm; position:absolute;");
+  //stylesheet.addStyle("table.tableCustomerAddress td", "border: thin solid black;");
 
   return stylesheet;
 }
