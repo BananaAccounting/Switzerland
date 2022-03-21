@@ -18,14 +18,14 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/ivan/Documents/GitHub/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.app.emptyqr.test.js}
+%%SCRIPT{/Users/ivan/Documents/GitHub/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.app.emptyqr.test.js}
 %
 \begin{testcase}{ReportEmptyQr}
 \begin{test}{testReport}
 %Test Empty QR
 \section{Test file: file:script/../test/testcases/app\_emptyqr.ac2}
 \subsection{Test 1: NON}
-\begin{reportvalue}{Test 1}
+\begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
 Receipt \\
   \\
@@ -84,12 +84,12 @@ ewline
 ewline 
 ewline EPD}\\
 \subsection{Test 2 negative: NON with QR-IBAN}
-\begin{reportvalue}{Test 1}
+\begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
 Receipt \\
   \\
 Account / Payable to \\
-@error Incorrect IBAN: CH09 3000 0001 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Company \\
 Address1 \\
 Zip City \\
@@ -104,7 +104,7 @@ Currency \\
 CHF \\
 Amount \\
 Account / Payable to \\
-@error Incorrect IBAN: CH09 3000 0001 6525 0122 4 \\
+CH58 0079 1123 0008 8901 2 \\
 Company \\
 Address1 \\
 Zip City \\
@@ -114,7 +114,7 @@ Payable by (name/address) \\
 \textvalue{SPC
 ewline 0200
 ewline 1
-ewline @errorIncorrectIBAN:CH0930000001652501224
+ewline CH5800791123000889012
 ewline K
 ewline Company
 ewline Address1
@@ -138,6 +138,1361 @@ ewline
 ewline 
 ewline 
 ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 3: NON without beginning text}
+\begin{reportvalue}{}
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 4: NON, IBAN chf from File->Properties}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 5: NON, IBAN eur from File->Properties}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+EUR \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+EUR \\
+Amount \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline EUR
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 6: NON, IBAN chf from extension settings}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH52 0483 5012 3456 7100 0 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+Account / Payable to \\
+CH52 0483 5012 3456 7100 0 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline S
+ewline Mario Rossi
+ewline Via al sole
+ewline 8
+ewline 6900
+ewline Lugano
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 7: NON, IBAN eur from extension settings}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH52 0483 5012 3456 7100 0 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by (name/address) \\
+Currency \\
+EUR \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+EUR \\
+Amount \\
+Account / Payable to \\
+CH52 0483 5012 3456 7100 0 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline S
+ewline Mario Rossi
+ewline Via al sole
+ewline 8
+ewline 6900
+ewline Lugano
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline EUR
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 8: QR-IBAN chf from extension settings}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+@error Incorrect IBAN: CH4431999123000889012 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+Account / Payable to \\
+@error Incorrect IBAN: CH4431999123000889012 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline @errorIncorrectIBAN:CH4431999123000889012
+ewline S
+ewline Mario Rossi
+ewline Via al sole
+ewline 8
+ewline 6900
+ewline Lugano
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 9: Include amount 1234.56}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 10: Include amount 1234,56}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 11: Include amount 1'234.56}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 12: Include amount 1'234,56}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 13: Include amount 1234}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 14: Include amount 1234.00}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 15: Include amount 1234,00}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+1  234.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 16: Include amount 0.00}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Additional information \\
+DO NOT USE FOR PAYMENT \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 0.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline DO NOT USE FOR PAYMENT
+ewline EPD}\\
+\subsection{Test 17: Include amount 0,00}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Additional information \\
+DO NOT USE FOR PAYMENT \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 0.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline DO NOT USE FOR PAYMENT
+ewline EPD}\\
+\subsection{Test 18: Include amount 0}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Additional information \\
+DO NOT USE FOR PAYMENT \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 0.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline DO NOT USE FOR PAYMENT
+ewline EPD}\\
+\subsection{Test 19: Include empty amount}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+0.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Additional information \\
+DO NOT USE FOR PAYMENT \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 0.00
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline DO NOT USE FOR PAYMENT
+ewline EPD}\\
+\subsection{Test 20: Amount but excluded}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+CHF \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline CHF
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 21: Include amount 1234.56 eur}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+Currency \\
+EUR \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+EUR \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by (name/address) \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline EUR
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 22: 'Payable to' address, 'Payable by' address, Include amount 1234.56 chf}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH52 0483 5012 3456 7100 0 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by \\
+Giovanni Verdi \\
+Via alla Chiesa 12 \\
+6962 Viganello \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH52 0483 5012 3456 7100 0 \\
+Mario Rossi \\
+Via al sole 8 \\
+6900 Lugano \\
+  \\
+Payable by \\
+Giovanni Verdi \\
+Via alla Chiesa 12 \\
+6962 Viganello \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline S
+ewline Mario Rossi
+ewline Via al sole
+ewline 8
+ewline 6900
+ewline Lugano
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline CHF
+ewline S
+ewline Giovanni Verdi
+ewline Via alla Chiesa
+ewline 12
+ewline 6962
+ewline Viganello
+ewline CH
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 23: 'Payable by' Address, Include amount 1234.56 chf}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by \\
+Giovanni Verdi \\
+Via alla Chiesa 12 \\
+6962 Viganello \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+1  234.56 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by \\
+Giovanni Verdi \\
+Via alla Chiesa 12 \\
+6962 Viganello \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1234.56
+ewline CHF
+ewline S
+ewline Giovanni Verdi
+ewline Via alla Chiesa
+ewline 12
+ewline 6962
+ewline Viganello
+ewline CH
+ewline NON
+ewline 
+ewline 
+ewline EPD}\\
+\subsection{Test 24: 'Payable by' Address, no amount}
+\begin{reportvalue}{}
+The QR payment part without address and amount is at the bottom of the page. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by \\
+Giovanni Verdi \\
+Via alla Chiesa 12 \\
+6962 Viganello \\
+Currency \\
+CHF \\
+Amount \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Payable by \\
+Giovanni Verdi \\
+Via alla Chiesa 12 \\
+6962 Viganello \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline CHF
+ewline S
+ewline Giovanni Verdi
+ewline Via alla Chiesa
+ewline 12
+ewline 6962
+ewline Viganello
+ewline CH
 ewline NON
 ewline 
 ewline 

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2022-02-21 */
+/* Script update: 2022-03-21 */
 
 
 
@@ -2086,7 +2086,6 @@ var QRBill = class QRBill {
 		}
 	}
 
-
 	/**
 	 * Prints the QR section of the invoice. 
 	 */
@@ -2853,5 +2852,430 @@ var QRBill = class QRBill {
 			rectanglePaymentAmount.setAttribute("padding-right", "5mm");
 		}
 	}
+
+
+
+
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+	/**
+	 * Get the QR additional information defined in the given column.
+	 */
+	qrAdditionalInformationDirect(column)
+	{
+		/*
+		if (tabella) {
+
+		}
+		else {
+			singolo
+		}
+		*/
+
+		if (column.startsWith("*")) {
+
+			//prendere il testo e togliere il *
+			//nei parametri aggiungiamo manualmente il *
+
+			column = column.replace("*","");
+			return column;
+		}
+	}
+
+
+	/**
+	 * Use only userParam, without invoiceObj
+	 * 	
+	 * Set all the QRCode data that are used to create the qr image and receipt/payment slip.
+	 */
+	getQrCodeDataDirect(userParam, texts, langDoc)
+	{
+		//Check if an IBAN exists on address property.
+		//If no IBAN is defined in settings dialog, and an IBAN is defined on Address property, we use it.
+		//If an IBAN is defined in settings dialog, we always use it.
+		// if (!userParam.qr_code_iban && invoiceObj.supplier_info.iban_number) {
+		// 	userParam.qr_code_iban = invoiceObj.supplier_info.iban_number;
+		// }
+		if (userParam.supplier_info_iban_number) {
+			userParam.qr_code_iban = userParam.supplier_info_iban_number;
+		}
+
+		var qrcodeData = {};
+		qrcodeData.supplierIbanNumber = "";
+		qrcodeData.reference = "";
+
+
+
+		// NON USIAMO MAI QR-IBAN con QRR... 
+		// SI PUO LASCIARE VIA
+		
+		/*
+		if (this.ID_QRBILL_WITH_QRIBAN_AND_QRR) 
+		{
+			if (userParam.qr_code_qriban) {
+				qrcodeData.supplierIbanNumber = this.formatIban(userParam.qr_code_qriban);
+				
+				if (isValidIBAN(userParam.qr_code_qriban) !== 1 || !isQRIBAN(userParam.qr_code_qriban)) {
+					qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_QRIBAN_WRONG, langDoc, userParam.qr_code_qriban);
+				}
+
+			} else {
+				qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_QRIBAN, langDoc);
+				//var msg = this.getErrorMessage(this.ID_ERR_QRIBAN, langDoc);
+				//this.banDoc.addMessage(msg, this.ID_ERR_QRIBAN);
+			}
+
+			qrcodeData.reference = this.qrReferenceString(userParam.qr_code_isr_id, invoiceObj.customer_info.number, invoiceObj.document_info.number.replace(/[^0-9a-zA-Z]+/g, ""));
+		}
+		*/
+
+		if (this.ID_QRBILL_WITH_IBAN_AND_SCOR || this.ID_QRBILL_WITH_IBAN_WITHOUT_REFERENCE) 
+		{	
+			//currency CHF => we use userParam.qr_code_iban
+			if (userParam.currency === "CHF" || userParam.currency === "chf") {
+				if (userParam.qr_code_iban) {
+					qrcodeData.supplierIbanNumber = this.formatIban(userParam.qr_code_iban);
+					if (isValidIBAN(userParam.qr_code_iban) !== 1 || isQRIBAN(userParam.qr_code_iban)) {
+						qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_IBAN_WRONG, langDoc, userParam.qr_code_iban);
+					}
+				}
+				else {
+					qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_IBAN, langDoc, userParam.qr_code_iban);
+					//var msg = this.getErrorMessage(this.ID_ERR_IBAN, langDoc);
+					//this.banDoc.addMessage(msg, this.ID_ERR_IBAN);	
+				}
+			}
+
+			//currency EUR => we use userParam.qr_code_iban_eur
+			if (userParam.currency === "EUR" || userParam.currency === "eur") {
+				if (userParam.qr_code_iban_eur) {
+					qrcodeData.supplierIbanNumber = this.formatIban(userParam.qr_code_iban_eur);
+					if (isValidIBAN(userParam.qr_code_iban_eur) !== 1 || isQRIBAN(userParam.qr_code_iban_eur)) {
+						qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_IBAN_WRONG, langDoc, userParam.qr_code_iban_eur);
+					}
+				}
+				else {
+					qrcodeData.supplierIbanNumber = "@error " + this.getErrorMessage(this.ID_ERR_IBAN, langDoc, userParam.qr_code_iban_eur);
+					//var msg = this.getErrorMessage(this.ID_ERR_IBAN, langDoc);
+					//this.banDoc.addMessage(msg, this.ID_ERR_IBAN);			
+				}
+			}
+
+
+
+			// NON USIAMO MAI IL TIPO SCOR (NON ABBIAMO NE NUMERO FATTURA NE NUMERO CLIENTE)
+			// SI PUO LASCIARE VIA..
+			
+			/*
+			if (userParam.qr_code_reference_type === "SCOR") {
+
+				var customerNumber = this.convertRfNumbers(invoiceObj.customer_info.number);
+				var invoiceNumber = this.convertRfNumbers(invoiceObj.document_info.number);
+
+				// Max length allowed Customer+Invoice numbers is 21
+				if (customerNumber.length + invoiceNumber.length > 21) {
+					qrcodeData.reference = "@error " + this.getErrorMessage(this.ID_ERR_CREDITORREFERENCE_LENGHT, langDoc, customerNumber+" + "+invoiceNumber);
+				}
+				else {
+					qrcodeData.reference = this.qrCreditorReference(customerNumber, invoiceNumber);
+				}
+				
+				// reference is false => it's not valid
+				if (!qrcodeData.reference) {
+					qrcodeData.reference = "@error " + this.getErrorMessage(this.ID_ERR_CREDITORREFERENCE, langDoc);
+					//var msg = this.getErrorMessage(this.ID_ERR_CREDITORREFERENCE, langDoc);
+					//this.banDoc.addMessage(msg, this.ID_ERR_CREDITORREFERENCE);
+				}
+			}
+			*/
+		}
+
+		/* Currency and amount */
+		qrcodeData.currency = userParam.currency.toUpperCase();
+		qrcodeData.amount = userParam.billing_info_total_to_pay;
+		if (!qrcodeData.amount || Banana.SDecimal.sign(qrcodeData.amount) < 0) {
+			qrcodeData.amount = "0.00";
+		}
+
+
+		/* Creditor (Payable to) */
+		qrcodeData.creditorAddressType = "K";
+		qrcodeData.creditorName = "";
+		qrcodeData.creditorAddress1 = "";
+		qrcodeData.creditorAddress2 = "";
+		qrcodeData.creditorPostalcode = "";
+		qrcodeData.creditorCity = "";
+		qrcodeData.creditorCountry = "";
+
+		var supplierBusinessName = userParam.supplier_info_business_name;
+		if (supplierBusinessName) {
+			supplierBusinessName = supplierBusinessName.trim();
+		}
+		
+		if (supplierBusinessName) {
+			qrcodeData.creditorName += supplierBusinessName;
+		} else {
+			if (userParam.supplier_info_first_name) {
+				qrcodeData.creditorName += userParam.supplier_info_first_name.trim();
+			}
+			if (userParam.supplier_info_last_name) {
+				qrcodeData.creditorName += " " + userParam.supplier_info_last_name.trim();
+			}		
+		}
+		qrcodeData.creditorName = qrcodeData.creditorName.trim();
+
+		if (userParam.supplier_info_address1) {
+			qrcodeData.creditorAddress1 = userParam.supplier_info_address1.trim();
+		}
+		if (userParam.supplier_info_address2) {
+			qrcodeData.creditorAddress2 = userParam.supplier_info_address2.trim();
+		}
+		if (userParam.supplier_info_postal_code) {
+			qrcodeData.creditorPostalcode = userParam.supplier_info_postal_code.trim();
+		}
+		if (userParam.supplier_info_city) {
+			qrcodeData.creditorCity = userParam.supplier_info_city.trim();
+		}
+		if (userParam.supplier_info_country_code) {
+			qrcodeData.creditorCountry = userParam.supplier_info_country_code.toUpperCase().trim();
+		}
+
+		//Replace the default values using the "Payable to" address parameters
+		//If "Payable to" address is selected we use structured type address, otherwise combined address.
+		if (userParam.qr_code_payable_to) {
+
+			//Reset all values before using parameters to avoid default values are used
+			qrcodeData.creditorName = "";
+			qrcodeData.creditorAddress1 = "";
+			qrcodeData.creditorAddress2 = "";
+			qrcodeData.creditorPostalcode = "";
+			qrcodeData.creditorCity = "";
+			qrcodeData.creditorCountry = "";
+			qrcodeData.creditorAddressType = "S";
+
+			if (userParam.qr_code_creditor_name) {
+				qrcodeData.creditorName = userParam.qr_code_creditor_name.trim();
+			}
+			if (userParam.qr_code_creditor_address1) {
+				qrcodeData.creditorAddress1 = userParam.qr_code_creditor_address1.trim();
+			}
+			if (userParam.qr_code_creditor_address2) {
+				qrcodeData.creditorAddress2 = userParam.qr_code_creditor_address2.trim();
+			}
+			if (userParam.qr_code_creditor_postalcode) {
+				qrcodeData.creditorPostalcode = userParam.qr_code_creditor_postalcode.trim();
+			}
+			if (userParam.qr_code_creditor_city) {
+				qrcodeData.creditorCity = userParam.qr_code_creditor_city.trim();
+			}
+			if (userParam.qr_code_creditor_country) {
+				qrcodeData.creditorCountry = userParam.qr_code_creditor_country.toUpperCase().trim();
+			}
+		}
+		
+
+		if (!qrcodeData.creditorName) {
+			qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_NAME, langDoc);
+			//var msg = this.getErrorMessage(this.ID_ERR_CREDITOR_NAME, langDoc);
+			//this.banDoc.addMessage(msg, this.ID_ERR_CREDITOR_NAME);	
+		}
+		if (!qrcodeData.creditorAddress1) {
+			//creditorAddress1 can ben empty
+			//qrcodeData.creditorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_ADDRESS1, langDoc);
+			//var msg = this.getErrorMessage(this.ID_ERR_CREDITOR_ADDRESS1, langDoc);
+			//this.banDoc.addMessage(msg, this.ID_ERR_CREDITOR_ADDRESS1);	
+		}
+		if (!qrcodeData.creditorPostalcode) {
+			qrcodeData.creditorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_POSTALCODE, langDoc);
+			//var msg = this.getErrorMessage(this.ID_ERR_CREDITOR_POSTALCODE, langDoc);
+			//this.banDoc.addMessage(msg, this.ID_ERR_CREDITOR_POSTALCODE);	
+		}
+		if (!qrcodeData.creditorCity) {
+			qrcodeData.creditorCity = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_CITY, langDoc);
+			//var msg = this.getErrorMessage(this.ID_ERR_CREDITOR_CITY, langDoc);
+			//this.banDoc.addMessage(msg, this.ID_ERR_CREDITOR_CITY);	
+		}
+		if (!qrcodeData.creditorCountry) {
+			qrcodeData.creditorCountry = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_COUNTRY, langDoc);
+			//var msg = this.getErrorMessage(this.ID_ERR_CREDITOR_COUNTRY, langDoc);
+			//this.banDoc.addMessage(msg, this.ID_ERR_CREDITOR_COUNTRY);
+		}
+		else if (!isValidCountryCode(qrcodeData.creditorCountry)) {
+			qrcodeData.creditorCountry = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_COUNTRY_WRONG, langDoc);
+			//var msg = this.getErrorMessage(this.ID_ERR_CREDITOR_COUNTRY_WRONG, langDoc);
+			//this.banDoc.addMessage(msg, this.ID_ERR_CREDITOR_COUNTRY_WRONG);
+		}
+
+
+		/* 
+			Additional information => unstructured message (es. Order of 15 June 2020) 
+		*/
+		if (qrcodeData.amount === "0.00") { //when amount is 0, add only additional info with text "NOT TO PAY.."
+			qrcodeData.additionalInformation = "";
+			if(!userParam.qr_code_empty_amount) { //only if "Empty amount" option is false
+				qrcodeData.additionalInformation = texts.notUseForPayment;
+			}
+			qrcodeData.billingInformation = "";
+		} 
+		else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor
+			qrcodeData.additionalInformation = this.qrAdditionalInformationDirect(userParam.qr_code_additional_information);
+			qrcodeData.billingInformation = "";
+		}
+		else { //add both additional and billing information
+			qrcodeData.additionalInformation = this.qrAdditionalInformationDirect(userParam.qr_code_additional_information);
+			qrcodeData.billingInformation = "";
+		}
+		
+		// Additional and billing inforomation must be together max 140 characters.
+		// We cut the unstructured Additional information with "..." at the end
+		var str = qrcodeData.additionalInformation + qrcodeData.billingInformation;
+		if (str.length > 140) {
+			str = str.split("//");
+			var addInfo = str[0];
+			var billInfo = "//"+str[1];
+			qrcodeData.additionalInformation = addInfo.substring(0, (137-(billInfo.length)))+ "...";
+		}
+
+		/* Debtor (Payable by) */
+		qrcodeData.debtorAddressType = "K";
+		qrcodeData.debtorName = "";
+		qrcodeData.debtorAddress1 = "";
+		qrcodeData.debtorAddress2 = "";
+		qrcodeData.debtorPostalcode = "";
+		qrcodeData.debtorCity = "";
+		qrcodeData.debtorCountry = "";
+
+		if (userParam.qr_code_debtor_address_type) {
+			qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
+		}
+
+		if (userParam.customer_address_name) {
+			qrcodeData.debtorName += userParam.customer_address_name;
+		}
+		if (userParam.customer_address_address) {
+			qrcodeData.debtorAddress1 = userParam.customer_address_address;
+		}
+		if (userParam.customer_address_house_number) {
+			qrcodeData.debtorAddress2 = userParam.customer_address_house_number;
+		}
+		if (userParam.customer_address_postal_code) {
+			qrcodeData.debtorPostalcode = userParam.customer_address_postal_code;
+		}
+		if (userParam.customer_address_locality) {
+			qrcodeData.debtorCity = userParam.customer_address_locality;
+		}
+		if (userParam.customer_address_country_code) {
+			qrcodeData.debtorCountry = userParam.customer_address_country_code.toUpperCase().trim(); 
+		}
+
+		Banana.application.showMessages(false); //disable dialog message notifications; only show in Messages panel
+		if (!qrcodeData.debtorName && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_NAME, langDoc);
+			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_NAME, langDoc);
+			// 	var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+			// 	if (row) {
+			// 		row.addMessage(msg, this.ID_ERR_DEBTOR_NAME);
+			// 	}
+		}
+		if (!qrcodeData.debtorAddress1) {
+			//debtorAddress1 can ben empty
+		}
+		if (!qrcodeData.debtorPostalcode && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_POSTALCODE, langDoc);
+			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_POSTALCODE, langDoc);
+			// 	var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+			// 	if (row) {
+			// 		row.addMessage(msg, this.ID_ERR_DEBTOR_POSTALCODE);
+			// 	}
+		}
+		if (!qrcodeData.debtorCity && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorCity = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_CITY, langDoc);
+			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_CITY, langDoc);
+				// var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+				// if (row) {
+				// 	row.addMessage(msg, this.ID_ERR_DEBTOR_CITY);
+				// }
+		}
+		if (!qrcodeData.debtorCountry && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorCountry = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY, langDoc);
+			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY, langDoc);
+				// var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+				// if (row) {
+				// 	row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY);
+				// }
+		}
+		else if (!isValidCountryCode(qrcodeData.debtorCountry) && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorCountry = "@error " + this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY_WRONG, langDoc);
+			var msg = this.getErrorMessage(this.ID_ERR_DEBTOR_COUNTRY_WRONG, langDoc);
+				// var row = this.banDoc.table("Contacts").findRowByValue("RowId",invoiceObj.customer_info.number);
+				// if (row) {
+				// 	row.addMessage(msg, this.ID_ERR_DEBTOR_COUNTRY_WRONG);
+				// }
+		}
+
+		/* Further information */
+		qrcodeData.furtherInformation1 = "";//"UV;UltraPay005;12345";
+		qrcodeData.furtherInformation2 = "";//"XY;XYService;54321";
+
+
+		return qrcodeData;
+	}
+
+
+	/**
+	 * Prints the QR section directly from the qrcodeData object, without the invoiceObj
+	 */
+	printQRCodeDirect(repDocObj, repStyleObj, userParam) {
+
+		//Banana.console.log(JSON.stringify(userParam, "", " "));
+
+		var langDoc = userParam.language.toLowerCase();
+		
+		// QR Code only for CHF and EUR
+		if (userParam.currency.toLowerCase() === "chf" || userParam.currency.toLowerCase() === "eur")
+		{
+			// 1. Get the QR Code texts for different languages
+			var texts = this.getQrCodeTexts(langDoc);
+
+			// 2. Define the QR-Bill type, based on user settings choices
+			this.defineQrBillType(userParam);
+
+			// 3. Get the QR Code data that will be used to create the image and the receipt/payment slip
+			var qrcodeData = this.getQrCodeDataDirect(userParam, texts, langDoc);
+
+			// 4. Create the QR Code image
+			var qrcodeText = this.createTextQrImage(qrcodeData, texts);
+			var qrCodeSvgImage = this.createQrImage(qrcodeText, langDoc);
+
+			// 5. Create the QR Code form report
+			if (qrCodeSvgImage) {
+				this.createQrForm(repDocObj, qrcodeData, qrCodeSvgImage, userParam, texts);
+			}
+
+			// 6. Apply QR Code styles to the report
+			this.applyQRCodeStyle(repStyleObj, userParam);
+		}
+		else 
+		{
+			var msg = this.getErrorMessage(this.ID_ERR_CURRENCY, langDoc);
+			if (this.banDoc) {
+				this.banDoc.addMessage(msg, this.ID_ERR_CURRENCY);
+			} else {
+				throw new Error(msg + " (" + this.ID_ERR_QRCODE + ")");
+			}
+
+			return;
+		}
+	}
+
 
 }
