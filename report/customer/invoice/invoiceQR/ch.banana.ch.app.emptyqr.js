@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-03-18
+// @pubdate = 2022-03-21
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-Fattura senza importo e indirizzo
@@ -99,8 +99,6 @@ function exec(string) {
     
     var report = Banana.Report.newReport("QR-Bill report");
 
-
-
     // Clone the object
     var reportParam = JSON.parse(JSON.stringify(userParam));
 
@@ -108,64 +106,8 @@ function exec(string) {
     reportParam = Object.assign(reportParam, qrSettings);
 
     //Banana.console.log(JSON.stringify(reportParam, "", " "));
-
-
-
-    //faccio un clone dei parametri "reportParam"
-    //quì dentro vado a impostare/cambiare con tutti i valori presi da userParam, invoiceObj e qrSettings
-    //=>in modo che poi posso usare solo quello per stampare la fattura (non ho più bisogno di userParam, invoiceObj e qrSettings)
-    //faccio due funzioni: una per stampare singolarmente, e una per stampare piu righe dalla tabella
-
-
     
-
-    
-    /*
-    if (stampa dati tabella) // piu righe 
-
-      for (passo tutti i dati della tabella) {
-
-          inizializzo reportParam con i dati della tabella
-
-          reportParam.table = {};
-          reportParam.table.name = '';
-          reportParam.table.street = '';
-          ...
-
-          reportParam.table[nomeColonna] = '';
-
-
-          //riempire l'oggetto reportParam le colonne della tabella, anche quelle personalizzate
-          //API javascript, usare la funzione che mi restituisce tutte le colonne della tabella
-
-
-          reportParam.total_amount = valore nella tabella
-          reportParam.additional_information = valore nella tabella
-          //.. anche gli altri, da sostituire con i valori delle colonne tabella
-
-          //Stampa report solo se cè un importo
-          //se nella tabella ci sono importi nulli non stampare
-          if (!reportParam.print_amount || (reportParam.print_amount && reportParam.total_amount > 0) ) {
-            printReport(Banana.document, report, stylesheet, qrSettings, invoiceObj, reportParam); //stampa piu righe
-          }
-
-
-          
-
-    }
-    else {
-      //stampa singolo
-      printReportSingle(Banana.document, report, stylesheet, qrSettings, invoiceObj, reportParam); //stampa singolo
-    }
-    */
-
-
-
-
-
     printReportSingle(Banana.document, report, stylesheet, texts, reportParam);
-
-
 
     Banana.Report.preview(report, stylesheet);
   }

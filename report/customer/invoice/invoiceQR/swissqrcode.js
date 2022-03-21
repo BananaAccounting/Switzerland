@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2022-02-21 */
+/* Script update: 2022-03-21 */
 
 
 
@@ -1317,8 +1317,8 @@ var QRBill = class QRBill {
 			}
 			qrcodeData.billingInformation = "";
 		} 
-		else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor
-			qrcodeData.additionalInformation = this.qrAdditionalInformation(invoiceObj, userParam.qr_code_additional_information);
+		else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor, add only billing information
+			qrcodeData.additionalInformation = "";
 			if (userParam.qr_code_billing_information) {
 				qrcodeData.billingInformation = this.qrBillingInformation(invoiceObj);
 			} else {
