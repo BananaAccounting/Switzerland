@@ -1,0 +1,70 @@
+/* CSS update: 2022-03-22  */
+
+@page {
+  margin-top: 0cm;
+  margin-bottom: 0cm;
+  margin-left: 0cm;
+  margin-right: 0cm;
+}
+
+body {
+  font-family: $font_family;
+  font-size: $font_size;
+}
+
+.sender-address {
+   font-size: $font_size;
+   margin-top: 2cm;
+   margin-left: 2cm;
+   position: absolute;
+}
+
+.customer-address {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left:12.3cm;
+   position:absolute;
+}
+
+.tableCustomerAddress {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left: 12.3cm;
+   position: absolute;
+}
+
+.date-with-addresses {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left: 2cm;
+   position: absolute
+}
+
+.date-without-addresses {
+   font-size: $font_size;
+   margin-top: 2cm;
+   margin-left: 2cm;
+   position:absolute
+}
+
+.letter-with-addresses {
+   margin-top: 8cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+   position:absolute
+}
+
+.letter-without-addresses {
+   margin-top: 2cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+   position: absolute
+}
+
+.letter-with-date {
+   margin-top: 4cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+   position: absolute
+}
+

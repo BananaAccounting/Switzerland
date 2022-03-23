@@ -155,6 +155,20 @@ ReportEmptyQr.prototype.testReport = function() {
   Test.logger.addSubSection("Test 24: 'Payable by' Address, no amount");
   this.add_test_non_24(banDoc);
 
+  //Test additional information
+
+  //Test letter, sender address
+
+  //Test letter, customer address
+
+  //Test letter, date
+
+  //Test letter, free text
+
+  //Test letter, total amount
+
+  
+
 }
 
 ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
