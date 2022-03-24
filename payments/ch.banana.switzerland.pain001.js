@@ -1377,7 +1377,7 @@ Pain001Switzerland.prototype.saveTransferFile = function (inData) {
         else {
             // Banana.IO.openUrl(fileName);
         }
-        return true;
+        return fileName;
     }
     return false;
 }
@@ -2000,8 +2000,9 @@ var JsAction = class JsAction {
             return null;
 
         var pain001CH = new Pain001Switzerland(Banana.document);
-        if (pain001CH.saveTransferFile(xml))
-            return true;
+        var exportedFileName = pain001CH.saveTransferFile(xml);
+        if (exportedFileName)
+            return exportedFileName;
         return false;
     }
 
