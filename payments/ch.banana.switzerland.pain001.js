@@ -2275,13 +2275,26 @@ var JsAction = class JsAction {
             return null;
 
         var table = this.banDocument.table(tabPos.tableName);
-        if (tabPos.tableName !== "Transactions") {
+        if (!table || tabPos.tableName !== "Transactions") {
             return null;
         }
 
+        // reads QRCode
         var paymentObj = pain001CH.scanCode(code);
+        if (!paymentObj)
+            return null;
+
         //uuid is set by updateRow() and corresponds to the row uuid
-        paymentObj["transactionDate"] = pain001CH.currentDate();
+        //loads transaction date and description from row
+        var row = null;
+        if (tabPos.rowNr < table.rowCount) {
+            row = table.row(tabPos.rowNr);
+            if (row)
+                this._rowGetDoc(paymentObj, row);
+        }
+
+        if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
+            paymentObj["transactionDate"] = pain001CH.currentDate();
 
         var dialogTitle = 'Payment data';
         var pageAnchor = 'dlgPaymentData';
@@ -2343,8 +2356,6 @@ var JsAction = class JsAction {
             paymentObj = pain001CH.initPaymData();
         }
 
-        //Banana.console.debug("updateRow, columnName " + tabPos.columnName + " uuid:" + uuid);
-
         var changedRowFields = {};
         if (tabPos.columnName === "Amount" || tabPos.columnName === "AmountCurrency"
             || tabPos.columnName === "Expenses") {
@@ -2394,7 +2405,7 @@ var JsAction = class JsAction {
             var displayMsg = true;
             paymentObj = pain001CH.validatePaymObject(paymentObj, tabPos, displayMsg);
 
-            //Uuid is set to a new value by copying or duplicating row
+            //update Uuid according to row uuid
             paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2421,7 +2432,7 @@ var JsAction = class JsAction {
             //verify all data
             paymentObj = pain001CH.validatePaymObject(paymentObj);
 
-            //Uuid is set to a new value by copying or duplicating row
+            //update Uuid according to row uuid
             paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2437,6 +2448,11 @@ var JsAction = class JsAction {
             //Doc and dates
             this._rowSetDoc(paymentObj, changedRowFields);
 
+            //Fix uuid if it is empty or different from row uuid
+            if (!paymentObj["@uuid"] || paymentObj["@uuid"].length <= 0) {
+                paymentObj["@uuid"] = row.uuid;
+                changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+            }
         }
 
         // Create docChange
