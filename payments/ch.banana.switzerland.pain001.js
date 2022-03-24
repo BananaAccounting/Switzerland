@@ -1422,6 +1422,11 @@ Pain001Switzerland.prototype.scanCode = function (code) {
 
     var paymentObj = this.initPaymData();
 
+    // Remove 000026 prefix that appears when reading certain QR codes (ECI block)
+    if (swissQRCodeData.QRType.startsWith('\\000026')) {
+        swissQRCodeData.QRType = swissQRCodeData.QRType.substr(7);
+    }
+
     if (swissQRCodeData.QRType === "SPC" && swissQRCodeData.Version === "0200") {
         paymentObj.methodId = this.ID_PAYMENT_QRCODE;
         paymentObj.creditorIban = swissQRCodeData.Account;
