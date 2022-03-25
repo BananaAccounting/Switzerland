@@ -13,7 +13,17 @@
 // limitations under the License.
 
 
-/* Script update: 2020-03-10 */
+var AMPERSAND = '&';
+var APOS = "'"; 
+var GREATERTHAN = ">"; 
+var LOWERTHAN = "<"; 
+var QUOTE = '"';
+var ESCAPED_QUOTE = {  };
+ESCAPED_QUOTE[AMPERSAND] = '&amp;';
+ESCAPED_QUOTE[APOS] = '&apos;';
+ESCAPED_QUOTE[GREATERTHAN] = '&gt;';
+ESCAPED_QUOTE[LOWERTHAN] = '&lt;';
+ESCAPED_QUOTE[QUOTE] = '&quot;';
 
 
 /*
@@ -123,5 +133,39 @@ function isSwissCountry(input) {
 }
 
 
-
-
+function _escapeString(_string) {
+    if (!_string)
+      return "";
+    var string = _string.toString()
+    var re = new RegExp(AMPERSAND,'g');
+    string = string.replace(re, ESCAPED_QUOTE[AMPERSAND]);
+    re = new RegExp(GREATERTHAN,'g');
+    string = string.replace(re, ESCAPED_QUOTE[GREATERTHAN]);
+    re = new RegExp(LOWERTHAN,'g');
+    string = string.replace(re, ESCAPED_QUOTE[LOWERTHAN]);
+    re = new RegExp(APOS,'g');
+    string = string.replace(re, ESCAPED_QUOTE[APOS]);
+    re = new RegExp(QUOTE,'g');
+    string = string.replace(re, ESCAPED_QUOTE[QUOTE]);
+    string = string.trim();
+    return string;
+  }
+  
+  function _unescapeString(_string) {
+    if (!_string)
+      return "";
+    var string = _string.toString()
+    var re = new RegExp(ESCAPED_QUOTE[AMPERSAND],'g');
+    string = string.replace(re, AMPERSAND);
+    re = new RegExp(ESCAPED_QUOTE[GREATERTHAN],'g');
+    string = string.replace(re, GREATERTHAN);
+    re = new RegExp(ESCAPED_QUOTE[LOWERTHAN],'g');
+    string = string.replace(re, LOWERTHAN);
+    re = new RegExp(ESCAPED_QUOTE[APOS],'g');
+    string = string.replace(re, APOS);
+    re = new RegExp(ESCAPED_QUOTE[QUOTE],'g');
+    string = string.replace(re, QUOTE);
+    string = string.trim();
+    return string;
+  }
+  

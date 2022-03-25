@@ -770,13 +770,8 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
     // Payment Information Identification unique inside msg
     var msgInfId = "PmtInfId";
-    if (paymentObj["@title"].length > 0) {
+    if (paymentObj["@title"] && paymentObj["@title"].length > 0)
         msgInfId = paymentObj["@title"];
-        if (msgInfId.indexOf(" ") > 0)
-            msgInfId = msgInfId.replace(/ /g, '');
-        if (msgInfId.length > 35)
-            msgInfId.substring(0, 35);
-    }
 
     // Create message's header <GrpHdr>
     var groupHeader = new GroupHeader(msgId);
@@ -853,7 +848,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             counter += id.toString();
             if (counter.length > 7)
                 counter = counter.substr(0, 7);
-            var currentMsgInfId = msgInfId;
+            var currentMsgInfId = _formatSWIFTString(msgInfId);
             if (currentMsgInfId.length > 28)
                 currentMsgInfId = currentMsgInfId.substr(0, 28);
             currentMsgInfId += counter;
