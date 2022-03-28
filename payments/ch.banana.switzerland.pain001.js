@@ -769,9 +769,9 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     var msgId = this.formatUuid(paymentObj["@uuid"]);
 
     // Payment Information Identification unique inside msg
-    var msgInfId = "PmtInfId";
+    var pmtInfId = "PmtInfId";
     if (paymentObj["@title"] && paymentObj["@title"].length > 0)
-        msgInfId = paymentObj["@title"];
+        pmtInfId = paymentObj["@title"];
 
     // Create message's header <GrpHdr>
     var groupHeader = new GroupHeader(msgId);
@@ -831,13 +831,14 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
         for (var i = 0; i < executionDates.length; i++) {
 
-            // msgInfId max length 35 - length of counter
+            // pmtInfIdUnique for at least 3 months
+            // pmtInfId max length 35 - length of counter
             
             // counter -000, -001, ....
             /*var id = h * 100 + i;
             var zero = 3 - id.toString().length + 1;
             var counter = Array(+(zero > 0 && zero)).join("0") + id;
-            var currentMsgInfId = msgInfId + "-" + counter;*/
+            var currentPmtInfId = pmtInfId + "-" + counter;*/
             
             // counter: yymmdd1, yymmdd2, ....
             var id = h;
@@ -848,13 +849,13 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             counter += id.toString();
             if (counter.length > 7)
                 counter = counter.substr(0, 7);
-            var currentMsgInfId = _formatSWIFTString(msgInfId);
-            if (currentMsgInfId.length > 28)
-                currentMsgInfId = currentMsgInfId.substr(0, 28);
-            currentMsgInfId += counter;
+            var currentPmtInfId = _formatSWIFTString(pmtInfId);
+            if (currentPmtInfId.length > 28)
+                currentPmtInfId = currentPmtInfId.substr(0, 28);
+            currentPmtInfId += counter;
 
             var payment = new PaymentInformation(
-                currentMsgInfId, // Payment Information Identification unique inside msg
+                currentPmtInfId, // Payment Information Identification unique inside msg
                 cleanIBAN(paymentObj.debtorIban), // IBAN the money is transferred from
                 paymentObj.debtorBic,  // BIC
                 paymentObj.debtorName, // Debtor Name
