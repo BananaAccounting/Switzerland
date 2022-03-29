@@ -1581,18 +1581,6 @@ function _formatDateTime(date) {
 }
 
 /**
-     * Remove special characters from string
-     */
- function _formatSWIFTString(_string) {
-    if (!_string)
-      return "";
-    var str = _string.toString();
-    str = str.replace(/ /g, "-");
-    str = str.replace(/[^a-zA-Z0-9-]/g, "");
-    return str;
-}
-
-/**
      * Format a time to hh:mm:ss
      */
 function _formatTime(time) {

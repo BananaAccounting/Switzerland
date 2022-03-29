@@ -769,9 +769,11 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     var msgId = this.formatUuid(paymentObj["@uuid"]);
 
     // Payment Information Identification unique inside msg
-    var pmtInfId = "PmtInfId";
-    if (paymentObj["@title"] && paymentObj["@title"].length > 0)
-        pmtInfId = paymentObj["@title"];
+    // max length 35, should be unique for at least 3 months
+    // example PAYMT-20220329093522
+    var pmtInfId = "PAYMT-" + this.currentDateTime();
+    /*if (paymentObj["@title"] && paymentObj["@title"].length > 0)
+        pmtInfId = paymentObj["@title"];*/
 
     // Create message's header <GrpHdr>
     var groupHeader = new GroupHeader(msgId);
@@ -831,28 +833,15 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
         for (var i = 0; i < executionDates.length; i++) {
 
-            // pmtInfIdUnique for at least 3 months
-            // pmtInfId max length 35 - length of counter
-            
             // counter -000, -001, ....
-            /*var id = h * 100 + i;
-            var zero = 3 - id.toString().length + 1;
-            var counter = Array(+(zero > 0 && zero)).join("0") + id;
-            var currentPmtInfId = pmtInfId + "-" + counter;*/
-            
-            // counter: yymmdd1, yymmdd2, ....
-            var id = h;
-            var counter = executionDates[i];
-            counter = counter.replace(/-/g, '');
-            if (counter.length == 8)
-                counter = counter.substr(2);
-            counter += id.toString();
-            if (counter.length > 7)
-                counter = counter.substr(0, 7);
-            var currentPmtInfId = _formatSWIFTString(pmtInfId);
-            if (currentPmtInfId.length > 28)
-                currentPmtInfId = currentPmtInfId.substr(0, 28);
-            currentPmtInfId += counter;
+            var id = h * 100 + i;
+            id = this.zeroPad(id, 3);
+
+            var currentPmtInfId = pmtInfId;
+            if (currentPmtInfId.length > 31)
+                currentPmtInfId = currentPmtInfId.substr(0, 31);
+            currentPmtInfId += "-" + id.toString();
+            currentPmtInfId = _swiftString(currentPmtInfId);
 
             var payment = new PaymentInformation(
                 currentPmtInfId, // Payment Information Identification unique inside msg
@@ -958,6 +947,28 @@ Pain001Switzerland.prototype.currentDate = function () {
     if (this.isTest)
         datestring = "2020-07-01";
     return datestring;
+}
+
+Pain001Switzerland.prototype.currentDateTime = function () {
+    var m = new Date();
+    var year = m.getUTCFullYear();
+    var month = this.zeroPad((m.getUTCMonth() + 1), 2);
+    var day = m.getUTCDate();
+    var hours = this.zeroPad(m.getUTCHours().toString(), 2);
+    var minutes = this.zeroPad(m.getUTCMinutes().toString(), 2);
+    var seconds = this.zeroPad(m.getUTCSeconds().toString(), 2);
+    var milliseconds = this.zeroPad(m.getUTCMilliseconds().toString(), 3);
+    if (this.isTest) {
+        year = "2020";
+        month = "07";
+        day = "01";
+        hours = "10";
+        minutes = "50";
+        seconds = "00";
+        milliseconds = "123";
+    }
+    var dateString = year + month + day + hours + minutes + seconds + milliseconds;
+    return dateString;
 }
 
 Pain001Switzerland.prototype.formatUuid = function (uuid) {
@@ -1329,7 +1340,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
     return paymentObj;
 }
 
-Pain001Switzerland.prototype.saveTransferFile = function (inData) {
+Pain001Switzerland.prototype.saveTransferFile = function (inData, _fileName) {
     if (inData.length <= 0) {
         var msg = this.getErrorMessage(this.ID_ERR_MESSAGE_EMPTY, this.getLang());
         this.banDocument.addMessage(msg, this.ID_ERR_MESSAGE_EMPTY);
@@ -1337,16 +1348,9 @@ Pain001Switzerland.prototype.saveTransferFile = function (inData) {
     }
 
     //set filename according to PaymentInfo Tag
-    var fileName = "";
-    try {
-        var documentNode = Banana.Xml.parse(inData).firstChildElement('Document');
-        var transferFileNode = documentNode.firstChildElement('CstmrCdtTrfInitn');
-        fileName = transferFileNode.firstChildElement('PmtInf').firstChildElement('PmtInfId').text;
-        if (fileName.length > 0)
-            fileName += ".xml";
-    } catch (e) {
+    var fileName = _fileName;
+    if (!fileName)
         fileName = "";
-    }
 
     if (fileName.length <= 0 || !fileName) {
         fileName = "PAIN001_<Date>.xml";
@@ -1995,16 +1999,16 @@ var JsAction = class JsAction {
     /*
     * Save the xml pain file to the selected destination folder
     */
-    exportTransferFile(xml) {
+    exportTransferFile(xml, fileName) {
         var pain001CH = new Pain001Switzerland(Banana.document);
         if (!pain001CH.verifyBananaVersion())
-            return null;
+            return "";
 
         var pain001CH = new Pain001Switzerland(Banana.document);
-        var exportedFileName = pain001CH.saveTransferFile(xml);
+        var exportedFileName = pain001CH.saveTransferFile(xml, fileName);
         if (exportedFileName)
             return exportedFileName;
-        return false;
+        return "";
     }
 
     /**
@@ -2445,7 +2449,8 @@ var JsAction = class JsAction {
             this._rowSetDoc(paymentObj, changedRowFields);
 
             //Fix uuid if it is empty or different from row uuid
-            if (!paymentObj["@uuid"] || paymentObj["@uuid"].length <= 0) {
+            if (!paymentObj["@uuid"] || paymentObj["@uuid"] != row.uuid) {
+                Banana.console.debug("fixing uuid" +paymentObj["@uuid"]+ " "+row.uuid);
                 paymentObj["@uuid"] = row.uuid;
                 changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
             }
