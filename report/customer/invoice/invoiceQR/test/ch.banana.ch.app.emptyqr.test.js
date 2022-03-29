@@ -173,7 +173,7 @@ ReportEmptyQr.prototype.testReport = function() {
 
 ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   //var invoiceObj = initJSON(banDoc, userParam);
   var qrSettings = initQRSettings(userParam);
@@ -185,7 +185,7 @@ ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -194,7 +194,7 @@ ReportEmptyQr.prototype.add_test_non_1 = function(banDoc) {
 
 ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   //var invoiceObj = initJSON(banDoc, userParam);
   var qrSettings = initQRSettings(userParam);
@@ -206,7 +206,7 @@ ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -216,7 +216,7 @@ ReportEmptyQr.prototype.add_test_non_2 = function(banDoc) {
 // Without text
 ReportEmptyQr.prototype.add_test_non_3 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.print_text = false;
 
@@ -231,7 +231,7 @@ ReportEmptyQr.prototype.add_test_non_3 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -241,7 +241,7 @@ ReportEmptyQr.prototype.add_test_non_3 = function(banDoc) {
 // 'Payable to' Address/IBAN chf from File->Properties
 ReportEmptyQr.prototype.add_test_non_4 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   Banana.console.log(userParam.currency);
   //var invoiceObj = initJSON(banDoc, userParam);
@@ -254,7 +254,7 @@ ReportEmptyQr.prototype.add_test_non_4 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -264,7 +264,7 @@ ReportEmptyQr.prototype.add_test_non_4 = function(banDoc) {
 // 'Payable to' Address/IBAN eur from File->Properties
 ReportEmptyQr.prototype.add_test_non_5 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.currency = "EUR";
 
@@ -279,7 +279,7 @@ ReportEmptyQr.prototype.add_test_non_5 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -289,7 +289,7 @@ ReportEmptyQr.prototype.add_test_non_5 = function(banDoc) {
 // 'Payable to' Address/IBAN chf from extension settings
 ReportEmptyQr.prototype.add_test_non_6 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.sender_address_from_accounting = false;
   userParam.sender_address_name = 'Mario Rossi';
@@ -312,7 +312,7 @@ ReportEmptyQr.prototype.add_test_non_6 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -322,7 +322,7 @@ ReportEmptyQr.prototype.add_test_non_6 = function(banDoc) {
 // 'Payable to' Address/IBAN eur from extension settings
 ReportEmptyQr.prototype.add_test_non_7 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.sender_address_from_accounting = false;
   userParam.sender_address_name = 'Mario Rossi';
@@ -345,7 +345,7 @@ ReportEmptyQr.prototype.add_test_non_7 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -356,7 +356,7 @@ ReportEmptyQr.prototype.add_test_non_7 = function(banDoc) {
 // QR-IBAN is not allowed, returns error "Incorrect IBAN..."
 ReportEmptyQr.prototype.add_test_non_8 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.sender_address_from_accounting = false;
   userParam.sender_address_name = 'Mario Rossi';
@@ -379,7 +379,7 @@ ReportEmptyQr.prototype.add_test_non_8 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -389,7 +389,7 @@ ReportEmptyQr.prototype.add_test_non_8 = function(banDoc) {
 // Include amount 1234.56
 ReportEmptyQr.prototype.add_test_non_9 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = '1234.56';
@@ -405,7 +405,7 @@ ReportEmptyQr.prototype.add_test_non_9 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -415,7 +415,7 @@ ReportEmptyQr.prototype.add_test_non_9 = function(banDoc) {
 // Include amount 1234,56
 ReportEmptyQr.prototype.add_test_non_10 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = '1234,56';
@@ -431,7 +431,7 @@ ReportEmptyQr.prototype.add_test_non_10 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -441,7 +441,7 @@ ReportEmptyQr.prototype.add_test_non_10 = function(banDoc) {
 // Include amount 1'234.56
 ReportEmptyQr.prototype.add_test_non_11 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "1'234.56";
@@ -457,7 +457,7 @@ ReportEmptyQr.prototype.add_test_non_11 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -467,7 +467,7 @@ ReportEmptyQr.prototype.add_test_non_11 = function(banDoc) {
 // Include amount 1'234,56
 ReportEmptyQr.prototype.add_test_non_12 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "1'234,56";
@@ -483,7 +483,7 @@ ReportEmptyQr.prototype.add_test_non_12 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -493,7 +493,7 @@ ReportEmptyQr.prototype.add_test_non_12 = function(banDoc) {
 // Include amount 1234
 ReportEmptyQr.prototype.add_test_non_13 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "1234";
@@ -509,7 +509,7 @@ ReportEmptyQr.prototype.add_test_non_13 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -519,7 +519,7 @@ ReportEmptyQr.prototype.add_test_non_13 = function(banDoc) {
 // Include amount 1234.00
 ReportEmptyQr.prototype.add_test_non_14 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "1234.00";
@@ -535,7 +535,7 @@ ReportEmptyQr.prototype.add_test_non_14 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -545,7 +545,7 @@ ReportEmptyQr.prototype.add_test_non_14 = function(banDoc) {
 // Include amount 1234,00
 ReportEmptyQr.prototype.add_test_non_15 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "1234,00";
@@ -561,7 +561,7 @@ ReportEmptyQr.prototype.add_test_non_15 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -571,7 +571,7 @@ ReportEmptyQr.prototype.add_test_non_15 = function(banDoc) {
 // Include amount 0.00
 ReportEmptyQr.prototype.add_test_non_16 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "0.00";
@@ -587,7 +587,7 @@ ReportEmptyQr.prototype.add_test_non_16 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -597,7 +597,7 @@ ReportEmptyQr.prototype.add_test_non_16 = function(banDoc) {
 // Include amount 0,00
 ReportEmptyQr.prototype.add_test_non_17 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "0,00";
@@ -613,7 +613,7 @@ ReportEmptyQr.prototype.add_test_non_17 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -623,7 +623,7 @@ ReportEmptyQr.prototype.add_test_non_17 = function(banDoc) {
 // Include amount 0
 ReportEmptyQr.prototype.add_test_non_18 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "0";
@@ -639,7 +639,7 @@ ReportEmptyQr.prototype.add_test_non_18 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -649,7 +649,7 @@ ReportEmptyQr.prototype.add_test_non_18 = function(banDoc) {
 // Include empty amount
 ReportEmptyQr.prototype.add_test_non_19 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = true;
   userParam.total_amount = "";
@@ -665,7 +665,7 @@ ReportEmptyQr.prototype.add_test_non_19 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -675,7 +675,7 @@ ReportEmptyQr.prototype.add_test_non_19 = function(banDoc) {
 // Amount but excluded
 ReportEmptyQr.prototype.add_test_non_20 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.amount_include = false;
   userParam.total_amount = "1234.56";
@@ -691,7 +691,7 @@ ReportEmptyQr.prototype.add_test_non_20 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -701,7 +701,7 @@ ReportEmptyQr.prototype.add_test_non_20 = function(banDoc) {
 // Include amount 1234.56 eur
 ReportEmptyQr.prototype.add_test_non_21 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.currency = "EUR";
   userParam.amount_include = true;
@@ -718,7 +718,7 @@ ReportEmptyQr.prototype.add_test_non_21 = function(banDoc) {
   reportParam = Object.assign(reportParam, qrSettings);
 
   var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -729,7 +729,7 @@ ReportEmptyQr.prototype.add_test_non_21 = function(banDoc) {
 // Everything from extension settings
 ReportEmptyQr.prototype.add_test_non_22 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.sender_address_from_accounting = false;
   userParam.sender_address_name = 'Mario Rossi';
@@ -762,7 +762,7 @@ ReportEmptyQr.prototype.add_test_non_22 = function(banDoc) {
 
   //var report = Banana.Report.newReport("QR-Bill report");
     var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -772,7 +772,7 @@ ReportEmptyQr.prototype.add_test_non_22 = function(banDoc) {
 // 'Payable by' Address, Include amount 1234.56 chf
 ReportEmptyQr.prototype.add_test_non_23 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.customer_address_include = true;
   userParam.customer_address_name = 'Giovanni Verdi';
@@ -796,7 +796,7 @@ ReportEmptyQr.prototype.add_test_non_23 = function(banDoc) {
 
   //var report = Banana.Report.newReport("QR-Bill report");
     var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');
@@ -806,7 +806,7 @@ ReportEmptyQr.prototype.add_test_non_23 = function(banDoc) {
 // 'Payable by' Address, no amount
 ReportEmptyQr.prototype.add_test_non_24 = function(banDoc) {
 
-  var texts = setTexts('en');
+  
   var userParam = initUserParam();
   userParam.customer_address_include = true;
   userParam.customer_address_name = 'Giovanni Verdi';
@@ -828,7 +828,7 @@ ReportEmptyQr.prototype.add_test_non_24 = function(banDoc) {
 
   //var report = Banana.Report.newReport("QR-Bill report");
     var report = Banana.Report.newReport("QR-Bill report");
-  printReportSingle(banDoc, report, "", texts, reportParam);
+  printReportSingle(banDoc, report, "", reportParam);
   Test.logger.addReport("",report);
   
   var text = getQRCodeText(banDoc, reportParam, "", 'en');

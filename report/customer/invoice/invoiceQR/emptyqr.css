@@ -1,4 +1,4 @@
-/* CSS update: 2022-03-22  */
+/* CSS update: 2022-03-29  */
 
 @page {
   margin-top: 0cm;
@@ -19,6 +19,20 @@ body {
    position: absolute;
 }
 
+.date {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left: 2cm;
+   position: absolute;
+}
+
+.date-without-addresses {
+   font-size: $font_size;
+   margin-top: 2cm;
+   margin-left: 2cm;
+   position:absolute;
+}
+
 .customer-address {
    font-size: $font_size;
    margin-top: 4.5cm;
@@ -26,45 +40,21 @@ body {
    position:absolute;
 }
 
-.tableCustomerAddress {
-   font-size: $font_size;
-   margin-top: 4.5cm;
-   margin-left: 12.3cm;
-   position: absolute;
-}
-
-.date-with-addresses {
-   font-size: $font_size;
-   margin-top: 4.5cm;
-   margin-left: 2cm;
-   position: absolute
-}
-
-.date-without-addresses {
-   font-size: $font_size;
-   margin-top: 2cm;
-   margin-left: 2cm;
-   position:absolute
-}
-
-.letter-with-addresses {
+.letter {
    margin-top: 8cm;
    margin-left: 2cm;
    margin-right: 1.5cm;
-   position:absolute
 }
 
-.letter-without-addresses {
+.letter-without-addresses-and-date {
    margin-top: 2cm;
    margin-left: 2cm;
    margin-right: 1.5cm;
-   position: absolute
 }
 
-.letter-with-date {
+.letter-without-addresses {
    margin-top: 4cm;
    margin-left: 2cm;
    margin-right: 1.5cm;
-   position: absolute
 }
 

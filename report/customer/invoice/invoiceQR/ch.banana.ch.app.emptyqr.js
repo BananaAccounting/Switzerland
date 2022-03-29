@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-03-22
+// @pubdate = 2022-03-29
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-Fattura senza importo e indirizzo
@@ -71,7 +71,9 @@ function exec(string) {
   var isCurrentBananaVersionSupported = bananaRequiredVersion(BAN_VERSION, BAN_EXPM_VERSION);
   if (isCurrentBananaVersionSupported) {
 
-    /* 1. Initialize user parameters */
+    /**
+     * Initialize user parameters
+     */
     var userParam = initUserParam();
     var savedParam = Banana.document.getScriptSettings();
     if (savedParam && savedParam.length > 0) {
@@ -86,44 +88,55 @@ function exec(string) {
 
     var report = Banana.Report.newReport("QR-Bill report");
     var stylesheet = Banana.Report.newStyleSheet();
-    var texts = setTexts(userParam.language.toLowerCase());
-
     
-    var reportParam = {};
-    var rowObject = {};
 
-
-    //1. Print multiple/single report from table
+    /**
+     * Print multiple reports from table
+     */
     if (userParam.print_multiple_use_table) {
 
-      var rows = [];
-      rows = getRowsToPrint(userParam);
+      //Retrieve the rows to print
+      var rowsToPrint = [];
+      rowsToPrint = getRowsToPrint(userParam);
 
-      if (rows.length > 0) {
+      //Check and exclude the rows without amount and rows with the name that starts with *
+      rowsToPrint = checkRowsToPrint(rowsToPrint);
+
+      if (rowsToPrint.length > 0) {
         
-        for (var i = 0; i < rows.length; i++) {
+        for (var i = 0; i < rowsToPrint.length; i++) {
           
-          rowObject = getRowObject(userParam, rowObject, rows[i]);
-          //Banana.console.log(JSON.stringify(rowObject, "", " "));
-
-          reportParam = initReportMultiple(Banana.document, userParam, reportParam, rowObject, rows[i]);
-          //Banana.console.log(JSON.stringify(reportParam, "", " "));
-
-          printReportMultiple(Banana.document, report, stylesheet, texts, reportParam);
+          var rowObject = {};
+          rowObject = getRowObject(rowObject, rowsToPrint[i]);
           
+          var reportParam = {};
+          reportParam = initReportMultiple(Banana.document, userParam, reportParam, rowObject, rowsToPrint[i]);
+
+          printReportMultiple(Banana.document, report, stylesheet, reportParam, rowsToPrint[i]);
+
           // Page break at the end of all the pages (except the last)
-          if (i < rows.length-1) {
+          if (i < rowsToPrint.length-1) {
             report.addPageBreak();
           }
         }
       }
+      else {
+        return "@Cancel";
+      }
     }
 
+
+    /**
+     * Print single report from parameters
+     */
     else {
-      //2. Print single report
+
+      var reportParam = {};
       reportParam = initReportSingle(Banana.document, userParam, reportParam);
-      printReportSingle(Banana.document, report, stylesheet, texts, reportParam);
+      printReportSingle(Banana.document, report, stylesheet, reportParam);
+
     }
+
 
     // Set styles and preview
     setCss(Banana.document, stylesheet, reportParam);
@@ -131,13 +144,14 @@ function exec(string) {
   }
 }
 
-
 function getRowsToPrint(userParam) {
 
   /**
    * Returns an array with the rows number to print
+   * 1. retrieve rows entered in parameters
+   * 2. check these rows and exclude rows that cannot be printed (no amount, name starts with *)
    */
-  
+
   var rows = [];
 
   //List or rows ("1,2,3")
@@ -148,8 +162,8 @@ function getRowsToPrint(userParam) {
   //Range from .. to..  ("1-3")
   else if (userParam.print_multiple_rows.indexOf("-") > -1) {
     var tmpRows = userParam.print_multiple_rows.split("-");
-    var from = userParam.print_multiple_rows.split("-")[0];
-    var to = userParam.print_multiple_rows.split("-")[1];
+    var from = tmpRows[0];
+    var to = tmpRows[1];
     for (var i = from; i <= to; i++) {
       rows.push(i);
     }
@@ -162,14 +176,110 @@ function getRowsToPrint(userParam) {
 
   //All the rows ("*")
   else if (userParam.print_multiple_rows === "*") {
-    rows.push(userParam.print_multiple_rows);
+    var table = Banana.document.table('QRCode');
+    for (var i = 0; i < table.rowCount; i++) {
+      var tRow = table.row(i);
+      var indexRow = tRow.rowNr+1; //index rows start from 0
+      if (!tRow.isEmpty) {
+        rows.push(indexRow);
+      }
+    }
   }
 
   return rows;
 }
 
+function checkRowsToPrint(rows) {
 
-function getRowObject(userParam, reportParam, rows) {
+  /**
+   * Returns an array with the rows number to print
+   * 
+   * Check and exclude rows that cannot be printed:
+   * - rows with column Name that starts with "*"
+   * - rows with all Amount columns that are empty (no amounts)
+   */
+
+  var rowsToRemove = [];
+  var table = Banana.document.table('QRCode');
+  var tColumnNames = table.columnNames;
+
+  //
+  // 1. Check if the column Name starts with *
+  //    If so, exclude the row from the rows to print
+  //
+  for (var i = 0; i < table.rowCount; i++) {
+    var tRow = table.row(i);
+    var indexRow = tRow.rowNr+1; //index rows start from 0
+    if (!tRow.isEmpty) {
+      if (tRow.value("Name").startsWith("*")) {
+        rowsToRemove.push(indexRow);
+      }
+    }
+  }
+
+  //
+  // 2. Check if all the Amounts columns are empty (no amount)
+  //
+  //    - Take all the columns names that starts with "Amount" (XML value)
+  //    - In the table check that all these columns have a value
+  //    - If all the Amount column are empty (no amount) exclude the row from the rows to print
+  //
+  var columnsAmount = [];
+  for (var j = 0; j < tColumnNames.length; j++) {
+    if (tColumnNames[j].startsWith("Amount")) {
+      columnsAmount.push(tColumnNames[j]);
+    }
+  }
+
+  for (var i = 0; i < table.rowCount; i++) {
+    var tRow = table.row(i);
+    var indexRow = tRow.rowNr+1;
+
+    if (!tRow.isEmpty) {
+      var emptyColumnsAmount = [];
+      for (var j = 0; j < columnsAmount.length; j++) {
+        //Banana.console.log("riga " + indexRow + ": " + columnsAmount[j] + " = " + tRow.value(columnsAmount[j]));
+        if (!tRow.value(columnsAmount[j])) {
+          //if (emptyColumnsAmount.indexOf(indexRow) < 0) {
+            emptyColumnsAmount.push(indexRow);
+          //}
+        }
+      }
+      //Banana.console.log(emptyColumnsAmount);
+      if (emptyColumnsAmount.length === columnsAmount.length) {
+        //Banana.console.log("LENGTH: " + emptyColumnsAmount.length +" ?==? " + columnsAmount.length + " ..... remove row " + indexRow);
+        rowsToRemove.push(indexRow);
+      }
+    }
+  }
+
+  //Remove duplicates from array rowsToRemove
+  for (var i = 0; i < rowsToRemove.length; i++) {
+    for (var x = i+1; x < rowsToRemove.length; x++) {
+      if (rowsToRemove[x] === rowsToRemove[i]) {
+        rowsToRemove.splice(x,1);
+        --x;
+      }
+    }
+  }
+
+
+  //Banana.console.log("ROWS ENTERED BY USER: " + rows);
+  //Banana.console.log("ROWS TO REMOVE: " + rowsToRemove);
+
+  for (var i = 0; i < rowsToRemove.length; i++) {
+    if (rows.indexOf(rowsToRemove[i]) > -1) {
+      //Banana.console.log("... to remove.... " + rowsToRemove[i]);
+      rows.splice(rows.indexOf(rowsToRemove[i]), 1);
+    }
+  }
+  
+  //Banana.console.log("ROWS USED FOR CREATE THE REPORT: " + rows);
+
+  return rows;
+}
+
+function getRowObject(reportParam, rows) {
 
   /**
    * Creates row objects with the data from the table
@@ -181,39 +291,22 @@ function getRowObject(userParam, reportParam, rows) {
 
   // For each row defined in the parameters
   // Take the row from the table and create an object of the row
-  if (rows && rows !== "*") {
+  if (rows) {
 
     for (var i = 0; i < table.rowCount; i++) {
       
       var tRow = table.row(i);
       var indexRow = tRow.rowNr+1; //index rows start from 0
 
+      //not empty rows
       if (!tRow.isEmpty && indexRow == rows) {
-
         var row = {'row':indexRow};
         for (var j = 0; j < tColumnNames.length; j++) {
           row[tColumnNames[j]] = tRow.value(tColumnNames[j]);
         }
-        reportParam.table.push(row);
+        reportParam.table.push(row);          
       }
     }
-  }
-  
-  // * => print all the rows
-  // For each row of the table create an object
-  else if (rows === "*") {
-
-    for (var i = 0; i < table.rowCount; i++) {
-      var tRow = table.row(i);
-      var indexRow = tRow.rowNr+1; //index rows start from 0
-      if (!tRow.isEmpty) {
-        var row = {'row':indexRow};
-        for (var j = 0; j < tColumnNames.length; j++) {
-          row[tColumnNames[j]] = tRow.value(tColumnNames[j]);
-        }
-        reportParam.table.push(row);
-      }
-    }    
   }
 
   //Banana.console.log(JSON.stringify(reportParam, "", " "));
@@ -221,7 +314,11 @@ function getRowObject(userParam, reportParam, rows) {
   return reportParam;
 }
 
-  
+
+
+//
+// MULTIPLE REPORT WITH TABLE
+// 
 function initReportMultiple(banDoc, userParam, reportParam, rowObject, rows) {
 
   /* Initialize QR settings */
@@ -247,133 +344,168 @@ function initReportMultiple(banDoc, userParam, reportParam, rowObject, rows) {
   return reportParam;
 }
 
-
 function setCustomerAddressMultiple(userParam, qrSettings, rowObject, rows) {
 
-  var tableRows = rowObject.table;
-  for (var i = 0; i < tableRows.length; i++) {
+  //if (userParam.customer_address_include) {
 
-    if (tableRows[i].row == rows) {
+    var tableRows = rowObject.table;
+    for (var i = 0; i < tableRows.length; i++) {
 
-      //Initialize customer address
-      userParam.customer_address_name = tableRows[i].Name;
-      userParam.customer_address_address = tableRows[i].Street;
-      userParam.customer_address_house_number = tableRows[i].HouseNumber;
-      userParam.customer_address_postal_code = tableRows[i].ZIP;
-      userParam.customer_address_locality = tableRows[i].Locality;
-      userParam.customer_address_country_code = tableRows[i].CountryCode;
+      if (tableRows[i].row == rows) {
 
-      if (!userParam.customer_address_country_code) {
-        userParam.customer_address_country_code = "CH";
+        //Initialize customer address "Strucured type"
+        userParam.customer_address_prefix = tableRows[i].Prefix;
+        userParam.customer_address_name = tableRows[i].Name;
+        userParam.customer_address_address = tableRows[i].Street;
+        userParam.customer_address_house_number = tableRows[i].HouseNumber;
+        userParam.customer_address_postal_code = tableRows[i].ZIP;
+        userParam.customer_address_locality = tableRows[i].Locality;
+        userParam.customer_address_country_code = tableRows[i].CountryCode;
+        if (!userParam.customer_address_country_code) {
+          userParam.customer_address_country_code = "CH";
+        }
+
+        qrSettings.qr_code_empty_address = false;
+
+        if (tableRows[i].HouseNumber) {
+          qrSettings.qr_code_debtor_address_type = 'S';
+        }
       }
-
-      qrSettings.qr_code_empty_address = false;
-      qrSettings.qr_code_debtor_address_type = 'S';
     }
-  }
+  //}
 }
 
 function setAmountMultiple(userParam, qrSettings, rowObject, rows) {
 
-  var tableRows = rowObject.table;
-  
-  for (var i = 0; i < tableRows.length; i++) {
+  //if (userParam.amount_include) {
 
-    if (tableRows[i].row == rows) {
+    var tableRows = rowObject.table;
+    for (var i = 0; i < tableRows.length; i++) {
 
-      qrSettings.qr_code_empty_amount = false;
-      userParam.billing_info_total_to_pay = tableRows[i].Amount;
+      if (tableRows[i].row == rows) {
+
+        var totalToPay = "";
+
+        // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
+        var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
+          
+          // Property name starts with "Amount" and it's not empty
+          if (propertyName.indexOf("Amount") === 0 && tableRows[i][propertyName]) {
+            //Banana.console.log(propertyName + " : " + tableRows[i][propertyName]);
+            totalToPay = Banana.SDecimal.add(totalToPay, tableRows[i][propertyName]);
+          }
+        });
+
+        //Banana.console.log(totalToPay);
+        userParam.billing_info_total_to_pay = totalToPay; //;tableRows[i].Amount;
+        qrSettings.qr_code_empty_amount = false;
+
+        //Currency defined in QRtable, otherwise use CHF
+        if (tableRows[i].Currency) {
+          userParam.currency = tableRows[i].Currency;
+        }
+        else {
+          userParam.currency = "CHF";
+        }
+      }
     }
-  }
+  //}
 }
 
 function setAdditionalInformatioMultiple(userParam, qrSettings, rowObject, rows) {
 
-  var tableRows = rowObject.table;
-  
-  for (var i = 0; i < tableRows.length; i++) {
+  //if (userParam.print_additional_information) {
+
+    var tableRows = rowObject.table;
     
-    if (tableRows[i].row == rows) {
+    for (var i = 0; i < tableRows.length; i++) {
       
-      if (tableRows[i].AdditionalInformation) {
-        qrSettings.qr_code_additional_information = tableRows[i].AdditionalInformation;
-      }
-      else {
-        qrSettings.qr_code_additional_information = '';
+      if (tableRows[i].row == rows) {
+        
+        if (tableRows[i].AdditionalInformation) {
+          qrSettings.qr_code_additional_information = tableRows[i].AdditionalInformation;
+        }
+        else {
+          qrSettings.qr_code_additional_information = '';
+        }
       }
     }
-  }
+  //}
 }
 
+function printReportMultiple(banDoc, report, stylesheet, reportParam, row) {
 
-function printReportMultiple(banDoc, report, stylesheet, texts, reportParam) {
+  //Banana.console.log(JSON.stringify(reportParam, "", " "));
 
-  Banana.console.log(JSON.stringify(reportParam, "", " "));
+
+  // Set sections of the report
+  var sectionSenderAddress = report.addSection("sender-address");
+  
+  var sectionDate;
+  if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
+    sectionDate = report.addSection("date-without-addresses");
+  }
+  else {
+    sectionDate = report.addSection("date");
+  }
+
+  var sectionCustomerAddress = report.addSection("customer-address");
+  
+  var sectionLetter;
+  if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date) {
+    sectionLetter = report.addSection("letter-without-addresses-and-date");
+  }
+  else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date) {
+    sectionLetter = report.addSection("letter-without-addresses");
+  }
+  else {
+    sectionLetter = report.addSection("letter");
+  }
+
+
 
   // Print sender address
   if (reportParam.print_sender_address) {
-    var tableSenderAddress = report.addTable("sender-address");
-    tableRow = tableSenderAddress.addRow();
-    tableRow.addCell(reportParam.sender_address_name, "", 1);
-    tableRow = tableSenderAddress.addRow();
-    tableRow.addCell(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "", 1);
-    tableRow = tableSenderAddress.addRow();
-    tableRow.addCell(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "", 1);
-  }
-
-  // Print customer address
-  if (reportParam.print_customer_address && reportParam.customer_address_include) {
-    var tableCustomerAddress = report.addTable("customer-address");
-    tableRow = tableCustomerAddress.addRow();
-    tableRow.addCell(reportParam.customer_address_name, "", 1);
-    tableRow = tableCustomerAddress.addRow();
-    tableRow.addCell(reportParam.customer_address_address + " " + reportParam.customer_address_house_number, "", 1);
-    tableRow = tableCustomerAddress.addRow();
-    tableRow.addCell(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality, "", 1);
+    sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
+    sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+    sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
   }
 
   // Print date
   if (reportParam.print_date && reportParam.print_date_text) {
-    var tableDate = "";
-    if (reportParam.print_sender_address || reportParam.print_customer_address) {
-      tableDate = report.addTable("date-with-addresses");
-    } 
-    else {
-      tableDate = report.addTable("date-without-addresses");
+    sectionDate.addParagraph(reportParam.print_date_text, "");
+  }
+
+  // Print customer address
+  if (reportParam.print_customer_address) {
+
+    if (reportParam.customer_address_prefix) {
+      sectionCustomerAddress.addParagraph(reportParam.customer_address_prefix, "");
     }
-    tableRow = tableDate.addRow();
-    tableRow.addCell(reportParam.print_date_text, "", 1);
+
+    sectionCustomerAddress.addParagraph(reportParam.customer_address_name, "");
+    sectionCustomerAddress.addParagraph(reportParam.customer_address_address + " " + reportParam.customer_address_house_number, "");
+    sectionCustomerAddress.addParagraph(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality, "");
   }
 
   // Print letter text
   if (reportParam.print_text) {
 
-    var letterSection = report.addSection("letter-without-addresses");
-
-    if (reportParam.print_sender_address || reportParam.print_customer_address) {
-      letterSection = report.addSection("letter-with-addresses");
-    }
-    else if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date && !reportParam.print_date_text) {
-      letterSection = report.addSection("letter-without-addresses");
-    }
-    else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date && reportParam.print_date_text) {
-      letterSection = report.addSection("letter-with-date");
-    }
-    var paragraph = letterSection.addParagraph("","");
-    var textletter = convertFields(reportParam.print_msg_text, reportParam);
+    var paragraph = sectionLetter.addParagraph("","");
+    var textletter = convertFields(reportParam.print_msg_text, reportParam, row);
     addMdBoldText(paragraph, textletter);
   }
 
-
-  //========================
-  // 2. Print QRCode section
-  //========================
+  // Print QRCode section
   var qrBill = new QRBill(banDoc, reportParam);
   qrBill.printQRCodeDirect(report, stylesheet, reportParam);
-  
 }
 
-function initReportSingle(banDoc, userParam, reportParam) { //report, stylesheet, texts
+
+//
+// SINGLE REPORT
+//
+function initReportSingle(banDoc, userParam, reportParam) {
 
   /* Initialize QR settings */
   var qrSettings = initQRSettings(userParam);
@@ -394,72 +526,62 @@ function initReportSingle(banDoc, userParam, reportParam) { //report, stylesheet
   return reportParam;
 }
 
-function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
-  //================
-  // 1. Print letter
-  //================
+function printReportSingle(banDoc, report, stylesheet, reportParam) {
 
-  // if (reportParam.print_text && reportParam.print_msg_text) {}
+  // Set sections of the report
+  var sectionSenderAddress = report.addSection("sender-address");
+  
+  var sectionDate;
+  if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
+    sectionDate = report.addSection("date-without-addresses");
+  }
+  else {
+    sectionDate = report.addSection("date");
+  }
+
+  var sectionCustomerAddress = report.addSection("customer-address");
+  
+  var sectionLetter;
+  if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date) {
+    sectionLetter = report.addSection("letter-without-addresses-and-date");
+  }
+  else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date) {
+    sectionLetter = report.addSection("letter-without-addresses");
+  }
+  else {
+    sectionLetter = report.addSection("letter");
+  }
+
 
 
   // Print sender address
   if (reportParam.print_sender_address) {
-    var tableSenderAddress = report.addTable("sender-address");
-    tableRow = tableSenderAddress.addRow();
-    tableRow.addCell(reportParam.sender_address_name, "", 1);
-    tableRow = tableSenderAddress.addRow();
-    tableRow.addCell(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "", 1);
-    tableRow = tableSenderAddress.addRow();
-    tableRow.addCell(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "", 1);
-  }
-
-  // Print customer address
-  if (reportParam.print_customer_address && reportParam.customer_address_include) {
-    var tableCustomerAddress = report.addTable("customer-address");
-    tableRow = tableCustomerAddress.addRow();
-    tableRow.addCell(reportParam.customer_address_name, "", 1);
-    tableRow = tableCustomerAddress.addRow();
-    tableRow.addCell(reportParam.customer_address_address + " " + reportParam.customer_address_house_number, "", 1);
-    tableRow = tableCustomerAddress.addRow();
-    tableRow.addCell(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality, "", 1);
+    sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
+    sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+    sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
   }
 
   // Print date
   if (reportParam.print_date && reportParam.print_date_text) {
-    var tableDate = "";
-    if (reportParam.print_sender_address || reportParam.print_customer_address) {
-      tableDate = report.addTable("date-with-addresses");
-    } 
-    else {
-      tableDate = report.addTable("date-without-addresses");
-    }
-    tableRow = tableDate.addRow();
-    tableRow.addCell(reportParam.print_date_text, "", 1);
+    sectionDate.addParagraph(reportParam.print_date_text, "");
+  }
+
+  // Print customer address
+  if (reportParam.print_customer_address && reportParam.customer_address_include) {
+    sectionCustomerAddress.addParagraph(reportParam.customer_address_name, "");
+    sectionCustomerAddress.addParagraph(reportParam.customer_address_address + " " + reportParam.customer_address_house_number, "");
+    sectionCustomerAddress.addParagraph(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality, "");
   }
 
   // Print letter text
   if (reportParam.print_text) {
 
-    var letterSection = report.addSection("letter-without-addresses");
-
-    if (reportParam.print_sender_address || reportParam.print_customer_address) {
-      letterSection = report.addSection("letter-with-addresses");
-    }
-    else if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date && !reportParam.print_date_text) {
-      letterSection = report.addSection("letter-without-addresses");
-    }
-    else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date && reportParam.print_date_text) {
-      letterSection = report.addSection("letter-with-date");
-    }
-    var paragraph = letterSection.addParagraph("","");
-    var textletter = convertFields(reportParam.print_msg_text, reportParam);
+    var paragraph = sectionLetter.addParagraph("","");
+    var textletter = convertFields(reportParam.print_msg_text, reportParam, "");
     addMdBoldText(paragraph, textletter);
   }
 
-
-  //========================
-  // 2. Print QRCode section
-  //========================
+  // Print QRCode section
   var qrBill = new QRBill(banDoc, reportParam);
   qrBill.printQRCodeDirect(report, stylesheet, reportParam);
 }
@@ -550,6 +672,10 @@ function setAmount(userParam, qrSettings) {
   }
 }
 
+
+
+
+
 function initQRSettings(userParam) {
   /*
     Initialize the QR settings
@@ -593,18 +719,56 @@ function initQRSettings(userParam) {
   return qrSettings;
 }
 
-function convertFields(text, reportParam) {
+function convertFields(text, reportParam, row) {
+
+  //Banana.console.log(JSON.stringify(reportParam, "", " "));
 
   if (text.indexOf("<Currency>") > -1) {
     text = text.replace(/<Currency>/g, reportParam.currency);
   }
+
   if (text.indexOf("<Amount>") > -1) {
     var amount = Banana.Converter.toLocaleNumberFormat(reportParam.billing_info_total_to_pay,2,true);
     text = text.replace(/<Amount>/g, amount);
   }
 
+  if (reportParam.print_multiple_use_table && text.indexOf("<VariableText>") > -1 && row) {
+    var tableRows = reportParam.table;
+    for (var i = 0; i < tableRows.length; i++) {
+      if (tableRows[i].row == row) {
+        text = text.replace(/<VariableText>/g, tableRows[i].VariableText);
+      }
+    }
+  }
+
+  if (reportParam.print_multiple_use_table && text.indexOf("<Details>") > -1 && row) {
+    var tableRows = reportParam.table;
+    for (var i = 0; i < tableRows.length; i++) {
+      if (tableRows[i].row == row) {
+
+        var textDetails = "";
+
+        // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
+        var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
+          
+          // Property name starts with "Amount" and it's not empty
+          if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) { // startsWith
+            textDetails += " ● " + propertyName + ", " + tableRows[i][propertyName] + "\n";
+          }
+        });
+        //Remove last new line
+        var lastNewLine = textDetails.lastIndexOf('\n');
+        textDetails = textDetails.slice(0, lastNewLine) + textDetails.slice(lastNewLine + 1);
+
+        text = text.replace(/<Details>/g, textDetails);
+      }
+    }
+  }
+
   return text;
 }
+
+
 
 
 //
@@ -692,18 +856,6 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
-  // currentParam = {};
-  // currentParam.name = 'print_amount';
-  // currentParam.parentObject = 'include_letter';
-  // currentParam.title = texts.print_amount;
-  // currentParam.type = 'bool';
-  // currentParam.value = userParam.print_amount ? true : false;
-  // currentParam.defaultvalue = false;
-  // currentParam.readValue = function() {
-  //   userParam.print_amount = this.value;
-  // }
-  // convertedParam.data.push(currentParam);
-
 
 
   /*******************************************************************************************
@@ -717,6 +869,20 @@ function convertParam(userParam) {
   currentParam.editable = false;
   currentParam.readValue = function() {
     userParam.text = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Language
+  currentParam = {};
+  currentParam.name = 'language';
+  currentParam.parentObject = 'qrcode';
+  currentParam.title = texts.language;
+  currentParam.type = 'combobox';
+  currentParam.items = ["DE","EN","FR","IT"];
+  currentParam.value = userParam.language ? userParam.language : 'EN';
+  currentParam.defaultvalue = "EN";
+  currentParam.readValue = function() {
+    userParam.language = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -786,32 +952,127 @@ function convertParam(userParam) {
   convertedParam.data.push(currentParam);
 
 
+  /*******************************************************************************************
+  * SINGLE PRINT
+  *******************************************************************************************/
+  currentParam = {};
+  currentParam.name = 'print_single';
+  currentParam.title = texts.print_single;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.print_single = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
 
   /*******************************************************************************************
-  * CURRENCY and AMOUNT
+  * CUSTOMER ADDRESS
+  *******************************************************************************************/
+  currentParam = {};
+  currentParam.name = 'customer_address';
+  currentParam.parentObject = 'print_single';
+  currentParam.title = texts.customer_address;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.customer_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Name
+  currentParam = {};
+  currentParam.name = 'customer_address_name';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_name;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_name ? userParam.customer_address_name : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_name = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Address
+  currentParam = {};
+  currentParam.name = 'customer_address_address';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_address;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_address ? userParam.customer_address_address : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_address = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // House number
+  currentParam = {};
+  currentParam.name = 'customer_address_house_number';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_house_number;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_house_number ? userParam.customer_address_house_number : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_house_number = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Postal code
+  currentParam = {};
+  currentParam.name = 'customer_address_postal_code';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_postal_code;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_postal_code ? userParam.customer_address_postal_code : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_postal_code = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Locality
+  currentParam = {};
+  currentParam.name = 'customer_address_locality';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_locality;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_locality ? userParam.customer_address_locality : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_locality = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  // Country code
+  currentParam = {};
+  currentParam.name = 'customer_address_country_code';
+  currentParam.parentObject = 'customer_address';
+  currentParam.title = texts.customer_address_country_code;
+  currentParam.type = 'string';
+  currentParam.value = userParam.customer_address_country_code ? userParam.customer_address_country_code : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.customer_address_country_code = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
+  /*******************************************************************************************
+  * QR DATA: CURRENCY, AMOUNT, ADDITIONAL INFORMATION
   *******************************************************************************************/
   currentParam = {};
   currentParam.name = 'amount';
+  currentParam.parentObject = 'print_single';
   currentParam.title = texts.amount;
   currentParam.type = 'string';
   currentParam.value = '';
   currentParam.editable = false;
   currentParam.readValue = function() {
     userParam.amount = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  //Language
-  currentParam = {};
-  currentParam.name = 'language';
-  currentParam.parentObject = 'amount';
-  currentParam.title = texts.language;
-  currentParam.type = 'combobox';
-  currentParam.items = ["DE","EN","FR","IT"];
-  currentParam.value = userParam.language ? userParam.language : 'EN';
-  currentParam.defaultvalue = "EN";
-  currentParam.readValue = function() {
-    userParam.language = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -854,6 +1115,50 @@ function convertParam(userParam) {
     userParam.additional_information = this.value;
   }
   convertedParam.data.push(currentParam);
+
+
+  /*******************************************************************************************
+  * MULTIPLE PRINT FROM TABLE
+  *******************************************************************************************/
+  // Show the parameter only if the table 'QRCode' exists in the document
+  var tableNames = Banana.document.tableNames;
+  if (tableNames.indexOf("QRCode") > -1) {
+
+    var currentParam = {};
+    currentParam.name = 'print_multiple';
+    currentParam.title = texts.print_multiple;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.readValue = function() {
+      userParam.print_multiple = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = 'print_multiple_use_table';
+    currentParam.parentObject = 'print_multiple';
+    currentParam.title = texts.print_multiple_use_table;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.print_multiple_use_table ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.readValue = function() {
+      userParam.print_multiple_use_table = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = 'print_multiple_rows';
+    currentParam.parentObject = 'print_multiple';
+    currentParam.title = texts.print_multiple_rows;
+    currentParam.type = 'string';
+    currentParam.value = userParam.print_multiple_rows ? userParam.print_multiple_rows : '';
+    currentParam.defaultvalue = '';
+    currentParam.readValue = function() {
+     userParam.print_multiple_rows = this.value;
+    }
+    convertedParam.data.push(currentParam);
+  }
 
 
 
@@ -978,100 +1283,6 @@ function convertParam(userParam) {
 
 
   /*******************************************************************************************
-  * CUSTOMER ADDRESS
-  *******************************************************************************************/
-  currentParam = {};
-  currentParam.name = 'customer_address';
-  currentParam.title = texts.customer_address;
-  currentParam.type = 'string';
-  currentParam.value = '';
-  currentParam.editable = false;
-  currentParam.readValue = function() {
-    userParam.customer_address = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // Name
-  currentParam = {};
-  currentParam.name = 'customer_address_name';
-  currentParam.parentObject = 'customer_address';
-  currentParam.title = texts.customer_address_name;
-  currentParam.type = 'string';
-  currentParam.value = userParam.customer_address_name ? userParam.customer_address_name : '';
-  currentParam.defaultvalue = '';
-  currentParam.readValue = function() {
-    userParam.customer_address_name = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // Address
-  currentParam = {};
-  currentParam.name = 'customer_address_address';
-  currentParam.parentObject = 'customer_address';
-  currentParam.title = texts.customer_address_address;
-  currentParam.type = 'string';
-  currentParam.value = userParam.customer_address_address ? userParam.customer_address_address : '';
-  currentParam.defaultvalue = '';
-  currentParam.readValue = function() {
-    userParam.customer_address_address = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // House number
-  currentParam = {};
-  currentParam.name = 'customer_address_house_number';
-  currentParam.parentObject = 'customer_address';
-  currentParam.title = texts.customer_address_house_number;
-  currentParam.type = 'string';
-  currentParam.value = userParam.customer_address_house_number ? userParam.customer_address_house_number : '';
-  currentParam.defaultvalue = '';
-  currentParam.readValue = function() {
-    userParam.customer_address_house_number = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // Postal code
-  currentParam = {};
-  currentParam.name = 'customer_address_postal_code';
-  currentParam.parentObject = 'customer_address';
-  currentParam.title = texts.customer_address_postal_code;
-  currentParam.type = 'string';
-  currentParam.value = userParam.customer_address_postal_code ? userParam.customer_address_postal_code : '';
-  currentParam.defaultvalue = '';
-  currentParam.readValue = function() {
-    userParam.customer_address_postal_code = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // Locality
-  currentParam = {};
-  currentParam.name = 'customer_address_locality';
-  currentParam.parentObject = 'customer_address';
-  currentParam.title = texts.customer_address_locality;
-  currentParam.type = 'string';
-  currentParam.value = userParam.customer_address_locality ? userParam.customer_address_locality : '';
-  currentParam.defaultvalue = '';
-  currentParam.readValue = function() {
-    userParam.customer_address_locality = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // Country code
-  currentParam = {};
-  currentParam.name = 'customer_address_country_code';
-  currentParam.parentObject = 'customer_address';
-  currentParam.title = texts.customer_address_country_code;
-  currentParam.type = 'string';
-  currentParam.value = userParam.customer_address_country_code ? userParam.customer_address_country_code : '';
-  currentParam.defaultvalue = '';
-  currentParam.readValue = function() {
-    userParam.customer_address_country_code = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-
-
-  /*******************************************************************************************
   * DATE
   *******************************************************************************************/
   currentParam = {};
@@ -1162,48 +1373,7 @@ function convertParam(userParam) {
 
 
 
-  /*******************************************************************************************
-  * MULTIPLE PRINT FROM TABLE
-  *******************************************************************************************/
-  // Show the parameter only if the table 'QRCode' exists in the document
-  var tableNames = Banana.document.tableNames;
-  if (tableNames.indexOf("QRCode") > -1) {
 
-    var currentParam = {};
-    currentParam.name = 'print_multiple';
-    currentParam.title = texts.print_multiple;
-    currentParam.type = 'string';
-    currentParam.value = '';
-    currentParam.editable = false;
-    currentParam.readValue = function() {
-      userParam.print_multiple = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
-    currentParam = {};
-    currentParam.name = 'print_multiple_use_table';
-    currentParam.parentObject = 'print_multiple';
-    currentParam.title = texts.print_multiple_use_table;
-    currentParam.type = 'bool';
-    currentParam.value = userParam.print_multiple_use_table ? true : false;
-    currentParam.defaultvalue = false;
-    currentParam.readValue = function() {
-      userParam.print_multiple_use_table = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
-    currentParam = {};
-    currentParam.name = 'print_multiple_rows';
-    currentParam.parentObject = 'print_multiple';
-    currentParam.title = texts.print_multiple_rows;
-    currentParam.type = 'string';
-    currentParam.value = userParam.print_multiple_rows ? userParam.print_multiple_rows : '';
-    currentParam.defaultvalue = '';
-    currentParam.readValue = function() {
-     userParam.print_multiple_rows = this.value;
-    }
-    convertedParam.data.push(currentParam);
-  }
 
   return convertedParam;
 }
@@ -1216,7 +1386,6 @@ function initUserParam() {
   userParam.print_date_text = '';
   userParam.print_sender_address = false;
   userParam.print_customer_address = false;
-  // userParam.print_amount = false;
   userParam.print_additional_information = false;
   userParam.sender_address_from_accounting = true;
   userParam.sender_address_name = '';
@@ -1320,8 +1489,6 @@ function setTexts(language) {
     texts.print_customer_address = 'Indirizzo cliente';
     texts.print_date = 'Data';
     texts.print_text = 'Testo libero';
-    //texts.print_amount = 'Importo';
-
     texts.qrcode = 'Includi nel codice QR';
     texts.language = 'Lingua';
     texts.customer_address_include = 'Cliente';
@@ -1329,11 +1496,10 @@ function setTexts(language) {
     texts.additional_information = 'Informazioni aggiuntive';
     texts.print_separating_border = 'Bordo di separazione';
     texts.print_scissors_symbol = 'Simbolo forbici';
-
+    texts.print_single = 'Stampa singola';
     texts.amount = 'Dati QR';
     texts.currency = 'Moneta';
     texts.total_amount = 'Importo';
-
     texts.sender_address = 'Indirizzo mittente (Pagabile a)';
     texts.sender_address_from_accounting = 'Usa indrizzo contabilità';
     texts.sender_address_name = 'Nome';
@@ -1343,7 +1509,6 @@ function setTexts(language) {
     texts.sender_address_locality = 'Località';
     texts.sender_address_country_code = 'Codice nazione';
     texts.sender_address_iban = 'IBAN';
-
     texts.customer_address = 'Indirizzo cliente (Pagabile da)';
     texts.customer_address_name = 'Nome';
     texts.customer_address_address = 'Via';
@@ -1351,32 +1516,23 @@ function setTexts(language) {
     texts.customer_address_postal_code = 'Codice postale';
     texts.customer_address_locality = 'Località';
     texts.customer_address_country_code = 'Codice nazione';
-
     texts.print_date_text = 'Data';
-
     texts.print_msg_text = 'Testo libero lettera';
-
     texts.styles = 'Stili';
     texts.font_family = 'Tipo carattere';
     texts.font_size = 'Dimensione carattere';
-    texts.css = 'CSS';
-
-    texts.print_multiple = 'Stampa multipla';
-    texts.print_multiple_use_table = 'Usa dati da tabella';
-    texts.print_multiple_rows = 'Righe da stampare';
-
-    //texts.print_amount_text = 'Importo totale';
-    //texts.text = 'Testo lettera';
-    //texts.include_qrcode = 'Includi nel codice QR';
+    texts.css = 'CSS (Advanced)';
+    texts.print_multiple = 'Stampa con dati tabella (Advanced)';
+    texts.print_multiple_use_table = 'Usa righe tabella';
+    texts.print_multiple_rows = 'Righe da stampare (* tutte le righe)';
   }
   else if (language === 'fr') {
+    // DA TRADURRE
     texts.text = 'Texte';
     texts.print_text = 'Imprimer le texte';
     texts.print_msg_text = 'Notes en haut de la page';
     texts.print_sender_address = 'Imprimer adresse expéditeur';
     texts.print_customer_address = 'Imprimer adresse client';
-    // texts.print_amount = 'Imprimer montant';
-    // texts.print_amount_text = 'Total montant';
     texts.print_date = 'Imprimer la date';
     texts.print_date_text = 'Date';
     texts.sender_address = 'Adresse expéditeur (Payable à)';
@@ -1407,22 +1563,22 @@ function setTexts(language) {
     texts.print_scissors_symbol = 'Imprimer le symbole des ciseaux';
     texts.font_family = 'Type de caractère';
     texts.font_size = 'Taille des caractères';
-    texts.css = 'CSS';
+    texts.css = 'CSS (Advanced)';
     texts.include_letter = 'Inclure dans la vartre';
     texts.include_qrcode = 'Inclure dans le code QR';
     texts.styles = 'Styles';
     texts.print_multiple = 'Impression multiple';
     texts.print_multiple_use_table = 'Utiliser les données du tableau';
-    texts.print_multiple_rows = 'Lignes à imprimer';
+    texts.print_multiple_rows = 'Lignes à imprimer (* toutes les lignes) ';
+    texts.print_single = 'Impression unique';
   }
   else if (language === 'de') {
+    // DA TRADURRE
     texts.text = 'Text';
     texts.print_text = 'Text drucken';
     texts.print_msg_text = 'Anmerkungen am Anfang der Seite';
     texts.print_sender_address = 'Absenderadresse drucken';
     texts.print_customer_address = 'Kundenadresse ausdrucken';
-    // texts.print_amount = 'Betrag ausdrucken';
-    // texts.print_amount_text = 'Totalbetrag';
     texts.print_date = 'Datum drucken';
     texts.print_date_text = 'Datum';
     texts.sender_address = 'Absenderadresse (Zahlbar an)';
@@ -1453,24 +1609,32 @@ function setTexts(language) {
     texts.print_scissors_symbol = 'Scherensymbol drucken';
     texts.font_family = 'Schriftzeichen';
     texts.font_size = 'Schriftgrösse';
-    texts.css = 'CSS';
+    texts.css = 'CSS (Advanced)';
     texts.include_letter = 'In Brief einfügen';
     texts.include_qrcode = 'In QR-Code einbinden';
     texts.styles = 'Stile';
     texts.print_multiple = 'Mehrfaches Drucken';
     texts.print_multiple_use_table = 'Daten von der Tabelle verwenden';
-    texts.print_multiple_rows = 'Zeilen zum Drucken';
+    texts.print_multiple_rows = 'Zeilen zum Drucken (* alle Zeilen)';
+    texts.print_single = 'Einzeln drucken';
   }
   else {
-    texts.text = 'Text';
-    texts.print_text = 'Print text';
-    texts.print_msg_text = 'Notes at the top of the page';
-    texts.print_sender_address = 'Print sender address';
-    texts.print_customer_address = 'Print customer address';
-    // texts.print_amount = 'Print amount';
-    // texts.print_amount_text = 'Total amount';
-    texts.print_date = 'Print date';
-    texts.print_date_text = 'Date';
+    texts.include_letter = 'Include in letter';
+    texts.print_sender_address = 'Sender address';
+    texts.print_customer_address = 'Customer address';
+    texts.print_date = 'Date';
+    texts.print_text = 'Free text';
+    texts.qrcode = 'Include in QR code';
+    texts.language = 'Language';
+    texts.customer_address_include = 'Customer';
+    texts.amount_include = 'Amount';
+    texts.additional_information = 'Additional information';
+    texts.print_separating_border = 'Separating border';
+    texts.print_scissors_symbol = 'Scissors symbol';
+    texts.print_single = 'Single print';
+    texts.amount = 'QR data';
+    texts.currency = 'Currency';
+    texts.total_amount = 'Amount';
     texts.sender_address = 'Sender address (Payable to)';
     texts.sender_address_from_accounting = 'Use accounting address';
     texts.sender_address_name = 'Name';
@@ -1481,31 +1645,21 @@ function setTexts(language) {
     texts.sender_address_country_code = 'Country code';
     texts.sender_address_iban = 'IBAN';
     texts.customer_address = 'Customer address (Payable by)';
-    texts.customer_address_include = 'Include customer';
     texts.customer_address_name = 'Name';
     texts.customer_address_address = 'Street';
     texts.customer_address_house_number = 'House number';
     texts.customer_address_postal_code = 'Postal code';
     texts.customer_address_locality = 'Locality';
     texts.customer_address_country_code = 'Country code';
-    texts.amount = 'Currency/Amount';
-    texts.amount_include = 'Include amount';
-    texts.currency = 'Currency';
-    texts.total_amount = 'Amount';
-    texts.qrcode = 'QR Code';
-    texts.language = 'Language';
-    texts.additional_information = 'Additional information';
-    texts.print_separating_border = 'Print separating border';
-    texts.print_scissors_symbol = 'Print scissors symbol';
+    texts.print_date_text = 'Date';
+    texts.print_msg_text = 'Free letter text';
+    texts.styles = 'Styles';
     texts.font_family = 'Font family';
     texts.font_size = 'Font size';
-    texts.css = 'CSS';
-    texts.include_letter = 'Include in letter';
-    texts.include_qrcode = 'Include in QR Code';
-    texts.styles = 'Styles';
-    texts.print_multiple = 'Multiple printing';
-    texts.print_multiple_use_table = 'Use data from table';
-    texts.print_multiple_rows = 'Rows to print';
+    texts.css = 'CSS (Advanced)';
+    texts.print_multiple = 'Print with table data (Advanced)';
+    texts.print_multiple_use_table = 'Use table rows';
+    texts.print_multiple_rows = 'Rows to print (* all rows)';
   }
 
   return texts;
