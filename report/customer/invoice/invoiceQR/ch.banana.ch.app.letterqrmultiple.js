@@ -403,6 +403,10 @@ function setAmountMultiple(userParam, qrSettings, rowObject, rows) {
       });
 
       //Banana.console.log(totalToPay);
+
+      //Add a property with the total amount of all columns
+      tableRows[i].ColumnsAmountTotal = totalToPay;
+
       userParam.billing_info_total_to_pay = totalToPay; //;tableRows[i].Amount;
       qrSettings.qr_code_empty_amount = false;
 
@@ -550,8 +554,6 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
       var tableRows = reportParam.table;
       for (var i = 0; i < tableRows.length; i++) {
 
-        var totalToPay = "";
-
         // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
         var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
           
@@ -561,16 +563,13 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
             tableRow = table.addRow();
             tableRow.addCell(propertyName,"column1",1);
             tableRow.addCell(tableRows[i][propertyName],"column2",1);
-
-            //Banana.console.log(propertyName + " : " + tableRows[i][propertyName]);
-            totalToPay = Banana.SDecimal.add(totalToPay, tableRows[i][propertyName]);
           }
         });
 
         //Banana.console.log(totalToPay);
         tableRow = table.addRow("details-table-total");
         tableRow.addCell(texts.total + " " + reportParam.currency, "column1", 1);
-        tableRow.addCell(totalToPay, "column2", 1);
+        tableRow.addCell(tableRows[i].ColumnsAmountTotal, "column2", 1);
 
       }        
     
@@ -1244,15 +1243,9 @@ function setTexts(language) {
     texts.print_final_text = 'Testo finale';
     texts.qrcode = 'Includi nel codice QR';
     texts.language = 'Lingua';
-    // texts.customer_address_include = 'Cliente';
-    // texts.amount_include = 'Importo';
-    // texts.additional_information = 'Informazioni aggiuntive';
     texts.print_separating_border = 'Bordo di separazione';
     texts.print_scissors_symbol = 'Simbolo forbici';
     texts.print_single = 'Stampa singola';
-    // texts.amount = 'Dati QR';
-    // texts.currency = 'Moneta';
-    // texts.total_amount = 'Importo';
     texts.sender_address = 'Indirizzo mittente (Pagabile a)';
     texts.sender_address_from_accounting = 'Usa indrizzo contabilità';
     texts.sender_address_name = 'Nome';
@@ -1262,20 +1255,12 @@ function setTexts(language) {
     texts.sender_address_locality = 'Località';
     texts.sender_address_country_code = 'Codice nazione';
     texts.sender_address_iban = 'IBAN';
-    // texts.customer_address = 'Indirizzo cliente (Pagabile da)';
-    // texts.customer_address_name = 'Nome';
-    // texts.customer_address_address = 'Via';
-    // texts.customer_address_house_number = 'Numero civico';
-    // texts.customer_address_postal_code = 'Codice postale';
-    // texts.customer_address_locality = 'Località';
-    // texts.customer_address_country_code = 'Codice nazione';
     texts.print_date_text = 'Data';
     texts.styles = 'Stili';
     texts.font_family = 'Tipo carattere';
     texts.font_size = 'Dimensione carattere';
     texts.css = 'CSS';
     texts.print_multiple = 'Stampa con dati tabella';
-    //texts.print_multiple_use_table = 'Usa righe tabella';
     texts.print_multiple_rows = 'Righe da stampare (* tutte le righe)';
     texts.print_multiple_details = 'Includi dettagli';
     texts.description = 'Descrizione';
@@ -1411,15 +1396,9 @@ function setTexts(language) {
     texts.print_begin_text = 'Greetings';
     texts.qrcode = 'Include in QR code';
     texts.language = 'Language';
-    // texts.customer_address_include = 'Customer';
-    // texts.amount_include = 'Amount';
-    // texts.additional_information = 'Additional information';
     texts.print_separating_border = 'Separating border';
     texts.print_scissors_symbol = 'Scissors symbol';
     texts.print_single = 'Single print';
-    // texts.amount = 'QR data';
-    // texts.currency = 'Currency';
-    // texts.total_amount = 'Amount';
     texts.sender_address = 'Sender address (Payable to)';
     texts.sender_address_from_accounting = 'Use accounting address';
     texts.sender_address_name = 'Name';
@@ -1429,13 +1408,6 @@ function setTexts(language) {
     texts.sender_address_locality = 'Locality';
     texts.sender_address_country_code = 'Country code';
     texts.sender_address_iban = 'IBAN';
-    // texts.customer_address = 'Customer address (Payable by)';
-    // texts.customer_address_name = 'Name';
-    // texts.customer_address_address = 'Street';
-    // texts.customer_address_house_number = 'House number';
-    // texts.customer_address_postal_code = 'Postal code';
-    // texts.customer_address_locality = 'Locality';
-    // texts.customer_address_country_code = 'Country code';
     texts.print_date_text = 'Date';
     texts.print_final_text = 'Free letter text';
     texts.styles = 'Styles';
@@ -1443,7 +1415,6 @@ function setTexts(language) {
     texts.font_size = 'Font size';
     texts.css = 'CSS';
     texts.print_multiple = 'Print with table data';
-    // texts.print_multiple_use_table = 'Use table rows';
     texts.print_multiple_rows = 'Rows to print (* all rows)';
     texts.print_multiple_details = 'Include details';
     texts.description = 'Description';
