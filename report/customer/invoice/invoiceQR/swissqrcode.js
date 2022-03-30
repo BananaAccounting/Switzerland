@@ -2868,9 +2868,9 @@ var QRBill = class QRBill {
 
 
 	/**
-	 * Get the QR additional information defined in the given column.
+	 * Get the QR additional information as text
 	 */
-	qrAdditionalInformationDirect(column)
+	qrAdditionalInformationDirect(text)
 	{
 		/*
 		if (tabella) {
@@ -2881,14 +2881,7 @@ var QRBill = class QRBill {
 		}
 		*/
 
-		if (column.startsWith("*")) {
-
-			//prendere il testo e togliere il *
-			//nei parametri aggiungiamo manualmente il *
-
-			column = column.replace("*","");
-			return column;
-		}
+		return text;
 	}
 
 
