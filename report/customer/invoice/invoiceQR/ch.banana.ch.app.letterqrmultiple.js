@@ -78,14 +78,14 @@ function exec(string) {
     rowsToPrint = getRowsToPrint(userParam);
 
     //Check and exclude the rows without amount and rows with the name that starts with *
-    rowsToPrint = checkRowsToPrint(rowsToPrint);
+    rowsToPrint = checkRowsToPrint(Banana.document, rowsToPrint);
 
     if (rowsToPrint.length > 0) {
       
       for (var i = 0; i < rowsToPrint.length; i++) {
         
         var rowObject = {};
-        rowObject = getRowObject(rowObject, rowsToPrint[i]);
+        rowObject = getRowObject(Banana.document, rowObject, rowsToPrint[i]);
         
         var reportParam = {};
         reportParam = initReportMultiple(Banana.document, userParam, reportParam, rowObject, rowsToPrint[i]);
@@ -159,7 +159,7 @@ function getRowsToPrint(userParam) {
   return rows;
 }
 
-function checkRowsToPrint(rows) {
+function checkRowsToPrint(banDoc, rows) {
 
   /**
    * Returns an array with the rows number to print
@@ -170,7 +170,7 @@ function checkRowsToPrint(rows) {
    */
 
   var rowsToRemove = [];
-  var table = Banana.document.table('QRCode');
+  var table = banDoc.table('QRCode');
   var tColumnNames = table.columnNames;
 
   //
@@ -249,13 +249,13 @@ function checkRowsToPrint(rows) {
   return rows;
 }
 
-function getRowObject(reportParam, rows) {
+function getRowObject(banDoc, reportParam, rows) {
 
   /**
    * Creates row objects with the data from the table
    */
 
-  var table = Banana.document.table('QRCode');
+  var table = banDoc.table('QRCode');
   var tColumnNames = table.columnNames;
   reportParam.table = [];
 
