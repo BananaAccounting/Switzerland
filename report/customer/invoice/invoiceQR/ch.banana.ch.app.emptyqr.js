@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-03-29
+// @pubdate = 2022-03-30
 // @publisher = Banana.ch SA
 // @description = QR-bill with empty amount and address
 // @description.it = QR-Fattura senza importo e indirizzo
@@ -144,6 +144,10 @@ function exec(string) {
   }
 }
 
+
+//
+// MULTIPLE REPORT WITH TABLE
+// 
 function getRowsToPrint(userParam) {
 
   /**
@@ -314,11 +318,6 @@ function getRowObject(reportParam, rows) {
   return reportParam;
 }
 
-
-
-//
-// MULTIPLE REPORT WITH TABLE
-// 
 function initReportMultiple(banDoc, userParam, reportParam, rowObject, rows) {
 
   /* Initialize QR settings */
@@ -491,9 +490,67 @@ function printReportMultiple(banDoc, report, stylesheet, reportParam, row) {
   // Print letter text
   if (reportParam.print_text) {
 
+    // Print title
+    if (reportParam.print_title) {
+      var paragraph = sectionLetter.addParagraph("","");
+      var textTitle = convertFields(reportParam.print_title, reportParam, row);
+      paragraph.addText(textTitle, "title");
+      sectionLetter.addParagraph(" ","");
+      sectionLetter.addParagraph(" ","");
+    }
+
+    // Print details
+    if (reportParam.print_multiple_details) {
+
+      var paragraph = sectionLetter.addParagraph("","");
+
+      var table = paragraph.addTable("details-table");
+      var column1 = table.addColumn("column1");
+      var column2 = table.addColumn("column2");
+
+      var tableHeader = table.getHeader();
+      tableRow = tableHeader.addRow();  
+      tableRow.addCell("Description", "details-table-header",1);
+      tableRow.addCell("Amount", "details-table-header",1);
+
+      var tableRows = reportParam.table;
+      for (var i = 0; i < tableRows.length; i++) {
+
+        var totalToPay = "";
+
+        // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
+        var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
+          
+          // Property name starts with "Amount" and it's not empty
+          if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) {
+
+            tableRow = table.addRow();
+            tableRow.addCell(propertyName,"column1",1);
+            tableRow.addCell(tableRows[i][propertyName],"column2",1);
+
+            //Banana.console.log(propertyName + " : " + tableRows[i][propertyName]);
+            totalToPay = Banana.SDecimal.add(totalToPay, tableRows[i][propertyName]);
+          }
+        });
+
+        //Banana.console.log(totalToPay);
+        tableRow = table.addRow("details-table-total");
+        tableRow.addCell("Total " + reportParam.currency, "column1", 1);
+        tableRow.addCell(totalToPay, "column2", 1);
+
+      }        
+    
+      sectionLetter.addParagraph(" ","");
+      sectionLetter.addParagraph(" ","");
+    }
+
+
+
+
     var paragraph = sectionLetter.addParagraph("","");
     var textletter = convertFields(reportParam.print_msg_text, reportParam, row);
     addMdBoldText(paragraph, textletter);
+
   }
 
   // Print QRCode section
@@ -671,104 +728,6 @@ function setAmount(userParam, qrSettings) {
     userParam.billing_info_total_to_pay = amount;
   }
 }
-
-
-
-
-
-function initQRSettings(userParam) {
-  /*
-    Initialize the QR settings
-  */
-  var qrSettings = {};
-  
-  // Default settings
-  qrSettings.qr_code_add = true;
-  qrSettings.qr_code_reference_type = 'NON'
-  qrSettings.qr_code_qriban = '';
-  qrSettings.qr_code_iban = '';
-  qrSettings.qr_code_iban_eur = '';
-  qrSettings.qr_code_isr_id = '';
-  qrSettings.qr_code_payable_to = false;
-  qrSettings.qr_code_creditor_name = "";
-  qrSettings.qr_code_creditor_address1 = "";
-  qrSettings.qr_code_creditor_postalcode = "";
-  qrSettings.qr_code_creditor_city = "";
-  qrSettings.qr_code_creditor_country = "";
-  
-  qrSettings.qr_code_additional_information = '';
-  if (userParam.print_additional_information && userParam.additional_information && !userParam.print_multiple_use_table) {
-    qrSettings.qr_code_additional_information = userParam.additional_information;
-  }
-
-  qrSettings.qr_code_billing_information = false;
-  qrSettings.qr_code_empty_address = true;
-  qrSettings.qr_code_empty_amount = true;
-  qrSettings.qr_code_add_border_separator = true;
-  if (!userParam.print_separating_border) {
-    qrSettings.qr_code_add_border_separator = false;
-  }
-  qrSettings.qr_code_add_symbol_scissors = false;
-  if (userParam.print_scissors_symbol) {
-    qrSettings.qr_code_add_symbol_scissors = true;
-  }
-  qrSettings.qr_code_new_page = false;
-  qrSettings.qr_code_position_dX = '0';
-  qrSettings.qr_code_position_dY = '0';
-
-  return qrSettings;
-}
-
-function convertFields(text, reportParam, row) {
-
-  //Banana.console.log(JSON.stringify(reportParam, "", " "));
-
-  if (text.indexOf("<Currency>") > -1) {
-    text = text.replace(/<Currency>/g, reportParam.currency);
-  }
-
-  if (text.indexOf("<Amount>") > -1) {
-    var amount = Banana.Converter.toLocaleNumberFormat(reportParam.billing_info_total_to_pay,2,true);
-    text = text.replace(/<Amount>/g, amount);
-  }
-
-  if (reportParam.print_multiple_use_table && text.indexOf("<VariableText>") > -1 && row) {
-    var tableRows = reportParam.table;
-    for (var i = 0; i < tableRows.length; i++) {
-      if (tableRows[i].row == row) {
-        text = text.replace(/<VariableText>/g, tableRows[i].VariableText);
-      }
-    }
-  }
-
-  if (reportParam.print_multiple_use_table && text.indexOf("<Details>") > -1 && row) {
-    var tableRows = reportParam.table;
-    for (var i = 0; i < tableRows.length; i++) {
-      if (tableRows[i].row == row) {
-
-        var textDetails = "";
-
-        // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
-        var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
-          
-          // Property name starts with "Amount" and it's not empty
-          if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) { // startsWith
-            textDetails += " ● " + propertyName + ", " + tableRows[i][propertyName] + "\n";
-          }
-        });
-        //Remove last new line
-        var lastNewLine = textDetails.lastIndexOf('\n');
-        textDetails = textDetails.slice(0, lastNewLine) + textDetails.slice(lastNewLine + 1);
-
-        text = text.replace(/<Details>/g, textDetails);
-      }
-    }
-  }
-
-  return text;
-}
-
-
 
 
 //
@@ -1158,6 +1117,18 @@ function convertParam(userParam) {
      userParam.print_multiple_rows = this.value;
     }
     convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = 'print_multiple_details';
+    currentParam.parentObject = 'print_multiple';
+    currentParam.title = texts.print_multiple_details;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.print_multiple_details ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.readValue = function() {
+      userParam.print_multiple_details = this.value;
+    }
+    convertedParam.data.push(currentParam);
   }
 
 
@@ -1303,14 +1274,38 @@ function convertParam(userParam) {
   * FREE TEXT
   *******************************************************************************************/
   currentParam = {};
+  currentParam.name = 'print_title';
+  currentParam.parentObject = '';
+  currentParam.title = texts.print_title;
+  currentParam.type = 'String';
+  currentParam.value = userParam.print_title ? userParam.print_title : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.print_title = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
   currentParam.name = 'print_msg_text';
   currentParam.parentObject = '';
   currentParam.title = texts.print_msg_text;
   currentParam.type = 'multilinestring';
   currentParam.value = userParam.print_msg_text ? userParam.print_msg_text : '';
-  currentParam.defaultvalue = 'The QR payment part without address and amount is at the bottom of the page.';
+  currentParam.defaultvalue = '';
   currentParam.readValue = function() {
     userParam.print_msg_text = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'print_greetings';
+  currentParam.parentObject = '';
+  currentParam.title = texts.print_greetings;
+  currentParam.type = 'multilinestring';
+  currentParam.value = userParam.print_greetings ? userParam.print_greetings : '';
+  currentParam.defaultvalue = '';
+  currentParam.readValue = function() {
+    userParam.print_greetings = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -1380,7 +1375,9 @@ function convertParam(userParam) {
 
 function initUserParam() {
   var userParam = {};
-  userParam.print_msg_text = 'The QR payment part without address and amount is at the bottom of the page.';
+  userParam.print_title = '';
+  userParam.print_msg_text = '';
+  userParam.print_greetings = '';
   userParam.print_text = true;
   userParam.print_date = false;
   userParam.print_date_text = '';
@@ -1414,6 +1411,7 @@ function initUserParam() {
   userParam.css = '';
   userParam.print_multiple_use_table = false;
   userParam.print_multiple_rows = '';
+  userParam.print_multiple_details = false;
 
   return userParam;
 }
@@ -1475,6 +1473,49 @@ function settingsDialog() {
   return scriptform;
 }
 
+function initQRSettings(userParam) {
+  /*
+    Initialize the QR settings
+  */
+  var qrSettings = {};
+  
+  // Default settings
+  qrSettings.qr_code_add = true;
+  qrSettings.qr_code_reference_type = 'NON'
+  qrSettings.qr_code_qriban = '';
+  qrSettings.qr_code_iban = '';
+  qrSettings.qr_code_iban_eur = '';
+  qrSettings.qr_code_isr_id = '';
+  qrSettings.qr_code_payable_to = false;
+  qrSettings.qr_code_creditor_name = "";
+  qrSettings.qr_code_creditor_address1 = "";
+  qrSettings.qr_code_creditor_postalcode = "";
+  qrSettings.qr_code_creditor_city = "";
+  qrSettings.qr_code_creditor_country = "";
+  
+  qrSettings.qr_code_additional_information = '';
+  if (userParam.print_additional_information && userParam.additional_information && !userParam.print_multiple_use_table) {
+    qrSettings.qr_code_additional_information = userParam.additional_information;
+  }
+
+  qrSettings.qr_code_billing_information = false;
+  qrSettings.qr_code_empty_address = true;
+  qrSettings.qr_code_empty_amount = true;
+  qrSettings.qr_code_add_border_separator = true;
+  if (!userParam.print_separating_border) {
+    qrSettings.qr_code_add_border_separator = false;
+  }
+  qrSettings.qr_code_add_symbol_scissors = false;
+  if (userParam.print_scissors_symbol) {
+    qrSettings.qr_code_add_symbol_scissors = true;
+  }
+  qrSettings.qr_code_new_page = false;
+  qrSettings.qr_code_position_dX = '0';
+  qrSettings.qr_code_position_dY = '0';
+
+  return qrSettings;
+}
+
 
 //
 // TEXTS
@@ -1488,7 +1529,9 @@ function setTexts(language) {
     texts.print_sender_address = 'Indirizzo mittente';
     texts.print_customer_address = 'Indirizzo cliente';
     texts.print_date = 'Data';
+    texts.print_title = 'Titolo';
     texts.print_text = 'Testo libero';
+    texts.print_greetings = 'Saluti';
     texts.qrcode = 'Includi nel codice QR';
     texts.language = 'Lingua';
     texts.customer_address_include = 'Cliente';
@@ -1525,12 +1568,15 @@ function setTexts(language) {
     texts.print_multiple = 'Stampa con dati tabella (Advanced)';
     texts.print_multiple_use_table = 'Usa righe tabella';
     texts.print_multiple_rows = 'Righe da stampare (* tutte le righe)';
+    texts.print_multiple_details = 'Includi dettagli';
   }
   else if (language === 'fr') {
     // DA TRADURRE
     texts.text = 'Texte';
     texts.print_text = 'Imprimer le texte';
+    texts.print_title = 'Titre';
     texts.print_msg_text = 'Notes en haut de la page';
+    texts.print_greetings = 'Salutations';
     texts.print_sender_address = 'Imprimer adresse expéditeur';
     texts.print_customer_address = 'Imprimer adresse client';
     texts.print_date = 'Imprimer la date';
@@ -1571,11 +1617,14 @@ function setTexts(language) {
     texts.print_multiple_use_table = 'Utiliser les données du tableau';
     texts.print_multiple_rows = 'Lignes à imprimer (* toutes les lignes) ';
     texts.print_single = 'Impression unique';
+    texts.print_multiple_details = 'Inclure les détails';
   }
   else if (language === 'de') {
     // DA TRADURRE
     texts.text = 'Text';
+    texts.print_title = 'Titel';
     texts.print_text = 'Text drucken';
+    texts.print_greetings = 'Grussformel';
     texts.print_msg_text = 'Anmerkungen am Anfang der Seite';
     texts.print_sender_address = 'Absenderadresse drucken';
     texts.print_customer_address = 'Kundenadresse ausdrucken';
@@ -1617,13 +1666,16 @@ function setTexts(language) {
     texts.print_multiple_use_table = 'Daten von der Tabelle verwenden';
     texts.print_multiple_rows = 'Zeilen zum Drucken (* alle Zeilen)';
     texts.print_single = 'Einzeln drucken';
+    texts.print_multiple_details = 'Details einbeziehen';
   }
   else {
     texts.include_letter = 'Include in letter';
     texts.print_sender_address = 'Sender address';
     texts.print_customer_address = 'Customer address';
     texts.print_date = 'Date';
+    texts.print_title = 'Title';
     texts.print_text = 'Free text';
+    texts.print_greetings = 'Greetings';
     texts.qrcode = 'Include in QR code';
     texts.language = 'Language';
     texts.customer_address_include = 'Customer';
@@ -1660,9 +1712,68 @@ function setTexts(language) {
     texts.print_multiple = 'Print with table data (Advanced)';
     texts.print_multiple_use_table = 'Use table rows';
     texts.print_multiple_rows = 'Rows to print (* all rows)';
+    texts.print_multiple_details = 'Include details';
   }
 
   return texts;
+}
+
+function convertFields(text, reportParam, row) {
+
+  //Banana.console.log(JSON.stringify(reportParam, "", " "));
+
+  if (text.indexOf("<Currency>") > -1) {
+    text = text.replace(/<Currency>/g, reportParam.currency);
+  }
+
+  if (text.indexOf("<Amount>") > -1) {
+    var amount = Banana.Converter.toLocaleNumberFormat(reportParam.billing_info_total_to_pay,2,true);
+    text = text.replace(/<Amount>/g, amount);
+  }
+
+  if (reportParam.print_multiple_use_table && text.indexOf("<AdditionalInformation>") > -1 && row) {
+    var tableRows = reportParam.table;
+    for (var i = 0; i < tableRows.length; i++) {
+      if (tableRows[i].row == row) {
+        text = text.replace(/<AdditionalInformation>/g, tableRows[i].AdditionalInformation);
+      }
+    }
+  }
+
+  if (reportParam.print_multiple_use_table && text.indexOf("<VariableText>") > -1 && row) {
+    var tableRows = reportParam.table;
+    for (var i = 0; i < tableRows.length; i++) {
+      if (tableRows[i].row == row) {
+        text = text.replace(/<VariableText>/g, tableRows[i].VariableText);
+      }
+    }
+  }
+
+  if (reportParam.print_multiple_use_table && text.indexOf("<Details>") > -1 && row) {
+    var tableRows = reportParam.table;
+    for (var i = 0; i < tableRows.length; i++) {
+      if (tableRows[i].row == row) {
+
+        var textDetails = "";
+
+        // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
+        var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
+          
+          // Property name starts with "Amount" and it's not empty
+          if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) { // startsWith
+            textDetails += " ● " + propertyName + "\t" + tableRows[i][propertyName] + "\n";
+          }
+        });
+        //Remove last new line
+        var lastNewLine = textDetails.lastIndexOf('\n');
+        textDetails = textDetails.slice(0, lastNewLine) + textDetails.slice(lastNewLine + 1);
+
+        text = text.replace(/<Details>/g, textDetails);
+      }
+    }
+  }
+
+  return text;
 }
 
 

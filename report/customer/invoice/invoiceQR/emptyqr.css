@@ -58,3 +58,36 @@ body {
    margin-right: 1.5cm;
 }
 
+.title {
+   font-weight: bold;
+}
+
+.details-table {
+   
+}
+
+.details-table td {
+   border: thin solid black;
+}
+
+.details-table-header {
+   font-weight: bold;
+}
+
+.details-table-total {
+   font-weight: bold;
+}
+
+.column1 {
+  width: auto;
+}
+
+.column2 {
+  width: auto;
+  text-align: right;
+}
+
+.align-right {
+   text-align: right;
+}
+
