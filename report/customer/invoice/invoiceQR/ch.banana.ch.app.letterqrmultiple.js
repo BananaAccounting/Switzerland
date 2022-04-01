@@ -542,7 +542,7 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
     }
 
     // Print details
-    if (reportParam.print_multiple_details && !reportParam.print_multiple_empty_amount) {
+    if (reportParam.print_multiple_details) {
       printReportTableDetails(banDoc, report, sectionLetter, reportParam, row);
     }
 
@@ -802,6 +802,19 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  currentParam = {};
+  currentParam.name = 'print_multiple_empty_amount';
+  currentParam.parentObject = 'qrcode';
+  currentParam.title = texts.print_multiple_empty_amount;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_multiple_empty_amount ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_multiple_empty_amount = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
 
 
   /*******************************************************************************************
@@ -845,19 +858,6 @@ function convertParam(userParam) {
       userParam.print_multiple_details = this.value;
     }
     convertedParam.data.push(currentParam);
-
-    currentParam = {};
-    currentParam.name = 'print_multiple_empty_amount';
-    currentParam.parentObject = 'print_multiple';
-    currentParam.title = texts.print_multiple_empty_amount;
-    currentParam.type = 'bool';
-    currentParam.value = userParam.print_multiple_empty_amount ? true : false;
-    currentParam.defaultvalue = false;
-    currentParam.readValue = function() {
-      userParam.print_multiple_empty_amount = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
   }
 
 
