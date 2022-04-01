@@ -13,11 +13,11 @@
 // limitations under the License.
 //
 // @id = ch.banana.ch.app.letterqrmultiple
-// @api = 1.0
-// @pubdate = 2022-03-30
+// @api = 1.2.0
+// @pubdate = 2022-04-01
 // @publisher = Banana.ch SA
 // @description = QR-Bill with letter
-// @description.it = QR-Fattura con lettera
+// @description.it = Lettera più destinatari con bollettino QR Svizzera
 // @description.de = QR-Rechnung mit Brief
 // @description.fr = QR-Facture avec lettre
 // @description.en = QR-Bill with letter
@@ -39,8 +39,8 @@
 
 
 // Define the required version of Banana Accounting / Banana Dev Channel
-var BAN_VERSION = "10.0.1";
-var BAN_EXPM_VERSION = "";
+var BAN_VERSION = "10.0.12";
+var BAN_EXPM_VERSION = "22089";
 
 
 function exec(string) {
@@ -78,7 +78,7 @@ function exec(string) {
     rowsToPrint = getRowsToPrint(userParam);
 
     //Check and exclude the rows without amount and rows with the name that starts with *
-    rowsToPrint = checkRowsToPrint(Banana.document, rowsToPrint);
+    rowsToPrint = checkRowsToPrint(Banana.document, userParam, rowsToPrint);
 
     if (rowsToPrint.length > 0) {
       
@@ -126,7 +126,10 @@ function getRowsToPrint(userParam) {
 
   //List or rows ("1,2,3")
   if (userParam.print_multiple_rows.indexOf(",") > -1) {
-    rows = userParam.print_multiple_rows.split(",");
+    var tmpRows = userParam.print_multiple_rows.split(",");
+    for (var i = 0; i < tmpRows.length; i++) {
+      rows.push(Number(tmpRows[i]));
+    }
   }
 
   //Range from .. to..  ("1-3")
@@ -135,13 +138,13 @@ function getRowsToPrint(userParam) {
     var from = tmpRows[0];
     var to = tmpRows[1];
     for (var i = from; i <= to; i++) {
-      rows.push(i);
+      rows.push(Number(i));
     }
   }
 
   //Single row ("1", "2", "3")
   else if (userParam.print_multiple_rows.match(/^[0-9]+$/) !== null) {
-    rows.push(userParam.print_multiple_rows);
+    rows.push(Number(userParam.print_multiple_rows));
   }
 
   //All the rows ("*")
@@ -151,7 +154,7 @@ function getRowsToPrint(userParam) {
       var tRow = table.row(i);
       var indexRow = tRow.rowNr+1; //index rows start from 0
       if (!tRow.isEmpty) {
-        rows.push(indexRow);
+        rows.push(Number(indexRow));
       }
     }
   }
@@ -159,7 +162,7 @@ function getRowsToPrint(userParam) {
   return rows;
 }
 
-function checkRowsToPrint(banDoc, rows) {
+function checkRowsToPrint(banDoc, userParam, rows) {
 
   /**
    * Returns an array with the rows number to print
@@ -194,57 +197,55 @@ function checkRowsToPrint(banDoc, rows) {
   //    - In the table check that all these columns have a value
   //    - If all the Amount column are empty (no amount) exclude the row from the rows to print
   //
-  var columnsAmount = [];
-  for (var j = 0; j < tColumnNames.length; j++) {
-    if (tColumnNames[j].startsWith("Amount")) {
-      columnsAmount.push(tColumnNames[j]);
+  // Checks only when the "Exclude amount" parameter is false
+
+  if (!userParam.print_multiple_empty_amount) {
+
+    var columnsAmount = [];
+    for (var j = 0; j < tColumnNames.length; j++) {
+      if (tColumnNames[j].startsWith("Amount")) {
+        columnsAmount.push(tColumnNames[j]);
+      }
     }
-  }
 
-  for (var i = 0; i < table.rowCount; i++) {
-    var tRow = table.row(i);
-    var indexRow = tRow.rowNr+1;
+    for (var i = 0; i < table.rowCount; i++) {
+      var tRow = table.row(i);
+      var indexRow = tRow.rowNr+1;
 
-    if (!tRow.isEmpty) {
-      var emptyColumnsAmount = [];
-      for (var j = 0; j < columnsAmount.length; j++) {
-        //Banana.console.log("riga " + indexRow + ": " + columnsAmount[j] + " = " + tRow.value(columnsAmount[j]));
-        if (!tRow.value(columnsAmount[j])) {
-          //if (emptyColumnsAmount.indexOf(indexRow) < 0) {
+      if (!tRow.isEmpty) {
+        var emptyColumnsAmount = [];
+        for (var j = 0; j < columnsAmount.length; j++) {
+          if (!tRow.value(columnsAmount[j])) {
             emptyColumnsAmount.push(indexRow);
-          //}
+          }
+        }
+        //Banana.console.log(emptyColumnsAmount);
+        if (emptyColumnsAmount.length === columnsAmount.length) {
+          rowsToRemove.push(indexRow);
         }
       }
-      //Banana.console.log(emptyColumnsAmount);
-      if (emptyColumnsAmount.length === columnsAmount.length) {
-        //Banana.console.log("LENGTH: " + emptyColumnsAmount.length +" ?==? " + columnsAmount.length + " ..... remove row " + indexRow);
-        rowsToRemove.push(indexRow);
-      }
     }
-  }
 
-  //Remove duplicates from array rowsToRemove
-  for (var i = 0; i < rowsToRemove.length; i++) {
-    for (var x = i+1; x < rowsToRemove.length; x++) {
-      if (rowsToRemove[x] === rowsToRemove[i]) {
-        rowsToRemove.splice(x,1);
-        --x;
+    //Remove duplicates from array rowsToRemove
+    for (var i = 0; i < rowsToRemove.length; i++) {
+      for (var x = i+1; x < rowsToRemove.length; x++) {
+        if (rowsToRemove[x] === rowsToRemove[i]) {
+          rowsToRemove.splice(x,1);
+          --x;
+        }
       }
     }
+  
   }
 
 
-  //Banana.console.log("ROWS ENTERED BY USER: " + rows);
-  //Banana.console.log("ROWS TO REMOVE: " + rowsToRemove);
-
+  // Remove the rows that must be excluded from the print
   for (var i = 0; i < rowsToRemove.length; i++) {
     if (rows.indexOf(rowsToRemove[i]) > -1) {
       //Banana.console.log("... to remove.... " + rowsToRemove[i]);
       rows.splice(rows.indexOf(rowsToRemove[i]), 1);
     }
   }
-  
-  //Banana.console.log("ROWS USED FOR CREATE THE REPORT: " + rows);
 
   return rows;
 }
@@ -410,6 +411,10 @@ function setAmountMultiple(userParam, qrSettings, rowObject, rows) {
       userParam.billing_info_total_to_pay = totalToPay; //;tableRows[i].Amount;
       qrSettings.qr_code_empty_amount = false;
 
+      if (userParam.print_multiple_empty_amount) {
+        qrSettings.qr_code_empty_amount = true;
+      }
+
       //Currency defined in QRtable, otherwise use CHF
       if (tableRows[i].Currency) {
         userParam.currency = tableRows[i].Currency;
@@ -466,6 +471,7 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
   else {
     sectionLetter = report.addSection("letter");
   }
+
 
 
 
@@ -536,57 +542,77 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
     }
 
     // Print details
-    if (reportParam.print_multiple_details) {
-
-      var texts = setTexts(reportParam.language.toLowerCase());
-
-      var paragraph = sectionLetter.addParagraph("","");
-
-      var table = paragraph.addTable("details-table");
-      var column1 = table.addColumn("column1");
-      var column2 = table.addColumn("column2");
-
-      var tableHeader = table.getHeader();
-      tableRow = tableHeader.addRow();  
-      tableRow.addCell(texts.description, "details-table-header",1);
-      tableRow.addCell(texts.amount, "details-table-header",1);
-
-      var tableRows = reportParam.table;
-      for (var i = 0; i < tableRows.length; i++) {
-
-        // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
-        var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
-          
-          // Property name starts with "Amount" and it's not empty
-          if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) {
-
-            tableRow = table.addRow();
-            tableRow.addCell(propertyName,"column1",1);
-            tableRow.addCell(tableRows[i][propertyName],"column2",1);
-          }
-        });
-
-        //Banana.console.log(totalToPay);
-        tableRow = table.addRow("details-table-total");
-        tableRow.addCell(texts.total + " " + reportParam.currency, "column1", 1);
-        tableRow.addCell(tableRows[i].ColumnsAmountTotal, "column2", 1);
-
-      }        
-    
-      sectionLetter.addParagraph(" ","");
+    if (reportParam.print_multiple_details && !reportParam.print_multiple_empty_amount) {
+      printReportTableDetails(banDoc, report, sectionLetter, reportParam, row);
     }
 
     // Print final text
     if (reportParam.print_final_text) {
+
+      //var paragraph = sectionLetter.addParagraph("","");
+      //paragraph.addStructuredText(reportParam.print_final_text, "md");
+      
       var paragraph = sectionLetter.addParagraph("","");
       var textFinal = convertFields(reportParam.print_final_text, reportParam, row);
       addMdBoldText(paragraph, textFinal);
     }
   }
 
+  sectionLetter.addParagraph(" ","");
+
+
   // Print QRCode section
   var qrBill = new QRBill(banDoc, reportParam);
   qrBill.printQRCodeDirect(report, stylesheet, reportParam);
+}
+
+function printReportTableDetails(banDoc, report, sectionLetter, reportParam, row) {
+
+  var texts = setTexts(reportParam.language.toLowerCase());
+
+  var paragraph = sectionLetter.addParagraph("","");
+
+  var table = paragraph.addTable("details-table");
+  var column1 = table.addColumn("column1");
+  var column2 = table.addColumn("column2");
+
+  var tableHeader = table.getHeader();
+  tableRow = tableHeader.addRow();  
+  tableRow.addCell(texts.description, "details-table-header",1);
+  tableRow.addCell(texts.amount, "details-table-header",1);
+
+  var tableRows = reportParam.table;
+  for (var i = 0; i < tableRows.length; i++) {
+
+    // Check if the object has a property name that starts with "Amount" (columns Amount, Amount1, Amount2,...)
+    var propertyNames = Object.keys(tableRows[i]).filter(function (propertyName) {
+      
+      // Property name starts with "Amount" and it's not empty
+      if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) {
+
+        tableRow = table.addRow();
+        tableRow.addCell(replaceXmlNameWithHeaderDescription(banDoc, propertyName),"column1",1);
+        tableRow.addCell(tableRows[i][propertyName],"column2",1);
+      }
+    });
+
+    //Banana.console.log(totalToPay);
+    tableRow = table.addRow("details-table-total");
+    tableRow.addCell(texts.total + " " + reportParam.currency, "column1", 1);
+    tableRow.addCell(tableRows[i].ColumnsAmountTotal, "column2", 1);
+
+  }        
+
+  sectionLetter.addParagraph(" ","");
+}
+
+
+function replaceXmlNameWithHeaderDescription(banDoc, columnName) {
+
+  var tColumn = banDoc.table("QRCode").column(columnName, "Base");
+  var header = tColumn.header;
+  return header;
+  // return columnName;
 }
 
 function convertFields(text, reportParam, row) {
@@ -819,6 +845,19 @@ function convertParam(userParam) {
       userParam.print_multiple_details = this.value;
     }
     convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = 'print_multiple_empty_amount';
+    currentParam.parentObject = 'print_multiple';
+    currentParam.title = texts.print_multiple_empty_amount;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.print_multiple_empty_amount ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.readValue = function() {
+      userParam.print_multiple_empty_amount = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
   }
 
 
@@ -1121,6 +1160,7 @@ function initUserParam() {
   userParam.css = '';
   userParam.print_multiple_rows = '';
   userParam.print_multiple_details = false;
+  userParam.print_multiple_empty_amount = false;
 
   return userParam;
 }
@@ -1203,8 +1243,8 @@ function initQRSettings(userParam) {
   qrSettings.qr_code_creditor_country = "";
   qrSettings.qr_code_additional_information = '';
   qrSettings.qr_code_billing_information = false;
-  qrSettings.qr_code_empty_address = true;
-  qrSettings.qr_code_empty_amount = true;
+  qrSettings.qr_code_empty_address = false;
+  qrSettings.qr_code_empty_amount = false;
   qrSettings.qr_code_add_border_separator = true;
   if (!userParam.print_separating_border) {
     qrSettings.qr_code_add_border_separator = false;
@@ -1235,7 +1275,6 @@ function setTexts(language) {
     texts.print_date = 'Data';
     texts.include_logo = "Logo";
     texts.logo_name = "Composizione per allineamento logo e intestazione";
-
     texts.letter = 'Testo lettera';
     texts.print_text = 'Testo libero';
     texts.print_title_text = 'Titolo';
@@ -1260,9 +1299,10 @@ function setTexts(language) {
     texts.font_family = 'Tipo carattere';
     texts.font_size = 'Dimensione carattere';
     texts.css = 'CSS';
-    texts.print_multiple = 'Stampa con dati tabella';
+    texts.print_multiple = 'Dati tabella';
     texts.print_multiple_rows = 'Righe da stampare (* tutte le righe)';
     texts.print_multiple_details = 'Includi dettagli';
+    texts.print_multiple_empty_amount = 'Escludi importo';
     texts.description = 'Descrizione';
     texts.amount = 'Importo';
     texts.total = 'Totale';
@@ -1320,6 +1360,7 @@ function setTexts(language) {
     texts.print_multiple_rows = 'Lignes à imprimer (* toutes les lignes) ';
     texts.print_single = 'Impression unique';
     texts.print_multiple_details = 'Inclure les détails';
+    texts.print_multiple_empty_amount = 'Exclure le montant';
     texts.description = 'Description';
     texts.amount = 'Montant';
     texts.total = 'Total';
@@ -1378,6 +1419,7 @@ function setTexts(language) {
     texts.print_multiple_rows = 'Zeilen zum Drucken (* alle Zeilen)';
     texts.print_single = 'Einzeln drucken';
     texts.print_multiple_details = 'Details einbeziehen';
+    texts.print_multiple_empty_amount = 'Betrag ausschließen';
     texts.description = 'Beschreibung';
     texts.amount = 'Betrag';
     texts.total = 'Gesamtbetrag';
@@ -1390,7 +1432,6 @@ function setTexts(language) {
     texts.letter = 'Letter text';
     texts.include_logo = "Logo";
     texts.logo_name = "Composition for logo and header alignment";
-
     texts.print_title_text = 'Title';
     texts.print_text = 'Free text';
     texts.print_begin_text = 'Greetings';
@@ -1417,6 +1458,7 @@ function setTexts(language) {
     texts.print_multiple = 'Print with table data';
     texts.print_multiple_rows = 'Rows to print (* all rows)';
     texts.print_multiple_details = 'Include details';
+    texts.print_multiple_empty_amount = 'Exclude amount';
     texts.description = 'Description';
     texts.amount = 'Amount';
     texts.total = 'Total';

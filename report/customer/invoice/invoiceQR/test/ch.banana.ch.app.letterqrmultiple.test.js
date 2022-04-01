@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.letterqrmultiple.test
 // @api = 1.0
-// @pubdate = 2022-03-30
+// @pubdate = 2022-04-01
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.letterqrmultiple.test.js>
 // @task = app.command
@@ -104,9 +104,10 @@ ReportLetterQrMultiple.prototype.add_test_1a = function() {
   userParam.css = '';
   userParam.print_multiple_rows = '1-8';
   userParam.print_multiple_details = true;
+  userParam.print_multiple_empty_amount = false;
 
   var rowsToPrint = getRowsToPrint(userParam);
-  rowsToPrint = checkRowsToPrint(banDoc, rowsToPrint);
+  rowsToPrint = checkRowsToPrint(banDoc, userParam, rowsToPrint);
   if (rowsToPrint.length > 0) {
     for (var i = 0; i < rowsToPrint.length; i++) {
       var rowObject = {};
@@ -146,9 +147,10 @@ ReportLetterQrMultiple.prototype.add_test_1b = function() {
   userParam.css = '';
   userParam.print_multiple_rows = '1-8';
   userParam.print_multiple_details = true;
+  userParam.print_multiple_empty_amount = false;
 
   var rowsToPrint = getRowsToPrint(userParam);
-  rowsToPrint = checkRowsToPrint(banDoc, rowsToPrint);
+  rowsToPrint = checkRowsToPrint(banDoc, userParam, rowsToPrint);
   if (rowsToPrint.length > 0) {
     for (var i = 0; i < rowsToPrint.length; i++) {
       var rowObject = {};
