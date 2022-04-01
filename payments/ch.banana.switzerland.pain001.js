@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-03-03
+// @pubdate = 2022-04-01
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -111,7 +111,7 @@ function onCurrentIndexChanged_methodId(index, value, params) {
 
     //create a new object
     var pain001CH = new Pain001Switzerland(Banana.document);
-    var paymentObj = pain001CH.initPaymData();
+    var paymentObj = pain001CH.initPaymObject();
     if (parseInt(index) == 1)
         paymentObj.methodId = pain001CH.ID_PAYMENT_SEPA_DESCRIPTION;
     else
@@ -1124,7 +1124,7 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
 
     switch (errorId) {
         case this.ID_ERR_ELEMENT_EMPTY:
-            return "%1 is missing or empty";
+            return "%1 is not defined";
         case this.ID_ERR_ELEMENT_REQUIRED:
             return "This is a required field";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
@@ -1182,7 +1182,7 @@ Pain001Switzerland.prototype.getTexts = function (language) {
     return texts;
 }
 
-Pain001Switzerland.prototype.initPaymData = function () {
+Pain001Switzerland.prototype.initPaymObject = function () {
 
     // if syncTransaction=true data is synchronized with transaction row
     var syncTransaction = true;
@@ -1235,6 +1235,66 @@ Pain001Switzerland.prototype.initParam = function () {
     param.fieldAdditionalInfo = "Notes";
     param.creditorGroups = "";
     return param;
+}
+
+Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row) {
+    if (!paymentObj || !infoObj || !row || !this.banDocument)
+        return;
+    
+    var lang = this.getLang();
+
+    if (!paymentObj.creditorIban) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor IBAN");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    var iban = "";
+    if (paymentObj.creditorIban)
+        iban = cleanIBAN(paymentObj.creditorIban);
+    if (!isValidIBAN(iban)) {
+        var msg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID, lang);
+        msg = msg.replace("%1", "creditorIban");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.creditorName) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor Name");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.creditorStreet1) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor Address");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.creditorCity) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor City");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
 }
 
 /*Returns all suppliers accounts from table Accounts according to params*/
@@ -1311,7 +1371,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
 
     // Read data from dialog
     editorData = editor.getParams();
-    let paymentObj = this.initPaymData();
+    let paymentObj = this.initPaymObject();
     for (var i = 0; i < editorData.data.length; i++) {
         let key = editorData.data[i].name;
         let value = editorData.data[i].value;
@@ -1420,7 +1480,7 @@ Pain001Switzerland.prototype.scanCode = function (code) {
     swissQRCodeData.AV1Parameters = parsedCode[32] ? parsedCode[32] : '';;
     swissQRCodeData.AV2Parameters = parsedCode[33] ? parsedCode[33] : '';;
 
-    var paymentObj = this.initPaymData();
+    var paymentObj = this.initPaymObject();
 
     // Remove 000026 prefix that appears when reading certain QR codes (ECI block)
     if (swissQRCodeData.QRType.startsWith('\\000026')) {
@@ -1680,52 +1740,6 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
     return true;
 }
 
-Pain001Switzerland.prototype.validatePaymObject = function (paymentObj, tabPos, displayMsg) {
-    if (!paymentObj || !paymentObj.methodId || paymentObj.methodId !== this.ID_PAYMENT_QRCODE)
-        return paymentObj;
-
-    var iban = "";
-    if (paymentObj.creditorIban)
-        iban = cleanIBAN(paymentObj.creditorIban);
-    
-    // Update reference type
-    paymentObj.referenceType = "";
-    if (isValidIBAN(iban)) {
-        if (isQRIBAN(iban)) {
-            if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
-                paymentObj.referenceType = "QRR";
-        }
-        else {
-            if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
-                paymentObj.referenceType = "SCOR";
-            }
-            else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
-                paymentObj.referenceType = "NON";
-            }
-        }
-    }
-
-    if (displayMsg && tabPos && this.banDocument) {
-        var lang = this.getLang();
-        var msg = "[" + tabPos.tableName + ":" + "Row " + (tabPos.rowNr + 1).toString() + ", Column PaymentData] ";
-        msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
-        if (!paymentObj.creditorIban || !isValidIBAN(iban)) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorIban"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-        if (!paymentObj.creditorName || paymentObj.creditorName.length <= 0) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorName"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-        if (!paymentObj.creditorStreet1 || paymentObj.creditorStreet1.length <= 0) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorStreet1"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-        if (!paymentObj.creditorCity || paymentObj.creditorCity.length <= 0) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorCity"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-    }
-
-    return paymentObj;
-}
-
 Pain001Switzerland.prototype.validateTransferFile = function (xml, painFormat) {
     var lang = this.getLang();
 
@@ -1829,6 +1843,36 @@ Pain001Switzerland.prototype.verifyParam = function () {
 }
 
 /**
+* verify and clean payment object data
+*/
+Pain001Switzerland.prototype.verifyPaymObject = function (paymentObj) {
+    if (!paymentObj || !paymentObj.methodId || paymentObj.methodId !== this.ID_PAYMENT_QRCODE)
+        return paymentObj;
+
+    var iban = "";
+    if (paymentObj.creditorIban)
+        iban = cleanIBAN(paymentObj.creditorIban);
+    
+    // Update reference type
+    paymentObj.referenceType = "";
+    if (isValidIBAN(iban)) {
+        if (isQRIBAN(iban)) {
+            if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
+                paymentObj.referenceType = "QRR";
+        }
+        else {
+            if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
+                paymentObj.referenceType = "SCOR";
+            }
+            else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
+                paymentObj.referenceType = "NON";
+            }
+        }
+    }
+    return paymentObj;
+}
+
+/**
 * output integers with leading zeros
 */
 Pain001Switzerland.prototype.zeroPad = function (num, places) {
@@ -1868,7 +1912,7 @@ var JsAction = class JsAction {
         if (!pain001CH.verifyBananaVersion())
             return null;
 
-        var paymentObj = pain001CH.initPaymData();
+        var paymentObj = pain001CH.initPaymObject();
 
         var row = null;
         var table = this.banDocument.table(tabPos.tableName);
@@ -1897,7 +1941,7 @@ var JsAction = class JsAction {
         // Banana.console.debug("create, columnName " + tabPos.columnName + " uuid" + paymentObj["@uuid"] );
 
         //verify all data
-        paymentObj = pain001CH.validatePaymObject(paymentObj);
+        paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -1936,7 +1980,7 @@ var JsAction = class JsAction {
         if (!pain001CH.verifyBananaVersion())
             return null;
 
-        var paymentObj = pain001CH.initPaymData();
+        var paymentObj = pain001CH.initPaymObject();
 
         var row = null;
         var table = this.banDocument.table(tabPos.tableName);
@@ -2002,7 +2046,7 @@ var JsAction = class JsAction {
         // Banana.console.debug("edit, columnName:" + tabPos.columnName + " isModified " + isModified + " uuid" + paymentObj["@uuid"]);
 
         //verify all data
-        paymentObj = pain001CH.validatePaymObject(paymentObj);
+        paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -2052,7 +2096,7 @@ var JsAction = class JsAction {
         if (!pain001CH.verifyBananaVersion(true))
             return null;
 
-        var paymentObj = pain001CH.initPaymData();
+        var paymentObj = pain001CH.initPaymObject();
         var isPaymentOrder = false;
 
         var row = null;
@@ -2108,7 +2152,7 @@ var JsAction = class JsAction {
             }*/
         }
         else {
-            let paymentObjCheck = pain001CH.initPaymData();
+            let paymentObjCheck = pain001CH.initPaymObject();
             this._rowGetAmount(paymentObjCheck, row);
             let warning = "";
             if (paymentObjCheck.amount != obj['amount'])
@@ -2122,6 +2166,7 @@ var JsAction = class JsAction {
                 'amount4': obj['methodId']
             };
             infoObj.push(infoMsg);
+            pain001CH.infoPaymObject(paymentObj, infoObj, row);
         }
         return infoObj;
     }
@@ -2326,7 +2371,7 @@ var JsAction = class JsAction {
             return null;
 
         //verify all data
-        paymentObj = pain001CH.validatePaymObject(paymentObj);
+        paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -2373,7 +2418,7 @@ var JsAction = class JsAction {
             if (rowObj !== undefined) {
                 return null;
             }
-            paymentObj = pain001CH.initPaymData();
+            paymentObj = pain001CH.initPaymObject();
         }
 
         var changedRowFields = {};
@@ -2384,7 +2429,7 @@ var JsAction = class JsAction {
             this._rowGetAmount(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2395,7 +2440,7 @@ var JsAction = class JsAction {
             this._rowGetDoc(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2407,23 +2452,20 @@ var JsAction = class JsAction {
             this._rowGetAccount(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
 
             //banana adds payment data automatically collecting data from transaction
-            //the account must belongs to the suppliers group
+            //errors are displayed on the message window by function getInfo()
             this._rowGetAccount(paymentObj, row);
-            if (paymentObj.creditorAccountId.length <= 0)
-                return null;
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
 
             //verify all data
-            var displayMsg = true;
-            paymentObj = pain001CH.validatePaymObject(paymentObj, tabPos, displayMsg);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             //update Uuid according to row uuid
             paymentObj['@uuid'] = uuid;
@@ -2450,7 +2492,7 @@ var JsAction = class JsAction {
             }
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             //update Uuid according to row uuid
             paymentObj['@uuid'] = uuid;
