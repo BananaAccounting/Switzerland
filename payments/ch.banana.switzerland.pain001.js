@@ -2415,10 +2415,10 @@ var JsAction = class JsAction {
             paymentObj = JSON.parse(rowObj.paymentdata_json);
         }
         catch (e) {
-            if (rowObj !== undefined) {
+            if (rowObj === undefined && tabPos.changeSource === "programm_add")
+                paymentObj = pain001CH.initPaymObject();
+            else
                 return null;
-            }
-            paymentObj = pain001CH.initPaymObject();
         }
 
         var changedRowFields = {};
@@ -2456,21 +2456,6 @@ var JsAction = class JsAction {
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
-        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
-
-            //banana adds payment data automatically collecting data from transaction
-            //errors are displayed on the message window by function getInfo()
-            this._rowGetAccount(paymentObj, row);
-            this._rowGetAmount(paymentObj, row);
-            this._rowGetDoc(paymentObj, row);
-
-            //verify all data
-            paymentObj = pain001CH.verifyPaymObject(paymentObj);
-
-            //update Uuid according to row uuid
-            paymentObj['@uuid'] = uuid;
-            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
-        }
         else if (tabPos.columnName === "PaymentData" || tabPos.columnName === "_AllRowDataChanged") {
             //columnName === "PaymentData" by copying row
             //columnName === "_AllRowDataChanged" by duplicating row
@@ -2490,6 +2475,20 @@ var JsAction = class JsAction {
                 this._rowGetAmount(paymentObj, row);
                 this._rowGetDoc(paymentObj, row);
             }
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
+
+            //update Uuid according to row uuid
+            paymentObj['@uuid'] = uuid;
+            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+        }
+        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
+            //banana adds payment data automatically collecting data from transaction
+            //errors are displayed on the message window by function getInfo()
+            this._rowGetAccount(paymentObj, row);
+            this._rowGetAmount(paymentObj, row);
+            this._rowGetDoc(paymentObj, row);
 
             //verify all data
             paymentObj = pain001CH.verifyPaymObject(paymentObj);
