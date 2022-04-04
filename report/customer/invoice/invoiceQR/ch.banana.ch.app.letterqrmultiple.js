@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2022-04-01
+// @pubdate = 2022-04-04
 // @publisher = Banana.ch SA
 // @description = QR-Bill with letter
 // @description.it = Lettera più destinatari con bollettino QR Svizzera
@@ -477,32 +477,13 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
 
   //******************************************************************************************
 
-  // // Print logo and sender address
-  // if (reportParam.include_logo) {
-  //   var headerParagraph = report.getHeader().addSection();
-  //   headerParagraph = report.addSection("");
-  //   var logoFormat = Banana.Report.logoFormat(reportParam.logo_name); //Logo
-  //   if (logoFormat) {
-  //     var logoElement = logoFormat.createDocNode(headerParagraph, stylesheet, "logo");
-  //     report.getHeader().addChild(logoElement);
-  //   }
-  //   else {
-  //      headerParagraph.addClass("sender-address");
-  //   }
-  //   if (reportParam.print_sender_address) {
-  //     headerParagraph.addParagraph(reportParam.sender_address_name, "");
-  //     headerParagraph.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
-  //     headerParagraph.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
-  //   }
-  // }
-  // else {
-    // Print sender address
-    if (reportParam.print_sender_address) {
-      sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
-      sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
-      sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
-    }
-  // }
+
+  // Print sender address
+  if (reportParam.print_sender_address) {
+    sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
+    sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+    sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
+  }
 
   // Print date
   if (reportParam.print_date && reportParam.print_date_text) {
@@ -578,8 +559,8 @@ function printReportTableDetails(banDoc, report, sectionLetter, reportParam, row
 
   var tableHeader = table.getHeader();
   tableRow = tableHeader.addRow();  
-  tableRow.addCell(texts.description, "details-table-header",1);
-  tableRow.addCell(texts.amount, "details-table-header",1);
+  tableRow.addCell(texts.description, "details-table-header-description",1);
+  tableRow.addCell(texts.amount, "details-table-header-amount",1);
 
   var tableRows = reportParam.table;
   for (var i = 0; i < tableRows.length; i++) {

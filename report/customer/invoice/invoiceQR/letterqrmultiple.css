@@ -1,4 +1,4 @@
-/* CSS update: 2022-03-30  */
+/* CSS update: 2022-04-04  */
 
 @page {
   margin-top: 0cm;
@@ -68,14 +68,23 @@ body {
 }
 
 .details-table td {
-   border-width: thin;
-   border-style: solid;
-   border-color: black;
+   border-bottom-width: thin;
+   border-bottom-style: solid;
+   border-bottom-color: black;
 }
 
-.details-table-header {
+.details-table-header-description {
    font-weight: bold;
-   text-align: center;
+   text-align: left;
+   background-color: lightgrey;
+   color: black;
+}
+
+.details-table-header-amount {
+   font-weight: bold;
+   text-align: right;
+   background-color: lightgrey;
+   color: black;
 }
 
 .details-table-total {
@@ -87,19 +96,10 @@ body {
 }
 
 .column1 {
-  width: 30%;
+  width: 50%;
 }
 
 .column2 {
-  width: 15%;
+  width: auto;
 }
-
-.logo {
-  margin-top: 1.2cm;
-  margin-left: 2.2cm;
-  margin-right: 1.2cm;
-  position: absolute;
-}
-
-
 
