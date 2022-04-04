@@ -591,15 +591,15 @@ function printReportTableDetails(banDoc, report, sectionLetter, reportParam, row
       if (propertyName.startsWith("Amount") && tableRows[i][propertyName]) {
 
         tableRow = table.addRow();
-        tableRow.addCell(replaceXmlNameWithHeaderDescription(banDoc, propertyName),"column1",1);
-        tableRow.addCell(tableRows[i][propertyName],"column2",1);
+        tableRow.addCell(replaceXmlNameWithHeaderDescription(banDoc, propertyName),"",1);
+        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(tableRows[i][propertyName],2,true),"details-table-amount",1);
       }
     });
 
     //Banana.console.log(totalToPay);
     tableRow = table.addRow("details-table-total");
-    tableRow.addCell(texts.total + " " + reportParam.currency, "column1", 1);
-    tableRow.addCell(tableRows[i].ColumnsAmountTotal, "column2", 1);
+    tableRow.addCell(texts.total + " " + reportParam.currency, "", 1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(tableRows[i].ColumnsAmountTotal,2,true), "details-table-amount", 1);
 
   }        
 

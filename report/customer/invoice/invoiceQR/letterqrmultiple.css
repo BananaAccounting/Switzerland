@@ -64,32 +64,34 @@ body {
 }
 
 .details-table {
-   
+
 }
 
 .details-table td {
-   border: thin solid black;
+   border-width: thin;
+   border-style: solid;
+   border-color: black;
 }
 
 .details-table-header {
    font-weight: bold;
+   text-align: center;
 }
 
 .details-table-total {
    font-weight: bold;
 }
 
+.details-table-amount {
+   text-align: right;
+}
+
 .column1 {
-  width: auto;
+  width: 30%;
 }
 
 .column2 {
-  width: auto;
-  text-align: right;
-}
-
-.align-right {
-   text-align: right;
+  width: 15%;
 }
 
 .logo {

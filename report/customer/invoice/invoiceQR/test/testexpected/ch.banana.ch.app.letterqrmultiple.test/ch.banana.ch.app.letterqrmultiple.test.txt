@@ -46,6 +46,7 @@ Totale CHF  & 85.00 \\
 \end{longtable}
   \\
 Testo finale test 1a \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -135,6 +136,7 @@ Totale EUR  & 90.00 \\
 \end{longtable}
   \\
 Testo finale test 1a \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -217,11 +219,12 @@ Testo iniziale test 1a \\
   \\
 \begin{longtable}[l]{ l  l }
 Descrizione  & Importo \\
-Amount  & 1200.50 \\
-Totale CHF  & 1200.50 \\
+Amount  & 1'200.50 \\
+Totale CHF  & 1'200.50 \\
 \end{longtable}
   \\
 Testo finale test 1a \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -310,6 +313,7 @@ Totale CHF  & 110.00 \\
 \end{longtable}
   \\
 Testo finale test 1a \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -398,6 +402,7 @@ Totale EUR  & 120.00 \\
 \end{longtable}
   \\
 Testo finale test 1a \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -489,6 +494,7 @@ Totale CHF  & 85.00 \\
 \end{longtable}
   \\
 Testo finale test 1b \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -578,6 +584,7 @@ Totale EUR  & 90.00 \\
 \end{longtable}
   \\
 Testo finale test 1b \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -660,11 +667,12 @@ Testo iniziale test 1b \\
   \\
 \begin{longtable}[l]{ l  l }
 Descrizione  & Importo \\
-Amount  & 1200.50 \\
-Totale CHF  & 1200.50 \\
+Amount  & 1'200.50 \\
+Totale CHF  & 1'200.50 \\
 \end{longtable}
   \\
 Testo finale test 1b \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -753,6 +761,7 @@ Totale CHF  & 110.00 \\
 \end{longtable}
   \\
 Testo finale test 1b \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
@@ -841,6 +850,7 @@ Totale EUR  & 120.00 \\
 \end{longtable}
   \\
 Testo finale test 1b \\
+  \\
 Ricevuta \\
   \\
 Conto / Pagabile a \\
