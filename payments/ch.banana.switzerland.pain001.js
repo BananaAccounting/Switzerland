@@ -199,6 +199,7 @@ function Pain001Switzerland(banDocument) {
     this.docInfo = this.getDocumentInfo();
 
     // errors id
+    this.ID_ERR_DATE_NOTVALID = "ID_ERR_DATE_NOTVALID";
     this.ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
     this.ID_ERR_ELEMENT_REQUIRED = "ID_ERR_ELEMENT_REQUIRED";
     this.ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
@@ -683,7 +684,6 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam = {};
     currentParam.name = 'transactionDate';
     currentParam.title = "Date";
-    currentParam.tooltip = "Transaction Date format: yyyy-mm-dd";
     currentParam.type = 'string';
     currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.transactionDate ? paymentObj.transactionDate : '';
@@ -696,7 +696,6 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam = {};
     currentParam.name = 'dueDate';
     currentParam.title = "Due Date";
-    currentParam.tooltip = "Due Date format: yyyy-mm-dd";
     currentParam.type = 'string';
     currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.dueDate ? paymentObj.dueDate : '';
@@ -1123,6 +1122,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
     var lang = this.getLang();
 
     switch (errorId) {
+        case this.ID_ERR_DATE_NOTVALID:
+            return "Invalid date format. Plese enter the date in the format \"dd.mm.yyyy\"";
         case this.ID_ERR_ELEMENT_EMPTY:
             return "%1 is not defined";
         case this.ID_ERR_ELEMENT_REQUIRED:
@@ -1356,10 +1357,14 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
             editorData.data[i].value = this.ID_PAYMENT_SEPA_DESCRIPTION;
         }
         else if (key == 'transactionDate' || key == 'dueDate') {
-            editorData.data[i].value = this.toISODate(value);
+            let formattedValue = value;
+            if (formattedValue && formattedValue.length > 0) {
+                formattedValue = this.toLocalDate(value);
+            }
+            editorData.data[i].value = formattedValue;
         }
         else if (key == 'amount') {
-            editorData.data[i].value = this.toAmountLocaleFormat(value);
+            editorData.data[i].value = this.toAmountLocalFormat(value);
         }
     }
 
@@ -1390,7 +1395,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
         else if (key == 'amount') {
             //remove spaces
             value = value.replace(/ /g, "");
-            value = this.toAmountFormatInternal(value);
+            value = this.toAmountInternalFormat(value);
         }
         if (paymentObj.hasOwnProperty(key)) {
             paymentObj[key] = value;
@@ -1581,8 +1586,8 @@ Pain001Switzerland.prototype.setTest = function (bool) {
     this.isTest = bool;
 }
 
-/* This method convert a local amount to the internal amount format */
-Pain001Switzerland.prototype.toAmountFormatInternal = function (value) {
+/* This method converts a local amount to the internal amount format */
+Pain001Switzerland.prototype.toAmountInternalFormat = function (value) {
     if (!value || !this.docInfo)
         return "";
     var decimals = this.docInfo.decimalsAmounts ? this.docInfo.decimalsAmounts : 2;
@@ -1594,8 +1599,8 @@ Pain001Switzerland.prototype.toAmountFormatInternal = function (value) {
     return convertedValue;
 }
 
-/* This method convert an internal formatted amount to the local amount format */
-Pain001Switzerland.prototype.toAmountLocaleFormat = function (value) {
+/* This method converts an internal formatted amount to the local amount format */
+Pain001Switzerland.prototype.toAmountLocalFormat = function (value) {
     if (!value || !this.docInfo)
         return "";
     var decimals = this.docInfo.decimalsAmounts ? this.docInfo.decimalsAmounts : 2;
@@ -1603,35 +1608,99 @@ Pain001Switzerland.prototype.toAmountLocaleFormat = function (value) {
     return convertedValue;
 }
 
-/* This method convert a date to the internal date format */
-Pain001Switzerland.prototype.toDateFormatInternal = function (value) {
+/* This method converts a local or iso date to the internal date format yyyymmdd */
+Pain001Switzerland.prototype.toInternalDate = function (value) {
+    //empty strings does nothing
     if (!value)
         return "";
+
     var internalValue = Banana.Converter.toInternalDateFormat(value);
     internalValue = internalValue.replace(/-/g, '');
     return internalValue;
 }
 
-/* This method convert an internal date to the ISO date format */
+/* This method converts an internal or local date to the ISO date format */
 Pain001Switzerland.prototype.toISODate = function (value) {
+    //empty strings does nothing
+    if (!value || value.length <= 0)
+        return "";
+
+    let inputFormat = '';
+    if (value.match(/^(\d{8})$/)) {
+        //format yyyymmdd
+        inputFormat = 'yyyymmdd';
+    }
+    else if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+        //format dd/mm/yyyy
+        inputFormat = 'dd/mm/yyyy';
+    }
+    else if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/)) {
+        //format dd/mm/yy
+        inputFormat = 'dd/mm/yy';
+    }
+    else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/)) {
+        inputFormat = "dd.mm.yyyy";
+    }
+    else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2})$/)) {
+        inputFormat = "dd.mm.yy";
+    }
+    else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/)) {
+        inputFormat = "dd-mm-yyyy";
+    }
+    else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{2})$/)) {
+        inputFormat = "dd-mm-yy";
+    }
+    else if (value.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/)) {
+        inputFormat = "yyyy-mm-dd";
+    }
+
+    if (inputFormat.length <= 0)
+        return "";
+
+    let formattedDate = Banana.Converter.toInternalDateFormat(value, inputFormat);
+
+    //check if it's a valid date
+    let d = Date.parse(formattedDate);
+    if (!d) {
+        //moves month at the beginning
+        if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+            //format mm/dd/yyyy
+            inputFormat = 'mm/dd/yyyy';
+        }
+        else if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/)) {
+            inputFormat = 'mm/dd/yy';
+        }
+        else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/)) {
+            inputFormat = "mm.dd.yyyy";
+        }
+        else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2})$/)) {
+            inputFormat = "mm.dd.yy";
+        }
+        else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/)) {
+            inputFormat = "mm-dd-yyyy";
+        }
+        else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{2})$/)) {
+            inputFormat = "mm-dd-yy";
+        }
+
+        formattedDate = Banana.Converter.toInternalDateFormat(value, inputFormat);
+        //recheck if it's a valid date
+        d = Date.parse(formattedDate);
+        if (!d) {
+            formattedDate = '';
+        }
+    }
+    
+    return formattedDate;
+}
+
+/* This method converts an internal or iso date to the local date format  */
+Pain001Switzerland.prototype.toLocalDate = function (value) {
     //empty strings does nothing
     if (!value)
         return "";
 
-    //internal format yyyymmdd transforms to ISO date
-    let formattedDate = value;
-    if (value.length == 8) {
-        let year = value.substr(0, 4);
-        let month = value.substr(4, 2);
-        let day = value.substr(6, 2);
-        formattedDate = year + "-" + month + "-" + day;
-    }
-    //checks if is a valid date
-    var timestamp = Date.parse(formattedDate);
-    if (!timestamp) {
-        formattedDate = this.currentDate();
-    }
-
+    var formattedDate = Banana.Converter.toLocaleDateFormat(value);
     return formattedDate;
 }
 
@@ -1682,6 +1751,14 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
             params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
             params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
             error = true;
+        }
+        if (key === 'dueDate' || key === 'transactionDate') {
+            let isoDate = this.toISODate(value);
+            if (value && value.length > 0 && isoDate.length <= 0) {
+                params.data[i].errorId = this.ID_ERR_DATE_NOTVALID;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_DATE_NOTVALID);
+                error = true;
+            }
         }
         if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
             if (key === 'creditorName' && value.length <= 0) {
@@ -2727,11 +2804,11 @@ var JsAction = class JsAction {
         row["DocInvoice"] = invoiceNo;
 
         //Transaction date
-        let internalDate = this.pain001CH.toDateFormatInternal(paymentObj.transactionDate);
+        let internalDate = this.pain001CH.toInternalDate(paymentObj.transactionDate);
         row["Date"] =  internalDate;
 
         //Due date
-        internalDate = this.pain001CH.toDateFormatInternal(paymentObj.dueDate);
+        internalDate = this.pain001CH.toInternalDate(paymentObj.dueDate);
         row["DateExpiration"] = internalDate;
 
         //Description
