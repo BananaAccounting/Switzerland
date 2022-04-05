@@ -593,6 +593,7 @@ function replaceXmlNameWithHeaderDescription(banDoc, columnName) {
   var tColumn = banDoc.table("QRCode").column(columnName, "Base");
   var header = tColumn.header;
   return header;
+  
   // return columnName;
 }
 
