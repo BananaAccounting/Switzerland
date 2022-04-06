@@ -587,7 +587,6 @@ function printReportTableDetails(banDoc, report, sectionLetter, reportParam, row
   sectionLetter.addParagraph(" ","");
 }
 
-
 function replaceXmlNameWithHeaderDescription(banDoc, columnName) {
 
   var tColumn = banDoc.table("QRCode").column(columnName, "Base");
@@ -670,37 +669,13 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
-  // currentParam = {};
-  // currentParam.name = 'include_logo';
-  // currentParam.parentObject = 'include_letter';
-  // currentParam.title = texts.include_logo;
-  // currentParam.type = 'bool';
-  // currentParam.value = userParam.include_logo ? true : false;
-  // currentParam.defaultvalue = false;
-  // currentParam.readValue = function() {
-  //   userParam.include_logo = this.value;
-  // }
-  // convertedParam.data.push(currentParam);
-
-  // currentParam = {};
-  // currentParam.name = 'logo_name';
-  // currentParam.parentObject = 'include_letter';
-  // currentParam.title = texts.logo_name;
-  // currentParam.type = 'string';
-  // currentParam.value = userParam.logo_name ? userParam.logo_name : '';
-  // currentParam.defaultvalue = "Logo";
-  // currentParam.readValue = function() {
-  //   userParam.logo_name = this.value;
-  // }
-  // convertedParam.data.push(currentParam);
-
   currentParam = {};
   currentParam.name = 'print_sender_address';
   currentParam.parentObject = 'include_letter';
   currentParam.title = texts.print_sender_address;
   currentParam.type = 'bool';
   currentParam.value = userParam.print_sender_address ? true : false;
-  currentParam.defaultvalue = false;
+  currentParam.defaultvalue = true;
   currentParam.readValue = function() {
     userParam.print_sender_address = this.value;
   }
@@ -712,7 +687,7 @@ function convertParam(userParam) {
   currentParam.title = texts.print_customer_address;
   currentParam.type = 'bool';
   currentParam.value = userParam.print_customer_address ? true : false;
-  currentParam.defaultvalue = false;
+  currentParam.defaultvalue = true;
   currentParam.readValue = function() {
     userParam.print_customer_address = this.value;
   }
@@ -724,7 +699,7 @@ function convertParam(userParam) {
   currentParam.title = texts.print_date;
   currentParam.type = 'bool';
   currentParam.value = userParam.print_date ? true : false;
-  currentParam.defaultvalue = false;
+  currentParam.defaultvalue = true;
   currentParam.readValue = function() {
     userParam.print_date = this.value;
   }
@@ -823,7 +798,7 @@ function convertParam(userParam) {
     currentParam.title = texts.print_multiple_rows;
     currentParam.type = 'string';
     currentParam.value = userParam.print_multiple_rows ? userParam.print_multiple_rows : '';
-    currentParam.defaultvalue = '';
+    currentParam.defaultvalue = '*';
     currentParam.readValue = function() {
      userParam.print_multiple_rows = this.value;
     }
@@ -835,7 +810,7 @@ function convertParam(userParam) {
     currentParam.title = texts.print_multiple_details;
     currentParam.type = 'bool';
     currentParam.value = userParam.print_multiple_details ? true : false;
-    currentParam.defaultvalue = false;
+    currentParam.defaultvalue = true;
     currentParam.readValue = function() {
       userParam.print_multiple_details = this.value;
     }
@@ -973,7 +948,7 @@ function convertParam(userParam) {
   currentParam.title = texts.print_date_text;
   currentParam.type = 'string';
   currentParam.value = userParam.print_date_text ? userParam.print_date_text : '';
-  currentParam.defaultvalue = '';
+  currentParam.defaultvalue = 'xxx, 05.04.2022';
   currentParam.readValue = function() {
     userParam.print_date_text = this.value;
   }
@@ -1042,8 +1017,8 @@ function convertParam(userParam) {
   currentParam.title = texts.language;
   currentParam.type = 'combobox';
   currentParam.items = ["DE","EN","FR","IT"];
-  currentParam.value = userParam.language ? userParam.language : 'EN';
-  currentParam.defaultvalue = "EN";
+  currentParam.value = userParam.language ? userParam.language : 'IT';
+  currentParam.defaultvalue = "IT";
   currentParam.readValue = function() {
     userParam.language = this.value;
   }
@@ -1109,16 +1084,14 @@ function convertParam(userParam) {
 
 function initUserParam() {
   var userParam = {};
-  // userParam.include_logo = false;
-  // userParam.logo_name = 'Logo';
   userParam.print_title_text = '';
   userParam.print_begin_text = '';
   userParam.print_final_text = '';
   userParam.print_text = true;
-  userParam.print_date = false;
-  userParam.print_date_text = '';
-  userParam.print_sender_address = false;
-  userParam.print_customer_address = false;
+  userParam.print_date = true;
+  userParam.print_date_text = 'xxx, 05.04.2022';
+  userParam.print_sender_address = true;
+  userParam.print_customer_address = true;
   userParam.sender_address_from_accounting = true;
   userParam.sender_address_name = '';
   userParam.sender_address_address = '';
@@ -1134,7 +1107,7 @@ function initUserParam() {
   userParam.customer_address_locality = '';
   userParam.customer_address_country_code = '';
   userParam.currency = "CHF";
-  userParam.language = "EN";
+  userParam.language = "IT";
   userParam.print_separating_border = true;
   userParam.print_scissors_symbol = false;
   userParam.font_family = 'Helvetica';
