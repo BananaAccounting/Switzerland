@@ -1005,7 +1005,7 @@ function setTexts(language) {
     texts.customer_address_locality = 'Località';
     texts.customer_address_country_code = 'Codice nazione';
     texts.amount = 'Moneta/Importo';
-    texts.amount_include = 'Includi importo';
+    texts.amount_include = 'Importo';
     texts.currency = 'Moneta';
     texts.total_amount = 'Importo';
     texts.qrcode = 'Includi nel codice QR';
@@ -1045,7 +1045,7 @@ function setTexts(language) {
     texts.customer_address_locality = 'Localité';
     texts.customer_address_country_code = 'Code du pays';
     texts.amount = 'Devise/Montant';
-    texts.amount_include = 'Inclure le montant';
+    texts.amount_include = 'Montant';
     texts.currency = 'Devise';
     texts.total_amount = 'Montant';
     texts.qrcode = 'Inclure dans le code QR';
@@ -1085,7 +1085,7 @@ function setTexts(language) {
     texts.customer_address_locality = 'Ort';
     texts.customer_address_country_code = 'Ländercode';
     texts.amount = 'Währung/Betrag';
-    texts.amount_include = 'Betrag einbeziehen';
+    texts.amount_include = 'Betrag';
     texts.currency = 'Währung';
     texts.total_amount = 'Betrag';
     texts.qrcode = 'In QR-Code einbinden';
@@ -1125,7 +1125,7 @@ function setTexts(language) {
     texts.customer_address_locality = 'Locality';
     texts.customer_address_country_code = 'Country code';
     texts.amount = 'Currency/Amount';
-    texts.amount_include = 'Include amount';
+    texts.amount_include = 'Amount';
     texts.currency = 'Currency';
     texts.total_amount = 'Amount';
     texts.qrcode = 'Include in QR code';
