@@ -2,6 +2,7 @@
  <qresource>
  	<file>ch.banana.ch.app.emptyqr.manifest.json</file>
     <file>ch.banana.ch.app.emptyqr.js</file>
+    <file>emptyqr.css</file>
     <file>swissqrcode.js</file>
     <file>checkfunctions.js</file>
  </qresource>
