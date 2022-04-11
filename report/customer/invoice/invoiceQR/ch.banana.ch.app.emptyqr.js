@@ -433,6 +433,19 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  // Include amount
+  currentParam = {};
+  currentParam.name = 'amount_include';
+  currentParam.parentObject = 'qrcode';
+  currentParam.title = texts.amount_include;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.amount_include ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.amount_include = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
 
 
   /*******************************************************************************************
@@ -446,19 +459,6 @@ function convertParam(userParam) {
   currentParam.editable = false;
   currentParam.readValue = function() {
     userParam.amount = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
-  // Include amount
-  currentParam = {};
-  currentParam.name = 'amount_include';
-  currentParam.parentObject = 'amount';
-  currentParam.title = texts.amount_include;
-  currentParam.type = 'bool';
-  currentParam.value = userParam.amount_include ? true : false;
-  currentParam.defaultvalue = false;
-  currentParam.readValue = function() {
-    userParam.amount_include = this.value;
   }
   convertedParam.data.push(currentParam);
 
