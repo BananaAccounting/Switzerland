@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2022-04-05
+// @pubdate = 2022-04-12
 // @publisher = Banana.ch SA
 // @description = QR-Bill with letter
 // @description.it = Lettera più destinatari con bollettino QR Svizzera
@@ -41,6 +41,7 @@
 // Define the required version of Banana Accounting / Banana Dev Channel
 var BAN_VERSION = "10.0.12";
 var BAN_EXPM_VERSION = "22089";
+var BAN_ADVANCED;
 
 
 function exec(string) {
@@ -545,6 +546,15 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
   // Print QRCode section
   var qrBill = new QRBill(banDoc, reportParam);
   qrBill.printQRCodeDirect(report, stylesheet, reportParam);
+
+
+  // Add a watermark text when not using Advanced Plan
+  if (!BAN_ADVANCED) {
+    let watermark = report.addSection("watermark-text");
+    watermark.addParagraph("Banana Plus");
+    watermark.addParagraph("Advanced Plan");
+    watermark.addParagraph("Required");
+  }
 }
 
 function printReportTableDetails(banDoc, report, sectionLetter, reportParam, row) {
@@ -588,12 +598,9 @@ function printReportTableDetails(banDoc, report, sectionLetter, reportParam, row
 }
 
 function replaceXmlNameWithHeaderDescription(banDoc, columnName) {
-
   var tColumn = banDoc.table("QRCode").column(columnName, "Base");
   var header = tColumn.header;
   return header;
-  
-  // return columnName;
 }
 
 function convertFields(text, reportParam, row) {
@@ -1499,8 +1506,10 @@ function setCss(banDoc, stylesheet, reportParam) {
     User defined CSS
     Only available with Banana Accountin Plus Advanced plan.
   */
-  if (reportParam.css) {
-    textCSS += reportParam.css;
+  if (BAN_ADVANCED) {
+    if (reportParam.css) {
+      textCSS += reportParam.css;
+    }
   }
 
   // Replace all varibles
@@ -1582,34 +1591,15 @@ function bananaRequiredVersion(requiredVersion, expmVersion) {
   // Checks license type
   else {
     if (Banana.application.license && Banana.application.license.licenseType === "advanced") {
-      return true;
+      BAN_ADVANCED = true;
     }
     else {
-      Banana.application.showMessages();
-      var msg = "";
-      switch(language) {
-      case "en":
-        msg = "This script does not run with this version of Banana Accounting+. Please update to Banana Accounting+ Advanced Plan.";
-        break;
-
-      case "it":
-        msg = "Lo script non funziona con questa versione di Banana Contabilità+. Aggiornare a Banana Contabilità+ Piano Advanced.";
-        break;
-
-      case "fr":
-        msg = "Le script ne fonctionne pas avec cette version de Banana Comptabilité Plus. Faire la mise à jour à Banana Comptabilité+ Plan Advanced.";
-        break;
-
-      case "de":
-        msg = "Das Skript funktioniert nicht mit dieser Version von Banana Buchhaltung. Auf Version Banana Buchhaltung+ Advanced-Plan aktualisiern.";
-        break;
-
-      default:
-        msg = "This script does not run with this version of Banana Accounting+. Please update to Banana Accounting+ Advanced Plan.";
-      }         
-      Banana.document.addMessage(msg);
-      return false;          
+      BAN_ADVANCED = false;
     }
+    // return true for any Banana Plus license type
+    // in case of free/professional we show a watermark in the report
+    return true;
   }
 }
+
 

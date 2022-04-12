@@ -12,6 +12,14 @@ body {
   font-size: $font_size;
 }
 
+.watermark-text {
+   position: absolute;
+   transform: translate(-0cm,10cm), rotate(-60deg);
+   font-size: 85;
+   text-align: left;
+   color: #CCCCCC;
+}
+
 .sender-address {
    font-size: $font_size;
    margin-top: 2cm;

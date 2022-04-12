@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.letterqrmultiple.test
 // @api = 1.0
-// @pubdate = 2022-04-01
+// @pubdate = 2022-04-12
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.letterqrmultiple.test.js>
 // @task = app.command
@@ -83,6 +83,8 @@ ReportLetterQrMultiple.prototype.testReport = function() {
 //Test 1a: structured customer addresses
 ReportLetterQrMultiple.prototype.add_test_1a = function() {
 
+  BAN_ADVANCED = true;
+
   var fileAC2 = "file:script/../test/testcases/qrtable_structured.ac2";
   var banDoc = Banana.application.openDocument(fileAC2);
   Test.logger.addSection("Test file: " + fileAC2);
@@ -115,7 +117,7 @@ ReportLetterQrMultiple.prototype.add_test_1a = function() {
       var reportParam = {};
       reportParam = initReportMultiple(banDoc, userParam, reportParam, rowObject, rowsToPrint[i]);
       var report = Banana.Report.newReport("QR-Bill report");
-      printReport(Banana.document, report, "", reportParam, rowsToPrint[i]);
+      printReport(banDoc, report, "", reportParam, rowsToPrint[i]);
       Test.logger.addReport("",report);
       var text = getQRCodeText(banDoc, reportParam, "", 'it');
       Test.logger.addText(text);
@@ -125,6 +127,8 @@ ReportLetterQrMultiple.prototype.add_test_1a = function() {
 
 //Test 1b: combined customer addresses
 ReportLetterQrMultiple.prototype.add_test_1b = function() {
+
+  BAN_ADVANCED = true;
 
   var fileAC2 = "file:script/../test/testcases/qrtable_combined.ac2";
   var banDoc = Banana.application.openDocument(fileAC2);
@@ -158,7 +162,7 @@ ReportLetterQrMultiple.prototype.add_test_1b = function() {
       var reportParam = {};
       reportParam = initReportMultiple(banDoc, userParam, reportParam, rowObject, rowsToPrint[i]);
       var report = Banana.Report.newReport("QR-Bill report");
-      printReport(Banana.document, report, "", reportParam, rowsToPrint[i]);
+      printReport(banDoc, report, "", reportParam, rowsToPrint[i]);
       Test.logger.addReport("",report);
       var text = getQRCodeText(banDoc, reportParam, "", 'it');
       Test.logger.addText(text);
