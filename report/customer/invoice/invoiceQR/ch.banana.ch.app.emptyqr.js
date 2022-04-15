@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-04-11
+// @pubdate = 2022-04-15
 // @publisher = Banana.ch SA
 // @description = Letter-Invoice with Swiss QR
 // @description.it = Lettera-Fattura con QR Svizzera
@@ -393,20 +393,6 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
-  // Language
-  currentParam = {};
-  currentParam.name = 'language';
-  currentParam.parentObject = 'qrcode';
-  currentParam.title = texts.language;
-  currentParam.type = 'combobox';
-  currentParam.items = ["DE","EN","FR","IT"];
-  currentParam.value = userParam.language ? userParam.language : 'EN';
-  currentParam.defaultvalue = "EN";
-  currentParam.readValue = function() {
-    userParam.language = this.value;
-  }
-  convertedParam.data.push(currentParam);
-
   // Print separating border
   currentParam = {};
   currentParam.name = 'print_separating_border';
@@ -775,6 +761,25 @@ function convertParam(userParam) {
   currentParam.defaultvalue = 'The QR payment part without address and amount is at the bottom of the page.';
   currentParam.readValue = function() {
     userParam.print_msg_text = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+
+
+
+  /*******************************************************************************************
+  * LANGUAGE QR CODE
+  *******************************************************************************************/
+  currentParam = {};
+  currentParam.name = 'language';
+  currentParam.parentObject = '';
+  currentParam.title = texts.language;
+  currentParam.type = 'combobox';
+  currentParam.items = ["DE","EN","FR","IT"];
+  currentParam.value = userParam.language ? userParam.language : 'EN';
+  currentParam.defaultvalue = "EN";
+  currentParam.readValue = function() {
+    userParam.language = this.value;
   }
   convertedParam.data.push(currentParam);
 

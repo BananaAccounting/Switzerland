@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.letterqrmultiple.test
 // @api = 1.0
-// @pubdate = 2022-04-12
+// @pubdate = 2022-04-15
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.letterqrmultiple.test.js>
 // @task = app.command
@@ -106,7 +106,7 @@ ReportLetterQrMultiple.prototype.add_test_1a = function() {
   userParam.css = '';
   userParam.print_multiple_rows = '1-8';
   userParam.print_multiple_details = true;
-  userParam.print_multiple_empty_amount = false;
+  userParam.print_multiple_empty_amount = true; //include amount
 
   var rowsToPrint = getRowsToPrint(userParam);
   rowsToPrint = checkRowsToPrint(banDoc, userParam, rowsToPrint);
@@ -151,7 +151,7 @@ ReportLetterQrMultiple.prototype.add_test_1b = function() {
   userParam.css = '';
   userParam.print_multiple_rows = '1-8';
   userParam.print_multiple_details = true;
-  userParam.print_multiple_empty_amount = false;
+  userParam.print_multiple_empty_amount = true; //include amount
 
   var rowsToPrint = getRowsToPrint(userParam);
   rowsToPrint = checkRowsToPrint(banDoc, userParam, rowsToPrint);

@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2022-04-12
+// @pubdate = 2022-04-15
 // @publisher = Banana.ch SA
 // @description = QR-Bill with letter
 // @description.it = Lettera più destinatari con bollettino QR Svizzera
@@ -198,9 +198,9 @@ function checkRowsToPrint(banDoc, userParam, rows) {
   //    - In the table check that all these columns have a value
   //    - If all the Amount column are empty (no amount) exclude the row from the rows to print
   //
-  // Checks only when the "Exclude amount" parameter is false
+  // Checks only when the "Include amount" parameter is true
 
-  if (!userParam.print_multiple_empty_amount) {
+  if (userParam.print_multiple_empty_amount) {
 
     var columnsAmount = [];
     for (var j = 0; j < tColumnNames.length; j++) {
@@ -412,7 +412,7 @@ function setAmountMultiple(userParam, qrSettings, rowObject, rows) {
       userParam.billing_info_total_to_pay = totalToPay; //;tableRows[i].Amount;
       qrSettings.qr_code_empty_amount = false;
 
-      if (userParam.print_multiple_empty_amount) {
+      if (!userParam.print_multiple_empty_amount) {
         qrSettings.qr_code_empty_amount = true;
       }
 
@@ -766,13 +766,14 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  // Inlude amount so it is not empty
   currentParam = {};
   currentParam.name = 'print_multiple_empty_amount';
   currentParam.parentObject = 'qrcode';
   currentParam.title = texts.print_multiple_empty_amount;
   currentParam.type = 'bool';
   currentParam.value = userParam.print_multiple_empty_amount ? true : false;
-  currentParam.defaultvalue = false;
+  currentParam.defaultvalue = true;
   currentParam.readValue = function() {
     userParam.print_multiple_empty_amount = this.value;
   }
@@ -1122,7 +1123,7 @@ function initUserParam() {
   userParam.css = '';
   userParam.print_multiple_rows = '';
   userParam.print_multiple_details = false;
-  userParam.print_multiple_empty_amount = false;
+  userParam.print_multiple_empty_amount = true; //include amount
 
   return userParam;
 }
@@ -1261,7 +1262,7 @@ function setTexts(language) {
     texts.print_multiple = 'Dati tabella';
     texts.print_multiple_rows = 'Righe da stampare (* tutte le righe)';
     texts.print_multiple_details = 'Includi dettagli';
-    texts.print_multiple_empty_amount = 'Escludi importo';
+    texts.print_multiple_empty_amount = 'Importo';
     texts.description = 'Descrizione';
     texts.amount = 'Importo';
     texts.total = 'Totale';
@@ -1297,7 +1298,7 @@ function setTexts(language) {
     texts.print_multiple = 'Données du tableau';
     texts.print_multiple_rows = 'Lignes à imprimer (* toutes les lignes)';
     texts.print_multiple_details = 'Inclure les détails';
-    texts.print_multiple_empty_amount = 'Exclure le montant';
+    texts.print_multiple_empty_amount = 'Montant';
     texts.description = 'Description';
     texts.amount = 'Montant';
     texts.total = 'Total';
@@ -1333,7 +1334,7 @@ function setTexts(language) {
     texts.print_multiple = 'Tabellendaten';
     texts.print_multiple_rows = 'Zu druckende Zeilen (* alle Zeilen)';
     texts.print_multiple_details = 'Details einbeziehen';
-    texts.print_multiple_empty_amount = 'Betrag ausschließen';
+    texts.print_multiple_empty_amount = 'Betrag';
     texts.description = 'Beschreibung';
     texts.amount = 'Betrag';
     texts.total = 'Gesamtbetrag';
@@ -1369,7 +1370,7 @@ function setTexts(language) {
     texts.print_multiple = 'Table data';
     texts.print_multiple_rows = 'Rows to print (* all rows)';
     texts.print_multiple_details = 'Include details';
-    texts.print_multiple_empty_amount = 'Exclude amount';
+    texts.print_multiple_empty_amount = 'Amount';
     texts.description = 'Description';
     texts.amount = 'Amount';
     texts.total = 'Total';
