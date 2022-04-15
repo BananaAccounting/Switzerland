@@ -265,27 +265,26 @@ function setCustomerAddress(userParam, qrSettings) {
 
 function setAmount(userParam, qrSettings) {
 
+  var amount = userParam.total_amount;
+
+  //replace decimals separator , with .
+  if (amount.indexOf(',')) {
+    amount = amount.replace(',','.');
+  }
+  //remove thousand separator '
+  if (amount.indexOf("'")) {
+    amount = amount.replace("'","");
+  }
+  //convert to add decimals separator in case it doesn't exist (. or , depending on OS settings)
+  amount = Banana.Converter.toLocaleNumberFormat(amount,2,true);
+  //convert to internal format number with . as decimal separator
+  amount = Banana.Converter.toInternalNumberFormat(amount);
+
+  //add all the information in the userParam object
+  userParam.billing_info_total_to_pay = amount;
+
   if (userParam.amount_include) {
-    var amount = userParam.total_amount;
-
-    //replace decimals separator , with .
-    if (amount.indexOf(',')) {
-      amount = amount.replace(',','.');
-    }
-    //remove thousand separator '
-    if (amount.indexOf("'")) {
-      amount = amount.replace("'","");
-    }
-    //convert to add decimals separator in case it doesn't exist (. or , depending on OS settings)
-    amount = Banana.Converter.toLocaleNumberFormat(amount,2,true);
-    //convert to internal format number with . as decimal separator
-    amount = Banana.Converter.toInternalNumberFormat(amount);
-    
-    //invoiceObj.billing_info.total_to_pay = amount;
     qrSettings.qr_code_empty_amount = false;
-
-    //add all the information in the userParam object
-    userParam.billing_info_total_to_pay = amount;
   }
 }
 
