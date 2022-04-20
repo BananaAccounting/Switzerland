@@ -4,7 +4,7 @@
     "countryCode": "ch",
     "description": "Cornèr Bank - Import transactions (*.csv)",
     "description.en": "Cornèr Bank - Import transactions (*.csv)",
-    "id": "ch.banana.switzerland.import.cornerbank.trans",
+    "id": "ch.banana.switzerland.import.corner.card.transactions",
     "language": "en",
     "publisher": "Banana.ch",
     "title": "Cornèr Bank - Import transactions (*.csv)",

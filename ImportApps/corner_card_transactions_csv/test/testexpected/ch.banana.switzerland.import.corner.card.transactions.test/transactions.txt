@@ -1,0 +1,37 @@
+%%info_test_name{transactions}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l }
+Date & Description & ExternalReference & Expenses & Notes\\
+2021-11-01 & MSFT * E0300G8XZ9 & **2456 & 2.71 & Settled transaction\\
+2021-11-01 & KEYCDN CREDITS & **2456 & 47.07 & Settled transaction\\
+2021-11-01 & MICROSOFT*ADVERTISING & **2456 & 56.57 & Settled transaction\\
+2021-11-02 & Quota annua & **2456 & 100.00 & Settled transaction\\
+2021-11-01 & GOOGLE*ADS8075885239 & **2456 & 52.74 & Settled transaction\\
+2021-11-02 & Laederach Chocolaterie, Lugano, CH & **2456 & 49.90 & Pending transaction\\
+2021-10-25 & DNH*GODADDY.COM SWISS & **2456 & 187.90 & Settled transaction\\
+2021-10-16 & DNH*GODADDY.COM CHF & **2456 & 50.47 & Settled transaction\\
+2021-10-15 & Arrotondamento &  & -0.04 & Settled transaction\\
+2021-10-17 & SBB CFF FFS Mobile Ticket & **2456 & 4.30 & Settled transaction\\
+2021-10-14 & SBB EasyRide & **2456 & 2.00 & Settled transaction\\
+2021-10-22 & SEMRUSH.COM & **2456 & 94.72 & Settled transaction\\
+\\
+\end{tablevalue}
+\end{document}
