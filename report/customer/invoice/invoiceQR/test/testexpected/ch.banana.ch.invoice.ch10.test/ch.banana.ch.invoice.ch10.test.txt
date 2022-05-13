@@ -6556,7 +6556,7 @@ Consulting services \newline \newline  & 05.05.2022  & 5.0000  & hrs  & 12.50  &
 \multicolumn{285}{l}{}\\
 \multicolumn{284}{l}{TOTAL CHF } & 494.50 \\
 \multicolumn{285}{l}{}\\
-\multicolumn{285}{l}{VAT 7.70\% = 35.35 CHF \newline }\\
+\multicolumn{285}{l}{459.15 CHF VAT 7.70\% = 35.35 CHF \newline }\\
 \end{longtable}
   \\
 Receipt \\
@@ -7246,7 +7246,7 @@ Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{TOTAL CHF } & 30.00 \\
 \multicolumn{315}{l}{}\\
-\multicolumn{315}{l}{VAT 7.70\% = 1.74 CHF \newline }\\
+\multicolumn{315}{l}{22.72 CHF VAT 7.70\% = 1.74 CHF \newline }\\
 \end{longtable}
 Receipt \\
   \\
@@ -7355,7 +7355,7 @@ Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{TOTAL CHF } & 25.00 \\
 \multicolumn{320}{l}{}\\
-\multicolumn{320}{l}{VAT 7.70\% = 1.40 CHF \newline }\\
+\multicolumn{320}{l}{18.16 CHF VAT 7.70\% = 1.40 CHF \newline }\\
 \end{longtable}
 Receipt \\
   \\
@@ -7898,7 +7898,7 @@ aaa \newline \newline  & 2  & pz  & 23.00  & 46.00 \\
 \multicolumn{345}{l}{}\\
 \multicolumn{344}{l}{TOTAL CHF } & 46.00 \\
 \multicolumn{345}{l}{}\\
-\multicolumn{345}{l}{VAT 7.70\% = 3.29 CHF \newline }\\
+\multicolumn{345}{l}{42.71 CHF VAT 7.70\% = 3.29 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8007,7 +8007,7 @@ bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{350}{l}{}\\
-\multicolumn{350}{l}{VAT 7.70\% = 1.77 CHF \newline }\\
+\multicolumn{350}{l}{22.93 CHF VAT 7.70\% = 1.77 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8116,7 +8116,7 @@ ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{TOTAL CHF } & 22.00 \\
 \multicolumn{355}{l}{}\\
-\multicolumn{355}{l}{VAT 7.70\% = 3.00 CHF \newline }\\
+\multicolumn{355}{l}{39.00 CHF VAT 7.70\% = 3.00 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8226,7 +8226,7 @@ ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{TOTAL CHF } & 50.00 \\
 \multicolumn{360}{l}{}\\
-\multicolumn{360}{l}{VAT 7.70\% = 6.44 CHF \newline }\\
+\multicolumn{360}{l}{83.57 CHF VAT 7.70\% = 6.44 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8564,7 +8564,7 @@ Item  & Date  & Description  & Quantity  & Unit  & Unit Price  & Discount  & Amo
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{TOTAL CHF } & 131.56 \\
 \multicolumn{378}{l}{}\\
-\multicolumn{378}{l}{VAT 7.70\% = 9.41 CHF \newline }\\
+\multicolumn{378}{l}{122.15 CHF VAT 7.70\% = 9.41 CHF \newline }\\
 \end{longtable}
 aFASD\P F AS\P DF\P  AS\P DF ASDF \\
 Receipt \\
