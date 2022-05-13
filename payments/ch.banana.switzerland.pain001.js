@@ -1296,6 +1296,16 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         };
         infoObj.push(infoMsg);
     }
+
+    if (!paymentObj.amount) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Amount");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
 }
 
 /*Returns all suppliers accounts from table Accounts according to params*/
@@ -2651,9 +2661,15 @@ var JsAction = class JsAction {
             accountId = row.value("Account");
         }
 
+        //remove comment
+        if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+            accountId = accountId.substr(1, accountId.length - 2);
+
         //cost centers
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc3");
+            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substr(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
             if (accountId)
@@ -2661,6 +2677,8 @@ var JsAction = class JsAction {
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc2");
+            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substr(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
             if (accountId)
@@ -2668,6 +2686,8 @@ var JsAction = class JsAction {
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc1");
+            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substr(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
             if (accountId)
