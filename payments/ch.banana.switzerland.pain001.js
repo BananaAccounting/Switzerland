@@ -228,14 +228,14 @@ function Pain001Switzerland(banDocument) {
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
-        "@version": this.version,
-        "@uuid": this.ID_PAIN_FORMAT_001_001_03_CH_02
+        "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
+        "@version": this.version
     });
     this.painFormats.push({
         "@appId": this.id,
         "@description": "ISO 20022 Schema (pain.001.001.03)",
-        "@version": this.version,
-        "@uuid": this.ID_PAIN_FORMAT_001_001_03
+        "@format": this.ID_PAIN_FORMAT_001_001_03,
+        "@version": this.version
     });
 
     this.SEPARATOR_CHAR = '\xa0';
@@ -2215,7 +2215,7 @@ var JsAction = class JsAction {
         if (isPaymentOrder) {
             let rowCount = paymentObj.transactions.length;
             infoMsg = {
-                'text': obj['@type'],
+                'text': obj['@type'] + " " + obj['@appId'] + " v." + obj['@version'] + " " + obj['@format'],
                 'amount1': obj['debtorName'],
                 'amount2': obj['debtorIban'],
                 'amount3': qsTr('Total transactions:') + " " + paymentObj.transactions.length
@@ -2245,7 +2245,7 @@ var JsAction = class JsAction {
             if (paymentObjCheck.amount != obj['amount'])
                 warning = " <span style='color:red;'>(Transaction: " + paymentObjCheck.currency + " " + paymentObjCheck.amount + ")</span>";
             infoMsg = {
-                'text': obj['@type'],
+                'text': obj['@type'] + " " + obj['@appId'] + " v." + obj['@version'],
                 'amount1': obj['creditorName'],
                 'amount2': obj['reference'],
                 'currency': obj['currency'],
