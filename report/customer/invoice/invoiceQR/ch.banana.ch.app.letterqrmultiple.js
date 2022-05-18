@@ -14,13 +14,13 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2022-04-15
+// @pubdate = 2022-05-18
 // @publisher = Banana.ch SA
-// @description = QR-Bill with letter
-// @description.it = Lettera più destinatari con bollettino QR Svizzera
-// @description.de = QR-Rechnung mit Brief
-// @description.fr = QR-Facture avec lettre
-// @description.en = QR-Bill with letter
+// @description = QR-Invoice from Excel
+// @description.it = QR-Fattura da Excel
+// @description.de = QR-Rechnung aus Excel
+// @description.fr = Facture QR d'Excel
+// @description.en = QR-Invoice from Excel
 // @doctype = *
 // @task = app.command
 // @timeout = -1
