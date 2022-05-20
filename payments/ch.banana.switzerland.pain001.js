@@ -2179,14 +2179,16 @@ var JsAction = class JsAction {
      * }
      */
     getInfo(tabPos) {
+
+        var infoObj = [];
+
         var pain001CH = new Pain001Switzerland(this.banDocument);
         if (!pain001CH.verifyBananaVersion(true))
-            return null;
-
-        var paymentObj = pain001CH.initPaymObject();
-        var isPaymentOrder = false;
+            return infoObj;
 
         var row = null;
+        var paymentObj = null;
+        var isPaymentOrder = false;
         var table = this.banDocument.table(tabPos.tableName);
         if (tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
             row = table.row(tabPos.rowNr);
@@ -2201,14 +2203,15 @@ var JsAction = class JsAction {
                 }
             }
             catch (e) {
-                return null;
+                return infoObj;
             }
         }
         else {
-            return null;
+            return infoObj;
         }
 
-        var infoObj = [];
+        if (!paymentObj)
+            return infoObj;
 
         var infoMsg = {};
         var obj = this._getInfoUnwrap(paymentObj);
@@ -2221,10 +2224,10 @@ var JsAction = class JsAction {
                 'amount3': qsTr('Total transactions:') + " " + paymentObj.transactions.length
             };
             let transferFile = paymentObj.transferFile;
-            if (transferFile){
+            if (transferFile) {
                 var xml = Banana.Xml.parse(transferFile).firstChildElement('Document').firstChildElement('CstmrCdtTrfInitn');
-                infoMsg.amount3= qsTr('Total transactions:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('NbOfTxs').text;
-                infoMsg.amount4= qsTr(', checksum:') + " " +  xml.firstChildElement('GrpHdr').firstChildElement('CtrlSum').text;
+                infoMsg.amount3 = qsTr('Total transactions:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('NbOfTxs').text;
+                infoMsg.amount4 = qsTr(', checksum:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('CtrlSum').text;
             }
             infoObj.push(infoMsg);
             /*for (var key in obj) {
@@ -2242,7 +2245,7 @@ var JsAction = class JsAction {
             let paymentObjCheck = pain001CH.initPaymObject();
             this._rowGetAmount(paymentObjCheck, row);
             let warning = "";
-            if (paymentObjCheck.amount != obj['amount'])
+            if (paymentObj.syncTransaction && paymentObjCheck.amount != obj['amount'])
                 warning = " <span style='color:red;'>(Transaction: " + paymentObjCheck.currency + " " + paymentObjCheck.amount + ")</span>";
             infoMsg = {
                 'text': obj['@type'] + " " + obj['@appId'] + " v." + obj['@version'],
@@ -2428,9 +2431,14 @@ var JsAction = class JsAction {
         else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
             //banana adds payment data automatically collecting data from transaction
             //errors are displayed on the message window by function getInfo()
+
             this._rowGetAccount(paymentObj, row);
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
+
+            //automatically added rows are not synchronized with payment object to avoid changed to transactions
+            paymentObj.syncTransaction = false;
+            this._rowResetAmount(changedRowFields);
 
             //verify all data
             paymentObj = pain001CH.verifyPaymObject(paymentObj);
@@ -2440,7 +2448,7 @@ var JsAction = class JsAction {
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "_CompleteRowData") {
-            //called by create(), edit() or scanCode()
+            //called by create(), edit(), scanCode() and after changeSource === "programm_add"
 
             //Account
             this._rowSetAccount(paymentObj, changedRowFields);
@@ -2585,6 +2593,7 @@ var JsAction = class JsAction {
         else if (this.pain001CH.docInfo.isIncomeExpenses) {
             amount = row.value("Expenses");
         }
+
         paymentObj.amount = amount;
 
         //Currency
@@ -2644,6 +2653,21 @@ var JsAction = class JsAction {
             else if (this.pain001CH.docInfo.isIncomeExpenses) {
                 row["Account"] = accountId;
             }
+        }
+    }
+
+    //Remove amount from object row
+    _rowResetAmount(row) {
+        if (!row || !this.pain001CH.docInfo)
+            return;
+
+        if (this.pain001CH.docInfo.isDoubleEntry) {
+            row["Amount"] = "";
+            if (this.pain001CH.docInfo.multiCurrency)
+                row["AmountCurrency"] = "";
+        }
+        else if (this.pain001CH.docInfo.isIncomeExpenses) {
+            row["Expenses"] = "";
         }
     }
 
