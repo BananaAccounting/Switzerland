@@ -1,0 +1,13 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Raiffeisen - Import bank account statement (*.csv)",
+    "description.en": "Raiffeisen - Import bank account statement (*.csv)",
+    "id": "ch.banana.switzerland.import.raiffeisen",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Raiffeisen - Import bank account statement (*.csv)",
+    "title.en": "Raiffeisen - Import bank account statement (*.csv)",
+    "version": "1.0"
+}
