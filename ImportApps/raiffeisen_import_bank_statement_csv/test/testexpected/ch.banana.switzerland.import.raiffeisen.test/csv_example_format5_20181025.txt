@@ -1,0 +1,251 @@
+%%info_test_name{csv_example_format5_20181025}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2018-01-01 & 2018-01-03 &  & Description for test &  & 482.2\\
+2018-01-04 & 2018-01-04 &  & Description for test &  & 66.57\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 1500\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 276.65\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 64.6\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 780\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 71.9\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 397.75\\
+2018-01-12 & 2018-01-12 &  & Description for test &  & 520.85\\
+2018-01-16 & 2018-01-16 &  & Description for test &  & 104.6\\
+2018-01-16 & 2018-01-16 &  & Description for test &  & 56.95\\
+2018-01-16 & 2018-01-16 &  & Description for test &  & 80\\
+2018-01-17 & 2018-01-17 &  & Description for test &  & 1000\\
+2018-01-18 & 2018-01-18 &  & Description for test & 10589 & \\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 8.2\\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 5964.05\\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 139.25\\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 340.1\\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 1025.55\\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 149.35\\
+2018-01-18 & 2018-01-18 &  & Description for test &  & 1400\\
+2018-01-19 & 2018-01-19 &  & Description for test & 9396 & \\
+2018-01-19 & 2018-01-19 &  & Description for test &  & 1000\\
+2018-01-20 & 2018-01-22 &  & Description for test &  & 42.3\\
+2018-01-20 & 2018-01-22 &  & Description for test &  & 68\\
+2018-01-22 & 2018-01-22 &  & Description for test &  & 7655.1\\
+2018-01-23 & 2018-01-23 &  & Description for test &  & 56.31\\
+2018-01-24 & 2018-01-24 &  & Description for test &  & 56\\
+2018-01-24 & 2018-01-24 &  & Description for test &  & 84.74\\
+2018-01-25 & 2018-01-25 &  & Description for test &  & 114.35\\
+2018-01-25 & 2018-01-25 &  & Description for test & 91.8 & \\
+2018-01-27 & 2018-01-29 &  & Description for test &  & 93.8\\
+2018-01-29 & 2018-01-29 &  & Description for test &  & 1784.6\\
+2018-01-29 & 2018-01-29 &  & Description for test &  & 200.4\\
+2018-02-01 & 2018-02-01 &  & Description for test &  & 1000\\
+2018-02-01 & 2018-02-01 &  & Description for test &  & 37.2\\
+2018-02-03 & 2018-02-05 &  & Description for test &  & 67.3\\
+2018-02-03 & 2018-02-05 &  & Description for test &  & 104.15\\
+2018-02-05 & 2018-02-05 &  & Description for test & 196.5 & \\
+2018-02-09 & 2018-02-09 &  & Description for test & 10033.61 & \\
+2018-02-09 & 2018-02-09 &  & Description for test &  & 37.4\\
+2018-02-09 & 2018-02-09 &  & Description for test &  & 26.2\\
+2018-02-09 & 2018-02-09 &  & Description for test &  & 2581.8\\
+2018-02-09 & 2018-02-09 &  & Description for test &  & 6880.75\\
+2018-02-13 & 2018-02-13 &  & Description for test & 4572.41 & \\
+2018-02-13 & 2018-02-13 &  & Description for test &  & 46.84\\
+2018-02-13 & 2018-02-13 &  & Description for test &  & 60.95\\
+2018-02-14 & 2018-02-14 &  & Description for test &  & 315.7\\
+2018-02-14 & 2018-02-14 &  & Description for test &  & 780\\
+2018-02-14 & 2018-02-14 &  & Description for test &  & 397.75\\
+2018-02-14 & 2018-02-14 &  & Description for test &  & 630\\
+2018-02-15 & 2018-02-15 &  & Description for test &  & 38.2\\
+2018-02-15 & 2018-02-15 &  & Description for test &  & 107.1\\
+2018-02-15 & 2018-02-15 &  & Description for test &  & 33.8\\
+2018-02-15 & 2018-02-15 &  & Description for test &  & 1551.95\\
+2018-02-15 & 2018-02-15 &  & Description for test &  & 47.5\\
+2018-02-16 & 2018-02-16 &  & Description for test &  & 44.1\\
+2018-02-16 & 2018-02-16 &  & Description for test &  & 1000\\
+2018-02-17 & 2018-02-19 &  & Description for test &  & 45.1\\
+2018-02-21 & 2018-02-21 &  & Description for test &  & 50.7\\
+2018-02-23 & 2018-02-23 &  & Description for test & 6235.8 & \\
+2018-02-25 & 2018-02-26 &  & Description for test &  & 1500\\
+2018-02-26 & 2018-02-26 &  & Description for test &  & 40\\
+2018-02-26 & 2018-02-26 &  & Description for test &  & 297.9\\
+2018-02-26 & 2018-02-26 &  & Description for test &  & 84\\
+2018-02-27 & 2018-02-27 &  & Description for test &  & 49.26\\
+2018-02-27 & 2018-02-27 &  & Description for test &  & 70.7\\
+2018-02-28 & 2018-02-28 &  & Description for test &  & 97.05\\
+2018-03-01 & 2018-03-01 &  & Description for test & 869.4 & \\
+2018-03-02 & 2018-03-02 &  & Description for test &  & 919.79\\
+2018-03-02 & 2018-03-02 &  & Description for test & 3688.7 & \\
+2018-03-03 & 2018-03-05 &  & Description for test &  & 55.8\\
+2018-03-05 & 2018-03-05 &  & Description for test &  & 6921.95\\
+2018-03-06 & 2018-03-06 &  & Description for test &  & 98.9\\
+2018-03-06 & 2018-03-06 &  & Description for test &  & 14.7\\
+2018-03-07 & 2018-03-07 &  & Description for test &  & 26.8\\
+2018-03-07 & 2018-03-07 &  & Description for test &  & 8.6\\
+2018-03-08 & 2018-03-08 &  & Description for test &  & 25.8\\
+2018-03-08 & 2018-03-08 &  & Description for test & 7611.5 & \\
+2018-03-11 & 2018-03-12 &  & Description for test &  & 1500\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 923.1\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 780\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 1026.6\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 412.65\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 305.75\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 28\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 32.3\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 364.2\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 9.85\\
+2018-03-12 & 2018-03-12 &  & Description for test &  & 65.8\\
+2018-03-13 & 2018-03-13 &  & Description for test &  & 59.33\\
+2018-03-15 & 2018-03-15 &  & Description for test &  & 397.75\\
+2018-03-15 & 2018-03-15 &  & Description for test &  & 200.4\\
+2018-03-16 & 2018-03-16 &  & Description for test & 360.8 & \\
+2018-03-16 & 2018-03-16 &  & Description for test & 460.4 & \\
+2018-03-16 & 2018-03-16 &  & Description for test & 430.8 & \\
+2018-03-16 & 2018-03-16 &  & Description for test &  & 40\\
+2018-03-21 & 2018-03-21 &  & Description for test &  & 2262.25\\
+2018-03-21 & 2018-03-21 &  & Description for test & 1033.91 & \\
+2018-03-22 & 2018-03-22 &  & Description for test &  & 555.6\\
+2018-03-23 & 2018-03-23 &  & Description for test &  & 252.9\\
+2018-03-27 & 2018-03-27 &  & Description for test & 460.4 & \\
+2018-03-27 & 2018-03-27 &  & Description for test &  & 847.2\\
+2018-03-28 & 2018-03-28 &  & Description for test &  & 183.1\\
+2018-03-31 & 2018-03-31 &  & Description for test & 0 & \\
+2018-03-31 & 2018-03-31 &  & Description for test &  & 12\\
+2018-03-31 & 2018-03-31 &  & Description for test &  & 9\\
+2018-04-03 & 2018-04-03 &  & Description for test &  & 876.65\\
+2018-04-06 & 2018-04-06 &  & Description for test & 1976.2 & \\
+2018-04-06 & 2018-04-06 &  & Description for test &  & 1967\\
+2018-04-09 & 2018-04-09 &  & Description for test & 2812.7 & \\
+2018-04-11 & 2018-04-11 &  & Description for test &  & 97.75\\
+2018-04-16 & 2018-04-16 &  & Description for test & 2100.13 & \\
+2018-04-16 & 2018-04-16 &  & Description for test &  & 4935.05\\
+2018-04-18 & 2018-04-18 &  & Description for test & 3984.9 & \\
+2018-04-19 & 2018-04-19 &  & Description for test &  & 3877.25\\
+2018-04-23 & 2018-04-23 &  & Description for test & 975.12 & \\
+2018-04-23 & 2018-04-23 &  & Description for test & 3385.19 & \\
+2018-04-25 & 2018-04-25 &  & Description for test &  & 490.65\\
+2018-04-26 & 2018-04-26 &  & Description for test & 2000 & \\
+2018-04-26 & 2018-04-26 &  & Description for test & 2837.86 & \\
+2018-04-26 & 2018-04-26 &  & Description for test &  & 2426.1\\
+2018-04-27 & 2018-04-27 &  & Description for test & 3688.7 & \\
+2018-04-30 & 2018-04-30 &  & Description for test &  & 359.5\\
+2018-04-30 & 2018-04-30 &  & Description for test & 2119.46 & \\
+2018-04-30 & 2018-04-30 &  & Description for test &  & 7397.2\\
+2018-05-03 & 2018-05-03 &  & Description for test &  & 2700\\
+2018-05-08 & 2018-05-08 &  & Description for test & 403.85 & \\
+2018-05-18 & 2018-05-18 &  & Description for test & 7818.89 & \\
+2018-05-22 & 2018-05-22 &  & Description for test &  & 6471.3\\
+2018-05-23 & 2018-05-23 &  & Description for test &  & 420\\
+2018-05-24 & 2018-05-24 &  & Description for test &  & 238.35\\
+2018-05-25 & 2018-05-25 &  & Description for test & 341.39 & \\
+2018-05-25 & 2018-05-25 &  & Description for test & 306.39 & \\
+2018-05-25 & 2018-05-25 &  & Description for test & 1561.63 & \\
+2018-05-25 & 2018-05-25 &  & Description for test & 287 & \\
+2018-05-28 & 2018-05-28 &  & Description for test &  & 229.65\\
+2018-05-28 & 2018-05-28 &  & Description for test & 5104.98 & \\
+2018-05-30 & 2018-05-30 &  & Description for test & 533.1 & \\
+2018-05-31 & 2018-05-31 &  & Description for test &  & 1176.65\\
+2018-06-01 & 2018-06-01 &  & Description for test & 2433.37 & \\
+2018-06-06 & 2018-06-06 &  & Description for test &  & 4230.7\\
+2018-06-06 & 2018-06-06 &  & Description for test &  & 7025.95\\
+2018-06-08 & 2018-06-08 &  & Description for test & 710.8 & \\
+2018-06-11 & 2018-06-11 &  & Description for test &  & 111.75\\
+2018-06-13 & 2018-06-13 &  & Description for test & 484.65 & \\
+2018-06-13 & 2018-06-13 &  & Description for test &  & 909.5\\
+2018-06-15 & 2018-06-15 &  & Description for test & 1895.5 & \\
+2018-06-18 & 2018-06-18 &  & Description for test &  & 1314.8\\
+2018-06-18 & 2018-06-18 &  & Description for test & 5497.01 & \\
+2018-06-20 & 2018-06-20 &  & Description for test &  & 4320\\
+2018-06-26 & 2018-06-26 &  & Description for test & 263.94 & \\
+2018-06-27 & 2018-06-27 &  & Description for test & 384.51 & \\
+2018-06-28 & 2018-06-28 &  & Description for test &  & 2878.35\\
+2018-06-30 & 2018-06-30 &  & Description for test & 0 & \\
+2018-06-30 & 2018-06-30 &  & Description for test &  & 12\\
+2018-07-02 & 2018-07-02 &  & Description for test & 2272.47 & \\
+2018-07-03 & 2018-07-03 &  & Description for test &  & 1000\\
+2018-07-05 & 2018-07-05 &  & Description for test & 2843.28 & \\
+2018-07-05 & 2018-07-05 &  & Description for test &  & 1025.55\\
+2018-07-09 & 2018-07-09 &  & Description for test & 2013.99 & \\
+2018-07-09 & 2018-07-09 &  & Description for test & 180 & \\
+2018-07-10 & 2018-07-10 &  & Description for test & 8733.4 & \\
+2018-07-11 & 2018-07-11 &  & Description for test &  & 4210.41\\
+2018-07-16 & 2018-07-16 &  & Description for test & 1556.8 & \\
+2018-07-17 & 2018-07-17 &  & Description for test &  & 1546.55\\
+2018-07-18 & 2018-07-18 &  & Description for test &  & 56.7\\
+2018-07-20 & 2018-07-20 &  & Description for test &  & 1403.85\\
+2018-07-20 & 2018-07-20 &  & Description for test & 9404.77 & \\
+2018-07-24 & 2018-07-24 &  & Description for test & 2872.9 & \\
+2018-07-25 & 2018-07-25 &  & Description for test &  & 1972.2\\
+2018-07-26 & 2018-07-26 &  & Description for test &  & 2223.35\\
+2018-07-26 & 2018-07-26 &  & Description for test & 2504.57 & \\
+2018-08-02 & 2018-08-02 &  & Description for test &  & 10512.85\\
+2018-08-03 & 2018-08-03 &  & Description for test &  & 5088.21\\
+2018-08-03 & 2018-08-03 &  & Description for test & 1675.82 & \\
+2018-08-09 & 2018-08-09 &  & Description for test & 2013.99 & \\
+2018-08-09 & 2018-08-09 &  & Description for test &  & 144.5\\
+2018-08-10 & 2018-08-10 &  & Description for test & 47.5 & \\
+2018-08-13 & 2018-08-13 &  & Description for test & 1510.49 & \\
+2018-08-13 & 2018-08-13 &  & Description for test & 3524.48 & \\
+2018-08-14 & 2018-08-14 &  & Description for test &  & 8302.35\\
+2018-08-17 & 2018-08-17 &  & Description for test & 3672.57 & \\
+2018-08-20 & 2018-08-20 &  & Description for test & 10747.39 & \\
+2018-08-21 & 2018-08-21 &  & Description for test &  & 4409.9\\
+2018-08-21 & 2018-08-21 &  & Description for test &  & 976.05\\
+2018-08-23 & 2018-08-23 &  & Description for test & 111.5 & \\
+2018-08-24 & 2018-08-24 &  & Description for test &  & 1915.5\\
+2018-08-28 & 2018-08-28 &  & Description for test & 2487.87 & \\
+2018-08-28 & 2018-08-28 &  & Description for test &  & 11855.45\\
+2018-08-31 & 2018-08-31 &  & Description for test & 32.3 & \\
+2018-09-03 & 2018-09-03 &  & Description for test & 3939.13 & \\
+2018-09-03 & 2018-09-03 &  & Description for test & 3820.66 & \\
+2018-09-05 & 2018-09-05 &  & Description for test & 5104.98 & \\
+2018-09-06 & 2018-09-06 &  & Description for test & 887.99 & \\
+2018-09-12 & 2018-09-12 &  & Description for test & 959.07 & \\
+2018-09-17 & 2018-09-17 &  & Description for test & 2200 & \\
+2018-09-19 & 2018-09-19 &  & Description for test &  & 1619.05\\
+2018-09-20 & 2018-09-20 &  & Description for test &  & 6294.3\\
+2018-09-20 & 2018-09-20 &  & Description for test &  & 40\\
+2018-09-21 & 2018-09-21 &  & Description for test & 6586.93 & \\
+2018-09-24 & 2018-09-24 &  & Description for test &  & 5452\\
+2018-09-27 & 2018-09-27 &  & Description for test & 11615.45 & \\
+2018-09-27 & 2018-09-27 &  & Description for test &  & 5783.9\\
+2018-09-28 & 2018-09-28 &  & Description for test &  & 3171.45\\
+2018-09-30 & 2018-09-30 &  & Description for test & 0 & \\
+2018-09-30 & 2018-09-30 &  & Description for test &  & 12\\
+2018-10-01 & 2018-10-01 &  & Description for test &  & 7809.65\\
+2018-10-01 & 2018-10-01 &  & Description for test &  & 1253.2\\
+2018-10-01 & 2018-10-01 &  & Description for test &  & 10.77\\
+2018-10-02 & 2018-10-02 &  & Description for test & 2665.58 & \\
+2018-10-02 & 2018-10-02 &  & Description for test & 2191.7 & \\
+2018-10-03 & 2018-10-03 &  & Description for test &  & 4238.65\\
+2018-10-05 & 2018-10-05 &  & Description for test & 1658.58 & \\
+2018-10-08 & 2018-10-08 &  & Description for test &  & 3861.8\\
+2018-10-11 & 2018-10-11 &  & Description for test & 8618.69 & \\
+2018-10-12 & 2018-10-12 &  & Description for test &  & 486.3\\
+2018-10-12 & 2018-10-12 &  & Description for test & 2369.4 & \\
+2018-10-15 & 2018-10-15 &  & Description for test &  & 679.05\\
+2018-10-17 & 2018-10-17 &  & Description for test & 1742.04 & \\
+2018-10-18 & 2018-10-18 &  & Description for test &  & 622.41\\
+2018-10-19 & 2018-10-19 &  & Description for test & 434 & \\
+2018-10-19 & 2018-10-19 &  & Description for test & 950.5 & \\
+2018-10-19 & 2018-10-19 &  & Description for test &  & 500\\
+2018-10-25 & 2018-10-25 &  & Description for test &  & 589.1\\
+2018-10-26 & 2018-10-26 &  & Description for test & 944.53 & \\
+\\
+\end{tablevalue}
+\end{document}

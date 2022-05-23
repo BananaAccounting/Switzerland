@@ -1,0 +1,865 @@
+%%info_test_name{csv_example_format5_20190107}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2015-12-31 & 2015-12-31 &  & Description for test & 11.75 & \\
+2015-12-31 & 2015-12-31 &  & Description for test &  & 13.5\\
+2015-12-31 & 2015-12-31 &  & Description for test &  & 26\\
+2015-12-31 & 2015-12-31 &  & Description for test &  & 9.35\\
+2015-12-31 & 2015-12-31 &  & Description for test &  & 266.9\\
+2016-01-08 & 2016-01-08 &  & Description for test &  & 1000\\
+2016-01-20 & 2016-01-20 &  & Description for test &  & 60\\
+2016-02-03 & 2016-02-03 &  & Description for test &  & 100\\
+2016-02-03 & 2016-02-03 &  & Description for test &  & 14\\
+2016-02-10 & 2016-02-10 &  & Description for test &  & 1000\\
+2016-02-11 & 2016-02-11 &  & Description for test &  & 115\\
+2016-02-11 & 2016-02-11 &  & Description for test &  & 210\\
+2016-03-10 & 2016-03-10 &  & Description for test &  & 1000\\
+2016-03-14 & 2016-03-14 &  & Description for test &  & 195.3\\
+2016-03-15 & 2016-03-15 &  & Description for test & 500 & \\
+2016-03-17 & 2016-03-17 &  & Description for test & 60 & \\
+2016-03-17 & 2016-03-17 &  & Description for test & 40 & \\
+2016-03-18 & 2016-03-18 &  & Description for test & 40 & \\
+2016-03-18 & 2016-03-18 &  & Description for test & 85 & \\
+2016-03-21 & 2016-03-21 &  & Description for test & 40 & \\
+2016-03-21 & 2016-03-21 &  & Description for test & 80 & \\
+2016-03-22 & 2016-03-22 &  & Description for test & 40 & \\
+2016-03-22 & 2016-03-22 &  & Description for test & 40 & \\
+2016-03-22 & 2016-03-22 &  & Description for test & 60 & \\
+2016-03-22 & 2016-03-22 &  & Description for test & 40 & \\
+2016-03-22 & 2016-03-23 &  & Description for test & 200 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 40 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 20 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 20 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 40 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 20 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 40 & \\
+2016-03-23 & 2016-03-23 &  & Description for test & 40 & \\
+2016-03-23 & 2016-03-24 &  & Description for test & 40 & \\
+2016-03-24 & 2016-03-24 &  & Description for test & 20 & \\
+2016-03-24 & 2016-03-24 &  & Description for test & 40 & \\
+2016-03-24 & 2016-03-29 &  & Description for test & 80 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 130 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 20 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 20 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 20 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 80 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 45 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 80 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 20 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 20 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-29 & 2016-03-29 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 20 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 20 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 20 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 20 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 20 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 20 & \\
+2016-03-30 & 2016-03-30 &  & Description for test & 40 & \\
+2016-03-30 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 20 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 20 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 20 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-03-31 & 2016-03-31 &  & Description for test & 40 & \\
+2016-04-01 & 2016-04-01 &  & Description for test & 40 & \\
+2016-04-01 & 2016-04-01 &  & Description for test & 40 & \\
+2016-04-01 & 2016-04-01 &  & Description for test & 20 & \\
+2016-04-01 & 2016-04-01 &  & Description for test & 40 & \\
+2016-04-04 & 2016-04-04 &  & Description for test & 80 & \\
+2016-04-04 & 2016-04-04 &  & Description for test & 40 & \\
+2016-04-04 & 2016-04-04 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 80 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 40 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 80 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 80 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 40 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 40 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 40 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 40 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 30 & \\
+2016-04-05 & 2016-04-05 &  & Description for test & 20 & \\
+2016-04-05 & 2016-04-05 &  & Description for test &  & 31.4\\
+2016-04-05 & 2016-04-05 &  & Description for test &  & 1470\\
+2016-04-06 & 2016-04-06 &  & Description for test & 80 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 50 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 45 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 45 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-06 & 2016-04-06 &  & Description for test &  & 100\\
+2016-04-06 & 2016-04-06 &  & Description for test & 80 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 50 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 40 & \\
+2016-04-06 & 2016-04-06 &  & Description for test & 20 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 40 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 40 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 40 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 40 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 20 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 40 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 20 & \\
+2016-04-07 & 2016-04-07 &  & Description for test & 20 & \\
+2016-04-08 & 2016-04-08 &  & Description for test & 20 & \\
+2016-04-08 & 2016-04-08 &  & Description for test & 40 & \\
+2016-04-08 & 2016-04-11 &  & Description for test &  & 1000\\
+2016-04-08 & 2016-04-11 &  & Description for test & 40 & \\
+2016-04-08 & 2016-04-11 &  & Description for test & 300 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 200 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 40 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 20 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 45 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 40 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 45 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 42 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 22 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 20 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 60 & \\
+2016-04-11 & 2016-04-11 &  & Description for test & 80 & \\
+2016-04-12 & 2016-04-12 &  & Description for test & 20 & \\
+2016-04-13 & 2016-04-13 &  & Description for test & 40 & \\
+2016-04-13 & 2016-04-13 &  & Description for test & 100 & \\
+2016-04-13 & 2016-04-13 &  & Description for test & 80 & \\
+2016-04-13 & 2016-04-14 &  & Description for test & 40 & \\
+2016-04-13 & 2016-04-14 &  & Description for test & 80 & \\
+2016-04-14 & 2016-04-14 &  & Description for test &  & 205.9\\
+2016-04-14 & 2016-04-14 &  & Description for test & 20 & \\
+2016-04-15 & 2016-04-15 &  & Description for test & 70 & \\
+2016-04-15 & 2016-04-15 &  & Description for test & 80 & \\
+2016-04-15 & 2016-04-15 &  & Description for test & 120 & \\
+2016-04-18 & 2016-04-18 &  & Description for test & 80 & \\
+2016-04-18 & 2016-04-18 &  & Description for test & 40 & \\
+2016-04-18 & 2016-04-19 &  & Description for test & 40 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 40 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 40 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 40 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 20 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 20 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 20 & \\
+2016-04-19 & 2016-04-19 &  & Description for test & 40 & \\
+2016-04-19 & 2016-04-19 &  & Description for test &  & 60\\
+2016-04-19 & 2016-04-19 &  & Description for test &  & 34.6\\
+2016-04-19 & 2016-04-20 &  & Description for test & 40 & \\
+2016-04-19 & 2016-04-20 &  & Description for test & 80 & \\
+2016-04-20 & 2016-04-20 &  & Description for test & 5000 & \\
+2016-04-20 & 2016-04-20 &  & Description for test & 20 & \\
+2016-04-20 & 2016-04-21 &  & Description for test &  & 380\\
+2016-04-21 & 2016-04-21 &  & Description for test & 20 & \\
+2016-04-21 & 2016-04-21 &  & Description for test & 20 & \\
+2016-04-21 & 2016-04-21 &  & Description for test & 40 & \\
+2016-04-22 & 2016-04-22 &  & Description for test & 40 & \\
+2016-04-22 & 2016-04-22 &  & Description for test & 40 & \\
+2016-04-22 & 2016-04-22 &  & Description for test & 40 & \\
+2016-04-25 & 2016-04-25 &  & Description for test & 40 & \\
+2016-04-25 & 2016-04-25 &  & Description for test & 20 & \\
+2016-04-25 & 2016-04-25 &  & Description for test & 40 & \\
+2016-04-25 & 2016-04-25 &  & Description for test & 40 & \\
+2016-04-26 & 2016-04-26 &  & Description for test & 80 & \\
+2016-04-26 & 2016-04-26 &  & Description for test & 20 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 40 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 40 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 40 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 20 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 20 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 40 & \\
+2016-04-27 & 2016-04-27 &  & Description for test & 40 & \\
+2016-04-28 & 2016-04-28 &  & Description for test & 40 & \\
+2016-04-28 & 2016-04-28 &  & Description for test & 40 & \\
+2016-04-29 & 2016-04-29 &  & Description for test & 40 & \\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 194.4\\
+2016-05-02 & 2016-05-02 &  & Description for test & 80 & \\
+2016-05-02 & 2016-05-02 &  & Description for test & 40 & \\
+2016-05-02 & 2016-05-02 &  & Description for test & 40 & \\
+2016-05-02 & 2016-05-03 &  & Description for test &  & 800\\
+2016-05-03 & 2016-05-03 &  & Description for test &  & 400\\
+2016-05-03 & 2016-05-03 &  & Description for test &  & 500\\
+2016-05-03 & 2016-05-03 &  & Description for test & 80 & \\
+2016-05-04 & 2016-05-04 &  & Description for test & 40 & \\
+2016-05-04 & 2016-05-04 &  & Description for test & 20 & \\
+2016-05-04 & 2016-05-04 &  & Description for test & 80 & \\
+2016-05-04 & 2016-05-04 &  & Description for test & 20 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 40 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 500 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 3316.8 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 40 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 80 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 20 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 40 & \\
+2016-05-06 & 2016-05-06 &  & Description for test & 60 & \\
+2016-05-10 & 2016-05-10 &  & Description for test &  & 1000\\
+2016-05-10 & 2016-05-10 &  & Description for test &  & 298.25\\
+2016-05-10 & 2016-05-10 &  & Description for test & 20 & \\
+2016-05-10 & 2016-05-10 &  & Description for test & 10 & \\
+2016-05-11 & 2016-05-11 &  & Description for test &  & 80\\
+2016-05-13 & 2016-05-13 &  & Description for test & 40 & \\
+2016-05-17 & 2016-05-17 &  & Description for test & 40 & \\
+2016-05-17 & 2016-05-17 &  & Description for test &  & 93\\
+2016-05-17 & 2016-05-17 &  & Description for test &  & 215.15\\
+2016-05-18 & 2016-05-19 &  & Description for test &  & 1117.6\\
+2016-05-19 & 2016-05-19 &  & Description for test & 250 & \\
+2016-05-23 & 2016-05-23 &  & Description for test & 40 & \\
+2016-05-25 & 2016-05-25 &  & Description for test & 60 & \\
+2016-05-26 & 2016-05-26 &  & Description for test & 20 & \\
+2016-05-27 & 2016-05-27 &  & Description for test & 40 & \\
+2016-05-31 & 2016-05-31 &  & Description for test & 50 & \\
+2016-05-31 & 2016-05-31 &  & Description for test & 22 & \\
+2016-05-31 & 2016-05-31 &  & Description for test & 60 & \\
+2016-06-03 & 2016-06-03 &  & Description for test & 50 & \\
+2016-06-03 & 2016-06-03 &  & Description for test & 40 & \\
+2016-06-03 & 2016-06-03 &  & Description for test & 40 & \\
+2016-06-07 & 2016-06-07 &  & Description for test & 45 & \\
+2016-06-08 & 2016-06-08 &  & Description for test & 20 & \\
+2016-06-08 & 2016-06-08 &  & Description for test & 40 & \\
+2016-06-09 & 2016-06-09 &  & Description for test & 40 & \\
+2016-06-09 & 2016-06-09 &  & Description for test & 40 & \\
+2016-06-09 & 2016-06-09 &  & Description for test & 20 & \\
+2016-06-10 & 2016-06-10 &  & Description for test &  & 1000\\
+2016-06-14 & 2016-06-14 &  & Description for test & 20 & \\
+2016-06-14 & 2016-06-14 &  & Description for test & 40 & \\
+2016-06-15 & 2016-06-15 &  & Description for test &  & 825.5\\
+2016-06-15 & 2016-06-15 &  & Description for test & 20 & \\
+2016-06-17 & 2016-06-17 &  & Description for test & 60 & \\
+2016-06-20 & 2016-06-20 &  & Description for test & 20 & \\
+2016-06-20 & 2016-06-20 &  & Description for test & 40 & \\
+2016-06-20 & 2016-06-20 &  & Description for test & 20 & \\
+2016-06-20 & 2016-06-20 &  & Description for test & 100 & \\
+2016-06-21 & 2016-06-21 &  & Description for test & 45 & \\
+2016-06-21 & 2016-06-21 &  & Description for test & 3.9 & \\
+2016-06-21 & 2016-06-21 &  & Description for test & 60 & \\
+2016-06-22 & 2016-06-22 &  & Description for test & 40 & \\
+2016-06-23 & 2016-06-23 &  & Description for test & 20 & \\
+2016-06-28 & 2016-06-28 &  & Description for test & 60 & \\
+2016-06-28 & 2016-06-28 &  & Description for test & 20 & \\
+2016-06-29 & 2016-06-29 &  & Description for test & 20 & \\
+2016-06-29 & 2016-06-29 &  & Description for test & 40 & \\
+2016-06-29 & 2016-06-29 &  & Description for test & 20 & \\
+2016-06-30 & 2016-06-30 &  & Description for test & 45 & \\
+2016-07-08 & 2016-07-08 &  & Description for test &  & 1000\\
+2016-07-08 & 2016-07-08 &  & Description for test & 40 & \\
+2016-07-08 & 2016-07-08 &  & Description for test & 20 & \\
+2016-07-08 & 2016-07-08 &  & Description for test & 20 & \\
+2016-07-11 & 2016-07-11 &  & Description for test & 80 & \\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 64.35\\
+2016-07-13 & 2016-07-14 &  & Description for test &  & 4591.45\\
+2016-07-14 & 2016-07-14 &  & Description for test & 40 & \\
+2016-07-15 & 2016-07-15 &  & Description for test & 100 & \\
+2016-07-15 & 2016-07-15 &  & Description for test & 40 & \\
+2016-07-15 & 2016-07-15 &  & Description for test & 20 & \\
+2016-07-18 & 2016-07-18 &  & Description for test & 20 & \\
+2016-07-18 & 2016-07-18 &  & Description for test & 45 & \\
+2016-07-18 & 2016-07-18 &  & Description for test &  & 980\\
+2016-07-19 & 2016-07-19 &  & Description for test &  & 500\\
+2016-07-19 & 2016-07-19 &  & Description for test &  & 600\\
+2016-07-19 & 2016-07-19 &  & Description for test &  & 2549.09\\
+2016-07-19 & 2016-07-19 &  & Description for test &  & 448.65\\
+2016-07-19 & 2016-07-19 &  & Description for test & 40 & \\
+2016-07-20 & 2016-07-20 &  & Description for test & 20 & \\
+2016-07-21 & 2016-07-21 &  & Description for test & 40 & \\
+2016-07-22 & 2016-07-22 &  & Description for test &  & 491.3\\
+2016-07-22 & 2016-07-22 &  & Description for test &  & 322.3\\
+2016-07-25 & 2016-07-25 &  & Description for test & 260 & \\
+2016-07-25 & 2016-07-26 &  & Description for test &  & 385\\
+2016-07-26 & 2016-07-26 &  & Description for test & 500 & \\
+2016-07-26 & 2016-07-26 &  & Description for test & 40 & \\
+2016-07-26 & 2016-07-26 &  & Description for test & 4085.55 & \\
+2016-07-26 & 2016-07-26 &  & Description for test &  & 156\\
+2016-08-04 & 2016-08-04 &  & Description for test & 20 & \\
+2016-08-04 & 2016-08-04 &  & Description for test & 5000 & \\
+2016-08-04 & 2016-08-04 &  & Description for test & 40 & \\
+2016-08-05 & 2016-08-05 &  & Description for test & 20 & \\
+2016-08-05 & 2016-08-05 &  & Description for test & 40 & \\
+2016-08-05 & 2016-08-05 &  & Description for test & 40 & \\
+2016-08-08 & 2016-08-08 &  & Description for test & 20 & \\
+2016-08-08 & 2016-08-08 &  & Description for test & 20 & \\
+2016-08-08 & 2016-08-08 &  & Description for test & 20 & \\
+2016-08-08 & 2016-08-08 &  & Description for test & 45 & \\
+2016-08-08 & 2016-08-08 &  & Description for test & 45 & \\
+2016-08-09 & 2016-08-09 &  & Description for test & 20 & \\
+2016-08-09 & 2016-08-09 &  & Description for test &  & 94.25\\
+2016-08-10 & 2016-08-10 &  & Description for test &  & 1000\\
+2016-08-10 & 2016-08-10 &  & Description for test & 40 & \\
+2016-08-10 & 2016-08-10 &  & Description for test & 20 & \\
+2016-08-11 & 2016-08-11 &  & Description for test & 40 & \\
+2016-08-12 & 2016-08-12 &  & Description for test & 45 & \\
+2016-08-12 & 2016-08-12 &  & Description for test & 45 & \\
+2016-08-15 & 2016-08-16 &  & Description for test &  & 523.75\\
+2016-08-16 & 2016-08-16 &  & Description for test & 20 & \\
+2016-08-16 & 2016-08-16 &  & Description for test & 20 & \\
+2016-08-16 & 2016-08-16 &  & Description for test & 20 & \\
+2016-08-17 & 2016-08-17 &  & Description for test & 20 & \\
+2016-08-17 & 2016-08-17 &  & Description for test & 20 & \\
+2016-08-17 & 2016-08-17 &  & Description for test & 40 & \\
+2016-08-18 & 2016-08-18 &  & Description for test & 20 & \\
+2016-08-18 & 2016-08-18 &  & Description for test & 20 & \\
+2016-08-18 & 2016-08-18 &  & Description for test & 45 & \\
+2016-08-18 & 2016-08-18 &  & Description for test & 45 & \\
+2016-08-19 & 2016-08-19 &  & Description for test & 40 & \\
+2016-08-19 & 2016-08-19 &  & Description for test & 45 & \\
+2016-08-19 & 2016-08-19 &  & Description for test & 45 & \\
+2016-08-22 & 2016-08-22 &  & Description for test & 40 & \\
+2016-08-23 & 2016-08-23 &  & Description for test & 20 & \\
+2016-08-23 & 2016-08-23 &  & Description for test & 20 & \\
+2016-08-23 & 2016-08-23 &  & Description for test & 22 & \\
+2016-08-23 & 2016-08-23 &  & Description for test & 22 & \\
+2016-08-24 & 2016-08-24 &  & Description for test & 20 & \\
+2016-08-24 & 2016-08-24 &  & Description for test & 40 & \\
+2016-08-25 & 2016-08-25 &  & Description for test & 20 & \\
+2016-08-25 & 2016-08-25 &  & Description for test & 20 & \\
+2016-08-25 & 2016-08-25 &  & Description for test & 40 & \\
+2016-08-25 & 2016-08-25 &  & Description for test & 20 & \\
+2016-08-25 & 2016-08-25 &  & Description for test & 20 & \\
+2016-08-25 & 2016-08-25 &  & Description for test & 20 & \\
+2016-08-26 & 2016-08-26 &  & Description for test & 20 & \\
+2016-08-26 & 2016-08-26 &  & Description for test & 20 & \\
+2016-08-29 & 2016-08-29 &  & Description for test & 20 & \\
+2016-08-29 & 2016-08-29 &  & Description for test & 20 & \\
+2016-08-29 & 2016-08-29 &  & Description for test & 20 & \\
+2016-08-29 & 2016-08-29 &  & Description for test & 22 & \\
+2016-08-29 & 2016-08-29 &  & Description for test & 20 & \\
+2016-08-29 & 2016-08-29 &  & Description for test & 20 & \\
+2016-08-30 & 2016-08-30 &  & Description for test & 40 & \\
+2016-08-30 & 2016-08-30 &  & Description for test & 65 & \\
+2016-08-31 & 2016-08-31 &  & Description for test & 20 & \\
+2016-09-01 & 2016-09-01 &  & Description for test & 40 & \\
+2016-09-01 & 2016-09-01 &  & Description for test &  & 273.1\\
+2016-09-01 & 2016-09-01 &  & Description for test & 20 & \\
+2016-09-01 & 2016-09-01 &  & Description for test & 40 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-02 & 2016-09-02 &  & Description for test & 20 & \\
+2016-09-05 & 2016-09-05 &  & Description for test & 20 & \\
+2016-09-06 & 2016-09-06 &  & Description for test & 40 & \\
+2016-09-06 & 2016-09-06 &  & Description for test & 40 & \\
+2016-09-06 & 2016-09-07 &  & Description for test & 20 & \\
+2016-09-07 & 2016-09-07 &  & Description for test & 20 & \\
+2016-09-07 & 2016-09-07 &  & Description for test & 65 & \\
+2016-09-08 & 2016-09-08 &  & Description for test & 40 & \\
+2016-09-08 & 2016-09-08 &  & Description for test & 20 & \\
+2016-09-09 & 2016-09-09 &  & Description for test &  & 1000\\
+2016-09-09 & 2016-09-09 &  & Description for test & 65 & \\
+2016-09-09 & 2016-09-09 &  & Description for test &  & 174.1\\
+2016-09-09 & 2016-09-09 &  & Description for test & 20 & \\
+2016-09-09 & 2016-09-09 &  & Description for test & 20 & \\
+2016-09-09 & 2016-09-09 &  & Description for test & 40 & \\
+2016-09-09 & 2016-09-09 &  & Description for test & 85 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 20 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 20 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 20 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 20 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 20 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 45 & \\
+2016-09-12 & 2016-09-12 &  & Description for test & 45 & \\
+2016-09-12 & 2016-09-13 &  & Description for test &  & 378\\
+2016-09-13 & 2016-09-13 &  & Description for test & 20 & \\
+2016-09-13 & 2016-09-13 &  & Description for test & 20 & \\
+2016-09-14 & 2016-09-14 &  & Description for test & 50 & \\
+2016-09-14 & 2016-09-14 &  & Description for test & 20 & \\
+2016-09-15 & 2016-09-15 &  & Description for test & 20 & \\
+2016-09-15 & 2016-09-15 &  & Description for test & 40 & \\
+2016-09-19 & 2016-09-19 &  & Description for test & 40 & \\
+2016-09-20 & 2016-09-20 &  & Description for test &  & 20\\
+2016-09-23 & 2016-09-23 &  & Description for test & 20 & \\
+2016-09-26 & 2016-09-26 &  & Description for test & 40 & \\
+2016-09-30 & 2016-09-30 &  & Description for test & 20 & \\
+2016-09-30 & 2016-09-30 &  & Description for test & 40 & \\
+2016-10-03 & 2016-10-03 &  & Description for test & 40 & \\
+2016-10-04 & 2016-10-04 &  & Description for test & 50 & \\
+2016-10-05 & 2016-10-05 &  & Description for test & 150 & \\
+2016-10-06 & 2016-10-06 &  & Description for test &  & 542.4\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 89.4\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 500\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 50\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 300\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 300\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 200\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 500\\
+2016-10-10 & 2016-10-10 &  & Description for test &  & 1000\\
+2016-10-10 & 2016-10-10 &  & Description for test & 40 & \\
+2016-10-10 & 2016-10-10 &  & Description for test &  & 300\\
+2016-10-11 & 2016-10-11 &  & Description for test & 200 & \\
+2016-10-11 & 2016-10-11 &  & Description for test & 500 & \\
+2016-10-11 & 2016-10-11 &  & Description for test & 3529.75 & \\
+2016-10-11 & 2016-10-11 &  & Description for test & 40 & \\
+2016-10-13 & 2016-10-13 &  & Description for test & 140 & \\
+2016-10-14 & 2016-10-14 &  & Description for test &  & 236.2\\
+2016-10-14 & 2016-10-14 &  & Description for test &  & 100\\
+2016-10-17 & 2016-10-18 &  & Description for test &  & 1140\\
+2016-10-18 & 2016-10-18 &  & Description for test & 40 & \\
+2016-10-18 & 2016-10-18 &  & Description for test & 25 & \\
+2016-10-18 & 2016-10-18 &  & Description for test & 40 & \\
+2016-10-18 & 2016-10-18 &  & Description for test & 20 & \\
+2016-10-20 & 2016-10-20 &  & Description for test & 40 & \\
+2016-10-20 & 2016-10-20 &  & Description for test & 40 & \\
+2016-10-25 & 2016-10-25 &  & Description for test & 20 & \\
+2016-10-26 & 2016-10-26 &  & Description for test & 20 & \\
+2016-10-27 & 2016-10-27 &  & Description for test & 40 & \\
+2016-10-28 & 2016-10-31 &  & Description for test & 40 & \\
+2016-10-31 & 2016-10-31 &  & Description for test & 20 & \\
+2016-10-31 & 2016-10-31 &  & Description for test & 40 & \\
+2016-10-31 & 2016-10-28 &  & Description for test & 40 & \\
+2016-11-02 & 2016-11-02 &  & Description for test & 20 & \\
+2016-11-02 & 2016-11-02 &  & Description for test &  & 182\\
+2016-11-02 & 2016-11-02 &  & Description for test &  & 100\\
+2016-11-04 & 2016-11-04 &  & Description for test & 40 & \\
+2016-11-04 & 2016-11-01 &  & Description for test & 20 & \\
+2016-11-07 & 2016-11-07 &  & Description for test & 20 & \\
+2016-11-09 & 2016-11-09 &  & Description for test & 45 & \\
+2016-11-09 & 2016-11-09 &  & Description for test & 20 & \\
+2016-11-10 & 2016-11-10 &  & Description for test &  & 1000\\
+2016-11-10 & 2016-11-10 &  & Description for test & 45 & \\
+2016-11-14 & 2016-11-14 &  & Description for test & 120 & \\
+2016-11-15 & 2016-11-15 &  & Description for test &  & 64.85\\
+2016-11-16 & 2016-11-16 &  & Description for test &  & 257.15\\
+2016-11-18 & 2016-11-18 &  & Description for test & 40 & \\
+2016-11-22 & 2016-11-22 &  & Description for test & 20 & \\
+2016-11-23 & 2016-11-23 &  & Description for test &  & 600\\
+2016-11-29 & 2016-11-29 &  & Description for test &  & 600\\
+2016-11-29 & 2016-11-29 &  & Description for test &  & 500\\
+2016-11-29 & 2016-11-29 &  & Description for test &  & 500\\
+2016-11-30 & 2016-11-30 &  & Description for test & 20 & \\
+2016-11-30 & 2016-11-29 &  & Description for test & 60 & \\
+2016-12-01 & 2016-12-01 &  & Description for test &  & 40\\
+2016-12-06 & 2016-12-06 &  & Description for test & 5000 & \\
+2016-12-06 & 2016-12-06 &  & Description for test &  & 520\\
+2016-12-06 & 2016-12-06 &  & Description for test & 500 & \\
+2016-12-06 & 2016-12-06 &  & Description for test & 145 & \\
+2016-12-06 & 2016-12-06 &  & Description for test & 1570.95 & \\
+2016-12-06 & 2016-12-06 &  & Description for test &  & 394.6\\
+2016-12-08 & 2016-12-07 &  & Description for test & 370 & \\
+2016-12-16 & 2016-12-16 &  & Description for test &  & 322.2\\
+2016-12-31 & 2016-12-31 &  & Description for test & 13.1 & \\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 21\\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 45\\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 22.95\\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 247.1\\
+2017-02-08 & 2017-02-08 &  & Description for test &  & 100\\
+2017-02-08 & 2017-02-08 &  & Description for test &  & 30\\
+2017-02-08 & 2017-02-08 &  & Description for test &  & 150\\
+2017-02-13 & 2017-02-13 &  & Description for test & 120 & \\
+2017-02-16 & 2017-02-16 &  & Description for test &  & 193.5\\
+2017-02-16 & 2017-02-16 &  & Description for test &  & 19.65\\
+2017-02-20 & 2017-02-20 &  & Description for test &  & 3000\\
+2017-02-21 & 2017-02-21 &  & Description for test & 40 & \\
+2017-02-21 & 2017-02-21 &  & Description for test & 40 & \\
+2017-02-21 & 2017-02-21 &  & Description for test & 40 & \\
+2017-02-21 & 2017-02-22 &  & Description for test & 40 & \\
+2017-02-23 & 2017-02-23 &  & Description for test & 100 & \\
+2017-02-23 & 2017-02-23 &  & Description for test & 40 & \\
+2017-02-23 & 2017-02-23 &  & Description for test & 100 & \\
+2017-02-23 & 2017-02-23 &  & Description for test & 100 & \\
+2017-02-23 & 2017-02-23 &  & Description for test & 40 & \\
+2017-02-24 & 2017-02-24 &  & Description for test & 40 & \\
+2017-02-24 & 2017-02-24 &  & Description for test & 40 & \\
+2017-02-24 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 80 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 60 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 20 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 20 & \\
+2017-02-27 & 2017-02-27 &  & Description for test & 40 & \\
+2017-02-27 & 2017-02-28 &  & Description for test & 80 & \\
+2017-02-27 & 2017-02-28 &  & Description for test & 80 & \\
+2017-02-28 & 2017-02-28 &  & Description for test & 40 & \\
+2017-02-28 & 2017-02-28 &  & Description for test & 40 & \\
+2017-02-28 & 2017-02-28 &  & Description for test & 100 & \\
+2017-02-28 & 2017-02-28 &  & Description for test & 40 & \\
+2017-02-28 & 2017-02-28 &  & Description for test & 40 & \\
+2017-02-28 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 20 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 80 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-01 &  & Description for test &  & 130\\
+2017-03-01 & 2017-03-01 &  & Description for test &  & 50\\
+2017-03-01 & 2017-03-01 &  & Description for test & 60 & \\
+2017-03-01 & 2017-03-01 &  & Description for test &  & 300\\
+2017-03-01 & 2017-03-01 &  & Description for test & 80 & \\
+2017-03-01 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-01 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 20 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 45 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 20 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 20 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 20 & \\
+2017-03-02 & 2017-03-02 &  & Description for test & 40 & \\
+2017-03-02 & 2017-03-03 &  & Description for test & 200 & \\
+2017-03-02 & 2017-03-03 &  & Description for test &  & 229\\
+2017-03-03 & 2017-03-03 &  & Description for test & 60 & \\
+2017-03-03 & 2017-03-03 &  & Description for test & 20 & \\
+2017-03-03 & 2017-03-03 &  & Description for test & 20 & \\
+2017-03-03 & 2017-03-03 &  & Description for test & 250 & \\
+2017-03-03 & 2017-03-03 &  & Description for test & 40 & \\
+2017-03-03 & 2017-03-03 &  & Description for test & 40 & \\
+2017-03-03 & 2017-03-03 &  & Description for test & 40 & \\
+2017-03-06 & 2017-03-06 &  & Description for test & 80 & \\
+2017-03-06 & 2017-03-06 &  & Description for test & 40 & \\
+2017-03-06 & 2017-03-06 &  & Description for test & 20 & \\
+2017-03-06 & 2017-03-06 &  & Description for test & 50 & \\
+2017-03-06 & 2017-03-06 &  & Description for test & 40 & \\
+2017-03-06 & 2017-03-06 &  & Description for test & 40 & \\
+2017-03-06 & 2017-03-07 &  & Description for test & 40 & \\
+2017-03-07 & 2017-03-07 &  & Description for test & 40 & \\
+2017-03-07 & 2017-03-07 &  & Description for test & 40 & \\
+2017-03-08 & 2017-03-08 &  & Description for test & 40 & \\
+2017-03-08 & 2017-03-08 &  & Description for test & 45 & \\
+2017-03-08 & 2017-03-08 &  & Description for test & 40 & \\
+2017-03-08 & 2017-03-08 &  & Description for test & 45 & \\
+2017-03-08 & 2017-03-09 &  & Description for test & 40 & \\
+2017-03-09 & 2017-03-09 &  & Description for test & 200 & \\
+2017-03-09 & 2017-03-09 &  & Description for test & 80 & \\
+2017-03-10 & 2017-03-10 &  & Description for test & 300 & \\
+2017-03-10 & 2017-03-10 &  & Description for test &  & 1000\\
+2017-03-10 & 2017-03-10 &  & Description for test & 40 & \\
+2017-03-10 & 2017-03-10 &  & Description for test & 40 & \\
+2017-03-10 & 2017-03-10 &  & Description for test & 40 & \\
+2017-03-10 & 2017-03-10 &  & Description for test & 45 & \\
+2017-03-10 & 2017-03-10 &  & Description for test & 45 & \\
+2017-03-10 & 2017-03-10 &  & Description for test & 45 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 40 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 40 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 40 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 80 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 30 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 40 & \\
+2017-03-13 & 2017-03-13 &  & Description for test & 40 & \\
+2017-03-14 & 2017-03-14 &  & Description for test & 40 & \\
+2017-03-14 & 2017-03-14 &  & Description for test & 40 & \\
+2017-03-14 & 2017-03-15 &  & Description for test & 40 & \\
+2017-03-15 & 2017-03-15 &  & Description for test & 20 & \\
+2017-03-15 & 2017-03-15 &  & Description for test & 40 & \\
+2017-03-16 & 2017-03-16 &  & Description for test & 40 & \\
+2017-03-16 & 2017-03-16 &  & Description for test & 40 & \\
+2017-03-16 & 2017-03-16 &  & Description for test & 40 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 100 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 50 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 40 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 20 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 45 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 40 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 45 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 20 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 40 & \\
+2017-03-17 & 2017-03-17 &  & Description for test & 40 & \\
+2017-03-20 & 2017-03-20 &  & Description for test & 100 & \\
+2017-03-22 & 2017-03-22 &  & Description for test & 20 & \\
+2017-03-22 & 2017-03-22 &  & Description for test & 20 & \\
+2017-03-22 & 2017-03-22 &  & Description for test & 20 & \\
+2017-03-22 & 2017-03-22 &  & Description for test & 40 & \\
+2017-03-22 & 2017-03-22 &  & Description for test & 60 & \\
+2017-03-22 & 2017-03-22 &  & Description for test & 80 & \\
+2017-03-23 & 2017-03-23 &  & Description for test & 20 & \\
+2017-03-24 & 2017-03-24 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 20 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 20 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-27 &  & Description for test & 40 & \\
+2017-03-27 & 2017-03-28 &  & Description for test & 40 & \\
+2017-03-28 & 2017-03-28 &  & Description for test & 45 & \\
+2017-03-29 & 2017-03-29 &  & Description for test & 40 & \\
+2017-03-29 & 2017-03-29 &  & Description for test & 40 & \\
+2017-03-31 & 2017-03-31 &  & Description for test & 20 & \\
+2017-03-31 & 2017-03-31 &  & Description for test & 45 & \\
+2017-03-31 & 2017-03-31 &  & Description for test & 40 & \\
+2017-04-01 & 2017-04-03 &  & Description for test & 40 & \\
+2017-04-03 & 2017-04-03 &  & Description for test & 45 & \\
+2017-04-03 & 2017-04-03 &  & Description for test & 40 & \\
+2017-04-04 & 2017-04-04 &  & Description for test & 40 & \\
+2017-04-04 & 2017-04-04 &  & Description for test & 40 & \\
+2017-04-04 & 2017-04-04 &  & Description for test & 100 & \\
+2017-04-04 & 2017-04-04 &  & Description for test & 20 & \\
+2017-04-04 & 2017-04-04 &  & Description for test & 40 & \\
+2017-04-05 & 2017-04-05 &  & Description for test & 22 & \\
+2017-04-07 & 2017-04-07 &  & Description for test & 20 & \\
+2017-04-07 & 2017-04-07 &  & Description for test & 20 & \\
+2017-04-07 & 2017-04-07 &  & Description for test & 20 & \\
+2017-04-10 & 2017-04-10 &  & Description for test &  & 1000\\
+2017-04-10 & 2017-04-10 &  & Description for test & 40 & \\
+2017-04-10 & 2017-04-10 &  & Description for test & 20 & \\
+2017-04-11 & 2017-04-11 &  & Description for test & 40 & \\
+2017-04-11 & 2017-04-11 &  & Description for test & 40 & \\
+2017-04-11 & 2017-04-11 &  & Description for test & 20 & \\
+2017-04-11 & 2017-04-11 &  & Description for test & 20 & \\
+2017-04-13 & 2017-04-13 &  & Description for test & 20 & \\
+2017-04-13 & 2017-04-13 &  & Description for test & 40 & \\
+2017-04-13 & 2017-04-13 &  & Description for test & 20 & \\
+2017-04-13 & 2017-04-13 &  & Description for test & 20 & \\
+2017-04-19 & 2017-04-19 &  & Description for test & 40 & \\
+2017-04-20 & 2017-04-20 &  & Description for test & 40 & \\
+2017-04-20 & 2017-04-20 &  & Description for test & 20 & \\
+2017-04-20 & 2017-04-20 &  & Description for test & 40 & \\
+2017-04-20 & 2017-04-20 &  & Description for test & 20 & \\
+2017-04-21 & 2017-04-21 &  & Description for test & 40 & \\
+2017-04-24 & 2017-04-24 &  & Description for test & 40 & \\
+2017-04-25 & 2017-04-25 &  & Description for test & 40 & \\
+2017-04-26 & 2017-04-26 &  & Description for test & 1000 & \\
+2017-04-26 & 2017-04-27 &  & Description for test & 20 & \\
+2017-04-26 & 2017-04-27 &  & Description for test & 20 & \\
+2017-04-26 & 2017-04-27 &  & Description for test & 20 & \\
+2017-04-27 & 2017-04-27 &  & Description for test & 40 & \\
+2017-04-27 & 2017-04-27 &  & Description for test & 20 & \\
+2017-04-27 & 2017-04-27 &  & Description for test & 20 & \\
+2017-04-27 & 2017-04-27 &  & Description for test & 20 & \\
+2017-05-02 & 2017-05-02 &  & Description for test & 20 & \\
+2017-05-02 & 2017-05-02 &  & Description for test & 40 & \\
+2017-05-02 & 2017-05-02 &  & Description for test &  & 51.1\\
+2017-05-05 & 2017-05-05 &  & Description for test & 40 & \\
+2017-05-05 & 2017-05-05 &  & Description for test & 20 & \\
+2017-05-05 & 2017-05-05 &  & Description for test & 20 & \\
+2017-05-05 & 2017-05-05 &  & Description for test & 20 & \\
+2017-05-05 & 2017-05-05 &  & Description for test & 80 & \\
+2017-05-08 & 2017-05-08 &  & Description for test & 100 & \\
+2017-05-10 & 2017-05-10 &  & Description for test &  & 1000\\
+2017-05-10 & 2017-05-10 &  & Description for test & 40 & \\
+2017-05-11 & 2017-05-11 &  & Description for test & 30 & \\
+2017-05-12 & 2017-05-12 &  & Description for test & 40 & \\
+2017-05-17 & 2017-05-17 &  & Description for test & 100 & \\
+2017-05-17 & 2017-05-17 &  & Description for test & 40 & \\
+2017-05-17 & 2017-05-17 &  & Description for test & 80 & \\
+2017-05-19 & 2017-05-19 &  & Description for test & 40 & \\
+2017-05-23 & 2017-05-23 &  & Description for test &  & 600\\
+2017-05-23 & 2017-05-23 &  & Description for test &  & 800\\
+2017-05-26 & 2017-05-26 &  & Description for test & 3.25 & \\
+2017-05-30 & 2017-05-30 &  & Description for test & 20 & \\
+2017-05-30 & 2017-05-31 &  & Description for test & 40 & \\
+2017-05-31 & 2017-05-31 &  & Description for test & 45 & \\
+2017-06-01 & 2017-06-01 &  & Description for test & 20 & \\
+2017-06-02 & 2017-06-02 &  & Description for test & 800 & \\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 138\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 105.85\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 25.6\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 114.45\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 109\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 99\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 50\\
+2017-06-02 & 2017-06-02 &  & Description for test &  & 182.25\\
+2017-06-02 & 2017-06-02 &  & Description for test & 20 & \\
+2017-06-02 & 2017-06-02 &  & Description for test & 20 & \\
+2017-06-02 & 2017-06-02 &  & Description for test & 45 & \\
+2017-06-02 & 2017-06-02 &  & Description for test & 2681.2 & \\
+2017-06-02 & 2017-06-02 &  & Description for test & 40 & \\
+2017-06-06 & 2017-06-06 &  & Description for test &  & 1000\\
+2017-06-06 & 2017-06-06 &  & Description for test &  & 140\\
+2017-06-06 & 2017-06-06 &  & Description for test & 45 & \\
+2017-06-06 & 2017-06-06 &  & Description for test & 40 & \\
+2017-06-06 & 2017-06-06 &  & Description for test & 160 & \\
+2017-06-07 & 2017-06-07 &  & Description for test & 45 & \\
+2017-06-07 & 2017-06-07 &  & Description for test & 20 & \\
+2017-06-08 & 2017-06-08 &  & Description for test & 20 & \\
+2017-06-08 & 2017-06-08 &  & Description for test & 22 & \\
+2017-06-09 & 2017-06-09 &  & Description for test & 40 & \\
+2017-06-09 & 2017-06-09 &  & Description for test &  & 1000\\
+2017-06-09 & 2017-06-09 &  & Description for test &  & 722.3\\
+2017-06-12 & 2017-06-12 &  & Description for test & 20 & \\
+2017-06-12 & 2017-06-12 &  & Description for test & 40 & \\
+2017-06-12 & 2017-06-12 &  & Description for test & 20 & \\
+2017-06-12 & 2017-06-12 &  & Description for test & 20 & \\
+2017-06-14 & 2017-06-14 &  & Description for test & 20 & \\
+2017-06-14 & 2017-06-14 &  & Description for test & 20 & \\
+2017-06-15 & 2017-06-15 &  & Description for test & 80 & \\
+2017-06-15 & 2017-06-15 &  & Description for test & 45 & \\
+2017-06-16 & 2017-06-16 &  & Description for test & 40 & \\
+2017-06-16 & 2017-06-16 &  & Description for test & 40 & \\
+2017-06-20 & 2017-06-20 &  & Description for test &  & 429.85\\
+2017-06-21 & 2017-06-21 &  & Description for test & 40 & \\
+2017-06-21 & 2017-06-21 &  & Description for test & 40 & \\
+2017-06-21 & 2017-06-21 &  & Description for test & 20 & \\
+2017-06-23 & 2017-06-23 &  & Description for test & 20 & \\
+2017-06-23 & 2017-06-23 &  & Description for test & 20 & \\
+2017-06-23 & 2017-06-23 &  & Description for test & 60 & \\
+2017-06-26 & 2017-06-26 &  & Description for test &  & 127.2\\
+2017-06-26 & 2017-06-26 &  & Description for test & 20 & \\
+2017-06-26 & 2017-06-26 &  & Description for test & 40 & \\
+2017-06-27 & 2017-06-27 &  & Description for test &  & 42.8\\
+2017-06-27 & 2017-06-27 &  & Description for test &  & 350\\
+2017-06-27 & 2017-06-27 &  & Description for test &  & 250\\
+2017-06-28 & 2017-06-28 &  & Description for test &  & 180\\
+2017-06-28 & 2017-06-28 &  & Description for test & 45 & \\
+2017-06-28 & 2017-06-28 &  & Description for test & 40 & \\
+2017-06-29 & 2017-06-29 &  & Description for test & 20 & \\
+2017-06-30 & 2017-06-30 &  & Description for test & 60 & \\
+2017-07-03 & 2017-07-03 &  & Description for test & 40 & \\
+2017-07-03 & 2017-07-03 &  & Description for test & 20 & \\
+2017-07-03 & 2017-07-03 &  & Description for test & 60 & \\
+2017-07-03 & 2017-07-04 &  & Description for test & 40 & \\
+2017-07-04 & 2017-07-04 &  & Description for test & 180 & \\
+2017-07-04 & 2017-07-04 &  & Description for test & 40 & \\
+2017-07-05 & 2017-07-05 &  & Description for test & 20 & \\
+2017-07-05 & 2017-07-05 &  & Description for test & 20 & \\
+2017-07-07 & 2017-07-07 &  & Description for test & 20 & \\
+2017-07-07 & 2017-07-07 &  & Description for test & 250 & \\
+2017-07-10 & 2017-07-10 &  & Description for test &  & 1000\\
+2017-07-12 & 2017-07-12 &  & Description for test & 20 & \\
+2017-07-19 & 2017-07-19 &  & Description for test & 45 & \\
+2017-07-20 & 2017-07-20 &  & Description for test & 40 & \\
+2017-07-21 & 2017-07-21 &  & Description for test &  & 150\\
+2017-07-21 & 2017-07-21 &  & Description for test &  & 500\\
+2017-07-21 & 2017-07-21 &  & Description for test &  & 800\\
+2017-07-25 & 2017-07-25 &  & Description for test & 800 & \\
+2017-07-25 & 2017-07-25 &  & Description for test & 3722.5 & \\
+2017-07-25 & 2017-07-25 &  & Description for test & 80 & \\
+2017-07-26 & 2017-07-26 &  & Description for test & 208.15 & \\
+2017-07-31 & 2017-07-31 &  & Description for test & 20 & \\
+2017-08-07 & 2017-08-07 &  & Description for test &  & 553\\
+2017-08-07 & 2017-08-07 &  & Description for test & 40 & \\
+2017-08-08 & 2017-08-08 &  & Description for test &  & 185\\
+2017-08-08 & 2017-08-08 &  & Description for test & 190 & \\
+2017-08-08 & 2017-08-08 &  & Description for test & 20 & \\
+2017-08-09 & 2017-08-09 &  & Description for test & 22 & \\
+2017-08-10 & 2017-08-10 &  & Description for test &  & 1000\\
+2017-08-10 & 2017-08-10 &  & Description for test & 60 & \\
+2017-08-10 & 2017-08-10 &  & Description for test & 45 & \\
+2017-08-15 & 2017-08-15 &  & Description for test & 40 & \\
+2017-08-15 & 2017-08-15 &  & Description for test & 20 & \\
+2017-08-17 & 2017-08-17 &  & Description for test &  & 100\\
+2017-08-18 & 2017-08-18 &  & Description for test & 40 & \\
+2017-08-18 & 2017-08-18 &  & Description for test & 20 & \\
+2017-08-22 & 2017-08-22 &  & Description for test & 20 & \\
+2017-08-23 & 2017-08-23 &  & Description for test & 20 & \\
+2017-08-25 & 2017-08-25 &  & Description for test & 30 & \\
+2017-08-25 & 2017-08-25 &  & Description for test & 20 & \\
+2017-08-28 & 2017-08-28 &  & Description for test & 20 & \\
+2017-08-28 & 2017-08-28 &  & Description for test & 100 & \\
+2017-08-31 & 2017-08-31 &  & Description for test & 20 & \\
+2017-09-01 & 2017-09-01 &  & Description for test & 40 & \\
+2017-09-04 & 2017-09-04 &  & Description for test &  & 1000\\
+2017-09-04 & 2017-09-04 &  & Description for test & 20 & \\
+2017-09-05 & 2017-09-05 &  & Description for test & 40 & \\
+2017-09-06 & 2017-09-06 &  & Description for test & 20 & \\
+2017-09-07 & 2017-09-07 &  & Description for test & 140 & \\
+2017-09-07 & 2017-09-07 &  & Description for test & 20 & \\
+2017-09-07 & 2017-09-07 &  & Description for test & 40 & \\
+2017-09-08 & 2017-09-08 &  & Description for test &  & 1000\\
+2017-09-08 & 2017-09-08 &  & Description for test & 20 & \\
+2017-09-11 & 2017-09-11 &  & Description for test & 20 & \\
+2017-09-13 & 2017-09-13 &  & Description for test & 95 & \\
+2017-09-13 & 2017-09-13 &  & Description for test &  & 408.6\\
+2017-09-19 & 2017-09-20 &  & Description for test & 40 & \\
+2017-09-19 & 2017-09-20 &  & Description for test & 40 & \\
+2017-09-20 & 2017-09-20 &  & Description for test &  & 300\\
+2017-09-20 & 2017-09-20 &  & Description for test & 70 & \\
+2017-09-21 & 2017-09-21 &  & Description for test & 40 & \\
+2017-09-21 & 2017-09-21 &  & Description for test & 45 & \\
+2017-09-21 & 2017-09-21 &  & Description for test & 20 & \\
+2017-09-26 & 2017-09-26 &  & Description for test & 20 & \\
+2017-09-27 & 2017-09-27 &  & Description for test & 20 & \\
+2017-09-28 & 2017-09-28 &  & Description for test & 20 & \\
+2017-09-28 & 2017-09-28 &  & Description for test &  & 800\\
+2017-09-28 & 2017-09-28 &  & Description for test &  & 500\\
+2017-09-28 & 2017-09-28 &  & Description for test &  & 200\\
+2017-09-29 & 2017-09-29 &  & Description for test & 40 & \\
+2017-10-02 & 2017-10-02 &  & Description for test & 40 & \\
+2017-10-03 & 2017-10-03 &  & Description for test &  & 440\\
+2017-10-09 & 2017-10-09 &  & Description for test & 170 & \\
+2017-10-10 & 2017-10-10 &  & Description for test &  & 1000\\
+2017-10-12 & 2017-10-12 &  & Description for test & 800 & \\
+2017-10-12 & 2017-10-12 &  & Description for test & 4398.5 & \\
+2017-10-12 & 2017-10-12 &  & Description for test & 190 & \\
+2017-10-18 & 2017-10-18 &  & Description for test & 50 & \\
+2017-10-20 & 2017-10-20 &  & Description for test &  & 159.5\\
+2017-10-27 & 2017-10-27 &  & Description for test &  & 100\\
+2017-10-30 & 2017-10-30 &  & Description for test &  & 1263.6\\
+2017-11-03 & 2017-11-03 &  & Description for test &  & 2150\\
+2017-11-08 & 2017-11-08 &  & Description for test &  & 111.3\\
+2017-11-10 & 2017-11-10 &  & Description for test &  & 1000\\
+2017-11-23 & 2017-11-23 &  & Description for test & 110 & \\
+2017-12-04 & 2017-12-04 &  & Description for test &  & 4099.2\\
+2017-12-08 & 2017-12-08 &  & Description for test &  & 1000\\
+2017-12-15 & 2017-12-15 &  & Description for test & 100 & \\
+2017-12-21 & 2017-12-21 &  & Description for test &  & 1600\\
+2017-12-22 & 2017-12-22 &  & Description for test & 200 & \\
+2017-12-31 & 2017-12-31 &  & Description for test & 15.3 & \\
+2017-12-31 & 2017-12-31 &  & Description for test &  & 16\\
+2017-12-31 & 2017-12-31 &  & Description for test &  & 4.5\\
+2017-12-31 & 2017-12-31 &  & Description for test &  & 3.4\\
+2017-12-31 & 2017-12-31 &  & Description for test &  & 162.3\\
+2019-01-07 & 2019-01-07 &  & Description for test &  & 136\\
+\\
+\end{tablevalue}
+\end{document}

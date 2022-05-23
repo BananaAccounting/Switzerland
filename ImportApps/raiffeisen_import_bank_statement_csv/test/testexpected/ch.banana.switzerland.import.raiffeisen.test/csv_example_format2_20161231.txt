@@ -1,0 +1,405 @@
+%%info_test_name{csv_example_format2_20161231}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2016-01-08 & 2016-01-08 &  & Description for test &  & 75.6\\
+2016-01-10 & 2016-01-11 &  & Description for test &  & 103.06\\
+2016-01-11 & 2016-01-11 &  & Description for test & 2902.23 & \\
+2016-01-11 & 2016-01-11 &  & Description for test & 984.4 & \\
+2016-01-11 & 2016-01-11 &  & Description for test &  & 2050\\
+2016-01-11 & 2016-01-11 &  & Description for test &  & 111.15\\
+2016-01-11 & 2016-01-11 &  & Description for test &  & 100\\
+2016-01-12 & 2016-01-12 &  & Description for test &  & 350\\
+2016-01-13 & 2016-01-13 &  & Description for test &  & 6002.2\\
+2016-01-19 & 2016-01-19 &  & Description for test &  & 66\\
+2016-01-24 & 2016-01-25 &  & Description for test &  & 170.05\\
+2016-01-25 & 2016-01-25 &  & Description for test &  & 500\\
+2016-01-29 & 2016-01-29 &  & Description for test & 14161 & \\
+2016-01-29 & 2016-02-01 &  & Description for test &  & 871.6\\
+2016-01-29 & 2016-02-01 &  & Description for test &  & 6055.6\\
+2016-02-01 & 2016-02-01 &  & Description for test &  & 48\\
+2016-02-01 & 2016-02-01 &  & Description for test &  & 6002.2\\
+2016-02-03 & 2016-02-03 &  & Description for test &  & 651\\
+2016-02-03 & 2016-02-03 &  & Description for test &  & 194.2\\
+2016-02-04 & 2016-02-04 &  & Description for test &  & 100\\
+2016-02-04 & 2016-02-04 &  & Description for test &  & 17.85\\
+2016-02-05 & 2016-02-05 &  & Description for test & 5515.3 & \\
+2016-02-05 & 2016-02-05 &  & Description for test &  & 83\\
+2016-02-05 & 2016-02-08 &  & Description for test &  & 2354.5\\
+2016-02-05 & 2016-02-08 &  & Description for test &  & 3241\\
+2016-02-09 & 2016-02-09 &  & Description for test & 2700 & \\
+2016-02-09 & 2016-02-10 &  & Description for test & 300 & \\
+2016-02-09 & 2016-02-09 &  & Description for test &  & 16\\
+2016-02-09 & 2016-02-09 &  & Description for test &  & 2050\\
+2016-02-09 & 2016-02-10 &  & Description for test &  & 531\\
+2016-02-10 & 2016-02-10 &  & Description for test &  & 320\\
+2016-02-15 & 2016-02-15 &  & Description for test &  & 40\\
+2016-02-16 & 2016-02-16 &  & Description for test & 14196 & \\
+2016-02-16 & 2016-02-16 &  & Description for test &  & 86\\
+2016-02-16 & 2016-02-16 &  & Description for test &  & 2008.8\\
+2016-02-16 & 2016-02-16 &  & Description for test &  & 6055.6\\
+2016-02-16 & 2016-02-16 &  & Description for test &  & 3000\\
+2016-02-16 & 2016-02-16 &  & Description for test &  & 1500\\
+2016-02-23 & 2016-02-23 &  & Description for test &  & 263.1\\
+2016-02-25 & 2016-02-25 &  & Description for test &  & 589.6\\
+2016-02-26 & 2016-02-26 &  & Description for test & 50000 & \\
+2016-02-26 & 2016-02-26 &  & Description for test &  & 147.71\\
+2016-02-26 & 2016-02-26 &  & Description for test &  & 72.78\\
+2016-02-26 & 2016-02-26 &  & Description for test &  & 33.06\\
+2016-02-26 & 2016-02-26 &  & Description for test &  & 871.6\\
+2016-02-26 & 2016-02-26 &  & Description for test &  & 335.1\\
+2016-02-26 & 2016-02-26 &  & Description for test &  & 100\\
+2016-02-27 & 2016-02-29 &  & Description for test &  & 65\\
+2016-02-28 & 2016-02-29 &  & Description for test &  & 658\\
+2016-02-29 & 2016-02-29 &  & Description for test &  & 6002.2\\
+2016-02-29 & 2016-02-29 &  & Description for test &  & 15000\\
+2016-03-01 & 2016-03-01 &  & Description for test &  & 77\\
+2016-03-02 & 2016-03-02 &  & Description for test &  & 87\\
+2016-03-02 & 2016-03-02 &  & Description for test &  & 3220\\
+2016-03-03 & 2016-03-03 &  & Description for test &  & 2050\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 52.05\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 37\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 5396.55\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 5026.55\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 198\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 3207.6\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 690.1\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 5788\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 324\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 142\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 71.27\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 185\\
+2016-03-04 & 2016-03-04 &  & Description for test &  & 308\\
+2016-03-07 & 2016-03-07 &  & Description for test & 4000 & \\
+2016-03-08 & 2016-03-08 &  & Description for test & 690.1 & \\
+2016-03-10 & 2016-03-10 &  & Description for test &  & 43.45\\
+2016-03-14 & 2016-03-14 &  & Description for test & 13047.6 & \\
+2016-03-15 & 2016-03-15 &  & Description for test &  & 496\\
+2016-03-15 & 2016-03-15 &  & Description for test &  & 6446\\
+2016-03-15 & 2016-03-15 &  & Description for test &  & 468\\
+2016-03-15 & 2016-03-15 &  & Description for test &  & 6106\\
+2016-03-16 & 2016-03-16 &  & Description for test &  & 969.85\\
+2016-03-16 & 2016-03-16 &  & Description for test &  & 690.1\\
+2016-03-16 & 2016-03-16 &  & Description for test &  & 583.2\\
+2016-03-16 & 2016-03-16 &  & Description for test &  & 90.9\\
+2016-03-20 & 2016-03-21 &  & Description for test &  & 101.8\\
+2016-03-23 & 2016-03-23 &  & Description for test &  & 72.25\\
+2016-03-23 & 2016-03-23 &  & Description for test &  & 90\\
+2016-03-24 & 2016-03-24 &  & Description for test &  & 871.6\\
+2016-03-31 & 2016-03-31 &  & Description for test &  & 79.44\\
+2016-03-31 & 2016-03-31 &  & Description for test &  & 83.31\\
+2016-03-31 & 2016-03-31 &  & Description for test & 0.05 & \\
+2016-03-31 & 2016-03-31 &  & Description for test &  & 20\\
+2016-03-31 & 2016-03-31 &  & Description for test &  & 17.85\\
+2016-03-31 & 2016-03-31 &  & Description for test &  & 10.5\\
+2016-04-01 & 2016-04-01 &  & Description for test &  & 95.8\\
+2016-04-04 & 2016-04-04 &  & Description for test &  & 300\\
+2016-04-06 & 2016-04-06 &  & Description for test &  & 104.44\\
+2016-04-09 & 2016-04-11 &  & Description for test &  & 200\\
+2016-04-10 & 2016-04-11 &  & Description for test &  & 427.87\\
+2016-04-15 & 2016-04-15 &  & Description for test & 12958.8 & \\
+2016-04-15 & 2016-04-15 &  & Description for test & 1079.9 & \\
+2016-04-15 & 2016-04-15 &  & Description for test &  & 2050\\
+2016-04-15 & 2016-04-15 &  & Description for test &  & 6251\\
+2016-04-15 & 2016-04-18 &  & Description for test &  & 5612.05\\
+2016-04-23 & 2016-04-25 &  & Description for test &  & 31\\
+2016-04-24 & 2016-04-25 &  & Description for test &  & 83.14\\
+2016-04-27 & 2016-04-27 &  & Description for test & 1636.35 & \\
+2016-04-27 & 2016-04-27 &  & Description for test &  & 458.3\\
+2016-04-28 & 2016-04-28 &  & Description for test &  & 871.6\\
+2016-04-29 & 2016-04-29 &  & Description for test & 54000 & \\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 144.7\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 10000\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 5150.1\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 100\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 6002.2\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 483.85\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 50\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 70\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 3002.2\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 552\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 120\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 138.3\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 5065.65\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 2050\\
+2016-04-29 & 2016-04-29 &  & Description for test &  & 596\\
+2016-05-01 & 2016-05-02 &  & Description for test &  & 83.99\\
+2016-05-02 & 2016-05-02 &  & Description for test &  & 1000\\
+2016-05-04 & 2016-05-04 &  & Description for test &  & 77.5\\
+2016-05-07 & 2016-05-09 &  & Description for test &  & 65.54\\
+2016-05-08 & 2016-05-09 &  & Description for test &  & 79.08\\
+2016-05-10 & 2016-05-10 &  & Description for test &  & 6000\\
+2016-05-13 & 2016-05-13 &  & Description for test &  & 6251\\
+2016-05-15 & 2016-05-17 &  & Description for test &  & 35.5\\
+2016-05-15 & 2016-05-17 &  & Description for test &  & 29.04\\
+2016-05-17 & 2016-05-17 &  & Description for test &  & 143.4\\
+2016-05-17 & 2016-05-17 &  & Description for test &  & 118.7\\
+2016-05-17 & 2016-05-17 &  & Description for test &  & 73\\
+2016-05-17 & 2016-05-17 &  & Description for test &  & 40\\
+2016-05-18 & 2016-05-18 &  & Description for test &  & 27.28\\
+2016-05-19 & 2016-05-19 &  & Description for test &  & 116.32\\
+2016-05-22 & 2016-05-23 &  & Description for test &  & 213.09\\
+2016-05-25 & 2016-05-25 &  & Description for test &  & 79.24\\
+2016-05-25 & 2016-05-25 &  & Description for test &  & 6002.2\\
+2016-05-27 & 2016-05-27 &  & Description for test & 7000 & \\
+2016-05-29 & 2016-05-30 &  & Description for test &  & 70.27\\
+2016-05-29 & 2016-05-30 &  & Description for test &  & 117.12\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 2050\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 435\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 612.6\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 688.5\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 40\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 236\\
+2016-05-30 & 2016-05-30 &  & Description for test &  & 829.5\\
+2016-06-02 & 2016-06-02 &  & Description for test & 2000 & \\
+2016-06-02 & 2016-06-02 &  & Description for test &  & 1344\\
+2016-06-02 & 2016-06-02 &  & Description for test &  & 137.4\\
+2016-06-02 & 2016-06-02 &  & Description for test &  & 583.2\\
+2016-06-04 & 2016-06-06 &  & Description for test &  & 136.4\\
+2016-06-06 & 2016-06-06 &  & Description for test &  & 273\\
+2016-06-12 & 2016-06-13 &  & Description for test &  & 94\\
+2016-06-12 & 2016-06-13 &  & Description for test &  & 73.01\\
+2016-06-14 & 2016-06-14 &  & Description for test & 45829.8 & \\
+2016-06-17 & 2016-06-17 &  & Description for test &  & 54.88\\
+2016-06-17 & 2016-06-17 &  & Description for test &  & 26.43\\
+2016-06-20 & 2016-06-20 &  & Description for test &  & 16200\\
+2016-06-20 & 2016-06-20 &  & Description for test &  & 165.05\\
+2016-06-20 & 2016-06-20 &  & Description for test &  & 709\\
+2016-06-20 & 2016-06-20 &  & Description for test &  & 263\\
+2016-06-21 & 2016-06-21 &  & Description for test &  & 6251\\
+2016-06-23 & 2016-06-23 &  & Description for test &  & 13498\\
+2016-06-23 & 2016-06-23 &  & Description for test &  & 200\\
+2016-06-23 & 2016-06-23 &  & Description for test &  & 5542.5\\
+2016-06-24 & 2016-06-24 &  & Description for test & 27000 & \\
+2016-06-24 & 2016-06-24 &  & Description for test & 54000 & \\
+2016-06-25 & 2016-06-27 &  & Description for test &  & 92.62\\
+2016-06-26 & 2016-06-27 &  & Description for test &  & 68.3\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 338.5\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 104.05\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 114.35\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 27000\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 7506\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 16437\\
+2016-06-29 & 2016-06-29 &  & Description for test &  & 526\\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 32.73\\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 137.26\\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 87.81\\
+2016-06-30 & 2016-06-30 &  & Description for test & 0.15 & \\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 0.05\\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 17\\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 15.3\\
+2016-06-30 & 2016-06-30 &  & Description for test &  & 30\\
+2016-07-01 & 2016-07-01 &  & Description for test &  & 59.1\\
+2016-07-02 & 2016-07-04 &  & Description for test &  & 45\\
+2016-07-03 & 2016-07-04 &  & Description for test &  & 95.45\\
+2016-07-03 & 2016-07-04 &  & Description for test &  & 432\\
+2016-07-03 & 2016-07-04 &  & Description for test &  & 100.5\\
+2016-07-03 & 2016-07-04 &  & Description for test &  & 204\\
+2016-07-03 & 2016-07-04 &  & Description for test &  & 34.2\\
+2016-07-04 & 2016-07-04 &  & Description for test &  & 2050\\
+2016-07-04 & 2016-07-04 &  & Description for test &  & 182.9\\
+2016-07-04 & 2016-07-04 &  & Description for test &  & 6076.5\\
+2016-07-04 & 2016-07-04 &  & Description for test &  & 455.5\\
+2016-07-04 & 2016-07-04 &  & Description for test &  & 1489\\
+2016-07-05 & 2016-07-05 &  & Description for test &  & 37.5\\
+2016-07-05 & 2016-07-05 &  & Description for test &  & 1500\\
+2016-07-05 & 2016-07-05 &  & Description for test &  & 585\\
+2016-07-06 & 2016-07-06 &  & Description for test &  & 98.13\\
+2016-07-07 & 2016-07-07 &  & Description for test &  & 302\\
+2016-07-08 & 2016-07-08 &  & Description for test &  & 92.25\\
+2016-07-08 & 2016-07-08 &  & Description for test &  & 44.5\\
+2016-07-09 & 2016-07-11 &  & Description for test &  & 84.5\\
+2016-07-09 & 2016-07-11 &  & Description for test &  & 69\\
+2016-07-09 & 2016-07-11 &  & Description for test &  & 19.2\\
+2016-07-10 & 2016-07-11 &  & Description for test &  & 102.5\\
+2016-07-10 & 2016-07-11 &  & Description for test &  & 24.9\\
+2016-07-10 & 2016-07-11 &  & Description for test &  & 19.85\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 11.5\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 123\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 46.5\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 47.1\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 739.5\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 52\\
+2016-07-12 & 2016-07-12 &  & Description for test &  & 134.6\\
+2016-07-14 & 2016-07-14 &  & Description for test &  & 657.6\\
+2016-07-14 & 2016-07-14 &  & Description for test &  & 277.4\\
+2016-07-14 & 2016-07-14 &  & Description for test &  & 649.4\\
+2016-07-20 & 2016-07-20 &  & Description for test &  & 7008\\
+2016-07-20 & 2016-07-20 &  & Description for test &  & 548\\
+2016-07-24 & 2016-07-25 &  & Description for test &  & 262.44\\
+2016-07-27 & 2016-07-27 &  & Description for test & 3247.5 & \\
+2016-07-27 & 2016-07-27 &  & Description for test &  & 300\\
+2016-07-27 & 2016-07-27 &  & Description for test &  & 6251\\
+2016-07-27 & 2016-07-27 &  & Description for test &  & 2050\\
+2016-07-28 & 2016-07-28 &  & Description for test &  & 236\\
+2016-07-28 & 2016-07-28 &  & Description for test &  & 939.55\\
+2016-08-01 & 2016-08-02 &  & Description for test &  & 97\\
+2016-08-02 & 2016-08-02 &  & Description for test &  & 75.02\\
+2016-08-02 & 2016-08-02 &  & Description for test &  & 63.28\\
+2016-08-03 & 2016-08-03 &  & Description for test &  & 63.92\\
+2016-08-04 & 2016-08-04 &  & Description for test &  & 892.2\\
+2016-08-04 & 2016-08-04 &  & Description for test &  & 50\\
+2016-08-04 & 2016-08-04 &  & Description for test &  & 392\\
+2016-08-04 & 2016-08-04 &  & Description for test &  & 71.13\\
+2016-08-05 & 2016-08-05 &  & Description for test & 430.12 & \\
+2016-08-05 & 2016-08-05 &  & Description for test &  & 51.44\\
+2016-08-05 & 2016-08-08 &  & Description for test &  & 253\\
+2016-08-06 & 2016-08-08 &  & Description for test &  & 200\\
+2016-08-10 & 2016-08-10 &  & Description for test & 21100 & \\
+2016-08-11 & 2016-08-11 &  & Description for test &  & 7000\\
+2016-08-12 & 2016-08-12 &  & Description for test & 26951.4 & \\
+2016-08-12 & 2016-08-12 &  & Description for test & 25144.6 & \\
+2016-08-13 & 2016-08-15 &  & Description for test &  & 493.8\\
+2016-08-13 & 2016-08-15 &  & Description for test &  & 493.8\\
+2016-08-16 & 2016-08-16 &  & Description for test &  & 45.35\\
+2016-08-22 & 2016-08-22 &  & Description for test &  & 24930.7\\
+2016-08-22 & 2016-08-22 &  & Description for test &  & 6581.4\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 939.55\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 3916.7\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 1621\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 1713.65\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 1829.4\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 1621\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 1621\\
+2016-08-26 & 2016-08-26 &  & Description for test &  & 6251\\
+2016-08-29 & 2016-08-29 &  & Description for test &  & 2050\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 150.05\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 4746.3\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 40\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 145.1\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 50\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 30\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 50\\
+2016-08-30 & 2016-08-30 &  & Description for test &  & 50\\
+2016-09-07 & 2016-09-07 &  & Description for test &  & 179\\
+2016-09-08 & 2016-09-08 &  & Description for test &  & 4000\\
+2016-09-09 & 2016-09-09 &  & Description for test &  & 59.95\\
+2016-09-09 & 2016-09-09 &  & Description for test &  & 1493.1\\
+2016-09-10 & 2016-09-12 &  & Description for test &  & 75.9\\
+2016-09-13 & 2016-09-13 &  & Description for test &  & 100\\
+2016-09-14 & 2016-09-14 &  & Description for test &  & 97.35\\
+2016-09-14 & 2016-09-14 &  & Description for test &  & 665\\
+2016-09-14 & 2016-09-14 &  & Description for test &  & 89.59\\
+2016-09-15 & 2016-09-15 &  & Description for test & 52728.8 & \\
+2016-09-15 & 2016-09-15 &  & Description for test &  & 20.1\\
+2016-09-15 & 2016-09-15 &  & Description for test &  & 9373.23\\
+2016-09-15 & 2016-09-15 &  & Description for test &  & 10768.88\\
+2016-09-16 & 2016-09-16 &  & Description for test & 108000 & \\
+2016-09-16 & 2016-09-19 &  & Description for test & 1232.2 & \\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 60.01\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 4116\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 500\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 583.2\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 1335.65\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 10000\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 4550\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 1523.2\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 2970\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 294.85\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 3460.9\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 486\\
+2016-09-16 & 2016-09-16 &  & Description for test &  & 3307.8\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 10786.65\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 373.1\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 206.2\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 1072.95\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 33.8\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 6474.9\\
+2016-09-19 & 2016-09-19 &  & Description for test &  & 243\\
+2016-09-21 & 2016-09-21 &  & Description for test &  & 32.5\\
+2016-09-21 & 2016-09-21 &  & Description for test &  & 61.5\\
+2016-09-21 & 2016-09-21 &  & Description for test &  & 166\\
+2016-09-22 & 2016-09-22 &  & Description for test &  & 10000\\
+2016-09-22 & 2016-09-22 &  & Description for test &  & 21992\\
+2016-09-22 & 2016-09-22 &  & Description for test &  & 21992\\
+2016-09-23 & 2016-09-23 &  & Description for test &  & 6251\\
+2016-09-23 & 2016-09-23 &  & Description for test &  & 47\\
+2016-09-24 & 2016-09-26 &  & Description for test &  & 102\\
+2016-09-25 & 2016-09-26 &  & Description for test &  & 219.78\\
+2016-09-28 & 2016-09-28 &  & Description for test &  & 939.55\\
+2016-09-29 & 2016-09-29 &  & Description for test &  & 236\\
+2016-09-30 & 2016-09-30 &  & Description for test &  & 50\\
+2016-09-30 & 2016-09-30 &  & Description for test & 0.05 & \\
+2016-09-30 & 2016-09-30 &  & Description for test &  & 20.5\\
+2016-09-30 & 2016-09-30 &  & Description for test &  & 7\\
+2016-09-30 & 2016-09-30 &  & Description for test &  & 21.25\\
+2016-09-30 & 2016-09-30 &  & Description for test &  & 30\\
+2016-10-03 & 2016-10-03 &  & Description for test &  & 112.3\\
+2016-10-05 & 2016-10-05 &  & Description for test &  & 10000\\
+2016-10-05 & 2016-10-05 &  & Description for test &  & 2050\\
+2016-10-05 & 2016-10-05 &  & Description for test &  & 40\\
+2016-10-05 & 2016-10-05 &  & Description for test &  & 88\\
+2016-10-05 & 2016-10-05 &  & Description for test &  & 245\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 4609.8\\
+2016-10-07 & 2016-10-07 &  & Description for test &  & 1652.85\\
+2016-10-11 & 2016-10-11 &  & Description for test &  & 45.26\\
+2016-10-12 & 2016-10-12 &  & Description for test &  & 30\\
+2016-10-12 & 2016-10-12 &  & Description for test &  & 58.4\\
+2016-10-13 & 2016-10-13 &  & Description for test &  & 36.5\\
+2016-10-13 & 2016-10-13 &  & Description for test &  & 77\\
+2016-10-14 & 2016-10-14 &  & Description for test &  & 1427.79\\
+2016-10-20 & 2016-10-20 &  & Description for test &  & 1402\\
+2016-10-21 & 2016-10-21 &  & Description for test &  & 105\\
+2016-10-22 & 2016-10-24 &  & Description for test &  & 83\\
+2016-10-22 & 2016-10-24 &  & Description for test &  & 23\\
+2016-10-26 & 2016-10-26 &  & Description for test &  & 226.5\\
+2016-10-26 & 2016-10-26 &  & Description for test &  & 527.5\\
+2016-10-26 & 2016-10-26 &  & Description for test &  & 131.6\\
+2016-10-26 & 2016-10-26 &  & Description for test &  & 1100\\
+2016-10-28 & 2016-10-28 &  & Description for test &  & 3000\\
+2016-11-04 & 2016-11-04 &  & Description for test &  & 28.06\\
+2016-11-08 & 2016-11-08 &  & Description for test &  & 11.95\\
+2016-11-08 & 2016-11-08 &  & Description for test &  & 108.6\\
+2016-11-10 & 2016-11-10 &  & Description for test & 25893 & \\
+2016-11-10 & 2016-11-10 &  & Description for test &  & 223\\
+2016-11-14 & 2016-11-14 &  & Description for test &  & 939.55\\
+2016-11-14 & 2016-11-14 &  & Description for test &  & 6251\\
+2016-11-14 & 2016-11-14 &  & Description for test &  & 2050\\
+2016-11-17 & 2016-11-17 &  & Description for test &  & 50.85\\
+2016-11-17 & 2016-11-17 &  & Description for test &  & 131.99\\
+2016-11-17 & 2016-11-17 &  & Description for test &  & 6000\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 1166.4\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 1000.65\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 629.8\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 6251\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 43.72\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 223.76\\
+2016-11-18 & 2016-11-18 &  & Description for test &  & 41.02\\
+2016-11-19 & 2016-11-21 &  & Description for test &  & 40\\
+2016-11-21 & 2016-11-21 &  & Description for test &  & 800\\
+2016-11-26 & 2016-11-28 &  & Description for test &  & 79.65\\
+2016-11-29 & 2016-11-29 &  & Description for test & 2132.4 & \\
+2016-11-29 & 2016-11-30 &  & Description for test &  & 939.55\\
+2016-11-30 & 2016-11-30 &  & Description for test &  & 1100\\
+2016-12-04 & 2016-12-05 &  & Description for test &  & 50\\
+2016-12-13 & 2016-12-13 &  & Description for test &  & 103.09\\
+2016-12-27 & 2016-12-27 &  & Description for test & 4261.2 & \\
+2016-12-28 & 2016-12-28 &  & Description for test &  & 939.55\\
+2016-12-30 & 2016-12-30 &  & Description for test &  & 3000\\
+2016-12-30 & 2016-12-31 &  & Description for test &  & 10\\
+2016-12-31 & 2016-12-31 &  & Description for test & 0 & \\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 16\\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 1\\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 14.45\\
+2016-12-31 & 2016-12-31 &  & Description for test &  & 19.5\\
+\\
+\end{tablevalue}
+\end{document}

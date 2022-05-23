@@ -1,0 +1,93 @@
+%%info_test_name{csv_example_format3_20171231}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2017-08-02 & 2017-08-02 &  & Description for test &  & 1770\\
+2017-09-01 & 2017-09-01 &  & Description for test &  & 1770\\
+2017-10-02 & 2017-10-02 &  & Description for test &  & 1770\\
+2017-10-23 & 2017-10-23 &  & Description for test & 1652.31 & \\
+2017-10-30 & 2017-10-30 &  & Description for test & 6.4 & \\
+2017-11-02 & 2017-11-02 &  & Description for test &  & 1770\\
+2017-11-02 & 2017-11-02 &  & Description for test &  & 41.05\\
+2017-11-03 & 2017-11-03 &  & Description for test & 175.32 & \\
+2017-11-06 & 2017-11-06 &  & Description for test & 94.08 & \\
+2017-11-08 & 2017-11-08 &  & Description for test & 448.41 & \\
+2017-11-09 & 2017-11-09 &  & Description for test & 9000 & \\
+2017-11-09 & 2017-11-09 &  & Description for test &  & 8291.91\\
+2017-11-14 & 2017-11-14 &  & Description for test & 355.95 & \\
+2017-11-14 & 2017-11-14 &  & Description for test & 13040 & \\
+2017-11-15 & 2017-11-15 &  & Description for test & 29.55 & \\
+2017-11-17 & 2017-11-17 &  & Description for test & 17.55 & \\
+2017-11-21 & 2017-11-22 &  & Description for test & 59 & \\
+2017-11-23 & 2017-11-23 &  & Description for test & 206.1 & \\
+2017-11-24 & 2017-11-24 &  & Description for test &  & 6450\\
+2017-11-24 & 2017-11-24 &  & Description for test & 535 & \\
+2017-11-27 & 2017-11-27 &  & Description for test &  & 34.3\\
+2017-11-27 & 2017-11-27 &  & Description for test & 50 & \\
+2017-11-27 & 2017-11-27 &  & Description for test & 137 & \\
+2017-11-27 & 2017-11-27 &  & Description for test & 23.15 & \\
+2017-11-28 & 2017-11-28 &  & Description for test & 473.55 & \\
+2017-11-29 & 2017-11-29 &  & Description for test & 161.05 & \\
+2017-11-29 & 2017-11-29 &  & Description for test & 169.5 & \\
+2017-11-30 & 2017-11-30 &  & Description for test & 81 & \\
+2017-11-30 & 2017-11-30 &  & Description for test & 65 & \\
+2017-11-30 & 2017-11-30 &  & Description for test & 51 & \\
+2017-11-30 & 2017-11-30 &  & Description for test & 319.9 & \\
+2017-11-30 & 2017-11-30 &  & Description for test & 34.5 & \\
+2017-12-01 & 2017-12-01 &  & Description for test &  & 1770\\
+2017-12-04 & 2017-12-04 &  & Description for test & 45.5 & \\
+2017-12-05 & 2017-12-05 &  & Description for test & 112 & \\
+2017-12-05 & 2017-12-05 &  & Description for test & 176.9 & \\
+2017-12-05 & 2017-12-05 &  & Description for test & 258.3 & \\
+2017-12-05 & 2017-12-05 &  & Description for test & 59.59 & \\
+2017-12-07 & 2017-12-07 &  & Description for test &  & 47.65\\
+2017-12-08 & 2017-12-08 &  & Description for test & 152 & \\
+2017-12-11 & 2017-12-11 &  & Description for test &  & 312\\
+2017-12-12 & 2017-12-12 &  & Description for test & 598.38 & \\
+2017-12-13 & 2017-12-13 &  & Description for test & 511.17 & \\
+2017-12-18 & 2017-12-18 &  & Description for test & 67 & \\
+2017-12-18 & 2017-12-18 &  & Description for test & 203.29 & \\
+2017-12-19 & 2017-12-19 &  & Description for test & 1800 & \\
+2017-12-20 & 2017-12-20 &  & Description for test &  & 5512.85\\
+2017-12-20 & 2017-12-20 &  & Description for test &  & 205.88\\
+2017-12-21 & 2017-12-21 &  & Description for test & 31 & \\
+2017-12-21 & 2017-12-21 &  & Description for test & 4503.18 & \\
+2017-12-21 & 2017-12-21 &  & Description for test & 162 & \\
+2017-12-21 & 2017-12-21 &  & Description for test & 194.5 & \\
+2017-12-21 & 2017-12-21 &  & Description for test & 81 & \\
+2017-12-22 & 2017-12-22 &  & Description for test & 108.5 & \\
+2017-12-22 & 2017-12-22 &  & Description for test & 335.8 & \\
+2017-12-27 & 2017-12-27 &  & Description for test & 133 & \\
+2017-12-27 & 2017-12-27 &  & Description for test & 34.5 & \\
+2017-12-27 & 2017-12-27 &  & Description for test & 31.2 & \\
+2017-12-28 & 2017-12-28 &  & Description for test & 24 & \\
+2017-12-28 & 2017-12-28 &  & Description for test & 213.1 & \\
+2017-12-28 & 2017-12-28 &  & Description for test & 42.5 & \\
+2017-12-28 & 2017-12-28 &  & Description for test & 129 & \\
+2017-12-28 & 2017-12-28 &  & Description for test & 669.54 & \\
+2017-12-29 & 2017-12-29 &  & Description for test &  & 2842\\
+2017-12-29 & 2017-12-29 &  & Description for test & 70.2 & \\
+2017-12-31 & 2017-12-31 &  & Description for test & 0 & \\
+2017-12-31 & 2017-12-31 &  & Description for test &  & 25\\
+2017-12-31 & 2017-12-31 &  & Description for test &  & 3\\
+\\
+\end{tablevalue}
+\end{document}
