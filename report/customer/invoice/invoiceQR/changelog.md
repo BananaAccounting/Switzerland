@@ -47,3 +47,6 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Print fields OrganisationUnit, OrganisationUnit2, OrganisationUnit3, and OrganisationUnit4  
 * 2022-04-04
 	* Fix left alignment of logo related to item's table.  
+* 2022-05-30
+	* Fix print column Item  
+	* Removed 'shipping address' from invoice parameters when using Estimates-Invoices application  

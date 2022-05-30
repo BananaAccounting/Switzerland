@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-05-13
+// @pubdate = 2022-05-30
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -649,18 +649,20 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
-  currentParam = {};
-  currentParam.name = 'shipping_address';
-  currentParam.parentObject = 'address_include';
-  currentParam.title = texts.param_shipping_address;
-  currentParam.type = 'bool';
-  currentParam.value = userParam.shipping_address ? true : false;
-  currentParam.defaultvalue = false;
-  currentParam.tooltip = texts.param_tooltip_shipping_address;
-  currentParam.readValue = function() {
-    userParam.shipping_address = this.value;
+  if (IS_INTEGRATED_INVOICE) {
+    currentParam = {};
+    currentParam.name = 'shipping_address';
+    currentParam.parentObject = 'address_include';
+    currentParam.title = texts.param_shipping_address;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.shipping_address ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_shipping_address;
+    currentParam.readValue = function() {
+      userParam.shipping_address = this.value;
+    }
+    convertedParam.data.push(currentParam);
   }
-  convertedParam.data.push(currentParam);
 
   currentParam = {};
   currentParam.name = 'info_include';
@@ -1208,19 +1210,21 @@ function convertParam(userParam) {
     }
     convertedParam.data.push(currentParam);
 
-    currentParam = {};
-    currentParam.name = langCode+'_text_shipping_address';
-    currentParam.parentObject = langCode;
-    currentParam.title = langTexts[langCodeTitle+'_param_text_shipping_address'];
-    currentParam.type = 'string';
-    currentParam.value = userParam[langCode+'_text_shipping_address'] ? userParam[langCode+'_text_shipping_address'] : '';
-    currentParam.defaultvalue = langTexts.shipping_address;
-    currentParam.tooltip = langTexts['param_tooltip_text_shipping_address'];
-    currentParam.language = langCode;
-    currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_shipping_address'] = this.value;
+    if (IS_INTEGRATED_INVOICE) {
+      currentParam = {};
+      currentParam.name = langCode+'_text_shipping_address';
+      currentParam.parentObject = langCode;
+      currentParam.title = langTexts[langCodeTitle+'_param_text_shipping_address'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_shipping_address'] ? userParam[langCode+'_text_shipping_address'] : '';
+      currentParam.defaultvalue = langTexts.shipping_address;
+      currentParam.tooltip = langTexts['param_tooltip_text_shipping_address'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_shipping_address'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
     }
-    convertedParam.data.push(currentParam);
 
     currentParam = {};
     currentParam.name = langCode+'_title_doctype_10';
@@ -2063,7 +2067,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT SHIPPING ADDRESS */
-  if (userParam.shipping_address) {
+  if (IS_INTEGRATED_INVOICE && userParam.shipping_address) {
     if (BAN_ADVANCED && typeof(hook_print_shipping_address) === typeof(Function)) {
       hook_print_shipping_address(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -2724,6 +2728,10 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         }
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
+      else if (columnsNames[j].trim().toLowerCase() === "number") {
+        var itemValue = formatItemsValue(item.number, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
       else {
         var userColumnValue = "";
         var columnsName = columnsNames[j];
@@ -2976,6 +2984,10 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         else {
           itemValue = formatItemsValue("", variables, columnsNames[j], className, item);
         }
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "number") {
+        var itemValue = formatItemsValue(item.number, variables, columnsNames[j], className, item);
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else {
