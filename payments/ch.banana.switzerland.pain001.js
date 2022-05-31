@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-04-01
+// @pubdate = 2022-05-31
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -2673,7 +2673,7 @@ var JsAction = class JsAction {
 
     //Read amount from paymentObj and write it to the object row
     _rowSetAmount(paymentObj, row) {
-        if (!paymentObj || !paymentObj.syncTransaction || !paymentObj.amount || !row || !this.pain001CH.docInfo)
+        if (!paymentObj || !paymentObj.syncTransaction || !row || !this.pain001CH.docInfo)
             return;
 
         if (this.pain001CH.docInfo.isDoubleEntry) {
