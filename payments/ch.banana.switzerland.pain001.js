@@ -1149,7 +1149,7 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
         case this.ID_ERR_QRIBAN_REFERENCE_NOTVALID:
             return "QRIBAN needs a reference number";
         case this.ID_ERR_VERSION_NOTSUPPORTED:
-            return "This extension does not run with your current version of Banana Accounting. Please update to the latest version available.";
+            return "Unsupported version. Please use or install the latest version of Banana Accounting Dev Channel with Advanced Plan.";
     }
     return "";
 }
@@ -1876,7 +1876,7 @@ Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
 
     var supportedVersion = true;
     var requiredVersion = "10.0.12";
-    var requiredSerial = "220330";
+    var requiredSerial = "220531";
 
     //example Banana.application.version 10.0.12
     //example Banana.application.serial 100012-220310
