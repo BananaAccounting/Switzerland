@@ -652,11 +652,14 @@ ISO20022CamtFile.prototype.readStatementEntry = function(entryNode) {
                   var customerNumber = this.extractCustomerNumber(detailEsrReference);
                   var ccPrefix = deatailsIsCredit ? '-' : '';
                   if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC1') {
-                     transaction.Cc1 = ccPrefix + customerNumber;
+                     if (customerNumber)
+                        transaction.Cc1 = ccPrefix + customerNumber;
                   } else if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC2') {
-                     transaction.Cc2 = ccPrefix + customerNumber;
+                     if (customerNumber)
+                        transaction.Cc2 = ccPrefix + customerNumber;
                   } else if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC3') {
-                     transaction.Cc3 = ccPrefix + customerNumber;
+                     if (customerNumber)
+                        transaction.Cc3 = ccPrefix + customerNumber;
                   } else {
                      transaction.ContraAccount = customerNumber;
                   }
