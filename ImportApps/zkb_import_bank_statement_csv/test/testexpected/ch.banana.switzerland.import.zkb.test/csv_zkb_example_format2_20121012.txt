@@ -1,0 +1,43 @@
+%%info_test_name{csv_zkb_example_format2_20121012}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2012-05-31 & 2012-05-30 &  & Karten-Nr. 671070000073657267 &  & 20.00\\
+2012-05-31 & 2012-05-31 &  & Raja Builders Ag, Hagenholzstrasse 90, 8050 Zuerich & 1876.04 & \\
+2012-06-01 & 2012-06-08 &  & Zkb Identy Key &  & 79.00\\
+2012-06-01 & 2012-06-08 &  & Zkb Identy Key &  & 79.00\\
+2012-06-07 & 2012-06-06 &  & Schuh- + Schl�sselserv, Karten-Nr. 73657267, CHF41.20 &  & 41.20\\
+2012-06-08 & 2012-06-07 &  & Ubs Zuerich Sf-Drs 112, Karten-Nr. 73657267, CHF300.00, Kommission CHF2.00 &  & 302.00\\
+2012-06-29 & 2012-06-30 &  & Guthabenzins & 0.05 & \\
+2012-06-29 & 2012-06-30 &  & Geb�hr Kontof�hru &  & 8.00\\
+2012-06-29 & 2012-06-30 &  & Belastung Versand &  & 0.85\\
+2012-07-13 & 2012-07-13 &  & Karten-Nr. 73657267 &  & 500.00\\
+2012-07-19 & 2012-07-19 &  & Raja Builders Ag, Hagenholzstr. 90, 8050 Zuerich & 158.00 & \\
+2012-08-28 & 2012-08-26 &  & Ubs Zuerich Sf-Drs 112, Karten-Nr. 73657267, CHF1000.00, Kommission CHF2.00 &  & 1002.00\\
+2012-09-28 & 2012-09-30 &  & Guthabenzins & 0.10 & \\
+2012-09-28 & 2012-09-30 &  & Verrechnungssteue &  & 0.05\\
+2012-09-28 & 2012-09-30 &  & Geb�hr Kontof�hru &  & 12.00\\
+2012-09-28 & 2012-09-30 &  & Belastung Versand &  & 2.55\\
+2012-10-12 & 2012-10-12 &  & Raja Builders Ag, Hagenholzstr. 90, 8050 Zuerich & 1500.00 & \\
+2012-10-12 & 2012-10-12 &  & Mercedes-Benz Automobil Ag, Zuercherstr. 109, 8952 Schlieren &  & 1354.95\\
+\\
+\end{tablevalue}
+\end{document}

@@ -1,0 +1,75 @@
+%%info_test_name{csv_zkb_example_format3_20141013}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & ExchangeCurrency & Notes & IsDetail\\
+2011-09-30 & 2011-09-30 &  & X1H1402294760003 & Geb Kontoführung &  & 12.00 &  &  & \\
+2011-09-30 & 2011-09-30 &  & X1H1402294760002 & Verrechnungsst &  & 0.75 &  &  & \\
+2011-11-15 & 2011-11-15 &  & 7066-1115-2406-0002 & 1/ZURICH Versicherungs- & 1300.00 &  &  &  & \\
+2011-11-21 & 2011-11-21 &  & 7427-1121-7924-0001 & Advokatur Kanonengasse &  & 1300.00 &  &  & \\
+2011-12-09 & 2011-12-09 &  & 7419-1209-6607-0001 & Advokatur Kanonengasse &  & 4249.75 &  &  & \\
+2011-12-31 & 2011-12-31 &  & X9H1410175810012 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2011-12-31 & 2011-12-31 &  & X9H1410175810011 & Verrechnungssteue &  & 2.00 &  &  & \\
+2011-12-31 & 2011-12-31 &  & X9H1410175810010 & Guthabenzins & 5.65 &  &  &  & \\
+2012-02-09 & 2012-02-09 &  & 7435-0209-8761-0001 & Balik Doene &  & 8350.25 &  &  & \\
+2012-03-30 & 2012-03-31 &  & XHH1417945040003 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2012-03-30 & 2012-03-31 &  & XHH1417945040002 & Verrechnungssteue &  & 0.95 &  &  & \\
+2012-03-30 & 2012-03-31 &  & XHH1417945040001 & Guthabenzins & 2.75 &  &  &  & \\
+2012-04-13 & 2012-04-13 &  & 7012-0413-7059-0002 & Axa Versicherungen Ag & 500.00 &  &  &  & \\
+2012-04-23 & 2012-04-23 &  & 7405-0423-5086-0001 & Akkawi Samih &  & 500.00 &  &  & \\
+2012-05-29 & 2012-05-29 &  & 8800-0529-0204-0002 & Finanzdirektion Kt.Zh & 15000.00 &  &  &  & \\
+2012-06-01 & 2012-06-01 &  & 7447-0601-4346-0001 & Muharremaj Jehona &  & 14419.95 &  &  & \\
+2012-06-07 & 2012-06-07 &  & 7459-0607-8702-0001 & Advokatur Kanonengasse &  & 580.05 &  &  & \\
+2012-06-29 & 2012-06-30 &  & XA12425870450003 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2012-06-29 & 2012-06-30 &  & XA12425870450002 & Verrechnungssteue &  & 0.30 &  &  & \\
+2012-06-29 & 2012-06-30 &  & XA12425870450001 & Guthabenzins & 0.85 &  &  &  & \\
+2012-09-28 & 2012-09-30 &  & XD11433791570003 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2012-09-28 & 2012-09-30 &  & XD11433791570002 & Verrechnungssteue &  & 0.30 &  &  & \\
+2012-09-28 & 2012-09-30 &  & XD11433791570001 & Guthabenzins & 0.80 &  &  &  & \\
+2012-10-17 & 2012-10-17 &  & 7436-1017-7187-0001 & St. Weiterb. Schw. Richter &  & 320.00 &  &  & \\
+2012-10-24 & 2012-10-24 &  & 7444-1024-9952-0002 & Advokatur Kanonengasse & 320.00 &  &  &  & \\
+2012-12-31 & 2012-12-31 &  & XN11441836230012 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2012-12-31 & 2012-12-31 &  & XN11441836230011 & Verrechnungssteue &  & 0.30 &  &  & \\
+2012-12-31 & 2012-12-31 &  & XN11441836230010 & Guthabenzins & 0.80 &  &  &  & \\
+2013-03-28 & 2013-03-31 &  & X911449303990001 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2013-04-15 & 2013-04-15 &  & 7403-0415-8573-0001 & Internet Onlinestore Ag &  & 1032.55 &  &  & \\
+2013-04-29 & 2013-04-29 &  & 7403-0429-9812-0002 & Advokatur Kanonengasse & 1032.55 &  &  &  & \\
+2013-06-11 & 2013-06-11 &  & 7401-0611-0185-0002 & Advokatur Kanonengasse & 294.85 &  &  &  & \\
+2013-06-28 & 2013-06-30 &  & X512457258050001 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2013-09-30 & 2013-09-30 &  & XD11465478560001 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2013-10-14 & 2013-10-14 &  & 7401-1014-7639-0002 & Advokatur Kanonengasse & 119.80 &  &  &  & \\
+2013-10-31 & 2013-10-31 &  & 7402-1031-7624-0002 & Advokatur Kanonengasse & 433.55 &  &  &  & \\
+2013-10-31 & 2013-10-31 &  & 7402-1031-7623-0002 & Advokatur Kanonengasse & 237.55 &  &  &  & \\
+2013-12-10 & 2013-12-10 &  & 7402-1210-7235-0002 & Advokatur Kanonengasse & 544.90 &  &  &  & \\
+2014-01-01 & 2013-12-31 &  & X112473332570008 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2014-03-31 & 2014-03-31 &  & X111481129180001 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2014-04-04 & 2014-04-04 &  & 8470-0404-0576-0002 & Obergericht Z Rich & 600.00 &  &  &  & \\
+2014-04-11 & 2014-04-11 &  & 7402-0411-1418-0002 & Advokatur Kanonengasse & 14763.60 &  &  &  & \\
+2014-04-22 & 2014-04-22 &  & 7404-0422-9697-0001 & Advokatur Kanonengasse &  & 963.90 &  &  & \\
+2014-04-22 & 2014-04-22 &  & 7404-0422-9696-0001 & Advokatur Kanonengasse &  & 140.00 &  &  & \\
+2014-05-09 & 2014-05-09 &  & 7403-0509-0322-0001 & Consuelo Cortes Pedromo &  & 13659.70 &  &  & \\
+2014-05-22 & 2014-05-22 &  & 7460-0522-2026-0001 & Osazee Violet &  & 620.00 &  &  & \\
+2014-06-30 & 2014-06-30 &  & X111489051350001 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2014-09-30 & 2014-09-30 &  & X111496933650001 & Gebühr Kontoführu &  & 12.00 &  &  & \\
+2014-10-08 & 2014-10-08 &  & 8580-1008-0437-0002 & Postfinance Egab/pce & 17042.55 &  &  &  & \\
+2014-10-13 & 2014-10-13 &  & 7403-1013-7792-0001 & Lotz Natalia &  & 17042.55 &  &  & \\
+\\
+\end{tablevalue}
+\end{document}

@@ -1,0 +1,233 @@
+%%info_test_name{csv_zkb_example_format2_20121204}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2004-01-01 & 2003-12-31 &  & Bruttozins S/h & 42.00 & \\
+2004-01-30 & 2004-01-30 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-03-01 & 2004-03-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-03-30 & 2004-03-30 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-04-30 & 2004-04-30 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-05-28 & 2004-06-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-06-29 & 2004-06-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-07-29 & 2004-07-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-08-27 & 2004-08-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-09-29 & 2004-09-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-10-29 & 2004-10-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-11-29 & 2004-11-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2004-12-20 & 2004-12-20 &  & Bareinzahlung & 200.00 & \\
+2004-12-29 & 2004-12-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-01-01 & 2004-12-31 &  & Bruttozins S/h & 52.40 & \\
+2005-01-01 & 2004-12-31 &  & Verrechnungssteue &  & 18.35\\
+2005-01-28 & 2005-01-31 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-02-28 & 2005-02-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-03-29 & 2005-03-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-04-29 & 2005-04-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-05-27 & 2005-05-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-06-29 & 2005-06-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-07-29 & 2005-07-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-08-29 & 2005-08-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-09-29 & 2005-09-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-10-12 & 2005-10-12 &  & Barauszahlung &  & 2500.00\\
+2005-10-28 & 2005-10-31 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-11-29 & 2005-11-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-12-16 & 2005-12-16 &  & Bareinzahlung & 200.00 & \\
+2005-12-29 & 2005-12-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2005-12-31 & 2005-12-31 &  & Bruttozins S/h & 65.85 & \\
+2005-12-31 & 2005-12-31 &  & Verrechnungssteue &  & 23.05\\
+2006-01-27 & 2006-01-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-02-28 & 2006-02-28 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-02-28 & 2006-02-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-03-29 & 2006-03-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-03-31 & 2006-03-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-04-28 & 2006-04-28 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-04-28 & 2006-04-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-05-29 & 2006-05-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-05-31 & 2006-05-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-06-29 & 2006-06-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-06-30 & 2006-06-30 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-07-28 & 2006-07-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-07-31 & 2006-07-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-08-25 & 2006-08-25 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 6000.00\\
+2006-08-25 & 2006-08-25 &  & Spesen &  & 2.00\\
+2006-08-29 & 2006-08-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-08-31 & 2006-08-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-09-06 & 2006-09-06 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 3000.00 & \\
+2006-09-29 & 2006-09-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-09-29 & 2006-09-29 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-10-10 & 2006-10-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 1500.00\\
+2006-10-10 & 2006-10-10 &  & Spesen &  & 2.00\\
+2006-10-27 & 2006-10-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-10-31 & 2006-10-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-11-29 & 2006-11-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-11-30 & 2006-11-30 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-12-20 & 2006-12-20 &  & Lic.Iur.Rechtsanwalt, Richard Naegeli, Hoerndlirain 11, 6318 Walchwil & 2400.00 & \\
+2006-12-22 & 2006-12-22 &  & Bareinzahlung & 200.00 & \\
+2006-12-29 & 2006-12-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2006-12-29 & 2006-12-29 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2006-12-30 & 2006-12-31 &  & Bruttozins S/h & 73.25 & \\
+2006-12-30 & 2006-12-31 &  & Verrechnungssteue &  & 25.65\\
+2007-01-05 & 2007-01-05 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil &  & 300.00\\
+2007-01-05 & 2007-01-05 &  & Spesen &  & 2.00\\
+2007-01-08 & 2007-01-08 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2007-01-29 & 2007-01-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2007-01-31 & 2007-01-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-02-28 & 2007-02-28 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-03-01 & 2007-03-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2007-03-29 & 2007-03-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2007-03-30 & 2007-03-30 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-04-27 & 2007-04-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2007-04-30 & 2007-04-30 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-05-29 & 2007-05-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2007-05-30 & 2007-05-30 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 1000.00\\
+2007-05-30 & 2007-05-30 &  & Spesen &  & 2.00\\
+2007-05-31 & 2007-05-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-06-04 & 2007-06-04 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 2250.00\\
+2007-06-04 & 2007-06-04 &  & Spesen &  & 2.00\\
+2007-06-29 & 2007-06-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-06-29 & 2007-06-29 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-07-16 & 2007-07-16 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 600.00\\
+2007-07-16 & 2007-07-16 &  & Spesen &  & 2.00\\
+2007-07-30 & 2007-07-30 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-07-31 & 2007-07-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-08-29 & 2007-08-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-08-31 & 2007-08-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-09-18 & 2007-09-18 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 2550.00\\
+2007-09-18 & 2007-09-18 &  & Spesen &  & 2.00\\
+2007-09-28 & 2007-09-28 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-10-01 & 2007-10-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-10-15 & 2007-10-15 &  & Frau, Patrizia Naegeli-Noto, Hoerndlirain 11, 6318 Walchwil & 750.00 & \\
+2007-10-29 & 2007-10-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-10-31 & 2007-10-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-11-29 & 2007-11-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-11-30 & 2007-11-30 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-12-28 & 2007-12-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2007-12-31 & 2007-12-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2007-12-31 & 2007-12-31 &  & Guthabenzins & 87.05 & \\
+2007-12-31 & 2007-12-31 &  & Verrechnungsst &  & 30.45\\
+2008-01-29 & 2008-01-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2008-01-31 & 2008-01-31 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2008-02-29 & 2008-02-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2008-02-29 & 2008-02-29 &  & Herrn, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2008-03-28 & 2008-03-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2008-03-31 & 2008-03-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2008-04-29 & 2008-04-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2008-04-30 & 2008-04-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2008-05-29 & 2008-05-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 500.00 & \\
+2008-05-30 & 2008-05-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2008-06-27 & 2008-06-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 500.00 & \\
+2008-06-30 & 2008-06-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2008-07-29 & 2008-07-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 500.00 & \\
+2008-09-01 & 2008-09-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2008-09-25 & 2008-09-25 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil &  & 600.00\\
+2008-09-25 & 2008-09-25 &  & Spesen &  & 2.00\\
+2008-09-29 & 2008-09-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 250.00 & \\
+2008-10-16 & 2008-10-16 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil &  & 2200.00\\
+2008-10-16 & 2008-10-16 &  & Spesen &  & 2.00\\
+2008-10-29 & 2008-10-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2008-11-03 & 2008-11-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil &  & 1000.00\\
+2008-11-03 & 2008-11-03 &  & Spesen &  & 2.00\\
+2008-11-28 & 2008-11-28 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2008-12-29 & 2008-12-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 175.00 & \\
+2008-12-29 & 2008-12-29 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil &  & 500.00\\
+2008-12-29 & 2008-12-29 &  & Spesen &  & 2.00\\
+2008-12-31 & 2008-12-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-01-01 & 2008-12-31 &  & Guthabenzins & 97.40 & \\
+2009-01-01 & 2008-12-31 &  & Verrechnungsst &  & 34.10\\
+2009-01-29 & 2009-01-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 750.00 & \\
+2009-01-30 & 2009-01-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-02-27 & 2009-02-27 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-02-27 & 2009-02-27 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-03-10 & 2009-03-10 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil &  & 700.00\\
+2009-03-10 & 2009-03-10 &  & Spesen &  & 2.00\\
+2009-03-31 & 2009-03-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-03-31 & 2009-03-31 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2009-04-06 & 2009-04-06 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 100.00 & \\
+2009-04-30 & 2009-04-30 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 1000.00 & \\
+2009-04-30 & 2009-04-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-05-29 & 2009-05-29 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-05-29 & 2009-05-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 200.00 & \\
+2009-06-10 & 2009-06-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 900.00 & \\
+2009-06-29 & 2009-06-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-06-30 & 2009-06-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-07-10 & 2009-07-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-07-31 & 2009-07-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-08-10 & 2009-08-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-08-31 & 2009-08-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-09-08 & 2009-09-08 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-09-30 & 2009-09-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-10-01 & 2009-10-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 400.00 & \\
+2009-10-09 & 2009-10-09 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-10-30 & 2009-10-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-11-10 & 2009-11-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-11-30 & 2009-11-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-12-10 & 2009-12-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2009-12-31 & 2009-12-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2009-12-31 & 2009-12-31 &  & Guthabenzins & 76.50 & \\
+2009-12-31 & 2009-12-31 &  & Verrechnungsst &  & 26.80\\
+2010-01-08 & 2010-01-08 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-01-29 & 2010-01-29 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2010-02-10 & 2010-02-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-02-26 & 2010-02-26 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2010-03-10 & 2010-03-10 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-03-31 & 2010-03-31 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 50.00\\
+2010-04-09 & 2010-04-09 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-05-03 & 2010-05-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-06-03 & 2010-06-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-07-02 & 2010-07-02 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-07-09 & 2010-07-09 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 1500.00 & \\
+2010-07-30 & 2010-07-30 &  & Herr, Aurel Valerian Naegeli, Hoerndlirain 11, 6318 Walchwil &  & 300.00\\
+2010-08-03 & 2010-08-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-09-03 & 2010-09-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-10-01 & 2010-10-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-11-03 & 2010-11-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-12-03 & 2010-12-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2010-12-31 & 2010-12-31 &  & Guthabenzins & 135.60 & \\
+2011-01-03 & 2011-01-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-01-31 & 2011-01-31 &  & Herr, Aurel Valerian N�geli, H�rndlirain 11, 6318 Walchwil &  & 300.00\\
+2011-02-03 & 2011-02-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-02-08 & 2011-02-08 &  & 1/LIC.Iur.Rechtsanwalt, 1/RICHARD Nageli, 6/CH/UBS/0273-00274051 & 1200.00 & \\
+2011-03-03 & 2011-03-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-04-01 & 2011-04-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-05-03 & 2011-05-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-06-03 & 2011-06-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-07-01 & 2011-07-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-08-03 & 2011-08-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-09-02 & 2011-09-02 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-10-03 & 2011-10-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-11-03 & 2011-11-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-11-25 & 2011-11-25 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil &  & 2002.00\\
+2011-12-02 & 2011-12-02 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2011-12-31 & 2011-12-31 &  & Guthabenzins & 189.65 & \\
+2012-01-03 & 2012-01-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-02-03 & 2012-02-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-03-02 & 2012-03-02 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-04-03 & 2012-04-03 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-05-04 & 2012-05-04 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-06-04 & 2012-06-04 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-06-29 & 2012-06-29 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-07-31 & 2012-07-31 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-08-31 & 2012-08-31 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-10-01 & 2012-10-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-11-01 & 2012-11-01 &  & Naegeli-Noto, Richard Oder Patrizia, Hoerndlirain 11, 6318 Walchwil & 300.00 & \\
+2012-11-30 & 2012-11-30 &  & N�geli-Noto, Richard Oder Patrizia, H�rndlirain 11, 6318 Walchwil & 300.00 & \\
+\\
+\end{tablevalue}
+\end{document}
