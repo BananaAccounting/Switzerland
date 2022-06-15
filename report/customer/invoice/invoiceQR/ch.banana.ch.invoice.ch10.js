@@ -2482,7 +2482,26 @@ function print_customer_address(repDocObj, invoiceObj, userParam) {
       }
       locality += invoiceObj.supplier_info.city;
     }
-    cell.addText(name + " - " + address + " - " + locality, "small_address");
+
+    var supplierAddressLine = "";
+    if (name) {
+      supplierAddressLine += name;
+    }
+    if (address) {
+      if (name) {
+        supplierAddressLine += " - ";
+      }
+      supplierAddressLine += address;
+    }
+    if (locality) {
+      if (address || name) {
+        supplierAddressLine += " - ";
+      }
+      supplierAddressLine += locality;
+    }
+    if (supplierAddressLine) {
+      cell.addText(supplierAddressLine, "small_address");
+    }
   }
   
   // Customer address
