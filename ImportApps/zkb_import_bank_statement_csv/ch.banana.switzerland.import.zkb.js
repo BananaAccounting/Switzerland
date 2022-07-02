@@ -189,8 +189,8 @@ function ZKBFormat4() {
    this.mapTransaction = function(element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
       mappedLine.push( ""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
       mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
@@ -380,7 +380,7 @@ function ZKBFormat3() {
 
       var mappedLine = {};
 
-      mappedLine['Date']=Banana.Converter.toInternalDateFormat(element[0]);
+      mappedLine['Date']=Banana.Converter.toInternalDateFormat(element[0], "dd.mm.yyyy");
       mappedLine['Description']=element[1];
       mappedLine['ExchangeCurrency']=element[2];
       mappedLine['_AmountDetail']=Banana.Converter.toInternalNumberFormat(element[3]);
@@ -388,7 +388,7 @@ function ZKBFormat3() {
       mappedLine['_Reference']=element[5];
       mappedLine['Expenses']=Banana.Converter.toInternalNumberFormat(element[6]);
       mappedLine['Income']=Banana.Converter.toInternalNumberFormat(element[7]);
-      mappedLine['DateValue']=Banana.Converter.toInternalDateFormat(element[8]);
+      mappedLine['DateValue']=Banana.Converter.toInternalDateFormat(element[8],"dd.mm.yyyy");
       mappedLine['_Balance']=Banana.Converter.toInternalNumberFormat(element[9]);
       //append the details only if are there.
       if(element[10] && element[11])
@@ -554,8 +554,8 @@ function ZKBFormat2() {
    this.mapTransaction = function(element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
       mappedLine.push( ""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
       mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
@@ -667,8 +667,8 @@ function ZKBFormat1() {
    this.mapTransaction = function(element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
       mappedLine.push( ""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ' '); //remove white spaces
       mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
