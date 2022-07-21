@@ -380,16 +380,16 @@ function ZKBFormat3() {
 
       var mappedLine = {};
 
-      mappedLine['Date']=Banana.Converter.toInternalDateFormat(element[0]);
+      mappedLine['Date']=Banana.Converter.toInternalDateFormat(element[0],'dd.mm.yyyy');
       mappedLine['Description']=element[1];
       mappedLine['ExchangeCurrency']=element[2];
-      mappedLine['_AmountDetail']=Banana.Converter.toInternalNumberFormat(element[3]);
+      mappedLine['_AmountDetail']=Banana.Converter.toInternalNumberFormat(element[3],".");
       mappedLine['ExternalReference']=element[4];
       mappedLine['_Reference']=element[5];
-      mappedLine['Expenses']=Banana.Converter.toInternalNumberFormat(element[6]);
-      mappedLine['Income']=Banana.Converter.toInternalNumberFormat(element[7]);
+      mappedLine['Expenses']=Banana.Converter.toInternalNumberFormat(element[6],".");
+      mappedLine['Income']=Banana.Converter.toInternalNumberFormat(element[7],".");
       mappedLine['DateValue']=Banana.Converter.toInternalDateFormat(element[8]);
-      mappedLine['_Balance']=Banana.Converter.toInternalNumberFormat(element[9]);
+      mappedLine['_Balance']=Banana.Converter.toInternalNumberFormat(element[9],".");
       //append the details only if are there.
       if(element[10] && element[11])
          mappedLine['Notes']=element[10]+", "+element[11];
