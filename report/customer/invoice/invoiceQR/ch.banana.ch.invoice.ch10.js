@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-05-30
+// @pubdate = 2022-08-04
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -2761,8 +2761,8 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         if (BAN_ADVANCED) {
           //JSON contains a property with the name of the column (Item, Date)
           //In JSON all names are lower case
-          if (columnsName.trim().toLowerCase() in item) {
-            itemValue = formatItemsValue(item[columnsName.trim().toLowerCase()], variables, columnsName, className, item);
+          if (objectHasProperty(item, columnsName)) {
+            itemValue = formatItemsValue(objectGetProperty(item, columnsName), variables, columnsName, className, item);
           }
           else {
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsName);
@@ -3019,8 +3019,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         if (BAN_ADVANCED) {
           //JSON contains a property with the name of the column (Item, Date)
           //In JSON all names are lower case
-          if (columnsName.trim().toLowerCase() in item) {
-            itemValue = formatItemsValue(item[columnsName.trim().toLowerCase()], variables, columnsName, className, item);
+          if (objectHasProperty(item, columnsName)) {
+            itemValue = formatItemsValue(objectGetProperty(item, columnsName), variables, columnsName, className, item);
           }
           else {
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsName);
@@ -3387,7 +3387,7 @@ function formatItemsValue(value, variables, columnName, className, item) {
     itemFormatted.value = value;
     itemFormatted.className = className;
   }
-  else if (columnName === "amount" || columnName === "total_amount_vat_exclusive" || columnName === "total_amount_vat_inclusive") {
+  else if (columnName === "amount" || columnName.indexOf("amount") >= 0) {
     if (className === "header_cell" || className === "note_cell") { //do not print 0.00 amount for header rows and notes (rows without amounts)
       itemFormatted.value = "";
     } else {
@@ -4017,6 +4017,43 @@ function arrayDifferences(arr1, arr2) {
     }
   }
   return arr;
+}
+
+/**
+ * The method objectHasProperty verifiy if an object contains the requested property.
+ * Name can contains a dot '.', in this case the method verify that the given property tree exists.
+*/
+function objectHasProperty(obj, name) {
+    if (!obj || !name) {
+        return false;
+    } else if (name.startsWith("T.") || name.startsWith("I.")) {
+        return false;
+    }
+    return (objectGetProperty(obj, name) !== null);
+}
+
+/**
+ * The method objectHasPoperty verifiy if an object contains the requested property or tree.
+ * Name can contains a dot '.', in this case the method verify that the given property tree exists.
+*/
+function objectGetProperty(obj, name) {
+    Banana.console.log("la la la la la");
+    if (!obj || !name) {
+        return null;
+    } else if (name.startsWith("T.") || name.startsWith("I.")) {
+        return null;
+    }
+    let curObj = obj;
+    let paths = name.trim().toLowerCase().split('.');
+    for (let i = 0; i < paths.length; i++) {
+        let path = paths[i];
+        if (path in curObj) {
+            curObj = curObj[path];
+        } else {
+            return null;
+        }
+    }
+    return curObj;
 }
 
 function replaceVariables(cssText, variables) {

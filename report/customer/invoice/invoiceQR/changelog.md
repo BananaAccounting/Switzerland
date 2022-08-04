@@ -50,3 +50,5 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 * 2022-05-30
 	* Fix print column Item  
 	* Removed 'shipping address' from invoice parameters when using Estimates-Invoices application  
+* 2022-08-04
+    * Print custom columns of invoice item objects (i.e.: unit_price.calculated_amount_vat_exclusive, ...)
