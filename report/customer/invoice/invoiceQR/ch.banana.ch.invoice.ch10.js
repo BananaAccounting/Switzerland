@@ -4037,7 +4037,6 @@ function objectHasProperty(obj, name) {
  * Name can contains a dot '.', in this case the method verify that the given property tree exists.
 */
 function objectGetProperty(obj, name) {
-    Banana.console.log("la la la la la");
     if (!obj || !name) {
         return null;
     } else if (name.startsWith("T.") || name.startsWith("I.")) {
