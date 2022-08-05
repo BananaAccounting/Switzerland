@@ -87,7 +87,7 @@ td {
    Sets font size and margins relative to the document and the prior element. */
 .info_table_left {
   font-size: $font_size;
-  margin-top: 4.5cm;
+  margin-top: 4.55cm;
   margin-left: 1.2cm;
   margin-right: 1.2cm;
 }

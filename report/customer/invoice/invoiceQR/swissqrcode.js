@@ -330,9 +330,9 @@ var QRBill = class QRBill {
 		currentParam.tooltip = texts.param_tooltip_qr_code_add;
 		currentParam.readValue = function() {
 		userParam.qr_code_add = this.value;
-			if (userParam.qr_code_add) { //remove footer when qr code is added
-				userParam.footer_add = false;
-			}
+			// if (userParam.qr_code_add) { //remove footer when qr code is added
+			// 	userParam.footer_add = false;
+			// }
 		}
 		convertedParam.data.push(currentParam);
 
