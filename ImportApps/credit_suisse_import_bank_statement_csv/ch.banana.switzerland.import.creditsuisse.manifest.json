@@ -1,0 +1,13 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Credit Suisse - Import bank account statement (*.csv)",
+    "description.en": "Credit Suisse - Import bank account statement (*.csv)",
+    "id": "ch.banana.switzerland.import.creditsuisse",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Credit Suisse - Import bank account statement (*.csv)",
+    "title.en": "Credit Suisse - Import bank account statement (*.csv)",
+    "version": "1.0"
+}
