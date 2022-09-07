@@ -1,0 +1,138 @@
+%%info_test_name{csv_zkb_example_format3_20161201}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & ExchangeCurrency & Notes & IsDetail\\
+2016-12-01 & 2016-12-01 &  & 7405120167980000 & Obergericht Zuerich 8023 Zuerich &  & 2371.00 &  &  & \\
+2016-12-01 & 2016-12-01 &  & 7405120167970000 & Zürich Versicherungs-Gesellschaft &  & 100 &  &  & \\
+2016-12-01 & 2016-12-01 &  & 7405120167960000 & Zürich Versicherungs-Gesellschaft &  & 214.9 &  &  & \\
+2016-12-01 & 2016-11-30 &  & IBEP120100100486 & Volg Herrliberg Karten-Nr. 73615725 &  & 223.4 &  &  & \\
+2016-12-02 & 2016-12-05 &  & 6600120529600000 & Helsana Versicherungen Ag Zurichstrasse 130 &  & 152.6 &  & RECHNUNG NR.: 20018059392PRAMIE10972435 MULLER LUKASPERIODE 01.12.202016-31.12.202016 & \\
+2016-12-02 & 2016-12-02 &  & 7403120224840000 & Ifolor Ag 8280 Kreuzlingen &  & 192.95 &  &  & \\
+2016-12-03 & 2016-12-02 &  & IBEP120500095375 & Coop-1237 Herrlibe Karten-Nr. 73615725 &  & 308.15 &  &  & \\
+2016-12-04 & 2016-12-04 &  & L145962740470001 & Zkb Herrliberg &  & 400 &  &  & \\
+2016-12-05 & 2016-12-05 &  & 7404120586600000 & Dr. Med. Satz Norbert Poststrasse 5 &  & 559.55 &  &  & \\
+2016-12-05 & 2016-12-05 &  & 7404120586610000 & Gisler Andreas Dittingerstrasse 35 &  & 640 &  & HS16/17 Francesca Müller & \\
+2016-12-05 & 2016-12-05 &  & 7404120586590000 & Haeny Treuhand Gmbh 8704 Herrliberg &  & 763 &  &  & \\
+2016-12-05 & 2016-12-05 &  & 7404120521720000 & Ergo Handtherapie Zürisee & 4500.00 &  &  & Lohn November 2016 & \\
+2016-12-05 & 2016-12-03 &  & IBEP120500306783 & Coop-1237 Herrlibe Karten-Nr. 73615725 &  & 87.2 &  &  & \\
+2016-12-05 & 2016-12-03 &  & IBEP120500260086 & Migros Mm Meilen Karten-Nr. 73615725 &  & 198.35 &  &  & \\
+2016-12-05 & 2016-12-03 &  & IBEP120500236111 & Obi Volketswil Karten-Nr. 73791637 &  & 675.05 &  &  & \\
+2016-12-05 & 2016-12-02 &  & IBEP120500159036 & Dorf Drogerie Herrlibe Karten-Nr. 73615725 &  & 64.2 &  &  & \\
+2016-12-06 & 2016-12-04 &  & IBEP120600143061 & Rest. Hochwacht Karten-Nr. 73615725 &  & 18.3 &  &  & \\
+2016-12-06 & 2016-12-06 &  & 7402120629940000 & Zürich Versicherungs-Gesellschaft &  & 81 &  &  & \\
+2016-12-07 & 2016-12-07 &  & L145224264760001 & Zkb Herrliberg &  & 400 &  &  & \\
+2016-12-07 & 2016-12-06 &  & IBEP120700084964 & Socar Tankstelle Karten-Nr. 73615725 &  & 25.65 &  &  & \\
+2016-12-07 & 2016-12-03 &  & IBEP120700117314 & Dorf Drogerie Herrlibe Karten-Nr. 73615725 &  & 18.9 &  &  & \\
+2016-12-08 & 2016-12-07 &  & IBEP120800033207 & Volg Herrliberg Karten-Nr. 73615725 &  & 146.95 &  &  & \\
+2016-12-10 & 2016-12-09 &  & IBEP121200055293 & Metzgerei Lehmann Karten-Nr. 73615725 &  & 68.15 &  &  & \\
+2016-12-10 & 2016-12-09 &  & IBEP121200039012 & Volg Herrliberg Karten-Nr. 73615725 &  & 103.5 &  &  & \\
+2016-12-12 & 2016-12-10 &  & IBEP121200241018 & Coop-2838 Feldmeilen Karten-Nr. 73615725 &  & 70 &  &  & \\
+2016-12-12 & 2016-12-09 &  & IBEP121200173617 & Stiftung Stoeckenweid Karten-Nr. 73615725 &  & 99.85 &  &  & \\
+2016-12-12 & 2016-12-09 &  & IBEP121200151555 & Dorf Drogerie Herrlibe Karten-Nr. 73615725 &  & 29.5 &  &  & \\
+2016-12-13 & 2016-12-12 &  & IBEP121300086165 & Volg Herrliberg Karten-Nr. 73615725 &  & 35.8 &  &  & \\
+2016-12-13 & 2016-12-12 &  & IBEP121300085053 & Volg Herrliberg Karten-Nr. 73615725 &  & 66.25 &  &  & \\
+2016-12-13 & 2016-12-10 &  & IBEP121300151908 & Rapperswil Sbb Karten-Nr. 73615725 &  & 12.7 &  &  & \\
+2016-12-13 & 2016-12-10 &  & IBEP121300132013 & Sbb P Rail Karten-Nr. 73615725 &  & 10 &  &  & \\
+2016-12-14 & 2016-12-14 &  & L147827168140001 & Zkb Herrliberg &  & 500 &  &  & \\
+2016-12-14 & 2016-12-13 &  & IBEP121400015760 & Agrola Tankstelle Karten-Nr. 73791637 &  & 70.6 &  &  & \\
+2016-12-15 & 2016-12-19 &  & D097121527841330 & Ihr Noten Ankauf &  & 327.6 &  &  & \\
+2016-12-15 & 2016-12-15 &  & 7013121511910000 & 1/SWISSCOM (Schweiz) Ag 2/ALTE Tiefenaustrasse 6 & 12526.40 &  &  & RG.5491001110 VONLOHN/GEHALT 07055491/201612 & \\
+2016-12-15 & 2016-12-14 &  & IBEP121500041417 & Coop-1237 Herrlibe Karten-Nr. 73615725 &  & 70.7 &  &  & \\
+2016-12-15 & 2016-12-14 &  & IBEP121500041499 & Coop-1237 Herrlibe Karten-Nr. 73615725 &  & 107.75 &  &  & \\
+2016-12-15 & 2016-12-14 &  & IBEP121500039427 & Volg Herrliberg Karten-Nr. 73615725 &  & 109.15 &  &  & \\
+2016-12-16 & 2016-12-14 &  & IBEP121600093583 & Dorf Drogerie Herrlibe Karten-Nr. 73615725 &  & 59.6 &  &  & \\
+2016-12-16 & 2016-12-14 &  & IBEP121600086718 & Idigit Karten-Nr. 73791637 &  & 59 &  &  & \\
+2016-12-16 & 2016-12-14 &  & IBEP121600077373 & 9122Transa Backpacking Karten-Nr. 73791637 &  & 479.9 &  &  & \\
+2016-12-17 & 2016-12-16 &  & IBEP121900068563 & Volg Herrliberg Karten-Nr. 73615725 &  & 54.65 &  &  & \\
+2016-12-17 & 2016-12-16 &  & IBEP121900058210 & Metzgerei Lehmann Karten-Nr. 73615725 &  & 45.85 &  &  & \\
+2016-12-17 & 2016-12-16 &  & IBEP121900051029 & Migros Mm Meilen Karten-Nr. 73615725 &  & 230.2 &  &  & \\
+2016-12-17 & 2016-12-16 &  & IBEP121900030568 & Migros Mm Meilen Karten-Nr. 73615725 &  & 10.8 &  &  & \\
+2016-12-17 & 2016-12-15 &  & IBEP121900108732 & Lily'S Original Karten-Nr. 73791637 &  & 55 &  &  & \\
+2016-12-18 & 2016-12-18 &  & L145142770780001 & Zkb Herrliberg &  & 400 &  &  & \\
+2016-12-19 & 2016-12-20 &  & 6650122004330000 & Vz Vorsorgestiftung 3a Beethovenstrasse 22 &  & 6768.00 &  & Einzug Sparbeitraege Saeule 3a & \\
+2016-12-19 & 2016-12-17 &  & IBEP121900312502 & Coop-1237 Herrlibe Karten-Nr. 73615725 &  & 55.1 &  &  & \\
+2016-12-20 & 2016-12-20 &  & 7014122009600000 & Vz Depotbank Ag Innere Gueterstrasse 2 & 6768.00 &  &  &  & \\
+2016-12-20 & 2016-12-19 &  & IBEP122000203986 & Volg Herrliberg Karten-Nr. 73615725 &  & 39.1 &  &  & \\
+2016-12-20 & 2016-12-19 &  & IBEP122000189214 & Impo-3179 Zh Bellevue Karten-Nr. 73791637 &  & 22.9 &  &  & \\
+2016-12-20 & 2016-12-20 &  & 7402122084320000 & Prologistik Wirkommen Meilestei &  & 1046.75 &  &  & \\
+2016-12-21 & 2016-12-21 &  & L147399204710001 & Zkb Zh Hb Sihlqua &  & 200 &  &  & \\
+2016-12-21 & 2016-12-19 &  & IBEP122100121070 & Yooji'S Bellevue Karten-Nr. 73791637 &  & 135.8 &  &  & \\
+2016-12-22 & 2016-12-21 &  & IBEP122200075803 & Coop-2838 Feldmeilen Karten-Nr. 73615725 &  & 269.85 &  &  & \\
+2016-12-22 & 2016-12-22 &  & 7402122290810000 & Swisscom (Schweiz) Ag Alte Tiefenaustrasse 6 &  & 24 &  &  & \\
+2016-12-22 & 2016-12-22 &  & 7402122290790000 & Universität Zürich Studierendenverwaltung &  & 795 &  &  & \\
+2016-12-22 & 2016-12-22 &  & 7402122290780000 & Homegate Ag Werdstrasse 21 &  & 120 &  &  & \\
+2016-12-22 & 2016-12-22 &  & 7402122290840000 & Prologistik Wirkommen Meilestei &  & 1033.55 &  &  & \\
+2016-12-22 & 2016-12-22 &  & 7402122290820000 & Gonin Leadership Audit + Development Ag &  & 810 &  & Honorarnote Nr. 134\_16\_105 & \\
+2016-12-22 & 2016-12-22 &  & 7402122290830000 & Martin Thalmann Im Sandbühl 17 &  & 400 &  & Ankauf Laptop & \\
+2016-12-22 & 2016-12-22 &  & 7402122290800000 & Dr.Med.Obwegeser Joerg Zytologisches Labor &  & 47.35 &  &  & \\
+2016-12-22 & 2016-12-22 &  & 7402122290770000 & Dr. Med. Dent. U. Weilemann Schifflände 24 &  & 100.8 &  &  & \\
+2016-12-23 & 2016-12-27 &  & 6600122730410000 & Stiftung Pro Juventute Thurgauerstrasse 39 &  & 10 &  & Ihr Freundschaftsbeitrag & \\
+2016-12-23 & 2016-12-23 &  & 7015122381580000 & 1/MARTINA Tobler 1/8118 Pfaffhausen & 1100.00 &  &  &  & \\
+2016-12-23 & 2016-12-23 &  & 7407122355830000 & Gemaess Ihrem Ebanking-Auftrag Gemaess Ihrem Ebanking-Auftrag &  & 150 &  &  & \\
+2016-12-23 & 2016-12-23 &  & 7407122355820000 & Strassenverkehrsamt Des Kt.Zürich &  & 679 &  &  & \\
+2016-12-23 & 2016-12-21 &  & IBEP122300159824 & L' Air Du Sud Karten-Nr. 73615725 &  & 22 &  &  & \\
+2016-12-23 & 2016-12-21 &  & IBEP122300145066 & Stiftung Stoeckenweid Karten-Nr. 73615725 &  & 63 &  &  & \\
+2016-12-23 & 2016-12-21 &  & IBEP122300142390 & Stiftung Stoeckenweid Karten-Nr. 73615725 &  & 89.8 &  &  & \\
+2016-12-24 & 2016-12-23 &  & IBEP122700138537 & Agrola Tankstelle Karten-Nr. 73615725 &  & 44.75 &  &  & \\
+2016-12-24 & 2016-12-23 &  & IBEP122700129005 & Migros M Egg Karten-Nr. 73791637 &  & 3.8 &  &  & \\
+2016-12-24 & 2016-12-23 &  & IBEP122700112694 & Rhyner Fachhandel Ag Karten-Nr. 73791637 &  & 280.75 &  &  & \\
+2016-12-24 & 2016-12-23 &  & IBEP122700112774 & Rhyner Fachhandel Ag Karten-Nr. 73791637 &  & 124.45 &  &  & \\
+2016-12-24 & 2016-12-23 &  & IBEP122700098385 & Migros Mm Erlenbach Karten-Nr. 73615725 &  & 471.85 &  &  & \\
+2016-12-24 & 2016-12-23 &  & IBEP122700095765 & Volg Herrliberg Karten-Nr. 73615725 &  & 80.4 &  &  & \\
+2016-12-25 & 2016-12-25 &  & 7480122745780000 & Herr Lukas Müller-Glauser &  & 4000.00 &  & Ausgleichszahlung & \\
+2016-12-26 & 2016-12-24 &  & IBEP122700332697 & Schmid + Co. Ag Karten-Nr. 73615725 &  & 47.9 &  &  & \\
+2016-12-26 & 2016-12-24 &  & IBEP122700280257 & Volg Herrliberg Karten-Nr. 73615725 &  & 19.2 &  &  & \\
+2016-12-27 & 2016-12-27 &  & 7408122764290000 & Digitec Ag Pfingstweidstr. 60 &  & 32 &  &  & \\
+2016-12-27 & 2016-12-27 &  & 7408122764300000 & Dennis Tobler &  & 150 &  & Lohn für Arbeitseinsatz 6x 25.-=150.-Ok? & \\
+2016-12-27 & 2016-12-24 &  & IBEP122700375283 & Besser Optik Erlenbach Karten-Nr. 73615725 &  & 278 &  &  & \\
+2016-12-28 & 2016-12-28 &  & L145032208660001 & Karten-Nr. 73615725 &  & 400 &  &  & \\
+2016-12-28 & 2016-12-28 &  & 7460122828050000 & Vdi Verein Deutscher Ingenieure 40002 Düsseldorf &  & 160.7 &  & K100884109 BeitragLukas MüllerMitgliedsnummer 10508634 & \\
+2016-12-28 & 2016-12-28 &  & 8470122823150000 & Lehner Hermann Witikonstrasse 16 & 2170.00 &  &  & MIETE & \\
+2016-12-28 & 2016-12-27 &  & IBEP122800107090 & Volg Herrliberg Karten-Nr. 73615725 &  & 100.8 &  &  & \\
+2016-12-28 & 2016-12-27 &  & IBEP122800096775 & Migros Mm Erlenbach Karten-Nr. 73615725 &  & 121.35 &  &  & \\
+2016-12-28 & 2016-12-28 &  & 7405122896490000 & Zürich Versicherungs-Gesellschaft &  & 1329.10 &  &  & \\
+2016-12-28 & 2016-12-28 &  & 7405122896500000 & Mclinsen. Ch Gmbh Blegistrasse 11b &  & 129 &  &  & \\
+2016-12-28 & 2016-12-28 &  & 7405122896480000 & Elcotherm Ag Sarganserstr. 100 &  & 590 &  &  & \\
+2016-12-28 & 2016-12-28 &  & 7405122896470000 & Digitec Ag Pfingstweidstr. 60 &  & 1217.40 &  &  & \\
+2016-12-28 & 2016-12-28 &  & 7401122899650000 & Frau Francesca Müller & 518 &  &  & AirBnB Stockholm Februar 2017 & \\
+2016-12-29 & 2016-12-30 &  & 7201123077100000 & Frau Galya Rebholz & 1849.00 &  &  & WOHNUNGSMIETE & \\
+2016-12-29 & 2016-12-28 &  & IBEP122900114151 & Hiltl Sihlpost Karten-Nr. 73615725 &  & 72.3 &  &  & \\
+2016-12-29 & 2016-12-27 &  & IBEP122900013809 & Dorf Drogerie Herrlibe Karten-Nr. 73615725 &  & 18.9 &  &  & \\
+2016-12-30 & 2017-01-03 &  & 6602010316850000 & Billag Ag Av. De Tivoli 3 &  & 451.1 &  & KDN.NR. 0314892828 FUR:RGNSDAT. 03.10.202016RGNS.NR. 0000103303112261 & \\
+2016-12-30 & 2016-12-30 &  & 7015123023760000 & Soundmensch Inhaber Martin Kuendig & 1895.00 &  &  & MIETE WOHNUNG:WITIKONSTR. 168118 PFAFFHAUSENFAMILIE KUENDIG & \\
+2016-12-30 & 2016-12-30 &  & 7409123031250000 & Francesca Müller Langackerstr. 100 &  & 300 &  & Sackgeld & \\
+2016-12-30 & 2016-12-30 &  & 7409123031230000 & Stiftung Freie Evangelische Schule Zürich &  & 1780.00 &  &  & \\
+2016-12-30 & 2016-12-30 &  & 7409123031240000 & Carla Müller Langackerstr. 100 &  & 150 &  &  & \\
+2016-12-30 & 2016-12-30 &  & 7409123031220000 & Vcs Verkehrs-Club Der Schweiz &  & 135 &  &  & \\
+2016-12-30 & 2016-12-29 &  & IBEP123000114968 & Metzgerei Lehmann Karten-Nr. 73615725 &  & 97.1 &  &  & \\
+2016-12-30 & 2016-12-28 &  & IBEP123000026087 & Kino Abaton Karten-Nr. 73615725 &  & 64 &  &  & \\
+2016-12-30 & 2016-12-31 &  & D076123032518309 & Übertr Hypothek &  & 1763.35 &  &  & \\
+2016-12-31 & 2016-12-30 &  & IBEP010300109113 & Migros M Ebmatingen Karten-Nr. 73615725 &  & 92.75 &  &  & \\
+2016-12-31 & 2016-12-30 &  & IBEP010300089040 & Volg Herrliberg Karten-Nr. 73615725 &  & 34.85 &  &  & \\
+2016-12-31 & 2016-12-31 &  & L145268912820001 & Karten-Nr. 73615725 &  & 400 &  &  & \\
+2016-12-31 & 2016-12-31 &  & X111567996700005 & Preise Bareinz &  & 7.05 &  &  & \\
+2016-12-31 & 2016-12-31 &  & X111567996700004 & Geb Kontoführung &  & 12 &  &  & \\
+2016-12-31 & 2017-01-03 &  & 6607010306680000 & Sanitas Grundversicherungen Ag Debi Jaegergasse 3 &  & 1023.00 &  & Rechnung Nr.: 1211208318Praemie9512091-5 Glauser Mueller KatrinPeriode 01.01.202017-31.03.202017 & \\
+2016-12-31 & 2016-12-29 &  & IBEP010300010921 & Dorf Drogerie Herrlibe Karten-Nr. 73615725 &  & 117.1 &  &  & \\
+2016-12-31 & 2016-12-29 &  & IBEP010300001176 & Stiftung Stoeckenweid Karten-Nr. 73615725 &  & 82.85 &  &  & \\
+\\
+\end{tablevalue}
+\end{document}

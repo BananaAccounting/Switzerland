@@ -1,0 +1,6 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>ch.banana.switzerland.import.raiffeisen.js</file>
+     <file>ch.banana.switzerland.import.raiffeisen.manifest.json</file>
+ </qresource>
+ </RCC>

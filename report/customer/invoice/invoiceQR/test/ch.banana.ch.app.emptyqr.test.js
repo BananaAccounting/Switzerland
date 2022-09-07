@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.app.emptyqr.test
 // @api = 1.0
-// @pubdate = 2022-03-18
+// @pubdate = 2022-04-11
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.app.emptyqr.js>
 // @task = app.command
@@ -822,35 +822,6 @@ ReportEmptyQr.prototype.add_test_non_24 = function(banDoc) {
 }
 
 
-
-
-function initUserParam() {
-  var userParam = {};
-  userParam.print_msg_text = 'The QR payment part without address and amount is at the bottom of the page.';
-  userParam.print_text = true;
-  userParam.sender_address_from_accounting = true;
-  userParam.sender_address_name = '';
-  userParam.sender_address_address = '';
-  userParam.sender_address_house_number = '';
-  userParam.sender_address_postal_code = '';
-  userParam.sender_address_locality = '';
-  userParam.sender_address_country_code = '';
-  userParam.sender_address_iban = '';
-  userParam.customer_address_include = false;
-  userParam.customer_address_name = '';
-  userParam.customer_address_address = '';
-  userParam.customer_address_house_number = '';
-  userParam.customer_address_postal_code = '';
-  userParam.customer_address_locality = '';
-  userParam.customer_address_country_code = '';
-  userParam.amount_include = false;
-  userParam.total_amount = '';
-  userParam.currency = "CHF";
-  userParam.language = 'EN';
-  userParam.print_separating_border = true;
-  userParam.print_scissors_symbol = false;
-  return userParam;
-}
 
 function getQRCodeText(banDoc, qrSettings, texts, langCode) {
   var qrBill = new QRBill(banDoc, qrSettings);

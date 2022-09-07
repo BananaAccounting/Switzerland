@@ -1,0 +1,75 @@
+%%info_test_name{csv_zkb_example_format4_20161103}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2016-06-30 & 2016-06-30 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
+2016-07-01 & 2016-07-01 &  & Gutschrift: Glanc Tomas & 2245.00 & \\
+2016-07-07 & 2016-07-08 &  & Lastschrift: Elektrizitaetswerk &  & 78.00\\
+2016-07-28 & 2016-07-28 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
+2016-07-28 & 2016-07-28 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
+2016-07-28 & 2016-07-28 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
+2016-07-28 & 2016-07-29 &  & Lastschrift: Finanzverwaltung &  & 1823.35\\
+2016-07-29 & 2016-07-29 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
+2016-07-29 & 2016-07-29 &  & Ebanking (3) &  & 5110.45\\
+2016-07-29 & 2016-07-29 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
+2016-07-29 & 2016-07-29 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
+2016-07-29 & 2016-07-29 &  & Gutschrift: Glanc Tomas & 2145.00 & \\
+2016-07-29 & 2016-07-29 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
+2016-07-29 & 2016-07-29 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
+2016-08-26 & 2016-08-26 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
+2016-08-26 & 2016-08-26 &  & Gutschrift: Glanc Tomas & 2195.00 & \\
+2016-08-26 & 2016-08-26 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
+2016-08-26 & 2016-08-26 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
+2016-08-29 & 2016-08-29 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
+2016-08-29 & 2016-08-29 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
+2016-08-31 & 2016-08-31 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
+2016-08-31 & 2016-08-31 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
+2016-08-31 & 2016-08-31 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
+2016-09-01 & 2016-09-02 &  & Lastschrift: Elektrizitaetswerk &  & 79.00\\
+2016-09-27 & 2016-09-27 &  & Gutschrift: Beat Messerli & 6450.00 & \\
+2016-09-27 & 2016-09-27 &  & Gutschrift: Glanc Tomas & 2195.00 & \\
+2016-09-28 & 2016-09-28 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
+2016-09-28 & 2016-09-28 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
+2016-09-28 & 2016-09-28 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
+2016-09-29 & 2016-09-29 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
+2016-09-29 & 2016-09-29 &  & Ebanking: Schweizerische Mobiliar &  & 989.00\\
+2016-09-29 & 2016-09-29 &  & Ebanking: Ausgleichskasse Panavica &  & 3886.20\\
+2016-09-29 & 2016-09-29 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
+2016-09-29 & 2016-09-30 &  & Übertr Hypothek &  & 490.90\\
+2016-09-30 & 2016-09-30 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
+2016-09-30 & 2016-09-30 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
+2016-09-30 & 2016-09-30 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
+2016-10-07 & 2016-10-07 &  & Gutschrift: 1/DOROTHE Zwicky & 200.00 & \\
+2016-10-21 & 2016-10-21 &  & Ebanking: Guyer Wärme Und Wasser &  & 1550.00\\
+2016-10-27 & 2016-10-27 &  & Gutschrift: Glanc Tomas & 2195.00 & \\
+2016-10-28 & 2016-10-28 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
+2016-10-28 & 2016-10-28 &  & Ebanking (2) &  & 984.50\\
+2016-10-28 & 2016-10-28 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
+2016-10-28 & 2016-10-28 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
+2016-10-28 & 2016-10-28 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
+2016-10-31 & 2016-10-31 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
+2016-10-31 & 2016-10-31 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
+2016-10-31 & 2016-10-31 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
+2016-11-02 & 2016-11-02 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
+2016-11-03 & 2016-11-04 &  & Lastschrift: Elektrizitaetswerk &  & 80.00\\
+\\
+\end{tablevalue}
+\end{document}

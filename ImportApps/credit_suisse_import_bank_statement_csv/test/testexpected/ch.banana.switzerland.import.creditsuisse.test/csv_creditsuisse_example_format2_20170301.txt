@@ -1,0 +1,106 @@
+%%info_test_name{csv_creditsuisse_example_format2_20170301}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l }
+Date & Doc & Description & Income & Expenses\\
+2017-03-01 &  & "Verg�tungsauftrag ,Bvg Zinsen Und Spesen 28.Februar 127 ,Bvg Zinsen Und Spesen 28.Februar 12,Dncs-20170301-IXN0-TXN0 ,Fond.Istit.Collettore Lpp ,Zuerich ,18009-18009 ,Zinsen Und Spesen                  " &  & 3380.00\\
+2017-03-01 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Csch EMMENBRUECKE\_1                 " & 1700.00 & \\
+2017-03-01 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Fall:23.15348.17,.2 Rechnung:11088785 ,E2E7771835                         " & 1743.95 & \\
+2017-02-28 &  & "Zahlung Inland � Esr ,Mwst 3. Quartal 2016 ,Mwst 3. Quartal 2016 ,Dncs-20170227-IXN0-TXN0 ,Eidg. Steuerverwaltung ,Bern ,000010240000420160305569139        " &  & 1072.37\\
+2017-02-28 &  & "Verg�tungsauftrag ,Zahlung Von Innova Carlos R. ,Zahlung Von Innova Carlos R. ,Dncs-20170227-IXN0-TXN0 ,Reborido Castineira Juan C. ,Dahlienstrasse 11 6020 Emmenbr�cke ,Zahlung Anteil  Innova ,Februar 2017                       " &  & 3241.00\\
+2017-02-27 &  & "Zahlung Inland � Esr ,Stiftung Bvg ,Stiftung Bvg ,Dncs-20170227-IXN0-TXN0 ,Schweiz.Soz.F.Die Auffangeinr. ,Zuerich ,030000180091800923000210114        " &  & 20000.00\\
+2017-02-27 &  & "Clearing-Zahlung ,Irene Reichmuth-Horat Oberseeburgrai ,Irene Reichmuth-Horat ,Oberseeburgrain 9 6006 Luzern ,Zahlung D-S Ag Februar 2017        " & 20000.00 & \\
+2017-02-24 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,SOP06 603-17661.8 Rechnung:11016662,E2E7725200                         " & 190.65 & \\
+2017-02-23 &  & "Sepa Zahlung Ausgang ,Zashntechniuk Mdh Ag ,Zashntechniuk Mdh Ag ,Dncs-20170222-IXN0-TXN0 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 45472 M�lheim ,An Der Ruhr ,Restzahlung 09.01.2017 ,Betrag 96.66 ,Eur 96.66-1.08780140 ,23.02.2017 (00:00)                 " &  & 105.15\\
+2017-02-23 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,SOP06 603-17661.8 Rechnung:10994056,E2E7710104                         " & 309.30 & \\
+2017-02-22 &  & "Zahlungsr�ckleitung ,Eur 263.80 At 1.04333534//DENTEGRIS ,Dentegris Gmbh ,D-40211 Dusseldorf ,Rechnung 225914 Improv ,Implantatzement 1 Packung ,Eur 263.80-1.04333534 ,22.02.2017 (00:00)                 " & 275.23 & \\
+2017-02-21 &  & "Zahlung Inland � Esr ,Suva  190.30 ,Suva  190.30 ,Dncs-20170220-IXN0-TXN0 ,Suva ,Luzern Differenzzahlung ,000000000000100533875400006        " &  & 190.65\\
+2017-02-21 &  & "Sepa Zahlung Ausgang ,Zahnarzt ,Zahnarzt ,Dncs-20170220-IXN0-TXN0 ,Dentegris Gmbh ,D-40211 D�sseldorf ,Rechnung 225914 ,Improv Implantatzement ,1 Packung ,Eur 263.80-1.08506914 ,21.02.2017 (00:00)                 " &  & 286.24\\
+2017-02-17 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Fall:23.15348.17,.2 Rechnung:10922904 ,E2E7661853                         " & 2012.25 & \\
+2017-02-16 &  & "Zahlungsr�ckleitung ,Eur 263.80 At 1.04472275//DENTEGRIS ,Dentegris Gmbh ,D-40211 D�sseldorf ,Rechnung 225914 ,Improv Implantatzement ,1 Packung ,Eur 263.80-1.04472275 ,16.02.2017 (00:00)                 " & 275.60 & \\
+2017-02-15 &  & "Sepa Zahlung Ausgang ,Zahnarzt ,Zahnarzt ,Dncs-20170214-IXN0-TXN0 ,Dentegris Gmbh ,D-40211 D�sseldorf ,Rechnung 225914 ,Improv Implantatzement ,1 Packung ,Eur 263.80-1.08549224 ,15.02.2017 (00:00)                 " &  & 286.35\\
+2017-02-13 &  & "Zahlung Inland � Esr ,Benzin Lando Jan 2017 ,Benzin Lando Jan 2017 ,Dncs-20170211-IXN0-TXN0 ,Landi Sempach/emmen ,6203 Sempach Station ,800559000000000793991096313        " &  & 216.10\\
+2017-02-10 &  & "Zahlung Inland � Esr ,Zahnarzt Straumann ,Zahnarzt Straumann ,Dncs-20170209-IXN0-TXN0 ,Institut Straumann ,Peter Merian-Weg 1 4052 Baswel ,248338000000164669111096451        " &  & 165.25\\
+2017-02-10 &  & "Zahlung Inland � Esr ,Benzin  Jan 2017 ,Benzin  Jan 2017 ,Dncs-20170209-IXN0-TXN0 ,Landi ,Sempach-Emmen 6203 Sempach-Station ,800559000000000793991096313        " &  & 216.10\\
+2017-02-10 &  & "Zahlungsr�ckleitung ,Landi Sempach-Emmen ,Landi ,Sempach-Emmen 6203 Sempach-Station ,Esr-Ref / Esr-Tn-Nr. Unbekannt ,/SETT/2017-02-10T00:45:05          " & 216.10 & \\
+2017-02-03 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Siehe Abrechnung,Rechnung:10718418 ,E2E7506548                         " & 294.00 & \\
+2017-02-02 &  & "Zahlung Inland � Esr ,Innova Abschluss 2016 ,Innova Abschluss 2016 ,Dncs-20170201-IXN0-TXN0 ,Innova Versicherungen Ag ,Guemligen ,101000976655000400471700007        " &  & 60.10\\
+2017-02-02 &  & "Zahlung Inland � Esr ,Sachverfsicherung Oberdorf ,Sachverfsicherung Oberdorf ,Dncs-20170201-IXN0-TXN0 ,Nidwaldner Sachversicherung ,Stans ,000000011700006477001200153        " &  & 151.05\\
+2017-01-31 &  & "Zahlung Inland � Esr ,Innova 1. Semester 2017 ,Innova 1. Semester 2017 ,Dncs-20170130-IXN0-TXN0 ,Innova Versicherungen Ag ,Guemligen ,101000976655000400471700007        " &  & 2589.90\\
+2017-01-26 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,VM06 603-17661.8 Rechnung:10560225 ,E2E7392063                         " & 1697.90 & \\
+2017-01-26 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Fall:23.15348.17,.2 Rechnung:10355113 ,E2E7392064                         " & 3093.60 & \\
+2016-12-31 &  & "Saldo Der Spesenabrechnung ,Gem�ss Separater Anzeige                       " &  & 41.00\\
+2016-12-23 &  & "Zahlung Inland � Esr ,Werbung Blitz Bis 22.12.2016 ,Werbung Blitz Bis 22.12.2016 ,Dncs-20161222-IXN0-TXN0 ,Nidwaldner Blitz ,6383 Dallenwil ,000042212180009268201668465        " &  & 254.90\\
+2016-12-23 &  & "Zahlung Inland � Esr ,Zahnarzt Straumann ,Zahnarzt Straumann ,Dncs-20161222-IXN0-TXN0 ,Institut Straumann ,Peter Merian-Weg 1 4052 Baswel ,248338000000164669108325870        " &  & 311.05\\
+2016-12-23 &  & "Zahlung Inland � Esr ,Werbung Blitz Vom 5.Mai 2016 ,Werbung Blitz Vom 5.Mai 2016 ,Dncs-20161222-IXN0-TXN0 ,Nidwaldner Blitz ,6383 Dallenwil ,000042212180009268201662250        " &  & 1453.25\\
+2016-12-21 &  & "Verg�tungsauftrag ,Lohn Dezember 2016 ,Lohn Dezember 2016 ,Dncs-20161220-IXN0-TXN0 ,Hane Gjerjaj ,Eichenstrasse 1 6020 Emmenbr�cke ,Lohn August 2014 ,14 Stunden ,Danke F�r Die Arbeit ,Gruss Erwin                        " &  & 327.45\\
+2016-12-21 &  & "Zahlung Inland � Esr ,Gemeinde Emmen Wasser ,Gemeinde Emmen Wasser ,Dncs-20161220-IXN0-TXN0 ,Einwohnergemeinde Emmen ,Emmenbruecke ,100013463405000228000932779        " &  & 576.15\\
+2016-12-20 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 2987.10 & \\
+2016-11-25 &  & "Dauerauftrag ,Haus ,Ihre Referenz: Haus ,Marie-Antoinette ,Kreit-Steiner ,Talstrasse 8 ,Ch-6020 Emmenbr�cke ,Dauerauftrag Montlich ,Hausarbeitern                      " &  & 400.00\\
+2016-11-24 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Csch EMMENBRUECKE\_1                 " & 500.00 & \\
+2016-11-17 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 89.35 & \\
+2016-11-16 &  & "Zahlung Inland � Esr ,Zahntechnik ,Dncs-20161115-IXN0-TXN0 ,Sp-98956453-0 ,M+W Dental Swiss Ag ,8308 Illnau ,708510824009118600074901842        " &  & 28.75\\
+2016-11-16 &  & "Zahlung Inland � Esr ,Zahntechnik ,Dncs-20161115-IXN0-TXN0 ,Sp-51419809-0 ,Px Dental ,2074 Marin ,928736071120162150160608608        " &  & 106.40\\
+2016-11-16 &  & "Zahlung Inland � Esr ,Gold Zahntechnik ,Dncs-20161115-IXN0-TXN0 ,Sp-42546643-0 ,Cm Bienne ,2501 Bienne 90736301 Rechnung ,806781000000181000911805128        " &  & 174.75\\
+2016-11-15 &  & "Zahlung Inland � Esr ,Lekture ,Dncs-20161114-IXN0-TXN0 ,Sp-94181914-0 ,Konsumenteninfo Ag ,Zuerich ,010000003018939840057811376        " &  & 35.00\\
+2016-11-15 &  & "Zahlung Inland � Esr ,Benzin ,Dncs-20161114-IXN0-TXN0 ,Sp-59522245-0 ,Landi Sempach/emmen ,6203.Sempach Station ,800559000000000793991037147        " &  & 83.75\\
+2016-11-15 &  & "Zahlung Inland � Esr ,Suva 3Q. 2016 ,Dncs-20161114-IXN0-TXN0 ,Sp-55375649-0 ,Suva ,Luzern ,100008537587064110033600005        " &  & 2263.10\\
+2016-11-14 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 2693.15 & \\
+2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Gold ,Ihre Referenz: Gold ,Cendres \& Metaux S.A. ,2501 Bienne ,806781000000181000911768730        " &  & 356.85\\
+2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,Institut Straumann ,4002 Basel ,248338000000164669104039627        " &  & 425.50\\
+2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,CH08 0077 7004 3114 5150 7 ,Renishaw Ag ,8854 Siebenen ,OP/0047205                         " &  & 510.30\\
+2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahnftechnik ,Ihre Referenz: Zahnftechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,5 Zahlungen ,2423780, 2423779, 242949, 2194025, ,2194026 ,Total  648.60 ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 648.60 Kurs 1.099775 ,Fixiert Am 03.11.16                " &  & 713.31\\
+2016-11-02 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 1914.95 & \\
+2016-10-27 &  & "Dauerauftrag ,Haus ,Ihre Referenz: Haus ,Marie-Antoinette ,Kreit-Steiner ,Talstrasse 8 ,Ch-6020 Emmenbr�cke ,Dauerauftrag Montlich ,Hausarbeitern                      " &  & 400.00\\
+2016-10-27 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Cs EMMENBRUECKE\_1                   " & 300.00 & \\
+2016-10-18 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 125.00 & \\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Post ,Ihre Referenz: Post ,Post Ch Ag ,Bern ,000000224019601722053598118        " &  & 52.00\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Gold Zahntechnik ,Ihre Referenz: Gold Zahntechnik ,Cm Bienne ,2501 Bienne ,90736301 Rechnung ,806781000000181000907504865        " &  & 128.30\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,Auftrag 2356345 ,Pat. Hot Ro ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 178.73 Kurs 1.108064 ,Fixiert Am 17.10.16                " &  & 198.04\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Ahv ,Ihre Referenz: Ahv ,Ausgleichskasse Nidwalden ,Stans ,000000000002107572016001443        " &  & 206.05\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,Auftrag 2356344 ,Pat. Re. Web. ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 299.15 Kurs 1.108064 ,Fixiert Am 17.10.16                " &  & 331.48\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Werbung ,Ihre Referenz: Werbung ,Pro Senectute Kanton Luzern ,Luzern ,000000000000024968000712063        " &  & 360.00\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Buchhaltung Steuer ,Ihre Referenz: Buchhaltung Steuer ,CH39 0076 1016 1230 6579 8 ,Die Konzept Ag ,Ch-5301 Zug ,Steuererkl�rung 2015 ,Lu Und Nw                          " &  & 540.00\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Zahnartz Und Labor ,Ihre Referenz: Zahnartz Und Labor ,Curaden Ag ,6010 Kriens ,041442000000311967675055502        " &  & 557.30\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Gold Zahntechnik ,Ihre Referenz: Gold Zahntechnik ,A3 Dental Ag ,8852 Altendorf ,247039000000001008001644305        " &  & 1507.70\\
+2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Ahv Juli 2016 ,Ihre Referenz: Ahv Juli 2016 ,Ausgleichskasse Nidwalden ,Stans ,000000000002107572016001147        " &  & 7117.85\\
+2016-10-13 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Cs EMMENBRUECKE\_1                   " & 10000.00 & \\
+2016-10-05 &  & "Verg�tung ,R�ckleitung Ihres Zahlungsauftrages ,Retour Esr Val 04.10.2016 ,Esr-Ref./tn-Nr Unbekannt ,Ref. Bvr/no Participant Inconnu ,000000000000089427000230993 ,Ihre Referenz: ,R�ckleitung Ihres Zahlungsauftrages" & 527.05 & \\
+2016-10-04 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,CROWN24 Ag ,8807 Freienbach ,000000000000089427000230993        " &  & 527.05\\
+2016-10-04 &  & "Clearing-Zahlung ,Koch Julius Und/oder Koch Rosa Berti ,Koch Julius Und/oder ,Koch Rosa Bertiswilstrasse 88 6023 ,Rothenburg ,Rg-Nr.164629                       " & 700.00 & \\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Werbung ,Ihre Referenz: Werbung ,Nzz Media Solutions Ag ,Postfach ,Maihofstrasse  76 ,6002 Luzern ,Rechnung 60080288                  " &  & 73.70\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Pc Hostpoint Bis 20.07.2017 ,Ihre Referenz: ,Pc Hostpoint Bis 20.07.2017 ,Hostpoint Ag ,Rapperswil Sg ,000000000000024721161303438        " &  & 118.80\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Swisscom August 16 ,Ihre Referenz: Swisscom August 16 ,Swisscom (Schweiz) Ag ,Bern ,000655613033024638520920167        " &  & 169.40\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahnftechnik ,Ihre Referenz: Zahnftechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,Airbill No. 2001840794 ,Pat. Giger Adelheid ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 166.95 Kurs 1.112208 ,Fixiert Am 30.09.16                " &  & 185.68\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Swisscom August 16 ,Ihre Referenz: Swisscom August 16 ,Swisscom (Schweiz) Ag ,Bern ,000907011066002856650920162        " &  & 451.60\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Haus ,Ihre Referenz: Haus ,Schenker Storen ,50112 Sch�nenwerd ,919912000007603943860521652        " &  & 477.50\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Lohn 2016 ,Ihre Referenz: Lohn 2016 ,Kreit Felix ,6020 Emmenbruecke ,Lohn  September 2016 ,Gruss Papa                         " &  & 1381.80\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Ckw Haus ,Ihre Referenz: Ckw Haus ,Centralschweiz. Kraftwerke Ag ,Luzern ,000020125439040000877035001        " &  & 1760.00\\
+2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Haus Versicherungsfall ,Ihre Referenz: ,Haus Versicherungsfall ,CH52 0077 8010 7060 5781 0 ,Andreas Tschopp ,Terrassenweg 17 ,6048 Horw ,2016-076 ,Verischerungsfall Haus ,Besten Dank Und Gruss ,Erwin Kreit Und Familie            " &  & 2477.20\\
+2016-10-03 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Cs EMMENBRUECKE\_1                   " & 200.00 & \\
+2016-09-30 &  & "Saldo Der Spesenabrechnung ,Gem�ss Separater Anzeige                       " &  & 41.00\\
+2016-09-30 &  & "Spesen Zahlungsverkehr ,                                               " &  & 67.55\\
+2016-09-30 &  & "Verg�tungsauftr. Electronic Banking ,R�ckzahlung An Ir�ne Reichmuth ,Ihre Referenz: ,R�ckzahlung An Ir�ne Reichmuth ,Erwin Kreit-Reichmuth ,0BERSEEBURGRAIN 9 ,6006 Luzern ,R�ckzahlung  An ,Ir�ne Reichmuth                    " &  & 3000.00\\
+2016-09-30 &  & "Verg�tungsauftr. Electronic Banking ,Lohn SEPTEMBER2015 ,Ihre Referenz: Lohn SEPTEMBER2015 ,17234-1023 ,Weber Adrian ,Zahntechniker ,Zugerstrasse 86 ,6415 Arth/ Sz ,Lohn September 2016                " &  & 5602.50\\
+2016-09-30 &  & "Clearing-Zahlung ,Irene Reichmuth-Horat Oberseeburgrai ,Irene Reichmuth-Horat ,Oberseeburgrain 9 6006 Luzern ,Zahlung D-S September 2016         " & 16000.00 & \\
+2016-09-27 &  & "Dauerauftrag ,Haus ,Ihre Referenz: Haus ,Marie-Antoinette ,Kreit-Steiner ,Talstrasse 8 ,Ch-6020 Emmenbr�cke ,Dauerauftrag Montlich ,Hausarbeitern                      " &  & 400.00\\
+\\
+\end{tablevalue}
+\end{document}

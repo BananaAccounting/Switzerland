@@ -13,9 +13,6 @@
 // limitations under the License.
 
 
-/* Script update: 2020-03-10 */
-
-
 /*
  * Returns TRUE if is a valid QR-IBAN
  * Returns FALSE if not.
@@ -122,6 +119,15 @@ function isSwissCountry(input) {
     }
 }
 
-
-
+  /**
+     * Remove not allowed characters from string
+     */
+ function _swiftString(_string) {
+    if (!_string)
+      return "";
+    var str = _string.toString();
+    str = str.replace(/ /g, "-");
+    str = str.replace(/[^a-zA-Z0-9-]/g, "");
+    return str;
+}
 

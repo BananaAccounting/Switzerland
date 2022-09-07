@@ -43,3 +43,12 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Add custom fields parameter (only for Estimates and Invoices Application). This allows to print custom fields in the information section.  
 * 2021-12-20
 	* Add a list of predefined columns in layout settings. By selecting a predefined column style, the program automatically inserts XML column names, widths, alignments and column header texts.  
+* 2022-03-31
+	* Print fields OrganisationUnit, OrganisationUnit2, OrganisationUnit3, and OrganisationUnit4  
+* 2022-04-04
+	* Fix left alignment of logo related to item's table.  
+* 2022-05-30
+	* Fix print column Item  
+	* Removed 'shipping address' from invoice parameters when using Estimates-Invoices application  
+* 2022-08-04
+    * Print custom columns of invoice item objects (i.e.: unit_price.calculated_amount_vat_exclusive, ...)

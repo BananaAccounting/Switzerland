@@ -1,0 +1,924 @@
+%%info_test_name{ch.banana.ch.app.letterqrmultiple.test}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+%%SCRIPT{/Users/ivan/Documents/GitHub/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.app.letterqrmultiple.test.js}
+%
+\begin{testcase}{ReportLetterQrMultiple}
+\begin{test}{testReport}
+\section{Test file: file:script/../test/testcases/qrtable\_structured.ac2}
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1a \\
+Sig. \\
+Pinco Pallino1 \\
+Via Abc Uno 231 \\
+6901 LuganoUno \\
+Titolo test 1a \\
+  \\
+  \\
+Testo iniziale test 1a \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 50.00 \\
+Amount1  & 20.00 \\
+Amount2  & 15.00 \\
+Totale CHF  & 85.00 \\
+\end{longtable}
+  \\
+Testo finale test 1a \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino1 \\
+Via Abc Uno 231 \\
+6901 LuganoUno \\
+Valuta \\
+CHF \\
+Importo \\
+85.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+85.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+1 \\
+  \\
+Pagabile da \\
+Pinco Pallino1 \\
+Via Abc Uno 231 \\
+6901 LuganoUno \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 85.00
+ewline CHF
+ewline S
+ewline Pinco Pallino1
+ewline Via Abc Uno
+ewline 231
+ewline 6901
+ewline LuganoUno
+ewline CH
+ewline NON
+ewline 
+ewline 1
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1a \\
+Sig. \\
+Pinco Pallino2 \\
+Via Abc Due 232 \\
+6902 LuganoDue \\
+Titolo test 1a \\
+  \\
+  \\
+Testo iniziale test 1a \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount1  & 30.00 \\
+Amount2  & 60.00 \\
+Totale EUR  & 90.00 \\
+\end{longtable}
+  \\
+Testo finale test 1a \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino2 \\
+Via Abc Due 232 \\
+6902 LuganoDue \\
+Valuta \\
+EUR \\
+Importo \\
+90.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+EUR \\
+Importo \\
+90.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+2 \\
+  \\
+Pagabile da \\
+Pinco Pallino2 \\
+Via Abc Due 232 \\
+6902 LuganoDue \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline EUR
+ewline S
+ewline Pinco Pallino2
+ewline Via Abc Due
+ewline 232
+ewline 6902
+ewline LuganoDue
+ewline CH
+ewline NON
+ewline 
+ewline 2
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1a \\
+Pinco Pallino3 \\
+Via Abc Tre 233 \\
+6903 LuganoTre \\
+Titolo test 1a \\
+  \\
+  \\
+Testo iniziale test 1a \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 1'200.50 \\
+Totale CHF  & 1'200.50 \\
+\end{longtable}
+  \\
+Testo finale test 1a \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino3 \\
+Via Abc Tre 233 \\
+6903 LuganoTre \\
+Valuta \\
+CHF \\
+Importo \\
+1  200.50 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+1  200.50 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+3 \\
+  \\
+Pagabile da \\
+Pinco Pallino3 \\
+Via Abc Tre 233 \\
+6903 LuganoTre \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1200.50
+ewline CHF
+ewline S
+ewline Pinco Pallino3
+ewline Via Abc Tre
+ewline 233
+ewline 6903
+ewline LuganoTre
+ewline CH
+ewline NON
+ewline 
+ewline 3
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1a \\
+Sig. \\
+Pinco Pallino5 \\
+Via Abc Cinque 235 \\
+6905 LuganoCinque \\
+Titolo test 1a \\
+  \\
+  \\
+Testo iniziale test 1a \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 110.00 \\
+Totale CHF  & 110.00 \\
+\end{longtable}
+  \\
+Testo finale test 1a \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino5 \\
+Via Abc Cinque 235 \\
+6905 LuganoCinque \\
+Valuta \\
+CHF \\
+Importo \\
+110.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+110.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+5 \\
+  \\
+Pagabile da \\
+Pinco Pallino5 \\
+Via Abc Cinque 235 \\
+6905 LuganoCinque \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 110.00
+ewline CHF
+ewline S
+ewline Pinco Pallino5
+ewline Via Abc Cinque
+ewline 235
+ewline 6905
+ewline LuganoCinque
+ewline CH
+ewline NON
+ewline 
+ewline 5
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1a \\
+Sig. \\
+Pinco Pallino6 \\
+Via Abc Sei 236 \\
+6906 LuganoSei \\
+Titolo test 1a \\
+  \\
+  \\
+Testo iniziale test 1a \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 120.00 \\
+Totale EUR  & 120.00 \\
+\end{longtable}
+  \\
+Testo finale test 1a \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino6 \\
+Via Abc Sei 236 \\
+6906 LuganoSei \\
+Valuta \\
+EUR \\
+Importo \\
+120.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+EUR \\
+Importo \\
+120.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+6 \\
+  \\
+Pagabile da \\
+Pinco Pallino6 \\
+Via Abc Sei 236 \\
+6906 LuganoSei \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 120.00
+ewline EUR
+ewline S
+ewline Pinco Pallino6
+ewline Via Abc Sei
+ewline 236
+ewline 6906
+ewline LuganoSei
+ewline CH
+ewline NON
+ewline 
+ewline 6
+ewline EPD}\\
+\section{Test file: file:script/../test/testcases/qrtable\_combined.ac2}
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1b \\
+Sig. \\
+Pinco Pallino1 \\
+Via Abc Uno 231  \\
+6901 LuganoUno \\
+Titolo test 1b \\
+  \\
+  \\
+Testo iniziale test 1b \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 50.00 \\
+Amount1  & 20.00 \\
+Amount2  & 15.00 \\
+Totale CHF  & 85.00 \\
+\end{longtable}
+  \\
+Testo finale test 1b \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino1 \\
+Via Abc Uno 231 \\
+6901 LuganoUno \\
+Valuta \\
+CHF \\
+Importo \\
+85.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+85.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+1 \\
+  \\
+Pagabile da \\
+Pinco Pallino1 \\
+Via Abc Uno 231 \\
+6901 LuganoUno \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 85.00
+ewline CHF
+ewline K
+ewline Pinco Pallino1
+ewline Via Abc Uno 231
+ewline 6901 LuganoUno
+ewline 
+ewline 
+ewline CH
+ewline NON
+ewline 
+ewline 1
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1b \\
+Sig. \\
+Pinco Pallino2 \\
+Via Abc Due 232  \\
+6902 LuganoDue \\
+Titolo test 1b \\
+  \\
+  \\
+Testo iniziale test 1b \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount1  & 30.00 \\
+Amount2  & 60.00 \\
+Totale EUR  & 90.00 \\
+\end{longtable}
+  \\
+Testo finale test 1b \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino2 \\
+Via Abc Due 232 \\
+6902 LuganoDue \\
+Valuta \\
+EUR \\
+Importo \\
+90.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+EUR \\
+Importo \\
+90.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+2 \\
+  \\
+Pagabile da \\
+Pinco Pallino2 \\
+Via Abc Due 232 \\
+6902 LuganoDue \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline EUR
+ewline K
+ewline Pinco Pallino2
+ewline Via Abc Due 232
+ewline 6902 LuganoDue
+ewline 
+ewline 
+ewline CH
+ewline NON
+ewline 
+ewline 2
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1b \\
+Pinco Pallino3 \\
+Via Abc Tre 233  \\
+6903 LuganoTre \\
+Titolo test 1b \\
+  \\
+  \\
+Testo iniziale test 1b \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 1'200.50 \\
+Totale CHF  & 1'200.50 \\
+\end{longtable}
+  \\
+Testo finale test 1b \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino3 \\
+Via Abc Tre 233 \\
+6903 LuganoTre \\
+Valuta \\
+CHF \\
+Importo \\
+1  200.50 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+1  200.50 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+3 \\
+  \\
+Pagabile da \\
+Pinco Pallino3 \\
+Via Abc Tre 233 \\
+6903 LuganoTre \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 1200.50
+ewline CHF
+ewline K
+ewline Pinco Pallino3
+ewline Via Abc Tre 233
+ewline 6903 LuganoTre
+ewline 
+ewline 
+ewline CH
+ewline NON
+ewline 
+ewline 3
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1b \\
+Sig. \\
+Pinco Pallino5 \\
+Via Abc Cinque 235  \\
+6905 LuganoCinque \\
+Titolo test 1b \\
+  \\
+  \\
+Testo iniziale test 1b \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 110.00 \\
+Totale CHF  & 110.00 \\
+\end{longtable}
+  \\
+Testo finale test 1b \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino5 \\
+Via Abc Cinque 235 \\
+6905 LuganoCinque \\
+Valuta \\
+CHF \\
+Importo \\
+110.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+CHF \\
+Importo \\
+110.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+5 \\
+  \\
+Pagabile da \\
+Pinco Pallino5 \\
+Via Abc Cinque 235 \\
+6905 LuganoCinque \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 110.00
+ewline CHF
+ewline K
+ewline Pinco Pallino5
+ewline Via Abc Cinque 235
+ewline 6905 LuganoCinque
+ewline 
+ewline 
+ewline CH
+ewline NON
+ewline 
+ewline 5
+ewline EPD}\\
+\begin{reportvalue}{}
+Banana.ch SA \\
+Via la Santa 7  \\
+6962 Viganello \\
+Testo data test 1b \\
+Sig. \\
+Pinco Pallino6 \\
+Via Abc Sei 236  \\
+6906 LuganoSei \\
+Titolo test 1b \\
+  \\
+  \\
+Testo iniziale test 1b \\
+  \\
+\begin{longtable}[l]{ l  l }
+Descrizione  & Importo \\
+Amount  & 120.00 \\
+Totale EUR  & 120.00 \\
+\end{longtable}
+  \\
+Testo finale test 1b \\
+  \\
+Ricevuta \\
+  \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Pagabile da \\
+Pinco Pallino6 \\
+Via Abc Sei 236 \\
+6906 LuganoSei \\
+Valuta \\
+EUR \\
+Importo \\
+120.00 \\
+Punto di accettazione \\
+Sezione pagamento \\
+Valuta \\
+EUR \\
+Importo \\
+120.00 \\
+Conto / Pagabile a \\
+CH52 0483 5012 3456 7100 0 \\
+Banana.ch SA \\
+Via la Santa 7 \\
+6962 Viganello \\
+  \\
+Informazioni aggiuntive \\
+6 \\
+  \\
+Pagabile da \\
+Pinco Pallino6 \\
+Via Abc Sei 236 \\
+6906 LuganoSei \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5204835012345671000
+ewline K
+ewline Banana.ch SA
+ewline Via la Santa 7
+ewline 6962 Viganello
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 120.00
+ewline EUR
+ewline K
+ewline Pinco Pallino6
+ewline Via Abc Sei 236
+ewline 6906 LuganoSei
+ewline 
+ewline 
+ewline CH
+ewline NON
+ewline 
+ewline 6
+ewline EPD}\\
+\keyvalue{Result}{Passed}
+\end{test}
+\end{testcase}
+\end{document}

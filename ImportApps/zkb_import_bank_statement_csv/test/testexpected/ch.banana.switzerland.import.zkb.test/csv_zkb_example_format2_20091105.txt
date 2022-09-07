@@ -1,0 +1,78 @@
+%%info_test_name{csv_zkb_example_format2_20091105}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2009-10-03 & 2009-10-02 &  & Migros Mmm Buchs Karten-Nr. 73165726 CHF160.95 &  & 160.95\\
+2009-10-03 & 2009-10-02 &  & Migros Mr Buchs Karten-Nr. 73165726 CHF29.65 &  & 29.65\\
+2009-10-03 & 2009-10-02 &  & Coop-1164 K�ttigen Karten-Nr. 73255190 CHF30.40 &  & 30.40\\
+2009-10-06 & 2009-10-05 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF45.85 &  & 45.85\\
+2009-10-06 & 2009-10-05 &  & Gemeindeverwaltung Karten-Nr. 73255190 CHF74.00 &  & 74.00\\
+2009-10-07 & 2009-10-06 &  & Coop Lupfig Karten-Nr. 73255190 CHF500.00 Kommission CHF2.00 &  & 502.00\\
+2009-10-07 & 2009-10-05 &  & Naturdrogerie Oesch Karten-Nr. 73165726 CHF179.10 &  & 179.10\\
+2009-10-07 & 2009-10-06 &  & Coop-3344 Karten-Nr. 73255190 CHF41.85 &  & 41.85\\
+2009-10-09 & 2009-10-08 &  & Coop-3344 Karten-Nr. 73255190 CHF38.70 &  & 38.70\\
+2009-10-11 & 2009-10-09 &  & Coop-1973 Aarau Te Karten-Nr. 73165726 CHF158.05 &  & 158.05\\
+2009-10-13 & 2009-10-13 &  & Bruno Fischer-Zimmerli Im Kirlenhof 20 9450 Altstatten Sg &  & 343.10\\
+2009-10-13 & 2009-10-12 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF28.00 &  & 28.00\\
+2009-10-13 & 2009-10-12 &  & Swisscom (Schweiz) Ag Karten-Nr. 73255190 CHF71.75 &  & 71.75\\
+2009-10-14 & 2009-10-12 &  & Aarau Sbb Karten-Nr. 73255190 CHF113.60 &  & 113.60\\
+2009-10-15 & 2009-10-14 &  & Migros Mm Igelweid Karten-Nr. 73255190 CHF37.60 &  & 37.60\\
+2009-10-16 & 2009-10-16 &  & Concordia Schweiz. Kranken- \& Unfallversicherung 6002 Luzern &  & 47.95\\
+2009-10-16 & 2009-10-15 &  & Bahnhof-Apotheke Aarau Karten-Nr. 73165726 CHF12.50 &  & 12.50\\
+2009-10-16 & 2009-10-15 &  & Marionnaud Parfumeries Karten-Nr. 73165726 CHF133.90 &  & 133.90\\
+2009-10-16 & 2009-10-15 &  & 465 Coop Ts Aarau- Karten-Nr. 73255190 CHF87.80 &  & 87.80\\
+2009-10-17 & 2009-10-16 &  & 5000 Hair Style Makeup Karten-Nr. 73165726 CHF98.00 &  & 98.00\\
+2009-10-18 & 2009-10-17 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF57.00 &  & 57.00\\
+2009-10-18 & 2009-10-17 &  & Bl�tentanz Karten-Nr. 73165726 CHF35.00 &  & 35.00\\
+2009-10-19 & 2009-10-19 &  & Luescher-Gassner, Heidi 5022 Rombach & 2000.00 & \\
+2009-10-20 & 2009-10-17 &  & Naturdrogerie Oesch Karten-Nr. 73165726 CHF93.60 &  & 93.60\\
+2009-10-20 & 2009-10-16 &  & Caves De Chambleau Karten-Nr. 73255190 CHF120.00 &  & 120.00\\
+2009-10-20 & 2009-10-19 &  & Aldi Suisse 01 Karten-Nr. 73255190 CHF164.00 &  & 164.00\\
+2009-10-21 & 2009-10-20 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF55.05 &  & 55.05\\
+2009-10-22 & 2009-10-21 &  & Coop-3344 Karten-Nr. 73255190 CHF34.00 &  & 34.00\\
+2009-10-23 & 2009-10-22 &  & Zweiradsport Fischer G Karten-Nr. 73255190 CHF260.00 &  & 260.00\\
+2009-10-23 & 2009-10-22 &  & Coop-1161 Seon Karten-Nr. 73255190 CHF18.75 &  & 18.75\\
+2009-10-23 & 2009-10-23 &  & Antalis Ag Industriestrasse 20 5242 Lupfig & 7623.05 & \\
+2009-10-24 & 2009-10-23 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF92.70 &  & 92.70\\
+2009-10-24 & 2009-10-23 &  & Voi Rombach Karten-Nr. 73165726 CHF50.55 &  & 50.55\\
+2009-10-25 & 2009-10-24 &  & Volg Dehag Ellikon A.D Karten-Nr. 73165726 CHF15.60 &  & 15.60\\
+2009-10-25 & 2009-10-24 &  & Volg Rickenbach Karten-Nr. 73165726 CHF18.40 &  & 18.40\\
+2009-10-25 & 2009-10-24 &  & Binden + Winden Karten-Nr. 73165726 CHF175.50 &  & 175.50\\
+2009-10-27 & 2009-10-27 &  & Buehler Franz Luescher Heidi Ahornweg 21 5022 Rombach &  & 400.00\\
+2009-10-27 & 2009-10-27 &  & M+J Barth Stein-Schlad Strasse 6074 Giswil &  & 2137.00\\
+2009-10-29 & 2009-10-29 &  & Viseca Card Services Sa Europa-Strasse 18 8152 Glattbrugg &  & 2816.20\\
+2009-10-29 & 2009-10-29 &  & Medirel S.A. Redondello 6982 Agno &  & 48.80\\
+2009-10-29 & 2009-10-29 &  & Inst, For Hist. U. Zyt. Diagnostik Pd Dr. Med. Seife Hailemariam Dammweg 1 5001 Aarau &  & 84.50\\
+2009-10-29 & 2009-10-28 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF23.30 &  & 23.30\\
+2009-10-30 & 2009-10-30 &  & Swisscom (Schweiz) Ag Alte Tiefenaustrasse 6 3050 Bern &  & 155.85\\
+2009-10-30 & 2009-10-30 &  & Swisscom (Schweiz) Ag Contact Center Mobile 3050 Bern &  & 66.10\\
+2009-10-31 & 2009-10-30 &  & Coop-1164 K�ttigen Karten-Nr. 73165726 CHF52.50 &  & 52.50\\
+2009-11-01 & 2009-10-31 &  & Coop-1973 Aarau Te Karten-Nr. 73165726 CHF53.70 &  & 53.70\\
+2009-11-01 & 2009-10-31 &  & Migros Mm Igelweid Karten-Nr. 73255190 CHF80.15 &  & 80.15\\
+2009-11-01 & 2009-10-31 &  & Vinothek Aarau Karten-Nr. 73255190 CHF105.25 &  & 105.25\\
+2009-11-03 & 2009-11-02 &  & Ubs Aarau 013 Karten-Nr. 73165726 CHF500.00 Kommission CHF2.00 &  & 502.00\\
+2009-11-03 & 2009-11-02 &  & Coop-3344 Karten-Nr. 73255190 CHF33.50 &  & 33.50\\
+2009-11-04 & 2009-10-31 &  & Denner Satellit Aebi Karten-Nr. 73165726 CHF63.75 &  & 63.75\\
+2009-11-04 & 2009-11-03 &  & Schuh Wehrli Ag Karten-Nr. 73165726 CHF129.00 &  & 129.00\\
+2009-11-05 & 2009-11-04 &  & Mery'S Aarau Karten-Nr. 73165726 CHF98.00 &  & 98.00\\
+\\
+\end{tablevalue}
+\end{document}

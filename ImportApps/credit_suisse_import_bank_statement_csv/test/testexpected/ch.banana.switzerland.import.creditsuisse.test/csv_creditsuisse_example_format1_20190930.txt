@@ -1,0 +1,44 @@
+%%info_test_name{csv_creditsuisse_example_format1_20190930}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2019-07-18 & 2019-07-18 &  & "Trasferimento da un conto all'altro ,pag.fatt.chf. ,DNCS-20190718-IXN0-TXN0,pag.fatt.chf.,SP-58912981-0,Thersen SA, Bedano,Thersen SA, Bedano,pag.fatt.chf.,Conto corrente,0456138949461002 " &  & 10000.00\\
+2019-07-25 & 2019-07-25 &  & "Pagamento all'estero ,THE14-508 ,DNCS-20190725-IXN0-TXN0,THE14-508,SP-85791033-0,CHINA RIGHT CONSULTANTS LIMITED,Room C,20/F, Full Win Com.Centre,573 Nathan Road,Yao Ma Tei,Kowloon,Hong Kong,THE14-508,HONGKONG AND SHANGHAI BANKING,CORPORATION LIMITED, THE,1 QUEEN'S ROAD CENTRAL CENTRAL AND,WESTERN DISTRICTHONG KONG HK,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 5170.00\\
+2019-07-30 & 2019-07-30 &  & "Pagamento all'estero ,2019APR0624,2019APR0701 ,DNCS-20190730-IXN0-TXN0,2019APR0624,2019APR0701,SP-19434172-0,SHENZHEN AMPRON TECHNOLOGY COMPANY,Floor 2\&4, West Building 53, FuMing,FuKang Road, Pinghu Town,518111,Shenzhen City, Guangdong,China,2019APR0624,2019APR0701,CITIBANK (CHINA) CO., LTD.,6 1ST FUHUA ROAD FUTIAN CENTRAL BUS,INESS DISTRICT DUTY-FREE BUSINESS B,UILDING FLOOR 21 510848 SHENZHEN CN,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 40373.80\\
+2019-07-30 & 2019-07-30 &  & "Pagamento all'estero ,CW-3859/19 ,DNCS-20190730-IXN0-TXN0,CW-3859/19,SP-44018587-0,WAKO ELECTRONICS CO.LTD,8-22 HIDEIN - CHO TENNOJI - KU,OSAKA JAPAN,CW-3859/19,MUFG BANK, LTD.,7-1 MARUNOUCHI 2-CHOME CHIYODA-KU,100-0005 TOKYO JP,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 11400.00\\
+2019-07-30 & 2019-07-30 &  & "Trasferimento da un conto all'altro ,x fatt.varie chf ,DNCS-20190730-IXN0-TXN0,x fatt.varie chf,SP-46399175-0,Thersen SA, Bedano,Thersen SA, Bedano,x fatt.varie chf,Conto corrente,0456138949461002 " &  & 10000.00\\
+2019-07-30 & 2019-07-30 &  & "Pagamento SEPA uscita ,19/104974,105334,-52,-66. ,DNCS-20190730-IXN0-TXN0,19/104974,105334,-52,-66.,SP-43272911-0,FISCHER\&RECHSTEINER COMPANY S.P.A.,via PIEDIMONTE 46 23868 VALMADRERA,LC,19/104974,105334,-52,-66.,UBI BANCA S.P.A.,CORSO MATTEOTTI 323900 LECCO IT " &  & 3651.76\\
+2019-07-30 & 2019-07-30 &  & "Pagamento all'estero ,ZB2019625-A ,DNCS-20190730-IXN0-TXN0,ZB2019625-A,SP-18878224-0,SHUNDE YUPEI IMPORT AND EXPORT CO.,4TH FLOOR, NO.1, HESHENG ROAD,GUANGZHU HIGHWAY OF RONGGUI SHUNDE,AREA,FOSHAN CITY, GUANGDONG,ZB2019625-A,GUANGDONG SHUNDE RURAL COMMERCIAL,BANK COMPANY LIMITED,2 YONGCUI LU, XINCHENGQU SHUNDE DIS,TRICT528300 FOSHAN CN,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 1856.00\\
+2019-07-31 & 2019-07-31 &  & "Spese di traffico dei pagamenti" &  & 27.72\\
+2019-08-02 & 2019-08-02 &  & "Pagamento all'estero ,19HDINVA0612 ,DNCS-20190731-IXN0-TXN0,19HDINVA0612,SP-47796840-0,NINGBO HOLDEN INDUSTRIAL LIMITED,NINGBO CINA,19HDINVA0612,SHANGHAI PUDONG DEVELOPMENT BANK,12 ZHONG SHAN DONG YI LU200002,SHANGHAI CN,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 2645.00\\
+2019-08-27 & 2019-08-27 &  & "Pagamento SEPA uscita ,19/105874,105979,105994.106437. ,DNCS-20190827-IXN0-TXN0,19/105874,105979,105994.106437.,SP-63691398-0,FISCHER\&RECHSTEINER COMPANY S.P.A.,via PIEDIMONTE 46 23868 VALMADRERA,LC,19/105874,105979,105994.106437.,UBI BANCA S.P.A.,CORSO MATTEOTTI 323900 LECCO IT " &  & 2905.45\\
+2019-08-30 & 2019-08-30 &  & "Spese di traffico dei pagamenti" &  & 4.68\\
+2019-09-03 & 2019-09-03 &  & "Entrata di pagamento standard SEPA ,TECHNOSYSTEM S.R.L. VIA POSTALE VECC ,1936745533835956606470,TECHNOSYSTEM S.R.L.,VIA POSTALE VECCHIA N. 6 23854,OLGINATE LC,S.DO FT 16/17/18/19/20 " & 137571.01 & \\
+2019-09-06 & 2019-09-06 &  & "Pagamento all'estero ,2019APR0716,2019APR0807 ,DNCS-20190906-IXN0-TXN0,2019APR0716,2019APR0807,SP-94414340-0,SHENZHEN AMPRON TECHNOLOGY COMPANY,Floor 2\&4, West Building 53, FuMing,FuKang Road, Pinghu Town,518111,Shenzhen City, Guangdong,China,2019APR0716,2019APR0807,CITIBANK (CHINA) CO., LTD.,6 1ST FUHUA ROAD FUTIAN CENTRAL BUS,INESS DISTRICT DUTY-FREE BUSINESS B,UILDING FLOOR 21 510848 SHENZHEN CN,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 56921.60\\
+2019-09-06 & 2019-09-06 &  & "Pagamento all'estero ,30\%PI NO:TS20190901 ,DNCS-20190906-IXN0-TXN0,30\%PI NO:TS20190901,SP-92190956-0,XGH Electric Company,FLAT/RM H, BLK 2,20/F SHUN LEE DSQ,32 LEE ON RD, KWUN TONG,HONGKONG,30\%PI NO:TS20190901,BANK OF CHINA (HONG KONG) LIMITED,1 GARDEN ROAD CENTRAL AND WESTERN D,ISTRICT BANK OF CHINA TOWER FLOOR 2,4HONG KONG HK,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 1170.00\\
+2019-09-13 & 2019-09-13 &  & "Trasferimento da un conto all'altro ,fatt. in chf. ,DNCS-20190913-IXN0-TXN0,fatt. in chf.,SP-59162135-0,Thersen SA, Bedano,Thersen SA, Bedano,fatt. in chf.,Conto corrente,0456138949461002 " &  & 10000.00\\
+2019-09-30 & 2019-09-30 &  & "Pagamento all'estero ,2019APR0826.APR0830,APR0904 ,DNCS-20190927-IXN0-TXN0,2019APR0826.APR0830,APR0904,SP-95795729-0,SHENZHEN AMPRON TECHNOLOGY COMPANY,Floor 2\&4, West Building 53, FuMing,FuKang Road, Pinghu Town,518111,Shenzhen City, Guangdong,China,2019APR0826.APR0830,APR0904,CITIBANK (CHINA) CO., LTD.,6 1ST FUHUA ROAD FUTIAN CENTRAL BUS,INESS DISTRICT DUTY-FREE BUSINESS B,UILDING FLOOR 21 510848 SHENZHEN CN,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 91402.20\\
+2019-09-30 & 2019-09-30 &  & "Pagamento all'estero ,CW-3931/19 ,DNCS-20190927-IXN0-TXN0,CW-3931/19,SP-45384973-0,WAKO ELECTRONICS CO.LTD,8-22 HIDEIN - CHO TENNOJI - KU,OSAKA JAPAN,CW-3931/19,MUFG BANK, LTD.,7-1 MARUNOUCHI 2-CHOME CHIYODA-KU,100-0005 TOKYO JP,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 7125.00\\
+2019-09-30 & 2019-09-30 &  & "Pagamento SEPA uscita ,19/106893,107149 ,DNCS-20190927-IXN0-TXN0,19/106893,107149,SP-59389065-0,FISCHER\&RECHSTEINER COMPANY S.P.A.,via PIEDIMONTE 46 23868 VALMADRERA,LC,19/106893,107149,UBI BANCA S.P.A.,CORSO MATTEOTTI 323900 LECCO IT " &  & 1671.48\\
+2019-09-30 & 2019-09-30 &  & "Pagamento all'estero ,64000117922/3 (PO 17047) ,DNCS-20190927-IXN0-TXN0,64000117922/3 (PO 17047),SP-71881737-0,THINKING ELECTRONIC INDUSTRIAL CO.L,21 LANE 373 DIST. KAOHSIUNG TAIWAN,R.O.C.,64000117922/3 (PO 17047),TAIPEI FUBON COMMERCIAL BANK CO.,LTD,1 LIOUHE 1ST ROAD800 KAOHSIUNG,TW,CHF 5.00 Le spese vengono,contabilizzate nel prossimo,conteggio " &  & 1000.00\\
+\\
+\end{tablevalue}
+\end{document}

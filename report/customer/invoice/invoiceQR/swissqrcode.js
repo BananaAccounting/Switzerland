@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2022-03-21 */
+/* Script update: 2022-04-01 */
 
 
 
@@ -2868,9 +2868,9 @@ var QRBill = class QRBill {
 
 
 	/**
-	 * Get the QR additional information defined in the given column.
+	 * Get the QR additional information as text
 	 */
-	qrAdditionalInformationDirect(column)
+	qrAdditionalInformationDirect(text)
 	{
 		/*
 		if (tabella) {
@@ -2881,14 +2881,7 @@ var QRBill = class QRBill {
 		}
 		*/
 
-		if (column.startsWith("*")) {
-
-			//prendere il testo e togliere il *
-			//nei parametri aggiungiamo manualmente il *
-
-			column = column.replace("*","");
-			return column;
-		}
+		return text;
 	}
 
 
@@ -3120,9 +3113,12 @@ var QRBill = class QRBill {
 			Additional information => unstructured message (es. Order of 15 June 2020) 
 		*/
 		if (qrcodeData.amount === "0.00") { //when amount is 0, add only additional info with text "NOT TO PAY.."
-			qrcodeData.additionalInformation = "";
+			
 			if(!userParam.qr_code_empty_amount) { //only if "Empty amount" option is false
 				qrcodeData.additionalInformation = texts.notUseForPayment;
+			}
+			else {
+				qrcodeData.additionalInformation = this.qrAdditionalInformationDirect(userParam.qr_code_additional_information);
 			}
 			qrcodeData.billingInformation = "";
 		} 

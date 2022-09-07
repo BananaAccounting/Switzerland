@@ -1,0 +1,113 @@
+/* CSS update: 2022-04-04 */
+
+@page {
+  margin-top: 0cm;
+  margin-bottom: 0cm;
+  margin-left: 0cm;
+  margin-right: 0cm;
+}
+
+body {
+  font-family: $font_family;
+  font-size: $font_size;
+}
+
+.watermark-text {
+   position: absolute;
+   transform: translate(-0cm,10cm), rotate(-60deg);
+   font-size: 85;
+   text-align: left;
+   color: #CCCCCC;
+}
+
+.sender-address {
+   font-size: $font_size;
+   margin-top: 2cm;
+   margin-left: 2cm;
+   margin-right: 1.2cm;
+   position: absolute;
+}
+
+.date {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left: 2cm;
+   position: absolute;
+}
+
+.date-without-addresses {
+   font-size: $font_size;
+   margin-top: 2cm;
+   margin-left: 2cm;
+   position:absolute;
+}
+
+.customer-address {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left:12.3cm;
+   position:absolute;
+}
+
+.letter {
+   margin-top: 8cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+}
+
+.letter-without-addresses-and-date {
+   margin-top: 2cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+}
+
+.letter-without-addresses {
+   margin-top: 4cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+}
+
+.title {
+   font-weight: bold;
+}
+
+.details-table {
+
+}
+
+.details-table td {
+   border-bottom-width: thin;
+   border-bottom-style: solid;
+   border-bottom-color: black;
+}
+
+.details-table-header-description {
+   font-weight: bold;
+   text-align: left;
+   background-color: lightgrey;
+   color: black;
+}
+
+.details-table-header-amount {
+   font-weight: bold;
+   text-align: right;
+   background-color: lightgrey;
+   color: black;
+}
+
+.details-table-total {
+   font-weight: bold;
+}
+
+.details-table-amount {
+   text-align: right;
+}
+
+.column1 {
+  width: 50%;
+}
+
+.column2 {
+  width: auto;
+}
+

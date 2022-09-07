@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-03-03
+// @pubdate = 2022-05-31
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -111,7 +111,7 @@ function onCurrentIndexChanged_methodId(index, value, params) {
 
     //create a new object
     var pain001CH = new Pain001Switzerland(Banana.document);
-    var paymentObj = pain001CH.initPaymData();
+    var paymentObj = pain001CH.initPaymObject();
     if (parseInt(index) == 1)
         paymentObj.methodId = pain001CH.ID_PAYMENT_SEPA_DESCRIPTION;
     else
@@ -119,7 +119,7 @@ function onCurrentIndexChanged_methodId(index, value, params) {
     var newParams = pain001CH.convertPaymData(paymentObj);
 
     //if something is already written ask before resetting data
-    let existingData = false;
+    /*let existingData = false;
     for (var i = 0; i < params.data.length; i++) {
         var key = params.data[i].name;
         if (key !== "methodId" && params.data[i].value.length > 0) {
@@ -138,8 +138,9 @@ function onCurrentIndexChanged_methodId(index, value, params) {
         var answer = Banana.Ui.showQuestion("Payments", "Clear existing data?");
         if (!answer)
             keepData = true;
-    }
+    }*/
 
+    let keepData = true;
     for (var i = 0; i < newParams.data.length; i++) {
         var key = newParams.data[i].name;
         if (key !== 'methodId' && keepData) {
@@ -199,6 +200,7 @@ function Pain001Switzerland(banDocument) {
     this.docInfo = this.getDocumentInfo();
 
     // errors id
+    this.ID_ERR_DATE_NOTVALID = "ID_ERR_DATE_NOTVALID";
     this.ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
     this.ID_ERR_ELEMENT_REQUIRED = "ID_ERR_ELEMENT_REQUIRED";
     this.ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
@@ -227,14 +229,14 @@ function Pain001Switzerland(banDocument) {
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
-        "@version": this.version,
-        "@uuid": this.ID_PAIN_FORMAT_001_001_03_CH_02
+        "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
+        "@version": this.version
     });
     this.painFormats.push({
         "@appId": this.id,
         "@description": "ISO 20022 Schema (pain.001.001.03)",
-        "@version": this.version,
-        "@uuid": this.ID_PAIN_FORMAT_001_001_03
+        "@format": this.ID_PAIN_FORMAT_001_001_03,
+        "@version": this.version
     });
 
     this.SEPARATOR_CHAR = '\xa0';
@@ -312,8 +314,8 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam.type = 'combobox';
     currentParam.value = paymentObj.methodId ? paymentObj.methodId : '';
     currentParam.defaultvalue = '';
-    // currentParam.items = Array (this.ID_PAYMENT_QRCODE_DESCRIPTION, this.ID_PAYMENT_SEPA_DESCRIPTION);
-    currentParam.items = Array(this.ID_PAYMENT_QRCODE_DESCRIPTION);
+    currentParam.items = Array (this.ID_PAYMENT_QRCODE_DESCRIPTION, this.ID_PAYMENT_SEPA_DESCRIPTION);
+    // currentParam.items = Array(this.ID_PAYMENT_QRCODE_DESCRIPTION);
     currentParam.readValue = function () {
         paymentObj.methodId = this.value;
     }
@@ -683,7 +685,6 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam = {};
     currentParam.name = 'transactionDate';
     currentParam.title = "Date";
-    currentParam.tooltip = "Transaction Date format: yyyy-mm-dd";
     currentParam.type = 'string';
     currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.transactionDate ? paymentObj.transactionDate : '';
@@ -696,7 +697,6 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam = {};
     currentParam.name = 'dueDate';
     currentParam.title = "Due Date";
-    currentParam.tooltip = "Due Date format: yyyy-mm-dd";
     currentParam.type = 'string';
     currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.dueDate ? paymentObj.dueDate : '';
@@ -769,14 +769,11 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     var msgId = this.formatUuid(paymentObj["@uuid"]);
 
     // Payment Information Identification unique inside msg
-    var msgInfId = "PmtInfId";
-    if (paymentObj["@title"].length > 0) {
-        msgInfId = paymentObj["@title"];
-        if (msgInfId.indexOf(" ") > 0)
-            msgInfId = msgInfId.replace(/ /g, '');
-        if (msgInfId.length > 35)
-            msgInfId.substring(0, 35);
-    }
+    // max length 35, should be unique for at least 3 months
+    // example PAYMT-20220329093522
+    var pmtInfId = "PAYMT-" + this.currentDateTime();
+    /*if (paymentObj["@title"] && paymentObj["@title"].length > 0)
+        pmtInfId = paymentObj["@title"];*/
 
     // Create message's header <GrpHdr>
     var groupHeader = new GroupHeader(msgId);
@@ -836,30 +833,18 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
         for (var i = 0; i < executionDates.length; i++) {
 
-            // msgInfId max length 35 - length of counter
-            
             // counter -000, -001, ....
-            /*var id = h * 100 + i;
-            var zero = 3 - id.toString().length + 1;
-            var counter = Array(+(zero > 0 && zero)).join("0") + id;
-            var currentMsgInfId = msgInfId + "-" + counter;*/
-            
-            // counter: yymmdd1, yymmdd2, ....
-            var id = h;
-            var counter = executionDates[i];
-            counter = counter.replace(/-/g, '');
-            if (counter.length == 8)
-                counter = counter.substr(2);
-            counter += id.toString();
-            if (counter.length > 7)
-                counter = counter.substr(0, 7);
-            var currentMsgInfId = msgInfId;
-            if (currentMsgInfId.length > 28)
-                currentMsgInfId = currentMsgInfId.substr(0, 28);
-            currentMsgInfId += counter;
+            var id = h * 100 + i;
+            id = this.zeroPad(id, 3);
+
+            var currentPmtInfId = pmtInfId;
+            if (currentPmtInfId.length > 31)
+                currentPmtInfId = currentPmtInfId.substr(0, 31);
+            currentPmtInfId += "-" + id.toString();
+            currentPmtInfId = _swiftString(currentPmtInfId);
 
             var payment = new PaymentInformation(
-                currentMsgInfId, // Payment Information Identification unique inside msg
+                currentPmtInfId, // Payment Information Identification unique inside msg
                 cleanIBAN(paymentObj.debtorIban), // IBAN the money is transferred from
                 paymentObj.debtorBic,  // BIC
                 paymentObj.debtorName, // Debtor Name
@@ -962,6 +947,28 @@ Pain001Switzerland.prototype.currentDate = function () {
     if (this.isTest)
         datestring = "2020-07-01";
     return datestring;
+}
+
+Pain001Switzerland.prototype.currentDateTime = function () {
+    var m = new Date();
+    var year = m.getUTCFullYear();
+    var month = this.zeroPad((m.getUTCMonth() + 1), 2);
+    var day = m.getUTCDate();
+    var hours = this.zeroPad(m.getUTCHours().toString(), 2);
+    var minutes = this.zeroPad(m.getUTCMinutes().toString(), 2);
+    var seconds = this.zeroPad(m.getUTCSeconds().toString(), 2);
+    var milliseconds = this.zeroPad(m.getUTCMilliseconds().toString(), 3);
+    if (this.isTest) {
+        year = "2020";
+        month = "07";
+        day = "01";
+        hours = "10";
+        minutes = "50";
+        seconds = "00";
+        milliseconds = "123";
+    }
+    var dateString = year + month + day + hours + minutes + seconds + milliseconds;
+    return dateString;
 }
 
 Pain001Switzerland.prototype.formatUuid = function (uuid) {
@@ -1116,8 +1123,10 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
     var lang = this.getLang();
 
     switch (errorId) {
+        case this.ID_ERR_DATE_NOTVALID:
+            return "Invalid date format. Plese enter the date in the format \"dd.mm.yyyy\"";
         case this.ID_ERR_ELEMENT_EMPTY:
-            return "%1 is missing or empty";
+            return "%1 is not defined";
         case this.ID_ERR_ELEMENT_REQUIRED:
             return "This is a required field";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
@@ -1141,7 +1150,7 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
         case this.ID_ERR_QRIBAN_REFERENCE_NOTVALID:
             return "QRIBAN needs a reference number";
         case this.ID_ERR_VERSION_NOTSUPPORTED:
-            return "This extension does not run with your current version of Banana Accounting %1.\nPlease update to the latest version available.\nTo update or for more information click on Help";
+            return "Unsupported version. Please use or install the latest version of Banana Accounting Dev Channel with Advanced Plan.";
     }
     return "";
 }
@@ -1175,7 +1184,7 @@ Pain001Switzerland.prototype.getTexts = function (language) {
     return texts;
 }
 
-Pain001Switzerland.prototype.initPaymData = function () {
+Pain001Switzerland.prototype.initPaymObject = function () {
 
     // if syncTransaction=true data is synchronized with transaction row
     var syncTransaction = true;
@@ -1228,6 +1237,76 @@ Pain001Switzerland.prototype.initParam = function () {
     param.fieldAdditionalInfo = "Notes";
     param.creditorGroups = "";
     return param;
+}
+
+Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row) {
+    if (!paymentObj || !infoObj || !row || !this.banDocument)
+        return;
+    
+    var lang = this.getLang();
+
+    if (!paymentObj.creditorIban) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor IBAN");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    var iban = "";
+    if (paymentObj.creditorIban)
+        iban = cleanIBAN(paymentObj.creditorIban);
+    if (!isValidIBAN(iban)) {
+        var msg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID, lang);
+        msg = msg.replace("%1", "creditorIban");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.creditorName) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor Name");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.creditorStreet1 && paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor Address");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.creditorCity) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Creditor City");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
+
+    if (!paymentObj.amount) {
+        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
+        msg = msg.replace("%1", "Amount");
+        msg = "<span style='color:red'>" + msg + "</span>";
+        let infoMsg = {
+            'text': msg
+        };
+        infoObj.push(infoMsg);
+    }
 }
 
 /*Returns all suppliers accounts from table Accounts according to params*/
@@ -1289,10 +1368,14 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
             editorData.data[i].value = this.ID_PAYMENT_SEPA_DESCRIPTION;
         }
         else if (key == 'transactionDate' || key == 'dueDate') {
-            editorData.data[i].value = this.toISODate(value);
+            let formattedValue = value;
+            if (formattedValue && formattedValue.length > 0) {
+                formattedValue = this.toLocalDate(value);
+            }
+            editorData.data[i].value = formattedValue;
         }
         else if (key == 'amount') {
-            editorData.data[i].value = this.toAmountLocaleFormat(value);
+            editorData.data[i].value = this.toAmountLocalFormat(value);
         }
     }
 
@@ -1304,7 +1387,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
 
     // Read data from dialog
     editorData = editor.getParams();
-    let paymentObj = this.initPaymData();
+    let paymentObj = this.initPaymObject();
     for (var i = 0; i < editorData.data.length; i++) {
         let key = editorData.data[i].name;
         let value = editorData.data[i].value;
@@ -1323,7 +1406,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
         else if (key == 'amount') {
             //remove spaces
             value = value.replace(/ /g, "");
-            value = this.toAmountFormatInternal(value);
+            value = this.toAmountInternalFormat(value);
         }
         if (paymentObj.hasOwnProperty(key)) {
             paymentObj[key] = value;
@@ -1333,7 +1416,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
     return paymentObj;
 }
 
-Pain001Switzerland.prototype.saveTransferFile = function (inData) {
+Pain001Switzerland.prototype.saveTransferFile = function (inData, _fileName) {
     if (inData.length <= 0) {
         var msg = this.getErrorMessage(this.ID_ERR_MESSAGE_EMPTY, this.getLang());
         this.banDocument.addMessage(msg, this.ID_ERR_MESSAGE_EMPTY);
@@ -1341,16 +1424,9 @@ Pain001Switzerland.prototype.saveTransferFile = function (inData) {
     }
 
     //set filename according to PaymentInfo Tag
-    var fileName = "";
-    try {
-        var documentNode = Banana.Xml.parse(inData).firstChildElement('Document');
-        var transferFileNode = documentNode.firstChildElement('CstmrCdtTrfInitn');
-        fileName = transferFileNode.firstChildElement('PmtInf').firstChildElement('PmtInfId').text;
-        if (fileName.length > 0)
-            fileName += ".xml";
-    } catch (e) {
+    var fileName = _fileName;
+    if (!fileName)
         fileName = "";
-    }
 
     if (fileName.length <= 0 || !fileName) {
         fileName = "PAIN001_<Date>.xml";
@@ -1420,7 +1496,7 @@ Pain001Switzerland.prototype.scanCode = function (code) {
     swissQRCodeData.AV1Parameters = parsedCode[32] ? parsedCode[32] : '';;
     swissQRCodeData.AV2Parameters = parsedCode[33] ? parsedCode[33] : '';;
 
-    var paymentObj = this.initPaymData();
+    var paymentObj = this.initPaymObject();
 
     // Remove 000026 prefix that appears when reading certain QR codes (ECI block)
     if (swissQRCodeData.QRType.startsWith('\\000026')) {
@@ -1521,8 +1597,8 @@ Pain001Switzerland.prototype.setTest = function (bool) {
     this.isTest = bool;
 }
 
-/* This method convert a local amount to the internal amount format */
-Pain001Switzerland.prototype.toAmountFormatInternal = function (value) {
+/* This method converts a local amount to the internal amount format */
+Pain001Switzerland.prototype.toAmountInternalFormat = function (value) {
     if (!value || !this.docInfo)
         return "";
     var decimals = this.docInfo.decimalsAmounts ? this.docInfo.decimalsAmounts : 2;
@@ -1534,8 +1610,8 @@ Pain001Switzerland.prototype.toAmountFormatInternal = function (value) {
     return convertedValue;
 }
 
-/* This method convert an internal formatted amount to the local amount format */
-Pain001Switzerland.prototype.toAmountLocaleFormat = function (value) {
+/* This method converts an internal formatted amount to the local amount format */
+Pain001Switzerland.prototype.toAmountLocalFormat = function (value) {
     if (!value || !this.docInfo)
         return "";
     var decimals = this.docInfo.decimalsAmounts ? this.docInfo.decimalsAmounts : 2;
@@ -1543,35 +1619,99 @@ Pain001Switzerland.prototype.toAmountLocaleFormat = function (value) {
     return convertedValue;
 }
 
-/* This method convert a date to the internal date format */
-Pain001Switzerland.prototype.toDateFormatInternal = function (value) {
+/* This method converts a local or iso date to the internal date format yyyymmdd */
+Pain001Switzerland.prototype.toInternalDate = function (value) {
+    //empty strings does nothing
     if (!value)
         return "";
+
     var internalValue = Banana.Converter.toInternalDateFormat(value);
     internalValue = internalValue.replace(/-/g, '');
     return internalValue;
 }
 
-/* This method convert an internal date to the ISO date format */
+/* This method converts an internal or local date to the ISO date format */
 Pain001Switzerland.prototype.toISODate = function (value) {
+    //empty strings does nothing
+    if (!value || value.length <= 0)
+        return "";
+
+    let inputFormat = '';
+    if (value.match(/^(\d{8})$/)) {
+        //format yyyymmdd
+        inputFormat = 'yyyymmdd';
+    }
+    else if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+        //format dd/mm/yyyy
+        inputFormat = 'dd/mm/yyyy';
+    }
+    else if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/)) {
+        //format dd/mm/yy
+        inputFormat = 'dd/mm/yy';
+    }
+    else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/)) {
+        inputFormat = "dd.mm.yyyy";
+    }
+    else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2})$/)) {
+        inputFormat = "dd.mm.yy";
+    }
+    else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/)) {
+        inputFormat = "dd-mm-yyyy";
+    }
+    else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{2})$/)) {
+        inputFormat = "dd-mm-yy";
+    }
+    else if (value.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/)) {
+        inputFormat = "yyyy-mm-dd";
+    }
+
+    if (inputFormat.length <= 0)
+        return "";
+
+    let formattedDate = Banana.Converter.toInternalDateFormat(value, inputFormat);
+
+    //check if it's a valid date
+    let d = Date.parse(formattedDate);
+    if (!d) {
+        //moves month at the beginning
+        if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+            //format mm/dd/yyyy
+            inputFormat = 'mm/dd/yyyy';
+        }
+        else if (value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/)) {
+            inputFormat = 'mm/dd/yy';
+        }
+        else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/)) {
+            inputFormat = "mm.dd.yyyy";
+        }
+        else if (value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2})$/)) {
+            inputFormat = "mm.dd.yy";
+        }
+        else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/)) {
+            inputFormat = "mm-dd-yyyy";
+        }
+        else if (value.match(/^(\d{1,2})-(\d{1,2})-(\d{2})$/)) {
+            inputFormat = "mm-dd-yy";
+        }
+
+        formattedDate = Banana.Converter.toInternalDateFormat(value, inputFormat);
+        //recheck if it's a valid date
+        d = Date.parse(formattedDate);
+        if (!d) {
+            formattedDate = '';
+        }
+    }
+    
+    return formattedDate;
+}
+
+/* This method converts an internal or iso date to the local date format  */
+Pain001Switzerland.prototype.toLocalDate = function (value) {
     //empty strings does nothing
     if (!value)
         return "";
 
-    //internal format yyyymmdd transforms to ISO date
-    let formattedDate = value;
-    if (value.length == 8) {
-        let year = value.substr(0, 4);
-        let month = value.substr(4, 2);
-        let day = value.substr(6, 2);
-        formattedDate = year + "-" + month + "-" + day;
-    }
-    //checks if is a valid date
-    var timestamp = Date.parse(formattedDate);
-    if (!timestamp) {
-        formattedDate = this.currentDate();
-    }
-
+    var formattedDate = Banana.Converter.toLocaleDateFormat(value);
     return formattedDate;
 }
 
@@ -1622,6 +1762,14 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
             params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
             params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
             error = true;
+        }
+        if (key === 'dueDate' || key === 'transactionDate') {
+            let isoDate = this.toISODate(value);
+            if (value && value.length > 0 && isoDate.length <= 0) {
+                params.data[i].errorId = this.ID_ERR_DATE_NOTVALID;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_DATE_NOTVALID);
+                error = true;
+            }
         }
         if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
             if (key === 'creditorName' && value.length <= 0) {
@@ -1680,52 +1828,6 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
     return true;
 }
 
-Pain001Switzerland.prototype.validatePaymObject = function (paymentObj, tabPos, displayMsg) {
-    if (!paymentObj || !paymentObj.methodId || paymentObj.methodId !== this.ID_PAYMENT_QRCODE)
-        return paymentObj;
-
-    var iban = "";
-    if (paymentObj.creditorIban)
-        iban = cleanIBAN(paymentObj.creditorIban);
-    
-    // Update reference type
-    paymentObj.referenceType = "";
-    if (isValidIBAN(iban)) {
-        if (isQRIBAN(iban)) {
-            if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
-                paymentObj.referenceType = "QRR";
-        }
-        else {
-            if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
-                paymentObj.referenceType = "SCOR";
-            }
-            else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
-                paymentObj.referenceType = "NON";
-            }
-        }
-    }
-
-    if (displayMsg && tabPos && this.banDocument) {
-        var lang = this.getLang();
-        var msg = "[" + tabPos.tableName + ":" + "Row " + (tabPos.rowNr + 1).toString() + ", Column PaymentData] ";
-        msg += this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
-        if (!paymentObj.creditorIban || !isValidIBAN(iban)) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorIban"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-        if (!paymentObj.creditorName || paymentObj.creditorName.length <= 0) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorName"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-        if (!paymentObj.creditorStreet1 || paymentObj.creditorStreet1.length <= 0) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorStreet1"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-        if (!paymentObj.creditorCity || paymentObj.creditorCity.length <= 0) {
-            this.banDocument.addMessage(msg.replace("%1", "creditorCity"), this.ID_ERR_ELEMENT_EMPTY);
-        }
-    }
-
-    return paymentObj;
-}
-
 Pain001Switzerland.prototype.validateTransferFile = function (xml, painFormat) {
     var lang = this.getLang();
 
@@ -1759,33 +1861,53 @@ Pain001Switzerland.prototype.validateTransferFile = function (xml, painFormat) {
     return true;
 }
 
-Pain001Switzerland.prototype.verifyBananaVersion = function () {
+Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
     if (!this.banDocument)
         return false;
 
     var isExperimental = Banana.application.isExperimental;
     if (!isExperimental) {
         var msg = this.getErrorMessage(this.ID_ERR_EXPERIMENTAL_REQUIRED, this.getLang());
-        this.banDocument.addMessage(msg, this.ID_ERR_EXPERIMENTAL_REQUIRED);
+        if (suppressMsg)
+            Banana.console.warn(msg);
+        else
+            this.banDocument.addMessage(msg, this.ID_ERR_EXPERIMENTAL_REQUIRED);
         return false;
     }
 
     var supportedVersion = true;
     var requiredVersion = "10.0.12";
-    //example Banana.application.version 10.0.12.22069
+    var requiredSerial = "220531";
+
+    //example Banana.application.version 10.0.12
     //example Banana.application.serial 100012-220310
     if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
         supportedVersion = false;
     }
+
+    var serial = Banana.application.serial;
+    if (serial.lastIndexOf('-') > 0) {
+        serial = serial.substr(serial.lastIndexOf('-') + 1);
+        if (parseInt(serial) < parseInt(requiredSerial)) {
+            supportedVersion = false;
+        }
+    }
+
     if (!supportedVersion) {
         var msg = this.getErrorMessage(this.ID_ERR_VERSION_NOTSUPPORTED, this.getLang());
-        msg = msg.replace("%1", Banana.application.version);
-        this.banDocument.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
+        if (suppressMsg)
+            Banana.console.warn(msg);
+        else
+            this.banDocument.addMessage(msg, this.ID_ERR_VERSION_NOTSUPPORTED);
         return false;
     }
+
     if (!Banana.application.license || Banana.application.license.licenseType !== "advanced") {
         var msg = this.getErrorMessage(this.ID_ERR_LICENSE_NOTVALID, this.getLang());
-        this.banDocument.addMessage(msg, this.ID_ERR_LICENSE_NOTVALID);
+        if (suppressMsg)
+            Banana.console.warn(msg);
+        else
+            this.banDocument.addMessage(msg, this.ID_ERR_LICENSE_NOTVALID);
         return false;
     }
 
@@ -1806,6 +1928,36 @@ Pain001Switzerland.prototype.verifyParam = function () {
         this.param.creditorGroups = defaultParam.creditorGroups;
     /*if (!this.param.syncTransactionLast)
         this.param.syncTransactionLast = false;*/
+}
+
+/**
+* verify and clean payment object data
+*/
+Pain001Switzerland.prototype.verifyPaymObject = function (paymentObj) {
+    if (!paymentObj || !paymentObj.methodId || paymentObj.methodId !== this.ID_PAYMENT_QRCODE)
+        return paymentObj;
+
+    var iban = "";
+    if (paymentObj.creditorIban)
+        iban = cleanIBAN(paymentObj.creditorIban);
+    
+    // Update reference type
+    paymentObj.referenceType = "";
+    if (isValidIBAN(iban)) {
+        if (isQRIBAN(iban)) {
+            if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
+                paymentObj.referenceType = "QRR";
+        }
+        else {
+            if (paymentObj.reference && paymentObj.reference.startsWith("RF")) {
+                paymentObj.referenceType = "SCOR";
+            }
+            else if (!paymentObj.reference || paymentObj.reference.length <= 0) {
+                paymentObj.referenceType = "NON";
+            }
+        }
+    }
+    return paymentObj;
 }
 
 /**
@@ -1843,12 +1995,12 @@ var JsAction = class JsAction {
      * @uuid: unique id to identify the payment/data object generated by c++
      */
     create(tabPos, uuid) {
-        // Banana.console.debug("--------create-------- " + uuid + " " + JSON.stringify(tabPos));
+        // Banana.console.debug("--------create-------- uuid: " + uuid + " " + JSON.stringify(tabPos));
         var pain001CH = new Pain001Switzerland(this.banDocument);
         if (!pain001CH.verifyBananaVersion())
             return null;
 
-        var paymentObj = pain001CH.initPaymData();
+        var paymentObj = pain001CH.initPaymObject();
 
         var row = null;
         var table = this.banDocument.table(tabPos.tableName);
@@ -1877,7 +2029,7 @@ var JsAction = class JsAction {
         // Banana.console.debug("create, columnName " + tabPos.columnName + " uuid" + paymentObj["@uuid"] );
 
         //verify all data
-        paymentObj = pain001CH.validatePaymObject(paymentObj);
+        paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -1916,7 +2068,7 @@ var JsAction = class JsAction {
         if (!pain001CH.verifyBananaVersion())
             return null;
 
-        var paymentObj = pain001CH.initPaymData();
+        var paymentObj = pain001CH.initPaymObject();
 
         var row = null;
         var table = this.banDocument.table(tabPos.tableName);
@@ -1982,7 +2134,7 @@ var JsAction = class JsAction {
         // Banana.console.debug("edit, columnName:" + tabPos.columnName + " isModified " + isModified + " uuid" + paymentObj["@uuid"]);
 
         //verify all data
-        paymentObj = pain001CH.validatePaymObject(paymentObj);
+        paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -1999,16 +2151,16 @@ var JsAction = class JsAction {
     /*
     * Save the xml pain file to the selected destination folder
     */
-    exportTransferFile(xml) {
+    exportTransferFile(xml, fileName) {
         var pain001CH = new Pain001Switzerland(Banana.document);
         if (!pain001CH.verifyBananaVersion())
-            return null;
+            return "";
 
         var pain001CH = new Pain001Switzerland(Banana.document);
-        var exportedFileName = pain001CH.saveTransferFile(xml);
+        var exportedFileName = pain001CH.saveTransferFile(xml, fileName);
         if (exportedFileName)
             return exportedFileName;
-        return false;
+        return "";
     }
 
     /**
@@ -2028,14 +2180,16 @@ var JsAction = class JsAction {
      * }
      */
     getInfo(tabPos) {
-        var pain001CH = new Pain001Switzerland(this.banDocument);
-        if (!pain001CH.verifyBananaVersion())
-            return null;
 
-        var paymentObj = pain001CH.initPaymData();
-        var isPaymentOrder = false;
+        var infoObj = [];
+
+        var pain001CH = new Pain001Switzerland(this.banDocument);
+        if (!pain001CH.verifyBananaVersion(true))
+            return infoObj;
 
         var row = null;
+        var paymentObj = null;
+        var isPaymentOrder = false;
         var table = this.banDocument.table(tabPos.tableName);
         if (tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
             row = table.row(tabPos.rowNr);
@@ -2050,30 +2204,31 @@ var JsAction = class JsAction {
                 }
             }
             catch (e) {
-                return null;
+                return infoObj;
             }
         }
         else {
-            return null;
+            return infoObj;
         }
 
-        var infoObj = [];
+        if (!paymentObj)
+            return infoObj;
 
         var infoMsg = {};
         var obj = this._getInfoUnwrap(paymentObj);
         if (isPaymentOrder) {
             let rowCount = paymentObj.transactions.length;
             infoMsg = {
-                'text': obj['@type'],
+                'text': obj['@type'] + " " + obj['@appId'] + " v." + obj['@version'] + " " + obj['@format'],
                 'amount1': obj['debtorName'],
                 'amount2': obj['debtorIban'],
                 'amount3': qsTr('Total transactions:') + " " + paymentObj.transactions.length
             };
             let transferFile = paymentObj.transferFile;
-            if (transferFile){
+            if (transferFile) {
                 var xml = Banana.Xml.parse(transferFile).firstChildElement('Document').firstChildElement('CstmrCdtTrfInitn');
-                infoMsg.amount3= qsTr('Total transactions:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('NbOfTxs').text;
-                infoMsg.amount4= qsTr(', checksum:') + " " +  xml.firstChildElement('GrpHdr').firstChildElement('CtrlSum').text;
+                infoMsg.amount3 = qsTr('Total transactions:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('NbOfTxs').text;
+                infoMsg.amount4 = qsTr(', checksum:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('CtrlSum').text;
             }
             infoObj.push(infoMsg);
             /*for (var key in obj) {
@@ -2088,13 +2243,13 @@ var JsAction = class JsAction {
             }*/
         }
         else {
-            let paymentObjCheck = pain001CH.initPaymData();
+            let paymentObjCheck = pain001CH.initPaymObject();
             this._rowGetAmount(paymentObjCheck, row);
             let warning = "";
-            if (paymentObjCheck.amount != obj['amount'])
+            if (paymentObj.syncTransaction && paymentObjCheck.amount != obj['amount'])
                 warning = " <span style='color:red;'>(Transaction: " + paymentObjCheck.currency + " " + paymentObjCheck.amount + ")</span>";
             infoMsg = {
-                'text': obj['@type'],
+                'text': obj['@type'] + " " + obj['@appId'] + " v." + obj['@version'],
                 'amount1': obj['creditorName'],
                 'amount2': obj['reference'],
                 'currency': obj['currency'],
@@ -2102,153 +2257,9 @@ var JsAction = class JsAction {
                 'amount4': obj['methodId']
             };
             infoObj.push(infoMsg);
+            pain001CH.infoPaymObject(paymentObj, infoObj, row);
         }
         return infoObj;
-    }
-
-    /**
-     * Returns the columns to display in Banana application
-     */
-    listColumns() {
-        var pain001CH = new Pain001Switzerland(this.banDocument);
-        if (!pain001CH.verifyBananaVersion())
-            return null;
-
-        var columns = [];
-
-        columns.push({
-            "name": "creditorAccountId",
-            "title": "Creditor",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorName",
-            "title": "Name",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "currency",
-            "title": "Currency",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "amount",
-            "title": "Amount",
-            "type": "amount"
-        });
-
-        columns.push({
-            "name": "transactionDate",
-            "title": "Transaction Date",
-            "type": "date"
-        });
-
-        columns.push({
-            "name": "dueDate",
-            "title": "Due Date",
-            "type": "date"
-        });
-
-        columns.push({
-            "name": "reference",
-            "title": "Reference",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "referenceType",
-            "title": "Reference Type",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "unstructuredMessage",
-            "title": "Message",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorStreet1",
-            "title": "Street 1",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorStreet2",
-            "title": "Street 2",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorCity",
-            "title": "City",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorPostalCode",
-            "title": "Postal Code",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorCountry",
-            "title": "Country Code",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorBankName",
-            "title": "Bank name",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorBankAddress1",
-            "title": "Bank address1",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorBankAddress2",
-            "title": "Bank address2",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorBankAccount",
-            "title": "Bank account",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorBic",
-            "title": "BIC",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "creditorIban",
-            "title": "IBAN",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "billingInfo",
-            "title": "Billing Info",
-            "type": "string"
-        });
-
-        columns.push({
-            "name": "categoryPurpose",
-            "title": "Category Purpose",
-            "type": "string"
-        });
-
-        return JSON.stringify(columns, null, '   ');
     }
 
     /**
@@ -2306,7 +2317,7 @@ var JsAction = class JsAction {
             return null;
 
         //verify all data
-        paymentObj = pain001CH.validatePaymObject(paymentObj);
+        paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
@@ -2330,7 +2341,7 @@ var JsAction = class JsAction {
     updateRow(tabPos, uuid) {
         // Banana.console.debug("--------updateRow-------- " + uuid + " " + JSON.stringify(tabPos));
         var pain001CH = new Pain001Switzerland(this.banDocument);
-        if (!pain001CH.verifyBananaVersion()) {
+        if (!pain001CH.verifyBananaVersion(true)) {
             return null;
         }
 
@@ -2350,10 +2361,10 @@ var JsAction = class JsAction {
             paymentObj = JSON.parse(rowObj.paymentdata_json);
         }
         catch (e) {
-            if (rowObj !== undefined) {
+            if (rowObj === undefined && tabPos.changeSource === "programm_add")
+                paymentObj = pain001CH.initPaymObject();
+            else
                 return null;
-            }
-            paymentObj = pain001CH.initPaymData();
         }
 
         var changedRowFields = {};
@@ -2364,7 +2375,7 @@ var JsAction = class JsAction {
             this._rowGetAmount(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2375,7 +2386,7 @@ var JsAction = class JsAction {
             this._rowGetDoc(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
@@ -2387,26 +2398,8 @@ var JsAction = class JsAction {
             this._rowGetAccount(paymentObj, row);
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
-            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
-        }
-        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
-
-            //banana adds payment data automatically collecting data from transaction
-            //the account must belongs to the suppliers group
-            this._rowGetAccount(paymentObj, row);
-            if (paymentObj.creditorAccountId.length <= 0)
-                return null;
-            this._rowGetAmount(paymentObj, row);
-            this._rowGetDoc(paymentObj, row);
-
-            //verify all data
-            var displayMsg = true;
-            paymentObj = pain001CH.validatePaymObject(paymentObj, tabPos, displayMsg);
-
-            //update Uuid according to row uuid
-            paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "PaymentData" || tabPos.columnName === "_AllRowDataChanged") {
@@ -2430,14 +2423,33 @@ var JsAction = class JsAction {
             }
 
             //verify all data
-            paymentObj = pain001CH.validatePaymObject(paymentObj);
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
+
+            //update Uuid according to row uuid
+            paymentObj['@uuid'] = uuid;
+            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+        }
+        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
+            //banana adds payment data automatically collecting data from transaction
+            //errors are displayed on the message window by function getInfo()
+
+            this._rowGetAccount(paymentObj, row);
+            this._rowGetAmount(paymentObj, row);
+            this._rowGetDoc(paymentObj, row);
+
+            //automatically added rows are not synchronized with payment object to avoid changed to transactions
+            paymentObj.syncTransaction = false;
+            this._rowResetAmount(changedRowFields);
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
 
             //update Uuid according to row uuid
             paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "_CompleteRowData") {
-            //called by create(), edit() or scanCode()
+            //called by create(), edit(), scanCode() and after changeSource === "programm_add"
 
             //Account
             this._rowSetAccount(paymentObj, changedRowFields);
@@ -2449,7 +2461,8 @@ var JsAction = class JsAction {
             this._rowSetDoc(paymentObj, changedRowFields);
 
             //Fix uuid if it is empty or different from row uuid
-            if (!paymentObj["@uuid"] || paymentObj["@uuid"].length <= 0) {
+            if (!paymentObj["@uuid"] || paymentObj["@uuid"] != row.uuid) {
+                Banana.console.debug("fixing uuid" + paymentObj["@uuid"] + " " + row.uuid);
                 paymentObj["@uuid"] = row.uuid;
                 changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
             }
@@ -2512,9 +2525,15 @@ var JsAction = class JsAction {
             accountId = row.value("Account");
         }
 
+        //remove comment
+        if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+            accountId = accountId.substr(1, accountId.length - 2);
+
         //cost centers
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc3");
+            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substr(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
             if (accountId)
@@ -2522,6 +2541,8 @@ var JsAction = class JsAction {
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc2");
+            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substr(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
             if (accountId)
@@ -2529,6 +2550,8 @@ var JsAction = class JsAction {
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc1");
+            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substr(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substr(1);
             if (accountId)
@@ -2571,6 +2594,7 @@ var JsAction = class JsAction {
         else if (this.pain001CH.docInfo.isIncomeExpenses) {
             amount = row.value("Expenses");
         }
+
         paymentObj.amount = amount;
 
         //Currency
@@ -2633,9 +2657,24 @@ var JsAction = class JsAction {
         }
     }
 
+    //Remove amount from object row
+    _rowResetAmount(row) {
+        if (!row || !this.pain001CH.docInfo)
+            return;
+
+        if (this.pain001CH.docInfo.isDoubleEntry) {
+            row["Amount"] = "";
+            if (this.pain001CH.docInfo.multiCurrency)
+                row["AmountCurrency"] = "";
+        }
+        else if (this.pain001CH.docInfo.isIncomeExpenses) {
+            row["Expenses"] = "";
+        }
+    }
+
     //Read amount from paymentObj and write it to the object row
     _rowSetAmount(paymentObj, row) {
-        if (!paymentObj || !paymentObj.syncTransaction || !paymentObj.amount || !row || !this.pain001CH.docInfo)
+        if (!paymentObj || !paymentObj.syncTransaction || !row || !this.pain001CH.docInfo)
             return;
 
         if (this.pain001CH.docInfo.isDoubleEntry) {
@@ -2665,11 +2704,11 @@ var JsAction = class JsAction {
         row["DocInvoice"] = invoiceNo;
 
         //Transaction date
-        let internalDate = this.pain001CH.toDateFormatInternal(paymentObj.transactionDate);
+        let internalDate = this.pain001CH.toInternalDate(paymentObj.transactionDate);
         row["Date"] =  internalDate;
 
         //Due date
-        internalDate = this.pain001CH.toDateFormatInternal(paymentObj.dueDate);
+        internalDate = this.pain001CH.toInternalDate(paymentObj.dueDate);
         row["DateExpiration"] = internalDate;
 
         //Description

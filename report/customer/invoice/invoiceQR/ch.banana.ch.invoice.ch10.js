@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-02-21
+// @pubdate = 2022-08-04
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -649,18 +649,20 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
-  currentParam = {};
-  currentParam.name = 'shipping_address';
-  currentParam.parentObject = 'address_include';
-  currentParam.title = texts.param_shipping_address;
-  currentParam.type = 'bool';
-  currentParam.value = userParam.shipping_address ? true : false;
-  currentParam.defaultvalue = false;
-  currentParam.tooltip = texts.param_tooltip_shipping_address;
-  currentParam.readValue = function() {
-    userParam.shipping_address = this.value;
+  if (IS_INTEGRATED_INVOICE) {
+    currentParam = {};
+    currentParam.name = 'shipping_address';
+    currentParam.parentObject = 'address_include';
+    currentParam.title = texts.param_shipping_address;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.shipping_address ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_shipping_address;
+    currentParam.readValue = function() {
+      userParam.shipping_address = this.value;
+    }
+    convertedParam.data.push(currentParam);
   }
-  convertedParam.data.push(currentParam);
 
   currentParam = {};
   currentParam.name = 'info_include';
@@ -1208,19 +1210,21 @@ function convertParam(userParam) {
     }
     convertedParam.data.push(currentParam);
 
-    currentParam = {};
-    currentParam.name = langCode+'_text_shipping_address';
-    currentParam.parentObject = langCode;
-    currentParam.title = langTexts[langCodeTitle+'_param_text_shipping_address'];
-    currentParam.type = 'string';
-    currentParam.value = userParam[langCode+'_text_shipping_address'] ? userParam[langCode+'_text_shipping_address'] : '';
-    currentParam.defaultvalue = langTexts.shipping_address;
-    currentParam.tooltip = langTexts['param_tooltip_text_shipping_address'];
-    currentParam.language = langCode;
-    currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_shipping_address'] = this.value;
+    if (IS_INTEGRATED_INVOICE) {
+      currentParam = {};
+      currentParam.name = langCode+'_text_shipping_address';
+      currentParam.parentObject = langCode;
+      currentParam.title = langTexts[langCodeTitle+'_param_text_shipping_address'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_shipping_address'] ? userParam[langCode+'_text_shipping_address'] : '';
+      currentParam.defaultvalue = langTexts.shipping_address;
+      currentParam.tooltip = langTexts['param_tooltip_text_shipping_address'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_shipping_address'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
     }
-    convertedParam.data.push(currentParam);
 
     currentParam = {};
     currentParam.name = langCode+'_title_doctype_10';
@@ -1502,7 +1506,7 @@ function convertParam(userParam) {
   currentParam.name = 'text_color';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_text_color;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.text_color ? userParam.text_color : '#000000';
   currentParam.defaultvalue = '#000000';
   currentParam.tooltip = texts.param_tooltip_text_color;
@@ -1515,7 +1519,7 @@ function convertParam(userParam) {
   currentParam.name = 'background_color_details_header';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_details_header;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.background_color_details_header ? userParam.background_color_details_header : '#337AB7';
   currentParam.defaultvalue = '#337ab7';
   currentParam.tooltip = texts.param_tooltip_background_color_details_header;
@@ -1528,7 +1532,7 @@ function convertParam(userParam) {
   currentParam.name = 'text_color_details_header';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_text_color_details_header;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.text_color_details_header ? userParam.text_color_details_header : '#FFFFFF';
   currentParam.defaultvalue = '#FFFFFF';
   currentParam.tooltip = texts.param_tooltip_text_color_details_header;
@@ -1536,13 +1540,12 @@ function convertParam(userParam) {
    userParam.text_color_details_header = this.value;
   }
   convertedParam.data.push(currentParam);
-
-  /// rimuovere 
+  
   currentParam = {};
   currentParam.name = 'background_color_alternate_lines';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_alternate_lines;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#F0F8FF';
   currentParam.defaultvalue = '#F0F8FF';
   currentParam.tooltip = texts.param_tooltip_background_color_alternate_lines;
@@ -2063,7 +2066,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT SHIPPING ADDRESS */
-  if (userParam.shipping_address) {
+  if (IS_INTEGRATED_INVOICE && userParam.shipping_address) {
     if (BAN_ADVANCED && typeof(hook_print_shipping_address) === typeof(Function)) {
       hook_print_shipping_address(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -2478,7 +2481,26 @@ function print_customer_address(repDocObj, invoiceObj, userParam) {
       }
       locality += invoiceObj.supplier_info.city;
     }
-    cell.addText(name + " - " + address + " - " + locality, "small_address");
+
+    var supplierAddressLine = "";
+    if (name) {
+      supplierAddressLine += name;
+    }
+    if (address) {
+      if (name) {
+        supplierAddressLine += " - ";
+      }
+      supplierAddressLine += address;
+    }
+    if (locality) {
+      if (address || name) {
+        supplierAddressLine += " - ";
+      }
+      supplierAddressLine += locality;
+    }
+    if (supplierAddressLine) {
+      cell.addText(supplierAddressLine, "small_address");
+    }
   }
   
   // Customer address
@@ -2724,6 +2746,10 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         }
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
+      else if (columnsNames[j].trim().toLowerCase() === "number") {
+        var itemValue = formatItemsValue(item.number, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
       else {
         var userColumnValue = "";
         var columnsName = columnsNames[j];
@@ -2734,8 +2760,8 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         if (BAN_ADVANCED) {
           //JSON contains a property with the name of the column (Item, Date)
           //In JSON all names are lower case
-          if (columnsName.trim().toLowerCase() in item) {
-            itemValue = formatItemsValue(item[columnsName.trim().toLowerCase()], variables, columnsName, className, item);
+          if (objectHasProperty(item, columnsName)) {
+            itemValue = formatItemsValue(objectGetProperty(item, columnsName), variables, columnsName, className, item);
           }
           else {
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsName);
@@ -2978,6 +3004,10 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         }
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
+      else if (columnsNames[j].trim().toLowerCase() === "number") {
+        var itemValue = formatItemsValue(item.number, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
       else {
         var userColumnValue = "";
         var columnsName = columnsNames[j];
@@ -2988,8 +3018,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         if (BAN_ADVANCED) {
           //JSON contains a property with the name of the column (Item, Date)
           //In JSON all names are lower case
-          if (columnsName.trim().toLowerCase() in item) {
-            itemValue = formatItemsValue(item[columnsName.trim().toLowerCase()], variables, columnsName, className, item);
+          if (objectHasProperty(item, columnsName)) {
+            itemValue = formatItemsValue(objectGetProperty(item, columnsName), variables, columnsName, className, item);
           }
           else {
             userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsName);
@@ -3081,7 +3111,9 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   tableRow = repTableObj.addRow();
   var cellVatInfo = tableRow.addCell("", "padding-right right vat_info", columnsNumber);
   for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
-    var vatInfo = texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%";
+    var vatInfo = "";
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
+    vatInfo += " " + texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%";
     vatInfo += " = " + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
     cellVatInfo.addParagraph(vatInfo);
   }
@@ -3354,7 +3386,7 @@ function formatItemsValue(value, variables, columnName, className, item) {
     itemFormatted.value = value;
     itemFormatted.className = className;
   }
-  else if (columnName === "amount" || columnName === "total_amount_vat_exclusive" || columnName === "total_amount_vat_inclusive") {
+  else if (columnName === "amount" || columnName.indexOf("amount") >= 0) {
     if (className === "header_cell" || className === "note_cell") { //do not print 0.00 amount for header rows and notes (rows without amounts)
       itemFormatted.value = "";
     } else {
@@ -3439,6 +3471,10 @@ function columnNamesToValues(invoiceObj, text) {
   var docInvoice = invoiceObj.document_info.number;
   var courtesy = invoiceObj.customer_info.courtesy;
   var businessName = invoiceObj.customer_info.business_name;
+  var businessUnit = invoiceObj.customer_info.business_unit;
+  var businessUnit2 = invoiceObj.customer_info.business_unit2;
+  var businessUnit3 = invoiceObj.customer_info.business_unit3;
+  var businessUnit4 = invoiceObj.customer_info.business_unit4;
   var firstName = invoiceObj.customer_info.first_name;
   var lastName = invoiceObj.customer_info.last_name;
   var address1 = invoiceObj.customer_info.address1;
@@ -3466,6 +3502,26 @@ function columnNamesToValues(invoiceObj, text) {
       text = text.replace(/<OrganisationName>/g, businessName.trim());
     } else {
       text = text.replace(/<OrganisationName>/g, "<>");
+    }
+    if (businessUnit && text.indexOf("<OrganisationUnit>") > -1) {
+      text = text.replace(/<OrganisationUnit>/g, businessUnit.trim());
+    } else {
+      text = text.replace(/<OrganisationUnit>/g, "<>");
+    }
+    if (businessUnit2 && text.indexOf("<OrganisationUnit2>") > -1) {
+      text = text.replace(/<OrganisationUnit2>/g, businessUnit2.trim());
+    } else {
+      text = text.replace(/<OrganisationUnit2>/g, "<>");
+    }
+    if (businessUnit3 && text.indexOf("<OrganisationUnit3>") > -1) {
+      text = text.replace(/<OrganisationUnit3>/g, businessUnit3.trim());
+    } else {
+      text = text.replace(/<OrganisationUnit3>/g, "<>");
+    }
+    if (businessUnit4 && text.indexOf("<OrganisationUnit4>") > -1) {
+      text = text.replace(/<OrganisationUnit4>/g, businessUnit4.trim());
+    } else {
+      text = text.replace(/<OrganisationUnit4>/g, "<>");
     }
     if (firstName && text.indexOf("<FirstName>") > -1) {
       text = text.replace(/<FirstName>/g, firstName.trim());
@@ -3672,6 +3728,10 @@ function getInvoiceAddress(invoiceAddress, userParam) {
   // Invoice object values
   var courtesy = invoiceAddress.courtesy;
   var businessName = invoiceAddress.business_name;
+  var businessUnit = invoiceAddress.business_unit;
+  var businessUnit2 = invoiceAddress.business_unit2;
+  var businessUnit3 = invoiceAddress.business_unit3;
+  var businessUnit4 = invoiceAddress.business_unit4;
   var firstName = invoiceAddress.first_name;
   var lastName = invoiceAddress.last_name;
   var address1 = invoiceAddress.address1;
@@ -3700,6 +3760,30 @@ function getInvoiceAddress(invoiceAddress, userParam) {
     address = address.replace(/<OrganisationName>/g,"<>");
   }
   
+  if (address.indexOf("<OrganisationUnit>") > -1 && businessUnit) {
+    address = address.replace(/<OrganisationUnit>/g, businessUnit.trim());
+  } else {
+    address = address.replace(/<OrganisationUnit>/g, "<>");
+  }
+
+  if (address.indexOf("<OrganisationUnit2>") > -1 && businessUnit2) {
+    address = address.replace(/<OrganisationUnit2>/g, businessUnit2.trim());
+  } else {
+    address = address.replace(/<OrganisationUnit2>/g, "<>");
+  }
+
+  if (address.indexOf("<OrganisationUnit3>") > -1 && businessUnit3) {
+    address = address.replace(/<OrganisationUnit3>/g, businessUnit3.trim());
+  } else {
+    address = address.replace(/<OrganisationUnit3>/g, "<>");
+  }
+
+  if (address.indexOf("<OrganisationUnit4>") > -1 && businessUnit4) {
+    address = address.replace(/<OrganisationUnit4>/g, businessUnit4.trim());
+  } else {
+    address = address.replace(/<OrganisationUnit4>/g, "<>");
+  }
+
   if (address.indexOf("<FirstName>") > -1 && firstName) {
     address = address.replace(/<FirstName>/g, firstName.trim());
   } else {
@@ -3932,6 +4016,42 @@ function arrayDifferences(arr1, arr2) {
     }
   }
   return arr;
+}
+
+/**
+ * The method objectHasProperty verifiy if an object contains the requested property.
+ * Name can contains a dot '.', in this case the method verify that the given property tree exists.
+*/
+function objectHasProperty(obj, name) {
+    if (!obj || !name) {
+        return false;
+    } else if (name.startsWith("T.") || name.startsWith("I.")) {
+        return false;
+    }
+    return (objectGetProperty(obj, name) !== null);
+}
+
+/**
+ * The method objectHasPoperty verifiy if an object contains the requested property or tree.
+ * Name can contains a dot '.', in this case the method verify that the given property tree exists.
+*/
+function objectGetProperty(obj, name) {
+    if (!obj || !name) {
+        return null;
+    } else if (name.startsWith("T.") || name.startsWith("I.")) {
+        return null;
+    }
+    let curObj = obj;
+    let paths = name.trim().toLowerCase().split('.');
+    for (let i = 0; i < paths.length; i++) {
+        let path = paths[i];
+        if (path in curObj) {
+            curObj = curObj[path];
+        } else {
+            return null;
+        }
+    }
+    return curObj;
 }
 
 function replaceVariables(cssText, variables) {

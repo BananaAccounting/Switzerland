@@ -27,6 +27,7 @@
 \subsection{Test 1: NON}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -86,6 +87,7 @@ ewline EPD}\\
 \subsection{Test 2 negative: NON with QR-IBAN}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -144,6 +146,7 @@ ewline
 ewline EPD}\\
 \subsection{Test 3: NON without beginning text}
 \begin{reportvalue}{}
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -203,6 +206,7 @@ ewline EPD}\\
 \subsection{Test 4: NON, IBAN chf from File->Properties}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -262,6 +266,7 @@ ewline EPD}\\
 \subsection{Test 5: NON, IBAN eur from File->Properties}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -321,6 +326,7 @@ ewline EPD}\\
 \subsection{Test 6: NON, IBAN chf from extension settings}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -380,6 +386,7 @@ ewline EPD}\\
 \subsection{Test 7: NON, IBAN eur from extension settings}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -439,6 +446,7 @@ ewline EPD}\\
 \subsection{Test 8: QR-IBAN chf from extension settings}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -498,6 +506,7 @@ ewline EPD}\\
 \subsection{Test 9: Include amount 1234.56}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -559,6 +568,7 @@ ewline EPD}\\
 \subsection{Test 10: Include amount 1234,56}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -620,6 +630,7 @@ ewline EPD}\\
 \subsection{Test 11: Include amount 1'234.56}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -681,6 +692,7 @@ ewline EPD}\\
 \subsection{Test 12: Include amount 1'234,56}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -742,6 +754,7 @@ ewline EPD}\\
 \subsection{Test 13: Include amount 1234}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -803,6 +816,7 @@ ewline EPD}\\
 \subsection{Test 14: Include amount 1234.00}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -864,6 +878,7 @@ ewline EPD}\\
 \subsection{Test 15: Include amount 1234,00}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -925,6 +940,7 @@ ewline EPD}\\
 \subsection{Test 16: Include amount 0.00}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -989,6 +1005,7 @@ ewline EPD}\\
 \subsection{Test 17: Include amount 0,00}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1053,6 +1070,7 @@ ewline EPD}\\
 \subsection{Test 18: Include amount 0}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1117,6 +1135,7 @@ ewline EPD}\\
 \subsection{Test 19: Include empty amount}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1181,6 +1200,7 @@ ewline EPD}\\
 \subsection{Test 20: Amount but excluded}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1240,6 +1260,7 @@ ewline EPD}\\
 \subsection{Test 21: Include amount 1234.56 eur}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1301,6 +1322,7 @@ ewline EPD}\\
 \subsection{Test 22: 'Payable to' address, 'Payable by' address, Include amount 1234.56 chf}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1368,6 +1390,7 @@ ewline EPD}\\
 \subsection{Test 23: 'Payable by' Address, Include amount 1234.56 chf}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
@@ -1435,6 +1458,7 @@ ewline EPD}\\
 \subsection{Test 24: 'Payable by' Address, no amount}
 \begin{reportvalue}{}
 The QR payment part without address and amount is at the bottom of the page. \\
+  \\
 Receipt \\
   \\
 Account / Payable to \\
