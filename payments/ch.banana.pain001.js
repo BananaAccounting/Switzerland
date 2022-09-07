@@ -586,8 +586,10 @@ DomBuilder.prototype.appendAddressToDomElement = function (creditor, transaction
     }
     // Generate nodes for each address line.
     for (var i = 0; i < postalAddressData.length; ++i) {
-        var node = postalAddress.addElement('AdrLine');
-        node.addTextNode(postalAddressData[i]);
+        if (postalAddressData[i].length > 0) {
+            var node = postalAddress.addElement('AdrLine');
+            node.addTextNode(postalAddressData[i]);
+        }
     }
 }
 
@@ -605,8 +607,10 @@ DomBuilder.prototype.appendBankAddressToDomElement = function (creditor, transac
     }
     // Generate nodes for each address line.
     for (var i = 0; i < bankAddressData.length; ++i) {
-        var node = bankAddress.addElement('AdrLine');
-        node.addTextNode(bankAddressData[i]);
+        if (bankAddressData[i].length > 0) {
+            var node = bankAddress.addElement('AdrLine');
+            node.addTextNode(bankAddressData[i]);
+        }
     }
 }
 

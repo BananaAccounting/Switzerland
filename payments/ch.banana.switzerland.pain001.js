@@ -119,7 +119,7 @@ function onCurrentIndexChanged_methodId(index, value, params) {
     var newParams = pain001CH.convertPaymData(paymentObj);
 
     //if something is already written ask before resetting data
-    let existingData = false;
+    /*let existingData = false;
     for (var i = 0; i < params.data.length; i++) {
         var key = params.data[i].name;
         if (key !== "methodId" && params.data[i].value.length > 0) {
@@ -138,8 +138,9 @@ function onCurrentIndexChanged_methodId(index, value, params) {
         var answer = Banana.Ui.showQuestion("Payments", "Clear existing data?");
         if (!answer)
             keepData = true;
-    }
+    }*/
 
+    let keepData = true;
     for (var i = 0; i < newParams.data.length; i++) {
         var key = newParams.data[i].name;
         if (key !== 'methodId' && keepData) {
@@ -313,8 +314,8 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam.type = 'combobox';
     currentParam.value = paymentObj.methodId ? paymentObj.methodId : '';
     currentParam.defaultvalue = '';
-    // currentParam.items = Array (this.ID_PAYMENT_QRCODE_DESCRIPTION, this.ID_PAYMENT_SEPA_DESCRIPTION);
-    currentParam.items = Array(this.ID_PAYMENT_QRCODE_DESCRIPTION);
+    currentParam.items = Array (this.ID_PAYMENT_QRCODE_DESCRIPTION, this.ID_PAYMENT_SEPA_DESCRIPTION);
+    // currentParam.items = Array(this.ID_PAYMENT_QRCODE_DESCRIPTION);
     currentParam.readValue = function () {
         paymentObj.methodId = this.value;
     }
@@ -1277,7 +1278,7 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         infoObj.push(infoMsg);
     }
 
-    if (!paymentObj.creditorStreet1) {
+    if (!paymentObj.creditorStreet1 && paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
         var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
         msg = msg.replace("%1", "Creditor Address");
         msg = "<span style='color:red'>" + msg + "</span>";
