@@ -1506,7 +1506,7 @@ function convertParam(userParam) {
   currentParam.name = 'text_color';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_text_color;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.text_color ? userParam.text_color : '#000000';
   currentParam.defaultvalue = '#000000';
   currentParam.tooltip = texts.param_tooltip_text_color;
@@ -1519,7 +1519,7 @@ function convertParam(userParam) {
   currentParam.name = 'background_color_details_header';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_details_header;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.background_color_details_header ? userParam.background_color_details_header : '#337AB7';
   currentParam.defaultvalue = '#337ab7';
   currentParam.tooltip = texts.param_tooltip_background_color_details_header;
@@ -1532,7 +1532,7 @@ function convertParam(userParam) {
   currentParam.name = 'text_color_details_header';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_text_color_details_header;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.text_color_details_header ? userParam.text_color_details_header : '#FFFFFF';
   currentParam.defaultvalue = '#FFFFFF';
   currentParam.tooltip = texts.param_tooltip_text_color_details_header;
@@ -1540,13 +1540,12 @@ function convertParam(userParam) {
    userParam.text_color_details_header = this.value;
   }
   convertedParam.data.push(currentParam);
-
-  /// rimuovere 
+  
   currentParam = {};
   currentParam.name = 'background_color_alternate_lines';
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_alternate_lines;
-  currentParam.type = 'string';
+  currentParam.type = 'color';
   currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#F0F8FF';
   currentParam.defaultvalue = '#F0F8FF';
   currentParam.tooltip = texts.param_tooltip_background_color_alternate_lines;
