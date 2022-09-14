@@ -1,4 +1,4 @@
-// @id = ch.banana.filter.import.zkb
+// @id = ch.banana.switzerland.import.zkb
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
@@ -12,6 +12,7 @@
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
+// @includejs = import.utilities.js
 
 //errors
 ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
@@ -27,10 +28,10 @@ var applicationSupportIsDetail = Banana.compareVersion &&
 function exec(string,isTest) {
 
 
-   if (isTest !== true && !verifyBananaVersion()) {
-      Banana.console.debug("test");
-      return "@Cancel";
-  }
+	var importUtilities = new ImportUtilities(Banana.document);
+  
+	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
+		return "";
 
    var fieldSeparator = findSeparator(string);
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');

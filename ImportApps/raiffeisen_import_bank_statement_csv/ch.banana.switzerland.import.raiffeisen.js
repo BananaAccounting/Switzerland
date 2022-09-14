@@ -1,4 +1,4 @@
-// @id = ch.banana.filter.import.raiffeisen
+// @id = ch.banana.switzerland.import.raiffeisen
 // @api = 1.0
 // @pubdate = 2021-02-24
 // @publisher = Banana.ch SA
@@ -14,11 +14,17 @@
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
+// @includejs = import.utilities.js
 
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(string) {
+function exec(string,isTest) {
+
+	var importUtilities = new ImportUtilities(Banana.document);
+  
+	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
+		return "";
 
    var transactions = Banana.Converter.csvToArray(string, ';', '§');
 

@@ -1,4 +1,4 @@
-﻿// @id = ch.banana.filter.import.creditsuisse
+﻿// @id = ch.banana.switzerland.import.creditsuisse
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
@@ -13,15 +13,17 @@
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
+// @includejs = import.utilities.js
 
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
 function exec(string, isTest) {
 
-   if (!isTest && !verifyBananaVersion()) {
-      return "@Cancel";
-  }
+   var importUtilities = new ImportUtilities(Banana.document);
+
+   if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
+      return "";
 
   var applicationSupportIsDetail = Banana.compareVersion &&
   (Banana.compareVersion(Banana.application.version, "8.0.5") >= 0)
@@ -400,6 +402,7 @@ function verifyBananaVersion() {
    }
    return true;
 }
+
 function bananaRequiredVersion(requiredVersion, expmVersion) {
    /**
     * Check Banana version

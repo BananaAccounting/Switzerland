@@ -1,6 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
  <qresource>
      <file>ch.banana.switzerland.import.zkb.js</file>
+     <file>../import.utilities.js</file>
      <file>ch.banana.switzerland.import.zkb.manifest.json</file>
  </qresource>
  </RCC>
