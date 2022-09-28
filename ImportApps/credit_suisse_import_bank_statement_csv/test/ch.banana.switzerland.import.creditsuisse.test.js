@@ -24,7 +24,8 @@
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.switzerland.import.creditsuisse.js
+// @includejs = ../ch.banana.switzerland.import.creditsuisse.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.creditsuisse.sbaa/ch.banana.switzerland.import.creditsuisse.js
 // @timeout = -1
 
 // Register test case to be executed

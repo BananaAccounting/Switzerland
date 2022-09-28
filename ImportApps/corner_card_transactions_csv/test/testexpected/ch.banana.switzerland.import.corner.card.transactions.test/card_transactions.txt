@@ -1,4 +1,4 @@
-%%info_test_name{transactions}
+%%info_test_name{card_transactions}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}

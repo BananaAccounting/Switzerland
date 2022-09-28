@@ -24,7 +24,8 @@
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.switzerland.import.raiffeisen.js
+// @includejs = ../ch.banana.switzerland.import.raiffeisen.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.raiffeisen.sbaa/ch.banana.switzerland.import.raiffeisen.js
 // @timeout = -1
 
 // Register test case to be executed

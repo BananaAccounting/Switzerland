@@ -20,7 +20,7 @@
 %Begin test data
 %%SCRIPT{C:/P/Switzerland/ImportApps/corner_card_transactions_csv/./test/ch.banana.switzerland.import.corner.card.transactions.test.js}
 %
-\begin{testcase}{TestImportCornerBankTrans}
+\begin{testcase}{TestImportCornerCardTrans}
 \begin{test}{testImport}
 \keyvalue{Result}{Passed}
 \end{test}

@@ -24,7 +24,8 @@
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.switzerland.import.zkb.js
+// @includejs = ../ch.banana.switzerland.import.zkb.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.zkb.sbaa/ch.banana.switzerland.import.zkb.js
 // @timeout = -1
 
 // Register test case to be executed

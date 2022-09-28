@@ -24,8 +24,8 @@
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../import.utilities.js
-// @includejs = ../ch.banana.switzerland.import.corner.card.transactions.js
+// @includejs = ../ch.banana.switzerland.import.corner.card.transactions.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.corner.card.transactions.sbaa/ch.banana.switzerland.import.corner.card.transactions.js
 // @timeout = -1
 
 // Register test case to be executed
