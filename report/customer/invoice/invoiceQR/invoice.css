@@ -145,18 +145,18 @@ table.info_table_row0 td {
    Sets also the font size. */
 .address_table_right {
   font-size: $font_size;
-  margin-top: 4.5cm;
-  margin-left: 12.3cm;
-  margin-right: 1.2cm;
+  top: 4.5cm;
+  left: 12.3cm;
+  width: 7.5cm;
   position: absolute;
 }
 /* Address positioning when printed on the left.
    Sets margins and position relative to the document.
    Sets also the font size. */
 .address_table_left {
-  margin-top: 5.5cm;
-  margin-left: 2.2cm;
-  margin-right: 1.2cm;
+  top: 5.5cm;
+  left: 2.2cm;
+  width: 7.5cm;
   position: absolute;
 }
 /* Address positioning when printed on the right,
@@ -165,9 +165,9 @@ table.info_table_row0 td {
    Sets also the font size. */
 .custom_address_table_right {
   font-size: $font_size;
-  margin-top: $right_address_margin_top;
-  margin-left: $right_address_margin_left;
-  margin-right: 1.2cm;
+  top: $right_address_margin_top;
+  left: $right_address_margin_left;
+  width: 7.5cm;
   position: absolute;
 }
 /* Address positioning when printed on the left,
@@ -175,9 +175,9 @@ table.info_table_row0 td {
    Sets margins and position relative to the document.
    Sets also the font size. */
 .custom_address_table_left {
-  margin-top: $left_address_margin_top;
-  margin-left: $left_address_margin_left;
-  margin-right: 1.2cm;
+  top: $left_address_margin_top;
+  left: $left_address_margin_left;
+  width: 7.5cm;
   position: absolute;
 }
 /* Small address line of the sender, above the customer's address.
