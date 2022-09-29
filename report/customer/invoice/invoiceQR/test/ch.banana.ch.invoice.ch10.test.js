@@ -1,11 +1,11 @@
 // Copyright [2022] [Banana.ch SA - Lugano Switzerland]
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,7 +21,7 @@
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
 // @doctype = *.*
-// @docproperties = 
+// @docproperties =
 // @outputformat = none
 // @inputdataform = none
 // @includejs = ../ch.banana.ch.invoice.ch10.js
@@ -133,7 +133,7 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   this.add_test_scor_2("363", "Invoice 363"); //without customer address, with amount
   this.add_test_scor_2("36-2020", "Invoice 36-2020");
   this.add_test_scor_2("F001-20", "Invoice F001-20");
-  
+
   //Test SCOR, NEGATIVE: Creditor Reference with QR-IBAN (wrong, should be IBAN)
   //Integrated invoice
   Test.logger.addSubSection("Test7 negative: SCOR, Creditor Reference and QR-IBAN");
@@ -663,6 +663,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_3 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -692,6 +693,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_4 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -721,6 +723,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_5 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -750,6 +753,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_6 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -779,6 +783,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_7 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -808,6 +813,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_8 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -837,6 +843,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_9 = function(invoiceNumber, repor
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -866,6 +873,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_10 = function(invoiceNumber, repo
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -895,6 +903,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_11 = function(invoiceNumber, repo
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -924,6 +933,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_12 = function(invoiceNumber, repo
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -1015,6 +1025,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_15 = function(invoiceNumber, repo
   var banDoc = Banana.application.openDocument(fileAC2);
   IS_INTEGRATED_INVOICE = false;
   var variables = setVariables(variables);
+  variables.decimals_quantity = '';
   var jsonInvoice = getJsonInvoice(invoiceNumber);
   var invoiceObj = JSON.parse(jsonInvoice);
   var texts = setInvoiceTexts('en');
@@ -1386,19 +1397,19 @@ function getJsonInvoice(invoiceNumber) {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_47.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
   else if (invoiceNumber === "60") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_60.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
   else if (invoiceNumber === "64") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_64.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
   else if (invoiceNumber === "361") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_361.json");
@@ -1428,25 +1439,25 @@ function getJsonInvoice(invoiceNumber) {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_401.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
   else if (invoiceNumber === "402") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_402.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
   else if (invoiceNumber === "403") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_403.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
   else if (invoiceNumber === "F001-20") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_F001-20.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
-    //Banana.console.log(jsonInvoice);    
+    //Banana.console.log(jsonInvoice);
   }
 
   return jsonInvoice;

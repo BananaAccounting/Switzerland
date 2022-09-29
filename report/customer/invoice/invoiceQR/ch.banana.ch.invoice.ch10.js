@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-08-04
+// @pubdate = 2022-09-28
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -2705,9 +2705,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
         }
         else {
           if (item.quantity) {
-            if (variables.decimals_quantity) {
-              decimals = variables.decimals_quantity;
-            }
+            decimals = variables.decimals_quantity
             var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
             tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
           }
@@ -2963,9 +2961,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
         }
         else {
           if (item.quantity) {
-            if (variables.decimals_quantity) {
-              decimals = variables.decimals_quantity;
-            }
+            decimals = variables.decimals_quantity;
             var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
             tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
           }
@@ -3370,6 +3366,9 @@ function formatItemsValue(value, variables, columnName, className, item) {
     var decimal = variables;
     if (!IS_INTEGRATED_INVOICE) {
       decimal = getDecimalsCount(value);
+      if (variables) {
+          decimal = Math.max(decimal, variables);
+      }
     }
     itemFormatted.value = Banana.Converter.toLocaleNumberFormat(value,decimal);
     itemFormatted.className = className;
@@ -3377,7 +3376,7 @@ function formatItemsValue(value, variables, columnName, className, item) {
   else if (columnName === "unitprice" || columnName === "unit_price") {
     var decimal = variables.decimals_unit_price;
     if (!IS_INTEGRATED_INVOICE) {
-      decimal = Math.max(2,getDecimalsCount(value));
+      decimal = Math.max(2, getDecimalsCount(value));
     }
     itemFormatted.value = Banana.Converter.toLocaleNumberFormat(value, decimal, true);
     itemFormatted.className = className;
