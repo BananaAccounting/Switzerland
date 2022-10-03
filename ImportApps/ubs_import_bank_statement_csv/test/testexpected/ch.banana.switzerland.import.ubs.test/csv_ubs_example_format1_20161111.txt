@@ -1,0 +1,178 @@
+%%info_test_name{csv_ubs_example_format1_20161111}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
+2016-10-03 & 2016-10-01 &  & "Einzahlung Ubs Bancomat, 6430 Schwyz, Karte 14811995-0 2301, Vom 01.10.16 17:42:40 Id: 27303000" & 6600.00 &  & \\
+2016-10-03 & 2016-10-03 &  & "Lastschrift, CSSC2 Widerspruch An Ubs, Innert 30 Tagen, Chris Sports Systems, Murgtalstrasse 18, Rechnung  12143112" &  & 39.30 & \\
+2016-10-03 & 2016-10-03 &  & "Lastschrift, CYC1W Widerspruch An Ubs, Innert 30 Tagen, Intercycle Ag, Pfrundmatte 3, Rechnung  36035195" &  & 53.75 & \\
+2016-10-03 & 2016-10-03 &  & "Lastschrift, TDR1W Widerspruch An Ubs, Innert 30 Tagen, Tour De Suisse Rad Ag, 8280 Kreuzlingen, Rch 1622879 / 19.09.16" &  & 163.30 & \\
+2016-10-03 & 2016-10-03 &  & "Lastschrift, CSSC2 Widerspruch An Ubs, Innert 30 Tagen, Chris Sports Systems, Murgtalstrasse 18, Rechnung  12142552" &  & 634.85 & \\
+2016-10-03 & 2016-10-03 &  & "Ihr Auftrag" &  & 7301.93 & S\\
+2016-10-03 & 2016-10-03 &  & "Credit Suisse Ag, 8070 Zuerich" & -601.750000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Scott Sports Sa, 1762 Givisiez" & -4045.050000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Alpina Optik+Sport Ag, 8123 Ebmatingen" & -57.900000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Ibex Sport Gmbh, 6315 Morgarten" & -59.780000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Tekno Parts Ltd, 2563 Ipsach" & -82.300000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Suisa Service Center, 1701 Fribourg" & -415.100000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Ibex Sport Gmbh, 6315 Morgarten" & -573.450000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Billag Sa, 1701 Fribourg" & -597.500000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & "Petzl Distribution, Fr-38920 Crolles" & -869.100000000 &  & D\\
+2016-10-04 & 2016-10-04 &  & "Verg�tung, ECA10, Six Payment Services Ag, 8005 Zuerich, All    4519.90/NR:0000015274, Kom:     9.33/DAT:01.10.2016, Bike + Climb Up  /seewen Sz" & 4510.57 &  & \\
+2016-10-05 & 2016-10-05 &  & "Lastschrift, FUM1W Widerspruch An Ubs, Innert 30 Tagen, Fuchs-Movesa Ag, 5242 Lupfig, Rechnung, 1428268" &  & 1347.60 & \\
+2016-10-06 & 2016-10-06 &  & "Verg�tung, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585216005, Ref.Dat. 0003694    16/09/29, Brutto                138.60, Kommission              4.10" & 134.50 &  & \\
+2016-10-10 & 2016-10-10 &  & "Lastschrift, CYC1W Widerspruch An Ubs, Innert 30 Tagen, Intercycle Ag, Pfrundmatte 3, Rechnung  36036080" &  & 21.15 & \\
+2016-10-10 & 2016-10-10 &  & "Lastschrift, CSSC2 Widerspruch An Ubs, Innert 30 Tagen, Chris Sports Systems, Murgtalstrasse 18, Rechnung  12143481" &  & 154.60 & \\
+2016-10-10 & 2016-10-10 &  & "Lastschrift, TDR1W Widerspruch An Ubs, Innert 30 Tagen, Tour De Suisse Rad Ag, 8280 Kreuzlingen, Rch 1623613 / 28.09.16" &  & 2339.30 & \\
+2016-10-10 & 2016-10-10 &  & "Ihr Auftrag" &  & 26854.74 & S\\
+2016-10-10 & 2016-10-10 &  & "Amer Sports Sa, 6330 Cham" & -13.250000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Mb Mountain Gear Gmbh, 3250 Lyss" & -43.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Alpina Optik+Sport Ag, 8123 Ebmatingen" & -46.900000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Sportco Ag, 3063 Ittigen" & -60.650000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Piz Buch + Berg, L. Roffler, 8004 Zuerich" & -68.200000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Tst Trading Gmbh, 4460 Gelterkinden" & -88.850000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Scott Sports Sa, 1762 Givisiez" & -102.800000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Falke Kgaa, De-57392 Schmallenberg" & -121.600000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Post Ch Ag Finanzen, 4002 Basel" & -176.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Gecko Supply Gmbh, 8031 Zuerich" & -192.350000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Cycling Sports Group Europe B.B, Nl - 7585 Db Oldenzaal" & -200.370000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Sportco Ag, 3063 Ittigen" & -223.950000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Exped Ag, 8004 Z Rich" & -265.200000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Alpina Optik+Sport Ag, 8123 Ebmatingen" & -304.750000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Amer Sports Sa, 6330 Cham" & -319.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Ace Alpine + Climbing Equ. Ag, 8873 Amden" & -466.200000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Mammut Sports Group Ag, 5703 Seon" & -961.150000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Ausgleichskasse Mobil 33, 3000 Bern" & -1910.150000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Ausgleichskasse Mobil 33, 3000 Bern" & -1915.750000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Mammut Sports Group Ag, 5703 Seon" & -2462.400000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Sidas Suisse Sarl, 6039 Root Laengenbold" & -3642.050000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Ausgleichskasse Mobil 33, 3000 Bern" & -6387.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & "Scott Sports Sa, 1762 Givisiez" & -6883.170000000 &  & D\\
+2016-10-11 & 2016-10-11 &  & "Verg�tung, ECA10, Six Payment Services Ag, 8005 Zuerich, All   11060.20/NR:0000016045, Kom:    21.99/DAT:08.10.2016, Bike + Climb Up  /seewen Sz" & 11038.21 &  & \\
+2016-10-11 & 2016-10-11 &  & "Lastschrift, GPR1W Widerspruch An Ubs, Innert 30 Tagen, Gpr Ag, 8610 Uster, 201622944" &  & 665.05 & \\
+2016-10-12 & 2016-10-12 &  & "Lastschrift, VEK1W Widerspruch An Ubs, Innert 30 Tagen, Velok Ag, 8303 Bassersdorf, Rechnung Nr. 94591, Vom 10.10.2016" &  & 322.15 & \\
+2016-10-13 & 2016-10-13 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/05 / 1464489" &  & 57.15 & \\
+2016-10-13 & 2016-10-13 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/05 / 1464486" &  & 68.27 & \\
+2016-10-13 & 2016-10-13 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/06 / 1464559" &  & 68.80 & \\
+2016-10-13 & 2016-10-13 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/02 / 1463403" &  & 222.52 & \\
+2016-10-13 & 2016-10-13 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/05 / 1464485" &  & 391.61 & \\
+2016-10-17 & 2016-10-17 &  & "Post�berweisung, Bike + Climb Up,, J. Und L. Weber, Riedmattli 1, 6423 Seewen Sz, Ubertrag" & 40000.00 &  & \\
+2016-10-17 & 2016-10-17 &  & "Lastschrift, CYC1W Widerspruch An Ubs, Innert 30 Tagen, Intercycle Ag, Pfrundmatte 3, Rechnung  36036264" &  & 129.95 & \\
+2016-10-17 & 2016-10-17 &  & "Ihr Auftrag" &  & 10685.40 & S\\
+2016-10-17 & 2016-10-17 &  & "Ace Alpine + Climbing Equ. Ag, 8873 Amden" & -34.550000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Mammut Sports Group Ag, 5703 Seon" & -40.950000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Amer Sports Sa, 6330 Cham" & -80.450000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Mammut Sports Group Ag, 5703 Seon" & -135.900000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Bucher Et Walt Sa, 2072 St-Blaise" & -233.700000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Montana Sport Ag, 4623 Neuendorf" & -260.800000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Ace Alpine + Climbing Equ. Ag, 8873 Amden" & -338.700000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Mammut Sports Group Ag, 5703 Seon" & -442.150000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Ace Alpine + Climbing Equ. Ag, 8873 Amden" & -672.000000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Snowlife Ag, 7250 Klosters" & -778.700000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Alpina Optik+Sport Ag, 8123 Ebmatingen" & -2479.500000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Scott Sports Sa, 1762 Givisiez" & -79.080000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Scott Sports Sa, 1762 Givisiez" & -3007.520000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & "Biketec Ag, 4950 Huttwil" & -2101.400000000 &  & D\\
+2016-10-18 & 2016-10-18 &  & "Verg�tung, ECA10, Six Payment Services Ag, 8005 Zuerich, All    5417.10/NR:0000016812, Kom:    27.39/DAT:15.10.2016, Bike + Climb Up  /seewen Sz" & 5389.71 &  & \\
+2016-10-18 & 2016-10-18 &  & "Einzahlung Ubs Bancomat, 6430 Schwyz, Karte 14811995-0 2301, Vom 18.10.16 11:45:42 Id: 27303000" & 5300.00 &  & \\
+2016-10-18 & 2016-10-18 &  & "Lastschrift, TDR1W Widerspruch An Ubs, Innert 30 Tagen, Tour De Suisse Rad Ag, 8280 Kreuzlingen, Rch 1623747 / 30.09.16" &  & 12.05 & \\
+2016-10-20 & 2016-10-20 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/12 / 1466709" &  & 15.88 & \\
+2016-10-20 & 2016-10-20 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/10 / 1465767" &  & 47.63 & \\
+2016-10-20 & 2016-10-20 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/10 / 1465761" &  & 96.57 & \\
+2016-10-20 & 2016-10-20 &  & "Lastschrift, Amsle Widerspruch An Ubs, Innert 30 Tagen, Amsler + Co. Ag, Ch-8245 Feuerthalen, 2016/10/16 / 1467394" &  & 406.00 & \\
+2016-10-24 & 2016-10-24 &  & "Post�berweisung, Bike + Climb Up,, J. Und L. Weber, Riedmattli 1, 6423 Seewen Sz, Ubertrag" & 30000.00 &  & \\
+2016-10-24 & 2016-10-24 &  & "Lastschrift, CYC1W Widerspruch An Ubs, Innert 30 Tagen, Intercycle Ag, Pfrundmatte 3, Rechnung  36037602" &  & 13.35 & \\
+2016-10-25 & 2016-10-25 &  & "Verg�tung, ECA10, Six Payment Services Ag, 8005 Zuerich, All    6072.30/NR:0000039091, Kom:    45.00/DAT:22.10.2016, Bike + Climb Up  /seewen Sz" & 6027.30 &  & \\
+2016-10-25 & 2016-10-25 &  & "Ihr Auftrag" &  & 56745.23 & S\\
+2016-10-25 & 2016-10-25 &  & "Scott Sports Sa, 1762 Givisiez" & -456.820000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Biketec Ag, 4950 Huttwil" & -2101.400000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Belimport Sa, 6907 Lugano 7 Caselle" & -49.600000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Black Diamond Equipment Ag, 4153 Reinach Bl" & -64.260000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Tst Trading Gmbh, 4460 Gelterkinden" & -64.550000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Montana Sport Ag, 4623 Neuendorf" & -72.350000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Sportco Ag, 3063 Ittigen" & -96.300000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Gemeinde Schwyz, 6430 Schwyz" & -110.150000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Mammut Sports Group Ag, 5703 Seon" & -119.350000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Peyer'S Suspension Center, 3132 Riggisberg" & -181.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Vaude Gmbh, 6060 Sarnen" & -182.800000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "New Rada Schuhmacherei Gmbh, 7746 Le Prese" & -206.800000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Falke Kgaa, De-57392 Schmallenberg" & -220.600000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Verena Betschart-Gwerder, 6422 Steinen" & -326.300000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Skiclub Schwyz, 6430 Schwyz" & -480.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Rosmarie Weber-Schindler, 6415 Arth" & -650.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Sektion Gotthard Sac" & -750.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Toedi Sport Ag, 8750 Glarus" & -762.050000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Generali, 8134 Adliswil" & -1019.700000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Generali, 8134 Adliswil" & -1166.500000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Montana Sport Ag, 4623 Neuendorf" & -1450.650000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Falke Kgaa, De-57392 Schmallenberg" & -1669.800000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Helsana Versicherungen Ag, 8081 Zuerich" & -1800.750000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Montana Sport Ag, 4623 Neuendorf" & -1887.850000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Ibex Sport Gmbh, 6315 Morgarten" & -2181.850000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Wild Duck Sa, 1070 Puidoux-Gare" & -3906.900000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Toedi Sport Ag, 8750 Glarus" & -4406.400000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Ktm Fahrrad Gmbh, At 5230 Mattighofen" & -4488.900000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Salewa Sport Ag, 9100 Herisau" & -6263.100000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & "Ace Alpine + Climbing Equ. Ag, 8873 Amden" & -19608.500000000 &  & D\\
+2016-10-26 & 2016-10-26 &  & "Lastschrift, FUM1W Widerspruch An Ubs, Innert 30 Tagen, Fuchs-Movesa Ag, 5242 Lupfig, Rechnung, 1432987" &  & 72.10 & \\
+2016-10-26 & 2016-10-26 &  & "Lastschrift, FUM1W Widerspruch An Ubs, Innert 30 Tagen, Fuchs-Movesa Ag, 5242 Lupfig, Rechnung, 1434491" &  & 84.70 & \\
+2016-10-26 & 2016-10-26 &  & "Lastschrift, FUM1W Widerspruch An Ubs, Innert 30 Tagen, Fuchs-Movesa Ag, 5242 Lupfig, Rechnung, 1434296" &  & 291.40 & \\
+2016-10-26 & 2016-10-26 &  & "Lastschrift, FUM1W Widerspruch An Ubs, Innert 30 Tagen, Fuchs-Movesa Ag, 5242 Lupfig, Rechnung, 1429138" &  & 390.35 & \\
+2016-10-27 & 2016-10-27 &  & "Diverse Dauerauftr�ge, Joel Keulen" &  & 592.30 & \\
+2016-10-27 & 2016-10-27 &  & "Diverse Dauerauftr�ge" &  & 8850.10 & S\\
+2016-10-27 & 2016-10-27 &  & "Melanie Furger, 6467 Schattdorf" & -4108.000000000 &  & D\\
+2016-10-27 & 2016-10-27 &  & "Furger Markus, 6467 Schattdorf" & -4742.100000000 &  & D\\
+2016-10-31 & 2016-10-29 &  & "Einzahlung Ubs Bancomat, 6430 Schwyz, Karte 14811995-0 2301, Vom 29.10.16 16:41:48 Id: 27303000" & 1000.00 &  & \\
+2016-10-31 & 2016-10-31 &  & "Saldo Dl-Preisabschluss" &  & 47.00 & S\\
+2016-10-31 & 2016-10-31 &  & "Zahlungseingang Sic" & -0.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Befreit Aufgrund Transaktionsfreigrenze" & 0.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Zahlung Ubs Easy" & -47.000000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Lsv Belastung Chf" & -8.700000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Befreit Aufgrund Transaktionsfreigrenze" & 8.700000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Zahlungseingang Postfinance" & -0.400000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Befreit Aufgrund Transaktionsfreigrenze" & 0.400000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Dauerauftrag Chf Inland" & -1.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Befreit Aufgrund Transaktionsfreigrenze" & 1.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Lastschrift, CYC1W Widerspruch An Ubs, Innert 30 Tagen, Intercycle Ag, Pfrundmatte 3, Rechnung  36038106" &  & 232.85 & \\
+2016-10-31 & 2016-10-31 &  & "Lastschrift, CYC1W Widerspruch An Ubs, Innert 30 Tagen, Intercycle Ag, Pfrundmatte 3, Rechnung  36037963" &  & 241.30 & \\
+2016-10-31 & 2016-10-31 &  & "Lastschrift, CSSC2 Widerspruch An Ubs, Innert 30 Tagen, Chris Sports Systems, Murgtalstrasse 18, Rechnung  12145358" &  & 371.40 & \\
+2016-10-31 & 2016-10-31 &  & "Diverse Dauerauftr�ge, Moto-Center Schwyz Ag, 6423 Seewen Sz" &  & 4323.50 & \\
+2016-10-31 & 2016-10-31 &  & "Ihr Auftrag" &  & 11906.67 & S\\
+2016-10-31 & 2016-10-31 &  & "Scott Sports Sa, 1762 Givisiez" & -27.930000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Belimport Sa, 6907 Lugano Caselle" & -31.750000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Exped Ag, 8004 Z Rich" & -32.100000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Rasant Gmbh, 8906 Bonstetten" & -48.700000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Biketec Ag, 4950 Huttwil" & -70.300000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Sportco Ag, 3063 Ittigen" & -134.100000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Salewa Sport Ag, 9100 Herisau" & -143.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Tst Trading Gmbh, 4460 Gelterkinden" & -144.400000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Post Ch Ag Finanzen, 4002 Basel" & -166.000000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Ace Alpine + Climbing Equ. Ag, 8873 Amden" & -323.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Mammut Sports Group Ag, 5703 Seon" & -360.950000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Tst Trading Gmbh, 4460 Gelterkinden" & -372.100000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Scott Sports Sa, 1762 Givisiez" & -616.270000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Scott Sports Sa, 1762 Givisiez" & -1041.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Petzl Distribution, Fr-38920 Crolles" & -1108.210000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Scott Sports Sa, 1762 Givisiez" & -1408.260000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Biketec Ag, 4950 Huttwil" & -2160.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & "Ibex Sport Gmbh, 6315 Morgarten" & -3718.000000000 &  & D\\
+\\
+\end{tablevalue}
+\end{document}

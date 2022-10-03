@@ -1,0 +1,20 @@
+Kontonummer:;12345678910;
+IBAN:;CH12345678910;
+Von:;2022-09-26;
+Bis:;2022-09-28;
+Anfangssaldo:;1000.00;
+Schlusssaldo:;1441.21;
+Bewertet in:;CHF;
+Anzahl Transaktionen in diesem Zeitraum:;10;
+
+Abschlussdatum;Abschlusszeit;Buchungsdatum;Valutadatum;Währung;Transaktionsbetrag;Belastung/Gutschrift;Saldo;Transaktions-Nr.;Beschreibung1;Beschreibung2;Beschreibung3;Fussnoten;
+2022-09-28;16:08:11;;2022-09-28;CHF;100.00;Gutschrift;1100.00;12345678910;"Gutschrift";"Einzahlung Bancomat";;;
+2022-09-28;12:48:24;;2022-09-28;CHF;-20.00;Belastung;1000.00;12345678910;"FILIALE";"123456-0 07/24, Bezug Bancomat";;;
+2022-09-27;13:32:48;2022-09-29;2022-09-27;CHF;-5.35;Belastung;1005.35;12345678910;"Lidl Viganello";"123456-0 07/24, Zahlung Debitkarte";;;
+2022-09-27;16:39:42;2022-09-28;2022-09-27;CHF;-2.30;Belastung;1007.85;12345678910;"TPL Piaz. Mol. Billett L";"123456-0 07/24, Zahlung Debitkarte";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-135.00;Belastung;1142.85;12345678910;"Zahlung ";"Zahlung  e-banking-Vergutungsauftrag";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-38.01;Belastung;1180.86;12345678910;"Zahlung ";"e-banking-Vergutungsauftrag";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-35.00;Belastung;1215.86;12345678910;"Zahlung";"Zahlung";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-31.75;Belastung;1306.21;12345678910;"Zahlung ";"e-banking-Vergutungsauftrag";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-58.60;Belastung;1364.81;12345678910;"Sunrise UPC Sagl";"e-banking-Vergutungsauftrag";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-76.40;Belastung;1441.21;12345678910;"Salt Mobile SA";"e-banking-Vergutungsauftrag";;;

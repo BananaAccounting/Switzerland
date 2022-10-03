@@ -1,0 +1,117 @@
+%%info_test_name{csv_ubs_example_format1_20160908}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
+2016-08-10 & 2016-08-10 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.10.08.16, Fil      Lordo        174,00, Com        0,91  Trx       3, Iva       0,00" & 173.09 & \\
+2016-08-10 & 2016-08-10 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.21978990, Doc 1 Fr. 66,00, Comm/ded 1,32" & 64.68 &  & \\
+2016-08-11 & 2016-08-11 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.11.08.16, Fil      Lordo        132,00, Com        0,81  Trx       3, Iva       0,00" & 131.19 &  & \\
+2016-08-12 & 2016-08-12 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.21996100, Doc 1 Fr. 370,00, Comm/ded 6,45" & 363.55 &  & \\
+2016-08-12 & 2016-08-12 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.12.08.16, Fil      Lordo         68,00, Com        0,31  Trx       1, Iva       0,00" & 67.69 &  & \\
+2016-08-12 & 2016-08-12 &  & "Dpd (Schweiz) Ag, Muelibachstrasse 41, 8107 Buchs" & -102.000 &  & D\\
+2016-08-12 & 2016-08-12 &  & "Dpd (Schweiz) Ag, Muelibachstrasse 41, 8107 Buchs" & -71.700 &  & D\\
+2016-08-12 & 2016-08-12 &  & "Ordine Collet. E-Banking" &  & 173.70 & S\\
+2016-08-12 & 2016-08-12 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano, Importo corrisposto600.00" &  & 662.80 & \\
+2016-08-15 & 2016-08-15 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.15.08.16, Fil      Lordo        918,00, Com        1,33  Trx       4, Iva       0,00" & 916.67 &  & \\
+2016-08-15 & 2016-08-15 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.21998199, Doc 2 Fr. 558,00, Comm/ded 9,63" & 548.37 &  & \\
+2016-08-15 & 2016-08-15 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/07, Brutto                534.00, Kommission             15.20" & 518.80 &  & \\
+2016-08-16 & 2016-08-16 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.15.08.16, Fil      Lordo       2275,00, Com       44,02  Trx       6, Iva       0,00" & 2230.98 &  & \\
+2016-08-16 & 2016-08-16 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.15.08.16, Fil      Lordo       1571,00, Com       29,40  Trx       9, Iva       0,00" & 1541.60 &  & \\
+2016-08-16 & 2016-08-16 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/09, Brutto                 99.00, Kommission              2.80" & 96.20 &  & \\
+2016-08-17 & 2016-08-17 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22018980, Doc 1 Fr. 268,00, Comm/ded 4,73" & 263.27 &  & \\
+2016-08-18 & 2016-08-18 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.18.08.16, Fil      Lordo        416,00, Com        0,95  Trx       3, Iva       0,00" & 415.05 &  & \\
+2016-08-18 & 2016-08-18 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 660.00 & \\
+2016-08-19 & 2016-08-19 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 19.08.16 09:15:18 Id: 24731900" & 12880.00 &  & \\
+2016-08-19 & 2016-08-19 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.19.08.16, Fil      Lordo        397,00, Com        1,41  Trx       4, Iva       0,00" & 395.59 &  & \\
+2016-08-19 & 2016-08-19 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 6600.00 & \\
+2016-08-22 & 2016-08-22 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.22.08.16, Fil      Lordo       1058,00, Com        1,65  Trx       5, Iva       0,00" & 1056.35 &  & \\
+2016-08-22 & 2016-08-22 &  & "Ordine E-Banking, Villeroy + Boch Creatable Ag, 5600 Lenzburg, Fattura No. 94421785" &  & 132.34 & \\
+2016-08-22 & 2016-08-22 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano, Importo corrisposto680.00" &  & 751.11 & \\
+2016-08-23 & 2016-08-23 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.22.08.16, Fil      Lordo       1069,00, Com       21,38  Trx       6, Iva       0,00" & 1047.62 &  & \\
+2016-08-23 & 2016-08-23 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.22.08.16, Fil      Lordo        946,00, Com       17,31  Trx       8, Iva       0,00" & 928.69 &  & \\
+2016-08-23 & 2016-08-23 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 800.00 & \\
+2016-08-23 & 2016-08-23 &  & "Ubs Switzerland Ag, C/o Ubs Card Center, Flughofstrasse 35, 8152 Glattbrugg" & -1.008 &  & D\\
+2016-08-23 & 2016-08-23 &  & "Streck Transport Ag, 4313 Moehlin" & -89.500 &  & D\\
+2016-08-23 & 2016-08-23 &  & "Streck Transport Ag, 4313 Moehlin" & -207.700 &  & D\\
+2016-08-23 & 2016-08-23 &  & "Ordine Collet. E-Banking" &  & 1305.75 & S\\
+2016-08-24 & 2016-08-24 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 24.08.16 09:29:59 Id: 24731900" & 2850.00 &  & \\
+2016-08-24 & 2016-08-24 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.24.08.16, Fil      Lordo         90,00, Com        0,31  Trx       1, Iva       0,00" & 89.69 &  & \\
+2016-08-26 & 2016-08-26 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.26.08.16, Fil      Lordo        280,00, Com        0,63  Trx       2, Iva       0,00" & 279.37 &  & \\
+2016-08-26 & 2016-08-26 &  & "Addebitamento, JER1W Contestazione A, Ubs Entro 30 Giorni, Ccv (Suisse, Schweiz,, Switzerland) Sa, Fc-Ct-16-44558 - 15.08.2016, Gusberti Sa" &  & 79.90 & \\
+2016-08-29 & 2016-08-29 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.29.08.16, Fil      Lordo        891,00, Com        1,33  Trx       4, Iva       0,00" & 889.67 &  & \\
+2016-08-29 & 2016-08-29 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22076666, Doc 1 Fr. 175,00, Comm/ded 3,16" & 171.84 &  & \\
+2016-08-30 & 2016-08-30 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.29.08.16, Fil      Lordo       3879,00, Com       74,92  Trx      12, Iva       0,00" & 3804.08 &  & \\
+2016-08-30 & 2016-08-30 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 30.08.16 10:07:31 Id: 24731900" & 3100.00 &  & \\
+2016-08-30 & 2016-08-30 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.29.08.16, Fil      Lordo       1625,00, Com       32,37  Trx       5, Iva       0,00" & 1592.63 &  & \\
+2016-08-30 & 2016-08-30 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.30.08.16, Fil      Lordo         36,00, Com        0,30  Trx       1, Iva       0,00" & 35.70 &  & \\
+2016-08-31 & 2016-08-31 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.31.08.16, Fil      Lordo        304,00, Com        1,23  Trx       4, Iva       0,00" & 302.77 &  & \\
+2016-08-31 & 2016-08-31 &  & "Esonerato Su Base Del Limite D'Esonerazione" & 0.300000000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Lsv Addebito Chf" & -0.300000000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Esonerato Su Base Del Limite D'Esonerazione" & 7.800 &  & D\\
+2016-08-31 & 2016-08-31 &  & "E-Banking Chf Svizzera" & -7.800 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Esonerato Su Base Del Limite D'Esonerazione" & 7.200 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Entrata Pagamento Sic" & -7.200 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Saldo Prezzi Prestazioni" &  & 0.00 & S\\
+2016-08-31 & 2016-08-31 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano, Importo corrisposto1'000.00" &  & 1113.78 & \\
+2016-08-31 & 2016-08-31 &  & "Ordine E-Banking, Basler Leben Ag, 4002 Basel" &  & 11900.00 & \\
+2016-08-31 & 2016-08-31 &  & "Sabine De Luca-Neukom, Via Cabiagh 9, 6964 Davesco" & -1.797 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Patrizia Russo" & -696.900 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Massimo Casadei, Via Nazario Sauro 14, I-21014 Laveno Mombello" & -2.982 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Marinella Grgic, Piazza Santa Lucia 11, 6900 Massagno" & -3.056 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Luca De Michelis, Via Navesco 7, 6942 Savosa" & -3.937 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Kreavita Home Design Ag, Re-Nr. 502337" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Katz Fils, Lausanne" & -210.600 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Intrum Justitia Ag, 8603 Schwerzenbach" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Fabrizio Ghigo, Via Beltramina 15, 6900 Lugano" & -3.945 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Creditreform Romandie Gnt Sa, 1010 Lausanne" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Bianchi \& Co, Chiasso" & -618.450 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Ordine Collet. E-Banking" &  & 18746.30 & S\\
+2016-09-01 & 2016-09-01 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.01.09.16, Fil      Lordo        270,00, Com        2,93  Trx       3, Iva       0,00" & 267.07 &  & \\
+2016-09-01 & 2016-09-01 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22105299, Doc 1 Fr. 90,00, Comm/ded 1,72" & 88.28 &  & \\
+2016-09-01 & 2016-09-01 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/25, Brutto                 89.00, Kommission              2.55" & 86.45 &  & \\
+2016-09-02 & 2016-09-02 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 02.09.16 09:10:01 Id: 24731900" & 1500.00 &  & \\
+2016-09-02 & 2016-09-02 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.02.09.16, Fil      Lordo        648,00, Com        0,69  Trx       2, Iva       0,00" & 647.31 &  & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Swisscom Fixnet Ag, Consumer Communic. Bern" &  & 219.70 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Villeroy + Boch Creatable Ag, 5600 Lenzburg, Fattura No. 94422052" &  & 233.50 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, 02.09.2016, Ubs Ag,Zug -En Faveur De, Salt Mobile Sa, Renens, 00 00000 00000 00000 00070 97351, TN:010052922" &  & 286.00 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Cassa Cant.Di Comp. Avs, 6501 Bellinzona" &  & 450.00 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Ail Sa, 6901 Lugano" &  & 482.00 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Vetrag Ag, 8712 Staefa" &  & 642.90 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Cashgate Ag, Zuerich, 8050 Zuerich" &  & 907.35 & \\
+2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Cashgate Ag, Zuerich, 8050 Zuerich" &  & 942.25 & \\
+2016-09-05 & 2016-09-05 &  & "Versamento Bancomat Ubs, 6901 Lugano 318, Carta 13088388-0 2205, Del 05.09.16 09:03:56 Id: 24731800" & 5130.00 &  & \\
+2016-09-05 & 2016-09-05 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.05.09.16, Fil      Lordo        874,00, Com        1,90  Trx       6, Iva       0,00" & 872.10 &  & \\
+2016-09-05 & 2016-09-05 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/28, Brutto                156.00, Kommission              4.45" & 151.55 &  & \\
+2016-09-05 & 2016-09-05 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22114659, Doc 1 Fr. 107,00, Comm/ded 2,01" & 104.99 &  & \\
+2016-09-06 & 2016-09-06 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.05.09.16, Fil      Lordo       2488,00, Com       40,46  Trx       8, Iva       0,00" & 2447.54 &  & \\
+2016-09-06 & 2016-09-06 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.05.09.16, Fil      Lordo        875,00, Com       17,50  Trx       7, Iva       0,00" & 857.50 &  & \\
+2016-09-06 & 2016-09-06 &  & "Bonifico, Rolf Beeler-Utiger, Muehlegasse 44, 6340 Baar, 6 Glaeser Bilia Rosa..6 Glaeser Bil, Ia Ambra..Danke" & 176.00 &  & \\
+2016-09-07 & 2016-09-07 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.07.09.16, Fil      Lordo        404,00, Com        1,25  Trx       4, Iva       0,00" & 402.75 &  & \\
+2016-09-07 & 2016-09-07 &  & "Accredito E-Banking, Masoni Valeria + Franco, Studio Legale + Notarile, Regalo Nozze C. Brenni" & 390.00 &  & \\
+2016-09-07 & 2016-09-07 &  & "Prelev. Bancomat Ubs, 6901 Lugano 318, Carta 13088388-0 2205, Del 07.09.16 11:19:05 Id: 24731800" &  & 1000.00 & \\
+2016-09-07 & 2016-09-07 &  & "Ordine E-Banking, Basler Leben Ag, Basel" &  & 3720.50 & \\
+2016-09-08 & 2016-09-08 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.08.09.16, Fil      Lordo        312,00, Com        0,93  Trx       3, Iva       0,00" & 311.07 &  & \\
+2016-09-09 & 2016-09-09 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.09.09.16, Fil      Lordo        174,00, Com        0,62  Trx       2, Iva       0,00" & 173.38 &  & \\
+2016-09-09 & 2016-09-09 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 1050.00 & \\
+2016-09-12 & 2016-09-12 &  & "Bonifico, 9999256ZC0989741" & 108.92 &  & \\
+2016-09-12 & 2016-09-12 &  & "Bonifico, 9999256ZC1016252" & 1567.50 &  & \\
+\\
+\end{tablevalue}
+\end{document}

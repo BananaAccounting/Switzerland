@@ -1,0 +1,20 @@
+Account number:;12345678910;
+IBAN:;CH12345678910;
+From:;2022-09-26;
+Until:;2022-09-28;
+Opening balance:;1000.00;
+Closing balance:;1441.21;
+Valued in:;CHF;
+Numbers of transactions in this period:;10;
+
+Trade date;Trade time;Booking date;Value date;Currency;Transaction amount;Debit/Credit;Balance;Transaction no.;Description1;Description2;Description3;Footnotes;
+2022-09-28;16:08:11;;2022-09-28;CHF;100.00;Credit;1100.00;12345678910;"Credit";"Deposit Bancomat";;;
+2022-09-28;12:48:24;;2022-09-28;CHF;-20.00;Debit;1000.00;12345678910;"FILIALE";"123456-0 07/24, ATM Withdrawal";;;
+2022-09-27;13:32:48;2022-09-29;2022-09-27;CHF;-5.35;Debit;1005.35;12345678910;"Lidl Viganello";"123456-0 07/24, Debit card payment";;;
+2022-09-27;16:39:42;2022-09-28;2022-09-27;CHF;-2.30;Debit;1007.85;12345678910;"TPL Piaz. Mol. Billett L";"123456-0 07/24, Debit card payment";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-135.00;Debit;1142.85;12345678910;"Payment";"Payment, e-banking payment order";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-38.01;Debit;1180.86;12345678910;"Payment";"e-banking payment order";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-35.00;Debit;1215.86;12345678910;"Payment";"Payment";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-31.75;Debit;1306.21;12345678910;"Payment";"e-banking payment order";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-58.60;Debit;1364.81;12345678910;"Sunrise UPC Sagl";"e-banking payment order";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-76.40;Debit;1441.21;12345678910;"Salt Mobile SA";"e-banking payment order";;;

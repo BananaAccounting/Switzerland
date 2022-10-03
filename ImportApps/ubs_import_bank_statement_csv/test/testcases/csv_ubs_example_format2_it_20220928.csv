@@ -1,0 +1,20 @@
+Numero di conto:;12345678910;
+IBAN:;CH12345678910;
+Dal:;2022-09-26;
+Al:;2022-09-28;
+Saldo iniziale:;1000.00;
+Saldo finale:;1441.21;
+Valutazione in:;CHF;
+Numero di transazioni in questo periodo:;10;
+
+Data dell'operazione;Ora dell'operazione;Data di registrazione;Data di valuta;Moneta;Importo della transazione;Addebito/Accredito;Saldo;N. di transazione;Descrizione1;Descrizione2;Descrizione3;Note a piè di pagina;
+2022-09-28;16:08:11;;2022-09-28;CHF;100.00;Accredito;1100.00;12345678910;"Accredito";"Versamento Bancomat";;;
+2022-09-28;12:48:24;;2022-09-28;CHF;-20.00;Addebito;1000.00;12345678910;"FILIALE";"123456-0 07/24, Prelevamento Bancomat";;;
+2022-09-27;13:32:48;2022-09-29;2022-09-27;CHF;-5.35;Addebito;1005.35;12345678910;"Lidl Viganello";"123456-0 07/24, Pagamento carta di debito";;;
+2022-09-27;16:39:42;2022-09-28;2022-09-27;CHF;-2.30;Addebito;1007.85;12345678910;"TPL Piaz. Mol. Billett L";"123456-0 07/24, Pagamento carta di debito";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-135.00;Addebito;1142.85;12345678910;"Pagamento";"Pagamento, Ordine di pagamento via e-banking";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-38.01;Addebito;1180.86;12345678910;"Pagamento";"Ordine di pagamento via e-banking";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-35.00;Addebito;1215.86;12345678910;"Pagamento";"Pagamento";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-31.75;Addebito;1306.21;12345678910;"Pagamento";"Ordine di pagamento via e-banking";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-58.60;Addebito;1364.81;12345678910;"Sunrise UPC Sagl";"Ordine di pagamento via e-banking";;;
+2022-09-26;;2022-09-26;2022-09-26;CHF;-76.40;Addebito;1441.21;12345678910;"Salt Mobile SA";"Ordine di pagamento via e-banking";;;

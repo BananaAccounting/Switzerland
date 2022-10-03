@@ -1,0 +1,15 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "UBS - Import bank account statement (*.csv)",
+    "description.en": "UBS - Import bank account statement (*.csv)",
+    "description.de":"UBS - Bankkontoauszug im CSV-Format importieren",
+    "id": "ch.banana.switzerland.import.ubs",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "UBS - Import bank account statement (*.csv)",
+    "title.en": "UBS - Import bank account statement (*.csv)",
+    "title.de":"UBS - Bankkontoauszug im CSV-Format importieren",
+    "version": "1.0"
+}
