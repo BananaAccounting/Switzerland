@@ -1,0 +1,38 @@
+﻿Data;Data valuta;Numero di ordine;"Tipo di ordine
+Testo di contabilizzazione";Addebiti (CHF);Accrediti (CHF);Saldo (CHF)
+
+11.10.2022;11.10.2022;123456789;"Descrizione Pagamento in entrata";;208.85;60’908.02
+10.10.2022;10.10.2022;123456789;"Descrizione Pagamento";1’710.30;;60’699.17
+07.10.2022;07.10.2022;123456789;"Descrizione Pagamento
+Data operazione: 07.10.2022, importo totale originale: CHF 439.20, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 439.20";;439.20;62’409.47
+06.10.2022;06.10.2022;123456789;"Pagamento collettivo credito
+Data operazione: 06.10.2022, importo totale originale: CHF 293.00, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 293.00";;293.00;61’970.27
+05.10.2022;05.10.2022;123456789;"Descrizione Pagamento in entrata";;340.30;61’677.27
+04.10.2022;04.10.2022;234567890;"Descrizione Pagamento Data operazione: 04.10.2022, importo totale originale: CHF 1'168.25, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 1'168.25";;1’168.25;61’336.97
+04.10.2022;04.10.2022;345678901;"Descrizione Pagamento";80.00;;60’168.72
+03.10.2022;03.10.2022;456789012;"Descrizione Pagamento in entrata";;340.30;60’248.72
+03.10.2022;03.10.2022;567890123;"Descrizione Pagamento";1’017.75;;59’908.42
+03.10.2022;03.10.2022;678901234;"Descrizione Pagamento";150.00;;60’926.17
+30.09.2022;30.09.2022;789012345;"Descrizione Pagamento Data operazione: 30.09.2022, importo totale originale: CHF 1'107.95, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 1'107.95";;1’107.95;61’076.17
+30.09.2022;30.09.2022;890123456;"Descrizione Pagamento";825.00;;59’968.22
+30.09.2022;30.09.2022;901234567;"Descrizione Pagamento";2’950.00;;60’793.22
+30.09.2022;30.09.2022;098765432;"Descrizione Pagamento";10.95;;63’743.22
+30.09.2022;30.09.2022;987654321;"Descrizione Pagamento";4’750.00;;63’754.17
+30.09.2022;30.09.2022;876543210;"Descrizione Pagamento";269.10;;68’504.17
+30.09.2022;30.09.2022;765432109;"Descrizione Pagamento";403.00;;68’773.27
+30.09.2022;30.09.2022;654321987;"Descrizione Pagamento";299.60;;69’176.27
+30.09.2022;30.09.2022;543210987;"Descrizione Pagamento";391.00;;69’475.87
+29.09.2022;29.09.2022;357124535;"Descrizione Pagamento Data operazione: 29.09.2022, importo totale originale: CHF 4'486.30, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 4'486.30";;4’486.30;69’866.87
+29.09.2022;29.09.2022;021948472;"Descrizione Pagamento";204.80;;65’380.57
+29.09.2022;30.09.2022;098138295;"Descrizione Pagamento";6.00;;65’585.37
+28.09.2022;28.09.2022;091569435;"Descrizione Pagamento Data operazione: 28.09.2022, importo totale originale: CHF 7'309.15, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 7'309.15";;7’309.15;65’591.37
+28.09.2022;28.09.2022;123098456;"Descrizione Pagamento";71.60;;58’282.22
+27.09.2022;27.09.2022;019283948;"Descrizione Pagamento";600.00;;58’353.82
+26.09.2022;26.09.2022;047947352;"Descrizione Pagamento in entrata";;500.00;58’953.82
+23.09.2022;23.09.2022;564782801;"Descrizione Pagamento in entrata";;286.70;58’453.82
+23.09.2022;23.09.2022;106592877;"Descrizione Pagamento";500.00;;58’167.12
+23.09.2022;23.09.2022;223904573;"Descrizione Pagamento";4’450.00;;58’667.12
+23.09.2022;23.09.2022;490275928;"Descrizione Pagamento";64.60;;63’117.12
+21.09.2022;21.09.2022;009347524;"Descrizione Pagamento in entrata";;154.05;63’181.72
+
+19.09.2022;19.09.2022;123456789;"Descrizione Pagamento in entrata";;500.00;63’027.67

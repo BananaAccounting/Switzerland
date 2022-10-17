@@ -1,0 +1,90 @@
+%%info_test_name{csv_bancastato_example_format3_20180531}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2018-05-30 & 2018-05-30 &  & 133992566 & Pagamento in entrata: CPPP Condominio PALOMBELLA & 2000 & \\
+2018-05-30 & 2018-05-31 &  & 133965294 & Apertura prestito: Anticipo fisso (09)  CHF, 1.35\%, 31.05.2018-30.06.2018 & 135000 & \\
+2018-05-30 & 2018-05-30 &  & 133941285 & Pagamento in entrata: Lavin Lavori d'intonaco SA & 25000 & \\
+2018-05-30 & 2018-05-30 &  & 133941284 & Pagamento in entrata: Lavin Lavori d'intonaco SA & 6000 & \\
+2018-05-30 & 2018-05-30 &  & 133941280 & Pagamento in entrata: Lavin Lavori d'intonaco SA & 3500 & \\
+2018-05-30 & 2018-05-31 &  & 133515274 & Account Management Fee - Debit Order: 6087099C000C Conto BASE corrente CHF &  & 8\\
+2018-05-30 & 2018-05-29 &  & 133922368 & Tax: Cantonal Tax: CHF &  & 10\\
+2018-05-29 & 2018-05-29 &  & 133921234 & Spese: spese gestione conto ipoteca &  & 5\\
+2018-05-29 & 2018-05-31 &  & 133921104 & Chiusura a scadenza: Anticipo fisso (09)  CHF, 1.35\%, 31.05.2018-31.05.2018 &  & 135156.94\\
+2018-05-25 & 2018-05-25 &  & 133602411 & Maestro 72008863 - Prelievo contanti presso terminale BancaStato - Agno - 25.05.2018 13:10 &  & 1000\\
+2018-05-25 & 2018-05-25 &  & 133273494 & Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola &  & 86.2\\
+2018-05-25 & 2018-05-25 &  & 133273508 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 71\\
+2018-05-25 & 2018-05-25 &  & 133273496 & PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA &  & 119\\
+2018-05-25 & 2018-05-25 &  & 133273540 & PAGAMENTO A FAVORE DI: CREDIT SUISSE AG 8070 Z�RICH &  & 143.05\\
+2018-05-25 & 2018-05-25 &  & 133273425 & Pagamento a favore di: YLBER ZAJMI VIA SAN GOTTARDO 22 6593 CADENAZZO &  & 3900\\
+2018-05-25 & 2018-05-25 &  & 133273417 & Pagamento a favore di: ARBEN TUNAJ VIA MOLINAZZO 2 A 6517 ARBEDO &  & 4850\\
+2018-05-25 & 2018-05-25 &  & 133273424 & Pagamento a favore di: SARCHIELLO FRANCESCO VIA REPUBBLICA DELL'OSSOLA 29 28803 PREMOSELLO CHIOVENDA ITALIA &  & 3000\\
+2018-05-25 & 2018-05-25 &  & 133273420 & PAGAMENTO A FAVORE DI: LUCAS RIBEIRO &  & 5500\\
+2018-05-25 & 2018-05-25 &  & 133273426 & PAGAMENTO A FAVORE DI: CERAMI BIAGIO &  & 10000\\
+2018-05-25 & 2018-05-25 &  & 133273422 & Pagamento a favore di: INVERNIZZI ANTONELLA VIA CANTONALE 2B 6579 PIAZZOGNA &  & 1000\\
+2018-05-25 & 2018-05-25 &  & 133273418 & PAGAMENTO A FAVORE DI: LUIS ANTONIO DE OLIVEIRA COMPLETARE INDIRIZZO &  & 4550\\
+2018-05-25 & 2018-05-25 &  & 133273821 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 651.2\\
+2018-05-25 & 2018-05-25 &  & 133273782 & Pagamento a favore di: Cembra Money Bank AG 8048 Z�rich &  & 774.35\\
+2018-05-25 & 2018-05-25 &  & 133273800 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 502.2\\
+2018-05-25 & 2018-05-25 &  & 133273764 & Pagamento a favore di: Cembra Money Bank AG 8048 Z�rich &  & 970.4\\
+2018-05-25 & 2018-05-25 &  & 133273748 & Pagamento a favore di: Cembra Money Bank AG 8048 Z�rich &  & 755\\
+2018-05-25 & 2018-05-25 &  & 133273480 & Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola &  & 606.1\\
+2018-05-24 & 2018-04-24 &  & 133258029 & Pagamento in entrata: Giovanni Giuseppe Belli & 1615.5 & \\
+2018-05-24 & 2018-05-24 &  & 133176990 & Pagamento a favore di: GIUSEPPE POLICASTRO VIA EMILIA 10  21030 CUVEGLIO &  & 4000\\
+2018-05-22 & 2018-05-22 &  & 133065755 & Maestro 72008863 - Prelievo ATM - BR CONTONE - 20.05.2018 18:47 &  & 1000\\
+2018-05-22 & 2018-05-22 &  & 133065079 & Pagamento in entrata: HEINZ RUDOLF SPEERLI & 9856.9 & \\
+2018-05-22 & 2018-05-22 &  & 133035703 & Pagamento a favore di: RIZHAO WEIYE TOOLS CO. LTD Gaoxing Town, Rizhao City Shandong, China &  & 10578.74\\
+2018-05-18 & 2018-05-18 &  & 132964132 & Pagamento in entrata: PASI SA & 1200 & \\
+2018-05-17 & 2018-05-17 &  & 132875450 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 6958.9\\
+2018-05-17 & 2018-05-17 &  & 132846534 & Pagamento a favore di: UFFICIO IMPOSTE ALLA FONTE 6501 BELLINZONA &  & 206.93\\
+2018-05-17 & 2018-05-17 &  & 132846737 & PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA &  & 180\\
+2018-05-17 & 2018-05-17 &  & 132846565 & Pagamento a favore di: Z�rcher Kantonalbank 8010 Z�rich &  & 129.25\\
+2018-05-17 & 2018-05-17 &  & 132846420 & Pagamento a favore di: Glider-Swiss Sagl, Davesco-Soragno Via Industrie 4 6964 Davesco-Soragno &  & 623.6\\
+2018-05-17 & 2018-05-17 &  & 132846599 & Pagamento a favore di: Banque Cantonale Vaudoise 1001 Lausanne &  & 2008.2\\
+2018-05-17 & 2018-05-17 &  & 132846346 & Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA &  & 2400\\
+2018-05-17 & 2018-05-17 &  & 132846303 & Pagamento a favore di: Ufficio Esazione e 6501 Bellinzona &  & 480\\
+2018-05-17 & 2018-05-17 &  & 132846801 & PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA &  & 144.3\\
+2018-05-17 & 2018-05-17 &  & 132846503 & Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA &  & 4735.1\\
+2018-05-17 & 2018-05-17 &  & 132846463 & Pagamento a favore di: Bank Coop AG 4002 Basel &  & 4747\\
+2018-05-17 & 2018-05-18 &  & 132846400 & Pagamento a favore di: ORTELLI CLAUDIO S.A.S. VIA ROMA 21 22070 SENNA COMASCO (CO) &  & 363.87\\
+2018-05-16 & 2018-05-16 &  & 132856502 & Pagamento in entrata: Edilmax Swiss SA & 20860.48 & \\
+2018-05-16 & 2018-05-16 &  & 132835600 & Pagamento in entrata: Edilmax Swiss SA & 3685 & \\
+2018-05-16 & 2018-05-16 &  & 132835590 & Pagamento in entrata: Edilmax Swiss SA & 6315 & \\
+2018-05-16 & 2018-05-16 &  & 132827851 & Pagamento in entrata: Volker Dietzel & 4846.5 & \\
+2018-05-15 & 2018-05-15 &  & 132822409 & Pagamento in entrata: VAUDOISE GENERALE br. non vie & 1341 & \\
+2018-05-15 & 2018-05-15 &  & 132806652 & Pagamento in entrata: Suva & 11371.05 & \\
+2018-05-14 & 2018-05-14 &  & 132712294 & Pagamento in entrata: Ugo Clerici SA & 4000 & \\
+2018-05-09 & 2018-05-04 &  & 131301307 & Maestro 72008863 - Acquisto POS - SPORT EXTREM, 28845 DOMODOSSOLA, ITA - 05.05.2018 16:03 &  & 384.88\\
+2018-05-09 & 2018-05-09 &  & 131287848 & Pagamento a favore di: Maersk Switzerland Gmbh Herostrasse 7 8048 Zurich &  & 386.73\\
+2018-05-08 & 2018-05-08 &  & 131268713 & Pagamento in entrata: IGESTRA SA & 4000 & \\
+2018-05-08 & 2018-05-08 &  & 131238669 & Maestro 72008863 - Prelievo contanti presso terminale BancaStato - Giubiasco - 08.05.2018 07:57 &  & 1000\\
+2018-05-02 & 2018-05-02 &  & 130779332 & Pagamento a favore di: UFFICIO IMPOSTE ALLA FONTE 6501 BELLINZONA &  & 2887.3\\
+2018-05-02 & 2018-05-02 &  & 130778948 & Pagamento a favore di: BM-Elettricit� Sagl 6598 Tenero &  & 376.95\\
+2018-05-02 & 2018-05-02 &  & 130778844 & Pagamento a favore di: Banque Cantonale Vaudoise 1001 Lausanne &  & 108.85\\
+2018-05-02 & 2018-05-02 &  & 130779501 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 1604.55\\
+2018-05-02 & 2018-05-02 &  & 130779934 & Pagamento a favore di: CRAPAROTTA ANTONINO 6572 QUARTINO &  & 3000\\
+2018-05-02 & 2018-05-02 &  & 130779043 & Pagamento a favore di: Derendinger AG, Cham Knonauerstrasse 54 6330 Cham &  & 120.9\\
+2018-05-02 & 2018-05-02 &  & 130779155 & Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola &  & 824.4\\
+2018-05-02 & 2018-05-02 &  & 130779626 & Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA &  & 4775.1\\
+2018-05-02 & 2018-05-02 &  & 130794279 & LSV HFA1W HILTI (SCHWEIZ) AG SOODSTRASSE 61 8134 ADLISWIL Ref: 939980000032010082009900001 &  & 109\\
+\\
+\end{tablevalue}
+\end{document}

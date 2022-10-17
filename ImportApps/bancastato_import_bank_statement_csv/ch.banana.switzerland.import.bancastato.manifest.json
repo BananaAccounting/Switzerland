@@ -1,0 +1,17 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "BancaStato - Import bank account statement (*.csv)",
+    "description.en": "BancaStato - Import bank account statement (*.csv)",
+    "description.it": "BancaStato - Importa movimenti estratto conto (*.csv)",
+    "description.de":"BancaStato - Bankkontoauszug im CSV-Format importieren",
+    "id": "ch.banana.switzerland.import.bancastato",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "BancaStato - Import bank account statement (*.csv)",
+    "title.en": "BancaStato - Import bank account statement (*.csv)",
+    "title.it": "BancaStato - Importa movimenti estratto conto (*.csv)",
+    "title.de":"BancaStato - Bankkontoauszug im CSV-Format importieren",
+    "version": "1.0"
+}
