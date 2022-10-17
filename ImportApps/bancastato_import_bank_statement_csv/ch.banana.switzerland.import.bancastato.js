@@ -2,7 +2,7 @@
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
-// @description = BancaStato (*.csv)
+// @description = BancaStato - Import bank account statement in CSV format
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
