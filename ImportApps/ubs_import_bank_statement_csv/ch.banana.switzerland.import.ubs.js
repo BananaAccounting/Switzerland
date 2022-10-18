@@ -2,7 +2,7 @@
 // @api = 1.0
 // @pubdate = 2019-09-06
 // @publisher = Banana.ch SA
-// @description = UBS - Import bank account statement in CSV format
+// @description = UBS - Import bank account statement  (*.csv)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
