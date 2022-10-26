@@ -20,71 +20,71 @@
 %Begin test data
 \begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2018-05-30 & 2018-05-30 &  & 133992566 & Pagamento in entrata: CPPP Condominio PALOMBELLA & 2000 & \\
-2018-05-30 & 2018-05-31 &  & 133965294 & Apertura prestito: Anticipo fisso (09)  CHF, 1.35\%, 31.05.2018-30.06.2018 & 135000 & \\
-2018-05-30 & 2018-05-30 &  & 133941285 & Pagamento in entrata: Lavin Lavori d'intonaco SA & 25000 & \\
-2018-05-30 & 2018-05-30 &  & 133941284 & Pagamento in entrata: Lavin Lavori d'intonaco SA & 6000 & \\
-2018-05-30 & 2018-05-30 &  & 133941280 & Pagamento in entrata: Lavin Lavori d'intonaco SA & 3500 & \\
-2018-05-30 & 2018-05-31 &  & 133515274 & Account Management Fee - Debit Order: 6087099C000C Conto BASE corrente CHF &  & 8\\
-2018-05-30 & 2018-05-29 &  & 133922368 & Tax: Cantonal Tax: CHF &  & 10\\
-2018-05-29 & 2018-05-29 &  & 133921234 & Spese: spese gestione conto ipoteca &  & 5\\
-2018-05-29 & 2018-05-31 &  & 133921104 & Chiusura a scadenza: Anticipo fisso (09)  CHF, 1.35\%, 31.05.2018-31.05.2018 &  & 135156.94\\
-2018-05-25 & 2018-05-25 &  & 133602411 & Maestro 72008863 - Prelievo contanti presso terminale BancaStato - Agno - 25.05.2018 13:10 &  & 1000\\
-2018-05-25 & 2018-05-25 &  & 133273494 & Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola &  & 86.2\\
-2018-05-25 & 2018-05-25 &  & 133273508 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 71\\
-2018-05-25 & 2018-05-25 &  & 133273496 & PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA &  & 119\\
-2018-05-25 & 2018-05-25 &  & 133273540 & PAGAMENTO A FAVORE DI: CREDIT SUISSE AG 8070 Z�RICH &  & 143.05\\
-2018-05-25 & 2018-05-25 &  & 133273425 & Pagamento a favore di: YLBER ZAJMI VIA SAN GOTTARDO 22 6593 CADENAZZO &  & 3900\\
-2018-05-25 & 2018-05-25 &  & 133273417 & Pagamento a favore di: ARBEN TUNAJ VIA MOLINAZZO 2 A 6517 ARBEDO &  & 4850\\
-2018-05-25 & 2018-05-25 &  & 133273424 & Pagamento a favore di: SARCHIELLO FRANCESCO VIA REPUBBLICA DELL'OSSOLA 29 28803 PREMOSELLO CHIOVENDA ITALIA &  & 3000\\
-2018-05-25 & 2018-05-25 &  & 133273420 & PAGAMENTO A FAVORE DI: LUCAS RIBEIRO &  & 5500\\
-2018-05-25 & 2018-05-25 &  & 133273426 & PAGAMENTO A FAVORE DI: CERAMI BIAGIO &  & 10000\\
-2018-05-25 & 2018-05-25 &  & 133273422 & Pagamento a favore di: INVERNIZZI ANTONELLA VIA CANTONALE 2B 6579 PIAZZOGNA &  & 1000\\
-2018-05-25 & 2018-05-25 &  & 133273418 & PAGAMENTO A FAVORE DI: LUIS ANTONIO DE OLIVEIRA COMPLETARE INDIRIZZO &  & 4550\\
-2018-05-25 & 2018-05-25 &  & 133273821 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 651.2\\
-2018-05-25 & 2018-05-25 &  & 133273782 & Pagamento a favore di: Cembra Money Bank AG 8048 Z�rich &  & 774.35\\
-2018-05-25 & 2018-05-25 &  & 133273800 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 502.2\\
-2018-05-25 & 2018-05-25 &  & 133273764 & Pagamento a favore di: Cembra Money Bank AG 8048 Z�rich &  & 970.4\\
-2018-05-25 & 2018-05-25 &  & 133273748 & Pagamento a favore di: Cembra Money Bank AG 8048 Z�rich &  & 755\\
-2018-05-25 & 2018-05-25 &  & 133273480 & Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola &  & 606.1\\
-2018-05-24 & 2018-04-24 &  & 133258029 & Pagamento in entrata: Giovanni Giuseppe Belli & 1615.5 & \\
-2018-05-24 & 2018-05-24 &  & 133176990 & Pagamento a favore di: GIUSEPPE POLICASTRO VIA EMILIA 10  21030 CUVEGLIO &  & 4000\\
-2018-05-22 & 2018-05-22 &  & 133065755 & Maestro 72008863 - Prelievo ATM - BR CONTONE - 20.05.2018 18:47 &  & 1000\\
-2018-05-22 & 2018-05-22 &  & 133065079 & Pagamento in entrata: HEINZ RUDOLF SPEERLI & 9856.9 & \\
-2018-05-22 & 2018-05-22 &  & 133035703 & Pagamento a favore di: RIZHAO WEIYE TOOLS CO. LTD Gaoxing Town, Rizhao City Shandong, China &  & 10578.74\\
-2018-05-18 & 2018-05-18 &  & 132964132 & Pagamento in entrata: PASI SA & 1200 & \\
-2018-05-17 & 2018-05-17 &  & 132875450 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 6958.9\\
-2018-05-17 & 2018-05-17 &  & 132846534 & Pagamento a favore di: UFFICIO IMPOSTE ALLA FONTE 6501 BELLINZONA &  & 206.93\\
-2018-05-17 & 2018-05-17 &  & 132846737 & PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA &  & 180\\
-2018-05-17 & 2018-05-17 &  & 132846565 & Pagamento a favore di: Z�rcher Kantonalbank 8010 Z�rich &  & 129.25\\
-2018-05-17 & 2018-05-17 &  & 132846420 & Pagamento a favore di: Glider-Swiss Sagl, Davesco-Soragno Via Industrie 4 6964 Davesco-Soragno &  & 623.6\\
-2018-05-17 & 2018-05-17 &  & 132846599 & Pagamento a favore di: Banque Cantonale Vaudoise 1001 Lausanne &  & 2008.2\\
-2018-05-17 & 2018-05-17 &  & 132846346 & Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA &  & 2400\\
-2018-05-17 & 2018-05-17 &  & 132846303 & Pagamento a favore di: Ufficio Esazione e 6501 Bellinzona &  & 480\\
-2018-05-17 & 2018-05-17 &  & 132846801 & PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA &  & 144.3\\
-2018-05-17 & 2018-05-17 &  & 132846503 & Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA &  & 4735.1\\
-2018-05-17 & 2018-05-17 &  & 132846463 & Pagamento a favore di: Bank Coop AG 4002 Basel &  & 4747\\
-2018-05-17 & 2018-05-18 &  & 132846400 & Pagamento a favore di: ORTELLI CLAUDIO S.A.S. VIA ROMA 21 22070 SENNA COMASCO (CO) &  & 363.87\\
-2018-05-16 & 2018-05-16 &  & 132856502 & Pagamento in entrata: Edilmax Swiss SA & 20860.48 & \\
-2018-05-16 & 2018-05-16 &  & 132835600 & Pagamento in entrata: Edilmax Swiss SA & 3685 & \\
-2018-05-16 & 2018-05-16 &  & 132835590 & Pagamento in entrata: Edilmax Swiss SA & 6315 & \\
-2018-05-16 & 2018-05-16 &  & 132827851 & Pagamento in entrata: Volker Dietzel & 4846.5 & \\
-2018-05-15 & 2018-05-15 &  & 132822409 & Pagamento in entrata: VAUDOISE GENERALE br. non vie & 1341 & \\
-2018-05-15 & 2018-05-15 &  & 132806652 & Pagamento in entrata: Suva & 11371.05 & \\
-2018-05-14 & 2018-05-14 &  & 132712294 & Pagamento in entrata: Ugo Clerici SA & 4000 & \\
-2018-05-09 & 2018-05-04 &  & 131301307 & Maestro 72008863 - Acquisto POS - SPORT EXTREM, 28845 DOMODOSSOLA, ITA - 05.05.2018 16:03 &  & 384.88\\
-2018-05-09 & 2018-05-09 &  & 131287848 & Pagamento a favore di: Maersk Switzerland Gmbh Herostrasse 7 8048 Zurich &  & 386.73\\
-2018-05-08 & 2018-05-08 &  & 131268713 & Pagamento in entrata: IGESTRA SA & 4000 & \\
-2018-05-08 & 2018-05-08 &  & 131238669 & Maestro 72008863 - Prelievo contanti presso terminale BancaStato - Giubiasco - 08.05.2018 07:57 &  & 1000\\
-2018-05-02 & 2018-05-02 &  & 130779332 & Pagamento a favore di: UFFICIO IMPOSTE ALLA FONTE 6501 BELLINZONA &  & 2887.3\\
-2018-05-02 & 2018-05-02 &  & 130778948 & Pagamento a favore di: BM-Elettricit� Sagl 6598 Tenero &  & 376.95\\
-2018-05-02 & 2018-05-02 &  & 130778844 & Pagamento a favore di: Banque Cantonale Vaudoise 1001 Lausanne &  & 108.85\\
-2018-05-02 & 2018-05-02 &  & 130779501 & Pagamento a favore di: Credit Suisse AG 8070 Z�rich &  & 1604.55\\
-2018-05-02 & 2018-05-02 &  & 130779934 & Pagamento a favore di: CRAPAROTTA ANTONINO 6572 QUARTINO &  & 3000\\
-2018-05-02 & 2018-05-02 &  & 130779043 & Pagamento a favore di: Derendinger AG, Cham Knonauerstrasse 54 6330 Cham &  & 120.9\\
-2018-05-02 & 2018-05-02 &  & 130779155 & Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola &  & 824.4\\
-2018-05-02 & 2018-05-02 &  & 130779626 & Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA &  & 4775.1\\
-2018-05-02 & 2018-05-02 &  & 130794279 & LSV HFA1W HILTI (SCHWEIZ) AG SOODSTRASSE 61 8134 ADLISWIL Ref: 939980000032010082009900001 &  & 109\\
+2018-05-30 & 2018-05-30 &  & 133992566 & Austerone si piercia: PREX Larestogis CHERUNTULO & 2000 & \\
+2018-05-30 & 2018-05-31 &  & 133965294 & Canducus ferimaxi: Suiriere cocus (18)  XXX, 2.76\%, 57.83.1301-85.80.1301 & 135000 & \\
+2018-05-30 & 2018-05-30 &  & 133941285 & Austerone si piercia: Monam Portum v'nompoepe UT & 25000 & \\
+2018-05-30 & 2018-05-30 &  & 133941284 & Austerone si piercia: Monam Portum v'nompoepe UT & 6000 & \\
+2018-05-30 & 2018-05-30 &  & 133941280 & Austerone si piercia: Monam Portum v'nompoepe UT & 3500 & \\
+2018-05-30 & 2018-05-31 &  & 133515274 & Musimea Volumeline Per - Libus Resus: 5661738E212B Famea STRI priertur XXX &  & 8\\
+2018-05-30 & 2018-05-29 &  & 133922368 & Men: Mittiunt Men: XXX &  & 10\\
+2018-05-29 & 2018-05-29 &  & 133921234 & Orant: orant evescred famea famusto &  & 5\\
+2018-05-29 & 2018-05-31 &  & 133921104 & Riciusto o eveniter: Suiriere cocus (18)  XXX, 2.76\%, 57.83.1301-57.83.1301 &  & 135156.94\\
+2018-05-25 & 2018-05-25 &  & 133602411 & Patenti 11738320 - Ventabum atitudas levolo cabeanium GrannAntem - Cabo - 46.83.1301 88:43 &  & 1000\\
+2018-05-25 & 2018-05-25 &  & 133273494 & Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom &  & 86.2\\
+2018-05-25 & 2018-05-25 &  & 133273508 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 71\\
+2018-05-25 & 2018-05-25 &  & 133273496 & AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE &  & 119\\
+2018-05-25 & 2018-05-25 &  & 133273540 & AUSTERONE O PAGINT IN: PILICA AUCERE SI 4558 D�DEAT &  & 143.05\\
+2018-05-25 & 2018-05-25 &  & 133273425 & Austerone o pagint in: NIUVA VIRUM ARI XXX CAPTINTE 70 5580 MAGNUMQUE &  & 3900\\
+2018-05-25 & 2018-05-25 &  & 133273417 & Austerone o pagint in: WINEM STRIA ARI SEGROPUTO 4 O 4187 FRUCES &  & 4850\\
+2018-05-25 & 2018-05-25 &  & 133273424 & Austerone o pagint in: OCTINIFFIG TRIETUNIS ARI PLATICITTI ZUCI'OLUNTO 71 48567 NANDITODIT DIFIGENTE PAUPLE &  & 3000\\
+2018-05-25 & 2018-05-25 &  & 133273420 & AUSTERONE O PAGINT IN: PATIS REPTUOD &  & 5500\\
+2018-05-25 & 2018-05-25 &  & 133273426 & AUSTERONE O PAGINT IN: OSTAVA PANTIA &  & 10000\\
+2018-05-25 & 2018-05-25 &  & 133273422 & Austerone o pagint in: RIAMNIUNCH ULANTIMUS ARI INUITTIAM 7M 5443 MATEQUITA &  & 1000\\
+2018-05-25 & 2018-05-25 &  & 133273418 & AUSTERONE O PAGINT IN: ANEM MENECES UT PROBANTE NOCULCHENT PRORTANDO &  & 4550\\
+2018-05-25 & 2018-05-25 &  & 133273821 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 651.2\\
+2018-05-25 & 2018-05-25 &  & 133273782 & Austerone o pagint in: Oppaut Conto Pati SI 2080 D�deat &  & 774.35\\
+2018-05-25 & 2018-05-25 &  & 133273800 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 502.2\\
+2018-05-25 & 2018-05-25 &  & 133273764 & Austerone o pagint in: Oppaut Conto Pati SI 2080 D�deat &  & 970.4\\
+2018-05-25 & 2018-05-25 &  & 133273748 & Austerone o pagint in: Oppaut Conto Pati SI 2080 D�deat &  & 755\\
+2018-05-25 & 2018-05-25 &  & 133273480 & Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom &  & 606.1\\
+2018-05-24 & 2018-04-24 &  & 133258029 & Austerone si piercia: Plentire Strumete Potum & 1615.5 & \\
+2018-05-24 & 2018-05-24 &  & 133176990 & Austerone o pagint in: STRUMETE LAVINAVITA ARI CANERI 43  84712 FERALUNE &  & 4000\\
+2018-05-22 & 2018-05-22 &  & 133065755 & Patenti 11738320 - Ventabum MOR - VI RETIUNE - 25.83.1301 10:25 &  & 1000\\
+2018-05-22 & 2018-05-22 &  & 133065079 & Austerone si piercia: PARAT ALBULI INCERVA & 9856.9 & \\
+2018-05-22 & 2018-05-22 &  & 133035703 & Austerone o pagint in: VARIET FRICA RESTO AN. DIO Maliuva Vita, Variet Cant Priatube, Misim &  & 10578.74\\
+2018-05-18 & 2018-05-18 &  & 132964132 & Austerone si piercia: CIPE UT & 1200 & \\
+2018-05-17 & 2018-05-17 &  & 132875450 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 6958.9\\
+2018-05-17 & 2018-05-17 &  & 132846534 & Austerone o pagint in: POTUUNT IDENTUS FILI HABIT 3108 DUPRELONDA &  & 206.93\\
+2018-05-17 & 2018-05-17 &  & 132846737 & AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE &  & 180\\
+2018-05-17 & 2018-05-17 &  & 132846565 & Austerone o pagint in: D�fruci Volvenerabit 8335 D�deat &  & 129.25\\
+2018-05-17 & 2018-05-17 &  & 132846420 & Austerone o pagint in: Raecia-Ingun Insa, Funtudo-Arelect Ari Acutuluva 2 7872 Funtudo-Arelect &  & 623.6\\
+2018-05-17 & 2018-05-17 &  & 132846599 & Austerone o pagint in: Liblis Inuittiam Congusto 8860 Haregent &  & 2008.2\\
+2018-05-17 & 2018-05-17 &  & 132846346 & Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA &  & 2400\\
+2018-05-17 & 2018-05-17 &  & 132846303 & Austerone o pagint in: Potuunt Magindit o 3108 Duprelonda &  & 480\\
+2018-05-17 & 2018-05-17 &  & 132846801 & AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE &  & 144.3\\
+2018-05-17 & 2018-05-17 &  & 132846503 & Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA &  & 4735.1\\
+2018-05-17 & 2018-05-17 &  & 132846463 & Austerone o pagint in: Pati Itur SI 2420 Facto &  & 4747\\
+2018-05-17 & 2018-05-18 &  & 132846400 & Austerone o pagint in: DICINTO FERFICE N.A.N. ARI DUCI 25 72832 METIA DOLUVIT (AN) &  & 363.87\\
+2018-05-16 & 2018-05-16 &  & 132856502 & Austerone si piercia: Coverem Ingun UT & 20860.48 & \\
+2018-05-16 & 2018-05-16 &  & 132835600 & Austerone si piercia: Coverem Ingun UT & 3685 & \\
+2018-05-16 & 2018-05-16 &  & 132835590 & Austerone si piercia: Coverem Ingun UT & 6315 & \\
+2018-05-16 & 2018-05-16 &  & 132827851 & Austerone si piercia: Gausum Dentiam & 4846.5 & \\
+2018-05-15 & 2018-05-15 &  & 132822409 & Austerone si piercia: CONGUSTO VESTORAY vi. sed que & 1341 & \\
+2018-05-15 & 2018-05-15 &  & 132806652 & Austerone si piercia: Neis & 11371.05 & \\
+2018-05-14 & 2018-05-14 &  & 132712294 & Austerone si piercia: Xxx Wingusa UT & 4000 & \\
+2018-05-09 & 2018-05-04 &  & 131301307 & Patenti 11738320 - Dundabus DEM - INIMA MENSUS, 71441 QUARATERUNT, IMI - 83.83.1301 58:38 &  & 384.88\\
+2018-05-09 & 2018-05-09 &  & 131287848 & Austerone o pagint in: Uracto Protustraec Semo Probultiuva 7 2080 Duento &  & 386.73\\
+2018-05-08 & 2018-05-08 &  & 131268713 & Austerone si piercia: SONIGEM UT & 4000 & \\
+2018-05-08 & 2018-05-08 &  & 131238669 & Patenti 11738320 - Ventabum atitudas levolo cabeanium GrannAntem - Capueraec - 82.83.1301 71:60 &  & 1000\\
+2018-05-02 & 2018-05-02 &  & 130779332 & Austerone o pagint in: POTUUNT IDENTUS FILI HABIT 3108 DUPRELONDA &  & 2887.3\\
+2018-05-02 & 2018-05-02 &  & 130778948 & Austerone o pagint in: EX-Opturiunis� Insa 6243 Phrige &  & 376.95\\
+2018-05-02 & 2018-05-02 &  & 130778844 & Austerone o pagint in: Liblis Inuittiam Congusto 8860 Haregent &  & 108.85\\
+2018-05-02 & 2018-05-02 &  & 130779501 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 1604.55\\
+2018-05-02 & 2018-05-02 &  & 130779934 & Austerone o pagint in: LASULUCCIS CURADECT 3310 SAESCECT &  & 3000\\
+2018-05-02 & 2018-05-02 &  & 130779043 & Austerone o pagint in: Lunnarduone SI, Caph Dimirundabelium 16 5565 Caph &  & 120.9\\
+2018-05-02 & 2018-05-02 &  & 130779155 & Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom &  & 824.4\\
+2018-05-02 & 2018-05-02 &  & 130779626 & Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA &  & 4775.1\\
+2018-05-02 & 2018-05-02 &  & 130794279 & NAS NUN3R TESUM (VIDENSI) SI PAREVOCULIA 61 4218 SILARTUS Xxx: 431416650043746636106668503 &  & 109\\
 \\
 \end{tablevalue}
 \end{document}

@@ -1,69 +1,69 @@
 Data;Data valuta;Rif.Esterno;Tipo;Testo di contabilizzazione;Addebiti;Accrediti;Saldo
-Totale movimenti;;;;;227792.99;240591.43;
-Saldo finale;;;;;;;50218.09
-30.05.2018;30.05.2018;133992566;Credito;Pagamento in entrata: CPPP Condominio PALOMBELLA;;2000;50218.09
-30.05.2018;31.05.2018;133965294;Apertura prestito;"Apertura prestito: Anticipo fisso (09)  CHF, 1.35%, 31.05.2018-30.06.2018";;135000;48218.09
-30.05.2018;30.05.2018;133941285;Credito;Pagamento in entrata: Lavin Lavori d'intonaco SA;;25000;-86781.91
-30.05.2018;30.05.2018;133941284;Credito;Pagamento in entrata: Lavin Lavori d'intonaco SA;;6000;-111781.91
-30.05.2018;30.05.2018;133941280;Credito;Pagamento in entrata: Lavin Lavori d'intonaco SA;;3500;-117781.91
-30.05.2018;31.05.2018;133515274;Account Management Fee - Debit Order;Account Management Fee - Debit Order: 6087099C000C Conto BASE corrente CHF;8;;-121281.91
-30.05.2018;29.05.2018;133922368;Tax: Cantonal Tax;Tax: Cantonal Tax: CHF;10;;-121273.91
-29.05.2018;29.05.2018;133921234;Mortgage Acc Mngt Fee - Debit Order;Spese: spese gestione conto ipoteca;5;;-121263.91
-29.05.2018;31.05.2018;133921104;Chiusura a scadenza;"Chiusura a scadenza: Anticipo fisso (09)  CHF, 1.35%, 31.05.2018-31.05.2018";135156.94;;-121258.91
-25.05.2018;25.05.2018;133602411;"Prelevamento Maestro (cliente proprio, proprio terminale)";Maestro 72008863 - Prelievo contanti presso terminale BancaStato - Agno - 25.05.2018 13:10;1000;;13898.03
-25.05.2018;25.05.2018;133273494;Pagamento;Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola;86.2;;14898.03
-25.05.2018;25.05.2018;133273508;Pagamento;Pagamento a favore di: Credit Suisse AG 8070 Zürich;71;;14984.23
-25.05.2018;25.05.2018;133273496;Pagamento;PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA;119;;15055.23
-25.05.2018;25.05.2018;133273540;Pagamento;PAGAMENTO A FAVORE DI: CREDIT SUISSE AG 8070 ZÜRICH;143.05;;15174.23
-25.05.2018;25.05.2018;133273425;Pagamento;Pagamento a favore di: YLBER ZAJMI VIA SAN GOTTARDO 22 6593 CADENAZZO;3900;;15317.28
-25.05.2018;25.05.2018;133273417;Pagamento;Pagamento a favore di: ARBEN TUNAJ VIA MOLINAZZO 2 A 6517 ARBEDO;4850;;19217.28
-25.05.2018;25.05.2018;133273424;Pagamento;Pagamento a favore di: SARCHIELLO FRANCESCO VIA REPUBBLICA DELL'OSSOLA 29 28803 PREMOSELLO CHIOVENDA ITALIA;3000;;24067.28
-25.05.2018;25.05.2018;133273420;Pagamento;PAGAMENTO A FAVORE DI: LUCAS RIBEIRO;5500;;27067.28
-25.05.2018;25.05.2018;133273426;Pagamento;PAGAMENTO A FAVORE DI: CERAMI BIAGIO;10000;;32567.28
-25.05.2018;25.05.2018;133273422;Pagamento;Pagamento a favore di: INVERNIZZI ANTONELLA VIA CANTONALE 2B 6579 PIAZZOGNA;1000;;42567.28
-25.05.2018;25.05.2018;133273418;Pagamento;PAGAMENTO A FAVORE DI: LUIS ANTONIO DE OLIVEIRA COMPLETARE INDIRIZZO;4550;;43567.28
-25.05.2018;25.05.2018;133273821;Pagamento;Pagamento a favore di: Credit Suisse AG 8070 Zürich;651.2;;48117.28
-25.05.2018;25.05.2018;133273782;Pagamento;Pagamento a favore di: Cembra Money Bank AG 8048 Zürich;774.35;;48768.48
-25.05.2018;25.05.2018;133273800;Pagamento;Pagamento a favore di: Credit Suisse AG 8070 Zürich;502.2;;49542.83
-25.05.2018;25.05.2018;133273764;Pagamento;Pagamento a favore di: Cembra Money Bank AG 8048 Zürich;970.4;;50045.03
-25.05.2018;25.05.2018;133273748;Pagamento;Pagamento a favore di: Cembra Money Bank AG 8048 Zürich;755;;51015.43
-25.05.2018;25.05.2018;133273480;Pagamento;Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola;606.1;;51770.43
-24.05.2018;24.04.2018;133258029;Credito;Pagamento in entrata: Giovanni Giuseppe Belli;;1615.5;52376.53
-24.05.2018;24.05.2018;133176990;Pagamento;Pagamento a favore di: GIUSEPPE POLICASTRO VIA EMILIA 10  21030 CUVEGLIO;4000;;50761.03
-22.05.2018;22.05.2018;133065755;Addebito carta POS/ATM;Maestro 72008863 - Prelievo ATM - BR CONTONE - 20.05.2018 18:47;1000;;54761.03
-22.05.2018;22.05.2018;133065079;Credito;Pagamento in entrata: HEINZ RUDOLF SPEERLI;;9856.9;55761.03
-22.05.2018;22.05.2018;133035703;Pagamento;"Pagamento a favore di: RIZHAO WEIYE TOOLS CO. LTD Gaoxing Town, Rizhao City Shandong, China";10578.74;;45904.13
-18.05.2018;18.05.2018;132964132;Credito;Pagamento in entrata: PASI SA;;1200;56482.87
-17.05.2018;17.05.2018;132875450;Pagamento;Pagamento a favore di: Credit Suisse AG 8070 Zürich;6958.9;;55282.87
-17.05.2018;17.05.2018;132846534;Pagamento;Pagamento a favore di: UFFICIO IMPOSTE ALLA FONTE 6501 BELLINZONA;206.93;;62241.77
-17.05.2018;17.05.2018;132846737;Pagamento;PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA;180;;62448.7
-17.05.2018;17.05.2018;132846565;Pagamento;Pagamento a favore di: Zürcher Kantonalbank 8010 Zürich;129.25;;62628.7
-17.05.2018;17.05.2018;132846420;Pagamento;"Pagamento a favore di: Glider-Swiss Sagl, Davesco-Soragno Via Industrie 4 6964 Davesco-Soragno";623.6;;62757.95
-17.05.2018;17.05.2018;132846599;Pagamento;Pagamento a favore di: Banque Cantonale Vaudoise 1001 Lausanne;2008.2;;63381.55
-17.05.2018;17.05.2018;132846346;Pagamento;Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA;2400;;65389.75
-17.05.2018;17.05.2018;132846303;Pagamento;Pagamento a favore di: Ufficio Esazione e 6501 Bellinzona;480;;67789.75
-17.05.2018;17.05.2018;132846801;Pagamento;PAGAMENTO A FAVORE DI: SWISSCOM SA  3050 BERNA;144.3;;68269.75
-17.05.2018;17.05.2018;132846503;Pagamento;Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA;4735.1;;68414.05
-17.05.2018;17.05.2018;132846463;Pagamento;Pagamento a favore di: Bank Coop AG 4002 Basel;4747;;73149.15
-17.05.2018;18.05.2018;132846400;Pagamento;Pagamento a favore di: ORTELLI CLAUDIO S.A.S. VIA ROMA 21 22070 SENNA COMASCO (CO);363.87;;77896.15
-16.05.2018;16.05.2018;132856502;Credito;Pagamento in entrata: Edilmax Swiss SA;;20860.48;78260.02
-16.05.2018;16.05.2018;132835600;Credito;Pagamento in entrata: Edilmax Swiss SA;;3685;57399.54
-16.05.2018;16.05.2018;132835590;Credito;Pagamento in entrata: Edilmax Swiss SA;;6315;53714.54
-16.05.2018;16.05.2018;132827851;Credito;Pagamento in entrata: Volker Dietzel;;4846.5;47399.54
-15.05.2018;15.05.2018;132822409;Credito;Pagamento in entrata: VAUDOISE GENERALE br. non vie;;1341;42553.04
-15.05.2018;15.05.2018;132806652;Credito;Pagamento in entrata: Suva;;11371.05;41212.04
-14.05.2018;14.05.2018;132712294;Credito;Pagamento in entrata: Ugo Clerici SA;;4000;29840.99
-09.05.2018;04.05.2018;131301307;Addebito carta POS/ATM;"Maestro 72008863 - Acquisto POS - SPORT EXTREM, 28845 DOMODOSSOLA, ITA - 05.05.2018 16:03";384.88;;25840.99
-09.05.2018;09.05.2018;131287848;Pagamento;Pagamento a favore di: Maersk Switzerland Gmbh Herostrasse 7 8048 Zurich;386.73;;26225.87
-08.05.2018;08.05.2018;131268713;Credito;Pagamento in entrata: IGESTRA SA;;4000;26612.6
-08.05.2018;08.05.2018;131238669;"Prelevamento Maestro (cliente proprio, proprio terminale)";Maestro 72008863 - Prelievo contanti presso terminale BancaStato - Giubiasco - 08.05.2018 07:57;1000;;22612.6
-02.05.2018;02.05.2018;130779332;Pagamento;Pagamento a favore di: UFFICIO IMPOSTE ALLA FONTE 6501 BELLINZONA;2887.3;;23612.6
-02.05.2018;02.05.2018;130778948;Pagamento;Pagamento a favore di: BM-Elettricitá Sagl 6598 Tenero;376.95;;26499.9
-02.05.2018;02.05.2018;130778844;Pagamento;Pagamento a favore di: Banque Cantonale Vaudoise 1001 Lausanne;108.85;;26876.85
-02.05.2018;02.05.2018;130779501;Pagamento;Pagamento a favore di: Credit Suisse AG 8070 Zürich;1604.55;;26985.7
-02.05.2018;02.05.2018;130779934;Pagamento;Pagamento a favore di: CRAPAROTTA ANTONINO 6572 QUARTINO;3000;;28590.25
-02.05.2018;02.05.2018;130779043;Pagamento;"Pagamento a favore di: Derendinger AG, Cham Knonauerstrasse 54 6330 Cham";120.9;;31590.25
-02.05.2018;02.05.2018;130779155;Pagamento;Pagamento a favore di: Banca Raiffeisen Cugnasco Gordola Verzasca 6596 Gordola;824.4;;31711.15
-02.05.2018;02.05.2018;130779626;Pagamento;Pagamento a favore di: CASSA CANTONALE DI COMPENSAZIONE AVS/AI/IPG 6501 BELLINZONA;4775.1;;32535.55
-02.05.2018;02.05.2018;130794279;LSV Payment;LSV HFA1W HILTI (SCHWEIZ) AG SOODSTRASSE 61 8134 ADLISWIL Ref: 939980000032010082009900001;109;;37310.65
-Saldo iniziale;;;;;;;37419.65
+Ellibo perrundum;;;;;227792.99;240591.43;
+Funix pontri;;;;;;;50218.09
+30.05.2018;30.05.2018;133992566;Lentica;Austerone si piercia: PREX Larestogis CHERUNTULO;;2000;50218.09
+30.05.2018;31.05.2018;133965294;Canducus ferimaxi;"Canducus ferimaxi: Suiriere cocus (18)  XXX, 2.76%, 57.83.1301-85.80.1301";;135000;48218.09
+30.05.2018;30.05.2018;133941285;Lentica;Austerone si piercia: Monam Portum v'nompoepe UT;;25000;-86781.91
+30.05.2018;30.05.2018;133941284;Lentica;Austerone si piercia: Monam Portum v'nompoepe UT;;6000;-111781.91
+30.05.2018;30.05.2018;133941280;Lentica;Austerone si piercia: Monam Portum v'nompoepe UT;;3500;-117781.91
+30.05.2018;31.05.2018;133515274;Musimea Volumeline Per - Libus Resus;Musimea Volumeline Per - Libus Resus: 5661738E212B Famea STRI priertur XXX;8;;-121281.91
+30.05.2018;29.05.2018;133922368;Men: Mittiunt Men;Men: Mittiunt Men: XXX;10;;-121273.91
+29.05.2018;29.05.2018;133921234;Tescimus Nos Alla Per - Libus Resus;Orant: orant evescred famea famusto;5;;-121263.91
+29.05.2018;31.05.2018;133921104;Riciusto o eveniter;"Riciusto o eveniter: Suiriere cocus (18)  XXX, 2.76%, 57.83.1301-57.83.1301";135156.94;;-121258.91
+25.05.2018;25.05.2018;133602411;"Ampronutanti Patenti (matipta lortula, lortula cabeanium)";Patenti 11738320 - Ventabum atitudas levolo cabeanium GrannAntem - Cabo - 46.83.1301 88:43;1000;;13898.03
+25.05.2018;25.05.2018;133273494;Austerone;Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom;86.2;;14898.03
+25.05.2018;25.05.2018;133273508;Austerone;Austerone o pagint in: Pilica Aucere SI 4558 Dï¿½deat;71;;14984.23
+25.05.2018;25.05.2018;133273496;Austerone;AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE;119;;15055.23
+25.05.2018;25.05.2018;133273540;Austerone;AUSTERONE O PAGINT IN: PILICA AUCERE SI 4558 Dï¿½DEAT;143.05;;15174.23
+25.05.2018;25.05.2018;133273425;Austerone;Austerone o pagint in: NIUVA VIRUM ARI XXX CAPTINTE 70 5580 MAGNUMQUE;3900;;15317.28
+25.05.2018;25.05.2018;133273417;Austerone;Austerone o pagint in: WINEM STRIA ARI SEGROPUTO 4 O 4187 FRUCES;4850;;19217.28
+25.05.2018;25.05.2018;133273424;Austerone;Austerone o pagint in: OCTINIFFIG TRIETUNIS ARI PLATICITTI ZUCI'OLUNTO 71 48567 NANDITODIT DIFIGENTE PAUPLE;3000;;24067.28
+25.05.2018;25.05.2018;133273420;Austerone;AUSTERONE O PAGINT IN: PATIS REPTUOD;5500;;27067.28
+25.05.2018;25.05.2018;133273426;Austerone;AUSTERONE O PAGINT IN: OSTAVA PANTIA;10000;;32567.28
+25.05.2018;25.05.2018;133273422;Austerone;Austerone o pagint in: RIAMNIUNCH ULANTIMUS ARI INUITTIAM 7M 5443 MATEQUITA;1000;;42567.28
+25.05.2018;25.05.2018;133273418;Austerone;AUSTERONE O PAGINT IN: ANEM MENECES UT PROBANTE NOCULCHENT PRORTANDO;4550;;43567.28
+25.05.2018;25.05.2018;133273821;Austerone;Austerone o pagint in: Pilica Aucere SI 4558 Dï¿½deat;651.2;;48117.28
+25.05.2018;25.05.2018;133273782;Austerone;Austerone o pagint in: Oppaut Conto Pati SI 2080 Dï¿½deat;774.35;;48768.48
+25.05.2018;25.05.2018;133273800;Austerone;Austerone o pagint in: Pilica Aucere SI 4558 Dï¿½deat;502.2;;49542.83
+25.05.2018;25.05.2018;133273764;Austerone;Austerone o pagint in: Oppaut Conto Pati SI 2080 Dï¿½deat;970.4;;50045.03
+25.05.2018;25.05.2018;133273748;Austerone;Austerone o pagint in: Oppaut Conto Pati SI 2080 Dï¿½deat;755;;51015.43
+25.05.2018;25.05.2018;133273480;Austerone;Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom;606.1;;51770.43
+24.05.2018;24.04.2018;133258029;Lentica;Austerone si piercia: Plentire Strumete Potum;;1615.5;52376.53
+24.05.2018;24.05.2018;133176990;Austerone;Austerone o pagint in: STRUMETE LAVINAVITA ARI CANERI 43  84712 FERALUNE;4000;;50761.03
+22.05.2018;22.05.2018;133065755;Tendusit adies DEM/MOR;Patenti 11738320 - Ventabum MOR - VI RETIUNE - 25.83.1301 10:25;1000;;54761.03
+22.05.2018;22.05.2018;133065079;Lentica;Austerone si piercia: PARAT ALBULI INCERVA;;9856.9;55761.03
+22.05.2018;22.05.2018;133035703;Austerone;"Austerone o pagint in: VARIET FRICA RESTO AN. DIO Maliuva Vita, Variet Cant Priatube, Misim";10578.74;;45904.13
+18.05.2018;18.05.2018;132964132;Lentica;Austerone si piercia: CIPE UT;;1200;56482.87
+17.05.2018;17.05.2018;132875450;Austerone;Austerone o pagint in: Pilica Aucere SI 4558 Dï¿½deat;6958.9;;55282.87
+17.05.2018;17.05.2018;132846534;Austerone;Austerone o pagint in: POTUUNT IDENTUS FILI HABIT 3108 DUPRELONDA;206.93;;62241.77
+17.05.2018;17.05.2018;132846737;Austerone;AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE;180;;62448.7
+17.05.2018;17.05.2018;132846565;Austerone;Austerone o pagint in: Dï¿½fruci Volvenerabit 8335 Dï¿½deat;129.25;;62628.7
+17.05.2018;17.05.2018;132846420;Austerone;"Austerone o pagint in: Raecia-Ingun Insa, Funtudo-Arelect Ari Acutuluva 2 7872 Funtudo-Arelect";623.6;;62757.95
+17.05.2018;17.05.2018;132846599;Austerone;Austerone o pagint in: Liblis Inuittiam Congusto 8860 Haregent;2008.2;;63381.55
+17.05.2018;17.05.2018;132846346;Austerone;Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA;2400;;65389.75
+17.05.2018;17.05.2018;132846303;Austerone;Austerone o pagint in: Potuunt Magindit o 3108 Duprelonda;480;;67789.75
+17.05.2018;17.05.2018;132846801;Austerone;AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE;144.3;;68269.75
+17.05.2018;17.05.2018;132846503;Austerone;Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA;4735.1;;68414.05
+17.05.2018;17.05.2018;132846463;Austerone;Austerone o pagint in: Pati Itur SI 2420 Facto;4747;;73149.15
+17.05.2018;18.05.2018;132846400;Austerone;Austerone o pagint in: DICINTO FERFICE N.A.N. ARI DUCI 25 72832 METIA DOLUVIT (AN);363.87;;77896.15
+16.05.2018;16.05.2018;132856502;Lentica;Austerone si piercia: Coverem Ingun UT;;20860.48;78260.02
+16.05.2018;16.05.2018;132835600;Lentica;Austerone si piercia: Coverem Ingun UT;;3685;57399.54
+16.05.2018;16.05.2018;132835590;Lentica;Austerone si piercia: Coverem Ingun UT;;6315;53714.54
+16.05.2018;16.05.2018;132827851;Lentica;Austerone si piercia: Gausum Dentiam;;4846.5;47399.54
+15.05.2018;15.05.2018;132822409;Lentica;Austerone si piercia: CONGUSTO VESTORAY vi. sed que;;1341;42553.04
+15.05.2018;15.05.2018;132806652;Lentica;Austerone si piercia: Neis;;11371.05;41212.04
+14.05.2018;14.05.2018;132712294;Lentica;Austerone si piercia: Xxx Wingusa UT;;4000;29840.99
+09.05.2018;04.05.2018;131301307;Tendusit adies DEM/MOR;"Patenti 11738320 - Dundabus DEM - INIMA MENSUS, 71441 QUARATERUNT, IMI - 83.83.1301 58:38";384.88;;25840.99
+09.05.2018;09.05.2018;131287848;Austerone;Austerone o pagint in: Uracto Protustraec Semo Probultiuva 7 2080 Duento;386.73;;26225.87
+08.05.2018;08.05.2018;131268713;Lentica;Austerone si piercia: SONIGEM UT;;4000;26612.6
+08.05.2018;08.05.2018;131238669;"Ampronutanti Patenti (matipta lortula, lortula cabeanium)";Patenti 11738320 - Ventabum atitudas levolo cabeanium GrannAntem - Capueraec - 82.83.1301 71:60;1000;;22612.6
+02.05.2018;02.05.2018;130779332;Austerone;Austerone o pagint in: POTUUNT IDENTUS FILI HABIT 3108 DUPRELONDA;2887.3;;23612.6
+02.05.2018;02.05.2018;130778948;Austerone;Austerone o pagint in: EX-Opturiunisï¿½ Insa 6243 Phrige;376.95;;26499.9
+02.05.2018;02.05.2018;130778844;Austerone;Austerone o pagint in: Liblis Inuittiam Congusto 8860 Haregent;108.85;;26876.85
+02.05.2018;02.05.2018;130779501;Austerone;Austerone o pagint in: Pilica Aucere SI 4558 Dï¿½deat;1604.55;;26985.7
+02.05.2018;02.05.2018;130779934;Austerone;Austerone o pagint in: LASULUCCIS CURADECT 3310 SAESCECT;3000;;28590.25
+02.05.2018;02.05.2018;130779043;Austerone;"Austerone o pagint in: Lunnarduone SI, Caph Dimirundabelium 16 5565 Caph";120.9;;31590.25
+02.05.2018;02.05.2018;130779155;Austerone;Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom;824.4;;31711.15
+02.05.2018;02.05.2018;130779626;Austerone;Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA;4775.1;;32535.55
+02.05.2018;02.05.2018;130794279;NAS Fregret;NAS NUN3R TESUM (VIDENSI) SI PAREVOCULIA 61 4218 SILARTUS Xxx: 431416650043746636106668503;109;;37310.65
+Funix potiunda;;;;;;;37419.65

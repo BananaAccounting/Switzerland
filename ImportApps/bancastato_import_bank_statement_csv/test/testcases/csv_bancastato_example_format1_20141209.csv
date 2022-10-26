@@ -1,55 +1,55 @@
-Data,Descrizione movimento,Rif. esterno,Testo contabilizzazione,Data valuta,Quantità,Saldo,Divisa
-09.12.14,Credito,40508997,Pagamento in entrata: Luigi e Gilda Scoglio,10.12.14,26'500.00,187'308.94,CHF
-05.12.14,Credito,40332639,Pagamento in entrata: BIZZOZERO MAURO,05.12.14,200.00,160'808.94,CHF
-03.12.14,Versamento postale,40239155,Pagamento in entrata: Secondo cedola postale,03.12.14,3'996.45,160'608.94,CHF
-02.12.14,Versamento postale,40176096,Pagamento in entrata: Secondo cedola postale,02.12.14,1'996.45,156'612.49,CHF
-28.11.14,Account Management Fee - Debit Order,39638441,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,30.11.14,-3.00,154'616.04,CHF
-06.11.14,Credito,38769976,Pagamento in entrata: BIZZOZERO MAURO,06.11.14,200.00,154'619.04,CHF
-03.11.14,Versamento postale,38616685,Pagamento in entrata: Secondo cedola postale,03.11.14,3'996.45,154'419.04,CHF
-30.10.14,Account Management Fee - Debit Order,38153452,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,31.10.14,-3.00,150'422.59,CHF
-07.10.14,Versamento postale,37251413,Pagamento in entrata: Secondo cedola postale,07.10.14,997.65,150'425.59,CHF
-06.10.14,Credito,37171218,Pagamento in entrata: BIZZOZERO MAURO,06.10.14,200.00,149'427.94,CHF
-02.10.14,Versamento postale,37037059,Pagamento in entrata: Secondo cedola postale,02.10.14,3'996.45,149'227.94,CHF
-30.09.14,Pagamento interessi,36921807,30.06.14-30.09.14,30.09.14,13.89,145'231.49,CHF
-29.09.14,Mortgage Acc Mngt Fee - Debit Order,36470551,Spese: spese gestione conto ipoteca,30.09.14,-5.00,145'217.60,CHF
-29.09.14,Mortgage Acc Mngt Fee - Debit Order,36470535,Spese: spese gestione conto ipoteca,30.09.14,-5.00,145'222.60,CHF
-29.09.14,Client Fees - Debit Order,36130948,Spese: spese di relazione,30.09.14,-19.20,145'227.60,CHF
-29.09.14,Account Management Fee - Debit Order,36312266,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,30.09.14,-3.00,145'246.80,CHF
-26.09.14,Pagamento interessi e ammortamento,36669634,"Pagamento interessi e ammortamento: Ipoteca variabile CHF, 3.00%, 10.08.2010",30.09.14,-1'687.63,145'249.80,CHF
-26.09.14,Pagamento interessi e ammortamento,36667663,"Pagamento interessi e ammortamento: Ipoteca variabile CHF, 3.25%, 10.08.2010",30.09.14,-3'413.59,146'937.43,CHF
-11.09.14,Versamento postale,35510944,Pagamento in entrata: Secondo cedola postale,11.09.14,997.65,150'351.02,CHF
-05.09.14,Credito,35283061,Pagamento in entrata: BIZZOZERO MAURO,05.09.14,200.00,149'353.37,CHF
-02.09.14,Versamento postale,35062537,Pagamento in entrata: Secondo cedola postale,02.09.14,3'996.45,149'153.37,CHF
-01.09.14,Versamento postale,34979331,Pagamento in entrata: Secondo cedola postale,01.09.14,11'995.55,145'156.92,CHF
-29.08.14,Account Management Fee - Debit Order,34534513,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,31.08.14,-3.00,133'161.37,CHF
-12.08.14,Versamento postale,33804086,Pagamento in entrata: Secondo cedola postale,12.08.14,997.65,133'164.37,CHF
-06.08.14,Credito,33567676,Pagamento in entrata: BIZZOZERO MAURO,06.08.14,200.00,132'166.72,CHF
-30.07.14,Account Management Fee - Debit Order,32817314,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,31.07.14,-3.00,131'966.72,CHF
-24.07.14,Versamento postale,32544884,Pagamento in entrata: Secondo cedola postale,24.07.14,3'996.45,131'969.72,CHF
-10.07.14,Versamento postale,31878403,Pagamento in entrata: Secondo cedola postale,10.07.14,997.65,127'973.27,CHF
-10.07.14,Tax: Cantonal Tax on macc,31907584,Tax: Cantonal Tax on macc: 1734607C000C Conto BASE corrente CHF,30.06.14,-10.00,126'975.62,CHF
-04.07.14,Credito,31464484,Pagamento in entrata: BIZZOZERO MAURO,04.07.14,200.00,126'985.62,CHF
-30.06.14,Pagamento interessi,31205358,31.12.13-30.06.14,30.06.14,14.23,126'785.62,CHF
-01.07.14,Versamento postale,31127107,Pagamento in entrata: Secondo cedola postale,30.06.14,4'996.45,126'771.39,CHF
-30.06.14,Prelevamento,31128118,Prelevamento,30.06.14,-26'500.00,121'774.94,CHF
-27.06.14,Client Fees - Debit Order,30379032,Spese: spese di relazione,30.06.14,-7.20,148'274.94,CHF
-27.06.14,Mortgage Acc Mngt Fee - Debit Order,30695216,Spese: spese gestione conto ipoteca,30.06.14,-5.00,148'282.14,CHF
-27.06.14,Mortgage Acc Mngt Fee - Debit Order,30695213,Spese: spese gestione conto ipoteca,30.06.14,-5.00,148'287.14,CHF
-27.06.14,Account Management Fee - Debit Order,30542243,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,30.06.14,-3.00,148'292.14,CHF
-27.06.14,Tax: Cantonal Tax,30946657,Tax: Cantonal Tax: CHF,26.06.14,-10.00,148'295.14,CHF
-27.06.14,Tax: Cantonal Tax,30943039,Tax: Cantonal Tax: CHF,26.06.14,-10.00,148'305.14,CHF
-26.06.14,Pagamento interessi e ammortamento,30859904,"Pagamento interessi e ammortamento: Ipoteca variabile CHF, 3.00%, 10.08.2010",30.06.14,-1'697.00,148'315.14,CHF
-26.06.14,Pagamento interessi e ammortamento,30854497,"Pagamento interessi e ammortamento: Ipoteca variabile CHF, 3.25%, 10.08.2010",30.06.14,-3'427.81,150'012.14,CHF
-23.06.14,Versamento postale,30153767,Pagamento in entrata: Secondo cedola postale,20.06.14,3'996.45,153'439.95,CHF
-19.06.14,Versamento postale,30073975,Pagamento in entrata: Secondo cedola postale,18.06.14,4'996.45,149'443.50,CHF
-06.06.14,Credito,29605533,Pagamento in entrata: BIZZOZERO MAURO,06.06.14,200.00,144'447.05,CHF
-30.05.14,Account Management Fee - Debit Order,28902686,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,31.05.14,-3.00,144'247.05,CHF
-29.05.14,Versamento postale,29118948,Pagamento in entrata: Secondo cedola postale,28.05.14,997.65,144'250.05,CHF
-26.05.14,Versamento postale,28581960,Pagamento in entrata: Secondo cedola postale,23.05.14,3'996.45,143'252.40,CHF
-13.05.14,Versamento postale,28124862,Pagamento in entrata: Secondo cedola postale,12.05.14,1'996.45,139'255.95,CHF
-06.05.14,Credito,27798169,Pagamento in entrata: BIZZOZERO MAURO,06.05.14,200.00,137'259.50,CHF
-29.04.14,Account Management Fee - Debit Order,26985602,Account Management Fee - Debit Order: 1734607C000C Conto BASE corrente CHF,30.04.14,-3.00,137'059.50,CHF
-28.04.14,Versamento postale,27167668,Pagamento in entrata: EINZAHLER SIEHE SEPARATE GUTSCHRIFTANZEIGE,25.04.14,3'996.45,137'062.50,CHF
-15.04.14,Versamento postale,26489869,Pagamento in entrata: EINZAHLER SIEHE SEPARATE GUTSCHRIFTANZEIGE,14.04.14,997.65,133'066.05,CHF
-04.04.14,Credito,26063462,Incoming Payment: PGE4328740930001,04.04.14,200.00,132'068.40,CHF
-31.03.14,Trasferimento dati,25112829,Saldo migrazione conto: 1734607001000001,31.03.14,131'868.40,131'868.40,CHF
+Data,Descrizione movimento,Rif. esterno,Testo contabilizzazione,Data valuta,Quantitï¿½,Saldo,Divisa
+09.12.14,Dorunge,40508997,Vivitalis in vempede: Condo o Olvus Sempava,10.12.14,26'500.00,187'308.94,VIT
+05.12.14,Dorunge,40332639,Vivitalis in vempede: HUMENTUOR CIENS,05.12.14,200.00,160'808.94,VIT
+03.12.14,Pupregriam sungere,40239155,Vivitalis in vempede: Gantipe forsus sungere,03.12.14,3'996.45,160'608.94,VIT
+02.12.14,Pupregriam sungere,40176096,Vivitalis in vempede: Gantipe forsus sungere,02.12.14,1'996.45,156'612.49,VIT
+28.11.14,Praduci Mentagniam Sec - Insal Eorum,39638441,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,30.11.14,-3.00,154'616.04,VIT
+06.11.14,Dorunge,38769976,Vivitalis in vempede: HUMENTUOR CIENS,06.11.14,200.00,154'619.04,VIT
+03.11.14,Pupregriam sungere,38616685,Vivitalis in vempede: Gantipe forsus sungere,03.11.14,3'996.45,154'419.04,VIT
+30.10.14,Praduci Mentagniam Sec - Insal Eorum,38153452,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,31.10.14,-3.00,150'422.59,VIT
+07.10.14,Pupregriam sungere,37251413,Vivitalis in vempede: Gantipe forsus sungere,07.10.14,997.65,150'425.59,VIT
+06.10.14,Dorunge,37171218,Vivitalis in vempede: HUMENTUOR CIENS,06.10.14,200.00,149'427.94,VIT
+02.10.14,Pupregriam sungere,37037059,Vivitalis in vempede: Gantipe forsus sungere,02.10.14,3'996.45,149'227.94,VIT
+30.09.14,Vivitalis logiliuro,36921807,30.06.14-30.09.14,30.09.14,13.89,145'231.49,VIT
+29.09.14,Factuunt Xxx Nant Sec - Insal Eorum,36470551,Capta: capta pascutam culum indives,30.09.14,-5.00,145'217.60,VIT
+29.09.14,Factuunt Xxx Nant Sec - Insal Eorum,36470535,Capta: capta pascutam culum indives,30.09.14,-5.00,145'222.60,VIT
+29.09.14,Sequid Pote - Insal Eorum,36130948,Capta: capta eo noverimum,30.09.14,-19.20,145'227.60,VIT
+29.09.14,Praduci Mentagniam Sec - Insal Eorum,36312266,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,30.09.14,-3.00,145'246.80,VIT
+26.09.14,Vivitalis logiliuro o ceribretiusa,36669634,"Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.34%, 85.88.8464",30.09.14,-1'687.63,145'249.80,VIT
+26.09.14,Vivitalis logiliuro o ceribretiusa,36667663,"Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.47%, 85.88.8464",30.09.14,-3'413.59,146'937.43,VIT
+11.09.14,Pupregriam sungere,35510944,Vivitalis in vempede: Gantipe forsus sungere,11.09.14,997.65,150'351.02,VIT
+05.09.14,Dorunge,35283061,Vivitalis in vempede: HUMENTUOR CIENS,05.09.14,200.00,149'353.37,VIT
+02.09.14,Pupregriam sungere,35062537,Vivitalis in vempede: Gantipe forsus sungere,02.09.14,3'996.45,149'153.37,VIT
+01.09.14,Pupregriam sungere,34979331,Vivitalis in vempede: Gantipe forsus sungere,01.09.14,11'995.55,145'156.92,VIT
+29.08.14,Praduci Mentagniam Sec - Insal Eorum,34534513,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,31.08.14,-3.00,133'161.37,VIT
+12.08.14,Pupregriam sungere,33804086,Vivitalis in vempede: Gantipe forsus sungere,12.08.14,997.65,133'164.37,VIT
+06.08.14,Dorunge,33567676,Vivitalis in vempede: HUMENTUOR CIENS,06.08.14,200.00,132'166.72,VIT
+30.07.14,Praduci Mentagniam Sec - Insal Eorum,32817314,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,31.07.14,-3.00,131'966.72,VIT
+24.07.14,Pupregriam sungere,32544884,Vivitalis in vempede: Gantipe forsus sungere,24.07.14,3'996.45,131'969.72,VIT
+10.07.14,Pupregriam sungere,31878403,Vivitalis in vempede: Gantipe forsus sungere,10.07.14,997.65,127'973.27,VIT
+10.07.14,Sal: Perinibi Sal me mula,31907584,Sal: Perinibi Sal me mula: 8851224W455W Culum FREA conterva VIT,30.06.14,-10.00,126'975.62,VIT
+04.07.14,Dorunge,31464484,Vivitalis in vempede: HUMENTUOR CIENS,04.07.14,200.00,126'985.62,VIT
+30.06.14,Vivitalis logiliuro,31205358,31.12.13-30.06.14,30.06.14,14.23,126'785.62,VIT
+01.07.14,Pupregriam sungere,31127107,Vivitalis in vempede: Gantipe forsus sungere,30.06.14,4'996.45,126'771.39,VIT
+30.06.14,Opetirunaver,31128118,Opetirunaver,30.06.14,-26'500.00,121'774.94,VIT
+27.06.14,Sequid Pote - Insal Eorum,30379032,Capta: capta eo noverimum,30.06.14,-7.20,148'274.94,VIT
+27.06.14,Factuunt Xxx Nant Sec - Insal Eorum,30695216,Capta: capta pascutam culum indives,30.06.14,-5.00,148'282.14,VIT
+27.06.14,Factuunt Xxx Nant Sec - Insal Eorum,30695213,Capta: capta pascutam culum indives,30.06.14,-5.00,148'287.14,VIT
+27.06.14,Praduci Mentagniam Sec - Insal Eorum,30542243,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,30.06.14,-3.00,148'292.14,VIT
+27.06.14,Sal: Perinibi Sal,30946657,Sal: Perinibi Sal: VIT,26.06.14,-10.00,148'295.14,VIT
+27.06.14,Sal: Perinibi Sal,30943039,Sal: Perinibi Sal: VIT,26.06.14,-10.00,148'305.14,VIT
+26.06.14,Vivitalis logiliuro o ceribretiusa,30859904,"Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.34%, 85.88.8464",30.06.14,-1'697.00,148'315.14,VIT
+26.06.14,Vivitalis logiliuro o ceribretiusa,30854497,"Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.47%, 85.88.8464",30.06.14,-3'427.81,150'012.14,VIT
+23.06.14,Pupregriam sungere,30153767,Vivitalis in vempede: Gantipe forsus sungere,20.06.14,3'996.45,153'439.95,VIT
+19.06.14,Pupregriam sungere,30073975,Vivitalis in vempede: Gantipe forsus sungere,18.06.14,4'996.45,149'443.50,VIT
+06.06.14,Dorunge,29605533,Vivitalis in vempede: HUMENTUOR CIENS,06.06.14,200.00,144'447.05,VIT
+30.05.14,Praduci Mentagniam Sec - Insal Eorum,28902686,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,31.05.14,-3.00,144'247.05,VIT
+29.05.14,Pupregriam sungere,29118948,Vivitalis in vempede: Gantipe forsus sungere,28.05.14,997.65,144'250.05,VIT
+26.05.14,Pupregriam sungere,28581960,Vivitalis in vempede: Gantipe forsus sungere,23.05.14,3'996.45,143'252.40,VIT
+13.05.14,Pupregriam sungere,28124862,Vivitalis in vempede: Gantipe forsus sungere,12.05.14,1'996.45,139'255.95,VIT
+06.05.14,Dorunge,27798169,Vivitalis in vempede: HUMENTUOR CIENS,06.05.14,200.00,137'259.50,VIT
+29.04.14,Praduci Mentagniam Sec - Insal Eorum,26985602,Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT,30.04.14,-3.00,137'059.50,VIT
+28.04.14,Pupregriam sungere,27167668,Vivitalis in vempede: TOREGULUS PATEM FRESTORE AUXILLUNITQUATELL,25.04.14,3'996.45,137'062.50,VIT
+15.04.14,Pupregriam sungere,26489869,Vivitalis in vempede: TOREGULUS PATEM FRESTORE AUXILLUNITQUATELL,14.04.14,997.65,133'066.05,VIT
+04.04.14,Dorunge,26063462,Curbiror Coepare: JYX3448217112612,04.04.14,200.00,132'068.40,VIT
+31.03.14,Volluvicilide vart,25112829,Copem perverumen culum: 3830465034300447,31.03.14,131'868.40,131'868.40,VIT
