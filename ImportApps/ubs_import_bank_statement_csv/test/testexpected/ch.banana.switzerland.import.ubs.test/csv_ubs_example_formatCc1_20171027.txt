@@ -20,14 +20,14 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateDocument & Doc & Description & Income & Expenses\\
-2017-10-27 &  &  & "IL PULCINELLA COURTETELLE CHE" &  & 78.00\\
-2017-10-30 &  &  & "Amazon Digital Dwnlds 866-321-8851 LUX" &  & 16.68\\
-2017-11-03 &  &  & "Restaurant Cercle de l Neuch�tel CHE" &  & 35.00\\
-2017-11-03 &  &  & "1.75\% MAJOR. CHF A L'ETRANGER" &  & 2.40\\
-2017-11-03 &  &  & "PAYPAL *VENGIT KFT 203334050 HUN" &  & 137.31\\
-2017-11-02 &  &  & "ITUNES.COM/BILL ITUNES.COM IRL" &  & 6.00\\
-2017-11-06 &  &  & "ITUNES.COM/BILL ITUNES.COM IRL" &  & 3.00\\
-2017-11-15 &  &  & "www.banana.ch LUGANO CHE" &  & 189.00\\
+2017-10-27 &  &  & "EX DERICINSIT AUCESUSQUAM XXX" &  & 78.00\\
+2017-10-30 &  &  & "Amplae Videcum Effila 662-747-1352 LIS" &  & 16.68\\
+2017-11-03 &  &  & "Fabulausum Sectum in o Hunit�sim XXX" &  & 35.00\\
+2017-11-03 &  &  & "1.42\% PLENT. CET O U'AEPRITAE" &  & 2.40\\
+2017-11-03 &  &  & "HODUCI *PONUBI ABO 848585271 OPE" &  & 137.31\\
+2017-11-02 &  &  & "STANTO.XXX/RELA STANTO.XXX SED" &  & 6.00\\
+2017-11-06 &  &  & "STANTO.XXX/RELA STANTO.XXX SED" &  & 3.00\\
+2017-11-15 &  &  & "deo.scideo.at JUBIBI XXX" &  & 189.00\\
 \\
 \end{tablevalue}
 \end{document}
