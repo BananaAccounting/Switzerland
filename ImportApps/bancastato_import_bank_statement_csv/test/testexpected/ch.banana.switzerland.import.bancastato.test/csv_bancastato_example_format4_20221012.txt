@@ -1,0 +1,57 @@
+%%info_test_name{csv_bancastato_example_format4_20221012}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2022-10-11 & 2022-10-11 &  & 123456789 & Descrizione Pagamento in entrata & 208.85 & \\
+2022-10-10 & 2022-10-10 &  & 123456789 & Descrizione Pagamento &  & 1710.30\\
+2022-10-07 & 2022-10-07 &  & 123456789 & Descrizione Pagamento Data operazione: 07.10.2022, importo totale originale: CHF 439.20, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 439.20 & 439.20 & \\
+2022-10-06 & 2022-10-06 &  & 123456789 & Pagamento collettivo credito Data operazione: 06.10.2022, importo totale originale: CHF 293.00, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 293.00 & 293.00 & \\
+2022-10-05 & 2022-10-05 &  & 123456789 & Descrizione Pagamento in entrata & 340.30 & \\
+2022-10-04 & 2022-10-04 &  & 234567890 & Descrizione Pagamento Data operazione: 04.10.2022, importo totale originale: CHF 1'168.25, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 1'168.25 & 1168.25 & \\
+2022-10-04 & 2022-10-04 &  & 345678901 & Descrizione Pagamento &  & 80.00\\
+2022-10-03 & 2022-10-03 &  & 456789012 & Descrizione Pagamento in entrata & 340.30 & \\
+2022-10-03 & 2022-10-03 &  & 567890123 & Descrizione Pagamento &  & 1017.75\\
+2022-10-03 & 2022-10-03 &  & 678901234 & Descrizione Pagamento &  & 150.00\\
+2022-09-30 & 2022-09-30 &  & 789012345 & Descrizione Pagamento Data operazione: 30.09.2022, importo totale originale: CHF 1'107.95, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 1'107.95 & 1107.95 & \\
+2022-09-30 & 2022-09-30 &  & 890123456 & Descrizione Pagamento &  & 825.00\\
+2022-09-30 & 2022-09-30 &  & 901234567 & Descrizione Pagamento &  & 2950.00\\
+2022-09-30 & 2022-09-30 &  & 098765432 & Descrizione Pagamento &  & 10.95\\
+2022-09-30 & 2022-09-30 &  & 987654321 & Descrizione Pagamento &  & 4750.00\\
+2022-09-30 & 2022-09-30 &  & 876543210 & Descrizione Pagamento &  & 269.10\\
+2022-09-30 & 2022-09-30 &  & 765432109 & Descrizione Pagamento &  & 403.00\\
+2022-09-30 & 2022-09-30 &  & 654321987 & Descrizione Pagamento &  & 299.60\\
+2022-09-30 & 2022-09-30 &  & 543210987 & Descrizione Pagamento &  & 391.00\\
+2022-09-29 & 2022-09-29 &  & 357124535 & Descrizione Pagamento Data operazione: 29.09.2022, importo totale originale: CHF 4'486.30, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 4'486.30 & 4486.30 & \\
+2022-09-29 & 2022-09-29 &  & 021948472 & Descrizione Pagamento &  & 204.80\\
+2022-09-29 & 2022-09-30 &  & 098138295 & Descrizione Pagamento &  & 6.00\\
+2022-09-28 & 2022-09-28 &  & 091569435 & Descrizione Pagamento Data operazione: 28.09.2022, importo totale originale: CHF 7'309.15, spese totali a carico del cliente: CHF 0.00, importo accreditato: CHF 7'309.15 & 7309.15 & \\
+2022-09-28 & 2022-09-28 &  & 123098456 & Descrizione Pagamento &  & 71.60\\
+2022-09-27 & 2022-09-27 &  & 019283948 & Descrizione Pagamento &  & 600.00\\
+2022-09-26 & 2022-09-26 &  & 047947352 & Descrizione Pagamento in entrata & 500.00 & \\
+2022-09-23 & 2022-09-23 &  & 564782801 & Descrizione Pagamento in entrata & 286.70 & \\
+2022-09-23 & 2022-09-23 &  & 106592877 & Descrizione Pagamento &  & 500.00\\
+2022-09-23 & 2022-09-23 &  & 223904573 & Descrizione Pagamento &  & 4450.00\\
+2022-09-23 & 2022-09-23 &  & 490275928 & Descrizione Pagamento &  & 64.60\\
+2022-09-21 & 2022-09-21 &  & 009347524 & Descrizione Pagamento in entrata & 154.05 & \\
+2022-09-19 & 2022-09-19 &  & 123456789 & Descrizione Pagamento in entrata & 500.00 & \\
+\\
+\end{tablevalue}
+\end{document}

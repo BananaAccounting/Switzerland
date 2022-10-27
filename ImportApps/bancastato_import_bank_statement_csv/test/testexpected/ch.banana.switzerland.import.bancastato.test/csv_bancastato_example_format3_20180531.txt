@@ -1,0 +1,90 @@
+%%info_test_name{csv_bancastato_example_format3_20180531}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2018-05-30 & 2018-05-30 &  & 133992566 & Austerone si piercia: PREX Larestogis CHERUNTULO & 2000 & \\
+2018-05-30 & 2018-05-31 &  & 133965294 & Canducus ferimaxi: Suiriere cocus (18)  XXX, 2.76\%, 57.83.1301-85.80.1301 & 135000 & \\
+2018-05-30 & 2018-05-30 &  & 133941285 & Austerone si piercia: Monam Portum v'nompoepe UT & 25000 & \\
+2018-05-30 & 2018-05-30 &  & 133941284 & Austerone si piercia: Monam Portum v'nompoepe UT & 6000 & \\
+2018-05-30 & 2018-05-30 &  & 133941280 & Austerone si piercia: Monam Portum v'nompoepe UT & 3500 & \\
+2018-05-30 & 2018-05-31 &  & 133515274 & Musimea Volumeline Per - Libus Resus: 5661738E212B Famea STRI priertur XXX &  & 8\\
+2018-05-30 & 2018-05-29 &  & 133922368 & Men: Mittiunt Men: XXX &  & 10\\
+2018-05-29 & 2018-05-29 &  & 133921234 & Orant: orant evescred famea famusto &  & 5\\
+2018-05-29 & 2018-05-31 &  & 133921104 & Riciusto o eveniter: Suiriere cocus (18)  XXX, 2.76\%, 57.83.1301-57.83.1301 &  & 135156.94\\
+2018-05-25 & 2018-05-25 &  & 133602411 & Patenti 11738320 - Ventabum atitudas levolo cabeanium GrannAntem - Cabo - 46.83.1301 88:43 &  & 1000\\
+2018-05-25 & 2018-05-25 &  & 133273494 & Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom &  & 86.2\\
+2018-05-25 & 2018-05-25 &  & 133273508 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 71\\
+2018-05-25 & 2018-05-25 &  & 133273496 & AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE &  & 119\\
+2018-05-25 & 2018-05-25 &  & 133273540 & AUSTERONE O PAGINT IN: PILICA AUCERE SI 4558 D�DEAT &  & 143.05\\
+2018-05-25 & 2018-05-25 &  & 133273425 & Austerone o pagint in: NIUVA VIRUM ARI XXX CAPTINTE 70 5580 MAGNUMQUE &  & 3900\\
+2018-05-25 & 2018-05-25 &  & 133273417 & Austerone o pagint in: WINEM STRIA ARI SEGROPUTO 4 O 4187 FRUCES &  & 4850\\
+2018-05-25 & 2018-05-25 &  & 133273424 & Austerone o pagint in: OCTINIFFIG TRIETUNIS ARI PLATICITTI ZUCI'OLUNTO 71 48567 NANDITODIT DIFIGENTE PAUPLE &  & 3000\\
+2018-05-25 & 2018-05-25 &  & 133273420 & AUSTERONE O PAGINT IN: PATIS REPTUOD &  & 5500\\
+2018-05-25 & 2018-05-25 &  & 133273426 & AUSTERONE O PAGINT IN: OSTAVA PANTIA &  & 10000\\
+2018-05-25 & 2018-05-25 &  & 133273422 & Austerone o pagint in: RIAMNIUNCH ULANTIMUS ARI INUITTIAM 7M 5443 MATEQUITA &  & 1000\\
+2018-05-25 & 2018-05-25 &  & 133273418 & AUSTERONE O PAGINT IN: ANEM MENECES UT PROBANTE NOCULCHENT PRORTANDO &  & 4550\\
+2018-05-25 & 2018-05-25 &  & 133273821 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 651.2\\
+2018-05-25 & 2018-05-25 &  & 133273782 & Austerone o pagint in: Oppaut Conto Pati SI 2080 D�deat &  & 774.35\\
+2018-05-25 & 2018-05-25 &  & 133273800 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 502.2\\
+2018-05-25 & 2018-05-25 &  & 133273764 & Austerone o pagint in: Oppaut Conto Pati SI 2080 D�deat &  & 970.4\\
+2018-05-25 & 2018-05-25 &  & 133273748 & Austerone o pagint in: Oppaut Conto Pati SI 2080 D�deat &  & 755\\
+2018-05-25 & 2018-05-25 &  & 133273480 & Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom &  & 606.1\\
+2018-05-24 & 2018-04-24 &  & 133258029 & Austerone si piercia: Plentire Strumete Potum & 1615.5 & \\
+2018-05-24 & 2018-05-24 &  & 133176990 & Austerone o pagint in: STRUMETE LAVINAVITA ARI CANERI 43  84712 FERALUNE &  & 4000\\
+2018-05-22 & 2018-05-22 &  & 133065755 & Patenti 11738320 - Ventabum MOR - VI RETIUNE - 25.83.1301 10:25 &  & 1000\\
+2018-05-22 & 2018-05-22 &  & 133065079 & Austerone si piercia: PARAT ALBULI INCERVA & 9856.9 & \\
+2018-05-22 & 2018-05-22 &  & 133035703 & Austerone o pagint in: VARIET FRICA RESTO AN. DIO Maliuva Vita, Variet Cant Priatube, Misim &  & 10578.74\\
+2018-05-18 & 2018-05-18 &  & 132964132 & Austerone si piercia: CIPE UT & 1200 & \\
+2018-05-17 & 2018-05-17 &  & 132875450 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 6958.9\\
+2018-05-17 & 2018-05-17 &  & 132846534 & Austerone o pagint in: POTUUNT IDENTUS FILI HABIT 3108 DUPRELONDA &  & 206.93\\
+2018-05-17 & 2018-05-17 &  & 132846737 & AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE &  & 180\\
+2018-05-17 & 2018-05-17 &  & 132846565 & Austerone o pagint in: D�fruci Volvenerabit 8335 D�deat &  & 129.25\\
+2018-05-17 & 2018-05-17 &  & 132846420 & Austerone o pagint in: Raecia-Ingun Insa, Funtudo-Arelect Ari Acutuluva 2 7872 Funtudo-Arelect &  & 623.6\\
+2018-05-17 & 2018-05-17 &  & 132846599 & Austerone o pagint in: Liblis Inuittiam Congusto 8860 Haregent &  & 2008.2\\
+2018-05-17 & 2018-05-17 &  & 132846346 & Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA &  & 2400\\
+2018-05-17 & 2018-05-17 &  & 132846303 & Austerone o pagint in: Potuunt Magindit o 3108 Duprelonda &  & 480\\
+2018-05-17 & 2018-05-17 &  & 132846801 & AUSTERONE O PAGINT IN: MIDEVICA UT  3410 FRIGE &  & 144.3\\
+2018-05-17 & 2018-05-17 &  & 132846503 & Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA &  & 4735.1\\
+2018-05-17 & 2018-05-17 &  & 132846463 & Austerone o pagint in: Pati Itur SI 2420 Facto &  & 4747\\
+2018-05-17 & 2018-05-18 &  & 132846400 & Austerone o pagint in: DICINTO FERFICE N.A.N. ARI DUCI 25 72832 METIA DOLUVIT (AN) &  & 363.87\\
+2018-05-16 & 2018-05-16 &  & 132856502 & Austerone si piercia: Coverem Ingun UT & 20860.48 & \\
+2018-05-16 & 2018-05-16 &  & 132835600 & Austerone si piercia: Coverem Ingun UT & 3685 & \\
+2018-05-16 & 2018-05-16 &  & 132835590 & Austerone si piercia: Coverem Ingun UT & 6315 & \\
+2018-05-16 & 2018-05-16 &  & 132827851 & Austerone si piercia: Gausum Dentiam & 4846.5 & \\
+2018-05-15 & 2018-05-15 &  & 132822409 & Austerone si piercia: CONGUSTO VESTORAY vi. sed que & 1341 & \\
+2018-05-15 & 2018-05-15 &  & 132806652 & Austerone si piercia: Neis & 11371.05 & \\
+2018-05-14 & 2018-05-14 &  & 132712294 & Austerone si piercia: Xxx Wingusa UT & 4000 & \\
+2018-05-09 & 2018-05-04 &  & 131301307 & Patenti 11738320 - Dundabus DEM - INIMA MENSUS, 71441 QUARATERUNT, IMI - 83.83.1301 58:38 &  & 384.88\\
+2018-05-09 & 2018-05-09 &  & 131287848 & Austerone o pagint in: Uracto Protustraec Semo Probultiuva 7 2080 Duento &  & 386.73\\
+2018-05-08 & 2018-05-08 &  & 131268713 & Austerone si piercia: SONIGEM UT & 4000 & \\
+2018-05-08 & 2018-05-08 &  & 131238669 & Patenti 11738320 - Ventabum atitudas levolo cabeanium GrannAntem - Capueraec - 82.83.1301 71:60 &  & 1000\\
+2018-05-02 & 2018-05-02 &  & 130779332 & Austerone o pagint in: POTUUNT IDENTUS FILI HABIT 3108 DUPRELONDA &  & 2887.3\\
+2018-05-02 & 2018-05-02 &  & 130778948 & Austerone o pagint in: EX-Opturiunis� Insa 6243 Phrige &  & 376.95\\
+2018-05-02 & 2018-05-02 &  & 130778844 & Austerone o pagint in: Liblis Inuittiam Congusto 8860 Haregent &  & 108.85\\
+2018-05-02 & 2018-05-02 &  & 130779501 & Austerone o pagint in: Pilica Aucere SI 4558 D�deat &  & 1604.55\\
+2018-05-02 & 2018-05-02 &  & 130779934 & Austerone o pagint in: LASULUCCIS CURADECT 3310 SAESCECT &  & 3000\\
+2018-05-02 & 2018-05-02 &  & 130779043 & Austerone o pagint in: Lunnarduone SI, Caph Dimirundabelium 16 5565 Caph &  & 120.9\\
+2018-05-02 & 2018-05-02 &  & 130779155 & Austerone o pagint in: Vilei Aranentium Rehetion Constom Paratime 7463 Constom &  & 824.4\\
+2018-05-02 & 2018-05-02 &  & 130779626 & Austerone o pagint in: COGIS INUITTIAM IN PERIERIGINTIS STO/UT/INE 3108 DUPRELONDA &  & 4775.1\\
+2018-05-02 & 2018-05-02 &  & 130794279 & NAS NUN3R TESUM (VIDENSI) SI PAREVOCULIA 61 4218 SILARTUS Xxx: 431416650043746636106668503 &  & 109\\
+\\
+\end{tablevalue}
+\end{document}

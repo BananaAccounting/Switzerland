@@ -1,0 +1,79 @@
+%%info_test_name{csv_bancastato_example_format1_20141209}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2014-12-09 & 2014-12-10 &  & 40508997 & Vivitalis in vempede: Condo o Olvus Sempava & 26500.00 & \\
+2014-12-05 & 2014-12-05 &  & 40332639 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-12-03 & 2014-12-03 &  & 40239155 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-12-02 & 2014-12-02 &  & 40176096 & Vivitalis in vempede: Gantipe forsus sungere & 1996.45 & \\
+2014-11-28 & 2014-11-30 &  & 39638441 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-11-06 & 2014-11-06 &  & 38769976 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-11-03 & 2014-11-03 &  & 38616685 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-10-30 & 2014-10-31 &  & 38153452 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-10-07 & 2014-10-07 &  & 37251413 & Vivitalis in vempede: Gantipe forsus sungere & 997.65 & \\
+2014-10-06 & 2014-10-06 &  & 37171218 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-10-02 & 2014-10-02 &  & 37037059 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-09-30 & 2014-09-30 &  & 36921807 & 30.06.14-30.09.14 & 13.89 & \\
+2014-09-29 & 2014-09-30 &  & 36470551 & Capta: capta pascutam culum indives &  & 5.00\\
+2014-09-29 & 2014-09-30 &  & 36470535 & Capta: capta pascutam culum indives &  & 5.00\\
+2014-09-29 & 2014-09-30 &  & 36130948 & Capta: capta eo noverimum &  & 19.20\\
+2014-09-29 & 2014-09-30 &  & 36312266 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-09-26 & 2014-09-30 &  & 36669634 & Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.34\%, 85.88.8464 &  & 1687.63\\
+2014-09-26 & 2014-09-30 &  & 36667663 & Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.47\%, 85.88.8464 &  & 3413.59\\
+2014-09-11 & 2014-09-11 &  & 35510944 & Vivitalis in vempede: Gantipe forsus sungere & 997.65 & \\
+2014-09-05 & 2014-09-05 &  & 35283061 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-09-02 & 2014-09-02 &  & 35062537 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-09-01 & 2014-09-01 &  & 34979331 & Vivitalis in vempede: Gantipe forsus sungere & 11995.55 & \\
+2014-08-29 & 2014-08-31 &  & 34534513 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-08-12 & 2014-08-12 &  & 33804086 & Vivitalis in vempede: Gantipe forsus sungere & 997.65 & \\
+2014-08-06 & 2014-08-06 &  & 33567676 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-07-30 & 2014-07-31 &  & 32817314 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-07-24 & 2014-07-24 &  & 32544884 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-07-10 & 2014-07-10 &  & 31878403 & Vivitalis in vempede: Gantipe forsus sungere & 997.65 & \\
+2014-07-10 & 2014-06-30 &  & 31907584 & Sal: Perinibi Sal me mula: 8851224W455W Culum FREA conterva VIT &  & 10.00\\
+2014-07-04 & 2014-07-04 &  & 31464484 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-06-30 & 2014-06-30 &  & 31205358 & 31.12.13-30.06.14 & 14.23 & \\
+2014-07-01 & 2014-06-30 &  & 31127107 & Vivitalis in vempede: Gantipe forsus sungere & 4996.45 & \\
+2014-06-30 & 2014-06-30 &  & 31128118 & Opetirunaver &  & 26500.00\\
+2014-06-27 & 2014-06-30 &  & 30379032 & Capta: capta eo noverimum &  & 7.20\\
+2014-06-27 & 2014-06-30 &  & 30695216 & Capta: capta pascutam culum indives &  & 5.00\\
+2014-06-27 & 2014-06-30 &  & 30695213 & Capta: capta pascutam culum indives &  & 5.00\\
+2014-06-27 & 2014-06-30 &  & 30542243 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-06-27 & 2014-06-26 &  & 30946657 & Sal: Perinibi Sal: VIT &  & 10.00\\
+2014-06-27 & 2014-06-26 &  & 30943039 & Sal: Perinibi Sal: VIT &  & 10.00\\
+2014-06-26 & 2014-06-30 &  & 30859904 & Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.34\%, 85.88.8464 &  & 1697.00\\
+2014-06-26 & 2014-06-30 &  & 30854497 & Vivitalis logiliuro o ceribretiusa: Indives plerenige VIT, 0.47\%, 85.88.8464 &  & 3427.81\\
+2014-06-23 & 2014-06-20 &  & 30153767 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-06-19 & 2014-06-18 &  & 30073975 & Vivitalis in vempede: Gantipe forsus sungere & 4996.45 & \\
+2014-06-06 & 2014-06-06 &  & 29605533 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-05-30 & 2014-05-31 &  & 28902686 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-05-29 & 2014-05-28 &  & 29118948 & Vivitalis in vempede: Gantipe forsus sungere & 997.65 & \\
+2014-05-26 & 2014-05-23 &  & 28581960 & Vivitalis in vempede: Gantipe forsus sungere & 3996.45 & \\
+2014-05-13 & 2014-05-12 &  & 28124862 & Vivitalis in vempede: Gantipe forsus sungere & 1996.45 & \\
+2014-05-06 & 2014-05-06 &  & 27798169 & Vivitalis in vempede: HUMENTUOR CIENS & 200.00 & \\
+2014-04-29 & 2014-04-30 &  & 26985602 & Praduci Mentagniam Sec - Insal Eorum: 8851224W455W Culum FREA conterva VIT &  & 3.00\\
+2014-04-28 & 2014-04-25 &  & 27167668 & Vivitalis in vempede: TOREGULUS PATEM FRESTORE AUXILLUNITQUATELL & 3996.45 & \\
+2014-04-15 & 2014-04-14 &  & 26489869 & Vivitalis in vempede: TOREGULUS PATEM FRESTORE AUXILLUNITQUATELL & 997.65 & \\
+2014-04-04 & 2014-04-04 &  & 26063462 & Curbiror Coepare: JYX3448217112612 & 200.00 & \\
+2014-03-31 & 2014-03-31 &  & 25112829 & Copem perverumen culum: 3830465034300447 & 131868.40 & \\
+\\
+\end{tablevalue}
+\end{document}
