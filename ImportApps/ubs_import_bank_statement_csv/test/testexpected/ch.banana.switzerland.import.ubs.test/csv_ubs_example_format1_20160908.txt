@@ -20,98 +20,98 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
-2016-08-10 & 2016-08-10 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.10.08.16, Fil      Lordo        174,00, Com        0,91  Trx       3, Iva       0,00" & 173.09 & \\
-2016-08-10 & 2016-08-10 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.21978990, Doc 1 Fr. 66,00, Comm/ded 1,32" & 64.68 &  & \\
-2016-08-11 & 2016-08-11 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.11.08.16, Fil      Lordo        132,00, Com        0,81  Trx       3, Iva       0,00" & 131.19 &  & \\
-2016-08-12 & 2016-08-12 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.21996100, Doc 1 Fr. 370,00, Comm/ded 6,45" & 363.55 &  & \\
-2016-08-12 & 2016-08-12 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.12.08.16, Fil      Lordo         68,00, Com        0,31  Trx       1, Iva       0,00" & 67.69 &  & \\
-2016-08-12 & 2016-08-12 &  & "Dpd (Schweiz) Ag, Muelibachstrasse 41, 8107 Buchs" & -102.000 &  & D\\
-2016-08-12 & 2016-08-12 &  & "Dpd (Schweiz) Ag, Muelibachstrasse 41, 8107 Buchs" & -71.700 &  & D\\
-2016-08-12 & 2016-08-12 &  & "Ordine Collet. E-Banking" &  & 173.70 & S\\
-2016-08-12 & 2016-08-12 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano, Importo corrisposto600.00" &  & 662.80 & \\
-2016-08-15 & 2016-08-15 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.15.08.16, Fil      Lordo        918,00, Com        1,33  Trx       4, Iva       0,00" & 916.67 &  & \\
-2016-08-15 & 2016-08-15 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.21998199, Doc 2 Fr. 558,00, Comm/ded 9,63" & 548.37 &  & \\
-2016-08-15 & 2016-08-15 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/07, Brutto                534.00, Kommission             15.20" & 518.80 &  & \\
-2016-08-16 & 2016-08-16 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.15.08.16, Fil      Lordo       2275,00, Com       44,02  Trx       6, Iva       0,00" & 2230.98 &  & \\
-2016-08-16 & 2016-08-16 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.15.08.16, Fil      Lordo       1571,00, Com       29,40  Trx       9, Iva       0,00" & 1541.60 &  & \\
-2016-08-16 & 2016-08-16 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/09, Brutto                 99.00, Kommission              2.80" & 96.20 &  & \\
-2016-08-17 & 2016-08-17 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22018980, Doc 1 Fr. 268,00, Comm/ded 4,73" & 263.27 &  & \\
-2016-08-18 & 2016-08-18 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.18.08.16, Fil      Lordo        416,00, Com        0,95  Trx       3, Iva       0,00" & 415.05 &  & \\
-2016-08-18 & 2016-08-18 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 660.00 & \\
-2016-08-19 & 2016-08-19 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 19.08.16 09:15:18 Id: 24731900" & 12880.00 &  & \\
-2016-08-19 & 2016-08-19 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.19.08.16, Fil      Lordo        397,00, Com        1,41  Trx       4, Iva       0,00" & 395.59 &  & \\
-2016-08-19 & 2016-08-19 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 6600.00 & \\
-2016-08-22 & 2016-08-22 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.22.08.16, Fil      Lordo       1058,00, Com        1,65  Trx       5, Iva       0,00" & 1056.35 &  & \\
-2016-08-22 & 2016-08-22 &  & "Ordine E-Banking, Villeroy + Boch Creatable Ag, 5600 Lenzburg, Fattura No. 94421785" &  & 132.34 & \\
-2016-08-22 & 2016-08-22 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano, Importo corrisposto680.00" &  & 751.11 & \\
-2016-08-23 & 2016-08-23 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.22.08.16, Fil      Lordo       1069,00, Com       21,38  Trx       6, Iva       0,00" & 1047.62 &  & \\
-2016-08-23 & 2016-08-23 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.22.08.16, Fil      Lordo        946,00, Com       17,31  Trx       8, Iva       0,00" & 928.69 &  & \\
-2016-08-23 & 2016-08-23 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 800.00 & \\
-2016-08-23 & 2016-08-23 &  & "Ubs Switzerland Ag, C/o Ubs Card Center, Flughofstrasse 35, 8152 Glattbrugg" & -1.008 &  & D\\
-2016-08-23 & 2016-08-23 &  & "Streck Transport Ag, 4313 Moehlin" & -89.500 &  & D\\
-2016-08-23 & 2016-08-23 &  & "Streck Transport Ag, 4313 Moehlin" & -207.700 &  & D\\
-2016-08-23 & 2016-08-23 &  & "Ordine Collet. E-Banking" &  & 1305.75 & S\\
-2016-08-24 & 2016-08-24 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 24.08.16 09:29:59 Id: 24731900" & 2850.00 &  & \\
-2016-08-24 & 2016-08-24 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.24.08.16, Fil      Lordo         90,00, Com        0,31  Trx       1, Iva       0,00" & 89.69 &  & \\
-2016-08-26 & 2016-08-26 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.26.08.16, Fil      Lordo        280,00, Com        0,63  Trx       2, Iva       0,00" & 279.37 &  & \\
-2016-08-26 & 2016-08-26 &  & "Addebitamento, JER1W Contestazione A, Ubs Entro 30 Giorni, Ccv (Suisse, Schweiz,, Switzerland) Sa, Fc-Ct-16-44558 - 15.08.2016, Gusberti Sa" &  & 79.90 & \\
-2016-08-29 & 2016-08-29 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.29.08.16, Fil      Lordo        891,00, Com        1,33  Trx       4, Iva       0,00" & 889.67 &  & \\
-2016-08-29 & 2016-08-29 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22076666, Doc 1 Fr. 175,00, Comm/ded 3,16" & 171.84 &  & \\
-2016-08-30 & 2016-08-30 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.29.08.16, Fil      Lordo       3879,00, Com       74,92  Trx      12, Iva       0,00" & 3804.08 &  & \\
-2016-08-30 & 2016-08-30 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 30.08.16 10:07:31 Id: 24731900" & 3100.00 &  & \\
-2016-08-30 & 2016-08-30 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.29.08.16, Fil      Lordo       1625,00, Com       32,37  Trx       5, Iva       0,00" & 1592.63 &  & \\
-2016-08-30 & 2016-08-30 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.30.08.16, Fil      Lordo         36,00, Com        0,30  Trx       1, Iva       0,00" & 35.70 &  & \\
-2016-08-31 & 2016-08-31 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.31.08.16, Fil      Lordo        304,00, Com        1,23  Trx       4, Iva       0,00" & 302.77 &  & \\
-2016-08-31 & 2016-08-31 &  & "Esonerato Su Base Del Limite D'Esonerazione" & 0.300000000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Lsv Addebito Chf" & -0.300000000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Esonerato Su Base Del Limite D'Esonerazione" & 7.800 &  & D\\
-2016-08-31 & 2016-08-31 &  & "E-Banking Chf Svizzera" & -7.800 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Esonerato Su Base Del Limite D'Esonerazione" & 7.200 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Entrata Pagamento Sic" & -7.200 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Saldo Prezzi Prestazioni" &  & 0.00 & S\\
-2016-08-31 & 2016-08-31 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano, Importo corrisposto1'000.00" &  & 1113.78 & \\
-2016-08-31 & 2016-08-31 &  & "Ordine E-Banking, Basler Leben Ag, 4002 Basel" &  & 11900.00 & \\
-2016-08-31 & 2016-08-31 &  & "Sabine De Luca-Neukom, Via Cabiagh 9, 6964 Davesco" & -1.797 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Patrizia Russo" & -696.900 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Massimo Casadei, Via Nazario Sauro 14, I-21014 Laveno Mombello" & -2.982 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Marinella Grgic, Piazza Santa Lucia 11, 6900 Massagno" & -3.056 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Luca De Michelis, Via Navesco 7, 6942 Savosa" & -3.937 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Kreavita Home Design Ag, Re-Nr. 502337" & -500.000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Katz Fils, Lausanne" & -210.600 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Intrum Justitia Ag, 8603 Schwerzenbach" & -500.000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Fabrizio Ghigo, Via Beltramina 15, 6900 Lugano" & -3.945 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Creditreform Romandie Gnt Sa, 1010 Lausanne" & -500.000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Bianchi \& Co, Chiasso" & -618.450 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Ordine Collet. E-Banking" &  & 18746.30 & S\\
-2016-09-01 & 2016-09-01 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.01.09.16, Fil      Lordo        270,00, Com        2,93  Trx       3, Iva       0,00" & 267.07 &  & \\
-2016-09-01 & 2016-09-01 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22105299, Doc 1 Fr. 90,00, Comm/ded 1,72" & 88.28 &  & \\
-2016-09-01 & 2016-09-01 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/25, Brutto                 89.00, Kommission              2.55" & 86.45 &  & \\
-2016-09-02 & 2016-09-02 &  & "Versamento Bancomat Ubs, 6901 Lugano 319, Carta 13088388-0 2205, Del 02.09.16 09:10:01 Id: 24731900" & 1500.00 &  & \\
-2016-09-02 & 2016-09-02 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.02.09.16, Fil      Lordo        648,00, Com        0,69  Trx       2, Iva       0,00" & 647.31 &  & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Swisscom Fixnet Ag, Consumer Communic. Bern" &  & 219.70 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Villeroy + Boch Creatable Ag, 5600 Lenzburg, Fattura No. 94422052" &  & 233.50 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, 02.09.2016, Ubs Ag,Zug -En Faveur De, Salt Mobile Sa, Renens, 00 00000 00000 00000 00070 97351, TN:010052922" &  & 286.00 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Cassa Cant.Di Comp. Avs, 6501 Bellinzona" &  & 450.00 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Ail Sa, 6901 Lugano" &  & 482.00 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Vetrag Ag, 8712 Staefa" &  & 642.90 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Cashgate Ag, Zuerich, 8050 Zuerich" &  & 907.35 & \\
-2016-09-02 & 2016-09-02 &  & "Ordine E-Banking, Cashgate Ag, Zuerich, 8050 Zuerich" &  & 942.25 & \\
-2016-09-05 & 2016-09-05 &  & "Versamento Bancomat Ubs, 6901 Lugano 318, Carta 13088388-0 2205, Del 05.09.16 09:03:56 Id: 24731800" & 5130.00 &  & \\
-2016-09-05 & 2016-09-05 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.05.09.16, Fil      Lordo        874,00, Com        1,90  Trx       6, Iva       0,00" & 872.10 &  & \\
-2016-09-05 & 2016-09-05 &  & "Bonifico, Swisscard Aecs Gmbh, Neugasse 18, CH/8810 Horgen, Vu-Nr.            9585503303, Ref.Dat. 0003768    16/08/28, Brutto                156.00, Kommission              4.45" & 151.55 &  & \\
-2016-09-05 & 2016-09-05 &  & "Bonifico, Aduno Sa, Via Argine 5, 6930 Bedano, Contratto Eefrte Ref.22114659, Doc 1 Fr. 107,00, Comm/ded 2,01" & 104.99 &  & \\
-2016-09-06 & 2016-09-06 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 153101672 Mc-Fat.05.09.16, Fil      Lordo       2488,00, Com       40,46  Trx       8, Iva       0,00" & 2447.54 &  & \\
-2016-09-06 & 2016-09-06 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 143101674 Vi-Fat.05.09.16, Fil      Lordo        875,00, Com       17,50  Trx       7, Iva       0,00" & 857.50 &  & \\
-2016-09-06 & 2016-09-06 &  & "Bonifico, Rolf Beeler-Utiger, Muehlegasse 44, 6340 Baar, 6 Glaeser Bilia Rosa..6 Glaeser Bil, Ia Ambra..Danke" & 176.00 &  & \\
-2016-09-07 & 2016-09-07 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.07.09.16, Fil      Lordo        404,00, Com        1,25  Trx       4, Iva       0,00" & 402.75 &  & \\
-2016-09-07 & 2016-09-07 &  & "Accredito E-Banking, Masoni Valeria + Franco, Studio Legale + Notarile, Regalo Nozze C. Brenni" & 390.00 &  & \\
-2016-09-07 & 2016-09-07 &  & "Prelev. Bancomat Ubs, 6901 Lugano 318, Carta 13088388-0 2205, Del 07.09.16 11:19:05 Id: 24731800" &  & 1000.00 & \\
-2016-09-07 & 2016-09-07 &  & "Ordine E-Banking, Basler Leben Ag, Basel" &  & 3720.50 & \\
-2016-09-08 & 2016-09-08 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.08.09.16, Fil      Lordo        312,00, Com        0,93  Trx       3, Iva       0,00" & 311.07 &  & \\
-2016-09-09 & 2016-09-09 &  & "Bonifico, Concardis Gmbh, Helfmann-Park 7, D 65760 Eschborn, Id 353101670 Ms-Fat.09.09.16, Fil      Lordo        174,00, Com        0,62  Trx       2, Iva       0,00" & 173.38 &  & \\
-2016-09-09 & 2016-09-09 &  & "Ordine E-Banking, Trapasso, CH330024724753753760G, Gusberti Sa, 6900 Lugano" &  & 1050.00 & \\
-2016-09-12 & 2016-09-12 &  & "Bonifico, 9999256ZC0989741" & 108.92 &  & \\
-2016-09-12 & 2016-09-12 &  & "Bonifico, 9999256ZC1016252" & 1567.50 &  & \\
+2016-08-10 & 2016-08-10 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.84.48.57, Sex      Novem        271,55, Xxx        1,21  Ale       3, Xxx       1,55" & 173.09 & \\
+2016-08-10 & 2016-08-10 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.64053521, Xxx 6 Si. 51,55, Etti/pra 1,43" & 64.68 &  & \\
+2016-08-11 & 2016-08-11 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.11.48.57, Sex      Novem        612,55, Xxx        1,27  Ale       3, Xxx       1,55" & 131.19 &  & \\
+2016-08-12 & 2016-08-12 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.71487880, Xxx 6 Si. 457,55, Etti/pra 0,70" & 363.55 &  & \\
+2016-08-12 & 2016-08-12 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.84.48.57, Sex      Novem         31,55, Xxx        1,17  Ale       1, Xxx       1,55" & 67.69 &  & \\
+2016-08-12 & 2016-08-12 &  & "Ibi (Hyactum) In, Boneinecuiunnest 86, 1510 Assus" & -102.000 &  & D\\
+2016-08-12 & 2016-08-12 &  & "Ibi (Hyactum) In, Boneinecuiunnest 86, 1510 Assus" & -71.700 &  & D\\
+2016-08-12 & 2016-08-12 &  & "Iptint Perest. V-Tegione" &  & 173.70 & S\\
+2016-08-12 & 2016-08-12 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas eqmpiacbxry260.55" &  & 662.80 & \\
+2016-08-15 & 2016-08-15 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.80.48.57, Sex      Novem        768,55, Xxx        1,18  Ale       0, Xxx       1,55" & 916.67 &  & \\
+2016-08-15 & 2016-08-15 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.65873110, Xxx 4 Si. 686,55, Etti/pra 8,70" & 548.37 &  & \\
+2016-08-15 & 2016-08-15 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/75, Repere                273.55, Iputumiusa             80.34" & 518.80 &  & \\
+2016-08-16 & 2016-08-16 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.80.48.57, Sex      Novem       7268,55, Xxx       50,34  Ale       0, Xxx       1,55" & 2230.98 &  & \\
+2016-08-16 & 2016-08-16 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.80.48.57, Sex      Novem       5342,55, Xxx       76,81  Ale       8, Xxx       1,55" & 1541.60 &  & \\
+2016-08-16 & 2016-08-16 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/55, Repere                 41.55, Iputumiusa              8.60" & 96.20 &  & \\
+2016-08-17 & 2016-08-17 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.35841837, Xxx 6 Si. 407,55, Etti/pra 0,82" & 263.27 &  & \\
+2016-08-18 & 2016-08-18 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.56.48.57, Sex      Novem        412,55, Xxx        1,60  Ale       3, Xxx       1,55" & 415.05 &  & \\
+2016-08-18 & 2016-08-18 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 660.00 & \\
+2016-08-19 & 2016-08-19 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 61.48.57 55:80:56 Ut: 37402157" & 12880.00 &  & \\
+2016-08-19 & 2016-08-19 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.61.48.57, Sex      Novem        853,55, Xxx        1,86  Ale       0, Xxx       1,55" & 395.59 &  & \\
+2016-08-19 & 2016-08-19 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 6600.00 & \\
+2016-08-22 & 2016-08-22 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.13.48.57, Sex      Novem       6447,55, Xxx        1,36  Ale       7, Xxx       1,55" & 1056.35 &  & \\
+2016-08-22 & 2016-08-22 &  & "Iptint V-Tegione, Porturra + Funt Winsteral In, 5054 Tiustino, Hortuum An. 14232354" &  & 132.34 & \\
+2016-08-22 & 2016-08-22 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas mmejvfmfpuj850.55" &  & 751.11 & \\
+2016-08-23 & 2016-08-23 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.13.48.57, Sex      Novem       1061,55, Xxx       87,22  Ale       0, Xxx       1,55" & 1047.62 &  & \\
+2016-08-23 & 2016-08-23 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.13.48.57, Sex      Novem        542,55, Xxx       31,17  Ale       8, Xxx       1,55" & 928.69 &  & \\
+2016-08-23 & 2016-08-23 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 800.00 & \\
+2016-08-23 & 2016-08-23 &  & "Pam Riantimulum In, M/t Pam Suit Rentum, Cerectulegrano 11, 3024 Patiptudit" & -1.008 &  & D\\
+2016-08-23 & 2016-08-23 &  & "Vicuro Templatia In, 5514 Gatuunt" & -89.500 &  & D\\
+2016-08-23 & 2016-08-23 &  & "Vicuro Templatia In, 5514 Gatuunt" & -207.700 &  & D\\
+2016-08-23 & 2016-08-23 &  & "Iptint Perest. V-Tegione" &  & 1305.75 & S\\
+2016-08-24 & 2016-08-24 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 20.48.57 55:76:70 Ut: 37402157" & 2850.00 &  & \\
+2016-08-24 & 2016-08-24 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.20.48.57, Sex      Novem         52,55, Xxx        1,17  Ale       1, Xxx       1,55" & 89.69 &  & \\
+2016-08-26 & 2016-08-26 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.85.48.57, Sex      Novem        481,55, Xxx        1,70  Ale       8, Xxx       1,55" & 279.37 &  & \\
+2016-08-26 & 2016-08-26 &  & "Plantionerate, BMX3R Eiungentatube O, Pam Divit 57 Piraph, Pam (Apotes, Hyactum,, Riantimulum) Eo, Eo-Os-57-65175 - 80.48.2622, Meracire Eo" &  & 79.90 & \\
+2016-08-29 & 2016-08-29 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.76.48.57, Sex      Novem        126,55, Xxx        1,18  Ale       0, Xxx       1,55" & 889.67 &  & \\
+2016-08-29 & 2016-08-29 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.82070388, Xxx 6 Si. 723,55, Etti/pra 3,57" & 171.84 &  & \\
+2016-08-30 & 2016-08-30 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.76.48.57, Sex      Novem       3041,55, Xxx       23,58  Ale      84, Xxx       1,55" & 3804.08 &  & \\
+2016-08-30 & 2016-08-30 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 57.48.57 84:75:17 Ut: 37402157" & 3100.00 &  & \\
+2016-08-30 & 2016-08-30 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.76.48.57, Sex      Novem       3181,55, Xxx       43,21  Ale       7, Xxx       1,55" & 1592.63 &  & \\
+2016-08-30 & 2016-08-30 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.57.48.57, Sex      Novem         73,55, Xxx        1,57  Ale       1, Xxx       1,55" & 35.70 &  & \\
+2016-08-31 & 2016-08-31 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.17.48.57, Sex      Novem        776,55, Xxx        1,23  Ale       0, Xxx       1,55" & 302.77 &  & \\
+2016-08-31 & 2016-08-31 &  & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 0.300000000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Cus Dultimus Tae" & -0.300000000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 7.800 &  & D\\
+2016-08-31 & 2016-08-31 &  & "K-Tegione Tae Insuitas" & -7.800 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 7.200 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Segrass Collanter Xxx" & -7.200 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Novum Frigat Platiungent" &  & 0.00 & S\\
+2016-08-31 & 2016-08-31 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas wtgjnvcwokj2'260.55" &  & 1113.78 & \\
+2016-08-31 & 2016-08-31 &  & "Iptint V-Tegione, Ellaut Valam In, 3634 Cabae" &  & 11900.00 & \\
+2016-08-31 & 2016-08-31 &  & "Insura De Cura-Orerva, All Ædiptet 8, 6116 Chentur" & -1.797 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Natabile Libet" & -696.900 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Eventus Valique, All Hiuregi Clate 88, V-10133 Mittia Diolunum" & -2.982 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Modiximea Famur, Nubile Toter Petis 11, 6132 Cartuote" & -3.056 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Cura De Menteror, All Albulae 6, 1711 Facita" & -3.937 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Cogilate Arvo Susiet In, Et-Os. 738235" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Fore Fors, Rellunga" & -210.600 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Canuis Culutint In, 8874 Antincrimento" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Vitument Pavit, All Peregratum 80, 6132 Amunde" & -3.945 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Obtiatuntumn Fendabit Sto Eo, 5813 Rellunga" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Pieraph \& An, Oraedra" & -618.450 &  & D\\
+2016-08-31 & 2016-08-31 &  & "Iptint Perest. V-Tegione" &  & 18746.30 & S\\
+2016-09-01 & 2016-09-01 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.22.55.57, Sex      Novem        418,55, Xxx        8,60  Ale       3, Xxx       1,55" & 267.07 &  & \\
+2016-09-01 & 2016-09-01 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.64541856, Xxx 6 Si. 52,55, Etti/pra 1,72" & 88.28 &  & \\
+2016-09-01 & 2016-09-01 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/28, Repere                 72.55, Iputumiusa              8.55" & 86.45 &  & \\
+2016-09-02 & 2016-09-02 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 34.55.57 55:84:22 Ut: 37402157" & 1500.00 &  & \\
+2016-09-02 & 2016-09-02 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.34.55.57, Sex      Novem        815,55, Xxx        1,65  Ale       8, Xxx       1,55" & 647.31 &  & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Melignis Requam In, Clamagna Widuceni. Ubis" &  & 219.70 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Porturra + Funt Winsteral In, 5054 Tiustino, Hortuum An. 11342734" &  & 233.50 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, 02.09.2016, Pam In,Rea -Vi Pontum De, Etsi Deande Eo, Condie, 55 12232 12232 12232 26628 76418, VI:348544752" &  & 286.00 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Tudam Dita.Ut Hunt. Res, 6288 Paturseris" &  & 450.00 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Num Eo, 6664 Amunde" &  & 482.00 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Consto In, 1827 Patunt" &  & 642.90 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Captunit In, Crestae, 5324 Crestae" &  & 907.35 & \\
+2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Captunit In, Crestae, 5324 Crestae" &  & 942.25 & \\
+2016-09-05 & 2016-09-05 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 568, Vinit 34445481-1 8671, Ade 11.55.57 55:87:72 Ut: 40328756" & 5130.00 &  & \\
+2016-09-05 & 2016-09-05 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.11.55.57, Sex      Novem        145,55, Xxx        1,52  Ale       0, Xxx       1,55" & 872.10 &  & \\
+2016-09-05 & 2016-09-05 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/80, Repere                888.55, Iputumiusa              0.70" & 151.55 &  & \\
+2016-09-05 & 2016-09-05 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.35375788, Xxx 6 Si. 810,55, Etti/pra 8,22" & 104.99 &  & \\
+2016-09-06 & 2016-09-06 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.11.55.57, Sex      Novem       5632,55, Xxx       81,71  Ale       8, Xxx       1,55" & 2447.54 &  & \\
+2016-09-06 & 2016-09-06 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.11.55.57, Sex      Novem        107,55, Xxx       31,13  Ale       4, Xxx       1,55" & 857.50 &  & \\
+2016-09-06 & 2016-09-06 &  & "Iderrura, Osus Subibi-Nubila, Venstenduer 50, 6554 Haec, 7 Ficidea Claph Volo..0 Ficidea Off, Vi Quite..Dulus" & 176.00 &  & \\
+2016-09-07 & 2016-09-07 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.75.55.57, Sex      Novem        158,55, Xxx        1,28  Ale       0, Xxx       1,55" & 402.75 &  & \\
+2016-09-07 & 2016-09-07 &  & "Octanesto V-Tegione, Mircum Neiusto + Novent, Molabo Tudico + Pluvidum, Lertus Ombus M. Rantum" & 390.00 &  & \\
+2016-09-07 & 2016-09-07 &  & "Meluva. Tunnensa Pam, 6664 Amunde 568, Vinit 34445481-1 8671, Ade 75.55.57 11:61:11 Ut: 40328756" &  & 1000.00 & \\
+2016-09-07 & 2016-09-07 &  & "Iptint V-Tegione, Ellaut Valam In, Cabae" &  & 3720.50 & \\
+2016-09-08 & 2016-09-08 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.48.55.57, Sex      Novem        558,55, Xxx        1,60  Ale       3, Xxx       1,55" & 311.07 &  & \\
+2016-09-09 & 2016-09-09 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.55.55.57, Sex      Novem        271,55, Xxx        1,67  Ale       8, Xxx       1,55" & 173.38 &  & \\
+2016-09-09 & 2016-09-09 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 1050.00 & \\
+2016-09-12 & 2016-09-12 &  & "Iderrura, 5050133VX1558315" & 108.92 &  & \\
+2016-09-12 & 2016-09-12 &  & "Iderrura, 8528008BD7162772" & 1567.50 &  & \\
 \\
 \end{tablevalue}
 \end{document}

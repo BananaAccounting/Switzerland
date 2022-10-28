@@ -20,53 +20,53 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2012-01-03 & 2012-01-03 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-01-30 & 2012-01-30 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 161.80\\
-2012-02-01 & 2012-02-01 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-02-28 & 2012-02-28 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 309.55\\
-2012-03-01 & 2012-03-01 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-03-12 & 2012-03-12 &  & "Verg�tungsauftr. Electronic Banking,AUSGLEICHSKASSE AHV/IV/EO BERN" &  & 137.35\\
-2012-03-29 & 2012-03-29 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 251.10\\
-2012-03-31 & 2012-03-31 &  & "Saldo der Abschlussbuchungen,gem�ss separater Anzeige" & 2.13 & \\
-2012-03-31 & 2012-03-31 &  & "Saldo der Spesenabrechnung,gem�ss separater Anzeige" &  & 15.00\\
-2012-04-02 & 2012-04-02 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-04-17 & 2012-04-17 &  & "Verg�tung,HERR HEINZ RUTTER U/O FRAU URSULA RU" & 9500.00 & \\
-2012-04-23 & 2012-04-23 &  & "Verg�tungsauftr. Electronic Banking,e-.supportag Muri b. Bern" &  & 40.50\\
-2012-04-23 & 2012-04-23 &  & "Verg�tungsauftr. Electronic Banking,ETH ZUERICH FINANZABTEILUNG ZUERICH" &  & 32.00\\
-2012-04-27 & 2012-04-27 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 182.20\\
-2012-05-02 & 2012-05-02 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-05-30 & 2012-05-30 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 267.45\\
-2012-06-01 & 2012-06-01 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-06-28 & 2012-06-28 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 207.00\\
-2012-06-30 & 2012-06-30 &  & "Saldo der Abschlussbuchungen,gem�ss separater Anzeige" & 1.87 & \\
-2012-06-30 & 2012-06-30 &  & "Saldo der Spesenabrechnung,gem�ss separater Anzeige" &  & 15.00\\
-2012-07-02 & 2012-07-02 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-07-23 & 2012-07-23 &  & "Verg�tungsauftr. Electronic Banking,R. van Nieuwkoop + S. Kanne, Thun" &  & 20000.00\\
-2012-07-23 & 2012-07-23 &  & "Verg�tungsauftr. Electronic Banking,OPTIMANET SCHWEIZ AG SEUZACH" &  & 180.15\\
-2012-07-23 & 2012-07-23 &  & "Verg�tungsauftr. Electronic Banking,AUSGLEICHSKASSE AHV/IV/EO BERN" &  & 137.35\\
-2012-07-30 & 2012-07-30 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 248.75\\
-2012-07-31 & 2012-07-31 &  & "Saldo der Spesenabrechnung,gem�ss separater Anzeige" &  & 5.00\\
-2012-08-02 & 2012-08-02 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-08-30 & 2012-08-30 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 486.40\\
-2012-09-03 & 2012-09-03 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-09-24 & 2012-09-24 &  & "Verg�tungsauftr. Electronic Banking,SWISSCOM (SCHWEIZ) AG BERN" &  & 220.00\\
-2012-09-24 & 2012-09-24 &  & "Verg�tungsauftr. Electronic Banking,AUSGLEICHSKASSE AHV/IV/EO BERN" &  & 137.35\\
-2012-09-28 & 2012-09-28 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 318.80\\
-2012-09-30 & 2012-09-30 &  & "Saldo der Abschlussbuchungen,gem�ss separater Anzeige" & 0.63 & \\
-2012-09-30 & 2012-09-30 &  & "Saldo der Spesenabrechnung,gem�ss separater Anzeige" &  & 13.35\\
-2012-10-01 & 2012-10-01 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-10-03 & 2012-10-03 &  & "Verg�tungsauftr. Electronic Banking,Swisscom Immobilien Bern" &  & 388.80\\
-2012-10-08 & 2012-10-08 &  & "Verg�tung,Herr Renger H. van Nieuwkoop und SUS" & 1000.00 & \\
-2012-10-30 & 2012-10-30 &  & "Einzug LSV,SWISSCOM (SCHWEIZ) AG CONTACT CENTER" &  & 430.25\\
-2012-11-01 & 2012-11-01 &  & "Verg�tung,Ausgleichskasse AHV/IV/EO des Kanton" & 30.55 & \\
-2012-11-01 & 2012-11-01 &  & "Dauerauftrag,WINCASA AG WINTERTHUR" &  & 370.00\\
-2012-11-05 & 2012-11-05 &  & "Verg�tung,Herr Renger H. van Nieuwkoop und SUS" & 1000.00 & \\
-2012-11-05 & 2012-11-05 &  & "Verg�tungsauftr. Electronic Banking,Johnson Controls GWS GmbH Basel" &  & 300.95\\
-2012-11-05 & 2012-11-05 &  & "Verg�tungsauftr. Electronic Banking,WINCASA AG WINTERTHUR" &  & 114.65\\
-2012-11-05 & 2012-11-05 &  & "Verg�tungsauftr. Electronic Banking,Switch Z�rich" &  & 17.00\\
-2012-11-09 & 2012-11-09 &  & "Verg�tung,ECOPLAN AG MONBIJOUSTRASSE 14" & 33849.60 & \\
-2012-11-12 & 2012-11-12 &  & "Verg�tungsauftr. Electronic Banking,R. van Nieuwkoop + S. Kanne, Thun" &  & 20000.00\\
-2012-11-12 & 2012-11-12 &  & "Verg�tungsauftr. Electronic Banking,R. van Nieuwkoop + S. Kanne, Thun" &  & 10000.00\\
+2012-01-03 & 2012-01-03 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-01-30 & 2012-01-30 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 161.80\\
+2012-02-01 & 2012-02-01 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-02-28 & 2012-02-28 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 309.55\\
+2012-03-01 & 2012-03-01 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-03-12 & 2012-03-12 &  & "Cris�vestartumn. Maribuluva Cabulum,PLEVENDISINIUNT SED/OS/BY DIAM" &  & 137.35\\
+2012-03-29 & 2012-03-29 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 251.10\\
+2012-03-31 & 2012-03-31 &  & "Telis res Pervitrequadentino,set�me lonsufere Parsuid" & 2.13 & \\
+2012-03-31 & 2012-03-31 &  & "Telis res Leginifignuirant,set�me lonsufere Parsuid" &  & 15.00\\
+2012-04-02 & 2012-04-02 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-04-17 & 2012-04-17 &  & "Cris�fest,PROR AUDIT FICUNT E/T MINE FRIMUR EX" & 9500.00 & \\
+2012-04-23 & 2012-04-23 &  & "Cris�vestartumn. Maribuluva Cabulum,a-.fralventi Vite c. Diam" &  & 40.50\\
+2012-04-23 & 2012-04-23 &  & "Cris�vestartumn. Maribuluva Cabulum,XXX FLONGUS ILIOLIQUADUNDIT FLONGUS" &  & 32.00\\
+2012-04-27 & 2012-04-27 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 182.20\\
+2012-05-02 & 2012-05-02 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-05-30 & 2012-05-30 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 267.45\\
+2012-06-01 & 2012-06-01 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-06-28 & 2012-06-28 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 207.00\\
+2012-06-30 & 2012-06-30 &  & "Telis res Pervitrequadentino,set�me lonsufere Parsuid" & 1.87 & \\
+2012-06-30 & 2012-06-30 &  & "Telis res Leginifignuirant,set�me lonsufere Parsuid" &  & 15.00\\
+2012-07-02 & 2012-07-02 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-07-23 & 2012-07-23 &  & "Cris�vestartumn. Maribuluva Cabulum,B. pam Catimulis + G. Liero, Pray" &  & 20000.00\\
+2012-07-23 & 2012-07-23 &  & "Cris�vestartumn. Maribuluva Cabulum,DUNGRIBER FINVARI OS NUNDIVE" &  & 180.15\\
+2012-07-23 & 2012-07-23 &  & "Cris�vestartumn. Maribuluva Cabulum,PLEVENDISINIUNT SED/OS/BY DIAM" &  & 137.35\\
+2012-07-30 & 2012-07-30 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 248.75\\
+2012-07-31 & 2012-07-31 &  & "Telis res Leginifignuirant,set�me lonsufere Parsuid" &  & 5.00\\
+2012-08-02 & 2012-08-02 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-08-30 & 2012-08-30 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 486.40\\
+2012-09-03 & 2012-09-03 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-09-24 & 2012-09-24 &  & "Cris�vestartumn. Maribuluva Cabulum,COMBULLA (FINVARI) OS DIAM" &  & 220.00\\
+2012-09-24 & 2012-09-24 &  & "Cris�vestartumn. Maribuluva Cabulum,PLEVENDISINIUNT SED/OS/BY DIAM" &  & 137.35\\
+2012-09-28 & 2012-09-28 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 318.80\\
+2012-09-30 & 2012-09-30 &  & "Telis res Pervitrequadentino,set�me lonsufere Parsuid" & 0.63 & \\
+2012-09-30 & 2012-09-30 &  & "Telis res Leginifignuirant,set�me lonsufere Parsuid" &  & 13.35\\
+2012-10-01 & 2012-10-01 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-10-03 & 2012-10-03 &  & "Cris�vestartumn. Maribuluva Cabulum,Combulla Wirabicite Diam" &  & 388.80\\
+2012-10-08 & 2012-10-08 &  & "Cris�fest,Pror Coneri T. pam Catimulis pam XXX" & 1000.00 & \\
+2012-10-30 & 2012-10-30 &  & "Netrae CAT,COMBULLA (FINVARI) OS NUNIARE LIUNDO" &  & 430.25\\
+2012-11-01 & 2012-11-01 &  & "Cris�fest,Plevendisiniunt SED/OS/BY sum Tuludo" & 30.55 & \\
+2012-11-01 & 2012-11-01 &  & "Deseptianeta,FRUSTOM OS MARIBRALIA" &  & 370.00\\
+2012-11-05 & 2012-11-05 &  & "Cris�fest,Pror Coneri T. pam Catimulis pam XXX" & 1000.00 & \\
+2012-11-05 & 2012-11-05 &  & "Cris�vestartumn. Maribuluva Cabulum,Stantia Orunderm POR SaeC Carte" &  & 300.95\\
+2012-11-05 & 2012-11-05 &  & "Cris�vestartumn. Maribuluva Cabulum,FRUSTOM OS MARIBRALIA" &  & 114.65\\
+2012-11-05 & 2012-11-05 &  & "Cris�vestartumn. Maribuluva Cabulum,Magnum Q�mine" &  & 17.00\\
+2012-11-09 & 2012-11-09 &  & "Cris�fest,TETUERE OS POTALIUVISUGAVA 81" & 33849.60 & \\
+2012-11-12 & 2012-11-12 &  & "Cris�vestartumn. Maribuluva Cabulum,B. pam Catimulis + G. Liero, Pray" &  & 20000.00\\
+2012-11-12 & 2012-11-12 &  & "Cris�vestartumn. Maribuluva Cabulum,B. pam Catimulis + G. Liero, Pray" &  & 10000.00\\
 \\
 \end{tablevalue}
 \end{document}
