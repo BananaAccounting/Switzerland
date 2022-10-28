@@ -20,61 +20,61 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & ExchangeCurrency & Notes & IsDetail\\
-2017-12-05 & 2017-12-05 &  & Z173397003212 & Bibaj Enver, Saege Strasse 21 8952 Schlieren &  & 3150.00 &  &  & \\
-2017-12-05 & 2017-12-05 &  & Z173397002996 & Sefaj, Alim Stiglenstrasse 63, 8052 Zuerich &  & 5450.00 &  &  & \\
-2017-12-05 & 2017-12-05 &  & Z173397002870 & Shala, Arton Loowiesenstrasse 44, 8106 Adlikon B.Regensdf &  & 4150.65 &  &  & \\
-2017-12-05 & 2017-12-05 &  & Z173397002781 & Musliji-Kelmendi Nora, Betlistrasse27 8600 Duebendorf &  & 4586.00 &  &  & \\
-2017-12-05 & 2017-12-05 &  & Z173397002717 & Gashi, Vesim Ruesslistrasse 16, 8172 Niederglatt Zh &  & 5743.80 &  &  & \\
-2017-12-05 & 2017-12-05 &  & BA17113004828F35 & G \& L Bau Gmbh, Riethofstr. 3, 8702 Zollikon & 3240.00 &  &  & 111733 & \\
-2017-12-05 & 2017-12-05 &  & BA17113004828F34 & G \& L Bau Gmbh, Riethofstr. 3, 8702 Zollikon & 21600.00 &  &  & 111732 & \\
-2017-12-05 & 2017-12-01 &  & I1BEP1121GY8D7A6-8636 & Einkauf Zkb Maestro Karte Nr. 74184673, Mcdonald'S Restaurant 8180 &  & 52 &  &  & \\
-2017-12-06 & 2017-12-06 &  & L11451112DDOTLVA-1 & Bezug Zkb Maestro Karte Nr. 74184673, Zkb Zh Seebach 1 &  & 4450.00 &  &  & \\
-2017-12-06 & 2017-12-06 &  & Z173407137888 & Anliker Ag Bauunternehmung, Meierhoflistrasse 18, Ch-6020 Emmenbrucke & 12960.00 &  &  & INV/111731 3.11.2017 & \\
-2017-12-06 & 2017-12-06 &  & BA1712050498BEB8 & Bao Bau Ag, C/o Ams Ag Accounting, Mainaustrasse 21, 8008 Z�rich & 20455.20 &  &  & Rg.-Nr. 121744 vom 1,12,2017 & \\
-2017-12-06 & 2017-12-06 &  & Z173407082196 & Belastungen Ebanking (2) &  & 1220.10 &  &  & S\\
-2017-12-06 & 2017-12-06 &  & Z173407082196 & Suva, Fluhmattstr. 1 6002 Luzern &  & 535.4 & CHF &  & D\\
-2017-12-06 & 2017-12-06 &  & Z173407082196 & Suva, Fluhmattstr. 1 6002 Luzern &  & 684.7 & CHF &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241200 & Belastung Ebanking: Bezirkshauptmannschaft Tamsweg, Kapuzinerplatz 1 &  & 35.39 &  &  & S\\
-2017-12-07 & 2017-12-07 &  & Z173417241200 & Bezirkshauptmannschaft Tamsweg, Kapuzinerplatz 1 5580Tamsweg, Oesterreich &  & 30 & EUR &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241361 & Belastungen Ebanking (4) &  & 1193.30 &  &  & S\\
-2017-12-07 & 2017-12-07 &  & Z173417241361 & Vaudoise Versicherungen, 1001 Lausanne &  & 687.3 & CHF &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241361 & Eidgenoessische Steuerverwaltungestv, Hauptabteiung Mehrwertsteuer 3003 Bern &  & 111 & CHF &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241361 & Vaudoise Versicherungen, 1001 Lausanne &  & 35 & CHF &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241361 & Parifonds-Bau, Vollzugsfonds/ Bildungsfonds, 8035 Zuerich &  & 360 & CHF &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241172 & Belastung Sal�re (2) &  & 5629.50 &  &  & S\\
-2017-12-07 & 2017-12-07 &  & Z173417241172 & Bibaj Enver, Saege Strasse 21 8952 Schlieren &  & 3000.00 & CHF &  & D\\
-2017-12-07 & 2017-12-07 &  & Z173417241172 & Sefaj, Myrvete Stiglenstrasse 63, 8052 Zuerich &  & 2629.50 & CHF &  & D\\
-2017-12-08 & 2017-12-08 &  & Z173427471678 & Belastungen Ebanking (2) &  & 3314.60 &  &  & S\\
-2017-12-08 & 2017-12-08 &  & Z173427471678 & Sadiku Bau Gmbh, Loowiesenstrasse 13 8106 Adlikon B.Regensdf &  & 2164.40 & CHF & Schluss Abrechnung Energie Uster & D\\
-2017-12-08 & 2017-12-08 &  & Z173427471678 & Raonar Bau Gmbh, Zuerichstrasse 168 8910 Affoltern Am Albis &  & 1150.20 & CHF &  & D\\
-2017-12-12 & 2017-12-12 &  & L11451112DWF5Q85-1 & Bezug Zkb Maestro Karte Nr. 74184673, Zkb Zh Seebach 1 &  & 620 &  &  & \\
-2017-12-12 & 2017-12-12 &  & Z173467899052 & Calcagnifrischknecht, Wasserfurrenstrasse 6, Ch-8600 Dubendorf & 749.15 &  &  & Rechg. v.08.12.2017 EFH Schleinikon EG KN Rechg. Nr. 121746 & \\
-2017-12-13 & 2017-12-13 &  & L11451112DZ7MHL8-1 & Bezug Zkb Maestro Karte Nr. 74184673, Zkb Zh Seebach 1 &  & 1250.00 &  &  & \\
-2017-12-13 & 2017-12-13 &  & Z173477983874 & Belastung Sal�re (4) &  & 12823.95 &  &  & S\\
-2017-12-13 & 2017-12-13 &  & Z173477983874 & Shala, Arton Loowiesenstrasse 44, 8106 Adlikon B.Regensdf &  & 829.6 & CHF &  & D\\
-2017-12-13 & 2017-12-13 &  & Z173477983874 & Gashi, Vesim Ruesslistrasse 16, 8172 Niederglatt Zh &  & 6010.45 & CHF &  & D\\
-2017-12-13 & 2017-12-13 &  & Z173477983874 & Musliji-Kelmendi Nora, Betlistrasse27 8600 Duebendorf &  & 2571.45 & CHF &  & D\\
-2017-12-13 & 2017-12-13 &  & Z173477983874 & Daniel Cardoso Alves, Zuerichstrasse 13 8306 Bruettisellen &  & 3412.45 & CHF &  & D\\
-2017-12-14 & 2017-12-14 &  & Z173488185992 & Sefaj, Myrvete Stiglenstrasse 63, 8052 Zuerich &  & 250 &  &  & \\
-2017-12-15 & 2017-12-15 &  & Z173498279475 & Zuta Bau Gmbh, Poststrasse 6, 8953 Dietikon & 2581.20 &  &  &  & \\
-2017-12-16 & 2017-12-16 &  & L11471112E6TD1QF-1 & Bezug Zkb Maestro Karte Nr. 74184673, Zkb Zh Seebach 1 &  & 200 &  &  & \\
-2017-12-18 & 2017-12-18 &  & EK17121504C467DD & Bwt Bau Ag, W�lflingerstr. 285, 8408 Winterthur & 6480.00 &  &  & 111741 AKONTO 201117 0.00 6480. 00 & \\
-2017-12-19 & 2017-12-19 &  & L11451112EF67PDP-1 & Bezug Zkb Maestro Karte Nr. 74184673, Zkb Zh Seebach 1 &  & 2400.00 &  &  & \\
-2017-12-19 & 2017-12-19 &  & Q11L7113KQQ1V57H-1 & Auszahlung &  & 11500.00 &  &  & \\
-2017-12-19 & 2017-12-17 &  & I1BEP1121GY9PXGD-7050 & Einkauf Zkb Maestro Karte Nr. 74184673, Socar Tankstelle 8152 &  & 36.4 &  &  & \\
-2017-12-21 & 2017-12-21 &  & Z173559231804 & Sefaj, Alim Stiglenstrasse 63, 8052 Zuerich &  & 200 &  &  & \\
-2017-12-21 & 2017-12-21 &  & Z173559204132 & Calcagnifrischknecht, Wasserfurrenstrasse 6, Ch-8600 Dubendorf & 630 &  &  & Ruckbehalt von Rechg. Nr. 071703 Gewerbehalle KN Lengnau & \\
-2017-12-21 & 2017-12-21 &  & Z173559204084 & Calcagnifrischknecht, Wasserfurrenstrasse 6, Ch-8600 Dubendorf & 754.3 &  &  & Rechg. v.19.12.2017 Regiearbeiten Siglistorf Rechg. Nr. 121748 2 mal 8  Std. & \\
-2017-12-21 & 2017-12-21 &  & Z173559204025 & Calcagnifrischknecht, Wasserfurrenstrasse 6, Ch-8600 Dubendorf & 281.8 &  &  & Ruckbehalt von Rechg. Nr. 091724 MFH Saramanti DG Lengnau & \\
-2017-12-21 & 2017-12-21 &  & Z173559204023 & Calcagnifrischknecht, Wasserfurrenstrasse 6, Ch-8600 Dubendorf & 473.3 &  &  & Ruckbehalt von Rechg. Nr. 091711 MFH Saramanti 1. OG Lengnau & \\
-2017-12-22 & 2017-12-22 &  & Z173569979436 & Goni Gmbh, Alte Strasse 18b 5734 Reinach Ag &  & 1500.00 &  &  & \\
-2017-12-22 & 2017-12-22 &  & Z173569970631 & Bibaj Enver, Saege Strasse 21 8952 Schlieren &  & 3000.00 &  &  & \\
-2017-12-22 & 2017-12-22 &  & L1Q2Y114KQYT6ZGV-1 & Auszahlung &  & 9250.00 &  &  & \\
-2017-12-22 & 2017-12-21 &  & I1BEP1121GYA13FC-9878 & Einkauf Zkb Maestro Karte Nr. 74184673, Socar Tankstelle 8152 &  & 33.3 &  &  & \\
-2017-12-22 & 2017-12-22 &  & BA17122104E04613 & Bao Bau Ag, C/o Ams Ag Accounting, Mainaustrasse 21, 8008 Z�rich & 12146.15 &  &  & Rg.-Nr. 121749 / 12'811.50 ./. 2    256.25 ./. 2    409.10 von Rg. Nr. 121744 & \\
-2017-12-28 & 2017-12-28 &  & Z173610239314 & Ruef, Manfred Pfaeffikerstrasse 119, 8605 Gutenswil &  & 1101.60 &  &  & \\
-2017-12-28 & 2017-12-28 &  & Z173621001857 & Suva, Fluhmattstrasse 1, Ch-6004 Luzern & 2486.40 &  &  & TG07 701-76886.8 1 Fall:27.61009.17 .9 Rechnung:15107917 & \\
-2017-12-30 & 2017-12-31 &  & X1111OR39HKVOK34-1 & Geb�hr Kontof�hrung Chf 12.00 &  & 12 &  &  & \\
+2017-12-05 & 2017-12-05 &  & N224440131851 & Salia Prote, Usque Curbies 18 8020 Pascripto &  & 3150.00 &  &  & \\
+2017-12-05 & 2017-12-05 &  & P107564028407 & Fense, Pote Differumernent 55, 7071 Numquam &  & 5450.00 &  &  & \\
+2017-12-05 & 2017-12-05 &  & W466477733778 & Prope, Lonae Perveradduonfore 67, 7080 Sicutus B.Millicte &  & 4150.65 &  &  & \\
+2017-12-05 & 2017-12-05 &  & W274334617115 & Sureset-Vivittio Nere, Jldhjqcvusfg34 3740 Rexertiuva &  & 4586.00 &  &  & \\
+2017-12-05 & 2017-12-05 &  & E852307256386 & Prine, Segro Pultulurungere 44, 8135 Liguittetis Eo &  & 5743.80 &  &  & \\
+2017-12-05 & 2017-12-05 &  & LC03580130016T61 & A \& A Ore Cere, Facterotem. 4, 4243 Pratequi & 3240.00 &  &  & 714713 & \\
+2017-12-05 & 2017-12-05 &  & CS73358686727K22 & A \& A Ore Cere, Facterotem. 4, 4243 Pratequi & 21600.00 &  &  & 664531 & \\
+2017-12-05 & 2017-12-01 &  & P5CQV2046SI8K3D7-1416 & Dividem Per Detiant Difig In. 42888507, Liquinos'G Einnetrunt 2060 &  & 20 &  &  & \\
+2017-12-06 & 2017-12-06 &  & Y18484305MFCTQDQ-2 & Ditur Per Detiant Difig In. 42888507, Per Eo Dicared 2 &  & 4450.00 &  &  & \\
+2017-12-06 & 2017-12-06 &  & K371136206151 & Prestur Me Sequidicaraessa, Momperciditinanga 64, Os-6431 Talittement & 12960.00 &  &  & PLE/481824 4.82.7424 & \\
+2017-12-06 & 2017-12-06 &  & FM4057131227SEI8 & Xxx Ore Me, N/l Aut Me Bonsivicit, Entuunteructe 18, 1534 W�suba & 20455.20 &  &  & Ex.-In. 652316 pra 6,13,7424 & \\
+2017-12-06 & 2017-12-06 &  & H881503760827 & Magnumenter Factusit (2) &  & 1220.10 &  &  & S\\
+2017-12-06 & 2017-12-06 &  & H881503760827 & Stas, Abicuntuone. 2 3530 Propra &  & 535.4 & ILI &  & D\\
+2017-12-06 & 2017-12-06 &  & H881503760827 & Stas, Abicuntuone. 2 3530 Propra &  & 684.7 & ILI &  & D\\
+2017-12-07 & 2017-12-07 &  & K237157313670 & Numercium Factusit: Uximeruntumeratarabibi Lavapis, Ficiontriantas 2 &  & 35.39 &  &  & S\\
+2017-12-07 & 2017-12-07 &  & K237157313670 & Uximeruntumeratarabibi Lavapis, Ficiontriantas 2 3346Ehipcnt, Rexilignute &  & 22 & FUN &  & D\\
+2017-12-07 & 2017-12-07 &  & U778631155250 & Magnumenter Factusit (6) &  & 1193.30 &  &  & S\\
+2017-12-07 & 2017-12-07 &  & U778631155250 & Narehent Graximpliquire, 2172 Quereant &  & 687.3 & ILI &  & D\\
+2017-12-07 & 2017-12-07 &  & U778631155250 & Cripuerticurect Canaterigentindabere, Paddueranerum Haremonflumula 2487 Inch &  & 433 & ILI &  & D\\
+2017-12-07 & 2017-12-07 &  & U778631155250 & Narehent Graximpliquire, 2172 Quereant &  & 15 & ILI &  & D\\
+2017-12-07 & 2017-12-07 &  & U778631155250 & Memetansi-Ore, Consiroxillum/ Vitongentiant, 6127 Numquam &  & 468 & ILI &  & D\\
+2017-12-07 & 2017-12-07 &  & A234055108175 & Numercium Ada�at (2) &  & 5629.50 &  &  & S\\
+2017-12-07 & 2017-12-07 &  & A234055108175 & Salia Prote, Usque Curbies 18 8020 Pascripto &  & 3000.00 & ILI &  & D\\
+2017-12-07 & 2017-12-07 &  & A234055108175 & Fense, Bentest Differumernent 55, 7071 Numquam &  & 2629.50 & ILI &  & D\\
+2017-12-08 & 2017-12-08 &  & X178327865456 & Magnumenter Factusit (2) &  & 3314.60 &  &  & S\\
+2017-12-08 & 2017-12-08 &  & X178327865456 & Latuum Ore Cere, Perveradduonfore 38 7080 Sicutus B.Millicte &  & 2164.40 & ILI & Saestem Tricietrum Elebrat Aurit & D\\
+2017-12-08 & 2017-12-08 &  & X178327865456 & Duximi Ore Cere, Momittiandicem 353 8883 Grantiusa At Iptio &  & 1150.20 & ILI &  & D\\
+2017-12-12 & 2017-12-12 &  & N82018086GIO1I00-2 & Ditur Per Detiant Difig In. 42888507, Per Eo Dicared 2 &  & 766 &  &  & \\
+2017-12-12 & 2017-12-12 &  & R387130332086 & Bongionelebituduccem, Geruniundabibulunta 8, Os-3740 Tegiuvire & 749.15 &  &  & Incem. t.53.13.7424 XXX Frimusturit VI SI Incem. In. 204426 & \\
+2017-12-13 & 2017-12-13 &  & J84641867GS3FMX3-2 & Ditur Per Detiant Difig In. 42888507, Per Eo Dicared 2 &  & 1250.00 &  &  & \\
+2017-12-13 & 2017-12-13 &  & U165771277048 & Numercium Ada�at (6) &  & 12823.95 &  &  & S\\
+2017-12-13 & 2017-12-13 &  & U165771277048 & Prope, Lonae Perveradduonfore 67, 7080 Sicutus B.Millicte &  & 829.6 & ILI &  & D\\
+2017-12-13 & 2017-12-13 &  & U165771277048 & Prine, Segro Pultulurungere 44, 8135 Liguittetis Eo &  & 6010.45 & ILI &  & D\\
+2017-12-13 & 2017-12-13 &  & U165771277048 & Sureset-Vivittio Nere, Jldhjqcvusfg34 3740 Rexertiuva &  & 2571.45 & ILI &  & D\\
+2017-12-13 & 2017-12-13 &  & U165771277048 & Lanate Ocascro Ignum, Momittiandicem 38 8280 Ocabendestant &  & 3412.45 & ILI &  & D\\
+2017-12-14 & 2017-12-14 &  & E614176420231 & Fense, Bentest Differumernent 55, 7071 Numquam &  & 832 &  &  & \\
+2017-12-15 & 2017-12-15 &  & Q040273833103 & Numn Ore Cere, Caluractium 8, 8013 Popirunt & 2581.20 &  &  &  & \\
+2017-12-16 & 2017-12-16 &  & A44857164G3KP2NN-2 & Ditur Per Detiant Difig In. 42888507, Per Eo Dicared 2 &  & 771 &  &  & \\
+2017-12-18 & 2017-12-18 &  & WM57212642E637XM & Cem Ore Me, Y�vistrampate. 212, 2065 Vescitquam & 6480.00 &  &  & 402237 NEQUAT 472213 5.42 1873. 42 & \\
+2017-12-19 & 2017-12-19 &  & E81826216YF66AUX-2 & Ditur Per Detiant Difig In. 42888507, Per Eo Dicared 2 &  & 2400.00 &  &  & \\
+2017-12-19 & 2017-12-19 &  & M56E6472HRE1S38X-2 & Frisugavit &  & 11500.00 &  &  & \\
+2017-12-19 & 2017-12-17 &  & F2BQT1087RB8DMVW-8643 & Dividem Per Detiant Difig In. 42888507, Vente Feserficus 3765 &  & 36.4 &  &  & \\
+2017-12-21 & 2017-12-21 &  & T430401123230 & Fense, Pote Differumernent 55, 7071 Numquam &  & 771 &  &  & \\
+2017-12-21 & 2017-12-21 &  & Q712030113305 & Bongionelebituduccem, Geruniundabibulunta 8, Os-3740 Tegiuvire & 352 &  &  & Filestanam sum Incem. In. 668536 Horminuindis SI Ignumen & \\
+2017-12-21 & 2017-12-21 &  & A850140850506 & Bongionelebituduccem, Geruniundabibulunta 8, Os-3740 Tegiuvire & 754.3 &  &  & Incem. t.27.13.7424 Sentionercite Dispietrit Incem. In. 211646 8 xxx 8  Tus. & \\
+2017-12-21 & 2017-12-21 &  & O810567054148 & Bongionelebituduccem, Geruniundabibulunta 8, Os-3740 Tegiuvire & 281.8 &  &  & Filestanam sum Incem. In. 151424 RED Succierra IN Ignumen & \\
+2017-12-21 & 2017-12-21 &  & A502631260240 & Bongionelebituduccem, Geruniundabibulunta 8, Os-3740 Tegiuvire & 473.3 &  &  & Filestanam sum Incem. In. 434788 RED Succierra 6. DE Ignumen & \\
+2017-12-22 & 2017-12-22 &  & M532560256605 & Hunc Cere, Ædis Curbies 24a 8235 Tantest Me &  & 1500.00 &  &  & \\
+2017-12-22 & 2017-12-22 &  & S052420841747 & Salia Prote, Usque Curbies 18 8020 Pascripto &  & 3000.00 &  &  & \\
+2017-12-22 & 2017-12-22 &  & S5L2H834FAQM4JVC-2 & Frisugavit &  & 9250.00 &  &  & \\
+2017-12-22 & 2017-12-21 &  & H8JDE3447MKC02JG-7784 & Dividem Per Detiant Difig In. 42888507, Vente Feserficus 3765 &  & 33.3 &  &  & \\
+2017-12-22 & 2017-12-22 &  & PE42056231F10454 & Xxx Ore Me, N/l Aut Me Bonsivicit, Entuunteructe 18, 1534 W�suba & 12146.15 &  &  & Ex.-In. 260187 / 13'601.48 ./. 8    277.17 ./. 8    756.31 sum Ex. In. 652316 & \\
+2017-12-28 & 2017-12-28 &  & I354188672175 & Cale, Eserans Tintiuvisquaderva 665, 6352 Caruntatu &  & 1101.60 &  &  & \\
+2017-12-28 & 2017-12-28 &  & R481278686653 & Stas, Auferneiuniarto 6, Os-7517 Propra & 2486.40 &  &  & OF86 488-72245.0 2 Ossa:31.14732.46 .8 Simuntis:63606842 & \\
+2017-12-30 & 2017-12-31 &  & I0005BE64WGCLJ23-2 & Men�ut Venens�expem Ili 13.42 &  & 13 &  &  & \\
 \\
 \end{tablevalue}
 \end{document}

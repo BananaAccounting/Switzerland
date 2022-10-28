@@ -20,28 +20,28 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2009-01-05 & 2009-01-05 &  & Kolping Krankenkasse Ag Hauptsitz Ringstr. 16 8600 Duebendorf &  & 330.85\\
-2009-01-09 & 2009-01-09 &  & 3DPLAN Gmbh Opfikonerstr. 31 8303 Bassersdorf & 3500.00 & \\
-2009-01-27 & 2009-01-26 &  & Coop-1413 Bassersd Karten-Nr. 73136029 Chf 15.40 &  & 15.40\\
-2009-01-27 & 2009-01-27 &  & Credit Suisse Axa Lebensversicherung 1000 Lausanne 3 &  & 88.10\\
-2009-01-30 & 2009-01-30 &  & Mls Miroslav Kto Groskova Mls Opfikonerstrasse 31 8303 Bassersdorf &  & 1500.00\\
-2009-02-02 & 2009-02-02 &  & Kolping Krankenkasse Ag Hauptsitz Ringstr. 16 8600 Duebendorf &  & 330.85\\
-2009-02-02 & 2009-02-02 &  & Sunrise Communications Ag Sunrise Hagenholzstrasse 20 / 22 Ch - 8050 Zuerich &  & 75.80\\
-2009-02-03 & 2009-01-31 &  & Cs Flims\_dorf Karten-Nr. 73136029 Chf 200.00 Kommission Chf 2.00 &  & 202.00\\
-2009-02-06 & 2009-02-06 &  & Dr.Med.Rene Hartmeier Rebhaldenstrasse 9 8303 Bassersdorf &  & 73.50\\
-2009-02-06 & 2009-01-28 &  & Jahresgeb Karte &  & 20.00\\
-2009-02-12 & 2009-02-12 &  & Sebastien Jungo Route Du Bugnon 35 1752 Villars-Sur-Glane & 49.50 & \\
-2009-02-16 & 2009-02-16 &  & Caisse De Medicins 1211 Geneve 2 Aerztekasse Agentur Zuerich Schaffhauserstrasse 470 8052 Zueric &  & 123.35\\
-2009-02-16 & 2009-02-16 &  & Dr.Med. Rene Hartmeier Rebhaldenstrasse 9 8303 Bassersdorf &  & 0.25\\
-2009-02-17 & 2009-02-17 &  & Global Refund Service Ab Ostergardsgatan 7 S 43123 Moelndal Sweden & 8.08 & \\
-2009-02-19 & 2009-02-19 &  & Zkb Bassersdorf 1 &  & 500.00\\
-2009-02-23 & 2009-02-23 &  & 3DPLAN Gmbh Opfikonerstr. 31 8303 Bassersdorf & 3500.00 & \\
-2009-02-25 & 2009-02-25 &  & Kolping Krankenkasse Ag Ringstrasse 16 8600 Dubendorf & 176.55 & \\
-2009-02-27 & 2009-02-27 &  & Mls Miroslav Kto Groskova Mls Opfikonerstrasse 31 8303 Bassersdorf &  & 1500.00\\
-2009-02-27 & 2009-02-27 &  & Credit Suisse Axa Lebensversicherung 1000 Lausanne 3 &  & 88.10\\
-2009-02-28 & 2009-03-02 &  & Kolping Krankenkasse Ag Hauptsitz Ringstr. 16 8600 Duebendorf &  & 330.85\\
-2009-03-02 & 2009-03-03 &  & Sunrise Communications Ag Sunrise Hagenholzstrasse 20 / 22 Ch - 8050 Zuerich &  & 89.05\\
-2009-03-08 & 2009-03-06 &  & Shell Rosenberg Karten-Nr. 73136029 Chf 6.60 &  & 6.60\\
+2009-01-05 & 2009-01-05 &  & Facchat Factumenteum Eo Admissime Vicidus. 43 4640 Lamquiraer &  & 330.85\\
+2009-01-09 & 2009-01-09 &  & 4RPCFA Adit Scilluniunga. 44 6454 Acubiraddus & 3500.00 & \\
+2009-01-27 & 2009-01-26 &  & Ales-7506 Osuuniam Horpus-An. 42304123 Ela 65.54 &  & 15.40\\
+2009-01-27 & 2009-01-27 &  & Gengus Magrae Aut Corartintiamaxitas 7673 Inumquor 3 &  & 88.10\\
+2009-01-30 & 2009-01-30 &  & Nam Rescrini Que Raddunix Nam Poreturanerissit 44 6454 Acubiraddus &  & 1500.00\\
+2009-02-02 & 2009-02-02 &  & Facchat Factumenteum Eo Admissime Vicidus. 43 4640 Lamquiraer &  & 330.85\\
+2009-02-02 & 2009-02-02 &  & Dimiles Combulucenduor Eo Dimiles Exacticarangende 71 / 28 De - 6886 Veganti &  & 75.80\\
+2009-02-03 & 2009-01-31 &  & Eo Pretusquit Horpus-An. 42304123 Ela 837.32 Agittiando Ela 4.32 &  & 202.00\\
+2009-02-06 & 2009-02-06 &  & An.Ipe.Fero Cantiange Roximungustarunt 4 6454 Acubiraddus &  & 73.50\\
+2009-02-06 & 2009-01-28 &  & Tatempupa Volex &  & 20.00\\
+2009-02-12 & 2009-02-12 &  & Pattentum Ridum Itant Ex Suides 65 5586 Ituunis-Fig-Eante & 49.50 & \\
+2009-02-16 & 2009-02-16 &  & Exerit Si Deaniunc 2818 Facita 7 Illumilebre Cappare Veganti Curatestimuluvidium 717 4380 Difica &  & 123.35\\
+2009-02-16 & 2009-02-16 &  & An.Ipe. Fero Cantiange Roximungustarunt 4 6454 Acubiraddus &  & 0.25\\
+2009-02-17 & 2009-02-17 &  & Pratur Laptus Orsusto Os Aurestuundabica 1 O 83876 Araximor Alinga & 8.08 & \\
+2009-02-19 & 2009-02-19 &  & Por Acubiraddus 7 &  & 500.00\\
+2009-02-23 & 2009-02-23 &  & 4RPCFA Adit Scilluniunga. 44 6454 Acubiraddus & 3500.00 & \\
+2009-02-25 & 2009-02-25 &  & Facchat Factumenteum Eo Viuntamnunt 43 4640 Haeprepar & 176.55 & \\
+2009-02-27 & 2009-02-27 &  & Nam Rescrini Que Raddunix Nam Poreturanerissit 44 6454 Acubiraddus &  & 1500.00\\
+2009-02-27 & 2009-02-27 &  & Gengus Magrae Aut Corartintiamaxitas 7673 Inumquor 3 &  & 88.10\\
+2009-02-28 & 2009-03-02 &  & Facchat Factumenteum Eo Admissime Vicidus. 43 4640 Lamquiraer &  & 330.85\\
+2009-03-02 & 2009-03-03 &  & Dimiles Combulucenduor Eo Dimiles Exacticarangende 71 / 28 De - 6886 Veganti &  & 89.05\\
+2009-03-08 & 2009-03-06 &  & Vicus Tabiterat Horpus-An. 42304123 Ela 8.52 &  & 6.60\\
 \\
 \end{tablevalue}
 \end{document}

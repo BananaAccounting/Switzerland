@@ -20,24 +20,24 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2012-05-31 & 2012-05-30 &  & Karten-Nr. 671070000073657267 &  & 20.00\\
-2012-05-31 & 2012-05-31 &  & Raja Builders Ag, Hagenholzstrasse 90, 8050 Zuerich & 1876.04 & \\
-2012-06-01 & 2012-06-08 &  & Zkb Identy Key &  & 79.00\\
-2012-06-01 & 2012-06-08 &  & Zkb Identy Key &  & 79.00\\
-2012-06-07 & 2012-06-06 &  & Schuh- + Schl�sselserv, Karten-Nr. 73657267, CHF41.20 &  & 41.20\\
-2012-06-08 & 2012-06-07 &  & Ubs Zuerich Sf-Drs 112, Karten-Nr. 73657267, CHF300.00, Kommission CHF2.00 &  & 302.00\\
-2012-06-29 & 2012-06-30 &  & Guthabenzins & 0.05 & \\
-2012-06-29 & 2012-06-30 &  & Geb�hr Kontof�hru &  & 8.00\\
-2012-06-29 & 2012-06-30 &  & Belastung Versand &  & 0.85\\
-2012-07-13 & 2012-07-13 &  & Karten-Nr. 73657267 &  & 500.00\\
-2012-07-19 & 2012-07-19 &  & Raja Builders Ag, Hagenholzstr. 90, 8050 Zuerich & 158.00 & \\
-2012-08-28 & 2012-08-26 &  & Ubs Zuerich Sf-Drs 112, Karten-Nr. 73657267, CHF1000.00, Kommission CHF2.00 &  & 1002.00\\
-2012-09-28 & 2012-09-30 &  & Guthabenzins & 0.10 & \\
-2012-09-28 & 2012-09-30 &  & Verrechnungssteue &  & 0.05\\
-2012-09-28 & 2012-09-30 &  & Geb�hr Kontof�hru &  & 12.00\\
-2012-09-28 & 2012-09-30 &  & Belastung Versand &  & 2.55\\
-2012-10-12 & 2012-10-12 &  & Raja Builders Ag, Hagenholzstr. 90, 8050 Zuerich & 1500.00 & \\
-2012-10-12 & 2012-10-12 &  & Mercedes-Benz Automobil Ag, Zuercherstr. 109, 8952 Schlieren &  & 1354.95\\
+2012-05-31 & 2012-05-30 &  & Italei-At. 171132850084462668 &  & 20.00\\
+2012-05-31 & 2012-05-31 &  & Prow Uxerevos In, Mantiavigentesto 76, 1652 Ocutini & 1876.04 & \\
+2012-06-01 & 2012-06-08 &  & Box Habura Xxx &  & 79.00\\
+2012-06-01 & 2012-06-08 &  & Box Habura Xxx &  & 79.00\\
+2012-06-07 & 2012-06-06 &  & Inunt- + Prow�turetunt, Italei-At. 28527638, COR68.27 &  & 41.20\\
+2012-06-08 & 2012-06-07 &  & Xxx Ocutini In-Ter 548, Italei-At. 28527638, COR127.64, Cescalebis COR0.64 &  & 302.00\\
+2012-06-29 & 2012-06-30 &  & Restinethede & 0.05 & \\
+2012-06-29 & 2012-06-30 &  & Xxx�by Humela�cat &  & 8.00\\
+2012-06-29 & 2012-06-30 &  & Chiuncent Tentudo &  & 0.85\\
+2012-07-13 & 2012-07-13 &  & Italei-At. 28527638 &  & 500.00\\
+2012-07-19 & 2012-07-19 &  & Prow Uxerevos In, Operuniurges. 76, 1652 Ocutini & 158.00 & \\
+2012-08-28 & 2012-08-26 &  & Xxx Ocutini In-Ter 548, Italei-At. 28527638, COR3668.64, Cescalebis COR0.64 &  & 1002.00\\
+2012-09-28 & 2012-09-30 &  & Restinethede & 0.10 & \\
+2012-09-28 & 2012-09-30 &  & Aviundisqualureat &  & 0.05\\
+2012-09-28 & 2012-09-30 &  & Xxx�by Humela�cat &  & 12.00\\
+2012-09-28 & 2012-09-30 &  & Chiuncent Tentudo &  & 2.55\\
+2012-10-12 & 2012-10-12 &  & Prow Uxerevos In, Operuniurges. 76, 1652 Ocutini & 1500.00 & \\
+2012-10-12 & 2012-10-12 &  & Artipila-Cula Brundivit In, Flavitifica. 706, 4366 Opillieri &  & 1354.95\\
 \\
 \end{tablevalue}
 \end{document}

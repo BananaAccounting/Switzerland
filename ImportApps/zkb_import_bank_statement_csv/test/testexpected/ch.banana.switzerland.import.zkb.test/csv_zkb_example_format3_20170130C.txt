@@ -20,37 +20,37 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & ExchangeCurrency & Notes & IsDetail\\
-2017-01-03 & 2017-01-03 &  & 7011010321730002 & Buri Fashion + Design Ag Dorfstrasse 89 3818 Grindelwald & 1517.40 &  &  & Handelsrechnung 1611470 & \\
-2017-01-07 & 2017-01-05 &  & IBEP010900006661 & Www.Zumstein Karten-Nr. 73945198 &  & 45.60 &  &  & \\
-2017-01-09 & 2017-01-07 &  & IBEP010900206484 & Coop Pronto Witikonerstr Karten-Nr. 73945198 &  & 14.60 &  &  & \\
-2017-01-10 & 2017-01-10 &  & 7480011012720001 & Nadiv-Reznik Ehud Oder Yael &  & 1000.00 &  & Cover Jan.17 & \\
-2017-01-11 & 2017-01-11 &  & 8680011101290002 & Postfinance Egab/pce & 345.70 &  &  &  & \\
-2017-01-12 & 2017-01-10 &  & IBEP011200016089 & Data Quest Ag Karten-Nr. 73945198 &  & 49.20 &  &  & \\
-2017-01-14 & 2017-01-14 &  & L147485181860001 & Karten-Nr. 73945198 &  & 200.00 &  &  & \\
-2017-01-18 & 2017-01-18 &  & 7010011817640002 & 1/DR. Thomas Hammer 1/8053 Zurich & 185.00 &  &  &  & \\
-2017-01-18 & 2017-01-18 &  & 8470011814630002 & Eidg. Steuerverwaltung Bern & 719.93 &  &  & NO.6053201701162128/0780378 Q03/20160320055192 & \\
-2017-01-19 & 2017-01-19 &  & 7400011918050001 & Ebanking (5) &  & 1083.45 &  &  & S\\
-2017-01-19 & 2017-01-19 &  & 7400011918050001 & George Schuppisser &  & 199.00 & CHF & 16.12.17 & D\\
-2017-01-19 & 2017-01-19 &  & 7400011918050001 & Swiss Post Inter- National Logistics Ag &  & 112.50 & CHF &  & D\\
-2017-01-19 & 2017-01-19 &  & 7400011918050001 & Dhl Express (Schweiz) Ag 4052 Basel &  & 62.90 & CHF &  & D\\
-2017-01-19 & 2017-01-19 &  & 7400011918050001 & Dhl Express (Schweiz) Ag 4052 Basel &  & 169.05 & CHF &  & D\\
-2017-01-19 & 2017-01-19 &  & 7400011918050001 & Optivision Jürg Neidhart &  & 540.00 & CHF & Nr.16105 & D\\
-2017-01-19 & 2017-01-19 &  & 7010011996020002 & 1/PAMELA Etezady-Esfarjani 1/8053 Zurich & 270.00 &  &  &  & \\
-2017-01-19 & 2017-01-19 &  & 7010011998300002 & 1/VIVAIA Ag 1/8001 Zurich & 2446.20 &  &  & RG. 1612475 & \\
-2017-01-20 & 2017-01-20 &  & 7011012052990002 & 1/FRIOLET Interiors Gmbh 1/8125 Zollikerberg & 5734.80 &  &  & RECHNUNG 1612476-1611471-1610449 & \\
-2017-01-20 & 2017-01-20 &  & 7011012053230002 & 1/FRIOLET Interiors Gmbh 1/8125 Zollikerberg & 1263.60 &  &  & RECHNUNG 1612476 & \\
-2017-01-23 & 2017-01-23 &  & 7480012392260001 & Nadiv-Reznik Ehud Oder Yael &  & 3000.00 &  & Cover Feb17 & \\
-2017-01-25 & 2017-01-25 &  & 8280012500770002 & Postfinance Egab/pce & 1351.40 &  &  &  & \\
-2017-01-26 & 2017-01-26 &  & 7013012603770002 & 1/MONSIEUR Antonio Marcos Et/ou 1/MADAME Annemarcos & 370.00 &  &  & EARRINGS & \\
-2017-01-26 & 2017-01-26 &  & 7480012661890001 & Nadiv-Reznik Ehud Oder Yael &  & 2500.00 &  & Cover Feb.17 & \\
-2017-01-27 & 2017-01-27 &  & 6606012740570001 & Viseca Card Services Sa Hagenholzstrasse 56 &  & 745.40 &  & 1107567006833949BELASTUNG GEMAESS RECHNUNGVOM 23.01.2017KARTENKONTO 1107 5670 0683 3949 & \\
-2017-01-27 & 2017-01-27 &  & 7400012778160001 & Ebanking (5) &  & 1158.95 &  &  & S\\
-2017-01-27 & 2017-01-27 &  & 7400012778160001 & Ametista &  & 224.10 & CHF &  & D\\
-2017-01-27 & 2017-01-27 &  & 7400012778160001 & Swisscom (Schweiz) Ag Alte Tiefenaustrasse 6 &  & 145.50 & CHF &  & D\\
-2017-01-27 & 2017-01-27 &  & 7400012778160001 & Papetrie Fischer Ag 8032 Zürich &  & 58.85 & CHF &  & D\\
-2017-01-27 & 2017-01-27 &  & 7400012778160001 & George Schuppisser &  & 30.50 & CHF & 13.1.17 & D\\
-2017-01-27 & 2017-01-27 &  & 7400012778160001 & Praxisgemeinschaft Apollostrasse 5 &  & 700.00 & CHF & Büromiete & D\\
-2017-01-30 & 2017-01-28 &  & X112570638220001 & Karten-Nr. 671070000073945198 &  & 40.00 &  &  & \\
+2017-01-03 & 2017-01-03 &  & 7721532738224312 & Cant Section + Amnies By Huniturrest 42 4671 Mincrellatu & 1517.40 &  &  & Tabentequargens 1612175 & \\
+2017-01-07 & 2017-01-05 &  & PTTB086586751871 & Lor.Opedabis Ascere-Vi. 36871817 &  & 45.60 &  &  & \\
+2017-01-09 & 2017-01-07 &  & UKUG505460483143 & Inam Supere Colegiturime Ascere-Vi. 36871817 &  & 14.60 &  &  & \\
+2017-01-10 & 2017-01-10 &  & 6288661716525021 & Adrat-Forego Sita Tare Fore &  & 1000.00 &  & Inate Pra.76 & \\
+2017-01-11 & 2017-01-11 &  & 7157772425037854 & Videntercit Ripe/pra & 345.70 &  &  &  & \\
+2017-01-12 & 2017-01-10 &  & SKEQ243444737642 & Tura Merum By Ascere-Vi. 36871817 &  & 49.20 &  &  & \\
+2017-01-14 & 2017-01-14 &  & A446332405027786 & Ascere-Vi. 36871817 &  & 200.00 &  &  & \\
+2017-01-18 & 2017-01-18 &  & 4171427846121048 & 4/ET. Mensim Factus 4/1477 Jubiti & 185.00 &  &  &  & \\
+2017-01-18 & 2017-01-18 &  & 4447327181605606 & Pute. Apiectudivenduci Cusa & 719.93 &  &  & IN.7517743368050560/7232762 B07/84547474574247 & \\
+2017-01-19 & 2017-01-19 &  & 1443023576480326 & Orseprae (2) &  & 1083.45 &  &  & S\\
+2017-01-19 & 2017-01-19 &  & 1443023576480326 & Pronis Chorascenti &  & 199.00 & TUS & 16.12.17 & D\\
+2017-01-19 & 2017-01-19 &  & 1443023576480326 & Curet Vada Actas- Dificies Sondabula By &  & 112.50 & TUS &  & D\\
+2017-01-19 & 2017-01-19 &  & 1443023576480326 & Dux Igionit (Aquaest) By 7208 Aduer &  & 62.90 & TUS &  & D\\
+2017-01-19 & 2017-01-19 &  & 1443023576480326 & Dux Igionit (Aquaest) By 7208 Aduer &  & 169.05 & TUS &  & D\\
+2017-01-19 & 2017-01-19 &  & 1443023576480326 & Natotatemo Xüut Tursente &  & 540.00 & TUS & Vi.68240 & D\\
+2017-01-19 & 2017-01-19 &  & 3523283084432211 & 4/VIGAUT Hortino-Postogion 4/1477 Jubiti & 270.00 &  &  &  & \\
+2017-01-19 & 2017-01-19 &  & 1268772804038005 & 4/FUNTAM By 4/1346 Jubiti & 2446.20 &  &  & UT. 6740786 & \\
+2017-01-20 & 2017-01-20 &  & 5468038682418258 & 4/AUSQUAM Unumentes Cabo 4/4585 Sperbilianem & 5734.80 &  &  & HORSUBIS 8138477-7377328-4228814 & \\
+2017-01-20 & 2017-01-20 &  & 2336758387765633 & 4/AUSQUAM Unumentes Cabo 4/4585 Sperbilianem & 1263.60 &  &  & HORSUBIS 8138477 & \\
+2017-01-23 & 2017-01-23 &  & 6524008641703100 & Adrat-Forego Sita Tare Fore &  & 3000.00 &  & Inate Viq17 & \\
+2017-01-25 & 2017-01-25 &  & 8825551850541552 & Videntercit Ripe/pra & 1351.40 &  &  &  & \\
+2017-01-26 & 2017-01-26 &  & 1212537177375757 & 4/DITICITA Indiunt Clatus In/vi 4/HENTAS Sectclatus & 370.00 &  &  & DIUNGISU & \\
+2017-01-26 & 2017-01-26 &  & 7305643850615702 & Adrat-Forego Sita Tare Fore &  & 2500.00 &  & Inate Fac.76 & \\
+2017-01-27 & 2017-01-27 &  & 5268210500307720 & Intemo Vent Stirunch Si Fenturserundicum 60 &  & 745.40 &  & 6825502454278142FEFGRLIMH LUNIUNT VISSILLAVIT 37.12.5682DQPSIWUBAKY 3307 4815 4261 1275 & \\
+2017-01-27 & 2017-01-27 &  & 1874265201865502 & Orseprae (2) &  & 1158.95 &  &  & S\\
+2017-01-27 & 2017-01-27 &  & 1874265201865502 & Horsista &  & 224.10 & TUS &  & D\\
+2017-01-27 & 2017-01-27 &  & 1874265201865502 & Dertuunt (Aquaest) By Bone Nubsecibervideo 3 &  & 145.50 & TUS &  & D\\
+2017-01-27 & 2017-01-27 &  & 1874265201865502 & Agingent Congent By 5650 Düadis &  & 58.85 & TUS &  & D\\
+2017-01-27 & 2017-01-27 &  & 1874265201865502 & Pronis Chorascenti &  & 30.50 & TUS & 13.1.17 & D\\
+2017-01-27 & 2017-01-27 &  & 1874265201865502 & Postabignentuobita Merrimererent 2 &  & 700.00 & TUS & Rüvilione & D\\
+2017-01-30 & 2017-01-28 &  & C635377217262263 & Ascere-Vi. 752006680577553664 &  & 40.00 &  &  & \\
 \\
 \end{tablevalue}
 \end{document}

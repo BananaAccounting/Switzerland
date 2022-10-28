@@ -20,13 +20,13 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & ExchangeCurrency & Notes & IsDetail\\
-2017-01-05 & 2017-01-05 &  & 7300010505430002 & Antora Selection Andrea Wontorra Lichtentaler Str. 7 & 1691.00 &  &  & RG 1612472 & \\
-2017-01-09 & 2017-01-09 &  & 7300010906270002 & Chania Sprl Voie De L.Air Pur 149 1 & 1920.00 &  &  & INVOICE 1611460 & \\
-2017-01-11 & 2017-01-11 &  & 7300011108790002 & Sibylle Will-Kempermann, De-Stuttga Rter Str. 90 Will-Moden 73312 Geisl & 930.00 &  &  & RE-1612.475/ 15.12.16 & \\
-2017-01-20 & 2017-01-20 &  & 7460012012010001 & The Supreme Group Munich Fashion Company &  & 265.00 &  & Rech. I163100 - 58.00 EuroRech. I163184 - 207.00 Euro & \\
-2017-01-26 & 2017-01-26 &  & 7300012602630002 & Lange Ute Cortnitzer Str. 18 & 400.00 &  &  & RESTZAHLUNG RENR 1605373 UTELANGE DRESDEN HERZLICHEN DANK & \\
-2017-01-26 & 2017-01-26 &  & MC1L739831310001 & Auszahlung &  & 300.00 &  &  & \\
-2017-01-27 & 2017-01-27 &  & 7460012723650001 & Alkit Gmbh Philipsstrasse 8 &  & 182.57 &  & Rech. Nummer 300000002 & \\
+2017-01-05 & 2017-01-05 &  & 5618823812386208 & Culuum Ferisquid Fundit Cogiunum Frunificusta Car. 7 & 1691.00 &  &  & BY 2226408 & \\
+2017-01-09 & 2017-01-09 &  & 7516653641857501 & Elitio Numn Adum Et F.Aut Xxx 884 2 & 1920.00 &  &  & ENEQUAM 6752653 & \\
+2017-01-11 & 2017-01-11 &  & 7747875767506073 & Incuret Emen-Plevaralla, Et-Rumetum Gris Car. 53 Emen-Caest 55201 Putio & 930.00 &  &  & ET-3508.127/ 26.87.53 & \\
+2017-01-20 & 2017-01-20 &  & 5423745407255170 & Cat Propere Pares Mantum Puelect Pugatop &  & 265.00 &  & Prow. M542477 - 86.18 ConaTudo. P743318 - 726.18 Brem & \\
+2017-01-26 & 2017-01-26 &  & 8303676184382047 & Terit Via Feceripsus Car. 72 & 400.00 &  &  & CARELECILLA NENT 3356211 HUNTESTA COLUMEN MISUCCANEM DEIS & \\
+2017-01-26 & 2017-01-26 &  & EJ1P186412880846 & Beangeribi &  & 300.00 &  &  & \\
+2017-01-27 & 2017-01-27 &  & 7416038438161807 & Zucum Zuci Quiungendicute 3 &  & 182.57 &  & Prow. Derbis 468320071 & \\
 \\
 \end{tablevalue}
 \end{document}

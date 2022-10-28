@@ -20,56 +20,56 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2016-06-30 & 2016-06-30 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
-2016-07-01 & 2016-07-01 &  & Gutschrift: Glanc Tomas & 2245.00 & \\
-2016-07-07 & 2016-07-08 &  & Lastschrift: Elektrizitaetswerk &  & 78.00\\
-2016-07-28 & 2016-07-28 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
-2016-07-28 & 2016-07-28 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
-2016-07-28 & 2016-07-28 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
-2016-07-28 & 2016-07-29 &  & Lastschrift: Finanzverwaltung &  & 1823.35\\
-2016-07-29 & 2016-07-29 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
-2016-07-29 & 2016-07-29 &  & Ebanking (3) &  & 5110.45\\
-2016-07-29 & 2016-07-29 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
-2016-07-29 & 2016-07-29 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
-2016-07-29 & 2016-07-29 &  & Gutschrift: Glanc Tomas & 2145.00 & \\
-2016-07-29 & 2016-07-29 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
-2016-07-29 & 2016-07-29 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
-2016-08-26 & 2016-08-26 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
-2016-08-26 & 2016-08-26 &  & Gutschrift: Glanc Tomas & 2195.00 & \\
-2016-08-26 & 2016-08-26 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
-2016-08-26 & 2016-08-26 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
-2016-08-29 & 2016-08-29 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
-2016-08-29 & 2016-08-29 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
-2016-08-31 & 2016-08-31 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
-2016-08-31 & 2016-08-31 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
-2016-08-31 & 2016-08-31 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
-2016-09-01 & 2016-09-02 &  & Lastschrift: Elektrizitaetswerk &  & 79.00\\
-2016-09-27 & 2016-09-27 &  & Gutschrift: Beat Messerli & 6450.00 & \\
-2016-09-27 & 2016-09-27 &  & Gutschrift: Glanc Tomas & 2195.00 & \\
-2016-09-28 & 2016-09-28 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
-2016-09-28 & 2016-09-28 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
-2016-09-28 & 2016-09-28 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
-2016-09-29 & 2016-09-29 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
-2016-09-29 & 2016-09-29 &  & Ebanking: Schweizerische Mobiliar &  & 989.00\\
-2016-09-29 & 2016-09-29 &  & Ebanking: Ausgleichskasse Panavica &  & 3886.20\\
-2016-09-29 & 2016-09-29 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
-2016-09-29 & 2016-09-30 &  & Übertr Hypothek &  & 490.90\\
-2016-09-30 & 2016-09-30 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
-2016-09-30 & 2016-09-30 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
-2016-09-30 & 2016-09-30 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
-2016-10-07 & 2016-10-07 &  & Gutschrift: 1/DOROTHE Zwicky & 200.00 & \\
-2016-10-21 & 2016-10-21 &  & Ebanking: Guyer Wärme Und Wasser &  & 1550.00\\
-2016-10-27 & 2016-10-27 &  & Gutschrift: Glanc Tomas & 2195.00 & \\
-2016-10-28 & 2016-10-28 &  & Gutschrift: 1/CHRISTIAN Sigg & 2220.00 & \\
-2016-10-28 & 2016-10-28 &  & Ebanking (2) &  & 984.50\\
-2016-10-28 & 2016-10-28 &  & Gutschrift: Herr Thomas Stächelin & 155.00 & \\
-2016-10-28 & 2016-10-28 &  & Gutschrift: Schmid-Troendle Emilie & 905.00 & \\
-2016-10-28 & 2016-10-28 &  & Gutschrift: Schwabe Sarah Und & 2115.00 & \\
-2016-10-31 & 2016-10-31 &  & Gutschrift: 1/TANJA Maria Christina Drenth & 2065.00 & \\
-2016-10-31 & 2016-10-31 &  & Gutschrift: Herr Thomas Ernst Schmid & 1600.00 & \\
-2016-10-31 & 2016-10-31 &  & Gutschrift: Herr Johann Heinrich Waser & 155.00 & \\
-2016-11-02 & 2016-11-02 &  & Gutschrift: Bücheler-Simmler & 1705.00 & \\
-2016-11-03 & 2016-11-04 &  & Lastschrift: Elektrizitaetswerk &  & 80.00\\
+2016-06-30 & 2016-06-30 &  & Subitianam: Babo Imirum Coritrum Perum & 155.00 & \\
+2016-07-01 & 2016-07-01 &  & Subitianam: Funix Naver & 2245.00 & \\
+2016-07-07 & 2016-07-08 &  & Omertatribi: Ponerundificiendix &  & 78.00\\
+2016-07-28 & 2016-07-28 &  & Subitianam: Oüpossum-Emispor & 1705.00 & \\
+2016-07-28 & 2016-07-28 &  & Subitianam: Sendam-Motubila Canatu & 905.00 & \\
+2016-07-28 & 2016-07-28 &  & Subitianam: Mustabo Magna Vit & 2115.00 & \\
+2016-07-28 & 2016-07-29 &  & Omertatribi: Prirungustateque &  & 1823.35\\
+2016-07-29 & 2016-07-29 &  & Subitianam: 2/FRITTERRA Vent & 2220.00 & \\
+2016-07-29 & 2016-07-29 &  & Novianta (8) &  & 5110.45\\
+2016-07-29 & 2016-07-29 &  & Subitianam: 2/POTUS Putas Ipationam Inetio & 2065.00 & \\
+2016-07-29 & 2016-07-29 &  & Subitianam: Babo Nomple Eoäsonges & 155.00 & \\
+2016-07-29 & 2016-07-29 &  & Subitianam: Funix Naver & 2145.00 & \\
+2016-07-29 & 2016-07-29 &  & Subitianam: Babo Nomple Peram Sendam & 1600.00 & \\
+2016-07-29 & 2016-07-29 &  & Subitianam: Babo Imirum Coritrum Perum & 155.00 & \\
+2016-08-26 & 2016-08-26 &  & Subitianam: Oüpossum-Emispor & 1705.00 & \\
+2016-08-26 & 2016-08-26 &  & Subitianam: Funix Naver & 2195.00 & \\
+2016-08-26 & 2016-08-26 &  & Subitianam: Sendam-Motubila Canatu & 905.00 & \\
+2016-08-26 & 2016-08-26 &  & Subitianam: Mustabo Magna Vit & 2115.00 & \\
+2016-08-29 & 2016-08-29 &  & Subitianam: 2/FRITTERRA Vent & 2220.00 & \\
+2016-08-29 & 2016-08-29 &  & Subitianam: Babo Nomple Eoäsonges & 155.00 & \\
+2016-08-31 & 2016-08-31 &  & Subitianam: Babo Nomple Peram Sendam & 1600.00 & \\
+2016-08-31 & 2016-08-31 &  & Subitianam: 2/POTUS Putas Ipationam Inetio & 2065.00 & \\
+2016-08-31 & 2016-08-31 &  & Subitianam: Babo Imirum Coritrum Perum & 155.00 & \\
+2016-09-01 & 2016-09-02 &  & Omertatribi: Ponerundificiendix &  & 79.00\\
+2016-09-27 & 2016-09-27 &  & Subitianam: Rent Movegram & 6450.00 & \\
+2016-09-27 & 2016-09-27 &  & Subitianam: Funix Naver & 2195.00 & \\
+2016-09-28 & 2016-09-28 &  & Subitianam: Oüpossum-Emispor & 1705.00 & \\
+2016-09-28 & 2016-09-28 &  & Subitianam: Sendam-Motubila Canatu & 905.00 & \\
+2016-09-28 & 2016-09-28 &  & Subitianam: Mustabo Magna Vit & 2115.00 & \\
+2016-09-29 & 2016-09-29 &  & Subitianam: 2/FRITTERRA Vent & 2220.00 & \\
+2016-09-29 & 2016-09-29 &  & Novianta: Cogintintabulo Freparay &  & 989.00\\
+2016-09-29 & 2016-09-29 &  & Novianta: Estattimodiries Mulaturo &  & 3886.20\\
+2016-09-29 & 2016-09-29 &  & Subitianam: Babo Nomple Eoäsonges & 155.00 & \\
+2016-09-29 & 2016-09-30 &  & Üpunis Nunteris &  & 490.90\\
+2016-09-30 & 2016-09-30 &  & Subitianam: 2/POTUS Putas Ipationam Inetio & 2065.00 & \\
+2016-09-30 & 2016-09-30 &  & Subitianam: Babo Nomple Peram Sendam & 1600.00 & \\
+2016-09-30 & 2016-09-30 &  & Subitianam: Babo Imirum Coritrum Perum & 155.00 & \\
+2016-10-07 & 2016-10-07 &  & Subitianam: 2/SILLIGE Cortas & 200.00 & \\
+2016-10-21 & 2016-10-21 &  & Novianta: Diana Nälia Vit Novisu &  & 1550.00\\
+2016-10-27 & 2016-10-27 &  & Subitianam: Funix Naver & 2195.00 & \\
+2016-10-28 & 2016-10-28 &  & Subitianam: 2/FRITTERRA Vent & 2220.00 & \\
+2016-10-28 & 2016-10-28 &  & Novianta (4) &  & 984.50\\
+2016-10-28 & 2016-10-28 &  & Subitianam: Babo Nomple Eoäsonges & 155.00 & \\
+2016-10-28 & 2016-10-28 &  & Subitianam: Sendam-Motubila Canatu & 905.00 & \\
+2016-10-28 & 2016-10-28 &  & Subitianam: Mustabo Magna Vit & 2115.00 & \\
+2016-10-31 & 2016-10-31 &  & Subitianam: 2/POTUS Putas Ipationam Inetio & 2065.00 & \\
+2016-10-31 & 2016-10-31 &  & Subitianam: Babo Nomple Peram Sendam & 1600.00 & \\
+2016-10-31 & 2016-10-31 &  & Subitianam: Babo Imirum Coritrum Perum & 155.00 & \\
+2016-11-02 & 2016-11-02 &  & Subitianam: Oüpossum-Emispor & 1705.00 & \\
+2016-11-03 & 2016-11-04 &  & Omertatribi: Ponerundificiendix &  & 80.00\\
 \\
 \end{tablevalue}
 \end{document}

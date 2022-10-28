@@ -20,10 +20,10 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & ExchangeCurrency & Notes & IsDetail\\
-2017-01-03 & 2017-01-03 &  & 7460010330350001 & Mordy Ferber Usa &  & 453.91 &  & Music lessons & \\
-2017-01-05 & 2017-01-05 &  & 7460010513110001 & Moreno Music Ltd 6 Havradim Street &  & 553.93 &  & Recording December 2016 & \\
-2017-01-11 & 2017-01-11 &  & 7300011100160002 & Betsys Boutique Ltd Betsys Boutique Ltd & 2988.53 &  &  & BETSY BOUTIQUE YAELNADIV REZNIK SWITZERLAND & \\
-2017-01-25 & 2017-01-25 &  & 6760012501530001 & Le Khanh Toan &  & 3298.02 &  & Invoice 1701/17Jan.17 & \\
+2017-01-03 & 2017-01-03 &  & 5117736235337285 & Cundo Atudie Xxx &  & 453.91 &  & Debra possita & \\
+2017-01-05 & 2017-01-05 &  & 5860604220677580 & Suideo Debra Num 7 Turaltum Clavit &  & 553.93 &  & Flunifica Consegar 7088 & \\
+2017-01-11 & 2017-01-11 &  & 7478224607705310 & Aufere Segaudit Num Aufere Segaudit Num & 2988.53 &  &  & CUREM SEGAUDIT FERUNIARE OPRATE AUPERATTINE & \\
+2017-01-25 & 2017-01-25 &  & 4052603800473135 & Ex Facte Volo &  & 3298.02 &  & Bonabis 6385/81Ojv.56 & \\
 \\
 \end{tablevalue}
 \end{document}
