@@ -3431,81 +3431,7 @@ function print_final_texts(repDocObj, invoiceObj, userParam) {
     - If user enter "<none>" as paramenter on Settings dialog -> Final text, no final text is printed.
   */
 
-  // Notes (multiple lines)
-  if (invoiceObj.note.length > 0) {
-    for (var i = 0; i < invoiceObj.note.length; i++) {
-      if (invoiceObj.note[i].description) {
-        var textNote = invoiceObj.note[i].description;
-        textNote = columnNamesToValues(invoiceObj, textNote);
-        var paragraph = repDocObj.addParagraph("","final_texts");
-        addMdBoldText(paragraph, textNote);
-      }
-    }    
-  }
-
-  // Greetings (one line only)
-  if (invoiceObj.document_info.greetings) {
-    if (invoiceObj.note.length > 0) {
-      repDocObj.addParagraph(" ", "");
-    }
-    var textGreetings = invoiceObj.document_info.greetings;
-    textGreetings = columnNamesToValues(invoiceObj, textGreetings);
-    var paragraph = repDocObj.addParagraph("","final_texts");
-    addMdBoldText(paragraph, textGreetings);
-  }
-
-  //invoices and credit notes
-  if (invoiceObj.document_info.doc_type !== "17" && PRINT_MODE !== "2" && PRINT_MODE !== "3" && PRINT_MODE !== "4" && PRINT_MODE !== "5" ) {
-
-    //Text taken from the Settings dialog's parameter "Final text"
-    if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
-      var text = userParam[lang+'_text_final'];
-      text = text.split('\n');
-      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-        repDocObj.addParagraph(" ", "");
-      }
-      for (var i = 0; i < text.length; i++) {
-        var paragraph = repDocObj.addParagraph("","final_texts");
-        if (text[i]) {
-          text[i] = columnNamesToValues(invoiceObj, text[i]);
-          addMdBoldText(paragraph, text[i]);
-        } else {
-          addMdBoldText(paragraph, " "); //empty lines
-        }
-      }
-    }
-
-    // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
-    else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
-      var textDefault = [];
-      var text = [];
-      for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
-        var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
-        if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
-          textDefault = invoiceObj.template_parameters.footer_texts[i].text;
-        }
-        else if (textLang == lang) {
-          text = invoiceObj.template_parameters.footer_texts[i].text;
-        }
-      }
-      if (text.join().length <= 0) {
-        text = textDefault;
-      }
-      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-        repDocObj.addParagraph(" ", "");
-      }
-      for (var i = 0; i < text.length; i++) {
-        var paragraph = repDocObj.addParagraph("","final_texts");
-        if (text[i]) {
-          text[i] = columnNamesToValues(invoiceObj, text[i]);
-          addMdBoldText(paragraph, text[i]);
-        } else {
-          addMdBoldText(paragraph, " "); //empty lines
-        }
-      }
-    }
-  }
-  else if (PRINT_MODE === "2") { //delivery notes
+  if (PRINT_MODE === "2") { //delivery notes
     if (userParam[lang+'_text_final_delivery_note'] && userParam[lang+'_text_final_delivery_note'] !== "<none>") {
       var text = userParam[lang+'_text_final_delivery_note'];
       text = text.split('\n');
@@ -3541,25 +3467,101 @@ function print_final_texts(repDocObj, invoiceObj, userParam) {
       }
     }
   }
-  else { //estimates
-    if (userParam[lang+'_text_final_offer'] && userParam[lang+'_text_final_offer'] !== "<none>") {
-      var text = userParam[lang+'_text_final_offer'];
-      text = text.split('\n');
-      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+  else {
+
+    // Notes (multiple lines)
+    if (invoiceObj.note.length > 0) {
+      for (var i = 0; i < invoiceObj.note.length; i++) {
+        if (invoiceObj.note[i].description) {
+          var textNote = invoiceObj.note[i].description;
+          textNote = columnNamesToValues(invoiceObj, textNote);
+          var paragraph = repDocObj.addParagraph("","final_texts");
+          addMdBoldText(paragraph, textNote);
+        }
+      }    
+    }
+
+    // Greetings (one line only)
+    if (invoiceObj.document_info.greetings) {
+      if (invoiceObj.note.length > 0) {
         repDocObj.addParagraph(" ", "");
       }
-      for (var i = 0; i < text.length; i++) {
-        var paragraph = repDocObj.addParagraph("","final_texts");
-        if (text[i]) {
-          text[i] = columnNamesToValues(invoiceObj, text[i]);
-          addMdBoldText(paragraph, text[i]);
-        } else {
-          addMdBoldText(paragraph, " "); //empty lines
+      var textGreetings = invoiceObj.document_info.greetings;
+      textGreetings = columnNamesToValues(invoiceObj, textGreetings);
+      var paragraph = repDocObj.addParagraph("","final_texts");
+      addMdBoldText(paragraph, textGreetings);
+    }
+
+    //Text taken from the Settings dialog's parameter "Final text"
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
+        var text = userParam[lang+'_text_final'];
+        text = text.split('\n');
+        if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+          repDocObj.addParagraph(" ", "");
+        }
+        for (var i = 0; i < text.length; i++) {
+          var paragraph = repDocObj.addParagraph("","final_texts");
+          if (text[i]) {
+            text[i] = columnNamesToValues(invoiceObj, text[i]);
+            addMdBoldText(paragraph, text[i]);
+          } else {
+            addMdBoldText(paragraph, " "); //empty lines
+          }
+        }
+      }
+
+      // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
+      else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
+        var textDefault = [];
+        var text = [];
+        for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
+          var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
+          if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
+            textDefault = invoiceObj.template_parameters.footer_texts[i].text;
+          }
+          else if (textLang == lang) {
+            text = invoiceObj.template_parameters.footer_texts[i].text;
+          }
+        }
+        if (text.join().length <= 0) {
+          text = textDefault;
+        }
+        if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+          repDocObj.addParagraph(" ", "");
+        }
+        for (var i = 0; i < text.length; i++) {
+          var paragraph = repDocObj.addParagraph("","final_texts");
+          if (text[i]) {
+            text[i] = columnNamesToValues(invoiceObj, text[i]);
+            addMdBoldText(paragraph, text[i]);
+          } else {
+            addMdBoldText(paragraph, " "); //empty lines
+          }
         }
       }
     }
-  }
+    else { //estimates
+      if (userParam[lang+'_text_final_offer'] && userParam[lang+'_text_final_offer'] !== "<none>") {
+        var text = userParam[lang+'_text_final_offer'];
+        text = text.split('\n');
+        if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+          repDocObj.addParagraph(" ", "");
+        }
+        for (var i = 0; i < text.length; i++) {
+          var paragraph = repDocObj.addParagraph("","final_texts");
+          if (text[i]) {
+            text[i] = columnNamesToValues(invoiceObj, text[i]);
+            addMdBoldText(paragraph, text[i]);
+          } else {
+            addMdBoldText(paragraph, " "); //empty lines
+          }
+        }
+      }
 
+    }
+  
+  } 
 }
 
 function print_footer(repDocObj, texts, userParam) {
