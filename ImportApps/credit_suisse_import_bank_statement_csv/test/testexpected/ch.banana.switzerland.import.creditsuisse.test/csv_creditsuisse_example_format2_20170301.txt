@@ -20,87 +20,87 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l }
 Date & Doc & Description & Income & Expenses\\
-2017-03-01 &  & "Verg�tungsauftrag ,Bvg Zinsen Und Spesen 28.Februar 127 ,Bvg Zinsen Und Spesen 28.Februar 12,Dncs-20170301-IXN0-TXN0 ,Fond.Istit.Collettore Lpp ,Zuerich ,18009-18009 ,Zinsen Und Spesen                  " &  & 3380.00\\
-2017-03-01 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Csch EMMENBRUECKE\_1                 " & 1700.00 & \\
-2017-03-01 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Fall:23.15348.17,.2 Rechnung:11088785 ,E2E7771835                         " & 1743.95 & \\
-2017-02-28 &  & "Zahlung Inland � Esr ,Mwst 3. Quartal 2016 ,Mwst 3. Quartal 2016 ,Dncs-20170227-IXN0-TXN0 ,Eidg. Steuerverwaltung ,Bern ,000010240000420160305569139        " &  & 1072.37\\
-2017-02-28 &  & "Verg�tungsauftrag ,Zahlung Von Innova Carlos R. ,Zahlung Von Innova Carlos R. ,Dncs-20170227-IXN0-TXN0 ,Reborido Castineira Juan C. ,Dahlienstrasse 11 6020 Emmenbr�cke ,Zahlung Anteil  Innova ,Februar 2017                       " &  & 3241.00\\
-2017-02-27 &  & "Zahlung Inland � Esr ,Stiftung Bvg ,Stiftung Bvg ,Dncs-20170227-IXN0-TXN0 ,Schweiz.Soz.F.Die Auffangeinr. ,Zuerich ,030000180091800923000210114        " &  & 20000.00\\
-2017-02-27 &  & "Clearing-Zahlung ,Irene Reichmuth-Horat Oberseeburgrai ,Irene Reichmuth-Horat ,Oberseeburgrain 9 6006 Luzern ,Zahlung D-S Ag Februar 2017        " & 20000.00 & \\
-2017-02-24 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,SOP06 603-17661.8 Rechnung:11016662,E2E7725200                         " & 190.65 & \\
-2017-02-23 &  & "Sepa Zahlung Ausgang ,Zashntechniuk Mdh Ag ,Zashntechniuk Mdh Ag ,Dncs-20170222-IXN0-TXN0 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 45472 M�lheim ,An Der Ruhr ,Restzahlung 09.01.2017 ,Betrag 96.66 ,Eur 96.66-1.08780140 ,23.02.2017 (00:00)                 " &  & 105.15\\
-2017-02-23 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,SOP06 603-17661.8 Rechnung:10994056,E2E7710104                         " & 309.30 & \\
-2017-02-22 &  & "Zahlungsr�ckleitung ,Eur 263.80 At 1.04333534//DENTEGRIS ,Dentegris Gmbh ,D-40211 Dusseldorf ,Rechnung 225914 Improv ,Implantatzement 1 Packung ,Eur 263.80-1.04333534 ,22.02.2017 (00:00)                 " & 275.23 & \\
-2017-02-21 &  & "Zahlung Inland � Esr ,Suva  190.30 ,Suva  190.30 ,Dncs-20170220-IXN0-TXN0 ,Suva ,Luzern Differenzzahlung ,000000000000100533875400006        " &  & 190.65\\
-2017-02-21 &  & "Sepa Zahlung Ausgang ,Zahnarzt ,Zahnarzt ,Dncs-20170220-IXN0-TXN0 ,Dentegris Gmbh ,D-40211 D�sseldorf ,Rechnung 225914 ,Improv Implantatzement ,1 Packung ,Eur 263.80-1.08506914 ,21.02.2017 (00:00)                 " &  & 286.24\\
-2017-02-17 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Fall:23.15348.17,.2 Rechnung:10922904 ,E2E7661853                         " & 2012.25 & \\
-2017-02-16 &  & "Zahlungsr�ckleitung ,Eur 263.80 At 1.04472275//DENTEGRIS ,Dentegris Gmbh ,D-40211 D�sseldorf ,Rechnung 225914 ,Improv Implantatzement ,1 Packung ,Eur 263.80-1.04472275 ,16.02.2017 (00:00)                 " & 275.60 & \\
-2017-02-15 &  & "Sepa Zahlung Ausgang ,Zahnarzt ,Zahnarzt ,Dncs-20170214-IXN0-TXN0 ,Dentegris Gmbh ,D-40211 D�sseldorf ,Rechnung 225914 ,Improv Implantatzement ,1 Packung ,Eur 263.80-1.08549224 ,15.02.2017 (00:00)                 " &  & 286.35\\
-2017-02-13 &  & "Zahlung Inland � Esr ,Benzin Lando Jan 2017 ,Benzin Lando Jan 2017 ,Dncs-20170211-IXN0-TXN0 ,Landi Sempach/emmen ,6203 Sempach Station ,800559000000000793991096313        " &  & 216.10\\
-2017-02-10 &  & "Zahlung Inland � Esr ,Zahnarzt Straumann ,Zahnarzt Straumann ,Dncs-20170209-IXN0-TXN0 ,Institut Straumann ,Peter Merian-Weg 1 4052 Baswel ,248338000000164669111096451        " &  & 165.25\\
-2017-02-10 &  & "Zahlung Inland � Esr ,Benzin  Jan 2017 ,Benzin  Jan 2017 ,Dncs-20170209-IXN0-TXN0 ,Landi ,Sempach-Emmen 6203 Sempach-Station ,800559000000000793991096313        " &  & 216.10\\
-2017-02-10 &  & "Zahlungsr�ckleitung ,Landi Sempach-Emmen ,Landi ,Sempach-Emmen 6203 Sempach-Station ,Esr-Ref / Esr-Tn-Nr. Unbekannt ,/SETT/2017-02-10T00:45:05          " & 216.10 & \\
-2017-02-03 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Siehe Abrechnung,Rechnung:10718418 ,E2E7506548                         " & 294.00 & \\
-2017-02-02 &  & "Zahlung Inland � Esr ,Innova Abschluss 2016 ,Innova Abschluss 2016 ,Dncs-20170201-IXN0-TXN0 ,Innova Versicherungen Ag ,Guemligen ,101000976655000400471700007        " &  & 60.10\\
-2017-02-02 &  & "Zahlung Inland � Esr ,Sachverfsicherung Oberdorf ,Sachverfsicherung Oberdorf ,Dncs-20170201-IXN0-TXN0 ,Nidwaldner Sachversicherung ,Stans ,000000011700006477001200153        " &  & 151.05\\
-2017-01-31 &  & "Zahlung Inland � Esr ,Innova 1. Semester 2017 ,Innova 1. Semester 2017 ,Dncs-20170130-IXN0-TXN0 ,Innova Versicherungen Ag ,Guemligen ,101000976655000400471700007        " &  & 2589.90\\
-2017-01-26 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,VM06 603-17661.8 Rechnung:10560225 ,E2E7392063                         " & 1697.90 & \\
-2017-01-26 &  & "Clearing-Zahlung ,Suva ,Suva ,Fluhmattstrasse 1 ,6004 Luzern ,TG06 603-17661.8 1 Fall:23.15348.17,.2 Rechnung:10355113 ,E2E7392064                         " & 3093.60 & \\
-2016-12-31 &  & "Saldo Der Spesenabrechnung ,Gem�ss Separater Anzeige                       " &  & 41.00\\
-2016-12-23 &  & "Zahlung Inland � Esr ,Werbung Blitz Bis 22.12.2016 ,Werbung Blitz Bis 22.12.2016 ,Dncs-20161222-IXN0-TXN0 ,Nidwaldner Blitz ,6383 Dallenwil ,000042212180009268201668465        " &  & 254.90\\
-2016-12-23 &  & "Zahlung Inland � Esr ,Zahnarzt Straumann ,Zahnarzt Straumann ,Dncs-20161222-IXN0-TXN0 ,Institut Straumann ,Peter Merian-Weg 1 4052 Baswel ,248338000000164669108325870        " &  & 311.05\\
-2016-12-23 &  & "Zahlung Inland � Esr ,Werbung Blitz Vom 5.Mai 2016 ,Werbung Blitz Vom 5.Mai 2016 ,Dncs-20161222-IXN0-TXN0 ,Nidwaldner Blitz ,6383 Dallenwil ,000042212180009268201662250        " &  & 1453.25\\
-2016-12-21 &  & "Verg�tungsauftrag ,Lohn Dezember 2016 ,Lohn Dezember 2016 ,Dncs-20161220-IXN0-TXN0 ,Hane Gjerjaj ,Eichenstrasse 1 6020 Emmenbr�cke ,Lohn August 2014 ,14 Stunden ,Danke F�r Die Arbeit ,Gruss Erwin                        " &  & 327.45\\
-2016-12-21 &  & "Zahlung Inland � Esr ,Gemeinde Emmen Wasser ,Gemeinde Emmen Wasser ,Dncs-20161220-IXN0-TXN0 ,Einwohnergemeinde Emmen ,Emmenbruecke ,100013463405000228000932779        " &  & 576.15\\
-2016-12-20 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 2987.10 & \\
-2016-11-25 &  & "Dauerauftrag ,Haus ,Ihre Referenz: Haus ,Marie-Antoinette ,Kreit-Steiner ,Talstrasse 8 ,Ch-6020 Emmenbr�cke ,Dauerauftrag Montlich ,Hausarbeitern                      " &  & 400.00\\
-2016-11-24 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Csch EMMENBRUECKE\_1                 " & 500.00 & \\
-2016-11-17 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 89.35 & \\
-2016-11-16 &  & "Zahlung Inland � Esr ,Zahntechnik ,Dncs-20161115-IXN0-TXN0 ,Sp-98956453-0 ,M+W Dental Swiss Ag ,8308 Illnau ,708510824009118600074901842        " &  & 28.75\\
-2016-11-16 &  & "Zahlung Inland � Esr ,Zahntechnik ,Dncs-20161115-IXN0-TXN0 ,Sp-51419809-0 ,Px Dental ,2074 Marin ,928736071120162150160608608        " &  & 106.40\\
-2016-11-16 &  & "Zahlung Inland � Esr ,Gold Zahntechnik ,Dncs-20161115-IXN0-TXN0 ,Sp-42546643-0 ,Cm Bienne ,2501 Bienne 90736301 Rechnung ,806781000000181000911805128        " &  & 174.75\\
-2016-11-15 &  & "Zahlung Inland � Esr ,Lekture ,Dncs-20161114-IXN0-TXN0 ,Sp-94181914-0 ,Konsumenteninfo Ag ,Zuerich ,010000003018939840057811376        " &  & 35.00\\
-2016-11-15 &  & "Zahlung Inland � Esr ,Benzin ,Dncs-20161114-IXN0-TXN0 ,Sp-59522245-0 ,Landi Sempach/emmen ,6203.Sempach Station ,800559000000000793991037147        " &  & 83.75\\
-2016-11-15 &  & "Zahlung Inland � Esr ,Suva 3Q. 2016 ,Dncs-20161114-IXN0-TXN0 ,Sp-55375649-0 ,Suva ,Luzern ,100008537587064110033600005        " &  & 2263.10\\
-2016-11-14 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 2693.15 & \\
-2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Gold ,Ihre Referenz: Gold ,Cendres \& Metaux S.A. ,2501 Bienne ,806781000000181000911768730        " &  & 356.85\\
-2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,Institut Straumann ,4002 Basel ,248338000000164669104039627        " &  & 425.50\\
-2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,CH08 0077 7004 3114 5150 7 ,Renishaw Ag ,8854 Siebenen ,OP/0047205                         " &  & 510.30\\
-2016-11-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahnftechnik ,Ihre Referenz: Zahnftechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,5 Zahlungen ,2423780, 2423779, 242949, 2194025, ,2194026 ,Total  648.60 ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 648.60 Kurs 1.099775 ,Fixiert Am 03.11.16                " &  & 713.31\\
-2016-11-02 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 1914.95 & \\
-2016-10-27 &  & "Dauerauftrag ,Haus ,Ihre Referenz: Haus ,Marie-Antoinette ,Kreit-Steiner ,Talstrasse 8 ,Ch-6020 Emmenbr�cke ,Dauerauftrag Montlich ,Hausarbeitern                      " &  & 400.00\\
-2016-10-27 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Cs EMMENBRUECKE\_1                   " & 300.00 & \\
-2016-10-18 &  & "Verg�tung ,Zahn�rztekasse Ag W�denswil ,Zahn�rztekasse Ag ,Seestrasse 13 ,8820 W�denswil                     " & 125.00 & \\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Post ,Ihre Referenz: Post ,Post Ch Ag ,Bern ,000000224019601722053598118        " &  & 52.00\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Gold Zahntechnik ,Ihre Referenz: Gold Zahntechnik ,Cm Bienne ,2501 Bienne ,90736301 Rechnung ,806781000000181000907504865        " &  & 128.30\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,Auftrag 2356345 ,Pat. Hot Ro ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 178.73 Kurs 1.108064 ,Fixiert Am 17.10.16                " &  & 198.04\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Ahv ,Ihre Referenz: Ahv ,Ausgleichskasse Nidwalden ,Stans ,000000000002107572016001443        " &  & 206.05\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,Auftrag 2356344 ,Pat. Re. Web. ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 299.15 Kurs 1.108064 ,Fixiert Am 17.10.16                " &  & 331.48\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Werbung ,Ihre Referenz: Werbung ,Pro Senectute Kanton Luzern ,Luzern ,000000000000024968000712063        " &  & 360.00\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Buchhaltung Steuer ,Ihre Referenz: Buchhaltung Steuer ,CH39 0076 1016 1230 6579 8 ,Die Konzept Ag ,Ch-5301 Zug ,Steuererkl�rung 2015 ,Lu Und Nw                          " &  & 540.00\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Zahnartz Und Labor ,Ihre Referenz: Zahnartz Und Labor ,Curaden Ag ,6010 Kriens ,041442000000311967675055502        " &  & 557.30\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Gold Zahntechnik ,Ihre Referenz: Gold Zahntechnik ,A3 Dental Ag ,8852 Altendorf ,247039000000001008001644305        " &  & 1507.70\\
-2016-10-17 &  & "Verg�tungsauftr. Electronic Banking ,Ahv Juli 2016 ,Ihre Referenz: Ahv Juli 2016 ,Ausgleichskasse Nidwalden ,Stans ,000000000002107572016001147        " &  & 7117.85\\
-2016-10-13 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Cs EMMENBRUECKE\_1                   " & 10000.00 & \\
-2016-10-05 &  & "Verg�tung ,R�ckleitung Ihres Zahlungsauftrages ,Retour Esr Val 04.10.2016 ,Esr-Ref./tn-Nr Unbekannt ,Ref. Bvr/no Participant Inconnu ,000000000000089427000230993 ,Ihre Referenz: ,R�ckleitung Ihres Zahlungsauftrages" & 527.05 & \\
-2016-10-04 &  & "Verg�tungsauftr. Electronic Banking ,Zahntechnik ,Ihre Referenz: Zahntechnik ,CROWN24 Ag ,8807 Freienbach ,000000000000089427000230993        " &  & 527.05\\
-2016-10-04 &  & "Clearing-Zahlung ,Koch Julius Und/oder Koch Rosa Berti ,Koch Julius Und/oder ,Koch Rosa Bertiswilstrasse 88 6023 ,Rothenburg ,Rg-Nr.164629                       " & 700.00 & \\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Werbung ,Ihre Referenz: Werbung ,Nzz Media Solutions Ag ,Postfach ,Maihofstrasse  76 ,6002 Luzern ,Rechnung 60080288                  " &  & 73.70\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Pc Hostpoint Bis 20.07.2017 ,Ihre Referenz: ,Pc Hostpoint Bis 20.07.2017 ,Hostpoint Ag ,Rapperswil Sg ,000000000000024721161303438        " &  & 118.80\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Swisscom August 16 ,Ihre Referenz: Swisscom August 16 ,Swisscom (Schweiz) Ag ,Bern ,000655613033024638520920167        " &  & 169.40\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Zahnftechnik ,Ihre Referenz: Zahnftechnik ,DE07 5008 0000 0091 3030 01 ,Mdh Ag ,Mamisch Dental Health ,Schenkendorfstr. 29 ,45472 M�lheim An Der Ruhr ,Airbill No. 2001840794 ,Pat. Giger Adelheid ,Commerzbank Ag ,(Formerly Dresdner Bank Ag) ,Gbzw Zvs Za 3,Pde 2 ,De-60301 Frankfurt Am Main ,Eur 166.95 Kurs 1.112208 ,Fixiert Am 30.09.16                " &  & 185.68\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Swisscom August 16 ,Ihre Referenz: Swisscom August 16 ,Swisscom (Schweiz) Ag ,Bern ,000907011066002856650920162        " &  & 451.60\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Haus ,Ihre Referenz: Haus ,Schenker Storen ,50112 Sch�nenwerd ,919912000007603943860521652        " &  & 477.50\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Lohn 2016 ,Ihre Referenz: Lohn 2016 ,Kreit Felix ,6020 Emmenbruecke ,Lohn  September 2016 ,Gruss Papa                         " &  & 1381.80\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Ckw Haus ,Ihre Referenz: Ckw Haus ,Centralschweiz. Kraftwerke Ag ,Luzern ,000020125439040000877035001        " &  & 1760.00\\
-2016-10-03 &  & "Verg�tungsauftr. Electronic Banking ,Haus Versicherungsfall ,Ihre Referenz: ,Haus Versicherungsfall ,CH52 0077 8010 7060 5781 0 ,Andreas Tschopp ,Terrassenweg 17 ,6048 Horw ,2016-076 ,Verischerungsfall Haus ,Besten Dank Und Gruss ,Erwin Kreit Und Familie            " &  & 2477.20\\
-2016-10-03 &  & "Einzahlung Chf Am Geldautomaten ,96369762-0 Cs EMMENBRUECKE\_1                   " & 200.00 & \\
-2016-09-30 &  & "Saldo Der Spesenabrechnung ,Gem�ss Separater Anzeige                       " &  & 41.00\\
-2016-09-30 &  & "Spesen Zahlungsverkehr ,                                               " &  & 67.55\\
-2016-09-30 &  & "Verg�tungsauftr. Electronic Banking ,R�ckzahlung An Ir�ne Reichmuth ,Ihre Referenz: ,R�ckzahlung An Ir�ne Reichmuth ,Erwin Kreit-Reichmuth ,0BERSEEBURGRAIN 9 ,6006 Luzern ,R�ckzahlung  An ,Ir�ne Reichmuth                    " &  & 3000.00\\
-2016-09-30 &  & "Verg�tungsauftr. Electronic Banking ,Lohn SEPTEMBER2015 ,Ihre Referenz: Lohn SEPTEMBER2015 ,17234-1023 ,Weber Adrian ,Zahntechniker ,Zugerstrasse 86 ,6415 Arth/ Sz ,Lohn September 2016                " &  & 5602.50\\
-2016-09-30 &  & "Clearing-Zahlung ,Irene Reichmuth-Horat Oberseeburgrai ,Irene Reichmuth-Horat ,Oberseeburgrain 9 6006 Luzern ,Zahlung D-S September 2016         " & 16000.00 & \\
-2016-09-27 &  & "Dauerauftrag ,Haus ,Ihre Referenz: Haus ,Marie-Antoinette ,Kreit-Steiner ,Talstrasse 8 ,Ch-6020 Emmenbr�cke ,Dauerauftrag Montlich ,Hausarbeitern                      " &  & 400.00\\
+2017-03-01 &  & "Post�parturadebre ,Sum Ciduci Ray Millue 32.Adespor 171 ,Sum Ciduci Ray Millue 32.Adespor 26,Exit-81362522-KKC4-IQE6 ,Sime.Minti.Scidultuba Ago ,Mempela ,66485-66485 ,Ciduci Ray Millue                  " &  & 3380.00\\
+2017-03-01 &  & "Cundisidio Cor By Conaviciettia ,58706136-5 Adem TCTJTCUUOGND\_0                 " & 1700.00 & \\
+2017-03-01 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,WC05 605-31712.1 5 Abus:86.23605.35,.8 Somniget:35651273 ,Q5V0852314                         " & 1743.95 & \\
+2017-02-28 &  & "Pecilis Quient � Pam ,Grat 6. Wircute 6212 ,Grat 6. Wircute 6212 ,Exit-74373707-KKC4-IQE6 ,Acis. Viustrisuprordum ,Post ,156504873227084614346047538        " &  & 1072.37\\
+2017-02-28 &  & "Post�parturadebre ,Pecilis Tra Emitae Factis U. ,Pecilis Tra Emitae Factis U. ,Exit-74373707-KKC4-IQE6 ,Daculine Ostirontem Dico V. ,Metinartalegit 35 2825 Ortanum�tia ,Pecilis Sentas  Emitae ,Adespor 6763                       " &  & 3241.00\\
+2017-02-27 &  & "Pecilis Quient � Pam ,Occucant Sum ,Occucant Sum ,Exit-74373707-KKC4-IQE6 ,Minatus.Sed.F.Sto Pribulcerat. ,Mempela ,488074513435002357387702278        " &  & 20000.00\\
+2017-02-27 &  & "Numintis-Pecilis ,Domen Sendundeo-Suata Caluniuvissime ,Domen Sendundeo-Suata ,Meradicillibulo 3 5404 Vetusa ,Pecilis B-J At Adespor 6763        " & 20000.00 & \\
+2017-02-24 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,VVP15 605-31712.1 Somniget:48640388,W6S7388156                         " & 190.65 & \\
+2017-02-23 &  & "Audo Pecilis Vitipse ,Ducaripundico Ini At ,Ducaripundico Ini At ,Exit-80301386-KKC4-IQE6 ,Ini At ,Scatela Spervo Sonent ,Inangeritaripta. 35 78204 P�ocury ,Os Tra Cela ,Suiscelocum 80.20.6763 ,Vicall 68.15 ,Lis 68.15-6.62110450 ,86.14.6763 (87:87)                 " &  & 105.15\\
+2017-02-23 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,VVP15 605-31712.1 Somniget:50075255,Y3M7637783                         " & 309.30 & \\
+2017-02-22 &  & "Repectubi�prangurre ,Lis 628.41 Ex 6.81745765//STANETRUM ,Stanetrum Caph ,B-64785 Lactulceps ,Somniget 373831 Tabiit ,Ambulitatuontis 5 Mentuod ,Lis 628.41-6.81745765 ,12.14.6763 (87:87)                 " & 275.23 & \\
+2017-02-21 &  & "Pecilis Quient � Pam ,Hunt  203.21 ,Hunt  203.21 ,Exit-72231822-KKC4-IQE6 ,Hunt ,Vetusa Entategmetimulus ,202327225444554355756727823        " &  & 190.65\\
+2017-02-21 &  & "Audo Pecilis Vitipse ,Exparsus ,Exparsus ,Exit-72231822-KKC4-IQE6 ,Stanetrum Caph ,B-64785 B�terperay ,Somniget 373831 ,Tabiit Ambulitatuontis ,5 Mentuod ,Lis 628.41-6.63217136 ,23.14.6763 (87:87)                 " &  & 286.24\\
+2017-02-17 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,WC05 605-31712.1 5 Abus:86.23605.35,.8 Somniget:23653583 ,D0A5081426                         " & 2012.25 & \\
+2017-02-16 &  & "Repectubi�prangurre ,Lis 628.41 Ex 6.83274147//STANETRUM ,Stanetrum Caph ,B-64785 B�terperay ,Somniget 373831 ,Tabiit Ambulitatuontis ,5 Mentuod ,Lis 628.41-6.83274147 ,63.14.6763 (87:87)                 " & 275.60 & \\
+2017-02-15 &  & "Audo Pecilis Vitipse ,Exparsus ,Exparsus ,Exit-84420132-KKC4-IQE6 ,Stanetrum Caph ,B-64785 B�terperay ,Somniget 373831 ,Tabiit Ambulitatuontis ,5 Mentuod ,Lis 628.41-6.68143116 ,40.14.6763 (87:87)                 " &  & 286.35\\
+2017-02-13 &  & "Pecilis Quient � Pam ,Supere Patia Cat 6763 ,Supere Patia Cat 6763 ,Exit-32280248-KKC4-IQE6 ,Gunte Pungria/obant ,1044 Pungria Niccere ,722164102352460473044276031        " &  & 216.10\\
+2017-02-10 &  & "Pecilis Quient � Pam ,Exparsus Aepripine ,Exparsus Aepripine ,Exit-14514362-KKC4-IQE6 ,Pellutus Aepripine ,Aequo Ocesto-Que 5 3865 Sundie ,276760706552147855133133652        " &  & 165.25\\
+2017-02-10 &  & "Pecilis Quient � Pam ,Supere  Cat 6763 ,Supere  Cat 6763 ,Exit-14514362-KKC4-IQE6 ,Gunte ,Pungria-Obant 1044 Pungria-Niccere ,722164102352460473044276031        " &  & 216.10\\
+2017-02-10 &  & "Repectubi�prangurre ,Gunte Pungria-Obant ,Gunte ,Pungria-Obant 1044 Pungria-Niccere ,Pam-Fun / Pam-An-Me. Postaniam ,/ABES/6763-14-66F05:41:74          " & 216.10 & \\
+2017-02-03 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,WC05 605-31712.1 5 Chray Bendisuunt,Somniget:74120121 ,Q4C0837687                         " & 294.00 & \\
+2017-02-02 &  & "Pecilis Quient � Pam ,Emitae Aciontquo 6212 ,Emitae Aciontquo 6212 ,Exit-22121335-KKC4-IQE6 ,Emitae Equatinubitest At ,Linflunam ,307741557274141862541070170        " &  & 60.10\\
+2017-02-02 &  & "Pecilis Quient � Pam ,Staratuducuturrum Ittenges ,Staratuducuturrum Ittenges ,Exit-22121335-KKC4-IQE6 ,Aciparasse Obsquiblingustro ,Habis ,383277756636110768652348308        " &  & 151.05\\
+2017-01-31 &  & "Pecilis Quient � Pam ,Emitae 6. Quaespor 6763 ,Emitae 6. Quaespor 6763 ,Exit-86520842-KKC4-IQE6 ,Emitae Equatinubitest At ,Linflunam ,307741557274141862541070170        " &  & 2589.90\\
+2017-01-26 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,WN01 605-31712.1 Somniget:38713175 ,E4Y4000108                         " & 1697.90 & \\
+2017-01-26 &  & "Numintis-Pecilis ,Hunt ,Hunt ,Ietubitulinsaec 5 ,6813 Vetusa ,WC05 605-31712.1 5 Abus:86.23605.35,.8 Somniget:77520572 ,K7Q0186855                         " & 3093.60 & \\
+2016-12-31 &  & "Noves Tra Miruntimuntquaec ,Xxx�vi Alecectom Parengi                       " &  & 41.00\\
+2016-12-23 &  & "Pecilis Quient � Pam ,Studupa Plent Ino 12.26.6212 ,Studupa Plent Ino 12.26.6212 ,Exit-13448421-KKC4-IQE6 ,Aciparasse Plent ,1643 Reantenit ,301336623820732703773626583        " &  & 254.90\\
+2016-12-23 &  & "Pecilis Quient � Pam ,Exparsus Aepripine ,Exparsus Aepripine ,Exit-13448421-KKC4-IQE6 ,Pellutus Aepripine ,Aequo Ocesto-Que 5 3865 Sundie ,423510044468826151855820773        " &  & 311.05\\
+2016-12-23 &  & "Pecilis Quient � Pam ,Studupa Plent Num 3.Cat 6212 ,Studupa Plent Num 3.Cat 6212 ,Exit-13448421-KKC4-IQE6 ,Aciparasse Plent ,1643 Reantenit ,473702006713826774623476175        " &  & 1453.25\\
+2016-12-21 &  & "Post�parturadebre ,Habo Sedracus 6212 ,Habo Sedracus 6212 ,Exit-80834833-KKC4-IQE6 ,Reta Nuiusto ,Octulierument 5 2825 Ortanum�tia ,Habo Volvem 4421 ,13 Pligino ,Abita F�u Sto Inequo ,Misit Sinam                        " &  & 327.45\\
+2016-12-21 &  & "Pecilis Quient � Pam ,Ganerunt Obant Abulue ,Ganerunt Obant Abulue ,Exit-80834833-KKC4-IQE6 ,Piceateneiuntulia Obant ,Volvetipsubi ,271840036652773566746325142        " &  & 576.15\\
+2016-12-20 &  & "Post�vide ,Mari�screquate At M�rentine ,Mari�screquate At ,Atubiratio 27 ,2084 M�rentine                     " & 2987.10 & \\
+2016-11-25 &  & "Volverucecis ,Audo ,Scet Testaray: Audo ,Curet-Glangracis ,Stent-Terraec ,Suitionium 3 ,At-2825 Ortanum�tia ,Volverucecis Friditus ,Huniuniuvicat                      " &  & 400.00\\
+2016-11-24 &  & "Cundisidio Cor By Conaviciettia ,58706136-5 Adem TCTJTCUUOGND\_0                 " & 500.00 & \\
+2016-11-17 &  & "Post�vide ,Mari�screquate At M�rentine ,Mari�screquate At ,Atubiratio 27 ,2084 M�rentine                     " & 89.35 & \\
+2016-11-16 &  & "Pecilis Quient � Pam ,Vartangobus ,Exit-82160517-KKC4-IQE6 ,Os-34234241-5 ,P+M Spervo Retis At ,7474 Vitati ,250542378005056036278058624        " &  & 28.75\\
+2016-11-16 &  & "Pecilis Quient � Pam ,Vartangobus ,Exit-82160517-KKC4-IQE6 ,Os-13787080-5 ,Vi Spervo ,2470 Hosto ,544118878604787285888046703        " &  & 106.40\\
+2016-11-16 &  & "Pecilis Quient � Pam ,Sunt Vartangobus ,Exit-82160517-KKC4-IQE6 ,Os-24881503-5 ,Ex Scieta ,2527 Scieta 44162807 Somniget ,542487574872235282233275078        " &  & 174.75\\
+2016-11-15 &  & "Pecilis Quient � Pam ,Collige ,Exit-60262812-KKC4-IQE6 ,Os-36418031-5 ,Canneiuntquaere At ,Mempela ,810824631684582505136263007        " &  & 35.00\\
+2016-11-15 &  & "Pecilis Quient � Pam ,Supere ,Exit-60262812-KKC4-IQE6 ,Os-13773774-5 ,Gunte Pungria/obant ,1044.Pungria Niccere ,370466581717603132766418702        " &  & 83.75\\
+2016-11-15 &  & "Pecilis Quient � Pam ,Hunt 4B. 6212 ,Exit-60262812-KKC4-IQE6 ,Os-37022558-5 ,Hunt ,Vetusa ,201551136812866053850716615        " &  & 2263.10\\
+2016-11-14 &  & "Post�vide ,Mari�screquate At M�rentine ,Mari�screquate At ,Atubiratio 27 ,2084 M�rentine                     " & 2693.15 & \\
+2016-11-03 &  & "Post�omniarepam. Prolfacute Loccita ,Sunt ,Scet Testaray: Sunt ,Oloneri \& Sterum J.E. ,2527 Scieta ,726201424162665837628576010        " &  & 356.85\\
+2016-11-03 &  & "Post�omniarepam. Prolfacute Loccita ,Vartangobus ,Scet Testaray: Vartangobus ,Pellutus Aepripine ,2606 Digus ,134534363377712018426324472        " &  & 425.50\\
+2016-11-03 &  & "Post�omniarepam. Prolfacute Loccita ,Vartangobus ,Scet Testaray: Vartangobus ,WT43 2364 4711 3520 5184 5 ,Puludive At ,5415 Pescriam ,AN/5532256                         " &  & 510.30\\
+2016-11-03 &  & "Post�omniarepam. Prolfacute Loccita ,Spostrignies ,Scet Testaray: Spostrignies ,AS12 3144 3082 8843 5658 20 ,Ini At ,Scatela Spervo Sonent ,Inangeritaripta. 35 ,78204 P�ocury Os Tra Cela ,3 Minsilita ,2423780, 6102261, 185485, 4681167, ,4756100 ,Famox  153.47 ,Diccaliquit At ,(Praltuod Pratione Quit At) ,Dupa Tom Vi 3,Xxx 5 ,Ut-78142 Luviandit By Mans ,Lis 153.47 Lent 6.662807 ,Aligava By 10.35.63                " &  & 713.31\\
+2016-11-02 &  & "Post�vide ,Mari�screquate At M�rentine ,Mari�screquate At ,Atubiratio 27 ,2084 M�rentine                     " & 1914.95 & \\
+2016-10-27 &  & "Volverucecis ,Audo ,Scet Testaray: Audo ,Curet-Glangracis ,Stent-Terraec ,Suitionium 3 ,At-2825 Ortanum�tia ,Volverucecis Friditus ,Huniuniuvicat                      " &  & 400.00\\
+2016-10-27 &  & "Cundisidio Cor By Conaviciettia ,58706136-5 By TCTJTCUUOGND\_0                   " & 300.00 & \\
+2016-10-18 &  & "Post�vide ,Mari�screquate At M�rentine ,Mari�screquate At ,Atubiratio 27 ,2084 M�rentine                     " & 125.00 & \\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Caph ,Scet Testaray: Caph ,Caph At At ,Post ,703207356321332726216507086        " &  & 52.00\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Sunt Vartangobus ,Scet Testaray: Sunt Vartangobus ,Ex Scieta ,2527 Scieta ,44162807 Somniget ,434435102602480371182366613        " &  & 128.30\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Vartangobus ,Scet Testaray: Vartangobus ,AS12 3144 3082 8843 5658 20 ,Ini At ,Scatela Spervo Sonent ,Inangeritaripta. 35 ,78204 P�ocury Os Tra Cela ,Ventint 1107602 ,Fig. Xxx Vi ,Diccaliquit At ,(Praltuod Pratione Quit At) ,Dupa Tom Vi 3,Xxx 5 ,Ut-78142 Luviandit By Mans ,Lis 388.38 Lent 6.174073 ,Aligava By 35.21.63                " &  & 198.04\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Aec ,Scet Testaray: Aec ,Manavicoegatine Mariectam ,Habis ,307438468604751376014371404        " &  & 206.05\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Vartangobus ,Scet Testaray: Vartangobus ,AS12 3144 3082 8843 5658 20 ,Ini At ,Scatela Spervo Sonent ,Inangeritaripta. 35 ,78204 P�ocury Os Tra Cela ,Ventint 5835753 ,Fig. By. Tom. ,Diccaliquit At ,(Praltuod Pratione Quit At) ,Dupa Tom Vi 3,Xxx 5 ,Ut-78142 Luviandit By Mans ,Lis 584.40 Lent 6.174073 ,Aligava By 35.21.63                " &  & 331.48\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Studupa ,Scet Testaray: Studupa ,Aph Pupridect Sentas Vetusa ,Vetusa ,763472861751306335427602187        " &  & 360.00\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Praecultium Babens ,Scet Testaray: Praecultium Babens ,GX73 5081 6108 3246 8762 3 ,Sto Saerrat At ,At-6226 Pra ,Adducertio�fila 1453 ,At Ray Os                          " &  & 540.00\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Susuinte Ray Truci ,Scet Testaray: Susuinte Ray Truci ,Crestas At ,3801 Ædiris ,603638056668846655733366670        " &  & 557.30\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Sunt Vartangobus ,Scet Testaray: Sunt Vartangobus ,V2 Spervo At ,7003 Videatuus ,140414348715511505742077054        " &  & 1507.70\\
+2016-10-17 &  & "Post�omniarepam. Prolfacute Loccita ,Aec Nava 6212 ,Scet Testaray: Aec Nava 6212 ,Manavicoegatine Mariectam ,Habis ,640312067111125675507447261        " &  & 7117.85\\
+2016-10-13 &  & "Cundisidio Cor By Conaviciettia ,58706136-5 By TCTJTCUUOGND\_0                   " & 10000.00 & \\
+2016-10-05 &  & "Post�vide ,U�prangurre Cunga Pessidessistiavit ,Hauper Pam Gro 60.21.6212 ,Pam-Fun./an-Me Postaniam ,Fun. Xxx/de Nisquatesto Adicunt ,106155335642333010413410368 ,Scet Testaray: ,U�prangurre Cunga Pessidessistiavit" & 527.05 & \\
+2016-10-04 &  & "Post�omniarepam. Prolfacute Loccita ,Vartangobus ,Scet Testaray: Vartangobus ,YRBPK23 At ,8508 Clangurunc ,106155335642333010413410368        " &  & 527.05\\
+2016-10-04 &  & "Numintis-Pecilis ,Frum Micula Ray/prit Frum Hore Tente ,Frum Micula Ray/prit ,Frum Hore Frucurantiantine 22 1636 ,Pisiguluva ,Ex-Me.163861                       " & 700.00 & \\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Studupa ,Scet Testaray: Studupa ,Rem Offig Vinnervit At ,Contiate ,Caperendactis  60 ,3864 Vetusa ,Somniget 37204634                  " &  & 73.70\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,An Petumetus Ino 43.67.6763 ,Scet Testaray: ,An Petumetus Ino 43.67.6763 ,Petumetus At ,Sectuinumn Et ,726537317107233466576642344        " &  & 118.80\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Patonsum Volvem 63 ,Scet Testaray: Patonsum Volvem 63 ,Patonsum (Minatus) At ,Post ,625747865677233583053534678        " &  & 169.40\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Spostrignies ,Scet Testaray: Spostrignies ,AS12 3144 3082 8843 5658 20 ,Ini At ,Scatela Spervo Sonent ,Inangeritaripta. 35 ,78204 P�ocury Os Tra Cela ,Nunnens De. 5877783218 ,Fig. Audit Priblium ,Diccaliquit At ,(Praltuod Pratione Quit At) ,Dupa Tom Vi 3,Xxx 5 ,Ut-78142 Luviandit By Mans ,Lis 632.70 Lent 6.860283 ,Aligava By 21.80.63                " &  & 185.68\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Patonsum Volvem 63 ,Scet Testaray: Patonsum Volvem 63 ,Patonsum (Minatus) At ,Post ,142581722761848703734851625        " &  & 451.60\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Audo ,Scet Testaray: Audo ,Potarest Aditam ,21253 Nos�septumn ,704260320847437085221566314        " &  & 477.50\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Habo 6212 ,Scet Testaray: Habo 6212 ,Stent Frest ,2825 Volvetipsubi ,Habo  Ficonetas 6212 ,Misit Mula                         " &  & 1381.80\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Pus Audo ,Scet Testaray: Pus Audo ,Stananetringit. Cartuondas At ,Vetusa ,641084714211672581862128663        " &  & 1760.00\\
+2016-10-03 &  & "Post�omniarepam. Prolfacute Loccita ,Audo Detintintumetitam ,Scet Testaray: ,Audo Detintintumetitam ,ED27 2364 7468 5274 5543 7 ,Diustas Coginto ,Supederesect 35 ,6552 Tudo ,6212-267 ,Varaepadeniurundi Audo ,Abilla Side Ray Misit ,Sinam Stent Ray Potemus            " &  & 2477.20\\
+2016-10-03 &  & "Cundisidio Cor By Conaviciettia ,58706136-5 By TCTJTCUUOGND\_0                   " & 200.00 & \\
+2016-09-30 &  & "Noves Tra Miruntimuntquaec ,Xxx�vi Alecectom Parengi                       " &  & 41.00\\
+2016-09-30 &  & "Millue Diuvilluvicenti ,                                               " &  & 67.55\\
+2016-09-30 &  & "Post�omniarepam. Prolfacute Loccita ,U�spitrunga Os Me�by Sendundeo ,Scet Testaray: ,U�spitrunga Os Me�by Sendundeo ,Sinam Stent-Sendundeo ,3GIQSSKWHDSSWEQ 3 ,5404 Vetusa ,U�spitrunga  Os ,Me�by Sendundeo                    " &  & 3000.00\\
+2016-09-30 &  & "Post�omniarepam. Prolfacute Loccita ,Habo YDGHAUEIC3515 ,Scet Testaray: Habo YDGHAUEIC3515 ,40001-8068 ,Ustio Mentia ,Lintirungunit ,Numenutiblis 24 ,1504 Pulo/ Vi ,Habo Ficonetas 6212                " &  & 5602.50\\
+2016-09-30 &  & "Numintis-Pecilis ,Domen Sendundeo-Suata Caluniuvissime ,Domen Sendundeo-Suata ,Meradicillibulo 3 5404 Vetusa ,Pecilis B-J Ficonetas 6212         " & 16000.00 & \\
+2016-09-27 &  & "Volverucecis ,Audo ,Scet Testaray: Audo ,Curet-Glangracis ,Stent-Terraec ,Suitionium 3 ,At-2825 Ortanum�tia ,Volverucecis Friditus ,Huniuniuvicat                      " &  & 400.00\\
 \\
 \end{tablevalue}
 \end{document}

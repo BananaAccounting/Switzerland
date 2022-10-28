@@ -20,85 +20,85 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2015-11-05 & 2015-11-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2015-11-25 & 2015-11-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2015-12-04 & 2015-12-04 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2015-12-24 & 2015-12-24 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2015-12-31 & 2015-12-31 &  & "Solde Des �critures De Bouclement,Selon Avis S�par�" & 0.75 & \\
-2015-12-31 & 2015-12-31 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2016-01-05 & 2016-01-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2016-01-08 & 2016-01-08 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1000.00 & \\
-2016-01-25 & 2016-01-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-01-28 & 2016-01-28 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 7858.55 & \\
-2016-02-05 & 2016-02-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2016-02-25 & 2016-02-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-03-01 & 2016-03-01 &  & "Ordre De Bonific. Electronic Banking,Neos S�rl Geneve" &  & 2000.00\\
-2016-03-01 & 2016-03-01 &  & "Ordre De Bonific. Electronic Banking,Jean-Luc Simon Neuch�tel" &  & 611.80\\
-2016-03-04 & 2016-03-04 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2016-03-24 & 2016-03-24 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-03-31 & 2016-03-31 &  & "Ordre De Bonific. Electronic Banking,Neos S�rl Geneve" &  & 1486.00\\
-2016-03-31 & 2016-03-31 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2016-04-05 & 2016-04-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2016-04-25 & 2016-04-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-05-04 & 2016-05-04 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 640.00\\
-2016-05-25 & 2016-05-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-06-01 & 2016-06-01 &  & "Ordre De Bonific. Electronic Banking,Neos S�rl Geneve" &  & 2000.00\\
-2016-06-02 & 2016-06-02 &  & "Ordre De Bonific. Electronic Banking,Jean-Fran�ois Simon Les Ponts-De-Mar" &  & 699.40\\
-2016-06-03 & 2016-06-03 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-06-24 & 2016-06-24 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-06-30 & 2016-06-30 &  & "Ordre De Bonific. Electronic Banking,Republique Et Canton Du Jura Delemon" &  & 4251.70\\
-2016-06-30 & 2016-06-30 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2016-07-05 & 2016-07-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-07-25 & 2016-07-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-08-05 & 2016-08-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-08-08 & 2016-08-08 &  & "Ordre De Bonific. Electronic Banking,16 0.89.486.9 Del�mont" &  & 650.00\\
-2016-08-25 & 2016-08-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-09-05 & 2016-09-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-09-23 & 2016-09-23 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-09-30 & 2016-09-30 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2016-10-05 & 2016-10-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-10-10 & 2016-10-10 &  & "Pr�l�vement Billets En Me,Cs Neuch�tel (0587)" &  & 1024.50\\
-2016-10-11 & 2016-10-11 &  & "Ordre De Bonific. Electronic Banking,Neos S�rl Geneve" &  & 2900.00\\
-2016-10-25 & 2016-10-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-11-04 & 2016-11-04 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-11-23 & 2016-11-23 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1000.00 & \\
-2016-11-25 & 2016-11-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-11-28 & 2016-11-28 &  & "Ordre De Bonific. Electronic Banking,Jacques Et Marianne Stauffer Crans-M" &  & 2000.00\\
-2016-12-05 & 2016-12-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2016-12-23 & 2016-12-23 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2016-12-31 & 2016-12-31 &  & "Solde Des �critures De Bouclement,Selon Avis S�par�" & 0.86 & \\
-2016-12-31 & 2016-12-31 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2017-01-05 & 2017-01-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-01-23 & 2017-01-23 &  & "Transfert Compte � Compte,Jean-Fran�ois + Jean Luc Simon" & 8000.00 & \\
-2017-01-25 & 2017-01-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-01-26 & 2017-01-26 &  & "Transfert Compte � Compte,Jean-Fran�ois + Jean Luc Simon" &  & 476.60\\
-2017-01-31 & 2017-01-31 &  & "Ordre De Bonification,Jacques Et Marianne Stauffer" &  & 3950.00\\
-2017-02-03 & 2017-02-03 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-02-24 & 2017-02-24 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-03-02 & 2017-03-02 &  & "Ordre De Bonification,Jean-Luc Simon" &  & 1190.00\\
-2017-03-03 & 2017-03-03 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-03-16 & 2017-03-16 &  & "Ordre De Bonification,Gerd Gr�nberg" &  & 10.82\\
-2017-03-24 & 2017-03-24 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-03-31 & 2017-03-31 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2017-04-05 & 2017-04-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-04-12 & 2017-04-12 &  & "Paiement Sepa Sortie,Eur 50.00 At 1.08568299//C�line Et V" &  & 54.28\\
-2017-04-25 & 2017-04-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-05-05 & 2017-05-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-05-24 & 2017-05-24 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-06-02 & 2017-06-02 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-06-23 & 2017-06-23 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-06-30 & 2017-06-30 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2017-07-05 & 2017-07-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-07-25 & 2017-07-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-07-31 & 2017-07-31 &  & "Ordre De Bonification,Jean-Luc Simon" &  & 6370.00\\
-2017-08-04 & 2017-08-04 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-08-25 & 2017-08-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-09-05 & 2017-09-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-09-25 & 2017-09-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-09-30 & 2017-09-30 &  & "Solde D�compte Des Frais,Selon Avis S�par�" &  & 15.00\\
-2017-10-05 & 2017-10-05 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
-2017-10-25 & 2017-10-25 &  & "Bonification,M. Jean-Fran�ois Simon Et M. Jean Lu" & 1500.00 & \\
-2017-11-03 & 2017-11-03 &  & "Ordre Permanent,Jean-Luc Simon Neuch�tel" &  & 750.00\\
+2015-11-05 & 2015-11-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2015-11-25 & 2015-11-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2015-12-04 & 2015-12-04 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2015-12-24 & 2015-12-24 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2015-12-31 & 2015-12-31 &  & "Rorba Dit �requotas De Ingentinch,Lonsa Tera V�xxx�" & 0.75 & \\
+2015-12-31 & 2015-12-31 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2016-01-05 & 2016-01-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2016-01-08 & 2016-01-08 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1000.00 & \\
+2016-01-25 & 2016-01-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-01-28 & 2016-01-28 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 7858.55 & \\
+2016-02-05 & 2016-02-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2016-02-25 & 2016-02-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-03-01 & 2016-03-01 &  & "Hiunc De Simulum. Exspervile Venuisi,Sies C�me Oroxit" &  & 2000.00\\
+2016-03-01 & 2016-03-01 &  & "Hiunc De Simulum. Exspervile Venuisi,Eque-Pra Tumen Levos�sum" &  & 611.80\\
+2016-03-04 & 2016-03-04 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2016-03-24 & 2016-03-24 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-03-31 & 2016-03-31 &  & "Hiunc De Simulum. Exspervile Venuisi,Sies C�me Oroxit" &  & 1486.00\\
+2016-03-31 & 2016-03-31 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2016-04-05 & 2016-04-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2016-04-25 & 2016-04-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-05-04 & 2016-05-04 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 640.00\\
+2016-05-25 & 2016-05-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-06-01 & 2016-06-01 &  & "Hiunc De Simulum. Exspervile Venuisi,Sies C�me Oroxit" &  & 2000.00\\
+2016-06-02 & 2016-06-02 &  & "Hiunc De Simulum. Exspervile Venuisi,Eque-Ante�xxx Tumen Xxx Frunt-De-Ple" &  & 699.40\\
+2016-06-03 & 2016-06-03 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-06-24 & 2016-06-24 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-06-30 & 2016-06-30 &  & "Hiunc De Simulum. Exspervile Venuisi,Naschenite An Cauray De Pare Seminto" &  & 4251.70\\
+2016-06-30 & 2016-06-30 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2016-07-05 & 2016-07-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-07-25 & 2016-07-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-08-05 & 2016-08-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-08-08 & 2016-08-08 &  & "Hiunc De Simulum. Exspervile Venuisi,16 0.89.486.9 Del�mont" &  & 650.00\\
+2016-08-25 & 2016-08-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-09-05 & 2016-09-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-09-23 & 2016-09-23 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-09-30 & 2016-09-30 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2016-10-05 & 2016-10-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-10-10 & 2016-10-10 &  & "Ex�w�ascrit Truntem Si At,De Levos�sum (7025)" &  & 1024.50\\
+2016-10-11 & 2016-10-11 &  & "Hiunc De Simulum. Exspervile Venuisi,Sies C�me Oroxit" &  & 2900.00\\
+2016-10-25 & 2016-10-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-11-04 & 2016-11-04 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-11-23 & 2016-11-23 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1000.00 & \\
+2016-11-25 & 2016-11-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-11-28 & 2016-11-28 &  & "Hiunc De Simulum. Exspervile Venuisi,Gavaral An Valiuvio Fortines Merum-E" &  & 2000.00\\
+2016-12-05 & 2016-12-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2016-12-23 & 2016-12-23 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2016-12-31 & 2016-12-31 &  & "Rorba Dit �requotas De Ingentinch,Lonsa Tera V�xxx�" & 0.86 & \\
+2016-12-31 & 2016-12-31 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2017-01-05 & 2017-01-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-01-23 & 2017-01-23 &  & "Noloneium Malego � Malego,Eque-Ante�xxx + Eque Pra Tumen" & 8000.00 & \\
+2017-01-25 & 2017-01-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-01-26 & 2017-01-26 &  & "Noloneium Malego � Malego,Eque-Ante�xxx + Eque Pra Tumen" &  & 476.60\\
+2017-01-31 & 2017-01-31 &  & "Hiunc De Perractangua,Gavaral An Valiuvio Fortines" &  & 3950.00\\
+2017-02-03 & 2017-02-03 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-02-24 & 2017-02-24 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-03-02 & 2017-03-02 &  & "Hiunc De Perractangua,Eque-Pra Tumen" &  & 1190.00\\
+2017-03-03 & 2017-03-03 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-03-16 & 2017-03-16 &  & "Hiunc De Perractangua,Angi Et�rendo" &  & 10.82\\
+2017-03-24 & 2017-03-24 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-03-31 & 2017-03-31 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2017-04-05 & 2017-04-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-04-12 & 2017-04-12 &  & "Fesemors Visi Crigua,Mea 50.12 Vi 7.13434507//B�grit An Y" &  & 54.28\\
+2017-04-25 & 2017-04-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-05-05 & 2017-05-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-05-24 & 2017-05-24 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-06-02 & 2017-06-02 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-06-23 & 2017-06-23 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-06-30 & 2017-06-30 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2017-07-05 & 2017-07-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-07-25 & 2017-07-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-07-31 & 2017-07-31 &  & "Hiunc De Perractangua,Eque-Pra Tumen" &  & 6370.00\\
+2017-08-04 & 2017-08-04 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-08-25 & 2017-08-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-09-05 & 2017-09-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-09-25 & 2017-09-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-09-30 & 2017-09-30 &  & "Rorba X�malego Dit Deium,Lonsa Tera V�xxx�" &  & 15.00\\
+2017-10-05 & 2017-10-05 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
+2017-10-25 & 2017-10-25 &  & "Perractangua,E. Eque-Ante�xxx Tumen An E. Eque Ex" & 1500.00 & \\
+2017-11-03 & 2017-11-03 &  & "Hiunc Matiamulo,Eque-Pra Tumen Levos�sum" &  & 750.00\\
 \\
 \end{tablevalue}
 \end{document}
