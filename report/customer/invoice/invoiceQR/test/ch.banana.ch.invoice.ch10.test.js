@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2022-01-15
+// @pubdate = 2022-10-26
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -43,6 +43,9 @@
 //Tests executed with banana advanced license type
 var BAN_ADVANCED = true;
 
+//###################################### !!!TEMPORANEO!!! //######################################
+PRINT_MODE = "1";
+//################################################################################################
 
 
 // Register test case to be executed
