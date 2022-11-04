@@ -457,15 +457,15 @@ function convertParam(userParam) {
   currentParam.type = 'combobox';
   
   let printModes = [];
-  printModes.push('1=fattura');
-  printModes.push('2=bollettino di consegna');
-  printModes.push('3=richiamo #1');
-  printModes.push('4=richiamo #2');
-  printModes.push('5=richiamo #3');
+  printModes.push('invoice');
+  printModes.push('delivery_note');
+  printModes.push('reminder_1');
+  printModes.push('reminder_2');
+  printModes.push('reminder_3');
   currentParam.items = printModes;
 
   currentParam.value = userParam.print_mode ? userParam.print_mode : '';
-  currentParam.defaultvalue = '1=fattura';
+  currentParam.defaultvalue = 'invoice';
   currentParam.readValue = function() {
     userParam.print_mode = this.value;
   }
@@ -1544,7 +1544,7 @@ function convertParam(userParam) {
     currentParam.title = langTexts[langCodeTitle+'_param_text_title_delivery_note'];
     currentParam.type = 'string';
     currentParam.value = userParam[langCode+'_title_delivery_note'] ? userParam[langCode+'_title_delivery_note'] : '';
-    currentParam.defaultvalue = langTexts.delivery_note + " <DocInvoice>";
+    currentParam.defaultvalue = langTexts.delivery_note;
     currentParam.tooltip = langTexts['param_tooltip_title_delivery_note'];
     currentParam.language = langCode;
     currentParam.readValueLang = function(langCode) {
@@ -1798,7 +1798,7 @@ function initParam() {
 
 
   //###################################### !!!TEMPORANEO!!! //######################################
-  userParam.print_mode = '1=fattura';
+  userParam.print_mode = 'invoice';
   //################################################################################################
 
 
@@ -1931,7 +1931,7 @@ function verifyParam(userParam) {
 
   //###################################### !!!TEMPORANEO!!! //######################################
   if (!userParam.print_mode) {
-    userParam.print_mode = '1=fattura';
+    userParam.print_mode = 'invoice';
   }
   //################################################################################################
 
@@ -2249,7 +2249,7 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     setPrintMode(userParam);
     //Banana.console.log("print mode = " + PRINT_MODE);
 
-    setInvoiceLayoutPrintMode();
+    getPrintFormats();
     
     //################################################################################################
     
@@ -2296,17 +2296,35 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT INVOICE INFO FIRST PAGE */
-  if (BAN_ADVANCED && typeof(hook_print_info_first_page) === typeof(Function)) {
-    hook_print_info_first_page(repDocObj, invoiceObj, texts, userParam);
-  } else {
-    print_info_first_page(repDocObj, invoiceObj, texts, userParam);
+  if (PRINT_MODE === "delivery_note") {
+    if (BAN_ADVANCED && typeof(hook_print_info_first_page_delivery_note) === typeof(Function)) {
+      hook_print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam);
+    } else {
+      print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam);
+    }
+  }
+  else {
+    if (BAN_ADVANCED && typeof(hook_print_info_first_page) === typeof(Function)) {
+      hook_print_info_first_page(repDocObj, invoiceObj, texts, userParam);
+    } else {
+      print_info_first_page(repDocObj, invoiceObj, texts, userParam);
+    }
   }
 
   /* PRINT INVOICE INFO PAGES 2+ */
-  if (BAN_ADVANCED && typeof(hook_print_info_other_pages) === typeof(Function)) {
-    hook_print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
-  } else {
-    print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
+  if (PRINT_MODE === "delivery_note") {
+    if (BAN_ADVANCED && typeof(hook_print_info_other_pages_delivery_note) === typeof(Function)) {
+      hook_print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, userParam);
+    } else {
+      print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, userParam);
+    }
+  }
+  else {
+    if (BAN_ADVANCED && typeof(hook_print_info_other_pages) === typeof(Function)) {
+      hook_print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
+    } else {
+      print_info_other_pages(repDocObj, invoiceObj, texts, userParam);
+    }
   }
 
   /* PRINT CUSTOMER ADDRESS */
@@ -2327,18 +2345,33 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT BEGIN TEXT (BEFORE INVOICE DETAILS) */
   var sectionClassBegin = repDocObj.addSection("section_class_begin");
-  if (BAN_ADVANCED && typeof(hook_print_text_begin) === typeof(Function)) {
-    hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
-  } else {
-    print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
+  if (PRINT_MODE === "delivery_note") {
+    if (BAN_ADVANCED && typeof(hook_print_text_begin_delivery_note) === typeof(Function)) {
+      hook_print_text_begin_delivery_note(sectionClassBegin, invoiceObj, texts, userParam);
+    } else {
+      print_text_begin_delivery_note(sectionClassBegin, invoiceObj, texts, userParam);
+    }
+  }
+  else if (PRINT_MODE === "reminder_1" || PRINT_MODE === "reminder_2" || PRINT_MODE === "reminder_3") {
+    if (BAN_ADVANCED && typeof(hook_print_text_begin_reminder) === typeof(Function)) {
+      hook_print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam);
+    } else {
+      print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam);
+    }
+  }
+  else {
+    if (BAN_ADVANCED && typeof(hook_print_text_begin) === typeof(Function)) {
+      hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
+    } else {
+      print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
+    }
   }
 
   /* PRINT INVOICE DETAILS */
   var sectionClassDetails = repDocObj.addSection("section_class_details");
   var detailsTable = sectionClassDetails.addTable("doc_table");
 
-  if (PRINT_MODE === '2') {
-    // 2=delivery note
+  if (PRINT_MODE === 'delivery_note') {
     if (BAN_ADVANCED && typeof(hook_print_details_delivery_note) === typeof(Function)) {
       hook_print_details_delivery_note(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
@@ -2365,15 +2398,31 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FINAL TEXTS (AFTER INVOICE DETAILS) */
   var sectionClassFinalTexts = repDocObj.addSection("section_class_final_texts");
-  if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
-    hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
-  } else {
-    print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
+  if (PRINT_MODE === "delivery_note") {
+    if (BAN_ADVANCED && typeof(hook_print_final_texts_delivery_note) === typeof(Function)) {
+      hook_print_final_texts_delivery_note(sectionClassFinalTexts, invoiceObj, userParam);
+    } else {
+      print_final_texts_delivery_note(sectionClassFinalTexts, invoiceObj, userParam);
+    }
+  }
+  else if (PRINT_MODE === "reminder_1" || PRINT_MODE === "reminder_2" || PRINT_MODE === "reminder_3") {
+    if (BAN_ADVANCED && typeof(hook_print_final_texts_reminder) === typeof(Function)) {
+      hook_print_final_texts_reminder(sectionClassFinalTexts, invoiceObj, userParam);
+    } else {
+      print_final_texts_reminder(sectionClassFinalTexts, invoiceObj, userParam);
+    }
+  }
+  else {
+    if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
+      hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
+    } else {
+      print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
+    }
   }
 
   /* PRINT QR CODE */
-  if (invoiceObj.document_info.doc_type === "17" || PRINT_MODE === "2") { //17=estimate , 2=delivery note
-    userParam.qr_code_add = false; //estimates and delivery note without QRCode
+  if (invoiceObj.document_info.doc_type === "17" || PRINT_MODE === "delivery_note") { //17=estimate
+    userParam.qr_code_add = false; //estimates and delivery notes without QRCode
   }
   if (userParam.qr_code_add) {
     var qrBill = new QRBill(banDoc, userParam);
@@ -2470,9 +2519,7 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
 
   if (userParam.info_invoice_number) {
     tableRow = infoTable.addRow();
-    if (PRINT_MODE === "2") { // 2=delivery note
-      tableRow.addCell(userParam[lang+'_text_info_delivery_note_number'] + ":","",1);
-    } else if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
       tableRow.addCell(userParam[lang+'_text_info_invoice_number'] + ":","",1);
     } else {
       tableRow.addCell(userParam[lang+'_text_info_offer_number'] + ":","",1);
@@ -2483,9 +2530,7 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
   }
   if (userParam.info_date) {
     tableRow = infoTable.addRow();
-    if (PRINT_MODE === "2") { // 2=delivery note
-      tableRow.addCell(userParam[lang+'_text_info_date_delivery_note'] + ":","",1);
-    } else if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
       tableRow.addCell(userParam[lang+'_text_info_date'] + ":","",1);
     } else {
       tableRow.addCell(userParam[lang+'_text_info_date_offer'] + ":","",1);
@@ -2601,9 +2646,7 @@ function print_info_other_pages(repDocObj, invoiceObj, texts, userParam) {
 
   if (userParam.info_invoice_number) {
     tableRow = infoTable.addRow();
-    if (PRINT_MODE === "2") { // 2=delivery note
-      tableRow.addCell(userParam[lang+'_text_info_delivery_note_number'] + ":","",1);
-    } else if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
       tableRow.addCell(userParam[lang+'_text_info_invoice_number'] + ":","",1);
     } else {
       tableRow.addCell(userParam[lang+'_text_info_offer_number'] + ":","",1);
@@ -2612,9 +2655,7 @@ function print_info_other_pages(repDocObj, invoiceObj, texts, userParam) {
   }
   if (userParam.info_date) {
     tableRow = infoTable.addRow();
-    if (PRINT_MODE === "2") { // 2=delivery note
-      tableRow.addCell(userParam[lang+'_text_info_date_delivery_note'] + ":","",1);
-    } else if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
       tableRow.addCell(userParam[lang+'_text_info_date'] + ":","",1);
     } else {
       tableRow.addCell(userParam[lang+'_text_info_date_offer'] + ":","",1);
@@ -2814,11 +2855,10 @@ function print_text_begin(repDocObj, invoiceObj, texts, userParam) {
   var textBegin = invoiceObj.document_info.text_begin;
   var textBeginSettings = userParam[lang+'_text_begin'];
   var textBeginOffer = userParam[lang+'_text_begin_offer'];
-  var textBeginDeliveryNote = userParam[lang+'_text_begin_delivery_note'];
-  var textBeginReminder = userParam[lang+'_text_begin_reminder'];
   var table = repDocObj.addTable("begin_text_table");
   var tableRow;
   
+  // print the title
   if (textTitle) {
     textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
     textTitle = columnNamesToValues(invoiceObj, textTitle);
@@ -2841,38 +2881,10 @@ function print_text_begin(repDocObj, invoiceObj, texts, userParam) {
       }
     }
   }
-  else if (!textBegin && textBeginOffer && invoiceObj.document_info.doc_type === "17") { // Estimate
+  else if (!textBegin && textBeginOffer && invoiceObj.document_info.doc_type === "17") {
     tableRow = table.addRow();
     var textCell = tableRow.addCell("","begin_text",1);
     var textBeginLines = textBeginOffer.split('\n');
-    for (var i = 0; i < textBeginLines.length; i++) {
-      if (textBeginLines[i]) {
-        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
-        addMdBoldText(textCell, textBeginLines[i]);
-      }
-      else {
-        addMdBoldText(textCell, " "); //empty lines
-      }
-    }
-  }
-  else if (!textBegin && textBeginDeliveryNote && PRINT_MODE === "2") { // Delivery note
-    tableRow = table.addRow();
-    var textCell = tableRow.addCell("","begin_text",1);
-    var textBeginLines = textBeginDeliveryNote.split('\n');
-    for (var i = 0; i < textBeginLines.length; i++) {
-      if (textBeginLines[i]) {
-        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
-        addMdBoldText(textCell, textBeginLines[i]);
-      }
-      else {
-        addMdBoldText(textCell, " "); //empty lines
-      }
-    }
-  }
-  else if (!textBegin && textBeginDeliveryNote && (PRINT_MODE === "3" || PRINT_MODE === "4" || PRINT_MODE === "5")) { // Reminder
-    tableRow = table.addRow();
-    var textCell = tableRow.addCell("","begin_text",1);
-    var textBeginLines = textBeginReminder.split('\n');
     for (var i = 0; i < textBeginLines.length; i++) {
       if (textBeginLines[i]) {
         textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
@@ -2903,6 +2915,9 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   /* 
     Print the invoice details using net Amounts (VAT excluded) 
   */
+  
+  removeDiscountColumn(invoiceObj, userParam);
+
   var columnsDimension = userParam.details_columns_widths.split(";");
   var repTableObj = detailsTable;
   for (var i = 0; i < columnsDimension.length; i++) {
@@ -3150,15 +3165,15 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   tableRow = repTableObj.addRow();
   tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
   tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
-  
-  // tableRow = repTableObj.addRow();
-  // tableRow.addCell("", "", columnsNumber);
 }
 
 function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
   /* 
     Prints the invoice details using gross Amounts (VAT included)
   */
+
+  removeDiscountColumn(invoiceObj, userParam);
+
   var columnsDimension = userParam.details_columns_widths.split(";");
   var repTableObj = detailsTable;
   for (var i = 0; i < columnsDimension.length; i++) {
@@ -3417,9 +3432,6 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
     vatInfo += " = " + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
     cellVatInfo.addParagraph(vatInfo);
   }
-  
-  // tableRow = repTableObj.addRow();
-  // tableRow.addCell("", "", columnsNumber);
 }
 
 function print_final_texts(repDocObj, invoiceObj, userParam) {
@@ -3431,137 +3443,97 @@ function print_final_texts(repDocObj, invoiceObj, userParam) {
     - If user enter "<none>" as paramenter on Settings dialog -> Final text, no final text is printed.
   */
 
-  if (PRINT_MODE === "2") { //delivery notes
-    if (userParam[lang+'_text_final_delivery_note'] && userParam[lang+'_text_final_delivery_note'] !== "<none>") {
-      var text = userParam[lang+'_text_final_delivery_note'];
-      text = text.split('\n');
-      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-        repDocObj.addParagraph(" ", "");
-      }
-      for (var i = 0; i < text.length; i++) {
+  // Notes (multiple lines)
+  if (invoiceObj.note.length > 0) {
+    for (var i = 0; i < invoiceObj.note.length; i++) {
+      if (invoiceObj.note[i].description) {
+        var textNote = invoiceObj.note[i].description;
+        textNote = columnNamesToValues(invoiceObj, textNote);
         var paragraph = repDocObj.addParagraph("","final_texts");
-        if (text[i]) {
-          text[i] = columnNamesToValues(invoiceObj, text[i]);
-          addMdBoldText(paragraph, text[i]);
-        } else {
-          addMdBoldText(paragraph, " "); //empty lines
-        }
+        addMdBoldText(paragraph, textNote);
       }
-    }
+    }    
   }
-  else if (PRINT_MODE === "3" || PRINT_MODE === "4" || PRINT_MODE === "5") { //reminders
-    if (userParam[lang+'_text_final_reminder'] && userParam[lang+'_text_final_reminder'] !== "<none>") {
-      var text = userParam[lang+'_text_final_reminder'];
-      text = text.split('\n');
-      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-        repDocObj.addParagraph(" ", "");
-      }
-      for (var i = 0; i < text.length; i++) {
-        var paragraph = repDocObj.addParagraph("","final_texts");
-        if (text[i]) {
-          text[i] = columnNamesToValues(invoiceObj, text[i]);
-          addMdBoldText(paragraph, text[i]);
-        } else {
-          addMdBoldText(paragraph, " "); //empty lines
-        }
-      }
-    }
-  }
-  else {
 
-    // Notes (multiple lines)
+  // Greetings (one line only)
+  if (invoiceObj.document_info.greetings) {
     if (invoiceObj.note.length > 0) {
-      for (var i = 0; i < invoiceObj.note.length; i++) {
-        if (invoiceObj.note[i].description) {
-          var textNote = invoiceObj.note[i].description;
-          textNote = columnNamesToValues(invoiceObj, textNote);
-          var paragraph = repDocObj.addParagraph("","final_texts");
-          addMdBoldText(paragraph, textNote);
-        }
-      }    
+      repDocObj.addParagraph(" ", "");
     }
+    var textGreetings = invoiceObj.document_info.greetings;
+    textGreetings = columnNamesToValues(invoiceObj, textGreetings);
+    var paragraph = repDocObj.addParagraph("","final_texts");
+    addMdBoldText(paragraph, textGreetings);
+  }
 
-    // Greetings (one line only)
-    if (invoiceObj.document_info.greetings) {
-      if (invoiceObj.note.length > 0) {
+  //Text taken from the Settings dialog's parameter "Final text"
+  if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
+      var text = userParam[lang+'_text_final'];
+      text = text.split('\n');
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
         repDocObj.addParagraph(" ", "");
       }
-      var textGreetings = invoiceObj.document_info.greetings;
-      textGreetings = columnNamesToValues(invoiceObj, textGreetings);
-      var paragraph = repDocObj.addParagraph("","final_texts");
-      addMdBoldText(paragraph, textGreetings);
-    }
-
-    //Text taken from the Settings dialog's parameter "Final text"
-    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
-      if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
-        var text = userParam[lang+'_text_final'];
-        text = text.split('\n');
-        if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-          repDocObj.addParagraph(" ", "");
-        }
-        for (var i = 0; i < text.length; i++) {
-          var paragraph = repDocObj.addParagraph("","final_texts");
-          if (text[i]) {
-            text[i] = columnNamesToValues(invoiceObj, text[i]);
-            addMdBoldText(paragraph, text[i]);
-          } else {
-            addMdBoldText(paragraph, " "); //empty lines
-          }
-        }
-      }
-
-      // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
-      else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
-        var textDefault = [];
-        var text = [];
-        for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
-          var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
-          if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
-            textDefault = invoiceObj.template_parameters.footer_texts[i].text;
-          }
-          else if (textLang == lang) {
-            text = invoiceObj.template_parameters.footer_texts[i].text;
-          }
-        }
-        if (text.join().length <= 0) {
-          text = textDefault;
-        }
-        if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-          repDocObj.addParagraph(" ", "");
-        }
-        for (var i = 0; i < text.length; i++) {
-          var paragraph = repDocObj.addParagraph("","final_texts");
-          if (text[i]) {
-            text[i] = columnNamesToValues(invoiceObj, text[i]);
-            addMdBoldText(paragraph, text[i]);
-          } else {
-            addMdBoldText(paragraph, " "); //empty lines
-          }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
         }
       }
     }
-    else { //estimates
-      if (userParam[lang+'_text_final_offer'] && userParam[lang+'_text_final_offer'] !== "<none>") {
-        var text = userParam[lang+'_text_final_offer'];
-        text = text.split('\n');
-        if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
-          repDocObj.addParagraph(" ", "");
+
+    // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
+    else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
+      var textDefault = [];
+      var text = [];
+      for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
+        var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
+        if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
+          textDefault = invoiceObj.template_parameters.footer_texts[i].text;
         }
-        for (var i = 0; i < text.length; i++) {
-          var paragraph = repDocObj.addParagraph("","final_texts");
-          if (text[i]) {
-            text[i] = columnNamesToValues(invoiceObj, text[i]);
-            addMdBoldText(paragraph, text[i]);
-          } else {
-            addMdBoldText(paragraph, " "); //empty lines
-          }
+        else if (textLang == lang) {
+          text = invoiceObj.template_parameters.footer_texts[i].text;
         }
       }
-
+      if (text.join().length <= 0) {
+        text = textDefault;
+      }
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
     }
-  
-  } 
+  }
+  else { //estimates
+    if (userParam[lang+'_text_final_offer'] && userParam[lang+'_text_final_offer'] !== "<none>") {
+      var text = userParam[lang+'_text_final_offer'];
+      text = text.split('\n');
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
+    }
+
+  }
 }
 
 function print_footer(repDocObj, texts, userParam) {
@@ -4274,13 +4246,9 @@ function getTitle(invoiceObj, texts, userParam) {
   */
 
   var documentTitle = "";
-
-  // Title from dialog estimates/invoices or from column DocType (10:tit)
   if (invoiceObj.document_info.title) {
     documentTitle = invoiceObj.document_info.title;
   }
-
-  // Title from layout parameters
   else {
     if (invoiceObj.document_info.doc_type && invoiceObj.document_info.doc_type === "10") {
       documentTitle = texts.invoice;
@@ -4307,35 +4275,6 @@ function getTitle(invoiceObj, texts, userParam) {
       }
     }
   }
-
-  // When delivery note or reminder print mode is selected, overwrite the title
-  if (PRINT_MODE === "2") { // Delivery note
-    documentTitle = texts.delivery_note;
-    if (userParam[lang+'_title_delivery_note'] && userParam[lang+'_title_delivery_note'] !== "<none>") {
-      documentTitle = userParam[lang+'_title_delivery_note'];
-    } else {
-      documentTitle = "";
-    }
-  }
-  if (PRINT_MODE === "3" || PRINT_MODE === "4" || PRINT_MODE === "5") { // Reminder
-    documentTitle = '%1. ' + texts.reminder;
-    if (userParam[lang+'_title_reminder'] && userParam[lang+'_title_reminder'] !== "<none>") {
-      documentTitle = userParam[lang+'_title_reminder'];
-    } else {
-      documentTitle = "";
-    }
-
-    if (documentTitle && PRINT_MODE === "3") { // Reminder #1
-      documentTitle = documentTitle.replace(/%1/g, '1');
-    }
-    else if (documentTitle && PRINT_MODE === "4") { // Reminder #2
-      documentTitle = documentTitle.replace(/%1/g, '2');
-    }
-    else if (documentTitle && PRINT_MODE === "5") { // Reminder #3
-      documentTitle = documentTitle.replace(/%1/g, '3');
-    }
-  }
-  
   return documentTitle;
 }
 
@@ -4785,10 +4724,10 @@ function setInvoiceTexts(language) {
 
     texts.delivery_note = "Bollettino di consegna";
     texts.number_delivery_note = "No bollettino consegna";
-    texts.date_delivery_note = "Consegna";
+    texts.date_delivery_note = "Data bollettino consegna";
     texts.it_param_text_info_delivery_note_number = "Numero bollettino di consegna";
     texts.param_tooltip_text_info_delivery_note_number = "Inserisci un testo per sostituire quello predefinito";
-    texts.it_param_text_info_date_delivery_note = "Data consegna";
+    texts.it_param_text_info_date_delivery_note = "Data bollettino consegna";
     texts.param_tooltip_text_info_date_delivery_note = "Inserisci un testo per sostituire quello predefinito";
     texts.it_param_text_title_delivery_note = "Titolo";
     texts.param_tooltip_title_delivery_note = "Inserisci un testo per sostituire quello predefinito";
@@ -4991,10 +4930,10 @@ function setInvoiceTexts(language) {
 
     texts.delivery_note = "Lieferschein";
     texts.number_delivery_note = "Lieferscheinnummer";
-    texts.date_delivery_note = "Lieferung";
+    texts.date_delivery_note = "Lieferscheindatum";
     texts.de_param_text_info_delivery_note_number = "Lieferscheinnummer";
     texts.param_tooltip_text_info_delivery_note_number = "Text eingeben, um Standardtext zu ersetzen";
-    texts.de_param_text_info_date_delivery_note = "Lieferdatum";
+    texts.de_param_text_info_date_delivery_note = "Lieferscheindatum";
     texts.param_tooltip_text_info_date_delivery_note = "Text eingeben, um Standardtext zu ersetzen";
     texts.de_param_text_title_delivery_note = "Titel";
     texts.param_tooltip_title_delivery_note = "Text eingeben, um Standardtext zu ersetzen";
@@ -5197,10 +5136,10 @@ function setInvoiceTexts(language) {
 
     texts.delivery_note = "Bon de livraison";
     texts.number_delivery_note = "Numéro bon de livraison";
-    texts.date_delivery_note = "Livraison";
+    texts.date_delivery_note = "Date bon de Livraison";
     texts.fr_param_text_info_delivery_note_number = "Numéro bon de livraison";
     texts.param_tooltip_text_info_delivery_note_number = "Insérez un texte pour remplacer le texte par défaut";
-    texts.fr_param_text_info_date_delivery_note = "Date livraison";
+    texts.fr_param_text_info_date_delivery_note = "Date bon de livraison";
     texts.param_tooltip_text_info_date_delivery_note = "Insérez un texte pour remplacer le texte par défaut";
     texts.fr_param_text_title_delivery_note = "Titre";
     texts.param_tooltip_title_delivery_note = "Insérez un texte pour remplacer le texte par défaut";
@@ -5403,10 +5342,10 @@ function setInvoiceTexts(language) {
 
     texts.delivery_note = "Delivery note";
     texts.number_delivery_note = "Delivery note No";
-    texts.date_delivery_note = "Delivery";
+    texts.date_delivery_note = "Delivery note date";
     texts.en_param_text_info_delivery_note_number = "Delivery note number";
     texts.param_tooltip_text_info_delivery_note_number = "Enter text to replace the default";
-    texts.en_param_text_info_date_delivery_note = "Delivery date";
+    texts.en_param_text_info_date_delivery_note = "Delivery note date";
     texts.param_tooltip_text_info_date_delivery_note = "Enter text to replace the default";
     texts.en_param_text_title_delivery_note = "Title";
     texts.param_tooltip_title_delivery_note = "Enter text to replace the default";
@@ -5622,65 +5561,411 @@ function isIntegratedInvoice() {
 
 //###################################### !!!TEMPORANEO!!! //######################################
 //takes the print format from parameters and set the variable PRINT_MODE
-//"1=fattura", "2=bollettino di consegna", "3=richiamo"
 function setPrintMode(userParam) {
-  PRINT_MODE = userParam.print_mode.substr(0,1); //use number only
+  PRINT_MODE = userParam.print_mode;
 }
 //################################################################################################
 
-
-/**
- * Function that returns a list of available print modes for the layout.
- * Banana calls this function when the layout is selected in the dialog "Print invoice".
- * In the "Print Invoice" dialog under the layout selection, these print modes are displayed and can be selected.
- * Then the script use the appropriate functions to print the report.
- */
-function setInvoiceLayoutPrintMode() {
-  /*
-
-  */
-
-  let availableModes = [];
-  availableModes.push({
-    "lang":"it",
-    "label":"Formato di stampa",
-    "id_formats":["1","2","3","4","5"],
-    "text_formats":["Fattura","Bollettino di consegna","Richiamo #1","Richiamo #2","Richiamo #3"],
-    "default_value":"1"
-  });
-  availableModes.push({
-    "lang":"fr",
-    "label":"Formato di stampa...FR",
-    "id_formats":["1","2","3","4","5"],
-    "text_formats":["Facture","Bon de livraison","Rappel #1","Rappel #2","Rappel #3"],
-    "default_value":"1"
-  });
-  availableModes.push({
-    "lang":"de",
-    "label":"Formato di stampa...DE",
-    "id_formats":["1","2","3","4","5"],
-    "text_formats":["Rechnung","Lieferschein","Mahnung #1","Mahnung #2","Mahnung #3"],
-    "default_value":"1"
-  });
-  availableModes.push({
-    "lang":"en",
-    "label":"Print formats",
-    "id_formats":["1","2","3","4","5"],
-    "text_formats":["Invoice","Delivery notes","Reminder #1","Reminder #2","Reminder #3"],
-    "default_value":"1"
-  });
+function getPrintFormats() {
+  /**
+   * Function that returns a list of available print modes for the layout.
+   * Banana calls this function when the layout is selected in the dialog "Print invoice".
+   * In the "Print Invoice" dialog under the layout selection, these print modes are displayed and can be selected.
+   * Then the script use the appropriate functions to print the report.
+   * 
+   * https://www.banana.ch/doc/en/node/9980
+   */
   
-  // Banana.console.log(JSON.stringify(availableModes, "", " "));
+  let printFormats = [
+    {
+      "lang": "it",
+      "field_name": "Formati di stampa",
+      "available_formats": [
+        {
+          "automatic": "Automatico", 
+          "invoice": "Fattura",
+          "delivery_note" : "Bollettino di consegna",
+          "reminder_1": "Richiamo 1",
+          "reminder_2": "Richiamo 2",
+          "reminder_3": "Richiamo 3"
+        }
+      ],
+      "default_format": "Automatico"
+    },
+    {
+      "lang": "fr",
+      "field_name": "Formats d'impression",
+      "available_formats": [
+        {
+          "automatic": "Automatique", 
+          "invoice": "Facture",
+          "delivery_note" : "Bon de livraison",
+          "reminder_1": "Rappel 1",
+          "reminder_2": "Rappel 2",
+          "reminder_3": "Rappel 3"
+        }
+      ],
+      "default_format": "Automatique"
+    },
+    {
+      "lang": "de",
+      "field_name": "Druckformate",
+      "available_formats": [
+        {
+          "automatic": "Automatisch", 
+          "invoice": "Rechnung",
+          "delivery_note" : "Lieferschein",
+          "reminder_1": "Mahnung 1",
+          "reminder_2": "Mahnung 2",
+          "reminder_3": "Mahnung 3"
+        }
+      ],
+      "default_format": "Automatisch"
+    },
+    {
+      "lang": "en",
+      "field_name": "Print formats",
+      "available_formats": [
+        {
+          "automatic": "Automatic", 
+          "invoice": "Invoice",
+          "delivery_note" : "Delivery note",
+          "reminder_1": "Reminder 1",
+          "reminder_3": "Reminder 2",
+          "reminder_3": "Reminder 3"
+        }
+      ],
+      "default_format": "Automatic"
+    },
+  ];
 
-  return availableModes;
+  // Banana.console.log(JSON.stringify(printFormats, "", " "));
+  // Banana.console.log(".... TEST ....");
+  // let langBanana = "de";
+  // for (let i = 0; i < printFormats.length; i++) {
+  //   let lang = printFormats[i].lang;
+  //   if (lang === langBanana) {
+  //     Banana.console.log(JSON.stringify(printFormats[i], "", " "));
+  //   }
+  // }
 
-  // let availableModes = [];
-  // availableModes.push('1'); // 1=invoice
-  // availableModes.push('2'); // 2=delivery note
-  // availableModes.push('3'); // 3=reminder #1
-  // availableModes.push('4'); // 4=reminder #2
-  // availableModes.push('5'); // 5=reminder #3
-  // return availableModes;
+  return printFormats;
+}
+
+function removeDiscountColumn(invoiceObj, userParam) {
+  /**
+   * Print the item discount column only when it is used.
+   */
+  let printDiscountColumn = false;
+  for (let i = 0; i < invoiceObj.items.length; i++) {
+    let item = invoiceObj.items[i];
+    if ( (item.discount && item.discount.percent) || (item.discount && item.discount.amount) ) {
+      printDiscountColumn = true;
+      break;
+    }
+  }
+
+  if (!printDiscountColumn) {
+    
+    let columnsNames = userParam.details_columns.split(";");
+    let columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
+    let titlesAlignment = userParam.details_columns_titles_alignment.split(";");
+    let columnsAlignment = userParam.details_columns_alignment.split(";");
+    let columnsDimension = userParam.details_columns_widths.split(";");
+
+    // remove all empty values ("", null, undefined): 
+    columnsNames = columnsNames.filter(function(e){return e});
+    columnsHeaders = columnsHeaders.filter(function(e){return e});
+  
+    // remove the Discount column
+    if (columnsNames.indexOf("Discount") > -1) {
+
+      let index = columnsNames.indexOf("Discount");
+
+      // remove from arrays all the discount data
+      columnsNames.splice(index, 1);
+      columnsHeaders.splice(index, 1);
+      titlesAlignment.splice(index, 1);
+      columnsAlignment.splice(index, 1);
+      columnsDimension.splice(index, 1);
+
+      // replace the userParam with the new columns
+      userParam.details_columns = columnsNames.toString().replace(/,/g, ";");
+      userParam[lang+'_text_details_columns'] = columnsHeaders.toString().replace(/,/g, ";");
+      userParam.details_columns_titles_alignment = titlesAlignment.toString().replace(/,/g, ";");
+      userParam.details_columns_alignment = columnsAlignment.toString().replace(/,/g, ";");
+      userParam.details_columns_widths = columnsDimension.toString().replace(/,/g, ";");
+    }
+  }
+  // Banana.console.log(JSON.stringify(userParam.details_columns, "", " "));
+  // Banana.console.log(JSON.stringify(userParam[lang+'_text_details_columns'], "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_titles_alignment, "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_alignment, "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_widths, "", " "));
+}
+
+
+
+
+
+function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the delivery note information
+  */
+  var infoTable = "";
+  var rows = 0;
+
+  if (userParam.address_left) {
+    infoTable = repDocObj.addTable("info_table_right");
+  } else {
+    infoTable = repDocObj.addTable("info_table_left");
+  }
+
+  var infoFirstColumn = infoTable.addColumn("info_table_first_column");
+  var infoSecondColumn = infoTable.addColumn("info_table_second_column");
+
+  if (userParam.info_invoice_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_delivery_note_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.number,"",1);
+  } else {
+    rows++;
+  }
+  if (userParam.info_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_date_delivery_note'] + ":","",1);
+    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);    
+  } else {
+    rows++;
+  }
+  if (userParam.info_order_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.order_number,"",1);
+  }
+  if (userParam.info_order_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_date'] + ":","",1);
+    if (invoiceObj.document_info.order_date && invoiceObj.document_info.order_date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.order_date),"",1);
+    } else {
+      tableRow.addCell(invoiceObj.document_info.order_date,"",1);
+    }
+  }
+  if (userParam.info_customer) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.number,"",1);    
+  } else {
+    rows++;
+  }
+  if (userParam.info_customer_vat_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_vat_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.vat_number);
+  } else {
+    rows++;
+  }
+  if (userParam.info_customer_fiscal_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_fiscal_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.fiscal_number);
+  } else {
+    rows++;
+  }
+  if (userParam.info_due_date) {
+    //Payment Terms
+    var payment_terms_label = texts.payment_terms_label;
+    var payment_terms = '';
+    if (invoiceObj.billing_info.payment_term) { //10:ter
+      payment_terms = invoiceObj.billing_info.payment_term;
+    }
+    else if (invoiceObj.payment_info.due_date) { //automatic
+      payment_terms_label = texts.payment_due_date_label
+      payment_terms = Banana.Converter.toLocaleDateFormat(invoiceObj.payment_info.due_date);
+    }
+
+    tableRow = infoTable.addRow();
+    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+      tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_validity_date_offer'] + ":","",1);
+    }
+    if (invoiceObj.billing_info.payment_term) { //bold markdown when 10:ter
+      var paymentCell = tableRow.addCell("","",1);
+      addMdBoldText(paymentCell, payment_terms);
+    } else {
+      tableRow.addCell(payment_terms,"",1);
+    }
+  } else {
+    rows++;
+  }
+  if (userParam.info_page) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
+    tableRow.addCell("","",1).addFieldPageNr();    
+  } else {
+    rows++;
+  }
+
+  //Adds custom fields
+  //Works only with the estimates and invoices application
+  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+    if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
+      for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
+        var customField = invoiceObj.document_info.custom_fields[i];
+        tableRow = infoTable.addRow();
+        tableRow.addCell(customField.title + ":","",1);
+        tableRow.addCell(customField.value,"",1);
+      }
+    }
+  }
+
+  //Empty rows for each non-used info
+  for (var i = 0; i < rows; i++) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(" ", "", 2);
+  }
+}
+
+function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the delivery note information
+  */
+  var infoTable = "";
+
+  // Info table that starts at row 0, for pages 2+ :
+  // Since we don't know when we are on a new page, we add Info as Header
+  // and we do not display it the first time (first time is always on first page)
+  repDocObj = repDocObj.getHeader();
+  infoTable = repDocObj.addTable("info_table_row0");
+
+  var infoFirstColumn = infoTable.addColumn("info_table_first_column");
+  var infoSecondColumn = infoTable.addColumn("info_table_second_column");
+
+  if (userParam.info_invoice_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_delivery_note_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.number,"",1);
+  }
+  if (userParam.info_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_date_delivery_note'] + ":","",1);
+    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);    
+  }
+  if (userParam.info_order_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.order_number,"",1);
+  }
+  if (userParam.info_order_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_date'] + ":","",1);
+    if (invoiceObj.document_info.order_date && invoiceObj.document_info.order_date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.order_date),"",1);
+    } else {
+      tableRow.addCell(invoiceObj.document_info.order_date,"",1);
+    }
+  }
+  if (userParam.info_customer) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.number,"",1);    
+  }
+  if (userParam.info_customer_vat_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_vat_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.vat_number);
+  }
+  if (userParam.info_customer_fiscal_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_fiscal_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.fiscal_number);
+  }
+  if (userParam.info_due_date) {
+    //Payment Terms
+    var payment_terms_label = texts.payment_terms_label;
+    var payment_terms = '';
+    if (invoiceObj.billing_info.payment_term) {
+      payment_terms = invoiceObj.billing_info.payment_term;
+    }
+    else if (invoiceObj.payment_info.due_date) {
+      payment_terms_label = texts.payment_due_date_label
+      payment_terms = Banana.Converter.toLocaleDateFormat(invoiceObj.payment_info.due_date);
+    }
+
+    tableRow = infoTable.addRow();
+    if (invoiceObj.document_info.doc_type !== "17") {
+      tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
+    } else {
+      tableRow.addCell(userParam[lang+'_text_info_validity_date_offer'] + ":","",1);
+    }
+    if (invoiceObj.billing_info.payment_term) { //bold markdown when 10:ter
+      var paymentCell = tableRow.addCell("","",1);
+      addMdBoldText(paymentCell, payment_terms);
+    } else {
+      tableRow.addCell(payment_terms,"",1);
+    }    
+  }
+  if (userParam.info_page) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
+    tableRow.addCell("","",1).addFieldPageNr();    
+  }
+  //Adds custom fields
+  //Works only with the estimates and invoices application
+  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+    if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
+      for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
+        var customField = invoiceObj.document_info.custom_fields[i];
+        tableRow = infoTable.addRow();
+        tableRow.addCell(customField.title + ":","",1);
+        tableRow.addCell(customField.value,"",1);
+      }
+    }
+  }
+}
+
+function print_text_begin_delivery_note(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the text before the delivery note details
+  */
+  var textTitle = "";
+  var textBeginDeliveryNote = userParam[lang+'_text_begin_delivery_note'];
+  var table = repDocObj.addTable("begin_text_table");
+  var tableRow;
+
+  // print the title
+  textTitle = texts.delivery_note;
+  if (userParam[lang+'_title_delivery_note'] && userParam[lang+'_title_delivery_note'] !== "<none>") {
+    textTitle = userParam[lang+'_title_delivery_note'];
+  } else {
+    textTitle = "";
+  }
+  
+  if (textTitle) {
+    textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
+    textTitle = columnNamesToValues(invoiceObj, textTitle);
+    tableRow = table.addRow();
+    var titleCell = tableRow.addCell("","",1);
+    titleCell.addParagraph(textTitle, "title_text");
+  }
+
+  // print the begin text
+  if (textBeginDeliveryNote) {
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    var textBeginLines = textBeginDeliveryNote.split('\n');
+    for (var i = 0; i < textBeginLines.length; i++) {
+      if (textBeginLines[i]) {
+        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
+        addMdBoldText(textCell, textBeginLines[i]);
+      }
+      else {
+        addMdBoldText(textCell, " "); //empty lines
+      }
+    }
+  }
 }
 
 function print_details_delivery_note(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
@@ -5869,4 +6154,109 @@ function print_details_delivery_note(banDoc, repDocObj, invoiceObj, texts, userP
     banDoc.addMessage(customColumnMsg);
   }
 }
+
+function print_final_texts_delivery_note(repDocObj, invoiceObj, userParam) {
+  /*
+    Prints final texts for the delivery note after the details table.
+    Texts are defined in parameter settings.
+  */
+  if (userParam[lang+'_text_final_delivery_note'] && userParam[lang+'_text_final_delivery_note'] !== "<none>") {
+    var text = userParam[lang+'_text_final_delivery_note'];
+    text = text.split('\n');
+    // if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+    //   repDocObj.addParagraph(" ", "");
+    // }
+    for (var i = 0; i < text.length; i++) {
+      var paragraph = repDocObj.addParagraph("","final_texts");
+      if (text[i]) {
+        text[i] = columnNamesToValues(invoiceObj, text[i]);
+        addMdBoldText(paragraph, text[i]);
+      } else {
+        addMdBoldText(paragraph, " "); //empty lines
+      }
+    }
+  }
+}
+
+
+
+
+function print_text_begin_reminder(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the text before the reminder details
+  */
+  var textTitle = "";
+  var textBeginReminder = userParam[lang+'_text_begin_reminder'];
+  var table = repDocObj.addTable("begin_text_table");
+  var tableRow;
+  
+  // print the title
+  if (PRINT_MODE === "reminder_1" || PRINT_MODE === "reminder_2" || PRINT_MODE === "reminder_3") {
+    textTitle = '%1. ' + texts.reminder;
+    if (userParam[lang+'_title_reminder'] && userParam[lang+'_title_reminder'] !== "<none>") {
+      textTitle = userParam[lang+'_title_reminder'];
+    } else {
+      textTitle = "";
+    }
+
+    if (textTitle && PRINT_MODE === "reminder_1") {
+      textTitle = textTitle.replace(/%1/g, '1');
+    }
+    else if (textTitle && PRINT_MODE === "reminder_2") {
+      textTitle = textTitle.replace(/%1/g, '2');
+    }
+    else if (textTitle && PRINT_MODE === "reminder_3") {
+      textTitle = textTitle.replace(/%1/g, '3');
+    }
+  }
+
+  if (textTitle) {
+    textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
+    textTitle = columnNamesToValues(invoiceObj, textTitle);
+    tableRow = table.addRow();
+    var titleCell = tableRow.addCell("","",1);
+    titleCell.addParagraph(textTitle, "title_text");
+  }
+
+  // print the begin text
+  if (textBeginReminder) {
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    var textBeginLines = textBeginReminder.split('\n');
+    for (var i = 0; i < textBeginLines.length; i++) {
+      if (textBeginLines[i]) {
+        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
+        addMdBoldText(textCell, textBeginLines[i]);
+      }
+      else {
+        addMdBoldText(textCell, " "); //empty lines
+      }
+    }
+  }
+}
+
+function print_final_texts_reminder(repDocObj, invoiceObj, userParam) {
+  /*
+    Prints final texts for the reminder after the details table.
+    Texts are defined in parameter settings.
+  */
+  if (userParam[lang+'_text_final_reminder'] && userParam[lang+'_text_final_reminder'] !== "<none>") {
+    var text = userParam[lang+'_text_final_reminder'];
+    text = text.split('\n');
+    // if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+    //   repDocObj.addParagraph(" ", "");
+    // }
+    for (var i = 0; i < text.length; i++) {
+      var paragraph = repDocObj.addParagraph("","final_texts");
+      if (text[i]) {
+        text[i] = columnNamesToValues(invoiceObj, text[i]);
+        addMdBoldText(paragraph, text[i]);
+      } else {
+        addMdBoldText(paragraph, " "); //empty lines
+      }
+    }
+  }
+}
+
+
 
