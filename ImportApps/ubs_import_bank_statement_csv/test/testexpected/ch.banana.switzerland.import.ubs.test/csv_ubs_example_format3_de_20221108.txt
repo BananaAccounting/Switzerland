@@ -1,0 +1,220 @@
+%%info_test_name{csv_ubs_example_format3_de_20221108}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income\\
+2022-07-28 & 2022-07-28 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 7070209TO6433290 & 331.75 & \\
+2022-07-28 & 2022-07-28 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 6170209TO6433023 & 381.40 & \\
+2022-07-28 & 2022-07-28 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 6770209TO6433234 & 89.30 & \\
+2022-07-28 & 2022-07-28 & Omple Malebite,8703 Bonflungit RES IMA, f-stimore-Curaüetiundeptula & 9947208TO9191506 & 1350.00 & \\
+2022-07-28 & 2022-07-28 & SUS ABURURRINTERUM ET,EFFINABERE f-stimore-Curaüetiundeptula & 9947208TO9200212 & 108.35 & \\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6570209TO6433206 & 19.95 & \\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6370209TO6433158 & 19.95 & \\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6670209TO6433219 & 20.20 & \\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6470209TO6433185 & 19.95 & \\
+2022-07-28 & 2022-07-28 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 6270209TO6433141 & 163.80 & \\
+2022-07-29 & 2022-07-31 & Vicem Tangulathosuiscriavadracibulo  & QC44163TI3555777 & 6.00 & \\
+2022-07-30 & 2022-07-30 & EX FUISSURATE UT R. ET,8180 SALION 18264075-0 07/24, Zahlung Debitkarte & 9930714BN0871952 & 32.20 & \\
+2022-07-30 & 2022-07-30 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930714BN0918457 & 69.00 & \\
+2022-07-30 & 2022-07-30 & Vissa Retianum,4012 Aquaepro 18264075-0 07/24, Zahlung Debitkarte & 9930712BN9356783 & 30.21 & \\
+2022-08-01 & 2022-08-01 & Cannertent, Potudisi Parangusus FER PLETA & 9930213GK1654437 &  & 40.00\\
+2022-08-04 & 2022-08-04 & Aptinsa \& Divis Hompriam,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930718BN4509279 & 72.00 & \\
+2022-08-04 & 2022-08-04 & Disum Inam,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930717BN4446066 & 30.02 & \\
+2022-08-08 & 2022-08-08 & Cocta ET,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930721BN7959401 & 4.60 & \\
+2022-08-08 & 2022-08-08 & DicAt  *NECT.AUSPEM AT,7362 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8230888 & 35.00 & \\
+2022-08-08 & 2022-08-08 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8193942 & 2.90 & \\
+2022-08-08 & 2022-08-08 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8193658 & 2.85 & \\
+2022-08-08 & 2022-08-08 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930721BN8092232 & 5.95 & \\
+2022-08-09 & 2022-08-09 & Ervo stquisit sterodis,4077 Coveta 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8960731 & 30.00 & \\
+2022-08-11 & 2022-08-11 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947223TO6725066 & 17.00 & \\
+2022-08-14 & 2022-08-14 & IME,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930727BN3622307 & 132.06 & \\
+2022-08-14 & 2022-08-14 & Ope Crino,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930727BN3622282 & 12.20 & \\
+2022-08-14 & 2022-08-14 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930729BN4733646 & 37.00 & \\
+2022-08-15 & 2022-08-15 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930728BN4456031 & 40.70 & \\
+2022-08-16 & 2022-08-16 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930730BN5639008 & 2.85 & \\
+2022-08-16 & 2022-08-16 & RIS Ardum Dirorto Umiral,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930729BN4799698 & 2.30 & \\
+2022-08-16 & 2022-08-16 & Sporte Xxx Vi Fer,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930730BN5659363 & 69.30 & \\
+2022-08-17 & 2022-08-17 & Crico ET AT (3441) Auxit,7127 Sendicus 18264075-0 07/24, Zahlung Debitkarte & 9930730BN6321854 & 25.00 & \\
+2022-08-18 & 2022-08-18 & Domen Verundo Habis,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930731BN7488945 & 3.20 & \\
+2022-08-19 & 2022-08-19 & CONTENT 18264075-0 07/24, Bezug Bancomat & 9930733BN8544416 & 20.00 & \\
+2022-08-19 & 2022-08-19 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8525578 & 2.20 & \\
+2022-08-20 & 2022-08-20 & Emuligitum AT,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8964286 & 40.10 & \\
+2022-08-20 & 2022-08-20 & Noun'o AT 74, Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8963987 & 23.85 & \\
+2022-08-20 & 2022-08-20 & Screm-Pilis AT 6474,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8976357 & 18.80 & \\
+2022-08-20 & 2022-08-20 & Visimo Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8938604 & 28.90 & \\
+2022-08-22 & 2022-08-22 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930735BN1056625 & 2.30 & \\
+2022-08-23 & 2022-08-23 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930737BN2050048 & 31.00 & \\
+2022-08-23 & 2022-08-23 & Per Oppote,5410 Oppote 18264075-0 07/24, Zahlung Debitkarte & 9930736BN1807534 & 63.31 & \\
+2022-08-24 & 2022-08-24 & OCCEM SUGAUT STA UT OS,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930739BN3915438 & 61.99 & \\
+2022-08-25 & 2022-08-25 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930740BN5276881 & 2.85 & \\
+2022-08-25 & 2022-08-25 & Picitum Hombulo,4600 Faburall Parangusus & 9947737LK4529099 &  & 260.00\\
+2022-08-25 & 2022-08-25 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930738BN3748816 & 2.30 & \\
+2022-08-26 & 2022-08-26 & Auremo Maturamquis Pelii,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930739BN5100158 & 225.00 & \\
+2022-08-26 & 2022-08-26 & Cande Hombulo,7127 Sendicus Labientrunda Stula & 9947738MC4808665 & 350.00 & \\
+2022-08-26 & 2022-08-26 & Cant-1154 Habis,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930739BN5134524 & 12.60 & \\
+2022-08-26 & 2022-08-26 & Cone Atiniunch 51,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930739BN4160378 & 21.30 & \\
+2022-08-26 & 2022-08-26 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947238TO5107716 & 35.00 & \\
+2022-08-26 & 2022-08-26 & Potudisi Cannertent,7127 Sendicus Parangusus & 9930738LK4923147 &  & 332.00\\
+2022-08-26 & 2022-08-26 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Pedivegenitti & 9999238ZC6626377 &  & 4369.80\\
+2022-08-27 & 2022-08-27 & Cande Hombulo,7127 Sendicus PRIMAGIT, f-stimore-Curaüetiundeptula & 9947241TO5598850 & 500.00 & \\
+2022-08-27 & 2022-08-27 & Si Perusa AT,2130 Veruratum 18264075-0 07/24, Zahlung Debitkarte & 9930740BN5973689 & 21.00 & \\
+2022-08-28 & 2022-08-28 & Occat Rité ut Senta Vest,3446 Carescia k'Salegi 18264075-0 07/24, Zahlung Debitkarte & 9930741BN7023344 & 60.00 & \\
+2022-08-29 & 2022-08-29 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 3270241TO5419059 & 331.75 & \\
+2022-08-29 & 2022-08-29 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 2570241TO5418915 & 381.40 & \\
+2022-08-29 & 2022-08-29 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930743BN8228312 & 1.95 & \\
+2022-08-29 & 2022-08-29 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930743BN8228304 & 2.85 & \\
+2022-08-29 & 2022-08-29 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 3170241TO5419043 & 78.75 & \\
+2022-08-29 & 2022-08-29 & Omple Malebite,8703 Bonflungit RES QUA, f-stimore-Curaüetiundeptula & 9947239TO5585742 & 1350.00 & \\
+2022-08-29 & 2022-08-29 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930742BN8113154 & 2.30 & \\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3070241TO5418943 & 19.95 & \\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 2870241TO5418927 & 25.25 & \\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 2770241TO5418926 & 19.95 & \\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 2970241TO5418935 & 19.95 & \\
+2022-08-29 & 2022-08-29 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 2670241TO5418920 & 160.40 & \\
+2022-08-30 & 2022-08-30 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930744BN9296750 & 6.75 & \\
+2022-08-30 & 2022-08-30 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930743BN9177491 & 2.30 & \\
+2022-08-31 & 2022-08-31 & Aptinsa \& Divis Hompriam,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930744BN0236943 & 67.00 & \\
+2022-08-31 & 2022-08-31 & Vicem Tangulathosuiscriavadracibulo  & HI38536WT3434003 & 6.00 & \\
+2022-09-02 & 2022-09-02 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930749BN4199057 & 38.00 & \\
+2022-09-03 & 2022-09-03 & Mangusum me Agnubis,4600 Faburall 18264075-0 07/24, Zahlung Debitkarte & 9930747BN3429480 & 20.00 & \\
+2022-09-03 & 2022-09-03 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930747BN3406650 & 15.15 & \\
+2022-09-04 & 2022-09-04 & Vissa Umiral Sus,1767 Vicutico 18264075-0 07/24, Zahlung Debitkarte & 9930748BN4067830 & 35.01 & \\
+2022-09-05 & 2022-09-05 & DicAt  *Combis Xxx AT,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930750BN5294984 & 11.00 & \\
+2022-09-05 & 2022-09-05 & Obscuci Electam ET,Niunabietiontescro 62k, 1132 Ferisub f-stimore-Curaüetiundeptula & 3070248TO8648912 & 13.20 & \\
+2022-09-05 & 2022-09-05 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930749BN5082020 & 2.30 & \\
+2022-09-07 & 2022-09-07 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930752BN7301287 & 31.00 & \\
+2022-09-08 & 2022-09-08 & Cocta ET,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930752BN8076216 & 135.00 & \\
+2022-09-09 & 2022-09-09 & Vivirituli dupa,7127 Sendicus 18264075-0 07/24, Zahlung Debitkarte & 9930753BN9198874 & 3.20 & \\
+2022-09-10 & 2022-09-10 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947253TO4322099 & 6.00 & \\
+2022-09-10 & 2022-09-10 & DicAt  *NECT.AUSPEM AT,7362 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930755BN0443826 & 42.00 & \\
+2022-09-10 & 2022-09-10 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930756BN1121023 & 59.00 & \\
+2022-09-10 & 2022-09-10 & Parunter Aciburo,7127 Sendicus 18264075-0 07/24, Zahlung Debitkarte & 9930754BN0210069 & 11.95 & \\
+2022-09-11 & 2022-09-11 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930755BN0679657 & 35.01 & \\
+2022-09-13 & 2022-09-13 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947256TO5744546 & 8.00 & \\
+2022-09-14 & 2022-09-14 & Sporte Xxx Vi Fer,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930759BN4004759 & 28.70 & \\
+2022-09-16 & 2022-09-16 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930761BN5992656 & 2.15 & \\
+2022-09-16 & 2022-09-16 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930763BN7577468 & 38.00 & \\
+2022-09-16 & 2022-09-16 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930761BN5941653 & 35.00 & \\
+2022-09-16 & 2022-09-16 & RIS Ardum Dirorto Umiral,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930760BN5062004 & 2.30 & \\
+2022-09-16 & 2022-09-16 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930760BN5785125 & 2.30 & \\
+2022-09-18 & 2022-09-18 & B7 Viscessuunt,731 Viscessuunt 18264075-0 07/24, Zahlung Debitkarte & 9930763BN7578137 & 7.48 & \\
+2022-09-19 & 2022-09-19 & Opectatray ibi.,243 PRANTEM 18264075-0 07/24, Zahlung Debitkarte & 9930764BN8516801 & 29.12 & \\
+2022-09-19 & 2022-09-19 & Poegram Hyaciungunt Me,374 Fuibulli 18264075-0 07/24, Zahlung Debitkarte & 9930764BN8530591 & 12.53 & \\
+2022-09-20 & 2022-09-20 & Billiguit cone,871 Everinent 18264075-0 07/24, Zahlung Debitkarte & 9930765BN9449440 & 22.69 & \\
+2022-09-20 & 2022-09-20 & Call Expect Call Cone,765 Eximindum 18264075-0 07/24, Zahlung Debitkarte & 9930766BN0383942 & 10.40 & \\
+2022-09-20 & 2022-09-20 & Passivem,871 Everinent 18264075-0 07/24, Zahlung Debitkarte & 9930765BN9469472 & 13.44 & \\
+2022-09-21 & 2022-09-21 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947264TO9619515 & 30.00 & \\
+2022-09-21 & 2022-09-21 & Pertiunumn Rotatum ibi,871 Everinent 18264075-0 07/24, Zahlung Debitkarte & 9930766BN0433503 & 47.72 & \\
+2022-09-22 & 2022-09-22 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947265TO0479086 & 25.00 & \\
+2022-09-23 & 2022-09-23 & Certeé Seceripar AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930767BN2051973 & 43.20 & \\
+2022-09-23 & 2022-09-23 & Picitum Hombulo,4600 Faburall Parangusus & 9947766LK6325315 &  & 260.00\\
+2022-09-23 & 2022-09-23 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Pedivegenitti & 9999266ZC5522155 &  & 4369.80\\
+2022-09-24 & 2022-09-24 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947267TO1751525 & 102.00 & \\
+2022-09-24 & 2022-09-24 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947267TO1802267 & 50.00 & \\
+2022-09-24 & 2022-09-24 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930770BN4208682 & 31.00 & \\
+2022-09-25 & 2022-09-25 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930771BN5330378 & 76.00 & \\
+2022-09-25 & 2022-09-25 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930769BN3961844 & 9.45 & \\
+2022-09-26 & 2022-09-26 & Cande Hombulo,7127 Sendicus Labientrunda Stula & 9947769MC6494849 & 350.00 & \\
+2022-09-26 & 2022-09-26 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 4070269TO4404083 & 331.75 & \\
+2022-09-26 & 2022-09-26 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 3370269TO4403559 & 381.40 & \\
+2022-09-26 & 2022-09-26 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 3970269TO4404065 & 76.40 & \\
+2022-09-26 & 2022-09-26 & Omple Malebite,8703 Bonflungit RES DIS, f-stimore-Curaüetiundeptula & 9947267TO1762930 & 1350.00 & \\
+2022-09-26 & 2022-09-26 & Potudisi Cannertent,7127 Sendicus Parangusus & 9930769LK6569030 &  & 332.00\\
+2022-09-26 & 2022-09-26 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930770BN5166064 & 2.30 & \\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3870269TO4403821 & 20.35 & \\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3770269TO4403788 & 19.95 & \\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3670269TO4403764 & 19.95 & \\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3570269TO4403751 & 21.00 & \\
+2022-09-26 & 2022-09-26 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 3470269TO4403730 & 158.60 & \\
+2022-09-27 & 2022-09-27 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930772BN6316543 & 5.35 & \\
+2022-09-27 & 2022-09-27 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930771BN6222323 & 2.30 & \\
+2022-09-28 & 2022-09-28 & CONTENT 18264075-0 07/24, Bezug Bancomat & 9930773BN7311676 & 20.00 & \\
+2022-09-30 & 2022-09-30 & Cocta ET,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930774BN9423682 & 2.95 & \\
+2022-09-30 & 2022-09-30 & DicAt  *NECT.AUSPEM AT,7362 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930775BN9537029 & 35.00 & \\
+2022-09-30 & 2022-09-30 & FABO,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930775BN9644309 & 204.63 & \\
+2022-09-30 & 2022-09-30 & Vicem Tangulathosuiscriavadracibulo  & SO33668KT3753521 & 6.00 & \\
+2022-10-01 & 2022-10-01 & EX FUISSURATE UT R. ET,8180 SALION 18264075-0 07/24, Zahlung Debitkarte & 9930777BN1222452 & 36.00 & \\
+2022-10-02 & 2022-10-02 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947275TO7350252 & 40.00 & \\
+2022-10-03 & 2022-10-03 & DicAt  *Combis Xxx AT,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930778BN2320208 & 7.60 & \\
+2022-10-03 & 2022-10-03 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930777BN2141170 & 2.30 & \\
+2022-10-05 & 2022-10-05 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930780BN4358849 & 16.00 & \\
+2022-10-07 & 2022-10-07 & DicAt  *Combis Xxx AT,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930782BN6498195 & 11.00 & \\
+2022-10-07 & 2022-10-07 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930781BN6328071 & 2.30 & \\
+2022-10-08 & 2022-10-08 & Aver \& Anumn Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7026096 & 80.30 & \\
+2022-10-08 & 2022-10-08 & INTUM TIATUS AT,6162 EVICULAC 18264075-0 07/24, Zahlung Debitkarte & 9930784BN8222251 & 47.50 & \\
+2022-10-08 & 2022-10-08 & Ingral stquisit sterodis,8180 Salion 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7284975 & 38.40 & \\
+2022-10-08 & 2022-10-08 & Mire Cogita 28,6162 Steranti 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7536057 & 39.95 & \\
+2022-10-08 & 2022-10-08 & Peria Pilis Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930782BN6723476 & 69.95 & \\
+2022-10-08 & 2022-10-08 & Vöex Acietis ET,1088 Practis Seps 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7302070 & 5.00 & \\
+2022-10-09 & 2022-10-09 & Cone Estop AT,1817 Postano-Terundi 18264075-0 07/24, Zahlung Debitkarte & 9930783BN7824537 & 15.00 & \\
+2022-10-10 & 2022-10-10 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930785BN9206042 & 2.85 & \\
+2022-10-10 & 2022-10-10 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930784BN9131068 & 2.30 & \\
+2022-10-11 & 2022-10-11 & OS Sendicus 18264075-0 07/24, Bezug Bancomat & 9930785BN0080964 & 300.00 & \\
+2022-10-12 & 2022-10-12 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930787BN1134072 & 14.75 & \\
+2022-10-12 & 2022-10-12 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930787BN1134997 & 2.85 & \\
+2022-10-12 & 2022-10-12 & RIS Ardum Dirorto Umiral,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930786BN0249157 & 2.30 & \\
+2022-10-13 & 2022-10-13 & Cande Hombulo,7127 Sendicus PRIMAGIT, f-stimore-Curaüetiundeptula & 9947286TO3626440 & 1000.00 & \\
+2022-10-14 & 2022-10-14 & FABO,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930789BN3242003 & 84.22 & \\
+2022-10-15 & 2022-10-15 & Mire Cogita 28,6162 Steranti 18264075-0 07/24, Zahlung Debitkarte & 9930789BN4136552 & 17.05 & \\
+2022-10-18 & 2022-10-18 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930794BN7683507 & 38.00 & \\
+2022-10-22 & 2022-10-22 & Cant-1154 Habis,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930796BN0533729 & 18.25 & \\
+2022-10-22 & 2022-10-22 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930796BN9829310 & 37.32 & \\
+2022-10-23 & 2022-10-23 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930797BN1061960 & 3.85 & \\
+2022-10-25 & 2022-10-25 & Picitum Hombulo,4600 Faburall Parangusus & 9947798LK8184196 &  & 260.00\\
+2022-10-25 & 2022-10-25 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Pedivegenitti & 9999298ZC5922046 &  & 4369.80\\
+2022-10-26 & 2022-10-26 & Cande Hombulo,7127 Sendicus Labientrunda Stula & 9947799MC8346528 & 350.00 & \\
+2022-10-26 & 2022-10-26 & Cande Hombulo,7127 Sendicus f-stimore-Parangusus & 9947299TO1473534 &  & 3000.00\\
+2022-10-26 & 2022-10-26 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930801BN4320207 & 2.85 & \\
+2022-10-26 & 2022-10-26 & Potudisi Cannertent,7127 Sendicus Parangusus & 9930799LK8392827 &  & 332.00\\
+2022-10-27 & 2022-10-27 & AESTABO CUPATUOR V,VIVENTE, 1415 IPLENTQUAM CONE UT SORTE, f-stimore-Curaüetiundeptula & 2170300TO6866966 & 400.05 & \\
+2022-10-27 & 2022-10-27 & AESTABO CUPATUOR V,VIVENTE, 1415 IPLENTQUAM f-stimore-Curaüetiundeptula & 2270300TO6866978 & 2644.50 & \\
+2022-10-27 & 2022-10-27 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 2070300TO6866951 & 331.75 & \\
+2022-10-27 & 2022-10-27 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 1270300TO6866758 & 381.40 & \\
+2022-10-27 & 2022-10-27 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930802BN5477196 & 0.65 & \\
+2022-10-27 & 2022-10-27 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 1970300TO6866933 & 114.90 & \\
+2022-10-27 & 2022-10-27 & OMPLE MALEBITE,ET BONFLUNGIT 8703 RES PRADECTA, f-stimore-Curaüetiundeptula & 1170300TO6866715 & 1350.00 & \\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1670300TO6866836 & 19.95 & \\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1470300TO6866807 & 23.80 & \\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1770300TO6866860 & 19.95 & \\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1570300TO6866821 & 21.65 & \\
+2022-10-27 & 2022-10-27 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 1370300TO6866776 & 158.45 & \\
+2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia 18264075-0 07/24, Zahlung Debitkarte & 9930803BN7080856 & 30.00 & \\
+2022-10-29 & 2022-10-29 & INTUM TIATUS AT,6162 EVICULAC 18264075-0 07/24, Zahlung Debitkarte & 9930805BN8594754 & 53.00 & \\
+2022-10-31 & 2022-10-31 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930806BN9643739 & 7.60 & \\
+2022-10-31 & 2022-10-31 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930805BN9558053 & 2.30 & \\
+2022-10-31 & 2022-10-31 & Vicem Tangulathosuiscriavadracibulo  & VD03527OP3725703 & 6.00 & \\
+2022-11-01 & 2022-11-01 & Cannertent, Potudisi Parangusus FER PLETA & 9930305GK5404335 &  & 159.00\\
+2022-11-02 & 2022-11-02 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947306TO6493694 & 69.90 & \\
+2022-11-02 & 2022-11-02 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930808BN1699456 & 1.95 & \\
+2022-11-02 & 2022-11-02 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930808BN1692390 & 0.65 & \\
+2022-11-02 & 2022-11-02 & XXX VI FER,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930807BN1470349 & 10.00 & \\
+2022-11-04 & 2022-11-04 & FABO,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930810BN3897220 & 138.68 & \\
+2022-11-04 & 2022-11-04 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930809BN3754644 & 30.01 & \\
+2022-11-05 & 2022-11-05 & XXX VI FER,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930810BN3872076 & 32.40 & \\
+2022-11-06 & 2022-11-06 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930811BN5353554 & 6.80 & \\
+2022-11-06 & 2022-11-06 & Vöex Acietis ET,1088 Practis Seps 18264075-0 07/24, Zahlung Debitkarte & 9930811BN5358212 & 5.00 & \\
+2022-11-07 & 2022-11-07 & MENT CUREPARIS,CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9999311BN1710030 & 4.35 & \\
+2022-11-07 & 2022-11-07 & MENT CUREPARIS,CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9999311BN0755924 & 2.70 & \\
+2022-11-07 & 2022-11-07 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930812BN6501995 & 2.30 & \\
+2022-11-07 & 2022-11-07 & Untiburo (Duntuunt) AT,Gray Venitiangention 8, 5055 Paral f-stimore-Curaüetiundeptula & 1670311TO2672937 & 52.10 & \\
+2022-11-07 & 2022-11-07 & Untiburo (Duntuunt) AT,Gray Venitiangention 8, 5055 Paral f-stimore-Curaüetiundeptula & 1770311TO2672955 & 99.80 & \\
+\\
+\end{tablevalue}
+\end{document}

@@ -1,0 +1,220 @@
+%%info_test_name{csv_ubs_example_format3_it_20221108}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income\\
+2022-07-28 & 2022-07-28 & Legit Cebrella,4147 Noventemox STA DES, Cepate in consolest tam g-possica & 9947208TO9191506 & 1350.00 & \\
+2022-07-28 & 2022-07-28 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 6770209TO6433234 & 89.30 & \\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6670209TO6433219 & 20.20 & \\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6570209TO6433206 & 19.95 & \\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6470209TO6433185 & 19.95 & \\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6370209TO6433158 & 19.95 & \\
+2022-07-28 & 2022-07-28 & PUS SECTULIGNUNICA BY,EXEMPERIDE Cepate in consolest tam g-possica & 9947208TO9200212 & 108.35 & \\
+2022-07-28 & 2022-07-28 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 7070209TO6433290 & 331.75 & \\
+2022-07-28 & 2022-07-28 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 6270209TO6433141 & 163.80 & \\
+2022-07-28 & 2022-07-28 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 6170209TO6433023 & 381.40 & \\
+2022-07-29 & 2022-07-31 & Suisi eis agnumeturaà in r/a  & RX41771GH6358610 & 6.00 & \\
+2022-07-30 & 2022-07-30 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930714BN0918457 & 69.00 & \\
+2022-07-30 & 2022-07-30 & ET VEMPLIGERE IN N. EO,6884 CESERE 18264075-0 07/24, Pagamento carta di debito & 9930714BN0871952 & 32.20 & \\
+2022-07-30 & 2022-07-30 & Harum Scriniam,5667 Perbitti 18264075-0 07/24, Pagamento carta di debito & 9930712BN9356783 & 30.21 & \\
+2022-08-01 & 2022-08-01 & Beresceret, Quideium Plutubila PLE STELL & 9930213GK1654437 &  & 40.00\\
+2022-08-04 & 2022-08-04 & Anary Sent,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930717BN4446066 & 30.02 & \\
+2022-08-04 & 2022-08-04 & Uniunte \& Dorat Sengrope,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930718BN4509279 & 72.00 & \\
+2022-08-08 & 2022-08-08 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930722BN8193942 & 2.90 & \\
+2022-08-08 & 2022-08-08 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930722BN8193658 & 2.85 & \\
+2022-08-08 & 2022-08-08 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930721BN8092232 & 5.95 & \\
+2022-08-08 & 2022-08-08 & SalEs  *FORA.COLUMN VI,7423 Parate 18264075-0 07/24, Pagamento carta di debito & 9930722BN8230888 & 35.00 & \\
+2022-08-08 & 2022-08-08 & Senes BY,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930721BN7959401 & 4.60 & \\
+2022-08-09 & 2022-08-09 & Scum parescro meruncto,2201 Cringe 18264075-0 07/24, Pagamento carta di debito & 9930722BN8960731 & 30.00 & \\
+2022-08-11 & 2022-08-11 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947223TO6725066 & 17.00 & \\
+2022-08-14 & 2022-08-14 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930729BN4733646 & 37.00 & \\
+2022-08-14 & 2022-08-14 & Dea Tunch,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930727BN3622282 & 12.20 & \\
+2022-08-14 & 2022-08-14 & PAR,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930727BN3622307 & 132.06 & \\
+2022-08-15 & 2022-08-15 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930728BN4456031 & 40.70 & \\
+2022-08-16 & 2022-08-16 & Adunum Dem Et Pes,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930730BN5659363 & 69.30 & \\
+2022-08-16 & 2022-08-16 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930730BN5639008 & 2.85 & \\
+2022-08-16 & 2022-08-16 & POR Crire Mantumn Parate,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930729BN4799698 & 2.30 & \\
+2022-08-17 & 2022-08-17 & Quaer ET VI (1808) Novus,8876 Cassugat 18264075-0 07/24, Pagamento carta di debito & 9930730BN6321854 & 25.00 & \\
+2022-08-18 & 2022-08-18 & Culit Obsitas Recto,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930731BN7488945 & 3.20 & \\
+2022-08-19 & 2022-08-19 & AUXIMOX 18264075-0 07/24, Prelevamento Bancomat & 9930733BN8544416 & 20.00 & \\
+2022-08-19 & 2022-08-19 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930733BN8525578 & 2.20 & \\
+2022-08-20 & 2022-08-20 & Centemitas VI,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8964286 & 40.10 & \\
+2022-08-20 & 2022-08-20 & Imide-Catis VI 2857,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8976357 & 18.80 & \\
+2022-08-20 & 2022-08-20 & Ligita Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8938604 & 28.90 & \\
+2022-08-20 & 2022-08-20 & Solo'q VI 33, Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8963987 & 23.85 & \\
+2022-08-22 & 2022-08-22 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930735BN1056625 & 2.30 & \\
+2022-08-23 & 2022-08-23 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930737BN2050048 & 31.00 & \\
+2022-08-23 & 2022-08-23 & Par Pargem,8554 Pargem 18264075-0 07/24, Pagamento carta di debito & 9930736BN1807534 & 63.31 & \\
+2022-08-24 & 2022-08-24 & TERAT TARANT LOR IN AN,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930739BN3915438 & 61.99 & \\
+2022-08-25 & 2022-08-25 & Atubere Obandam,8172 Brestrum Quaddungine fortire & 9947737LK4529099 &  & 260.00\\
+2022-08-25 & 2022-08-25 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930740BN5276881 & 2.85 & \\
+2022-08-25 & 2022-08-25 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930738BN3748816 & 2.30 & \\
+2022-08-26 & 2022-08-26 & Cutine Triderimula Decet,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930739BN5100158 & 225.00 & \\
+2022-08-26 & 2022-08-26 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947238TO5107716 & 35.00 & \\
+2022-08-26 & 2022-08-26 & Prit-6810 Recto,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930739BN5134524 & 12.60 & \\
+2022-08-26 & 2022-08-26 & Quideium Beresceret,8876 Cassugat Quaddungine fortire & 9930738LK4923147 &  & 332.00\\
+2022-08-26 & 2022-08-26 & Reps Timediusa 71,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930739BN4160378 & 21.30 & \\
+2022-08-26 & 2022-08-26 & Venum Obandam,8876 Cassugat cepate movengisse Pedde & 9947738MC4808665 & 350.00 & \\
+2022-08-26 & 2022-08-26 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 plutubila secendo & 9999238ZC6626377 &  & 4369.80\\
+2022-08-27 & 2022-08-27 & Venum Obandam,8876 Cassugat HARECTIA, Cepate in consolest tam g-possica & 9947241TO5598850 & 500.00 & \\
+2022-08-27 & 2022-08-27 & Vi Dissit VI,4774 Gratemisi 18264075-0 07/24, Pagamento carta di debito & 9930740BN5973689 & 21.00 & \\
+2022-08-28 & 2022-08-28 & Idere Vité in Nerit Disi,6108 Parsupar x'Molunt 18264075-0 07/24, Pagamento carta di debito & 9930741BN7023344 & 60.00 & \\
+2022-08-29 & 2022-08-29 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930743BN8228304 & 2.85 & \\
+2022-08-29 & 2022-08-29 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930743BN8228312 & 1.95 & \\
+2022-08-29 & 2022-08-29 & Legit Cebrella,4147 Noventemox STA XXX, Cepate in consolest tam g-possica & 9947239TO5585742 & 1350.00 & \\
+2022-08-29 & 2022-08-29 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 3170241TO5419043 & 78.75 & \\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 2870241TO5418927 & 25.25 & \\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3070241TO5418943 & 19.95 & \\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 2970241TO5418935 & 19.95 & \\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 2770241TO5418926 & 19.95 & \\
+2022-08-29 & 2022-08-29 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930742BN8113154 & 2.30 & \\
+2022-08-29 & 2022-08-29 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 3270241TO5419059 & 331.75 & \\
+2022-08-29 & 2022-08-29 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 2670241TO5418920 & 160.40 & \\
+2022-08-29 & 2022-08-29 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 2570241TO5418915 & 381.40 & \\
+2022-08-30 & 2022-08-30 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930744BN9296750 & 6.75 & \\
+2022-08-30 & 2022-08-30 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930743BN9177491 & 2.30 & \\
+2022-08-31 & 2022-08-31 & Suisi eis agnumeturaà in r/a  & LG67702JY8052342 & 6.00 & \\
+2022-08-31 & 2022-08-31 & Uniunte \& Dorat Sengrope,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930744BN0236943 & 67.00 & \\
+2022-09-02 & 2022-09-02 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930749BN4199057 & 38.00 & \\
+2022-09-03 & 2022-09-03 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930747BN3406650 & 15.15 & \\
+2022-09-03 & 2022-09-03 & Santarto si Cebrent,8172 Brestrum 18264075-0 07/24, Pagamento carta di debito & 9930747BN3429480 & 20.00 & \\
+2022-09-04 & 2022-09-04 & Harum Parate Xxx,6437 Peruripe 18264075-0 07/24, Pagamento carta di debito & 9930748BN4067830 & 35.01 & \\
+2022-09-05 & 2022-09-05 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930749BN5082020 & 2.30 & \\
+2022-09-05 & 2022-09-05 & SalEs  *Cariet Ple VI,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930750BN5294984 & 11.00 & \\
+2022-09-05 & 2022-09-05 & Tubento Lumendo BY,Versimulcenifictus 44w, 3687 Loneret Cepate in consolest tam g-possica & 3070248TO8648912 & 13.20 & \\
+2022-09-07 & 2022-09-07 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930752BN7301287 & 31.00 & \\
+2022-09-08 & 2022-09-08 & Senes BY,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930752BN8076216 & 135.00 & \\
+2022-09-09 & 2022-09-09 & Ventuuntus ment,8876 Cassugat 18264075-0 07/24, Pagamento carta di debito & 9930753BN9198874 & 3.20 & \\
+2022-09-10 & 2022-09-10 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930756BN1121023 & 59.00 & \\
+2022-09-10 & 2022-09-10 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947253TO4322099 & 6.00 & \\
+2022-09-10 & 2022-09-10 & Maximine Pautata,8876 Cassugat 18264075-0 07/24, Pagamento carta di debito & 9930754BN0210069 & 11.95 & \\
+2022-09-10 & 2022-09-10 & SalEs  *FORA.COLUMN VI,7423 Parate 18264075-0 07/24, Pagamento carta di debito & 9930755BN0443826 & 42.00 & \\
+2022-09-11 & 2022-09-11 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930755BN0679657 & 35.01 & \\
+2022-09-13 & 2022-09-13 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947256TO5744546 & 8.00 & \\
+2022-09-14 & 2022-09-14 & Adunum Dem Et Pes,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930759BN4004759 & 28.70 & \\
+2022-09-16 & 2022-09-16 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930761BN5941653 & 35.00 & \\
+2022-09-16 & 2022-09-16 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930763BN7577468 & 38.00 & \\
+2022-09-16 & 2022-09-16 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930761BN5992656 & 2.15 & \\
+2022-09-16 & 2022-09-16 & POR Crire Mantumn Parate,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930760BN5062004 & 2.30 & \\
+2022-09-16 & 2022-09-16 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930760BN5785125 & 2.30 & \\
+2022-09-18 & 2022-09-18 & O1 Pridervirem,342 Pridervirem 18264075-0 07/24, Pagamento carta di debito & 9930763BN7578137 & 7.48 & \\
+2022-09-19 & 2022-09-19 & Rethorbile pem.,684 BRUNGIT 18264075-0 07/24, Pagamento carta di debito & 9930764BN8516801 & 29.12 & \\
+2022-09-19 & 2022-09-19 & Semplum Probaneiunt In,825 Sciditto 18264075-0 07/24, Pagamento carta di debito & 9930764BN8530591 & 12.53 & \\
+2022-09-20 & 2022-09-20 & Flus Aquada Flus Funt,676 Aluvimone 18264075-0 07/24, Pagamento carta di debito & 9930766BN0383942 & 10.40 & \\
+2022-09-20 & 2022-09-20 & Rissusta,380 Eseceatum 18264075-0 07/24, Pagamento carta di debito & 9930765BN9469472 & 13.44 & \\
+2022-09-20 & 2022-09-20 & Stquaddus funt,380 Eseceatum 18264075-0 07/24, Pagamento carta di debito & 9930765BN9449440 & 22.69 & \\
+2022-09-21 & 2022-09-21 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947264TO9619515 & 30.00 & \\
+2022-09-21 & 2022-09-21 & Somnianest Lamplae pem,380 Eseceatum 18264075-0 07/24, Pagamento carta di debito & 9930766BN0433503 & 47.72 & \\
+2022-09-22 & 2022-09-22 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947265TO0479086 & 25.00 & \\
+2022-09-23 & 2022-09-23 & Aneisé Matumento VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930767BN2051973 & 43.20 & \\
+2022-09-23 & 2022-09-23 & Atubere Obandam,8172 Brestrum Quaddungine fortire & 9947766LK6325315 &  & 260.00\\
+2022-09-23 & 2022-09-23 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 plutubila secendo & 9999266ZC5522155 &  & 4369.80\\
+2022-09-24 & 2022-09-24 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930770BN4208682 & 31.00 & \\
+2022-09-24 & 2022-09-24 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947267TO1751525 & 102.00 & \\
+2022-09-24 & 2022-09-24 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947267TO1802267 & 50.00 & \\
+2022-09-25 & 2022-09-25 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930771BN5330378 & 76.00 & \\
+2022-09-25 & 2022-09-25 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930769BN3961844 & 9.45 & \\
+2022-09-26 & 2022-09-26 & Legit Cebrella,4147 Noventemox STA QUO, Cepate in consolest tam g-possica & 9947267TO1762930 & 1350.00 & \\
+2022-09-26 & 2022-09-26 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 3970269TO4404065 & 76.40 & \\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3570269TO4403751 & 21.00 & \\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3670269TO4403764 & 19.95 & \\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3870269TO4403821 & 20.35 & \\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3770269TO4403788 & 19.95 & \\
+2022-09-26 & 2022-09-26 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930770BN5166064 & 2.30 & \\
+2022-09-26 & 2022-09-26 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 4070269TO4404083 & 331.75 & \\
+2022-09-26 & 2022-09-26 & Quideium Beresceret,8876 Cassugat Quaddungine fortire & 9930769LK6569030 &  & 332.00\\
+2022-09-26 & 2022-09-26 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 3470269TO4403730 & 158.60 & \\
+2022-09-26 & 2022-09-26 & Venum Obandam,8876 Cassugat cepate movengisse Pedde & 9947769MC6494849 & 350.00 & \\
+2022-09-26 & 2022-09-26 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 3370269TO4403559 & 381.40 & \\
+2022-09-27 & 2022-09-27 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930772BN6316543 & 5.35 & \\
+2022-09-27 & 2022-09-27 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930771BN6222323 & 2.30 & \\
+2022-09-28 & 2022-09-28 & AUXIMOX 18264075-0 07/24, Prelevamento Bancomat & 9930773BN7311676 & 20.00 & \\
+2022-09-30 & 2022-09-30 & MERE,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930775BN9644309 & 204.63 & \\
+2022-09-30 & 2022-09-30 & SalEs  *FORA.COLUMN VI,7423 Parate 18264075-0 07/24, Pagamento carta di debito & 9930775BN9537029 & 35.00 & \\
+2022-09-30 & 2022-09-30 & Senes BY,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930774BN9423682 & 2.95 & \\
+2022-09-30 & 2022-09-30 & Suisi eis agnumeturaà in r/a  & SY78633QU1002102 & 6.00 & \\
+2022-10-01 & 2022-10-01 & ET VEMPLIGERE IN N. EO,6884 CESERE 18264075-0 07/24, Pagamento carta di debito & 9930777BN1222452 & 36.00 & \\
+2022-10-02 & 2022-10-02 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947275TO7350252 & 40.00 & \\
+2022-10-03 & 2022-10-03 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930777BN2141170 & 2.30 & \\
+2022-10-03 & 2022-10-03 & SalEs  *Cariet Ple VI,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930778BN2320208 & 7.60 & \\
+2022-10-05 & 2022-10-05 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930780BN4358849 & 16.00 & \\
+2022-10-07 & 2022-10-07 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930781BN6328071 & 2.30 & \\
+2022-10-07 & 2022-10-07 & SalEs  *Cariet Ple VI,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930782BN6498195 & 11.00 & \\
+2022-10-08 & 2022-10-08 & Eorow Catis Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930782BN6723476 & 69.95 & \\
+2022-10-08 & 2022-10-08 & MATUS SERUNT VI,1164 GRATUUNE 18264075-0 07/24, Pagamento carta di debito & 9930784BN8222251 & 47.50 & \\
+2022-10-08 & 2022-10-08 & Oöut Rentula BY,4081 Divicum Semo 18264075-0 07/24, Pagamento carta di debito & 9930782BN7302070 & 5.00 & \\
+2022-10-08 & 2022-10-08 & Plento parescro meruncto,6884 Cesere 18264075-0 07/24, Pagamento carta di debito & 9930782BN7284975 & 38.40 & \\
+2022-10-08 & 2022-10-08 & Quae Omnice 53,1164 Potartum 18264075-0 07/24, Pagamento carta di debito & 9930782BN7536057 & 39.95 & \\
+2022-10-08 & 2022-10-08 & Suus \& Zucum Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930782BN7026096 & 80.30 & \\
+2022-10-09 & 2022-10-09 & Reps Pervo VI,4506 Comerow-Putiuva 18264075-0 07/24, Pagamento carta di debito & 9930783BN7824537 & 15.00 & \\
+2022-10-10 & 2022-10-10 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930785BN9206042 & 2.85 & \\
+2022-10-10 & 2022-10-10 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930784BN9131068 & 2.30 & \\
+2022-10-11 & 2022-10-11 & UT Cassugat 18264075-0 07/24, Prelevamento Bancomat & 9930785BN0080964 & 300.00 & \\
+2022-10-12 & 2022-10-12 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930787BN1134072 & 14.75 & \\
+2022-10-12 & 2022-10-12 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930787BN1134997 & 2.85 & \\
+2022-10-12 & 2022-10-12 & POR Crire Mantumn Parate,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930786BN0249157 & 2.30 & \\
+2022-10-13 & 2022-10-13 & Venum Obandam,8876 Cassugat HARECTIA, Cepate in consolest tam g-possica & 9947286TO3626440 & 1000.00 & \\
+2022-10-14 & 2022-10-14 & MERE,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930789BN3242003 & 84.22 & \\
+2022-10-15 & 2022-10-15 & Quae Omnice 53,1164 Potartum 18264075-0 07/24, Pagamento carta di debito & 9930789BN4136552 & 17.05 & \\
+2022-10-18 & 2022-10-18 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930794BN7683507 & 38.00 & \\
+2022-10-22 & 2022-10-22 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930796BN9829310 & 37.32 & \\
+2022-10-22 & 2022-10-22 & Prit-6810 Recto,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930796BN0533729 & 18.25 & \\
+2022-10-23 & 2022-10-23 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930797BN1061960 & 3.85 & \\
+2022-10-25 & 2022-10-25 & Atubere Obandam,8172 Brestrum Quaddungine fortire & 9947798LK8184196 &  & 260.00\\
+2022-10-25 & 2022-10-25 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 plutubila secendo & 9999298ZC5922046 &  & 4369.80\\
+2022-10-26 & 2022-10-26 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930801BN4320207 & 2.85 & \\
+2022-10-26 & 2022-10-26 & Quideium Beresceret,8876 Cassugat Quaddungine fortire & 9930799LK8392827 &  & 332.00\\
+2022-10-26 & 2022-10-26 & Venum Obandam,8876 Cassugat Plutubila & 9947299TO1473534 &  & 3000.00\\
+2022-10-26 & 2022-10-26 & Venum Obandam,8876 Cassugat cepate movengisse Pedde & 9947799MC8346528 & 350.00 & \\
+2022-10-27 & 2022-10-27 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930802BN5477196 & 0.65 & \\
+2022-10-27 & 2022-10-27 & LEGIT CEBRELLA,ET NOVENTEMOX 4147 STA CANESPIA, Cepate in consolest tam g-possica & 1170300TO6866715 & 1350.00 & \\
+2022-10-27 & 2022-10-27 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 1970300TO6866933 & 114.90 & \\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1470300TO6866807 & 23.80 & \\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1670300TO6866836 & 19.95 & \\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1570300TO6866821 & 21.65 & \\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1770300TO6866860 & 19.95 & \\
+2022-10-27 & 2022-10-27 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 2070300TO6866951 & 331.75 & \\
+2022-10-27 & 2022-10-27 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 1370300TO6866776 & 158.45 & \\
+2022-10-27 & 2022-10-27 & SEMONDI ADUSCURA B,FILONIS, 6275 SUPAUCIPIA CERM IN SECUM, Cepate in consolest tam g-possica & 2170300TO6866966 & 400.05 & \\
+2022-10-27 & 2022-10-27 & SEMONDI ADUSCURA B,FILONIS, 6275 SUPAUCIPIA Cepate in consolest tam g-possica & 2270300TO6866978 & 2644.50 & \\
+2022-10-27 & 2022-10-27 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 1270300TO6866758 & 381.40 & \\
+2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia 18264075-0 07/24, Pagamento carta di debito & 9930803BN7080856 & 30.00 & \\
+2022-10-29 & 2022-10-29 & MATUS SERUNT VI,1164 GRATUUNE 18264075-0 07/24, Pagamento carta di debito & 9930805BN8594754 & 53.00 & \\
+2022-10-31 & 2022-10-31 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930806BN9643739 & 7.60 & \\
+2022-10-31 & 2022-10-31 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930805BN9558053 & 2.30 & \\
+2022-10-31 & 2022-10-31 & Suisi eis agnumeturaà in r/a  & TO88185VW1433444 & 6.00 & \\
+2022-11-01 & 2022-11-01 & Beresceret, Quideium Plutubila PLE STELL & 9930305GK5404335 &  & 159.00\\
+2022-11-02 & 2022-11-02 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930808BN1692390 & 0.65 & \\
+2022-11-02 & 2022-11-02 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930808BN1699456 & 1.95 & \\
+2022-11-02 & 2022-11-02 & DEM ET PES,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930807BN1470349 & 10.00 & \\
+2022-11-02 & 2022-11-02 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947306TO6493694 & 69.90 & \\
+2022-11-04 & 2022-11-04 & MERE,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930810BN3897220 & 138.68 & \\
+2022-11-04 & 2022-11-04 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930809BN3754644 & 30.01 & \\
+2022-11-05 & 2022-11-05 & DEM ET PES,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930810BN3872076 & 32.40 & \\
+2022-11-06 & 2022-11-06 & Oöut Rentula BY,4081 Divicum Semo 18264075-0 07/24, Pagamento carta di debito & 9930811BN5358212 & 5.00 & \\
+2022-11-06 & 2022-11-06 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930811BN5353554 & 6.80 & \\
+2022-11-07 & 2022-11-07 & CERA SEPTEMPTO,SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9999311BN1710030 & 4.35 & \\
+2022-11-07 & 2022-11-07 & CERA SEPTEMPTO,SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9999311BN0755924 & 2.70 & \\
+2022-11-07 & 2022-11-07 & Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna Cepate in consolest tam g-possica & 1770311TO2672955 & 99.80 & \\
+2022-11-07 & 2022-11-07 & Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna Cepate in consolest tam g-possica & 1670311TO2672937 & 52.10 & \\
+2022-11-07 & 2022-11-07 & POR SALL. SED. MANTUMN PARATE,PARATE 18264075-0 07/24, Pagamento carta di debito & 9999311BN1721198 & 2.30 & \\
+\\
+\end{tablevalue}
+\end{document}

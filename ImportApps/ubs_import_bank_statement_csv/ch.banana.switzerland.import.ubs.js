@@ -57,6 +57,15 @@ function exec(inData, isTest) {
     return format2Ubs.convertToBananaFormat(intermediaryData);
   }
 
+  // Format 3
+  var format3Ubs = new UBSFormat3();
+  if (format3Ubs.match(transactions)) {
+    let intermediaryData = format3Ubs.convertCsvToIntermediaryData(transactions,convertionParam);
+    intermediaryData = format3Ubs.sortData(intermediaryData, convertionParam);
+    format3Ubs.postProcessIntermediaryData(intermediaryData);
+    return format3Ubs.convertToBananaFormat(intermediaryData);
+  }
+
   // Format is unknow, return an error
   return "@Error: Unknow format";
 }
@@ -408,6 +417,8 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
         transaction[this.colDateValue] &&
         transaction[this.colDateValue].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
       )
+
+      if (formatMatched && transaction[this.colOpType] && transaction[this.colOpType].match(/[a-zA-Z]/))
         formatMatched = true;
       else formatMatched = false;
 
@@ -536,10 +547,12 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     convertedRow["Expenses"] = "";
     convertedRow["Income"] = "";
 
-    if (inputRow["Importo della transazione"].indexOf("-") == -1) {
-        convertedRow["Income"] = inputRow["Importo della transazione"];
-    } else {
-        convertedRow["Expenses"] = inputRow["Importo della transazione"];
+    if(inputRow && inputRow["Importo della transazione"]){
+      if (inputRow["Importo della transazione"].indexOf("-") == -1) {
+          convertedRow["Income"] = inputRow["Importo della transazione"];
+      } else {
+          convertedRow["Expenses"] = inputRow["Importo della transazione"];
+      }
     }
 
     return convertedRow;
@@ -564,10 +577,12 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     convertedRow["Expenses"] = "";
     convertedRow["Income"] = "";
 
-    if (inputRow["Transaktionsbetrag"].indexOf("-") == -1) {
-        convertedRow["Income"] = inputRow["Transaktionsbetrag"];
-    } else {
-        convertedRow["Expenses"] = inputRow["Transaktionsbetrag"];
+    if(inputRow && inputRow["Transaktionsbetrag"]){
+      if (inputRow["Transaktionsbetrag"].indexOf("-") == -1) {
+          convertedRow["Income"] = inputRow["Transaktionsbetrag"];
+      } else {
+          convertedRow["Expenses"] = inputRow["Transaktionsbetrag"];
+      }
     }
 
     return convertedRow;
@@ -591,10 +606,12 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     convertedRow["Expenses"] = "";
     convertedRow["Income"] = "";
 
-    if (inputRow["Montant de la transaction"].indexOf("-") == -1) {
-        convertedRow["Income"] = inputRow["Montant de la transaction"];
-    } else {
-        convertedRow["Expenses"] = inputRow["Montant de la transaction"];
+    if(inputRow && inputRow["Montant de la transaction"]){
+      if (inputRow["Montant de la transaction"].indexOf("-") == -1) {
+          convertedRow["Income"] = inputRow["Montant de la transaction"];
+      } else {
+          convertedRow["Expenses"] = inputRow["Montant de la transaction"];
+      }
     }
 
     return convertedRow;
@@ -619,11 +636,312 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     convertedRow["Expenses"] = "";
     convertedRow["Income"] = "";
 
-    if (inputRow["Transaction amount"].indexOf("-") == -1) {
-        convertedRow["Income"] = inputRow["Transaction amount"];
-    } else {
-        convertedRow["Expenses"] = inputRow["Transaction amount"];
+    if(inputRow && inputRow["Transaction amount"]){
+      if (inputRow["Transaction amount"].indexOf("-") == -1) {
+          convertedRow["Income"] = inputRow["Transaction amount"];
+      } else {
+          convertedRow["Expenses"] = inputRow["Transaction amount"];
+      }
     }
+
+    return convertedRow;
+  }
+
+  //The purpose of this function is to let the user specify how to convert the categories
+  postProcessIntermediaryData(intermediaryData) {
+    /** INSERT HERE THE LIST OF ACCOUNTS NAME AND THE CONVERSION NUMBER 
+     *   If the content of "Account" is the same of the text 
+     *   it will be replaced by the account number given */
+    //Accounts conversion
+    var accounts = {
+        //...
+    }
+
+    /** INSERT HERE THE LIST OF CATEGORIES NAME AND THE CONVERSION NUMBER 
+     *   If the content of "ContraAccount" is the same of the text 
+     *   it will be replaced by the account number given */
+
+    //Categories conversion
+    var categories = {
+        //...
+    }
+
+    //Apply the conversions
+    for (var i = 0; i < intermediaryData.length; i++) {
+        var convertedData = intermediaryData[i];
+
+        //Invert values
+        if (convertedData["Expenses"]) {
+            convertedData["Expenses"] = Banana.SDecimal.invert(convertedData["Expenses"]);
+        }
+    }
+  }
+}
+
+/**
+ * UBS Format 3
+ * 
+ * This new format (08.11.2022) use the import utilities class.
+ * This format has no detail rows.
+ *
+ * Numero di conto:;0234 00103914.40;
+ * IBAN:;CH29 0023 4234 1039 1440 G;
+ * Dal:;2022-09-15;
+ * Al:;2022-09-19;
+ * Saldo iniziale:;1719.34;
+ * Saldo finale:;631.07;
+ * Valutazione in:;CHF;
+ * Numero di transazioni in questo periodo:;13;
+ *
+ * Data dell'operazione;Ora dell'operazione;Data di registrazione;Data di valuta;Moneta;Debit amount;Credit amount;Individual amount;Saldo;N. di transazione;Descrizione1;Descrizione2;Descrizione3;Note a piè di pagina;
+ * 2022-11-07;;2022-11-07;2022-11-07;TEM;-99.80;;;2215.89;1770311TO2672955;"Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna";"Cepate in consolest tam g-possica";"Decilausa vi. NUS: 35 47463 30382 81016 85544 75378, Experi in consolest: 2213 / Osit: 37.57.84 - 62.57.84 / Mendimus audio at: 75.64.4848, Sologit vi. CAPH: JA18 6457 3522 2051 7571 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 6068584LN1841647";;
+ * 2022-11-07;;2022-11-07;2022-11-07;TEM;-52.10;;;2315.69;1670311TO2672937;"Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna";"Cepate in consolest tam g-possica";"Decilausa vi. NUS: 35 47463 30382 27465 62135 38521, Experi in consolest: 2213 / Osit: 37.80.84 - 16.80.84 / Mendimus audio at: 81.57.4848, Sologit vi. CAPH: JA18 6457 3522 2051 7571 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 7510665VI0356053";;
+ * 2022-11-07;17:10:46;;2022-11-07;TEM;-4.35;;;2367.79;9999311BN1710030;"CERA SEPTEMPTO,SEPTEMPTO";"18264075-0 07/24, Pagamento carta di debito";"Offereganga vi. 7740420TJ8353344";;
+ * 2022-11-07;07:55:57;;2022-11-07;TEM;-2.70;;;2372.14;9999311BN0755924;"CERA SEPTEMPTO,SEPTEMPTO";"18264075-0 07/24, Pagamento carta di debito";"Offereganga vi. 3275420YO4320201";;
+ * 2022-11-07;17:21:52;;2022-11-07;TEM;-2.30;;;2374.84;9999311BN1721198;"POR SALL. SED. MANTUMN PARATE,PARATE";"18264075-0 07/24, Pagamento carta di debito";"Offereganga vi. 7518748DV2785407";;
+ * 2022-11-06;15:31:05;2022-11-07;2022-11-06;TEM;-6.80;;;2377.14;9930811BN5353554;"Parescro Tratiantro VI,6010 Recto";"18264075-0 07/24, Pagamento carta di debito";"Offereganga vi. 8740610YF3026752";;
+ *
+ */
+ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
+  // Index of columns in csv file
+
+  constructor(banDocument) {
+    super(banDocument);
+    this.colCount = 13;
+
+    this.colDateOperation = 0;
+    this.colTime = 1;
+    this.colDateRec = 2;
+    this.colDateValue = 3;
+    this.colCurrency = 4;
+    this.colDebitAmt = 5;
+    this.colCreditAmt = 6;
+    this.colIndividualAmt = 7;
+    this.colBalance = 8;
+    this.colTransNr = 9;
+    this.colDescr1 = 10;
+    this.colDescr2 = 11;
+    this.colDescr3 = 12;
+    this.colNotes = 13;
+  }
+
+
+
+  /** Return true if the transactions match this format */
+  match (transactions) {
+    if (transactions.length === 0) return false;
+
+    for (i = 0; i < transactions.length; i++) {
+      var transaction = transactions[i];
+
+      var formatMatched = false;
+      /* array should have all columns */
+      if (transaction.length >= this.colCount) formatMatched = true;
+      else formatMatched = false;
+
+      if (
+        formatMatched &&
+        transaction[this.colDateOperation] &&
+        transaction[this.colDateOperation].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
+      )
+        formatMatched = true;
+      else formatMatched = false;
+
+      if (
+        formatMatched &&
+        transaction[this.colDateValue] &&
+        transaction[this.colDateValue].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
+      )
+        formatMatched = true;
+      else formatMatched = false;
+
+      if (formatMatched && transaction[this.colDebitAmt] ||
+        transaction[this.colCreditAmt])
+        formatMatched = true;
+      else formatMatched = false;
+
+      if (formatMatched) return true;
+    }
+
+    return false;
+  }
+
+  /** Convert the transaction to the format to be imported */
+  convertCsvToIntermediaryData (transactions, convertionParam) {
+    var form = [];
+    var intermediaryData = [];
+
+  /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
+    We suppose the data will always begin right away after the header line */
+    convertionParam.headerLineStart = 9;
+    convertionParam.dataLineStart = 10;
+
+    //Variables used to save the columns titles and the rows values
+    let columns = this.getHeaderData(transactions, convertionParam.headerLineStart); //array
+    let rows = this.getRowData(transactions, convertionParam.dataLineStart); //array of array
+    let lang = this.getLanguage(columns);
+
+    //Load the form with data taken from the array. Create objects
+    this.loadForm(form, columns, rows);
+
+    //For each row of the form, we call the rowConverter() function and we save the converted data
+    for (var i = 0; i < form.length; i++) {
+        let convertedRow = {};
+        switch(lang){
+          case "it":
+          convertedRow = this.translateHeaderIt(form[i], convertedRow);
+          intermediaryData.push(convertedRow);
+          break;
+          case "de":
+            convertedRow = this.translateHeaderDe(form[i], convertedRow);
+            intermediaryData.push(convertedRow);
+            break;
+          case "fr":
+            convertedRow = this.translateHeaderFr(form[i], convertedRow);
+            intermediaryData.push(convertedRow);
+            break;
+          case "en":
+            convertedRow = this.translateHeaderEn(form[i], convertedRow);
+            intermediaryData.push(convertedRow);
+            break;
+          default:
+            Banana.console.info("csv language not recognised");
+        }
+    }
+
+    return intermediaryData;
+  }
+
+  formatColumnsNames(columnsTemps) {
+    let columns = [];
+    for (var i = 0; i <= columnsTemps.length; i++) {
+        var colName = columnsTemps[i];
+        /**
+         * Actually we use Started Date as the Completed Date is not Always present
+         * Could be possible to check the state of the transaction using the field "State" to 
+         * define wich date to use, as far we know a transaction can have two main states: COMPLETED 
+         * and PENDING.
+         */
+        switch (colName) {
+            case "Started Date":
+                colName = "Date";
+                break;
+        }
+        columns.push(colName);
+    }
+
+    return columns;
+  }
+
+  getLanguage(columns) {
+   /**
+    * Check the csv header fields to define the language.
+    * The file is available in the following languages: IT,FR,DE,EN.
+    */
+      var lang = "";
+      if(columns){
+        if (columns[this.colDateOperation] === "Data dell'operazione" &&
+        columns[this.colTime] === "Ora dell'operazione" && columns[this.colDateRec] === "Data di registrazione") {
+          lang = "it";
+          return lang;
+        }
+        if (columns[this.colDateOperation] === "Abschlussdatum" &&
+        columns[this.colTime] === "Abschlusszeit" && columns[this.colDateRec] === "Buchungsdatum") {
+          lang = "de";
+          return lang;
+        }
+
+        if (columns[this.colDateOperation] === "Date de transaction" &&
+        columns[this.colTime] === "Heure de transaction" && columns[this.colDateRec] === "Date de comptabilisation") {
+          lang = "fr";
+          return lang;
+        }
+
+        //Trade date;Trade time;Booking date
+        if (columns[this.colDateOperation] === "Trade date" &&
+        columns[this.colTime] === "Trade time" && columns[this.colDateRec] === "Booking date") {
+          lang = "en";
+          return lang;
+        }
+      }
+      return lang;
+  }
+
+  translateHeaderIt(inputRow, convertedRow) {
+    //get the Banana Columns Name from csv file columns name
+    let dateText = "";
+    let dateValueText = "";
+
+    dateText = inputRow["Data dell'operazione"].substring(0, 10);
+    dateValueText = inputRow["Data di valuta"].substring(0, 10);
+
+    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
+    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
+    convertedRow["Description"] = inputRow["Descrizione1"] + " " +inputRow["Descrizione2"];
+    convertedRow["ExternalReference"] = inputRow["N. di transazione"];
+    //define if the amount is an income or an expenses.
+    convertedRow["Expenses"] = inputRow["Debit amount"];
+    convertedRow["Income"] = inputRow["Credit amount"];
+
+
+    return convertedRow;
+  }
+
+  translateHeaderDe(inputRow, convertedRow) {
+    //get the Banana Columns Name from csv file columns name
+    let dateText = "";
+    let dateValueText = "";
+
+    dateText = inputRow["Abschlussdatum"].substring(0, 10);
+    dateValueText = inputRow["Valutadatum"].substring(0, 10);
+
+    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
+    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
+
+    convertedRow["Description"] = inputRow["Beschreibung1"] + " " + inputRow["Beschreibung2"];
+    convertedRow["ExternalReference"] = inputRow["Transaktions-Nr."];
+    //define if the amount is an income or an expenses.
+    convertedRow["Expenses"] = inputRow["Debit amount"];
+    convertedRow["Income"] = inputRow["Credit amount"];
+
+    return convertedRow;
+  }
+
+  translateHeaderFr(inputRow, convertedRow) {
+    //get the Banana Columns Name from csv file columns name
+    let dateText = "";
+    let dateValueText = "";
+
+    dateText = inputRow["Date de transaction"].substring(0, 10);
+    dateValueText = inputRow["Date de valeur"].substring(0, 10);
+
+    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
+    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
+    convertedRow["Description"] = inputRow["Description1"] + " " + inputRow["Description2"];
+    convertedRow["ExternalReference"] = inputRow["N° de transaction"];
+    //define if the amount is an income or an expenses.
+    convertedRow["Expenses"] = inputRow["Debit amount"];
+    convertedRow["Income"] = inputRow["Credit amount"];
+
+    return convertedRow;
+  }
+
+  translateHeaderEn(inputRow, convertedRow) {
+    //get the Banana Columns Name from csv file columns name
+    let dateText = "";
+    let dateValueText = "";
+
+
+    dateText = inputRow["Trade date"].substring(0, 10);
+    dateValueText = inputRow["Value date"].substring(0, 10);
+
+    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
+    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
+    convertedRow["Description"] = inputRow["Description1"] + " " + inputRow["Description2"];
+    convertedRow["ExternalReference"] = inputRow["Transaction no."];
+    //define if the amount is an income or an expenses.
+    convertedRow["Expenses"] = inputRow["Debit amount"];
+    convertedRow["Income"] = inputRow["Credit amount"];
 
     return convertedRow;
   }

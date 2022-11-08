@@ -69,6 +69,10 @@ TestImportUbsTrans.prototype.testImport = function() {
    fileNameList.push("file:script/../test/testcases/csv_ubs_example_format2_fr_20220928.csv");
    fileNameList.push("file:script/../test/testcases/csv_ubs_example_format2_it_20220928.csv");
    fileNameList.push("file:script/../test/testcases/csv_ubs_example_formatCc1_20171027.csv");
+   fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_en_20221108.csv");
+   fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_de_20221108.csv");
+   fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_fr_20221108.csv");
+   fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_it_20221108.csv");
    
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
