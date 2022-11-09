@@ -453,7 +453,7 @@ function convertParam(userParam) {
   //###################################### !!!TEMPORANEO!!! //######################################
   var currentParam = {};
   currentParam.name = 'print_mode';
-  currentParam.title = 'SCELTA MODALITÀ STAMPA (PARAMETRO TEMPORANEO!!)';
+  currentParam.title = 'SCELTA FORMATO DI STAMPA (PARAMETRO TEMPORANEO!!)';
   currentParam.type = 'combobox';
   
   let printModes = [];
@@ -1701,8 +1701,8 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_details_header;
   currentParam.type = 'color';
-  currentParam.value = userParam.background_color_details_header ? userParam.background_color_details_header : '#337AB7';
-  currentParam.defaultvalue = '#337ab7';
+  currentParam.value = userParam.background_color_details_header ? userParam.background_color_details_header : '#FFFFFF';
+  currentParam.defaultvalue = '#FFFFFF';
   currentParam.tooltip = texts.param_tooltip_background_color_details_header;
   currentParam.readValue = function() {
    userParam.background_color_details_header = this.value;
@@ -1714,8 +1714,8 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_text_color_details_header;
   currentParam.type = 'color';
-  currentParam.value = userParam.text_color_details_header ? userParam.text_color_details_header : '#FFFFFF';
-  currentParam.defaultvalue = '#FFFFFF';
+  currentParam.value = userParam.text_color_details_header ? userParam.text_color_details_header : '#000000';
+  currentParam.defaultvalue = '#000000';
   currentParam.tooltip = texts.param_tooltip_text_color_details_header;
   currentParam.readValue = function() {
    userParam.text_color_details_header = this.value;
@@ -1727,11 +1727,24 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_alternate_lines;
   currentParam.type = 'color';
-  currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#F0F8FF';
-  currentParam.defaultvalue = '#F0F8FF';
+  currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#F2F2F2';
+  currentParam.defaultvalue = '#F2F2F2';
   currentParam.tooltip = texts.param_tooltip_background_color_alternate_lines;
   currentParam.readValue = function() {
    userParam.background_color_alternate_lines = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'color_title_total';
+  currentParam.parentObject = 'styles';
+  currentParam.title = texts.param_color_title_total;
+  currentParam.type = 'color';
+  currentParam.value = userParam.color_title_total ? userParam.color_title_total : '#000000';
+  currentParam.defaultvalue = '#000000';
+  currentParam.tooltip = texts.param_tooltip_color_title_total;
+  currentParam.readValue = function() {
+   userParam.color_title_total = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -1775,8 +1788,7 @@ function convertParam(userParam) {
    userParam.embedded_css_filename = this.value;
   }
   convertedParam.data.push(currentParam);
-
-
+  
   return convertedParam;
 }
 
@@ -1800,7 +1812,7 @@ function initParam() {
   //###################################### !!!TEMPORANEO!!! //######################################
   userParam.print_mode = 'invoice';
   //################################################################################################
-
+  
 
   //Include
   userParam.header_print = true;
@@ -1901,9 +1913,10 @@ function initParam() {
 
   //Styles
   userParam.text_color = '#000000';
-  userParam.background_color_details_header = '#337AB7';
-  userParam.text_color_details_header = '#FFFFFF';
-  userParam.background_color_alternate_lines = '#F0F8FF';
+  userParam.background_color_details_header = '#FFFFFF';
+  userParam.text_color_details_header = '#000000';
+  userParam.background_color_alternate_lines = '#F2F2F2';
+  userParam.color_title_total = '#000000';
   userParam.font_family = 'Helvetica';
   userParam.font_size = '10';
 
@@ -2176,6 +2189,12 @@ function verifyParam(userParam) {
   if (!userParam.background_color_alternate_lines) {
     userParam.background_color_alternate_lines = '#F0F8FF';
   }
+  if (!userParam.color_title_total) {
+    // Old colors.
+    // We are using the old version of settings parameters.
+    // In this case we use the same color as the previous version of settings parameters.
+    userParam.color_title_total = userParam.background_color_details_header;
+  }
   if (!userParam.font_family) {
     userParam.font_family = 'Helvetica';
   }
@@ -2250,7 +2269,6 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     //Banana.console.log("print mode = " + PRINT_MODE);
 
     getPrintFormats();
-    
     //################################################################################################
     
 
@@ -4500,6 +4518,7 @@ function set_variables(variables, userParam) {
   variables.$background_color_details_header = userParam.background_color_details_header;
   variables.$text_color_details_header = userParam.text_color_details_header;
   variables.$background_color_alternate_lines = userParam.background_color_alternate_lines;
+  variables.$color_title_total = userParam.color_title_total;
   /* Variables that set the font */
   variables.$font_family = userParam.font_family;
   variables.$font_size = userParam.font_size+"pt";
@@ -4743,6 +4762,9 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_reminder = "Inserisci un testo per sostituire quello predefinito";
     texts.it_param_text_final_reminder = "Testo finale";
     texts.param_tooltip_text_final_reminder = "Inserisci un testo per sostituire quello predefinito";
+
+    texts.param_color_title_total = "Colore titolo e totale";
+    texts.param_tooltip_color_title_total = "Inserisci il colore";
   }
   else if (language === 'de') {
     // DE
@@ -4949,6 +4971,9 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_reminder = "Text eingeben, um Standardtext zu ersetzen";
     texts.de_param_text_final_reminder = "Schlusstext";
     texts.param_tooltip_text_final_reminder = "Text eingeben, um Standardtext zu ersetzen";
+
+    texts.param_color_title_total = "Colore titolo e totale DE..";
+    texts.param_tooltip_color_title_total = "Inserisci il colore DE..";
   }
   else if (language === 'fr') {
     //FR
@@ -5155,6 +5180,9 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_reminder = "Insérez un texte pour remplacer le texte par défaut";
     texts.fr_param_text_final_reminder = "Texte final";
     texts.param_tooltip_text_final_reminder = "Insérez un texte pour remplacer le texte par défaut";
+
+    texts.param_color_title_total = "Colore titolo e totale FR..";
+    texts.param_tooltip_color_title_total = "Inserisci il colore FR..";
   }
   else {
     //EN
@@ -5361,6 +5389,9 @@ function setInvoiceTexts(language) {
     texts.param_tooltip_text_begin_reminder = "Enter text to replace the default";
     texts.en_param_text_final_reminder = "Final text";
     texts.param_tooltip_text_final_reminder = "Enter text to replace the default";
+
+    texts.param_color_title_total = "Title and total color";
+    texts.param_tooltip_color_title_total = "Enter the color";
   }
 
   return texts;
