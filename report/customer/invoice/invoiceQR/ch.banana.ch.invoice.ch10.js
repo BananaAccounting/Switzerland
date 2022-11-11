@@ -5630,7 +5630,7 @@ function getPrintOptions() {
       printOptions = getPrintOptions_en();
       break;
   }
-  Banana.console.log(JSON.stringify(printOptions,"", " "));
+  // Banana.console.log(JSON.stringify(printOptions,"", " "));
   return printOptions
 }
 
