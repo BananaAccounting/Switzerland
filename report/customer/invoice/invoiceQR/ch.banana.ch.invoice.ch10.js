@@ -2268,7 +2268,7 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     setPrintMode(userParam);
     //Banana.console.log("print mode = " + PRINT_MODE);
 
-    getPrintFormats();
+    getPrintOptions();
     //################################################################################################
     
 
@@ -5597,7 +5597,7 @@ function setPrintMode(userParam) {
 }
 //################################################################################################
 
-function getPrintFormats() {
+function getPrintOptions() {
   /**
    * Function that returns a list of available print modes for the layout.
    * Banana calls this function when the layout is selected in the dialog "Print invoice".
@@ -5606,82 +5606,283 @@ function getPrintFormats() {
    * 
    * https://www.banana.ch/doc/en/node/9980
    */
-  
-  let printFormats = [
-    {
-      "lang": "it",
-      "field_name": "Formati di stampa",
-      "available_formats": [
-        {
-          "automatic": "Automatico", 
-          "invoice": "Fattura",
-          "delivery_note" : "Bollettino di consegna",
-          "reminder_1": "Richiamo 1",
-          "reminder_2": "Richiamo 2",
-          "reminder_3": "Richiamo 3"
-        }
-      ],
-      "default_format": "Automatico"
-    },
-    {
-      "lang": "fr",
-      "field_name": "Formats d'impression",
-      "available_formats": [
-        {
-          "automatic": "Automatique", 
-          "invoice": "Facture",
-          "delivery_note" : "Bon de livraison",
-          "reminder_1": "Rappel 1",
-          "reminder_2": "Rappel 2",
-          "reminder_3": "Rappel 3"
-        }
-      ],
-      "default_format": "Automatique"
-    },
-    {
-      "lang": "de",
-      "field_name": "Druckformate",
-      "available_formats": [
-        {
-          "automatic": "Automatisch", 
-          "invoice": "Rechnung",
-          "delivery_note" : "Lieferschein",
-          "reminder_1": "Mahnung 1",
-          "reminder_2": "Mahnung 2",
-          "reminder_3": "Mahnung 3"
-        }
-      ],
-      "default_format": "Automatisch"
-    },
-    {
-      "lang": "en",
-      "field_name": "Print formats",
-      "available_formats": [
-        {
-          "automatic": "Automatic", 
-          "invoice": "Invoice",
-          "delivery_note" : "Delivery note",
-          "reminder_1": "Reminder 1",
-          "reminder_3": "Reminder 2",
-          "reminder_3": "Reminder 3"
-        }
-      ],
-      "default_format": "Automatic"
-    },
-  ];
 
-  // Banana.console.log(JSON.stringify(printFormats, "", " "));
-  // Banana.console.log(".... TEST ....");
-  // let langBanana = "de";
-  // for (let i = 0; i < printFormats.length; i++) {
-  //   let lang = printFormats[i].lang;
-  //   if (lang === langBanana) {
-  //     Banana.console.log(JSON.stringify(printFormats[i], "", " "));
-  //   }
-  // }
+  //get program language (system language) and return the object for the language.
+  let lang = Banana.application.locale;
+  lang = lang.substr(0,2);
+  Banana.console.debug(lang);
+  let printOptions;
 
-  return printFormats;
+  switch(lang){
+    case "en":
+      printOptions = getPrintOptions_en();
+      break;
+    case "it":
+      printOptions = getPrintOptions_it();
+      break;
+    case "fr":
+      printOptions = getPrintOptions_fr();
+      break;
+    case "de":
+      printOptions = getPrintOptions_de();
+      break;
+    default:
+      printOptions = getPrintOptions_en();
+      break;
+  }
+  Banana.console.log(JSON.stringify(printOptions,"", " "));
+  return printOptions
 }
+
+function getPrintOptions_en(){
+  let printOptions_en =
+  {
+    "version" : "1.0",
+    "base_options" : [
+      {
+        "id": "print_formats",
+        "text": "Print Formats",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatic"
+          },
+          {
+            "id":"invoice",
+            "text": "Invoice"
+          },
+          {
+            "id":"delivery_note" ,
+            "text": "Delivery Note"
+          },
+          {
+            "id":"reminder_1",
+            "text": "Reminder 1"
+          },
+          {
+            "id":"reminder_2",
+            "text":"Reminder 2"
+          },
+          {
+            "id":"reminder_3",
+            "text": "Reminder 3"
+          }
+        ],
+        "default": "automatic"
+      },
+      {
+        "id": "print_amounts",
+        "text": "Print Amounts",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatic"
+          },
+          {
+            "id":"amounts",
+            "text": "Print Amounts"
+          },
+          {
+            "id":"noamounts" ,
+            "text": "Do not print Amounts"
+          },
+          
+        ],
+        "default": "automatic"
+      }
+    ]
+  }
+  return printOptions_en;
+}
+
+function getPrintOptions_it(){
+  let printOptions_it =
+  {
+    "version" : "1.0",
+    "base_options" : [
+      {
+        "id": "print_formats",
+        "text": "Formato di stampa",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatico"
+          },
+          {
+            "id":"invoice",
+            "text": "Fattura"
+          },
+          {
+            "id":"delivery_note" ,
+            "text": "Bollettino di consegna"
+          },
+          {
+            "id":"reminder_1",
+            "text": "Richiamo 1"
+          },
+          {
+            "id":"reminder_2",
+            "text":"Richiamo 2"
+          },
+          {
+            "id":"reminder_3",
+            "text": "Richiamo 3"
+          }
+        ],
+        "default": "automatic"
+      },
+      {
+        "id": "print_amounts",
+        "text": "Stampa importi",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatico"
+          },
+          {
+            "id":"amounts",
+            "text": "Stampa importi"
+          },
+          {
+            "id":"noamounts" ,
+            "text": "Non stampare importi"
+          },
+          
+        ],
+        "default": "automatic"
+      }
+    ]
+  }
+  return printOptions_it;
+}
+
+function getPrintOptions_fr(){
+  let printOptions_fr =
+  {
+    "version" : "1.0",
+    "base_options" : [
+      {
+        "id": "print_formats",
+        "text": "Formats d'impression",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatique"
+          },
+          {
+            "id":"invoice",
+            "text": "Facture"
+          },
+          {
+            "id":"delivery_note" ,
+            "text": "Bon de livraison"
+          },
+          {
+            "id":"reminder_1",
+            "text": "Rappel 1"
+          },
+          {
+            "id":"reminder_2",
+            "text":"Rappel 2"
+          },
+          {
+            "id":"reminder_3",
+            "text": "Rappel 3"
+          }
+        ],
+        "default": "automatic"
+      },
+      {
+        "id": "print_amounts",
+        "text": "Imprimer les montants",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatique"
+          },
+          {
+            "id":"amounts",
+            "text": "Imprimer les montants"
+          },
+          {
+            "id":"noamounts" ,
+            "text": "Ne pas imprimer les montants"
+          },
+          
+        ],
+        "default": "automatic"
+      }
+    ]
+  }
+  return printOptions_fr;
+}
+
+function getPrintOptions_de(){
+  let printOptions_de =
+  {
+    "version" : "1.0",
+    "base_options" : [
+      {
+        "id": "print_formats",
+        "text": "Druckformate",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatisch"
+          },
+          {
+            "id":"invoice",
+            "text": "Rechnung"
+          },
+          {
+            "id":"delivery_note" ,
+            "text": "Lieferschein"
+          },
+          {
+            "id":"reminder_1",
+            "text": "Mahnung 1"
+          },
+          {
+            "id":"reminder_2",
+            "text":"Mahnung 2"
+          },
+          {
+            "id":"reminder_3",
+            "text": "Mahnung 3"
+          }
+        ],
+        "default": "automatic"
+      },
+      {
+        "id": "print_amounts",
+        "text": "Beträge drucken",
+        "formats": [
+          {
+            "id":"automatic",
+            "text":"Automatisch"
+          },
+          {
+            "id":"amounts",
+            "text": "Beträge drucken"
+          },
+          {
+            "id":"noamounts" ,
+            "text": "Beträge nicht drucken"
+          },
+          
+        ],
+        "default": "automatic"
+      }
+    ]
+  }
+  return printOptions_de;
+}
+
+
+
+
+
+
 
 function removeDiscountColumn(invoiceObj, userParam) {
   /**
