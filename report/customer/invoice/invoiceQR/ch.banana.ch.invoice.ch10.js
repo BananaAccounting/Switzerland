@@ -459,6 +459,7 @@ function convertParam(userParam) {
   let printModes = [];
   printModes.push('invoice');
   printModes.push('delivery_note');
+  printModes.push('delivery_note_without_amounts');
   printModes.push('reminder_1');
   printModes.push('reminder_2');
   printModes.push('reminder_3');
@@ -2181,19 +2182,22 @@ function verifyParam(userParam) {
     userParam.text_color = '#000000';
   }
   if (!userParam.background_color_details_header) {
-    userParam.background_color_details_header = '#337AB7';
+    userParam.background_color_details_header = '#FFFFFF';
   }
   if (!userParam.text_color_details_header) {
-    userParam.text_color_details_header = '#FFFFFF';
+    userParam.text_color_details_header = '#000000';
   }
   if (!userParam.background_color_alternate_lines) {
-    userParam.background_color_alternate_lines = '#F0F8FF';
+    userParam.background_color_alternate_lines = '#F2F2F2';
   }
-  if (!userParam.color_title_total) {
-    // Old colors.
-    // We are using the old version of settings parameters.
-    // In this case we use the same color as the previous version of settings parameters.
+  if (!userParam.hasOwnProperty('color_title_total')) {
+    // Property doesn't exists: using old version of settings parameters.
+    // In this case use the same color as the previous version of settings parameters.
     userParam.color_title_total = userParam.background_color_details_header;
+  } else {
+    if (!userParam.color_title_total) {
+      userParam.color_title_total = '#000000';      
+    }
   }
   if (!userParam.font_family) {
     userParam.font_family = 'Helvetica';
@@ -2267,8 +2271,10 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     //take the print mode from the userParam
     setPrintMode(userParam);
     //Banana.console.log("print mode = " + PRINT_MODE);
-
-    getPrintOptions();
+    //Banana.console.log(JSON.stringify(userParam, "", " "));
+    
+    //returns the json for the dialog "Print invoice"
+    //getPrintOptions();
     //################################################################################################
     
 
@@ -2314,7 +2320,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT INVOICE INFO FIRST PAGE */
-  if (PRINT_MODE === "delivery_note") {
+  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_info_first_page_delivery_note) === typeof(Function)) {
       hook_print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -2330,7 +2336,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT INVOICE INFO PAGES 2+ */
-  if (PRINT_MODE === "delivery_note") {
+  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_info_other_pages_delivery_note) === typeof(Function)) {
       hook_print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -2363,7 +2369,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT BEGIN TEXT (BEFORE INVOICE DETAILS) */
   var sectionClassBegin = repDocObj.addSection("section_class_begin");
-  if (PRINT_MODE === "delivery_note") {
+  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_text_begin_delivery_note) === typeof(Function)) {
       hook_print_text_begin_delivery_note(sectionClassBegin, invoiceObj, texts, userParam);
     } else {
@@ -2389,11 +2395,11 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   var sectionClassDetails = repDocObj.addSection("section_class_details");
   var detailsTable = sectionClassDetails.addTable("doc_table");
 
-  if (PRINT_MODE === 'delivery_note') {
-    if (BAN_ADVANCED && typeof(hook_print_details_delivery_note) === typeof(Function)) {
-      hook_print_details_delivery_note(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+  if (PRINT_MODE === "delivery_note_without_amounts") {
+    if (BAN_ADVANCED && typeof(hook_print_details_delivery_note_without_amounts) === typeof(Function)) {
+      hook_print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
-      print_details_delivery_note(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+      print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     }
   }
   else {
@@ -2416,7 +2422,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FINAL TEXTS (AFTER INVOICE DETAILS) */
   var sectionClassFinalTexts = repDocObj.addSection("section_class_final_texts");
-  if (PRINT_MODE === "delivery_note") {
+  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_final_texts_delivery_note) === typeof(Function)) {
       hook_print_final_texts_delivery_note(sectionClassFinalTexts, invoiceObj, userParam);
     } else {
@@ -2439,8 +2445,8 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (invoiceObj.document_info.doc_type === "17" || PRINT_MODE === "delivery_note") { //17=estimate
-    userParam.qr_code_add = false; //estimates and delivery notes without QRCode
+  if (invoiceObj.document_info.doc_type === "17" || PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") { //17=estimate
+    userParam.qr_code_add = false; //estimates and delivery notes printed without QRCode
   }
   if (userParam.qr_code_add) {
     var qrBill = new QRBill(banDoc, userParam);
@@ -4972,8 +4978,8 @@ function setInvoiceTexts(language) {
     texts.de_param_text_final_reminder = "Schlusstext";
     texts.param_tooltip_text_final_reminder = "Text eingeben, um Standardtext zu ersetzen";
 
-    texts.param_color_title_total = "Colore titolo e totale DE..";
-    texts.param_tooltip_color_title_total = "Inserisci il colore DE..";
+    texts.param_color_title_total = "Titel und Gesamtfarbe";
+    texts.param_tooltip_color_title_total = "Farbe eingeben";
   }
   else if (language === 'fr') {
     //FR
@@ -5181,8 +5187,8 @@ function setInvoiceTexts(language) {
     texts.fr_param_text_final_reminder = "Texte final";
     texts.param_tooltip_text_final_reminder = "Insérez un texte pour remplacer le texte par défaut";
 
-    texts.param_color_title_total = "Colore titolo e totale FR..";
-    texts.param_tooltip_color_title_total = "Inserisci il colore FR..";
+    texts.param_color_title_total = "Couleur titre et totale";
+    texts.param_tooltip_color_title_total = "Insérer la couleur";
   }
   else {
     //EN
@@ -5610,7 +5616,6 @@ function getPrintOptions() {
   //get program language (system language) and return the object for the language.
   let lang = Banana.application.locale;
   lang = lang.substr(0,2);
-  Banana.console.debug(lang);
   let printOptions;
 
   switch(lang){
@@ -6200,7 +6205,7 @@ function print_text_begin_delivery_note(repDocObj, invoiceObj, texts, userParam)
   }
 }
 
-function print_details_delivery_note(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
+function print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
   /* 
     Print details delivery note.
     Takes all the XML columns names and columns titles defined in parameters.
