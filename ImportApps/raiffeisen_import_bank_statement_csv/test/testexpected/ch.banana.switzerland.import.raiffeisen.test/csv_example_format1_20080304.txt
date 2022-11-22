@@ -20,8 +20,8 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2008-01-03 & 2008-01-03 &  & Description for test & 100 & \\
-2008-03-04 & 2008-01-03 &  & Description for test &  & 100\\
+2008-01-03 & 2008-01-03 &  & Quinvemple Santi xxx Araturus Et�at, Dent & 100 & \\
+2008-03-04 & 2008-01-03 &  & Quinvemple Santi xxx Araturus Et�at, Dent &  & 100\\
 \\
 \end{tablevalue}
 \end{document}

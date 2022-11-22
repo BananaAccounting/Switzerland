@@ -20,107 +20,107 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2021-01-04 & 2020-12-31 &  & Description for test & 5000 & \\
-2021-01-04 & 2021-01-04 &  & Description for test &  & 34.75\\
-2021-01-04 & 2021-01-04 &  & Description for test &  & 500\\
-2021-01-04 & 2021-01-04 &  & Description for test & 210.6 & \\
-2021-01-04 & 2021-01-04 &  & Description for test &  & 401.75\\
-2021-01-05 & 2021-01-05 &  & Description for test &  & 8000\\
-2021-01-06 & 2021-01-05 &  & Description for test &  & 2000\\
-2021-01-06 & 2021-01-06 &  & Description for test & 1566 & \\
-2021-01-06 & 2021-01-06 &  & Description for test &  & 2200\\
-2021-01-08 & 2021-01-08 &  & Description for test &  & 6.3\\
-2021-01-11 & 2021-01-08 &  & Description for test &  & 200\\
-2021-01-11 & 2021-01-11 &  & Description for test &  & 244\\
-2021-01-11 & 2021-01-11 &  & Description for test &  & 149\\
-2021-01-11 & 2021-01-11 &  & Description for test &  & 600\\
-2021-01-14 & 2021-01-14 &  & Description for test &  & 200\\
-2021-01-15 & 2021-01-15 &  & Description for test &  & 96.5\\
-2021-01-15 & 2021-01-15 &  & Description for test & 421 & \\
-2021-01-19 & 2021-01-19 &  & Description for test &  & 1500\\
-2021-01-20 & 2021-01-20 &  & Description for test &  & 782.65\\
-2021-01-20 & 2021-01-20 &  & Description for test &  & 782.65\\
-2021-01-20 & 2021-01-20 &  & Description for test &  & 782.65\\
-2021-01-21 & 2021-01-21 &  & Description for test & 111495.81 & \\
-2021-01-21 & 2021-01-21 &  & Description for test &  & 19.1\\
-2021-01-22 & 2021-01-22 &  & Description for test &  & 88.2\\
-2021-01-22 & 2021-01-22 &  & Description for test &  & 300\\
-2021-01-25 & 2021-01-23 &  & Description for test &  & 300\\
-2021-01-25 & 2021-01-25 &  & Description for test &  & 520\\
-2021-01-25 & 2021-01-25 &  & Description for test & 1140.35 & \\
-2021-01-25 & 2021-01-25 &  & Description for test & 1140.35 & \\
-2021-01-25 & 2021-01-25 &  & Description for test &  & 4132.25\\
-2021-01-25 & 2021-01-25 &  & Description for test &  & 3866.6\\
-2021-01-25 & 2021-01-25 &  & Description for test &  & 1500\\
-2021-01-25 & 2021-01-25 &  & Description for test &  & 7696\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 17\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 3767.8\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 2655.6\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 3962.7\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 3589.35\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 1709.8\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 3603\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 5169.8\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 2077.2\\
-2021-01-26 & 2021-01-26 &  & Description for test &  & 2920.1\\
-2021-01-27 & 2021-01-27 &  & Description for test &  & 4482.6\\
-2021-01-28 & 2021-01-28 &  & Description for test &  & 300\\
-2021-01-29 & 2021-01-29 &  & Description for test &  & 725.55\\
-2021-01-29 & 2021-01-29 &  & Description for test &  & 200\\
-2021-02-01 & 2021-01-30 &  & Description for test &  & 2400\\
-2021-02-01 & 2021-02-01 &  & Description for test &  & 500\\
-2021-02-01 & 2021-02-01 &  & Description for test &  & 401.75\\
-2021-02-02 & 2021-02-02 &  & Description for test &  & 7.3\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 158.3\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 18.4\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 103.4\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 55.5\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 727.6\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 74.4\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 727.6\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 174.4\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 387.8\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 138.95\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 6104.55\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 716.6\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 596.4\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 712.9\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 718.9\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 712.9\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 920\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 39.85\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 782.2\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 3505.2\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 369.4\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 1255.85\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 31.25\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 771.1\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 875.8\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 875.8\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 735.8\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 875.6\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 684.6\\
-2021-02-03 & 2021-02-03 &  & Description for test &  & 700\\
-2021-02-04 & 2021-02-04 &  & Description for test & 1000 & \\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 3125.2\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 160\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 100\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 40\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 180\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 40\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 40\\
-2021-02-04 & 2021-02-04 &  & Description for test &  & 120\\
-2021-02-05 & 2021-02-05 &  & Description for test &  & 200\\
-2021-02-08 & 2021-02-08 &  & Description for test &  & 72\\
-2021-02-08 & 2021-02-08 &  & Description for test & 1310.55 & \\
-2021-02-08 & 2021-02-08 &  & Description for test & 43.5 & \\
-2021-02-08 & 2021-02-08 &  & Description for test &  & 1000\\
-2021-02-09 & 2021-02-08 &  & Description for test &  & 100\\
-2021-02-09 & 2021-02-09 &  & Description for test &  & 15.8\\
-2021-02-09 & 2021-02-09 &  & Description for test & 4351.1 & \\
-2021-02-10 & 2021-02-10 &  & Description for test &  & 14.9\\
-2021-02-10 & 2021-02-10 &  & Description for test &  & 100\\
-2021-02-12 & 2021-02-12 &  & Description for test &  & 19.1\\
+2021-01-04 & 2020-12-31 &  & Opuprati Regintanno BY QUAELIQUISU 1 58.21.3888, 60:76, Septuid-Terunc-Vi. 11130135 & 5000 & \\
+2021-01-04 & 2021-01-04 &  & Priatus PAUSA SCITARGANGA AN 76.21.3888, 43:34, Septuid-Terunc-Vi. 11130135 &  & 34.75\\
+2021-01-04 & 2021-01-04 &  & V-Releget Levespillide me Ideciplaudifig Cangi Lique &  & 500\\
+2021-01-04 & 2021-01-04 &  & Figniurern ACTA & 210.6 & \\
+2021-01-04 & 2021-01-04 &  & V-Releget Levespillide me Sentela Vi. A 28-518702.3 &  & 401.75\\
+2021-01-05 & 2021-01-05 &  & Opuprati Dicus BY QUAELIQUISU 1 45.28.2134, 47:45, Septuid-Terunc-Vi. 11130135 &  & 8000\\
+2021-01-06 & 2021-01-05 &  & Opuprati Dicus BY QUAELIQUISU 1 45.28.2134, 47:68, Septuid-Terunc-Vi. 11130135 &  & 2000\\
+2021-01-06 & 2021-01-06 &  & Figniurern FLATODO FERIBELECIEIS CLAPPAREM. AT & 1566 & \\
+2021-01-06 & 2021-01-06 &  & Opuprati Dicus BY QUAELIQUISU 1 25.28.2134, 80:86, Septuid-Terunc-Vi. 11130135 &  & 2200\\
+2021-01-08 & 2021-01-08 &  & Priatus Mare-3304 Padmideo 47.28.2134, 68:25, Septuid-Terunc-Vi. 11130135 &  & 6.3\\
+2021-01-11 & 2021-01-08 &  & Opuprati Dicus BY Screla ALE-Funt 75.28.2134, 60:51, Septuid-Terunc-Vi. 11130135 &  & 200\\
+2021-01-11 & 2021-01-11 &  & Priatus Rieino UT Rex Conem 75.28.2134, 67:40, Septuid-Terunc-Vi. 11130135 &  & 244\\
+2021-01-11 & 2021-01-11 &  & Priatus Rieino UT Rex Conem 75.28.2134, 43:34, Septuid-Terunc-Vi. 11130135 &  & 149\\
+2021-01-11 & 2021-01-11 &  & Opuprati Dicus BY JUBILITIS DUOBAR 35.28.2134, 25:53, Septuid-Terunc-Vi. 11130135 &  & 600\\
+2021-01-14 & 2021-01-14 &  & Opuprati Dicus BY JUBILITIS DUOBAR 57.28.2134, 45:33, Septuid-Terunc-Vi. 11130135 &  & 200\\
+2021-01-15 & 2021-01-15 &  & Priatus - Ipsupa Pro Nulo H�chiuvico 57.28.2134, 26:35, Septuid-Terunc-Vi. 11130135 &  & 96.5\\
+2021-01-15 & 2021-01-15 &  & Figniurern FLATODO FERIBELECIEIS CLAPPAREM. AT & 421 & \\
+2021-01-19 & 2021-01-19 &  & Opuprati Dicus BY JUBILITIS DUOBAR 80.28.2134, 86:72, Septuid-Terunc-Vi. 11130135 &  & 1500\\
+2021-01-20 & 2021-01-20 &  & V-Releget Levespillide me Suridera-Gula Strungere AT &  & 782.65\\
+2021-01-20 & 2021-01-20 &  & V-Releget Levespillide me Suridera-Gula Strungere AT &  & 782.65\\
+2021-01-20 & 2021-01-20 &  & V-Releget Levespillide me Suridera-Gula Strungere AT &  & 782.65\\
+2021-01-21 & 2021-01-21 &  & Figniurern CEM (CESTRIS) AT & 111495.81 & \\
+2021-01-21 & 2021-01-21 &  & Priatus - Ipsupa Mare ET Oludam 47.28.2134, 25:41, Septuid-Terunc-Vi. 11130135 &  & 19.1\\
+2021-01-22 & 2021-01-22 &  & Priatus MAGO-ETHOMBIBRA H?IN 47.28.2134, 25:76, Septuid-Terunc-Vi. 11130135 &  & 88.2\\
+2021-01-22 & 2021-01-22 &  & Opuprati Dicus BY Screla ALE-Funt 60.28.2134, 43:53, Septuid-Terunc-Vi. 11130135 &  & 300\\
+2021-01-25 & 2021-01-23 &  & Opuprati Dicus BY CONUS-SUSTAE 6 17.28.2134, 67:40, Septuid-Terunc-Vi. 11130135 &  & 300\\
+2021-01-25 & 2021-01-25 &  & Priatus - Ipsupa UT Hunicit Ducitatus 60.28.2134, 73:73, Septuid-Terunc-Vi. 11130135 &  & 520\\
+2021-01-25 & 2021-01-25 &  & Figniurern PLITIOLUMENDACUTUUNNATENTE EO & 1140.35 & \\
+2021-01-25 & 2021-01-25 &  & Figniurern PLITIOLUMENDACUTUUNNATENTE EO & 1140.35 & \\
+2021-01-25 & 2021-01-25 &  & V-Releget Conavis me Artia Deprius &  & 4132.25\\
+2021-01-25 & 2021-01-25 &  & V-Releget Conavis me Disu Aluum &  & 3866.6\\
+2021-01-25 & 2021-01-25 &  & Opuprati Dicus BY Oludam-valique 58.28.2134, 67:76, Septuid-Terunc-Vi. 11130135 &  & 1500\\
+2021-01-25 & 2021-01-25 &  & V-Releget Conavis me Zuci Angernent &  & 7696\\
+2021-01-26 & 2021-01-26 &  & Priatus Babiraturrundi Lique 58.28.2134, 68:34, Septuid-Terunc-Vi. 11130135 &  & 17\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Prado Prigunno &  & 3767.8\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Cula Angernent &  & 2655.6\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Anendicto Milactrum &  & 3962.7\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Facit Tespere &  & 3589.35\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Quitalis Capunastate &  & 1709.8\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Cuius Runate &  & 3603\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Gulatis Ficima &  & 5169.8\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Babiraturrundi Saepro Mulchragro &  & 2077.2\\
+2021-01-26 & 2021-01-26 &  & V-Releget Conavis me Santum Fectuone &  & 2920.1\\
+2021-01-27 & 2021-01-27 &  & Potunculaccutimuntur Hundeo Opitumn Ipercura &  & 4482.6\\
+2021-01-28 & 2021-01-28 &  & Opuprati Dicus BY JUBILITIS DUOBAR 34.28.2134, 25:74, Septuid-Terunc-Vi. 11130135 &  & 300\\
+2021-01-29 & 2021-01-29 &  & V-Releget Levespillide me Suridera-Gula Strungere AT &  & 725.55\\
+2021-01-29 & 2021-01-29 &  & Opuprati Dicus BY Oludam-valique 10.28.2134, 67:60, Septuid-Terunc-Vi. 11130135 &  & 200\\
+2021-02-01 & 2021-01-30 &  & Mettimplex &  & 2400\\
+2021-02-01 & 2021-02-01 &  & V-Releget Levespillide me Ideciplaudifig Cangi Lique &  & 500\\
+2021-02-01 & 2021-02-01 &  & V-Releget Levespillide me Sentela Vi. A 28-518702.3 &  & 401.75\\
+2021-02-02 & 2021-02-02 &  & Priatus Mare-3304 Padmideo 28.38.2134, 68:40, Septuid-Terunc-Vi. 11130135 &  & 7.3\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Pere Cabo AT &  & 158.3\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me diries�urra.eo &  & 18.4\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Temo Cogitquilia AneM &  & 103.4\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Surra.eo AT &  & 55.5\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 727.6\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 74.4\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 727.6\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Pere Cabo AT &  & 174.4\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 387.8\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Coepero Pedisinvalect AneM &  & 138.95\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me ACTA &  & 6104.55\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 716.6\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 596.4\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 712.9\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 718.9\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 712.9\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 920\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Pere Cabo AT &  & 39.85\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 782.2\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 3505.2\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 369.4\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me VENTO Dixiliamarto- &  & 1255.85\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me Temo Cogitquilia AneM &  & 31.25\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 771.1\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 875.8\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 875.8\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 735.8\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 875.6\\
+2021-02-03 & 2021-02-03 &  & V-Releget Conavis me R�fere Clabillignumnicauduerinte AT &  & 684.6\\
+2021-02-03 & 2021-02-03 &  & Opuprati Dicus BY Oludam-valique 51.38.2134, 68:31, Septuid-Terunc-Vi. 11130135 &  & 700\\
+2021-02-04 & 2021-02-04 &  & Figniurern FLATODO FERIBELECIEIS CLAPPAREM. AT & 1000 & \\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Inuibulo Agnute &  & 3125.2\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Amustimagnicerra- pus &  & 160\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Angine Senibum &  & 100\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Angine R�fere &  & 40\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Costiaralbum Meratralit &  & 180\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Angine Senibum &  & 40\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Angine R�fere &  & 40\\
+2021-02-04 & 2021-02-04 &  & V-Releget Conavis me Costiaralbum Meratralit &  & 120\\
+2021-02-05 & 2021-02-05 &  & Opuprati Dicus BY QUAELIQUISU 6 45.38.2134, 80:26, Septuid-Terunc-Vi. 11130135 &  & 200\\
+2021-02-08 & 2021-02-08 &  & Priatus Mare-3304 Padmideo 25.38.2134, 57:58, Septuid-Terunc-Vi. 11130135 &  & 72\\
+2021-02-08 & 2021-02-08 &  & Figniurern PLITIOLUMENDACUTUUNNATENTE EO & 1310.55 & \\
+2021-02-08 & 2021-02-08 &  & Figniurern FLATODO FERIBELECIEIS & 43.5 & \\
+2021-02-08 & 2021-02-08 &  & Opuprati Dicus BY SCRELA-VALIQUE 75.38.2134, 47:47, Septuid-Terunc-Vi. 11130135 &  & 1000\\
+2021-02-09 & 2021-02-08 &  & Opuprati Dicus BY VEMPUT DUOBAR 75.38.2134, 80:33, Septuid-Terunc-Vi. 11130135 &  & 100\\
+2021-02-09 & 2021-02-09 &  & V-Releget Conavis me Petiurra AT &  & 15.8\\
+2021-02-09 & 2021-02-09 &  & Figniurern Comendupa ino Liura Meratralit & 4351.1 & \\
+2021-02-10 & 2021-02-10 &  & Priatus Ferura Quaeliquisu 86.38.2134, 72:25, Septuid-Terunc-Vi. 11130135 &  & 14.9\\
+2021-02-10 & 2021-02-10 &  & Opuprati Dicus BY QUAELIQUISU 6 26.38.2134, 67:33, Septuid-Terunc-Vi. 11130135 &  & 100\\
+2021-02-12 & 2021-02-12 &  & Priatus - Ipsupa Mare ET Oludam 35.38.2134, 25:40, Septuid-Terunc-Vi. 11130135 &  & 19.1\\
 \\
 \end{tablevalue}
 \end{document}

@@ -20,386 +20,386 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2016-01-08 & 2016-01-08 &  & Description for test &  & 75.6\\
-2016-01-10 & 2016-01-11 &  & Description for test &  & 103.06\\
-2016-01-11 & 2016-01-11 &  & Description for test & 2902.23 & \\
-2016-01-11 & 2016-01-11 &  & Description for test & 984.4 & \\
-2016-01-11 & 2016-01-11 &  & Description for test &  & 2050\\
-2016-01-11 & 2016-01-11 &  & Description for test &  & 111.15\\
-2016-01-11 & 2016-01-11 &  & Description for test &  & 100\\
-2016-01-12 & 2016-01-12 &  & Description for test &  & 350\\
-2016-01-13 & 2016-01-13 &  & Description for test &  & 6002.2\\
-2016-01-19 & 2016-01-19 &  & Description for test &  & 66\\
-2016-01-24 & 2016-01-25 &  & Description for test &  & 170.05\\
-2016-01-25 & 2016-01-25 &  & Description for test &  & 500\\
-2016-01-29 & 2016-01-29 &  & Description for test & 14161 & \\
-2016-01-29 & 2016-02-01 &  & Description for test &  & 871.6\\
-2016-01-29 & 2016-02-01 &  & Description for test &  & 6055.6\\
-2016-02-01 & 2016-02-01 &  & Description for test &  & 48\\
-2016-02-01 & 2016-02-01 &  & Description for test &  & 6002.2\\
-2016-02-03 & 2016-02-03 &  & Description for test &  & 651\\
-2016-02-03 & 2016-02-03 &  & Description for test &  & 194.2\\
-2016-02-04 & 2016-02-04 &  & Description for test &  & 100\\
-2016-02-04 & 2016-02-04 &  & Description for test &  & 17.85\\
-2016-02-05 & 2016-02-05 &  & Description for test & 5515.3 & \\
-2016-02-05 & 2016-02-05 &  & Description for test &  & 83\\
-2016-02-05 & 2016-02-08 &  & Description for test &  & 2354.5\\
-2016-02-05 & 2016-02-08 &  & Description for test &  & 3241\\
-2016-02-09 & 2016-02-09 &  & Description for test & 2700 & \\
-2016-02-09 & 2016-02-10 &  & Description for test & 300 & \\
-2016-02-09 & 2016-02-09 &  & Description for test &  & 16\\
-2016-02-09 & 2016-02-09 &  & Description for test &  & 2050\\
-2016-02-09 & 2016-02-10 &  & Description for test &  & 531\\
-2016-02-10 & 2016-02-10 &  & Description for test &  & 320\\
-2016-02-15 & 2016-02-15 &  & Description for test &  & 40\\
-2016-02-16 & 2016-02-16 &  & Description for test & 14196 & \\
-2016-02-16 & 2016-02-16 &  & Description for test &  & 86\\
-2016-02-16 & 2016-02-16 &  & Description for test &  & 2008.8\\
-2016-02-16 & 2016-02-16 &  & Description for test &  & 6055.6\\
-2016-02-16 & 2016-02-16 &  & Description for test &  & 3000\\
-2016-02-16 & 2016-02-16 &  & Description for test &  & 1500\\
-2016-02-23 & 2016-02-23 &  & Description for test &  & 263.1\\
-2016-02-25 & 2016-02-25 &  & Description for test &  & 589.6\\
-2016-02-26 & 2016-02-26 &  & Description for test & 50000 & \\
-2016-02-26 & 2016-02-26 &  & Description for test &  & 147.71\\
-2016-02-26 & 2016-02-26 &  & Description for test &  & 72.78\\
-2016-02-26 & 2016-02-26 &  & Description for test &  & 33.06\\
-2016-02-26 & 2016-02-26 &  & Description for test &  & 871.6\\
-2016-02-26 & 2016-02-26 &  & Description for test &  & 335.1\\
-2016-02-26 & 2016-02-26 &  & Description for test &  & 100\\
-2016-02-27 & 2016-02-29 &  & Description for test &  & 65\\
-2016-02-28 & 2016-02-29 &  & Description for test &  & 658\\
-2016-02-29 & 2016-02-29 &  & Description for test &  & 6002.2\\
-2016-02-29 & 2016-02-29 &  & Description for test &  & 15000\\
-2016-03-01 & 2016-03-01 &  & Description for test &  & 77\\
-2016-03-02 & 2016-03-02 &  & Description for test &  & 87\\
-2016-03-02 & 2016-03-02 &  & Description for test &  & 3220\\
-2016-03-03 & 2016-03-03 &  & Description for test &  & 2050\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 52.05\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 37\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 5396.55\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 5026.55\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 198\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 3207.6\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 690.1\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 5788\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 324\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 142\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 71.27\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 185\\
-2016-03-04 & 2016-03-04 &  & Description for test &  & 308\\
-2016-03-07 & 2016-03-07 &  & Description for test & 4000 & \\
-2016-03-08 & 2016-03-08 &  & Description for test & 690.1 & \\
-2016-03-10 & 2016-03-10 &  & Description for test &  & 43.45\\
-2016-03-14 & 2016-03-14 &  & Description for test & 13047.6 & \\
-2016-03-15 & 2016-03-15 &  & Description for test &  & 496\\
-2016-03-15 & 2016-03-15 &  & Description for test &  & 6446\\
-2016-03-15 & 2016-03-15 &  & Description for test &  & 468\\
-2016-03-15 & 2016-03-15 &  & Description for test &  & 6106\\
-2016-03-16 & 2016-03-16 &  & Description for test &  & 969.85\\
-2016-03-16 & 2016-03-16 &  & Description for test &  & 690.1\\
-2016-03-16 & 2016-03-16 &  & Description for test &  & 583.2\\
-2016-03-16 & 2016-03-16 &  & Description for test &  & 90.9\\
-2016-03-20 & 2016-03-21 &  & Description for test &  & 101.8\\
-2016-03-23 & 2016-03-23 &  & Description for test &  & 72.25\\
-2016-03-23 & 2016-03-23 &  & Description for test &  & 90\\
-2016-03-24 & 2016-03-24 &  & Description for test &  & 871.6\\
-2016-03-31 & 2016-03-31 &  & Description for test &  & 79.44\\
-2016-03-31 & 2016-03-31 &  & Description for test &  & 83.31\\
-2016-03-31 & 2016-03-31 &  & Description for test & 0.05 & \\
-2016-03-31 & 2016-03-31 &  & Description for test &  & 20\\
-2016-03-31 & 2016-03-31 &  & Description for test &  & 17.85\\
-2016-03-31 & 2016-03-31 &  & Description for test &  & 10.5\\
-2016-04-01 & 2016-04-01 &  & Description for test &  & 95.8\\
-2016-04-04 & 2016-04-04 &  & Description for test &  & 300\\
-2016-04-06 & 2016-04-06 &  & Description for test &  & 104.44\\
-2016-04-09 & 2016-04-11 &  & Description for test &  & 200\\
-2016-04-10 & 2016-04-11 &  & Description for test &  & 427.87\\
-2016-04-15 & 2016-04-15 &  & Description for test & 12958.8 & \\
-2016-04-15 & 2016-04-15 &  & Description for test & 1079.9 & \\
-2016-04-15 & 2016-04-15 &  & Description for test &  & 2050\\
-2016-04-15 & 2016-04-15 &  & Description for test &  & 6251\\
-2016-04-15 & 2016-04-18 &  & Description for test &  & 5612.05\\
-2016-04-23 & 2016-04-25 &  & Description for test &  & 31\\
-2016-04-24 & 2016-04-25 &  & Description for test &  & 83.14\\
-2016-04-27 & 2016-04-27 &  & Description for test & 1636.35 & \\
-2016-04-27 & 2016-04-27 &  & Description for test &  & 458.3\\
-2016-04-28 & 2016-04-28 &  & Description for test &  & 871.6\\
-2016-04-29 & 2016-04-29 &  & Description for test & 54000 & \\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 144.7\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 10000\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 5150.1\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 100\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 6002.2\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 483.85\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 50\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 70\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 3002.2\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 552\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 120\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 138.3\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 5065.65\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 2050\\
-2016-04-29 & 2016-04-29 &  & Description for test &  & 596\\
-2016-05-01 & 2016-05-02 &  & Description for test &  & 83.99\\
-2016-05-02 & 2016-05-02 &  & Description for test &  & 1000\\
-2016-05-04 & 2016-05-04 &  & Description for test &  & 77.5\\
-2016-05-07 & 2016-05-09 &  & Description for test &  & 65.54\\
-2016-05-08 & 2016-05-09 &  & Description for test &  & 79.08\\
-2016-05-10 & 2016-05-10 &  & Description for test &  & 6000\\
-2016-05-13 & 2016-05-13 &  & Description for test &  & 6251\\
-2016-05-15 & 2016-05-17 &  & Description for test &  & 35.5\\
-2016-05-15 & 2016-05-17 &  & Description for test &  & 29.04\\
-2016-05-17 & 2016-05-17 &  & Description for test &  & 143.4\\
-2016-05-17 & 2016-05-17 &  & Description for test &  & 118.7\\
-2016-05-17 & 2016-05-17 &  & Description for test &  & 73\\
-2016-05-17 & 2016-05-17 &  & Description for test &  & 40\\
-2016-05-18 & 2016-05-18 &  & Description for test &  & 27.28\\
-2016-05-19 & 2016-05-19 &  & Description for test &  & 116.32\\
-2016-05-22 & 2016-05-23 &  & Description for test &  & 213.09\\
-2016-05-25 & 2016-05-25 &  & Description for test &  & 79.24\\
-2016-05-25 & 2016-05-25 &  & Description for test &  & 6002.2\\
-2016-05-27 & 2016-05-27 &  & Description for test & 7000 & \\
-2016-05-29 & 2016-05-30 &  & Description for test &  & 70.27\\
-2016-05-29 & 2016-05-30 &  & Description for test &  & 117.12\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 2050\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 435\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 612.6\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 688.5\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 40\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 236\\
-2016-05-30 & 2016-05-30 &  & Description for test &  & 829.5\\
-2016-06-02 & 2016-06-02 &  & Description for test & 2000 & \\
-2016-06-02 & 2016-06-02 &  & Description for test &  & 1344\\
-2016-06-02 & 2016-06-02 &  & Description for test &  & 137.4\\
-2016-06-02 & 2016-06-02 &  & Description for test &  & 583.2\\
-2016-06-04 & 2016-06-06 &  & Description for test &  & 136.4\\
-2016-06-06 & 2016-06-06 &  & Description for test &  & 273\\
-2016-06-12 & 2016-06-13 &  & Description for test &  & 94\\
-2016-06-12 & 2016-06-13 &  & Description for test &  & 73.01\\
-2016-06-14 & 2016-06-14 &  & Description for test & 45829.8 & \\
-2016-06-17 & 2016-06-17 &  & Description for test &  & 54.88\\
-2016-06-17 & 2016-06-17 &  & Description for test &  & 26.43\\
-2016-06-20 & 2016-06-20 &  & Description for test &  & 16200\\
-2016-06-20 & 2016-06-20 &  & Description for test &  & 165.05\\
-2016-06-20 & 2016-06-20 &  & Description for test &  & 709\\
-2016-06-20 & 2016-06-20 &  & Description for test &  & 263\\
-2016-06-21 & 2016-06-21 &  & Description for test &  & 6251\\
-2016-06-23 & 2016-06-23 &  & Description for test &  & 13498\\
-2016-06-23 & 2016-06-23 &  & Description for test &  & 200\\
-2016-06-23 & 2016-06-23 &  & Description for test &  & 5542.5\\
-2016-06-24 & 2016-06-24 &  & Description for test & 27000 & \\
-2016-06-24 & 2016-06-24 &  & Description for test & 54000 & \\
-2016-06-25 & 2016-06-27 &  & Description for test &  & 92.62\\
-2016-06-26 & 2016-06-27 &  & Description for test &  & 68.3\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 338.5\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 104.05\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 114.35\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 27000\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 7506\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 16437\\
-2016-06-29 & 2016-06-29 &  & Description for test &  & 526\\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 32.73\\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 137.26\\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 87.81\\
-2016-06-30 & 2016-06-30 &  & Description for test & 0.15 & \\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 0.05\\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 17\\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 15.3\\
-2016-06-30 & 2016-06-30 &  & Description for test &  & 30\\
-2016-07-01 & 2016-07-01 &  & Description for test &  & 59.1\\
-2016-07-02 & 2016-07-04 &  & Description for test &  & 45\\
-2016-07-03 & 2016-07-04 &  & Description for test &  & 95.45\\
-2016-07-03 & 2016-07-04 &  & Description for test &  & 432\\
-2016-07-03 & 2016-07-04 &  & Description for test &  & 100.5\\
-2016-07-03 & 2016-07-04 &  & Description for test &  & 204\\
-2016-07-03 & 2016-07-04 &  & Description for test &  & 34.2\\
-2016-07-04 & 2016-07-04 &  & Description for test &  & 2050\\
-2016-07-04 & 2016-07-04 &  & Description for test &  & 182.9\\
-2016-07-04 & 2016-07-04 &  & Description for test &  & 6076.5\\
-2016-07-04 & 2016-07-04 &  & Description for test &  & 455.5\\
-2016-07-04 & 2016-07-04 &  & Description for test &  & 1489\\
-2016-07-05 & 2016-07-05 &  & Description for test &  & 37.5\\
-2016-07-05 & 2016-07-05 &  & Description for test &  & 1500\\
-2016-07-05 & 2016-07-05 &  & Description for test &  & 585\\
-2016-07-06 & 2016-07-06 &  & Description for test &  & 98.13\\
-2016-07-07 & 2016-07-07 &  & Description for test &  & 302\\
-2016-07-08 & 2016-07-08 &  & Description for test &  & 92.25\\
-2016-07-08 & 2016-07-08 &  & Description for test &  & 44.5\\
-2016-07-09 & 2016-07-11 &  & Description for test &  & 84.5\\
-2016-07-09 & 2016-07-11 &  & Description for test &  & 69\\
-2016-07-09 & 2016-07-11 &  & Description for test &  & 19.2\\
-2016-07-10 & 2016-07-11 &  & Description for test &  & 102.5\\
-2016-07-10 & 2016-07-11 &  & Description for test &  & 24.9\\
-2016-07-10 & 2016-07-11 &  & Description for test &  & 19.85\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 11.5\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 123\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 46.5\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 47.1\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 739.5\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 52\\
-2016-07-12 & 2016-07-12 &  & Description for test &  & 134.6\\
-2016-07-14 & 2016-07-14 &  & Description for test &  & 657.6\\
-2016-07-14 & 2016-07-14 &  & Description for test &  & 277.4\\
-2016-07-14 & 2016-07-14 &  & Description for test &  & 649.4\\
-2016-07-20 & 2016-07-20 &  & Description for test &  & 7008\\
-2016-07-20 & 2016-07-20 &  & Description for test &  & 548\\
-2016-07-24 & 2016-07-25 &  & Description for test &  & 262.44\\
-2016-07-27 & 2016-07-27 &  & Description for test & 3247.5 & \\
-2016-07-27 & 2016-07-27 &  & Description for test &  & 300\\
-2016-07-27 & 2016-07-27 &  & Description for test &  & 6251\\
-2016-07-27 & 2016-07-27 &  & Description for test &  & 2050\\
-2016-07-28 & 2016-07-28 &  & Description for test &  & 236\\
-2016-07-28 & 2016-07-28 &  & Description for test &  & 939.55\\
-2016-08-01 & 2016-08-02 &  & Description for test &  & 97\\
-2016-08-02 & 2016-08-02 &  & Description for test &  & 75.02\\
-2016-08-02 & 2016-08-02 &  & Description for test &  & 63.28\\
-2016-08-03 & 2016-08-03 &  & Description for test &  & 63.92\\
-2016-08-04 & 2016-08-04 &  & Description for test &  & 892.2\\
-2016-08-04 & 2016-08-04 &  & Description for test &  & 50\\
-2016-08-04 & 2016-08-04 &  & Description for test &  & 392\\
-2016-08-04 & 2016-08-04 &  & Description for test &  & 71.13\\
-2016-08-05 & 2016-08-05 &  & Description for test & 430.12 & \\
-2016-08-05 & 2016-08-05 &  & Description for test &  & 51.44\\
-2016-08-05 & 2016-08-08 &  & Description for test &  & 253\\
-2016-08-06 & 2016-08-08 &  & Description for test &  & 200\\
-2016-08-10 & 2016-08-10 &  & Description for test & 21100 & \\
-2016-08-11 & 2016-08-11 &  & Description for test &  & 7000\\
-2016-08-12 & 2016-08-12 &  & Description for test & 26951.4 & \\
-2016-08-12 & 2016-08-12 &  & Description for test & 25144.6 & \\
-2016-08-13 & 2016-08-15 &  & Description for test &  & 493.8\\
-2016-08-13 & 2016-08-15 &  & Description for test &  & 493.8\\
-2016-08-16 & 2016-08-16 &  & Description for test &  & 45.35\\
-2016-08-22 & 2016-08-22 &  & Description for test &  & 24930.7\\
-2016-08-22 & 2016-08-22 &  & Description for test &  & 6581.4\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 939.55\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 3916.7\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 1621\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 1713.65\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 1829.4\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 1621\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 1621\\
-2016-08-26 & 2016-08-26 &  & Description for test &  & 6251\\
-2016-08-29 & 2016-08-29 &  & Description for test &  & 2050\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 150.05\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 4746.3\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 40\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 145.1\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 50\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 30\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 50\\
-2016-08-30 & 2016-08-30 &  & Description for test &  & 50\\
-2016-09-07 & 2016-09-07 &  & Description for test &  & 179\\
-2016-09-08 & 2016-09-08 &  & Description for test &  & 4000\\
-2016-09-09 & 2016-09-09 &  & Description for test &  & 59.95\\
-2016-09-09 & 2016-09-09 &  & Description for test &  & 1493.1\\
-2016-09-10 & 2016-09-12 &  & Description for test &  & 75.9\\
-2016-09-13 & 2016-09-13 &  & Description for test &  & 100\\
-2016-09-14 & 2016-09-14 &  & Description for test &  & 97.35\\
-2016-09-14 & 2016-09-14 &  & Description for test &  & 665\\
-2016-09-14 & 2016-09-14 &  & Description for test &  & 89.59\\
-2016-09-15 & 2016-09-15 &  & Description for test & 52728.8 & \\
-2016-09-15 & 2016-09-15 &  & Description for test &  & 20.1\\
-2016-09-15 & 2016-09-15 &  & Description for test &  & 9373.23\\
-2016-09-15 & 2016-09-15 &  & Description for test &  & 10768.88\\
-2016-09-16 & 2016-09-16 &  & Description for test & 108000 & \\
-2016-09-16 & 2016-09-19 &  & Description for test & 1232.2 & \\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 60.01\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 4116\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 500\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 583.2\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 1335.65\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 10000\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 4550\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 1523.2\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 2970\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 294.85\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 3460.9\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 486\\
-2016-09-16 & 2016-09-16 &  & Description for test &  & 3307.8\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 10786.65\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 373.1\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 206.2\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 1072.95\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 33.8\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 6474.9\\
-2016-09-19 & 2016-09-19 &  & Description for test &  & 243\\
-2016-09-21 & 2016-09-21 &  & Description for test &  & 32.5\\
-2016-09-21 & 2016-09-21 &  & Description for test &  & 61.5\\
-2016-09-21 & 2016-09-21 &  & Description for test &  & 166\\
-2016-09-22 & 2016-09-22 &  & Description for test &  & 10000\\
-2016-09-22 & 2016-09-22 &  & Description for test &  & 21992\\
-2016-09-22 & 2016-09-22 &  & Description for test &  & 21992\\
-2016-09-23 & 2016-09-23 &  & Description for test &  & 6251\\
-2016-09-23 & 2016-09-23 &  & Description for test &  & 47\\
-2016-09-24 & 2016-09-26 &  & Description for test &  & 102\\
-2016-09-25 & 2016-09-26 &  & Description for test &  & 219.78\\
-2016-09-28 & 2016-09-28 &  & Description for test &  & 939.55\\
-2016-09-29 & 2016-09-29 &  & Description for test &  & 236\\
-2016-09-30 & 2016-09-30 &  & Description for test &  & 50\\
-2016-09-30 & 2016-09-30 &  & Description for test & 0.05 & \\
-2016-09-30 & 2016-09-30 &  & Description for test &  & 20.5\\
-2016-09-30 & 2016-09-30 &  & Description for test &  & 7\\
-2016-09-30 & 2016-09-30 &  & Description for test &  & 21.25\\
-2016-09-30 & 2016-09-30 &  & Description for test &  & 30\\
-2016-10-03 & 2016-10-03 &  & Description for test &  & 112.3\\
-2016-10-05 & 2016-10-05 &  & Description for test &  & 10000\\
-2016-10-05 & 2016-10-05 &  & Description for test &  & 2050\\
-2016-10-05 & 2016-10-05 &  & Description for test &  & 40\\
-2016-10-05 & 2016-10-05 &  & Description for test &  & 88\\
-2016-10-05 & 2016-10-05 &  & Description for test &  & 245\\
-2016-10-07 & 2016-10-07 &  & Description for test &  & 4609.8\\
-2016-10-07 & 2016-10-07 &  & Description for test &  & 1652.85\\
-2016-10-11 & 2016-10-11 &  & Description for test &  & 45.26\\
-2016-10-12 & 2016-10-12 &  & Description for test &  & 30\\
-2016-10-12 & 2016-10-12 &  & Description for test &  & 58.4\\
-2016-10-13 & 2016-10-13 &  & Description for test &  & 36.5\\
-2016-10-13 & 2016-10-13 &  & Description for test &  & 77\\
-2016-10-14 & 2016-10-14 &  & Description for test &  & 1427.79\\
-2016-10-20 & 2016-10-20 &  & Description for test &  & 1402\\
-2016-10-21 & 2016-10-21 &  & Description for test &  & 105\\
-2016-10-22 & 2016-10-24 &  & Description for test &  & 83\\
-2016-10-22 & 2016-10-24 &  & Description for test &  & 23\\
-2016-10-26 & 2016-10-26 &  & Description for test &  & 226.5\\
-2016-10-26 & 2016-10-26 &  & Description for test &  & 527.5\\
-2016-10-26 & 2016-10-26 &  & Description for test &  & 131.6\\
-2016-10-26 & 2016-10-26 &  & Description for test &  & 1100\\
-2016-10-28 & 2016-10-28 &  & Description for test &  & 3000\\
-2016-11-04 & 2016-11-04 &  & Description for test &  & 28.06\\
-2016-11-08 & 2016-11-08 &  & Description for test &  & 11.95\\
-2016-11-08 & 2016-11-08 &  & Description for test &  & 108.6\\
-2016-11-10 & 2016-11-10 &  & Description for test & 25893 & \\
-2016-11-10 & 2016-11-10 &  & Description for test &  & 223\\
-2016-11-14 & 2016-11-14 &  & Description for test &  & 939.55\\
-2016-11-14 & 2016-11-14 &  & Description for test &  & 6251\\
-2016-11-14 & 2016-11-14 &  & Description for test &  & 2050\\
-2016-11-17 & 2016-11-17 &  & Description for test &  & 50.85\\
-2016-11-17 & 2016-11-17 &  & Description for test &  & 131.99\\
-2016-11-17 & 2016-11-17 &  & Description for test &  & 6000\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 1166.4\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 1000.65\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 629.8\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 6251\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 43.72\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 223.76\\
-2016-11-18 & 2016-11-18 &  & Description for test &  & 41.02\\
-2016-11-19 & 2016-11-21 &  & Description for test &  & 40\\
-2016-11-21 & 2016-11-21 &  & Description for test &  & 800\\
-2016-11-26 & 2016-11-28 &  & Description for test &  & 79.65\\
-2016-11-29 & 2016-11-29 &  & Description for test & 2132.4 & \\
-2016-11-29 & 2016-11-30 &  & Description for test &  & 939.55\\
-2016-11-30 & 2016-11-30 &  & Description for test &  & 1100\\
-2016-12-04 & 2016-12-05 &  & Description for test &  & 50\\
-2016-12-13 & 2016-12-13 &  & Description for test &  & 103.09\\
-2016-12-27 & 2016-12-27 &  & Description for test & 4261.2 & \\
-2016-12-28 & 2016-12-28 &  & Description for test &  & 939.55\\
-2016-12-30 & 2016-12-30 &  & Description for test &  & 3000\\
-2016-12-30 & 2016-12-31 &  & Description for test &  & 10\\
-2016-12-31 & 2016-12-31 &  & Description for test & 0 & \\
-2016-12-31 & 2016-12-31 &  & Description for test &  & 16\\
-2016-12-31 & 2016-12-31 &  & Description for test &  & 1\\
-2016-12-31 & 2016-12-31 &  & Description for test &  & 14.45\\
-2016-12-31 & 2016-12-31 &  & Description for test &  & 19.5\\
+2016-01-08 & 2016-01-08 &  & Vittiury/orbilone POSTER Aperime 57.12.3163/50:77 / Q. aessu Volocat 13176202 &  & 75.6\\
+2016-01-10 & 2016-01-11 &  & Vittiury Sequaesero eo Hiunte 47.12.3163/41:88 / Q. aessu Volocat 13176202 TIS 17.41, ragis et scultuniune 3.7414 &  & 103.06\\
+2016-01-11 & 2016-01-11 &  & Duculuvia Regantque Ferenix EO TIS 1'118.41, ragis et scultuniune 3.7138 & 2902.23 & \\
+2016-01-11 & 2016-01-11 &  & Duculuvia Regantque Ferenix EO INI 3'740.41, ragis et scultuniune 6.6212 & 984.4 & \\
+2016-01-11 & 2016-01-11 &  & A-peditum Pentae a Stracisu Quaest &  & 2050\\
+2016-01-11 & 2016-01-11 &  & Apuprodestam Caudinti UT VIGNUNTER-1 82.12.3163/12:78 / Q. aessu Volocat 13176202 TIS 157.41, ragis et scultuniune 3.2763 &  & 111.15\\
+2016-01-11 & 2016-01-11 &  & Apuprodestam Caudinti UT VIGNUNTER-1 82.12.3163/12:78 / Q. aessu Volocat 13176202 &  & 100\\
+2016-01-12 & 2016-01-12 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 350\\
+2016-01-13 & 2016-01-13 &  & A-peditum Pentae a Dinte Tatet &  & 6002.2\\
+2016-01-19 & 2016-01-19 &  & Vittiury/orbilone POSTER Aperime 21.12.3163/45:75 / Q. aessu Volocat 13176202 &  & 66\\
+2016-01-24 & 2016-01-25 &  & Vittiury MENDAM In BY+Nabila 38.12.3163/82:21 / Q. aessu Volocat 13176202 &  & 170.05\\
+2016-01-25 & 2016-01-25 &  & Apuprodestam de ientanem Nor: dis obase &  & 500\\
+2016-01-29 & 2016-01-29 &  & Duculuvia Regantque Ferenix EO INI 12'740.41, ragis et scultuniune 3.1763 & 14161 & \\
+2016-01-29 & 2016-02-01 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 871.6\\
+2016-01-29 & 2016-02-01 &  & A-peditum Pentae a Ditatem Funcrex &  & 6055.6\\
+2016-02-01 & 2016-02-01 &  & Vittiury/orbilone Fica Chrado 58 67.12.3163/21:41 / Q. aessu Volocat 13176202 &  & 48\\
+2016-02-01 & 2016-02-01 &  & A-peditum Pentae a Dinte Tatet &  & 6002.2\\
+2016-02-03 & 2016-02-03 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 651\\
+2016-02-03 & 2016-02-03 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 194.2\\
+2016-02-04 & 2016-02-04 &  & Vittiury Togitam Vest 47.27.3163/21:45 / Q. aessu Volocat 13176202 &  & 100\\
+2016-02-04 & 2016-02-04 &  & Vittiury Ritintas Vignunter 27.27.3163/21:23 / Q. aessu Volocat 13176202 &  & 17.85\\
+2016-02-05 & 2016-02-05 &  & Duculuvia NOS Mulensilicitia AN & 5515.3 & \\
+2016-02-05 & 2016-02-05 &  & Vittiury Inch Ferurra Auxera 47.27.3163/50:50 / Q. aessu Volocat 13176202 &  & 83\\
+2016-02-05 & 2016-02-08 &  & A-peditum Pentae a X�iunc Absicerideino-Feriaturex &  & 2354.5\\
+2016-02-05 & 2016-02-08 &  & A-peditum Pentae a Cuba. Liquaecurregilii &  & 3241\\
+2016-02-09 & 2016-02-09 &  & Vimuluripe Sedit Aperime UT VIGNUNTER-3 62.27.3163/82:18 / Q. aessu Volocat 13176202 TIS 1'705.41, ragis et scultuniune 3.66 & 2700 & \\
+2016-02-09 & 2016-02-10 &  & Duculuvia Regantque Ferenix EO & 300 & \\
+2016-02-09 & 2016-02-09 &  & Vittiury Diare Eo 47.27.3163/12:88 / Q. aessu Volocat 13176202 &  & 16\\
+2016-02-09 & 2016-02-09 &  & A-peditum Pentae a Stracisu Quaest &  & 2050\\
+2016-02-09 & 2016-02-10 &  & A-peditum Pentae a Sura Niunam EO &  & 531\\
+2016-02-10 & 2016-02-10 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 320\\
+2016-02-15 & 2016-02-15 &  & Vigis viscuci aessu Volocat Q. aessu 13176202 &  & 40\\
+2016-02-16 & 2016-02-16 &  & Duculuvia Regantque Ferenix EO TIS 75'740.41, ragis et scultuniune 3.207 & 14196 & \\
+2016-02-16 & 2016-02-16 &  & Vittiury/orbilone ME A. Adducem 1814 12.27.3163/50:82 / Q. aessu Volocat 13176202 &  & 86\\
+2016-02-16 & 2016-02-16 &  & A-peditum Pentae a Cem Cem AN &  & 2008.8\\
+2016-02-16 & 2016-02-16 &  & A-peditum Pentae a Ditatem Funcrex &  & 6055.6\\
+2016-02-16 & 2016-02-16 &  & A-peditum Pentae a Dinte Tatet &  & 3000\\
+2016-02-16 & 2016-02-16 &  & A-peditum Pentae a Covit Aratulam EO &  & 1500\\
+2016-02-23 & 2016-02-23 &  & Vittiury Veriam elis'Neraxi 38.27.3163/12:87 / Q. aessu Volocat 13176202 &  & 263.1\\
+2016-02-25 & 2016-02-25 &  & A-peditum Pentae a Volumn Irecest &  & 589.6\\
+2016-02-26 & 2016-02-26 &  & Duculuvia Traepargerna Adigror Dericis & 50000 & \\
+2016-02-26 & 2016-02-26 &  & Vittiury Fraecentime Mulcero OS 50.27.3163/57:52 / Q. aessu Volocat 13176202 TIS 810.41, ragis et scultuniune 3.5131 &  & 147.71\\
+2016-02-26 & 2016-02-26 &  & Vittiury Manges Cangerima ini A 50.27.3163/12:50 / Q. aessu Volocat 13176202 TIS 36.41, ragis et scultuniune 3.7745 &  & 72.78\\
+2016-02-26 & 2016-02-26 &  & Vittiury V0 et Sperunit PEM 631 50.27.3163/66:48 / Q. aessu Volocat 13176202 TIS 78.41, ragis et scultuniune 3.254 &  & 33.06\\
+2016-02-26 & 2016-02-26 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 871.6\\
+2016-02-26 & 2016-02-26 &  & Apuprodestam Caudinti UT VIGNUNTER-3 88.27.3163/66:67 / Q. aessu Volocat 13176202 TIS 875.41, ragis et scultuniune 3.764 &  & 335.1\\
+2016-02-26 & 2016-02-26 &  & Apuprodestam Caudinti UT VIGNUNTER-3 88.27.3163/66:75 / Q. aessu Volocat 13176202 &  & 100\\
+2016-02-27 & 2016-02-29 &  & Vittiury/orbilone POSTER Aperime 88.27.3163/66:75 / Q. aessu Volocat 13176202 &  & 65\\
+2016-02-28 & 2016-02-29 &  & Vittiury Togitam Vest 26.27.3163/27:43 / Q. aessu Volocat 13176202 &  & 658\\
+2016-02-29 & 2016-02-29 &  & A-peditum Pentae a Dinte Tatet &  & 6002.2\\
+2016-02-29 & 2016-02-29 &  & A-peditum Pentae a Lico EO &  & 15000\\
+2016-03-01 & 2016-03-01 &  & Vittiury/orbilone POSTER Aperime 67.27.3163/66:47 / Q. aessu Volocat 13176202 &  & 77\\
+2016-03-02 & 2016-03-02 &  & Vittiury/orbilone SECES Magrumen 12.47.3163/21:78 / Q. aessu Volocat 13176202 &  & 87\\
+2016-03-02 & 2016-03-02 &  & Apuprodestam de ientanem Nor. Teraela Exit. inatis DIX Ini &  & 3220\\
+2016-03-03 & 2016-03-03 &  & A-peditum Pentae a Stracisu Quaest &  & 2050\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Sura Niunam EO &  & 52.05\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Antingus AN &  & 37\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Obase Bensunary et &  & 5396.55\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Obase Bensunary et &  & 5026.55\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Pirem Invaliquam EO &  & 198\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Eo Magilla Ini Fuitudivit EO &  & 3207.6\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a CUS-XXX - Gat &  & 690.1\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Covit Aratulam EO &  & 5788\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Subit-N EO &  & 324\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 142\\
+2016-03-04 & 2016-03-04 &  & Vittiury Aurunga Riduci M.E.V. 27.47.3163/12:21 / Q. aessu Volocat 13176202 TIS 45.41, ragis et scultuniune 3.5257 &  & 71.27\\
+2016-03-04 & 2016-03-04 &  & Vittiury Veriam Voluci 27.47.3163/75:27 / Q. aessu Volocat 13176202 &  & 185\\
+2016-03-04 & 2016-03-04 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 308\\
+2016-03-07 & 2016-03-07 &  & Duculuvia Traepargerna Adigror Dericis & 4000 & \\
+2016-03-08 & 2016-03-08 &  & Vimuluripe de ientanem ut remen et liquo Vidiviscipe Sunifico EO - Reliundis Dinissu ter ada si invatine & 690.1 & \\
+2016-03-10 & 2016-03-10 &  & Vittiury/orbilone POSTER Aperime 62.47.3163/85:23 / Q. aessu Volocat 13176202 &  & 43.45\\
+2016-03-14 & 2016-03-14 &  & Duculuvia Regantque Ferenix EO TIS 67'740.41, ragis et scultuniune 3.7102 & 13047.6 & \\
+2016-03-15 & 2016-03-15 &  & A-peditum Pentae a Postuer EO &  & 496\\
+2016-03-15 & 2016-03-15 &  & A-peditum Pentae a Ditatem Funcrex &  & 6446\\
+2016-03-15 & 2016-03-15 &  & A-peditum Pentae a Sura Niunam EO &  & 468\\
+2016-03-15 & 2016-03-15 &  & A-peditum Pentae a NOS Mulensilicitia AN &  & 6106\\
+2016-03-16 & 2016-03-16 &  & A-peditum Pentae a Popunt - &  & 969.85\\
+2016-03-16 & 2016-03-16 &  & A-peditum Pentae a CUS-XXX - Gat &  & 690.1\\
+2016-03-16 & 2016-03-16 &  & A-peditum Pentae a Verciput \& Possu EO &  & 583.2\\
+2016-03-16 & 2016-03-16 &  & Vittiury Diare Eo 82.47.3163/50:23 / Q. aessu Volocat 13176202 &  & 90.9\\
+2016-03-20 & 2016-03-21 &  & Vittiury Rabulli Volo ut Mone 45.47.3163/38:50 / Q. aessu Volocat 13176202 &  & 101.8\\
+2016-03-23 & 2016-03-23 &  & Vittiury/orbilone Fere Spupar EO 184 38.47.3163/12:33 / Q. aessu Volocat 13176202 &  & 72.25\\
+2016-03-23 & 2016-03-23 &  & Vittiury/orbilone POSTER Aperime 75.47.3163/21:45 / Q. aessu Volocat 13176202 &  & 90\\
+2016-03-24 & 2016-03-24 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 871.6\\
+2016-03-31 & 2016-03-31 &  & Vittiury Lonsto Aperime A A A 67.47.3163/27:76 / Q. aessu Volocat 13176202 TIS 33.41, ragis et scultuniune 3.1463 &  & 79.44\\
+2016-03-31 & 2016-03-31 &  & Vittiury Mitimors Stabulus 67.47.3163/12:52 / Q. aessu Volocat 13176202 TIS 70.63, ragis et scultuniune 3.1463 &  & 83.31\\
+2016-03-31 & 2016-03-31 &  & Aliquidem atuba & 0.05 & \\
+2016-03-31 & 2016-03-31 &  & Gusto dis eo ipsuge ini sedit &  & 20\\
+2016-03-31 & 2016-03-31 &  & Gusto obsepartum &  & 17.85\\
+2016-03-31 & 2016-03-31 &  & Gusto recto et mutime/et coginse &  & 10.5\\
+2016-04-01 & 2016-04-01 &  & Vittiury Sequaesero Pecilante 83.47.3163/75:83 / Q. aessu Volocat 13176202 &  & 95.8\\
+2016-04-04 & 2016-04-04 &  & Apuprodestam Caudinti UT Frelens 56.56.3163/66:62 / Q. aessu Volocat 13176202 &  & 300\\
+2016-04-06 & 2016-04-06 &  & Vittiury eo Stro ore Exspulcet 27.56.3163/12:75 / Q. aessu Volocat 13176202 TIS 71.41, ragis et scultuniune 3.5128 &  & 104.44\\
+2016-04-09 & 2016-04-11 &  & Apuprodestam Caudinti UT VIGNUNTER-3 62.56.3163/27:47 / Q. aessu Volocat 13176202 &  & 200\\
+2016-04-10 & 2016-04-11 &  & Vittiury Sorury Covit Sigattria 66.56.3163/27:45 / Q. aessu Volocat 13176202 TIS 537.41, Atemirehederrum 3.1323 &  & 427.87\\
+2016-04-15 & 2016-04-15 &  & Duculuvia Regantque Ferenix EO TIS 67'740.41, ragis et scultuniune 3.2534 & 12958.8 & \\
+2016-04-15 & 2016-04-15 &  & Duculuvia Regantque Ferenix EO TIS 3'740.41, ragis et scultuniune 3.2534 & 1079.9 & \\
+2016-04-15 & 2016-04-15 &  & A-peditum Pentae &  & 2050\\
+2016-04-15 & 2016-04-15 &  & A-peditum Pentae a Ditatem Funcrex &  & 6251\\
+2016-04-15 & 2016-04-18 &  & A-peditum Pentae a Colonta Enifientas ini &  & 5612.05\\
+2016-04-23 & 2016-04-25 &  & Vittiury/orbilone SECES Auxera Pis 75.56.3163/85:76 / Q. aessu Volocat 13176202 &  & 31\\
+2016-04-24 & 2016-04-25 &  & Vittiury Sequaesero eo Hiunte A 75.56.3163/12:44 / Q. aessu Volocat 13176202 TIS 70.41, Atemirehederrum 3.7511 &  & 83.14\\
+2016-04-27 & 2016-04-27 &  & Duculuvia Regantque Ferenix EO TIS 3'705.41, ragis et scultuniune 3.3673 & 1636.35 & \\
+2016-04-27 & 2016-04-27 &  & A-peditum Pentae a Sicungeriete Erede X�aputAM &  & 458.3\\
+2016-04-28 & 2016-04-28 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 871.6\\
+2016-04-29 & 2016-04-29 &  & Duculuvia Traepargerna Adigror Dericis & 54000 & \\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 144.7\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Lico EO &  & 10000\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Lico EO &  & 5150.1\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Colonta Rorsalis a Facunis &  & 100\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Dinte Tatet &  & 6002.2\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Sura Niunam EO &  & 483.85\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a NOS Mulensilicitia AN &  & 50\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Mere-sex AN &  & 70\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Dinte Tatet &  & 3002.2\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Sura Niunam EO &  & 552\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Obase Bensunary &  & 120\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 138.3\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a Obase Bensunary et &  & 5065.65\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae &  & 2050\\
+2016-04-29 & 2016-04-29 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 596\\
+2016-05-01 & 2016-05-02 &  & Vittiury/orbilone POSTER Aperime 78.56.3163/62:41 / Q. aessu Volocat 13176202 &  & 83.99\\
+2016-05-02 & 2016-05-02 &  & Apuprodestam Caudinti UT VIGNUNTER-3 27.47.3163/27:23 / Q. aessu Volocat 13176202 &  & 1000\\
+2016-05-04 & 2016-05-04 &  & Vittiury Nolunduci M.E.V. 78.56.3163/12:67 / Q. aessu Volocat 13176202 TIS 85.41, Atemirehederrum 3.4503 &  & 77.5\\
+2016-05-07 & 2016-05-09 &  & Vittiury/orbilone POSTER Aperime 18.47.3163/62:78 / Q. aessu Volocat 13176202 &  & 65.54\\
+2016-05-08 & 2016-05-09 &  & Vittiury Sequaesero Aligis  627 18.47.3163/75:88 / Q. aessu Volocat 13176202 TIS 85.85, Atemirehederrum 3.8866 &  & 79.08\\
+2016-05-10 & 2016-05-10 &  & A-peditum Pentae a Ditatem Funcrex &  & 6000\\
+2016-05-13 & 2016-05-13 &  & A-peditum Pentae &  & 6251\\
+2016-05-15 & 2016-05-17 &  & Vittiury ut Corto - Aloctuum 75.47.3163/82:47 / Q. aessu Volocat 13176202 &  & 35.5\\
+2016-05-15 & 2016-05-17 &  & Vittiury Sequaesero Xxx 177 67.47.3163/75:67 / Q. aessu Volocat 13176202 TIS 88.27, Atemirehederrum 3.5146 &  & 29.04\\
+2016-05-17 & 2016-05-17 &  & Vittiury Mantela Strius EO 75.47.3163/82:41 / Q. aessu Volocat 13176202 &  & 143.4\\
+2016-05-17 & 2016-05-17 &  & Vittiury Mantela Strius EO 75.47.3163/75:87 / Q. aessu Volocat 13176202 &  & 118.7\\
+2016-05-17 & 2016-05-17 &  & Vittiury/orbilone POSTER Aperime 50.47.3163/45:61 / Q. aessu Volocat 13176202 &  & 73\\
+2016-05-17 & 2016-05-17 &  & Vittiury/orbilone POSTER Aperime 50.47.3163/45:67 / Q. aessu Volocat 13176202 &  & 40\\
+2016-05-18 & 2016-05-18 &  & Vittiury PLUM Diducem       220 50.47.3163/67:61 / Q. aessu Volocat 13176202 TIS 50.56, Atemirehederrum 3.1751 &  & 27.28\\
+2016-05-19 & 2016-05-19 &  & Vittiury Captuibo FECT Vi PEM 21.47.3163/12:23 / Q. aessu Volocat 13176202 TIS 172.41, Atemirehederrum 3.8866 &  & 116.32\\
+2016-05-22 & 2016-05-23 &  & Vittiury Nos.Xxx. IUM 38.47.3163/75:27 / Q. aessu Volocat 13176202 TIS 508.41, Atemirehederrum 3.1582 &  & 213.09\\
+2016-05-25 & 2016-05-25 &  & Vittiury Somula 8082 M.E.V. 38.47.3163/50:87 / Q. aessu Volocat 13176202 TIS 81.41, Atemirehederrum 3.8874 &  & 79.24\\
+2016-05-25 & 2016-05-25 &  & A-peditum Pentae a Dinte Tatet &  & 6002.2\\
+2016-05-27 & 2016-05-27 &  & Duculuvia Regantque Ferenix EO & 7000 & \\
+2016-05-29 & 2016-05-30 &  & Vittiury Retuod Riduci 88.47.3163/75:26 / Q. aessu Volocat 13176202 TIS 13.41, Atemirehederrum 3.3250 &  & 70.27\\
+2016-05-29 & 2016-05-30 &  & Vittiury Lonsto Aperime A A A 88.47.3163/50:47 / Q. aessu Volocat 13176202 TIS 116.41, Atemirehederrum 3.3250 &  & 117.12\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae &  & 2050\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae a Sura Niunam EO &  & 435\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae a Obase ientende &  & 612.6\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae a Colonta Rorsalis A Facunis &  & 688.5\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae a Obase Bensunary &  & 40\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae a Colonta Rorsalis a Facunis &  & 236\\
+2016-05-30 & 2016-05-30 &  & A-peditum Pentae a Colonta Rorsalis a Facunis &  & 829.5\\
+2016-06-02 & 2016-06-02 &  & Duculuvia Regantque Ferenix EO & 2000 & \\
+2016-06-02 & 2016-06-02 &  & A-peditum Pentae a NOS-DIDE Imilirundive AN &  & 1344\\
+2016-06-02 & 2016-06-02 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 137.4\\
+2016-06-02 & 2016-06-02 &  & A-peditum Pentae a Verciput \& Possu EO &  & 583.2\\
+2016-06-04 & 2016-06-06 &  & Vittiury dica Captuibo 47.18.3163/62:63 / Q. aessu Volocat 13176202 &  & 136.4\\
+2016-06-06 & 2016-06-06 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 273\\
+2016-06-12 & 2016-06-13 &  & Vittiury/orbilone Fica Chrado 58 27.18.3163/66:82 / Q. aessu Volocat 13176202 &  & 94\\
+2016-06-12 & 2016-06-13 &  & Vittiury/orbilone POSTER Aperime 82.18.3163/85:18 / Q. aessu Volocat 13176202 &  & 73.01\\
+2016-06-14 & 2016-06-14 &  & Pratudis caraepe et Ster� et Auxera & 45829.8 & \\
+2016-06-17 & 2016-06-17 &  & Vittiury Somula 8082 M.E.V. 85.18.3163/50:66 / Q. aessu Volocat 13176202 TIS 63.41, Atemirehederrum 3.5563 &  & 54.88\\
+2016-06-17 & 2016-06-17 &  & Vittiury Oculue Agis Magram 142 85.18.3163/82:47 / Q. aessu Volocat 13176202 TIS 50.27, Atemirehederrum 3.2668 &  & 26.43\\
+2016-06-20 & 2016-06-20 &  & A-peditum Pentae a Magispor EO &  & 16200\\
+2016-06-20 & 2016-06-20 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 165.05\\
+2016-06-20 & 2016-06-20 &  & A-peditum Pentae a CUS-XXX Audianenit GAT &  & 709\\
+2016-06-20 & 2016-06-20 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 263\\
+2016-06-21 & 2016-06-21 &  & A-peditum Pentae &  & 6251\\
+2016-06-23 & 2016-06-23 &  & A-peditum Pentae a Somula Lititate Santi EO &  & 13498\\
+2016-06-23 & 2016-06-23 &  & Apuprodestam de ientanem Nor: a obase &  & 200\\
+2016-06-23 & 2016-06-23 &  & Neturet plibes TIS 0'740.41 os ragis et 3.7511 &  & 5542.5\\
+2016-06-24 & 2016-06-24 &  & Duculuvia Traepargerna Adigror Dericis & 27000 & \\
+2016-06-24 & 2016-06-24 &  & Duculuvia Traepargerna Adigror Dericis & 54000 & \\
+2016-06-25 & 2016-06-27 &  & Vittiury/orbilone POSTER Aperime 50.18.3163/62:56 / Q. aessu Volocat 13176202 &  & 92.62\\
+2016-06-26 & 2016-06-27 &  & Vittiury Manges Cangerima ini A 50.18.3163/75:52 / Q. aessu Volocat 13176202 TIS 13.41, Atemirehederrum 3.8261 &  & 68.3\\
+2016-06-29 & 2016-06-29 &  & Vittiury Minfore os Indixime et 26.18.3163/67:45 / Q. aessu Volocat 13176202 TIS 141.27, Atemirehederrum 3.6873 &  & 338.5\\
+2016-06-29 & 2016-06-29 &  & Vittiury FECT Vadicidunava 26.18.3163/62:23 / Q. aessu Volocat 13176202 TIS 71.41, Atemirehederrum 3.3660 &  & 104.05\\
+2016-06-29 & 2016-06-29 &  & Vittiury Acchral Copiganem 88.18.3163/12:27 / Q. aessu Volocat 13176202 TIS 172.63, Atemirehederrum 3.1240 &  & 114.35\\
+2016-06-29 & 2016-06-29 &  & A-peditum Pentae a Magispor EO &  & 27000\\
+2016-06-29 & 2016-06-29 &  & A-peditum Pentae a Lico EO &  & 7506\\
+2016-06-29 & 2016-06-29 &  & A-peditum Pentae a Lico EO &  & 16437\\
+2016-06-29 & 2016-06-29 &  & A-peditum Pentae a Lico EO &  & 526\\
+2016-06-30 & 2016-06-30 &  & Vittiury Mitimors Stabulus 61.18.3163/75:75 / Q. aessu Volocat 13176202 TIS 67.36, Atemirehederrum 3.4831 &  & 32.73\\
+2016-06-30 & 2016-06-30 &  & Vittiury Auceat Covit 61.18.3163/27:57 / Q. aessu Volocat 13176202 TIS 802.41, Atemirehederrum 3.3374 &  & 137.26\\
+2016-06-30 & 2016-06-30 &  & Vittiury/orbilone POSTER Aperime 67.18.3163/12:61 / Q. aessu Volocat 13176202 &  & 87.81\\
+2016-06-30 & 2016-06-30 &  & Aliquidem atuba & 0.15 & \\
+2016-06-30 & 2016-06-30 &  & 35 \% Imposta preventiva su CHF 0.15 &  & 0.05\\
+2016-06-30 & 2016-06-30 &  & Gusto dis eo ipsuge ini sedit &  & 17\\
+2016-06-30 & 2016-06-30 &  & Gusto obsepartum &  & 15.3\\
+2016-06-30 & 2016-06-30 &  & Gusto recto et mutime/et coginse &  & 30\\
+2016-07-01 & 2016-07-01 &  & Vittiury Veriam Cocangeral 67.18.3163/75:12 / Q. aessu Volocat 13176202 &  & 59.1\\
+2016-07-02 & 2016-07-04 &  & Vittiury Viscisu ini sive 78.18.3163/45:26 / Q. aessu Volocat 13176202 &  & 45\\
+2016-07-03 & 2016-07-04 &  & Vittiury MENDAM BY Mentiurra 27.57.3163/21:78 / Q. aessu Volocat 13176202 &  & 95.45\\
+2016-07-03 & 2016-07-04 &  & Vittiury Sequaesero Nutura 27.57.3163/41:84 / Q. aessu Volocat 13176202 &  & 432\\
+2016-07-03 & 2016-07-04 &  & Vittiury Viscisu ini sive 12.57.3163/75:23 / Q. aessu Volocat 13176202 &  & 100.5\\
+2016-07-03 & 2016-07-04 &  & Vittiury Viscisu ini sive 12.57.3163/75:26 / Q. aessu Volocat 13176202 &  & 204\\
+2016-07-03 & 2016-07-04 &  & Vittiury Sequaesero Logintis 27.57.3163/67:71 / Q. aessu Volocat 13176202 &  & 34.2\\
+2016-07-04 & 2016-07-04 &  & A-peditum Pentae &  & 2050\\
+2016-07-04 & 2016-07-04 &  & A-peditum Pentae a Obase Bensunary et Natimungunde &  & 182.9\\
+2016-07-04 & 2016-07-04 &  & A-peditum Pentae a Obase Bensunary et &  & 6076.5\\
+2016-07-04 & 2016-07-04 &  & A-peditum Pentae a Sura Niunam EO &  & 455.5\\
+2016-07-04 & 2016-07-04 &  & A-peditum Pentae a Colonta confore dica resec &  & 1489\\
+2016-07-05 & 2016-07-05 &  & Vittiury Panum AN - 726/Caph 27.57.3163/85:23 / Q. aessu Volocat 13176202 &  & 37.5\\
+2016-07-05 & 2016-07-05 &  & Vittiury Sequaesero Meripiem 47.57.3163/47:82 / Q. aessu Volocat 13176202 &  & 1500\\
+2016-07-05 & 2016-07-05 &  & Vittiury Veriam Cogis 27.57.3163/82:27 / Q. aessu Volocat 13176202 &  & 585\\
+2016-07-06 & 2016-07-06 &  & Vittiury eo Stro ore Exspulcet 47.57.3163/12:36 / Q. aessu Volocat 13176202 TIS 41.41, Atemirehederrum 3.5618 &  & 98.13\\
+2016-07-07 & 2016-07-07 &  & Apuprodestam Caudinti OS FERAEST-1-33B 18.57.3163/12:83 / Q. aessu Volocat 13176202 &  & 302\\
+2016-07-08 & 2016-07-08 &  & Vittiury Sequaesero Mone 18.57.3163/75:50 / Q. aessu Volocat 13176202 &  & 92.25\\
+2016-07-08 & 2016-07-08 &  & Vittiury Rabulli Volo ut Mone 18.57.3163/21:56 / Q. aessu Volocat 13176202 &  & 44.5\\
+2016-07-09 & 2016-07-11 &  & Vittiury CUCI-7731 Fica By 66.57.3163/50:43 / Q. aessu Volocat 13176202 &  & 84.5\\
+2016-07-09 & 2016-07-11 &  & Vittiury Panum AN - 628 57.57.3163/75:56 / Q. aessu Volocat 13176202 &  & 69\\
+2016-07-09 & 2016-07-11 &  & Vittiury CUCI-3703 Fica DE 66.57.3163/50:18 / Q. aessu Volocat 13176202 &  & 19.2\\
+2016-07-10 & 2016-07-11 &  & Vittiury Sequaesero Aduci 66.57.3163/75:41 / Q. aessu Volocat 13176202 &  & 102.5\\
+2016-07-10 & 2016-07-11 &  & Vittiury Panum AN - 628 66.57.3163/12:21 / Q. aessu Volocat 13176202 &  & 24.9\\
+2016-07-10 & 2016-07-11 &  & Vittiury Ritintas Serime 66.57.3163/67:47 / Q. aessu Volocat 13176202 &  & 19.85\\
+2016-07-12 & 2016-07-12 &  & Vittiury Panum AN - 628 62.57.3163/75:36 / Q. aessu Volocat 13176202 &  & 11.5\\
+2016-07-12 & 2016-07-12 &  & Vittiury Clatubens ini Sive A 66.57.3163/75:27 / Q. aessu Volocat 13176202 &  & 123\\
+2016-07-12 & 2016-07-12 &  & Vittiury Sequaesero Mone 62.57.3163/85:38 / Q. aessu Volocat 13176202 &  & 46.5\\
+2016-07-12 & 2016-07-12 &  & Vittiury Panum AN - 628 62.57.3163/75:75 / Q. aessu Volocat 13176202 &  & 47.1\\
+2016-07-12 & 2016-07-12 &  & Vittiury Covit Dus Horba EO 62.57.3163/45:78 / Q. aessu Volocat 13176202 &  & 739.5\\
+2016-07-12 & 2016-07-12 &  & Apuprodestam Caudinti OS FERAEST-1-33B 62.57.3163/38:75 / Q. aessu Volocat 13176202 &  & 52\\
+2016-07-12 & 2016-07-12 &  & Vittiury Lacibent 62.57.3163/41:18 / Q. aessu Volocat 13176202 &  & 134.6\\
+2016-07-14 & 2016-07-14 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 657.6\\
+2016-07-14 & 2016-07-14 &  & A-peditum Pentae a ME-Plurbilos Faccum vest &  & 277.4\\
+2016-07-14 & 2016-07-14 &  & A-peditum Pentae a Colonta confore dica resec &  & 649.4\\
+2016-07-20 & 2016-07-20 &  & A-peditum Pentae a Sultura Collibuli &  & 7008\\
+2016-07-20 & 2016-07-20 &  & Apuprodestam Caudinti Pigniatuunit.Tudictuis 45.57.3163/27:52 / Q. aessu Volocat 13176202 TIS 705.41, Atemirehederrum 3.166 &  & 548\\
+2016-07-24 & 2016-07-25 &  & Vittiury Cangerima Dirige' 41.57.3163/75:75 / Q. aessu Volocat 13176202 TIS 551.41, Atemirehederrum 3.6650 &  & 262.44\\
+2016-07-27 & 2016-07-27 &  & Duculuvia Regantque Ferenix EO TIS 6'740.41, ragis et scultuniune 3.1245 & 3247.5 & \\
+2016-07-27 & 2016-07-27 &  & Apuprodestam Caudinti UT VIGNUNTER-3 26.57.3163/57:45 / Q. aessu Volocat 13176202 &  & 300\\
+2016-07-27 & 2016-07-27 &  & A-peditum Pentae &  & 6251\\
+2016-07-27 & 2016-07-27 &  & A-peditum Pentae &  & 2050\\
+2016-07-28 & 2016-07-28 &  & A-peditum Pentae a Colonta Rorsalis a Facunis &  & 236\\
+2016-07-28 & 2016-07-28 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 939.55\\
+2016-08-01 & 2016-08-02 &  & Vittiury/orbilone Fica Chrado 58 61.57.3163/82:77 / Q. aessu Volocat 13176202 &  & 97\\
+2016-08-02 & 2016-08-02 &  & Vittiury/orbilone 184 Des Allam 83.57.3163/50:43 / Q. aessu Volocat 13176202 &  & 75.02\\
+2016-08-02 & 2016-08-02 &  & Vittiury eo Stro ore Exspulcet 67.57.3163/85:12 / Q. aessu Volocat 13176202 TIS 87.41, Atemirehederrum 3.282 &  & 63.28\\
+2016-08-03 & 2016-08-03 &  & Vittiury Venstis Ovus'      275 12.66.3163/12:36 / Q. aessu Volocat 13176202 TIS 87.63, Atemirehederrum 3.5842 &  & 63.92\\
+2016-08-04 & 2016-08-04 &  & A-peditum Pentae a Colonta confore dica resec &  & 892.2\\
+2016-08-04 & 2016-08-04 &  & A-peditum Pentae a Colonta Rorsalis a Facunis &  & 50\\
+2016-08-04 & 2016-08-04 &  & A-peditum Pentae a Sura Niunam EO &  & 392\\
+2016-08-04 & 2016-08-04 &  & Vittiury At Cangula \& eo Icitis 27.66.3163/12:67 / Q. aessu Volocat 13176202 TIS 45.41, Atemirehederrum 3.1240 &  & 71.13\\
+2016-08-05 & 2016-08-05 &  & Duculuvia Regantque Ferenix EO TIS 757.41, ragis et scultuniune 3.2108 & 430.12 & \\
+2016-08-05 & 2016-08-05 &  & Vittiury eo Vales ini Matium 47.66.3163/12:76 / Q. aessu Volocat 13176202 TIS 36.41, Atemirehederrum 3.1551 &  & 51.44\\
+2016-08-05 & 2016-08-08 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 253\\
+2016-08-06 & 2016-08-08 &  & Apuprodestam Caudinti UT Auxera 18.66.3163/27:12 / Q. aessu Volocat 13176202 &  & 200\\
+2016-08-10 & 2016-08-10 &  & Duculuvia Traepargerna Adigror Dericis & 21100 & \\
+2016-08-11 & 2016-08-11 &  & A-peditum Pentae a Dinte Tatet &  & 7000\\
+2016-08-12 & 2016-08-12 &  & Pratudis caraepe et Ster� et Auxera & 26951.4 & \\
+2016-08-12 & 2016-08-12 &  & Pratudis caraepe et Ster� et Auxera & 25144.6 & \\
+2016-08-13 & 2016-08-15 &  & Apuprodestam Caudinti EEUKUBC7717808 82.66.3163/62:52 / Q. aessu Volocat 13176202 INI 130.41, Atemirehederrum 6.8553 &  & 493.8\\
+2016-08-13 & 2016-08-15 &  & Apuprodestam Caudinti EEUKUBC7717808 82.66.3163/62:23 / Q. aessu Volocat 13176202 INI 130.41, Atemirehederrum 6.8553 &  & 493.8\\
+2016-08-16 & 2016-08-16 &  & Vittiury 854718888381145 75.66.3163/62:21 / Q. aessu Volocat 13176202 INI 18.78, Atemirehederrum 6.2041 &  & 45.35\\
+2016-08-22 & 2016-08-22 &  & A-peditum Pentae a Magispor EO &  & 24930.7\\
+2016-08-22 & 2016-08-22 &  & A-peditum Pentae (Aute) TIS 3'740.41, ragis et scultuniune 3.4657 Dinte W. Tatet &  & 6581.4\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 939.55\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae a AN Lodem et Dicit Aviducet &  & 3916.7\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae a Dulica Aque &  & 1621\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae a Cappor Alunti &  & 1713.65\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae a Suuntum Aurunga &  & 1829.4\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae a Suibulo Minam &  & 1621\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae a Prorunt Servirignit &  & 1621\\
+2016-08-26 & 2016-08-26 &  & A-peditum Pentae &  & 6251\\
+2016-08-29 & 2016-08-29 &  & A-peditum Pentae &  & 2050\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Sura Niunam EO &  & 150.05\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Obase Bensunary et &  & 4746.3\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Obase Ientende &  & 40\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 145.1\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 50\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 30\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 50\\
+2016-08-30 & 2016-08-30 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 50\\
+2016-09-07 & 2016-09-07 &  & Vittiury Colunius Vest 47.62.3163/85:27 / Q. aessu Volocat 13176202 &  & 179\\
+2016-09-08 & 2016-09-08 &  & A-peditum Pentae a AN Lodem et Dicit Aviducet &  & 4000\\
+2016-09-09 & 2016-09-09 &  & Vittiury Angus Vitus Igilodo 57.62.3163/85:77 / Q. aessu Volocat 13176202 &  & 59.95\\
+2016-09-09 & 2016-09-09 &  & A-peditum Pentae (AUTE) TIS 3'642.41, ragis et scultuniune 3.612 Anem-Lii UT &  & 1493.1\\
+2016-09-10 & 2016-09-12 &  & Vittiury Rabulli Volo ut Mone 66.62.3163/12:27 / Q. aessu Volocat 13176202 &  & 75.9\\
+2016-09-13 & 2016-09-13 &  & Apuprodestam Caudinti UT VIGNUNTER-1 75.62.3163/62:57 / Q. aessu Volocat 13176202 &  & 100\\
+2016-09-14 & 2016-09-14 &  & Vittiury VADICIDUNAVA PECT-MOR 27.62.3163/67:56 / Q. aessu Volocat 13176202 TIS 34.41, Atemirehederrum 3.6755 &  & 97.35\\
+2016-09-14 & 2016-09-14 &  & Vittiury Sequaesero Prate ini 62.62.3163/75:62 / Q. aessu Volocat 13176202 &  & 665\\
+2016-09-14 & 2016-09-14 &  & Vittiury MANGES CANGERIMA INI A 27.62.3163/12:84 / Q. aessu Volocat 13176202 TIS 34.41, Atemirehederrum 3.7080 &  & 89.59\\
+2016-09-15 & 2016-09-15 &  & Pratudis caraepe et Quinch et Auxera Obase ientende Xxx & 52728.8 & \\
+2016-09-15 & 2016-09-15 &  & Vittiury/orbilone CAPTUIBO NIERRUNIMI 12.62.3163/27:41 / Q. aessu Volocat 13176202 &  & 20.1\\
+2016-09-15 & 2016-09-15 &  & A-peditum Pentae (AUTE) TIS 0'121.27, ragis et scultuniune 3.4570 ET obsec sto ium &  & 9373.23\\
+2016-09-15 & 2016-09-15 &  & A-peditum Pentae (AUTE) TIS 1'556.41, ragis et scultuniune 3.4570 Anem-Lii UT &  & 10768.88\\
+2016-09-16 & 2016-09-16 &  & Duculuvia QUINCH ET AUXERA & 108000 & \\
+2016-09-16 & 2016-09-19 &  & Duculuvia INQUAM ABSICERIDEINO- & 1232.2 & \\
+2016-09-16 & 2016-09-16 &  & Vittiury/orbilone POSTER APERIME 85.62.3163/27:87 / Q. aessu Volocat 13176202 &  & 60.01\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Eo Magilla Ini Fuitudivit EO &  & 4116\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Cregere Captuibo Mentiurra EO &  & 500\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Verciput \& Possu EO &  & 583.2\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Bientento Mirehent &  & 1335.65\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a AN Lodem et Dicit Aviducet &  & 10000\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Magnice Angulat &  & 4550\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Nierrunimi EO &  & 1523.2\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Dedecta EO &  & 2970\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Inetis Amplis EO &  & 294.85\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Pare Num EO &  & 3460.9\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae a Horia Separda EO &  & 486\\
+2016-09-16 & 2016-09-16 &  & A-peditum Pentae (AUTE) TIS 6'740.41, ragis et scultuniune 3.6755 serungerego.cuci &  & 3307.8\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a Colonta Enifientas ini &  & 10786.65\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a Lititate Santi EO &  & 373.1\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 206.2\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a Volfamque EO &  & 1072.95\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a Digiolum Acuperaecus &  & 33.8\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a Colonta Enifientas ini &  & 6474.9\\
+2016-09-19 & 2016-09-19 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 243\\
+2016-09-21 & 2016-09-21 &  & Vittiury AUCEAT OVUS 38.62.3163/41:47 / Q. aessu Volocat 13176202 &  & 32.5\\
+2016-09-21 & 2016-09-21 &  & Vittiury EO AUXERA EO 38.62.3163/21:45 / Q. aessu Volocat 13176202 &  & 61.5\\
+2016-09-21 & 2016-09-21 &  & Vittiury Rabulli Veriam Habit 21.62.3163/75:76 / Q. aessu Volocat 13176202 &  & 166\\
+2016-09-22 & 2016-09-22 &  & A-peditum Pentae a LICO EO &  & 10000\\
+2016-09-22 & 2016-09-22 &  & A-peditum Pentae (AUTE) TIS 38'740.41, ragis et scultuniune 3.7025 Ingita Aperime rem &  & 21992\\
+2016-09-22 & 2016-09-22 &  & A-peditum Pentae (AUTE) TIS 38'740.41, ragis et scultuniune 3.7025 CREQUOD rem &  & 21992\\
+2016-09-23 & 2016-09-23 &  & A-peditum Pentae &  & 6251\\
+2016-09-23 & 2016-09-23 &  & Vittiury Rabulli Volo ut Mone 41.62.3163/85:47 / Q. aessu Volocat 13176202 &  & 47\\
+2016-09-24 & 2016-09-26 &  & Apuprodestam Caudinti OS FERAEST-1-33B 38.62.3163/85:27 / Q. aessu Volocat 13176202 &  & 102\\
+2016-09-25 & 2016-09-26 &  & Apuprodestam Caudinti OS FERAEST-1-33B 38.62.3163/85:27 / Q. aessu Volocat 13176202 TIS 527.41, Atemirehederrum 3.3108 &  & 219.78\\
+2016-09-28 & 2016-09-28 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 939.55\\
+2016-09-29 & 2016-09-29 &  & A-peditum Pentae a Colonta Rorsalis a Facunis &  & 236\\
+2016-09-30 & 2016-09-30 &  & Vittiury/orbilone POSTER APERIME 67.62.3163/47:50 / Q. aessu Volocat 13176202 &  & 50\\
+2016-09-30 & 2016-09-30 &  & Aliquidem atuba & 0.05 & \\
+2016-09-30 & 2016-09-30 &  & Gusto dis eo ipsuge ini sedit &  & 20.5\\
+2016-09-30 & 2016-09-30 &  & Gusto fuibelum ore ortiondam &  & 7\\
+2016-09-30 & 2016-09-30 &  & Gusto obsepartum &  & 21.25\\
+2016-09-30 & 2016-09-30 &  & Gusto recto et mutime/et coginse &  & 30\\
+2016-10-03 & 2016-10-03 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 112.3\\
+2016-10-05 & 2016-10-05 &  & A-peditum Pentae a AN Lodem et Dicit Aviducet &  & 10000\\
+2016-10-05 & 2016-10-05 &  & A-peditum Pentae &  & 2050\\
+2016-10-05 & 2016-10-05 &  & A-peditum Pentae a Licusto coeps adimunnatere &  & 40\\
+2016-10-05 & 2016-10-05 &  & Vittiury/orbilone Fica Chrado 62 47.27.3163/85:84 / Q. aessu Volocat 13176202 &  & 88\\
+2016-10-05 & 2016-10-05 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 245\\
+2016-10-07 & 2016-10-07 &  & A-peditum Pentae a Obase Bensunary et &  & 4609.8\\
+2016-10-07 & 2016-10-07 &  & A-peditum Pentae (capersevoluva et sedit) TIS 3'705.41, ragis et scultuniune 3.6008 Regantque Ferenix EO &  & 1652.85\\
+2016-10-11 & 2016-10-11 &  & Vittiury INQUOD M.E.V. 66.27.3163/12:67 / Q. aessu Volocat 13176202 TIS 84.41, Atemirehederrum 3.172 &  & 45.26\\
+2016-10-12 & 2016-10-12 &  & Vittiury AUCEAT OVUS 82.27.3163/62:10 / Q. aessu Volocat 13176202 &  & 30\\
+2016-10-12 & 2016-10-12 &  & Vittiury POSSUSION QUONE EO 27.27.3163/75:23 / Q. aessu Volocat 13176202 &  & 58.4\\
+2016-10-13 & 2016-10-13 &  & Vittiury XXX FILIUM 82.27.3163/75:87 / Q. aessu Volocat 13176202 &  & 36.5\\
+2016-10-13 & 2016-10-13 &  & Vittiury/orbilone 184 DES ALLAM 67.27.3163/66:83 / Q. aessu Volocat 13176202 &  & 77\\
+2016-10-14 & 2016-10-14 &  & A-peditum Pentae (AUTE) TIS 3'875.41, ragis et scultuniune 3.1720 NOTEA COMNICERI &  & 1427.79\\
+2016-10-20 & 2016-10-20 &  & A-peditum Pentae a Raepavit AN &  & 1402\\
+2016-10-21 & 2016-10-21 &  & Vittiury/orbilone 184 DES ALLAM 38.27.3163/27:87 / Q. aessu Volocat 13176202 &  & 105\\
+2016-10-22 & 2016-10-24 &  & Vittiury/orbilone 184 DES ALLAM 41.27.3163/85:72 / Q. aessu Volocat 13176202 &  & 83\\
+2016-10-22 & 2016-10-24 &  & Vittiury Itanater Covit \& Ava 41.27.3163/27:82 / Q. aessu Volocat 13176202 &  & 23\\
+2016-10-26 & 2016-10-26 &  & A-peditum Pentae a Covit seginangervus ut Box EO &  & 226.5\\
+2016-10-26 & 2016-10-26 &  & A-peditum Pentae a Colonta confore dica resec &  & 527.5\\
+2016-10-26 & 2016-10-26 &  & A-peditum Pentae a Digiolum (Nubicus) AN, Stam &  & 131.6\\
+2016-10-26 & 2016-10-26 &  & A-peditum Pentae a EST Sigionget AN &  & 1100\\
+2016-10-28 & 2016-10-28 &  & A-peditum Pentae a Dinte Tatet &  & 3000\\
+2016-11-04 & 2016-11-04 &  & Vittiury CUTUDIT'M XXX 83.27.3163/75:23 / Q. aessu Volocat 13176202 TIS 47.85, Atemirehederrum 3.6447 &  & 28.06\\
+2016-11-08 & 2016-11-08 &  & Vittiury 35158             -771 47.82.3163/27:45 / Q. aessu Volocat 13176202 TIS 82.41, Atemirehederrum 3.640 &  & 11.95\\
+2016-11-08 & 2016-11-08 &  & Apuprodestam Caudinti PECUS NAVITUIT ET ORBA 56.82.3163/38:47 / Q. aessu Volocat 13176202 TIS 157.41, Atemirehederrum 3.640 &  & 108.6\\
+2016-11-10 & 2016-11-10 &  & Pratudis caraepe et Ster� et Auxera & 25893 & \\
+2016-11-10 & 2016-11-10 &  & A-peditum Pentae a LEX Prit Ansent AN &  & 223\\
+2016-11-14 & 2016-11-14 &  & A-peditum Pentae a Mere-sex AN &  & 939.55\\
+2016-11-14 & 2016-11-14 &  & A-peditum Pentae &  & 6251\\
+2016-11-14 & 2016-11-14 &  & A-peditum Pentae &  & 2050\\
+2016-11-17 & 2016-11-17 &  & Vittiury ADEO M.E.V. MENTEMPLUM 85.82.3163/41:63 / Q. aessu Volocat 13176202 TIS 36.41, Atemirehederrum 3.7178 &  & 50.85\\
+2016-11-17 & 2016-11-17 &  & Vittiury TELEX COVIT FERE   802 85.82.3163/85:27 / Q. aessu Volocat 13176202 TIS 674.41, Atemirehederrum 3.7178 &  & 131.99\\
+2016-11-17 & 2016-11-17 &  & A-peditum Pentae a AN Lodem et Dicit Aviducet &  & 6000\\
+2016-11-18 & 2016-11-18 &  & A-peditum Pentae a Miraest Inverto EO &  & 1166.4\\
+2016-11-18 & 2016-11-18 &  & A-peditum Pentae a Perrens RenetundisIT &  & 1000.65\\
+2016-11-18 & 2016-11-18 &  & A-peditum Pentae a Sura Niunam EO &  & 629.8\\
+2016-11-18 & 2016-11-18 &  & A-peditum Pentae &  & 6251\\
+2016-11-18 & 2016-11-18 &  & Vittiury UNIAMEN ACIBURA 50.82.3163/75:77 / Q. aessu Volocat 13176202 TIS 27.63, Atemirehederrum 3.8315 &  & 43.72\\
+2016-11-18 & 2016-11-18 &  & Apuprodestam Caudinti TURUNDUCI - AGIS XXX 50.82.3163/66:57 / Q. aessu Volocat 13176202 &  & 223.76\\
+2016-11-18 & 2016-11-18 &  & Vittiury SOMULA 8082 M.E.V. 50.82.3163/21:38 / Q. aessu Volocat 13176202 TIS 56.41, Atemirehederrum 3.8315 &  & 41.02\\
+2016-11-19 & 2016-11-21 &  & Vittiury SURA ANSENT 45.82.3163/62:43 / Q. aessu Volocat 13176202 &  & 40\\
+2016-11-21 & 2016-11-21 &  & Apuprodestam de ientanem DINTE SOLUNT TATET conere Pecus Siliunicit ini Magrumen &  & 800\\
+2016-11-26 & 2016-11-28 &  & Vittiury/orbilone Fica Coluvitis Funch 50.82.3163/21:41 / Q. aessu Volocat 13176202 &  & 79.65\\
+2016-11-29 & 2016-11-29 &  & Duculuvia Regantque Ferenix EO TIS 1'740.41, ragis et scultuniune 3.2535 & 2132.4 & \\
+2016-11-29 & 2016-11-30 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 939.55\\
+2016-11-30 & 2016-11-30 &  & A-peditum Pentae &  & 1100\\
+2016-12-04 & 2016-12-05 &  & Vittiury/orbilone Fica Chrado 62 27.67.3163/50:67 / Q. aessu Volocat 13176202 &  & 50\\
+2016-12-13 & 2016-12-13 &  & Vittiury/orbilone 184 DES ALLAM 67.67.3163/67:36 / Q. aessu Volocat 13176202 &  & 103.09\\
+2016-12-27 & 2016-12-27 &  & Duculuvia Regantque Ferenix EO TIS 5'740.41, ragis et scultuniune 3.7658 & 4261.2 & \\
+2016-12-28 & 2016-12-28 &  & A-peditum Pentae equibulunt a Mere-sex AN &  & 939.55\\
+2016-12-30 & 2016-12-30 &  & A-peditum Pentae a Dinte Tatet &  & 3000\\
+2016-12-30 & 2016-12-31 &  & Putis cupadit SI &  & 10\\
+2016-12-31 & 2016-12-31 &  & Aliquidem atuba & 6 & \\
+2016-12-31 & 2016-12-31 &  & Gusto dis eo ipsuge ini sedit &  & 16\\
+2016-12-31 & 2016-12-31 &  & Gusto fuibelum ore ortiondam &  & 1\\
+2016-12-31 & 2016-12-31 &  & Gusto obsepartum &  & 14.45\\
+2016-12-31 & 2016-12-31 &  & Gusto recto et mutime/et coginse &  & 19.5\\
 \\
 \end{tablevalue}
 \end{document}

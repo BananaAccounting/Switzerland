@@ -1,1020 +1,1 @@
-Booked At;Text;Credit/Debit Amount;Balance;Valuta Date;;;;;
-;Description for test;;;;;;;;
-03.01.13;Description for test;195;6080.25;03.01.13;;;;;
-;Description for test;;;;;;;;
-03.01.13;Description for test;-465;5615.25;03.01.13;;;;;
-;Description for test;;;;;;;;
-04.01.13;Description for test;-445.05;5170.2;04.01.13;;;;;
-;Description for test;;;;;;;;
-07.01.13;Description for test;392.1;5562.3;07.01.13;;;;;
-;Description for test;;;;;;;;
-07.01.13;Description for test;764.5;6326.8;07.01.13;;;;;
-;Description for test;;;;;;;;
-08.01.13;Description for test;243.5;6570.3;08.01.13;;;;;
-;Description for test;;;;;;;;
-08.01.13;Description for test;-388.8;6181.5;08.01.13;;;;;
-;Description for test;;;;;;;;
-10.01.13;Description for test;127;6308.5;10.01.13;;;;;
-;Description for test;;;;;;;;
-10.01.13;Description for test;-277;6031.5;10.01.13;;;;;
-;Description for test;;;;;;;;
-11.01.13;Description for test;167.5;6199;11.01.13;;;;;
-;Description for test;;;;;;;;
-11.01.13;Description for test;83.5;6282.5;11.01.13;;;;;
-;Description for test;;;;;;;;
-11.01.13;Description for test;345;6627.5;11.01.13;;;;;
-;Description for test;;;;;;;;
-11.01.13;Description for test;336;6963.5;11.01.13;;;;;
-;Description for test;;;;;;;;
-11.01.13;Description for test;-685.5;6278;11.01.13;;;;;
-;Description for test;;;;;;;;
-14.01.13;Description for test;-363.3;5914.7;14.01.13;;;;;
-;Description for test;;;;;;;;
-15.01.13;Description for test;711;6625.7;15.01.13;;;;;
-;Description for test;;;;;;;;
-15.01.13;Description for test;178.1;6803.8;15.01.13;;;;;
-;Description for test;;;;;;;;
-15.01.13;Description for test;251.5;7055.3;15.01.13;;;;;
-;Description for test;;;;;;;;
-16.01.13;Description for test;560;7615.3;16.01.13;;;;;
-;Description for test;;;;;;;;
-16.01.13;Description for test;-480;7135.3;16.01.13;;;;;
-;Description for test;;;;;;;;
-17.01.13;Description for test;782.9;7918.2;17.01.13;;;;;
-;Description for test;;;;;;;;
-17.01.13;Description for test;94.9;8013.1;18.01.13;;;;;
-;Description for test;;;;;;;;
-18.01.13;Description for test;216.5;8229.6;18.01.13;;;;;
-;Description for test;;;;;;;;
-18.01.13;Description for test;-238.5;7991.1;18.01.13;;;;;
-;Description for test;;;;;;;;
-18.01.13;Description for test;-30;7961.1;18.01.13;;;;;
-;Description for test;;;;;;;;
-21.01.13;Description for test;397;8358.1;21.01.13;;;;;
-;Description for test;;;;;;;;
-22.01.13;Description for test;301.5;8659.6;22.01.13;;;;;
-;Description for test;;;;;;;;
-22.01.13;Description for test;249.3;8908.9;22.01.13;;;;;
-;Description for test;;;;;;;;
-23.01.13;Description for test;-600;8308.9;23.01.13;;;;;
-;Description for test;;;;;;;;
-25.01.13;Description for test;476;8784.9;25.01.13;;;;;
-;Description for test;;;;;;;;
-25.01.13;Description for test;27.5;8812.4;25.01.13;;;;;
-;Description for test;;;;;;;;
-26.01.13;Description for test;696;9508.4;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;299.6;9808;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;306.5;10114.5;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;167;10281.5;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;208.5;10490;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;278.5;10768.5;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;350;11118.5;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;744.1;11862.6;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;140;12002.6;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;420;12422.6;28.01.13;;;;;
-;Description for test;;;;;;;;
-28.01.13;Description for test;-124.25;12298.35;28.01.13;;;;;
-;Description for test;;;;;;;;
-29.01.13;Description for test;876.6;13174.95;29.01.13;;;;;
-;Description for test;;;;;;;;
-29.01.13;Description for test;133;13307.95;29.01.13;;;;;
-;Description for test;;;;;;;;
-29.01.13;Description for test;223;13530.95;29.01.13;;;;;
-;Description for test;;;;;;;;
-29.01.13;Description for test;308;13838.95;29.01.13;;;;;
-;Description for test;;;;;;;;
-29.01.13;Description for test;56;13894.95;29.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;30.5;13925.45;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;321;14246.45;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;223.5;14469.95;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;336;14805.95;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;346;15151.95;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;1680;16831.95;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;329.5;17161.45;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;-82.3;17079.15;30.01.13;;;;;
-;Description for test;;;;;;;;
-30.01.13;Description for test;-399.2;16679.95;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;797.8;17477.75;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;140;17617.75;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;223.5;17841.25;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;518.5;18359.75;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;448;18807.75;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;237;19044.75;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;642.1;19686.85;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;231;19917.85;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;692.4;20610.25;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;206;20816.25;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;1320;22136.25;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;200;22336.25;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;251;22587.25;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;598.5;23185.75;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;-90.85;23094.9;31.01.13;;;;;
-;Description for test;;;;;;;;
-31.01.13;Description for test;-3846.55;19248.35;31.01.13;;;;;
-;Description for test;;;;;;;;
-01.02.13;Description for test;223;19471.35;01.02.13;;;;;
-;Description for test;;;;;;;;
-01.02.13;Description for test;-1189.2;18282.15;01.02.13;;;;;
-;Description for test;;;;;;;;
-01.02.13;Description for test;-500;17782.15;01.02.13;;;;;
-;Description for test;;;;;;;;
-04.02.13;Description for test;242;18024.15;04.02.13;;;;;
-;Description for test;;;;;;;;
-04.02.13;Description for test;672;18696.15;04.02.13;;;;;
-;Description for test;;;;;;;;
-04.02.13;Description for test;471.6;19167.75;04.02.13;;;;;
-;Description for test;;;;;;;;
-04.02.13;Description for test;-533.4;18634.35;04.02.13;;;;;
-;Description for test;;;;;;;;
-05.02.13;Description for test;376;19010.35;05.02.13;;;;;
-;Description for test;;;;;;;;
-06.02.13;Description for test;448;19458.35;06.02.13;;;;;
-;Description for test;;;;;;;;
-06.02.13;Description for test;448;19906.35;06.02.13;;;;;
-;Description for test;;;;;;;;
-06.02.13;Description for test;1152.1;21058.45;07.02.13;;;;;
-;Description for test;;;;;;;;
-07.02.13;Description for test;1047.4;22105.85;07.02.13;;;;;
-;Description for test;;;;;;;;
-08.02.13;Description for test;395.5;22501.35;08.02.13;;;;;
-;Description for test;;;;;;;;
-08.02.13;Description for test;32.65;22534;08.02.13;;;;;
-;Description for test;;;;;;;;
-08.02.13;Description for test;635;23169;08.02.13;;;;;
-;Description for test;;;;;;;;
-08.02.13;Description for test;-238.5;22930.5;08.02.13;;;;;
-;Description for test;;;;;;;;
-11.02.13;Description for test;770.2;23700.7;11.02.13;;;;;
-;Description for test;;;;;;;;
-11.02.13;Description for test;167;23867.7;11.02.13;;;;;
-;Description for test;;;;;;;;
-12.02.13;Description for test;925.5;24793.2;12.02.13;;;;;
-;Description for test;;;;;;;;
-12.02.13;Description for test;261.5;25054.7;12.02.13;;;;;
-;Description for test;;;;;;;;
-12.02.13;Description for test;175;25229.7;12.02.13;;;;;
-;Description for test;;;;;;;;
-12.02.13;Description for test;195;25424.7;12.02.13;;;;;
-;Description for test;;;;;;;;
-13.02.13;Description for test;392;25816.7;13.02.13;;;;;
-;Description for test;;;;;;;;
-13.02.13;Description for test;453.5;26270.2;13.02.13;;;;;
-;Description for test;;;;;;;;
-13.02.13;Description for test;-24.7;26245.5;13.02.13;;;;;
-;Description for test;;;;;;;;
-14.02.13;Description for test;283.1;26528.6;14.02.13;;;;;
-;Description for test;;;;;;;;
-14.02.13;Description for test;-1622.9;24905.7;14.02.13;;;;;
-;Description for test;;;;;;;;
-15.02.13;Description for test;-256.85;24648.85;15.02.13;;;;;
-;Description for test;;;;;;;;
-15.02.13;Description for test;-1000;23648.85;15.02.13;;;;;
-;Description for test;;;;;;;;
-18.02.13;Description for test;364;24012.85;18.02.13;;;;;
-;Description for test;;;;;;;;
-18.02.13;Description for test;323;24335.85;18.02.13;;;;;
-;Description for test;;;;;;;;
-18.02.13;Description for test;-217.3;24118.55;18.02.13;;;;;
-;Description for test;;;;;;;;
-19.02.13;Description for test;814.4;24932.95;19.02.13;;;;;
-;Description for test;;;;;;;;
-20.02.13;Description for test;-1500;23432.95;20.02.13;;;;;
-;Description for test;;;;;;;;
-21.02.13;Description for test;519.7;23952.65;21.02.13;;;;;
-;Description for test;;;;;;;;
-22.02.13;Description for test;-387.15;23565.5;22.02.13;;;;;
-;Description for test;;;;;;;;
-25.02.13;Description for test;36.65;23602.15;25.02.13;;;;;
-;Description for test;;;;;;;;
-25.02.13;Description for test;127;23729.15;25.02.13;;;;;
-;Description for test;;;;;;;;
-25.02.13;Description for test;648.2;24377.35;25.02.13;;;;;
-;Description for test;;;;;;;;
-25.02.13;Description for test;-751.7;23625.65;25.02.13;;;;;
-;Description for test;;;;;;;;
-26.02.13;Description for test;482;24107.65;26.02.13;;;;;
-;Description for test;;;;;;;;
-26.02.13;Description for test;1209.5;25317.15;26.02.13;;;;;
-;Description for test;;;;;;;;
-27.02.13;Description for test;928.1;26245.25;28.02.13;;;;;
-;Description for test;;;;;;;;
-28.02.13;Description for test;556.9;26802.15;28.02.13;;;;;
-;Description for test;;;;;;;;
-28.02.13;Description for test;610;27412.15;28.02.13;;;;;
-;Description for test;;;;;;;;
-28.02.13;Description for test;-687.35;26724.8;28.02.13;;;;;
-;Description for test;;;;;;;;
-28.02.13;Description for test;-3846.55;22878.25;28.02.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;265;23143.25;01.03.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;436.8;23580.05;01.03.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;585.5;24165.55;01.03.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;172;24337.55;01.03.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;750;25087.55;01.03.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;-522.1;24565.45;01.03.13;;;;;
-;Description for test;;;;;;;;
-01.03.13;Description for test;-500;24065.45;01.03.13;;;;;
-;Description for test;;;;;;;;
-04.03.13;Description for test;-199.75;23865.7;04.03.13;;;;;
-;Description for test;;;;;;;;
-05.03.13;Description for test;614.8;24480.5;05.03.13;;;;;
-;Description for test;;;;;;;;
-05.03.13;Description for test;596.5;25077;05.03.13;;;;;
-;Description for test;;;;;;;;
-05.03.13;Description for test;513;25590;05.03.13;;;;;
-;Description for test;;;;;;;;
-05.03.13;Description for test;-41.15;25548.85;05.03.13;;;;;
-;Description for test;;;;;;;;
-06.03.13;Description for test;1500;27048.85;06.03.13;;;;;
-;Description for test;;;;;;;;
-06.03.13;Description for test;-5000;22048.85;06.03.13;;;;;
-;Description for test;;;;;;;;
-07.03.13;Description for test;167;22215.85;07.03.13;;;;;
-;Description for test;;;;;;;;
-08.03.13;Description for test;315;22530.85;08.03.13;;;;;
-;Description for test;;;;;;;;
-08.03.13;Description for test;-367.5;22163.35;08.03.13;;;;;
-;Description for test;;;;;;;;
-11.03.13;Description for test;422.3;22585.65;11.03.13;;;;;
-;Description for test;;;;;;;;
-11.03.13;Description for test;779;23364.65;11.03.13;;;;;
-;Description for test;;;;;;;;
-12.03.13;Description for test;599;23963.65;12.03.13;;;;;
-;Description for test;;;;;;;;
-13.03.13;Description for test;-651.45;23312.2;13.03.13;;;;;
-;Description for test;;;;;;;;
-15.03.13;Description for test;156.8;23469;15.03.13;;;;;
-;Description for test;;;;;;;;
-15.03.13;Description for test;341.5;23810.5;15.03.13;;;;;
-;Description for test;;;;;;;;
-15.03.13;Description for test;-1000;22810.5;15.03.13;;;;;
-;Description for test;;;;;;;;
-18.03.13;Description for test;311.5;23122;18.03.13;;;;;
-;Description for test;;;;;;;;
-18.03.13;Description for test;75;23197;18.03.13;;;;;
-;Description for test;;;;;;;;
-20.03.13;Description for test;95.5;23292.5;20.03.13;;;;;
-;Description for test;;;;;;;;
-25.03.13;Description for test;235;23527.5;25.03.13;;;;;
-;Description for test;;;;;;;;
-25.03.13;Description for test;655;24182.5;25.03.13;;;;;
-;Description for test;;;;;;;;
-25.03.13;Description for test;-1084.75;23097.75;25.03.13;;;;;
-;Description for test;;;;;;;;
-26.03.13;Description for test;120;23217.75;26.03.13;;;;;
-;Description for test;;;;;;;;
-27.03.13;Description for test;-220.15;22997.6;27.03.13;;;;;
-;Description for test;;;;;;;;
-28.03.13;Description for test;843;23840.6;28.03.13;;;;;
-;Description for test;;;;;;;;
-28.03.13;Description for test;234.5;24075.1;28.03.13;;;;;
-;Description for test;;;;;;;;
-28.03.13;Description for test;-3110.7;20964.4;28.03.13;;;;;
-;Description for test;;;;;;;;
-28.03.13;Description for test;-3846.55;17117.85;28.03.13;;;;;
-;Description for test;;;;;;;;
-01.04.13;Description for test;-356;16761.85;02.04.13;;;;;
-;Description for test;;;;;;;;
-02.04.13;Description for test;-351.75;16410.1;02.04.13;;;;;
-;Description for test;;;;;;;;
-02.04.13;Description for test;-500;15910.1;02.04.13;;;;;
-;Description for test;;;;;;;;
-03.04.13;Description for test;629.2;16539.3;03.04.13;;;;;
-;Description for test;;;;;;;;
-03.04.13;Description for test;257.3;16796.6;03.04.13;;;;;
-;Description for test;;;;;;;;
-04.04.13;Description for test;475;17271.6;04.04.13;;;;;
-;Description for test;;;;;;;;
-05.04.13;Description for test;-1650.15;15621.45;05.04.13;;;;;
-;Description for test;;;;;;;;
-08.04.13;Description for test;240;15861.45;08.04.13;;;;;
-;Description for test;;;;;;;;
-08.04.13;Description for test;-119.55;15741.9;08.04.13;;;;;
-;Description for test;;;;;;;;
-09.04.13;Description for test;-2266.05;13475.85;09.04.13;;;;;
-;Description for test;;;;;;;;
-11.04.13;Description for test;-80.8;13395.05;11.04.13;;;;;
-;Description for test;;;;;;;;
-12.04.13;Description for test;120;13515.05;12.04.13;;;;;
-;Description for test;;;;;;;;
-12.04.13;Description for test;208.8;13723.85;12.04.13;;;;;
-;Description for test;;;;;;;;
-15.04.13;Description for test;-309;13414.85;15.04.13;;;;;
-;Description for test;;;;;;;;
-15.04.13;Description for test;-1000;12414.85;15.04.13;;;;;
-;Description for test;;;;;;;;
-22.04.13;Description for test;24.5;12439.35;22.04.13;;;;;
-;Description for test;;;;;;;;
-22.04.13;Description for test;-609.9;11829.45;22.04.13;;;;;
-;Description for test;;;;;;;;
-23.04.13;Description for test;224;12053.45;23.04.13;;;;;
-;Description for test;;;;;;;;
-23.04.13;Description for test;56;12109.45;23.04.13;;;;;
-;Description for test;;;;;;;;
-24.04.13;Description for test;508.75;12618.2;24.04.13;;;;;
-;Description for test;;;;;;;;
-25.04.13;Description for test;180;12798.2;25.04.13;;;;;
-;Description for test;;;;;;;;
-25.04.13;Description for test;213;13011.2;25.04.13;;;;;
-;Description for test;;;;;;;;
-25.04.13;Description for test;-61.55;12949.65;25.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;603;13552.65;26.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;221.5;13774.15;26.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;161.5;13935.65;26.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;180;14115.65;26.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;450;14565.65;26.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;180;14745.65;29.04.13;;;;;
-;Description for test;;;;;;;;
-26.04.13;Description for test;-654.3;14091.35;26.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;120;14211.35;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;240;14451.35;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;567.5;15018.85;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;345.3;15364.15;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;43;15407.15;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;776.6;16183.75;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;283;16466.75;29.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;1206.8;17673.55;30.04.13;;;;;
-;Description for test;;;;;;;;
-29.04.13;Description for test;-9.15;17664.4;29.04.13;;;;;
-;Description for test;;;;;;;;
-30.04.13;Description for test;48;17712.4;30.04.13;;;;;
-;Description for test;;;;;;;;
-30.04.13;Description for test;109.5;17821.9;30.04.13;;;;;
-;Description for test;;;;;;;;
-30.04.13;Description for test;184;18005.9;30.04.13;;;;;
-;Description for test;;;;;;;;
-30.04.13;Description for test;60;18065.9;30.04.13;;;;;
-;Description for test;;;;;;;;
-30.04.13;Description for test;134;18199.9;30.04.13;;;;;
-;Description for test;;;;;;;;
-30.04.13;Description for test;-3846.55;14353.35;30.04.13;;;;;
-;Description for test;;;;;;;;
-01.05.13;Description for test;571.4;14924.75;02.05.13;;;;;
-;Description for test;;;;;;;;
-01.05.13;Description for test;545.9;15470.65;02.05.13;;;;;
-;Description for test;;;;;;;;
-01.05.13;Description for test;120;15590.65;02.05.13;;;;;
-;Description for test;;;;;;;;
-01.05.13;Description for test;357.5;15948.15;02.05.13;;;;;
-;Description for test;;;;;;;;
-01.05.13;Description for test;120;16068.15;02.05.13;;;;;
-;Description for test;;;;;;;;
-01.05.13;Description for test;-659.1;15409.05;02.05.13;;;;;
-;Description for test;;;;;;;;
-02.05.13;Description for test;194;15603.05;02.05.13;;;;;
-;Description for test;;;;;;;;
-02.05.13;Description for test;426.2;16029.25;02.05.13;;;;;
-;Description for test;;;;;;;;
-02.05.13;Description for test;-500;15529.25;02.05.13;;;;;
-;Description for test;;;;;;;;
-03.05.13;Description for test;-835.8;14693.45;03.05.13;;;;;
-;Description for test;;;;;;;;
-07.05.13;Description for test;35.7;14729.15;07.05.13;;;;;
-;Description for test;;;;;;;;
-07.05.13;Description for test;7.8;14736.95;03.05.13;;;;;
-;Description for test;;;;;;;;
-08.05.13;Description for test;283.1;15020.05;08.05.13;;;;;
-;Description for test;;;;;;;;
-08.05.13;Description for test;-172.7;14847.35;08.05.13;;;;;
-;Description for test;;;;;;;;
-10.05.13;Description for test;510;15357.35;10.05.13;;;;;
-;Description for test;;;;;;;;
-10.05.13;Description for test;189.6;15546.95;10.05.13;;;;;
-;Description for test;;;;;;;;
-10.05.13;Description for test;-960.15;14586.8;10.05.13;;;;;
-;Description for test;;;;;;;;
-14.05.13;Description for test;757;15343.8;14.05.13;;;;;
-;Description for test;;;;;;;;
-14.05.13;Description for test;-96.6;15247.2;14.05.13;;;;;
-;Description for test;;;;;;;;
-15.05.13;Description for test;-1000;14247.2;15.05.13;;;;;
-;Description for test;;;;;;;;
-16.05.13;Description for test;673.6;14920.8;16.05.13;;;;;
-;Description for test;;;;;;;;
-16.05.13;Description for test;-814.4;14106.4;16.05.13;;;;;
-;Description for test;;;;;;;;
-17.05.13;Description for test;901.7;15008.1;17.05.13;;;;;
-;Description for test;;;;;;;;
-21.05.13;Description for test;180;15188.1;21.05.13;;;;;
-;Description for test;;;;;;;;
-21.05.13;Description for test;180;15368.1;21.05.13;;;;;
-;Description for test;;;;;;;;
-21.05.13;Description for test;-343.1;15025;21.05.13;;;;;
-;Description for test;;;;;;;;
-24.05.13;Description for test;210;15235;24.05.13;;;;;
-;Description for test;;;;;;;;
-24.05.13;Description for test;-220.15;15014.85;24.05.13;;;;;
-;Description for test;;;;;;;;
-27.05.13;Description for test;256.2;15271.05;27.05.13;;;;;
-;Description for test;;;;;;;;
-27.05.13;Description for test;225;15496.05;27.05.13;;;;;
-;Description for test;;;;;;;;
-28.05.13;Description for test;492.5;15988.55;28.05.13;;;;;
-;Description for test;;;;;;;;
-28.05.13;Description for test;471.5;16460.05;28.05.13;;;;;
-;Description for test;;;;;;;;
-28.05.13;Description for test;767.2;17227.25;28.05.13;;;;;
-;Description for test;;;;;;;;
-29.05.13;Description for test;440.2;17667.45;29.05.13;;;;;
-;Description for test;;;;;;;;
-29.05.13;Description for test;33.2;17700.65;29.05.13;;;;;
-;Description for test;;;;;;;;
-29.05.13;Description for test;375.5;18076.15;29.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;688;18764.15;30.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;768.1;19532.25;30.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;155;19687.25;30.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;533.5;20220.75;30.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;805;21025.75;31.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;-311.05;20714.7;30.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;-500;20214.7;30.05.13;;;;;
-;Description for test;;;;;;;;
-30.05.13;Description for test;-737.85;19476.85;31.05.13;;;;;
-;Description for test;;;;;;;;
-31.05.13;Description for test;868.5;20345.35;31.05.13;;;;;
-;Description for test;;;;;;;;
-31.05.13;Description for test;575.9;20921.25;31.05.13;;;;;
-;Description for test;;;;;;;;
-31.05.13;Description for test;611;21532.25;31.05.13;;;;;
-;Description for test;;;;;;;;
-31.05.13;Description for test;-584.95;20947.3;31.05.13;;;;;
-;Description for test;;;;;;;;
-31.05.13;Description for test;-4351.55;16595.75;31.05.13;;;;;
-;Description for test;;;;;;;;
-03.06.13;Description for test;660;17255.75;03.06.13;;;;;
-;Description for test;;;;;;;;
-03.06.13;Description for test;360;17615.75;03.06.13;;;;;
-;Description for test;;;;;;;;
-03.06.13;Description for test;870;18485.75;03.06.13;;;;;
-;Description for test;;;;;;;;
-03.06.13;Description for test;450;18935.75;03.06.13;;;;;
-;Description for test;;;;;;;;
-03.06.13;Description for test;-94.65;18841.1;03.06.13;;;;;
-;Description for test;;;;;;;;
-03.06.13;Description for test;-185.05;18656.05;03.06.13;;;;;
-;Description for test;;;;;;;;
-04.06.13;Description for test;480;19136.05;04.06.13;;;;;
-;Description for test;;;;;;;;
-04.06.13;Description for test;529;19665.05;04.06.13;;;;;
-;Description for test;;;;;;;;
-06.06.13;Description for test;267;19932.05;06.06.13;;;;;
-;Description for test;;;;;;;;
-07.06.13;Description for test;-185.5;19746.55;07.06.13;;;;;
-;Description for test;;;;;;;;
-10.06.13;Description for test;-30;19716.55;10.06.13;;;;;
-;Description for test;;;;;;;;
-11.06.13;Description for test;507;20223.55;11.06.13;;;;;
-;Description for test;;;;;;;;
-12.06.13;Description for test;-1252.9;18970.65;12.06.13;;;;;
-;Description for test;;;;;;;;
-14.06.13;Description for test;161.5;19132.15;14.06.13;;;;;
-;Description for test;;;;;;;;
-14.06.13;Description for test;-606.9;18525.25;14.06.13;;;;;
-;Description for test;;;;;;;;
-14.06.13;Description for test;-1000;17525.25;14.06.13;;;;;
-;Description for test;;;;;;;;
-17.06.13;Description for test;613;18138.25;17.06.13;;;;;
-;Description for test;;;;;;;;
-19.06.13;Description for test;752.2;18890.45;19.06.13;;;;;
-;Description for test;;;;;;;;
-21.06.13;Description for test;-576.5;18313.95;21.06.13;;;;;
-;Description for test;;;;;;;;
-24.06.13;Description for test;420;18733.95;24.06.13;;;;;
-;Description for test;;;;;;;;
-27.06.13;Description for test;450;19183.95;27.06.13;;;;;
-;Description for test;;;;;;;;
-27.06.13;Description for test;477;19660.95;27.06.13;;;;;
-;Description for test;;;;;;;;
-27.06.13;Description for test;-238.5;19422.45;27.06.13;;;;;
-;Description for test;;;;;;;;
-28.06.13;Description for test;327.8;19750.25;28.06.13;;;;;
-;Description for test;;;;;;;;
-28.06.13;Description for test;-4190;15560.25;28.06.13;;;;;
-;Description for test;;;;;;;;
-28.06.13;Description for test;-4821.55;10738.7;28.06.13;;;;;
-;Description for test;;;;;;;;
-01.07.13;Description for test;670.3;11409;01.07.13;;;;;
-;Description for test;;;;;;;;
-01.07.13;Description for test;1143.7;12552.7;01.07.13;;;;;
-;Description for test;;;;;;;;
-01.07.13;Description for test;-1447.3;11105.4;01.07.13;;;;;
-;Description for test;;;;;;;;
-01.07.13;Description for test;-172.95;10932.45;01.07.13;;;;;
-;Description for test;;;;;;;;
-02.07.13;Description for test;30;10962.45;02.07.13;;;;;
-;Description for test;;;;;;;;
-04.07.13;Description for test;963.8;11926.25;04.07.13;;;;;
-;Description for test;;;;;;;;
-05.07.13;Description for test;-268.5;11657.75;05.07.13;;;;;
-;Description for test;;;;;;;;
-08.07.13;Description for test;451.1;12108.85;08.07.13;;;;;
-;Description for test;;;;;;;;
-08.07.13;Description for test;-229.8;11879.05;08.07.13;;;;;
-;Description for test;;;;;;;;
-09.07.13;Description for test;-2228.55;9650.5;09.07.13;;;;;
-;Description for test;;;;;;;;
-09.07.13;Description for test;-78.75;9571.75;09.07.13;;;;;
-;Description for test;;;;;;;;
-10.07.13;Description for test;120;9691.75;10.07.13;;;;;
-;Description for test;;;;;;;;
-12.07.13;Description for test;251.5;9943.25;12.07.13;;;;;
-;Description for test;;;;;;;;
-15.07.13;Description for test;703.1;10646.35;16.07.13;;;;;
-;Description for test;;;;;;;;
-15.07.13;Description for test;902.1;11548.45;16.07.13;;;;;
-;Description for test;;;;;;;;
-15.07.13;Description for test;714.9;12263.35;16.07.13;;;;;
-;Description for test;;;;;;;;
-15.07.13;Description for test;-597.8;11665.55;15.07.13;;;;;
-;Description for test;;;;;;;;
-15.07.13;Description for test;-1000;10665.55;15.07.13;;;;;
-;Description for test;;;;;;;;
-16.07.13;Description for test;175;10840.55;16.07.13;;;;;
-;Description for test;;;;;;;;
-16.07.13;Description for test;-324.3;10516.25;16.07.13;;;;;
-;Description for test;;;;;;;;
-22.07.13;Description for test;814;11330.25;22.07.13;;;;;
-;Description for test;;;;;;;;
-22.07.13;Description for test;284;11614.25;22.07.13;;;;;
-;Description for test;;;;;;;;
-23.07.13;Description for test;480;12094.25;23.07.13;;;;;
-;Description for test;;;;;;;;
-23.07.13;Description for test;750;12844.25;23.07.13;;;;;
-;Description for test;;;;;;;;
-23.07.13;Description for test;-1200;11644.25;23.07.13;;;;;
-;Description for test;;;;;;;;
-24.07.13;Description for test;520.8;12165.05;24.07.13;;;;;
-;Description for test;;;;;;;;
-26.07.13;Description for test;341.5;12506.55;26.07.13;;;;;
-;Description for test;;;;;;;;
-26.07.13;Description for test;60;12566.55;26.07.13;;;;;
-;Description for test;;;;;;;;
-26.07.13;Description for test;888.2;13454.75;26.07.13;;;;;
-;Description for test;;;;;;;;
-26.07.13;Description for test;-2848.75;10606;26.07.13;;;;;
-;Description for test;;;;;;;;
-27.07.13;Description for test;387.5;10993.5;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;485;11478.5;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;71.6;11550.1;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;387.5;11937.6;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;541.25;12478.85;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;403.75;12882.6;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;879.3;13761.9;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;115;13876.9;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;193.5;14070.4;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;420;14490.4;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;207.5;14697.9;29.07.13;;;;;
-;Description for test;;;;;;;;
-29.07.13;Description for test;750;15447.9;30.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;127.5;15575.4;30.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;220.5;15795.9;30.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;1062.3;16858.2;31.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;493.5;17351.7;31.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;197.5;17549.2;31.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;15;17564.2;31.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;-122.2;17442;30.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;-500;16942;30.07.13;;;;;
-;Description for test;;;;;;;;
-30.07.13;Description for test;-345.55;16596.45;31.07.13;;;;;
-;Description for test;;;;;;;;
-31.07.13;Description for test;549;17145.45;31.07.13;;;;;
-;Description for test;;;;;;;;
-31.07.13;Description for test;30;17175.45;31.07.13;;;;;
-;Description for test;;;;;;;;
-31.07.13;Description for test;-4381.55;12793.9;31.07.13;;;;;
-;Description for test;;;;;;;;
-02.08.13;Description for test;552.5;13346.4;02.08.13;;;;;
-;Description for test;;;;;;;;
-02.08.13;Description for test;1001.1;14347.5;02.08.13;;;;;
-;Description for test;;;;;;;;
-02.08.13;Description for test;-451.75;13895.75;02.08.13;;;;;
-;Description for test;;;;;;;;
-05.08.13;Description for test;416;14311.75;05.08.13;;;;;
-;Description for test;;;;;;;;
-05.08.13;Description for test;94.5;14406.25;05.08.13;;;;;
-;Description for test;;;;;;;;
-07.08.13;Description for test;-1703.1;12703.15;07.08.13;;;;;
-;Description for test;;;;;;;;
-08.08.13;Description for test;202.5;12905.65;08.08.13;;;;;
-;Description for test;;;;;;;;
-08.08.13;Description for test;282.5;13188.15;08.08.13;;;;;
-;Description for test;;;;;;;;
-08.08.13;Description for test;-273.1;12915.05;08.08.13;;;;;
-;Description for test;;;;;;;;
-09.08.13;Description for test;-220.15;12694.9;09.08.13;;;;;
-;Description for test;;;;;;;;
-12.08.13;Description for test;823.6;13518.5;12.08.13;;;;;
-;Description for test;;;;;;;;
-12.08.13;Description for test;706.1;14224.6;12.08.13;;;;;
-;Description for test;;;;;;;;
-12.08.13;Description for test;-567;13657.6;12.08.13;;;;;
-;Description for test;;;;;;;;
-14.08.13;Description for test;260.2;13917.8;14.08.13;;;;;
-;Description for test;;;;;;;;
-14.08.13;Description for test;551.5;14469.3;14.08.13;;;;;
-;Description for test;;;;;;;;
-14.08.13;Description for test;-27.1;14442.2;14.08.13;;;;;
-;Description for test;;;;;;;;
-15.08.13;Description for test;712;15154.2;15.08.13;;;;;
-;Description for test;;;;;;;;
-15.08.13;Description for test;271;15425.2;15.08.13;;;;;
-;Description for test;;;;;;;;
-15.08.13;Description for test;682;16107.2;15.08.13;;;;;
-;Description for test;;;;;;;;
-15.08.13;Description for test;-475.65;15631.55;15.08.13;;;;;
-;Description for test;;;;;;;;
-19.08.13;Description for test;161.5;15793.05;19.08.13;;;;;
-;Description for test;;;;;;;;
-21.08.13;Description for test;-187;15606.05;21.08.13;;;;;
-;Description for test;;;;;;;;
-21.08.13;Description for test;-172.74;15433.31;21.08.13;;;;;
-;Description for test;;;;;;;;
-23.08.13;Description for test;-400;15033.31;23.08.13;;;;;
-;Description for test;;;;;;;;
-26.08.13;Description for test;363;15396.31;26.08.13;;;;;
-;Description for test;;;;;;;;
-26.08.13;Description for test;644;16040.31;26.08.13;;;;;
-;Description for test;;;;;;;;
-26.08.13;Description for test;537.2;16577.51;26.08.13;;;;;
-;Description for test;;;;;;;;
-28.08.13;Description for test;811;17388.51;29.08.13;;;;;
-;Description for test;;;;;;;;
-28.08.13;Description for test;-1264.8;16123.71;29.08.13;;;;;
-;Description for test;;;;;;;;
-29.08.13;Description for test;570;16693.71;29.08.13;;;;;
-;Description for test;;;;;;;;
-29.08.13;Description for test;-220.15;16473.56;29.08.13;;;;;
-;Description for test;;;;;;;;
-30.08.13;Description for test;30;16503.56;30.08.13;;;;;
-;Description for test;;;;;;;;
-30.08.13;Description for test;-841.55;15662.01;30.08.13;;;;;
-;Description for test;;;;;;;;
-30.08.13;Description for test;-4881.55;10780.46;30.08.13;;;;;
-;Description for test;;;;;;;;
-02.09.13;Description for test;240;11020.46;02.09.13;;;;;
-;Description for test;;;;;;;;
-02.09.13;Description for test;-482.9;10537.56;02.09.13;;;;;
-;Description for test;;;;;;;;
-03.09.13;Description for test;415;10952.56;03.09.13;;;;;
-;Description for test;;;;;;;;
-03.09.13;Description for test;840;11792.56;03.09.13;;;;;
-;Description for test;;;;;;;;
-05.09.13;Description for test;-1048.9;10743.66;05.09.13;;;;;
-;Description for test;;;;;;;;
-06.09.13;Description for test;-253;10490.66;06.09.13;;;;;
-;Description for test;;;;;;;;
-06.09.13;Description for test;-253.7;10236.96;06.09.13;;;;;
-;Description for test;;;;;;;;
-11.09.13;Description for test;-1492.2;8744.76;11.09.13;;;;;
-;Description for test;;;;;;;;
-12.09.13;Description for test;616.7;9361.46;12.09.13;;;;;
-;Description for test;;;;;;;;
-13.09.13;Description for test;268;9629.46;13.09.13;;;;;
-;Description for test;;;;;;;;
-13.09.13;Description for test;175;9804.46;13.09.13;;;;;
-;Description for test;;;;;;;;
-13.09.13;Description for test;-777;9027.46;13.09.13;;;;;
-;Description for test;;;;;;;;
-19.09.13;Description for test;420;9447.46;19.09.13;;;;;
-;Description for test;;;;;;;;
-19.09.13;Description for test;776.9;10224.36;19.09.13;;;;;
-;Description for test;;;;;;;;
-20.09.13;Description for test;-220.15;10004.21;20.09.13;;;;;
-;Description for test;;;;;;;;
-23.09.13;Description for test;2907.7;12911.91;23.09.13;;;;;
-;Description for test;;;;;;;;
-23.09.13;Description for test;232.5;13144.41;23.09.13;;;;;
-;Description for test;;;;;;;;
-23.09.13;Description for test;583.1;13727.51;23.09.13;;;;;
-;Description for test;;;;;;;;
-23.09.13;Description for test;178.9;13906.41;23.09.13;;;;;
-;Description for test;;;;;;;;
-23.09.13;Description for test;-206;13700.41;23.09.13;;;;;
-;Description for test;;;;;;;;
-24.09.13;Description for test;406.3;14106.71;24.09.13;;;;;
-;Description for test;;;;;;;;
-25.09.13;Description for test;-518.4;13588.31;25.09.13;;;;;
-;Description for test;;;;;;;;
-26.09.13;Description for test;446.5;14034.81;26.09.13;;;;;
-;Description for test;;;;;;;;
-27.09.13;Description for test;900;14934.81;27.09.13;;;;;
-;Description for test;;;;;;;;
-27.09.13;Description for test;-1226.8;13708.01;27.09.13;;;;;
-;Description for test;;;;;;;;
-30.09.13;Description for test;759;14467.01;30.09.13;;;;;
-;Description for test;;;;;;;;
-30.09.13;Description for test;546.5;15013.51;30.09.13;;;;;
-;Description for test;;;;;;;;
-30.09.13;Description for test;20;15033.51;30.09.13;;;;;
-;Description for test;;;;;;;;
-30.09.13;Description for test;146.5;15180.01;30.09.13;;;;;
-;Description for test;;;;;;;;
-30.09.13;Description for test;-4881.55;10298.46;30.09.13;;;;;
-;Description for test;;;;;;;;
-01.10.13;Description for test;805.2;11103.66;01.10.13;;;;;
-;Description for test;;;;;;;;
-01.10.13;Description for test;-904.9;10198.76;01.10.13;;;;;
-;Description for test;;;;;;;;
-02.10.13;Description for test;500;10698.76;02.10.13;;;;;
-;Description for test;;;;;;;;
-02.10.13;Description for test;510.5;11209.26;02.10.13;;;;;
-;Description for test;;;;;;;;
-02.10.13;Description for test;-365.6;10843.66;02.10.13;;;;;
-;Description for test;;;;;;;;
-04.10.13;Description for test;30;10873.66;04.10.13;;;;;
-;Description for test;;;;;;;;
-04.10.13;Description for test;-220.15;10653.51;04.10.13;;;;;
-;Description for test;;;;;;;;
-08.10.13;Description for test;-218;10435.51;08.10.13;;;;;
-;Description for test;;;;;;;;
-09.10.13;Description for test;-3668.55;6766.96;09.10.13;;;;;
-;Description for test;;;;;;;;
-14.10.13;Description for test;180;6946.96;14.10.13;;;;;
-;Description for test;;;;;;;;
-14.10.13;Description for test;237.5;7184.46;14.10.13;;;;;
-;Description for test;;;;;;;;
-15.10.13;Description for test;652.7;7837.16;15.10.13;;;;;
-;Description for test;;;;;;;;
-16.10.13;Description for test;364;8201.16;16.10.13;;;;;
-;Description for test;;;;;;;;
-21.10.13;Description for test;166.7;8367.86;21.10.13;;;;;
-;Description for test;;;;;;;;
-21.10.13;Description for test;265;8632.86;21.10.13;;;;;
-;Description for test;;;;;;;;
-24.10.13;Description for test;-540.55;8092.31;24.10.13;;;;;
-;Description for test;;;;;;;;
-25.10.13;Description for test;400.2;8492.51;25.10.13;;;;;
-;Description for test;;;;;;;;
-25.10.13;Description for test;646.4;9138.91;25.10.13;;;;;
-;Description for test;;;;;;;;
-25.10.13;Description for test;-238.5;8900.41;25.10.13;;;;;
-;Description for test;;;;;;;;
-26.10.13;Description for test;583.3;9483.71;28.10.13;;;;;
-;Description for test;;;;;;;;
-28.10.13;Description for test;230;9713.71;28.10.13;;;;;
-;Description for test;;;;;;;;
-28.10.13;Description for test;246.5;9960.21;28.10.13;;;;;
-;Description for test;;;;;;;;
-28.10.13;Description for test;712.2;10672.41;28.10.13;;;;;
-;Description for test;;;;;;;;
-28.10.13;Description for test;-79;10593.41;28.10.13;;;;;
-;Description for test;;;;;;;;
-29.10.13;Description for test;150;10743.41;29.10.13;;;;;
-;Description for test;;;;;;;;
-29.10.13;Description for test;729.7;11473.11;29.10.13;;;;;
-;Description for test;;;;;;;;
-29.10.13;Description for test;345;11818.11;29.10.13;;;;;
-;Description for test;;;;;;;;
-29.10.13;Description for test;85;11903.11;29.10.13;;;;;
-;Description for test;;;;;;;;
-29.10.13;Description for test;-301.1;11602.01;29.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;635.7;12237.71;30.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;916.5;13154.21;31.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;526.2;13680.41;31.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;802.2;14482.61;31.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;-159.95;14322.66;30.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;-500;13822.66;30.10.13;;;;;
-;Description for test;;;;;;;;
-30.10.13;Description for test;-429.95;13392.71;31.10.13;;;;;
-;Description for test;;;;;;;;
-31.10.13;Description for test;758.2;14150.91;31.10.13;;;;;
-;Description for test;;;;;;;;
-31.10.13;Description for test;731.1;14882.01;31.10.13;;;;;
-;Description for test;;;;;;;;
-31.10.13;Description for test;536.3;15418.31;31.10.13;;;;;
-;Description for test;;;;;;;;
-31.10.13;Description for test;-4381.55;11036.76;31.10.13;;;;;
-;Description for test;;;;;;;;
-01.11.13;Description for test;-798.05;10238.71;01.11.13;;;;;
-;Description for test;;;;;;;;
-04.11.13;Description for test;600;10838.71;04.11.13;;;;;
-;Description for test;;;;;;;;
-04.11.13;Description for test;690;11528.71;04.11.13;;;;;
-;Description for test;;;;;;;;
-04.11.13;Description for test;572.5;12101.21;04.11.13;;;;;
-;Description for test;;;;;;;;
-04.11.13;Description for test;-333;11768.21;04.11.13;;;;;
-;Description for test;;;;;;;;
-06.11.13;Description for test;587;12355.21;06.11.13;;;;;
-;Description for test;;;;;;;;
-07.11.13;Description for test;250;12605.21;07.11.13;;;;;
-;Description for test;;;;;;;;
-08.11.13;Description for test;-568.25;12036.96;08.11.13;;;;;
-;Description for test;;;;;;;;
-11.11.13;Description for test;-367.8;11669.16;11.11.13;;;;;
-;Description for test;;;;;;;;
-12.11.13;Description for test;180;11849.16;12.11.13;;;;;
-;Description for test;;;;;;;;
-13.11.13;Description for test;150;11999.16;13.11.13;;;;;
-;Description for test;;;;;;;;
-14.11.13;Description for test;-1900;10099.16;14.11.13;;;;;
-;Description for test;;;;;;;;
-15.11.13;Description for test;667.5;10766.66;15.11.13;;;;;
-;Description for test;;;;;;;;
-15.11.13;Description for test;545;11311.66;15.11.13;;;;;
-;Description for test;;;;;;;;
-15.11.13;Description for test;-302;11009.66;15.11.13;;;;;
-;Description for test;;;;;;;;
-20.11.13;Description for test;707.4;11717.06;20.11.13;;;;;
-;Description for test;;;;;;;;
-20.11.13;Description for test;240;11957.06;20.11.13;;;;;
-;Description for test;;;;;;;;
-20.11.13;Description for test;651.1;12608.16;20.11.13;;;;;
-;Description for test;;;;;;;;
-20.11.13;Description for test;161;12769.16;20.11.13;;;;;
-;Description for test;;;;;;;;
-21.11.13;Description for test;436.9;13206.06;21.11.13;;;;;
-;Description for test;;;;;;;;
-25.11.13;Description for test;121;13327.06;25.11.13;;;;;
-;Description for test;;;;;;;;
-25.11.13;Description for test;240;13567.06;25.11.13;;;;;
-;Description for test;;;;;;;;
-25.11.13;Description for test;-909.2;12657.86;25.11.13;;;;;
-;Description for test;;;;;;;;
-26.11.13;Description for test;868.2;13526.06;26.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;265;13791.06;27.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;676.7;14467.76;27.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;120;14587.76;27.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;629.5;15217.26;27.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;120;15337.26;27.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;196.5;15533.76;27.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;448;15981.76;28.11.13;;;;;
-;Description for test;;;;;;;;
-27.11.13;Description for test;-187;15794.76;27.11.13;;;;;
-;Description for test;;;;;;;;
-28.11.13;Description for test;645.8;16440.56;28.11.13;;;;;
-;Description for test;;;;;;;;
-28.11.13;Description for test;529;16969.56;28.11.13;;;;;
-;Description for test;;;;;;;;
-28.11.13;Description for test;355;17324.56;28.11.13;;;;;
-;Description for test;;;;;;;;
-28.11.13;Description for test;428.8;17753.36;28.11.13;;;;;
-;Description for test;;;;;;;;
-28.11.13;Description for test;-346.4;17406.96;28.11.13;;;;;
-;Description for test;;;;;;;;
-28.11.13;Description for test;-927.1;16479.86;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;205;16684.86;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;593.9;17278.76;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;852;18130.76;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;266.2;18396.96;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;600.8;18997.76;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;-188.35;18809.41;29.11.13;;;;;
-;Description for test;;;;;;;;
-29.11.13;Description for test;-4881.55;13927.86;29.11.13;;;;;
-;Description for test;;;;;;;;
-01.12.13;Description for test;625;14552.86;02.12.13;;;;;
-;Description for test;;;;;;;;
-02.12.13;Description for test;656;15208.86;02.12.13;;;;;
-;Description for test;;;;;;;;
-02.12.13;Description for test;636.3;15845.16;02.12.13;;;;;
-;Description for test;;;;;;;;
-02.12.13;Description for test;525;16370.16;02.12.13;;;;;
-;Description for test;;;;;;;;
-03.12.13;Description for test;-109.8;16260.36;03.12.13;;;;;
-;Description for test;;;;;;;;
-04.12.13;Description for test;30;16290.36;04.12.13;;;;;
-;Description for test;;;;;;;;
-04.12.13;Description for test;-220.15;16070.21;04.12.13;;;;;
-;Description for test;;;;;;;;
-05.12.13;Description for test;120;16190.21;05.12.13;;;;;
-;Description for test;;;;;;;;
-06.12.13;Description for test;-2097.15;14093.06;06.12.13;;;;;
-;Description for test;;;;;;;;
-07.12.13;Description for test;190;14283.06;09.12.13;;;;;
-;Description for test;;;;;;;;
-09.12.13;Description for test;216.5;14499.56;09.12.13;;;;;
-;Description for test;;;;;;;;
-09.12.13;Description for test;-256.2;14243.36;09.12.13;;;;;
-;Description for test;;;;;;;;
-10.12.13;Description for test;450;14693.36;10.12.13;;;;;
-;Description for test;;;;;;;;
-12.12.13;Description for test;531.5;15224.86;12.12.13;;;;;
-;Description for test;;;;;;;;
-12.12.13;Description for test;162.4;15387.26;12.12.13;;;;;
-;Description for test;;;;;;;;
-13.12.13;Description for test;-617.9;14769.36;13.12.13;;;;;
-;Description for test;;;;;;;;
-19.12.13;Description for test;-361.75;14407.61;19.12.13;;;;;
-;Description for test;;;;;;;;
-20.12.13;Description for test;-495;13912.61;20.12.13;;;;;
-;Description for test;;;;;;;;
-23.12.13;Description for test;471.7;14384.31;23.12.13;;;;;
-;Description for test;;;;;;;;
-23.12.13;Description for test;464;14848.31;23.12.13;;;;;
-;Description for test;;;;;;;;
-24.12.13;Description for test;-641.75;14206.56;24.12.13;;;;;
-;Description for test;;;;;;;;
-27.12.13;Description for test;420;14626.56;27.12.13;;;;;
-;Description for test;;;;;;;;
-27.12.13;Description for test;-567.4;14059.16;27.12.13;;;;;
-;Description for test;;;;;;;;
-27.12.13;Description for test;-822.75;13236.41;30.12.13;;;;;
-;Description for test;;;;;;;;
-30.12.13;Description for test;350.2;13586.61;30.12.13;;;;;
-;Description for test;;;;;;;;
-30.12.13;Description for test;-1812.6;11774.01;30.12.13;;;;;
-;Description for test;;;;;;;;
-30.12.13;Description for test;-500;11274.01;30.12.13;;;;;
-;Description for test;;;;;;;;
-31.12.13;Description for test;-4519.65;6754.36;31.12.13;;;;;
-;Description for test;;;;;;;;
-31.12.13;Description for test;7.2;6761.56;31.12.13;;;;;
-;Description for test;;;;;;;;
-31.12.13;Description for test;-8;6753.56;31.12.13;;;;;
-;Description for test;;;;;;;;
-31.12.13;Description for test;-138.2;6615.36;31.12.13;;;;;
-;Description for test;;;;;;;;
+Booked At;Text;Credit/Debit Amount;Balance;Valuta Date;;;;;03.01.13;Gutschrift Daniel Storrer;195;6080.25;03.01.13;;;;;;Hauptstrasse 76a 9105 Schonengrund 101305  CHF 195.00;;;;;;;;03.01.13;E-Banking Sammelauftrag;-465;5615.25;03.01.13;;;;;;Weber Reinhard Buffalo Dancers 9100 Herisau Jahresbeitrag 2013 à 50.-/600 abz. 3 Mt. Ausfall à 45.-/135.- CHF 465.00;;;;;;;;Privat04.01.13;E-Banking Sammelauftrag;-445.05;5170.2;04.01.13;;;;;;ebi-pharm 3038 Kirchlindach 2228738 CHF 445.05;;;;;;;;07.01.13;Gutschrift Anita Forrer;392.1;5562.3;07.01.13;;;;;;Hofstetten 9127 St. Peterzell  CHF 392.10;;;;;;;;07.01.13;Gutschrift Walter Ehrler;764.5;6326.8;07.01.13;;;;;;Sandbuelstrasse 10 9122 Mogelsberg  CHF 764.50;;;;;;;;08.01.13;Gutschrift Walter Obrist-Schildknecht;243.5;6570.3;08.01.13;;;;;;Brandstrasse 3 9011 St. Gallen 101317  CHF 243.50;;;;;;;;08.01.13;E-Banking Sammelauftrag;-388.8;6181.5;08.01.13;;;;;;Caisse des Médecins 1211 Genève 25 CHF 388.80;;;;;;;;10.01.13;Gutschrift Trudi Frei-Brunner;127;6308.5;10.01.13;;;;;;Scherbstrasse 37 9633 Hemberg  CHF 127.00;;;10.01.13;E-Banking Sammelauftrag;-277;6031.5;10.01.13;IVF Hartmann AG 8212 Neuhausen am Rheinfall CHF 277.00;;;11.01.13;Gutschrift Iris Brosi;167.5;6199;11.01.13;Unterdorfstrasse 13 9122 Mogelsberg  CHF 167.50;;;11.01.13;Gutschrift Irina Raschle;83.5;6282.5;11.01.13;Husli 9127 St. Peterzell  CHF 83.50;;;11.01.13;Gutschrift Max Brosi;345;6627.5;11.01.13;Unterdorfstrasse 13 9122 Mogelsberg Nr.101323  CHF 345.00;;;11.01.13;Gutschrift Max Brosi;336;6963.5;11.01.13;Unterdorfstrasse 13 9122 Mogelsberg Nr.101322  CHF 336.00;;;11.01.13;E-Banking Sammelauftrag;-685.5;6278;11.01.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;;Rechnungs-Nr 1432 Fabian Hutter Widen 1383 9428 Walzenhausen CHF 260.00;;;;Markus Gerschwiler Gonzen 344 9413 Oberegg A100277 CHF 187.00;;;14.01.13;E-Banking Sammelauftrag;-363.3;5914.7;14.01.13;ebi-pharm 3038 Kirchlindach 2229331 CHF 363.30;;;15.01.13;Posteinzahlung von C. Abderhalden;711;6625.7;15.01.13;9125 BRUNNADERN CHF 711.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.01.13;Posteinzahlung von A. Abderhalden;178.1;6803.8;15.01.13;9125 BRUNNADERN CHF 178.10;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.01.13;Posteinzahlung von Bethli U Jakob Rutz Goetti;251.5;7055.3;15.01.13;9122 MOGELSBERG CHF 251.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;16.01.13;Gutschrift Edith Brunner;560;7615.3;16.01.13;Kugelmoos 349 9105 Schonengrund  CHF 560.00;;;16.01.13;E-Banking Sammelauftrag;-480;7135.3;16.01.13;Creating Space Esther Häberlin Seefeldstr.239 8008 Zürich 127680 CHF 280.00;;;;Andreas Früh Obere Chergerten 8712 Stäfa Geschenk von Grossmutter CHF 200.00;;;17.01.13;Posteinzahlung von F. Luder Nef;782.9;7918.2;17.01.13;9125 BRUNNADERN CHF 782.90;;;;Posteinzahlungsgebühren  CHF 2.35;;;17.01.13;Gutschrift Urs Jager;94.9;8013.1;18.01.13;1/9103 SCHWELLBRUNN 6/CH/UBS/0254-00138713  CHF 94.90;;;18.01.13;Gutschrift Andreas Oswald;216.5;8229.6;18.01.13;Pfaffengut 7 9312 Haeggenschwil  CHF 216.50;;;18.01.13;E-Banking Sammelauftrag;-238.5;7991.1;18.01.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;18.01.13;Jahresgebühr für Maestro Karte Nr. 81070244;-30;7961.1;18.01.13;Elsbeth Früh-Bänziger ;;;21.01.13;Gutschrift Gerhard und Doris Zellner;397;8358.1;21.01.13;Wenigerstrasse 31 9011 St. Gallen  CHF 397.00;;;22.01.13;Gutschrift Maya Krenger;301.5;8659.6;22.01.13;Kugelmoos 132 9105 Schonengrund  CHF 301.50;;;22.01.13;Posteinzahlung von Maria Raymann;249.3;8908.9;22.01.13;8732 NEUHAUS SG CHF 249.30;;;;Posteinzahlungsgebühren  CHF 2.35;;;23.01.13;E-Banking Sammelauftrag;-600;8308.9;23.01.13;Schweizer Akademie für Narbentherapie David Boeger 8590 Romanshorn BT2  1.2./2.2.13 CHF 600.00;;;25.01.13;Gutschrift Leo Anton Ledergerber;476;8784.9;25.01.13;Alpsteinstrasse 6 9320 Arbon  CHF 476.00;;;25.01.13;Posteinzahlung von Ruth Brand;27.5;8812.4;25.01.13;8193 EGLISAU  CHF 27.50;;;26.01.13;Gutschrift Hildegard Huber-Ott;696;9508.4;28.01.13;Kronbergstrasse 1 9104 Waldstatt 101356 06.01.2013  CHF 696.00;;;28.01.13;Gutschrift Walter Fischbacher;299.6;9808;28.01.13;Stockenstrasse 12 Postfach 10 9633 Hemberg  CHF 299.60;;;28.01.13;Gutschrift Rahel Kuhne;306.5;10114.5;28.01.13;Grindlenstrasse 4 9630 Wattwil  CHF 306.50;;;28.01.13;Gutschrift Rahel Kuhne;167;10281.5;28.01.13;Grindlenstrasse 4 9630 Wattwil  CHF 167.00;;;28.01.13;Gutschrift Michael Huber;208.5;10490;28.01.13;Rutistrasse 5a 9542 Munchwilen TG  CHF 208.50;;;28.01.13;Gutschrift Michael Huber;278.5;10768.5;28.01.13;Rutistrasse 5a 9542 Munchwilen TG  CHF 278.50;;;28.01.13;Gutschrift Marco Hagmann;350;11118.5;28.01.13;2/BLUMERSTRASSE 25B 3/CH/9247 HENAU  CHF 350.00;;;28.01.13;Gutschrift Kurt Fiechter;744.1;11862.6;28.01.13;1/9100 HERISAU 6/CH/UBS/0254-00112318  CHF 744.10;;;28.01.13;Gutschrift Manfred Bleiker und;140;12002.6;28.01.13;Jeannine Bleiker-Moll Im Sooret 5 9535 Wilen b. Wil  CHF 140.00;;;28.01.13;Gutschrift Manfred Bleiker und;420;12422.6;28.01.13;Jeannine Bleiker-Moll Im Sooret 5 9535 Wilen b. Wil  CHF 420.00;;;28.01.13;E-Banking Sammelauftrag;-124.25;12298.35;28.01.13;EGK Grundversicherungen Hauptsitz 4242 Laufen CHF 80.55;;;;Herr Dr. med. Theo Ringli Alpenstrasse 8590 Romanshorn CHF 43.70;;;29.01.13;Gutschrift Desiree Niedermann;876.6;13174.95;29.01.13;Moos 4896 9112 Schachen b. Herisau R-Nr. 101321  CHF 876.60;;;29.01.13;Gutschrift Pascal Moll;133;13307.95;29.01.13;Oberdorfstrasse 16 9243 Jonschwil Yvonne Moll  CHF 133.00;;;29.01.13;Gutschrift Marcel Hane-Buchmann;223;13530.95;29.01.13;Blumenstrasse 25a 9247 Henau  CHF 223.00;;;29.01.13;Gutschrift Josua Mettler-Koch;308;13838.95;29.01.13;Saegerei und Zimmerei Vordere Haldenstrasse 2 9633 Baechli (Hemberg)  CHF 308.00;;;29.01.13;Posteinzahlung von Jacqueline Wiesendanger;56;13894.95;29.01.13;9100 HERISAU CHF 56.00;;;;Posteinzahlungsgebühren  CHF 1.80;;;30.01.13;Gutschrift Kurt Niederer-Frischknecht;30.5;13925.45;30.01.13;Unterstrasse 9 9403 Goldach RECHNUNGSN. 101360 BESTEN DANK  CHF 30.50;;;30.01.13;Gutschrift Regina Raimondo;321;14246.45;30.01.13;Im Acker 20 9512 Rossrueti  CHF 321.00;;;30.01.13;Gutschrift Alessandra Crivelli;223.5;14469.95;30.01.13;2/OBSTHALDE 3/CH/9573 LITTENHEID RECHNUNGSNR. 101328  CHF 223.50;;;30.01.13;Gutschrift Stefanie Brunner;336;14805.95;30.01.13;Steigstrasse 15 9125 Brunnadern  CHF 336.00;;;30.01.13;Gutschrift Nina Milena Vadas;346;15151.95;30.01.13;Oberstrasse 280 9014 St. Gallen EINZELTHERAPIE  CHF 346.00;;;30.01.13;Posteinzahlung von Rueegsegger Margrit;1680;16831.95;30.01.13;9630 WATTWIL CHF 1'680.00;;;;Posteinzahlungsgebühren  CHF 3.55;;;30.01.13;Posteinzahlung von M. Rueegsegger;329.5;17161.45;30.01.13;9630 WATTWIL CHF 329.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;30.01.13;E-Banking Sammelauftrag;-82.3;17079.15;30.01.13;Sunrise Communications AG 8000 Zürich CHF 82.30;;;30.01.13;Lastschriftverfahren Viseca Card Services SA;-399.2;16679.95;31.01.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.01.2013 KARTENKONTO 1107 5680 0276 9921 CHF 399.20;;;31.01.13;Gutschrift Beat und Margrith Oberlin;797.8;17477.75;31.01.13;Speerstrasse 28 9604 Lutisburg  CHF 797.80;;;31.01.13;Gutschrift Yvonne Roth;140;17617.75;31.01.13;Russenstrasse 1 9122 Mogelsberg Rechnungsnr. 101396  CHF 140.00;;;31.01.13;Gutschrift Karin Kropf;223.5;17841.25;31.01.13;Flawilerstrasse 52 9242 Oberuzwil 101373  CHF 223.50;;;31.01.13;Gutschrift Roger Zurcher;518.5;18359.75;31.01.13;Stocken 7 9315 Neukirch (Egnach) Rechnung 101406  CHF 518.50;;;31.01.13;Gutschrift Alfred Kull;448;18807.75;31.01.13;Steigstrasse 25 9621 Oberhelfenschwil  CHF 448.00;;;31.01.13;Gutschrift Tobias Sigrist;237;19044.75;31.01.13;Oswald-Heergasse 2 9244 Niederuzwil  CHF 237.00;;;31.01.13;Gutschrift Daniela Kolb;642.1;19686.85;31.01.13;1/9100 HERISAU 6/CH/UBS/0273-Q9806244 DANKE  CHF 642.10;;;31.01.13;Gutschrift Therese Egger;231;19917.85;31.01.13;Stichrain 12 9220 Bischofszell 101338  CHF 231.00;;;31.01.13;Posteinzahlung von Storrer Monika;692.4;20610.25;31.01.13;9105 SCHOENENGRUND 101336  CHF 692.40;;;31.01.13;Posteinzahlung von Susanne Stalder;206;20816.25;31.01.13;9127 ST. PETERZELL CHF 206.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;31.01.13;Posteinzahlung von Bachofen Franz U Karin;1320;22136.25;31.01.13;8732 NEUHAUS CHF 1'320.00;;;;Posteinzahlungsgebühren  CHF 3.55;;;31.01.13;Posteinzahlung von Salliner Appiah;200;22336.25;31.01.13;8730 UZNACH CHF 200.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;31.01.13;Gutschrift Barbara Anon;251;22587.25;31.01.13;Hofstrasse 7B 9015 St. Gallen Anon  CHF 251.00;;;31.01.13;Gutschrift Barbara Anon;598.5;23185.75;31.01.13;Hofstrasse 7B 9015 St. Gallen  CHF 598.50;;;31.01.13;E-Banking Sammelauftrag;-90.85;23094.9;31.01.13;Hydrantenkorperation Schönengrund 9105 Schönengrund CHF 90.85;;;31.01.13;E-Banking Sammelauftrag;-3846.55;19248.35;31.01.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 1'045.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 2'000.00;;;01.02.13;Gutschrift Marina Bachofen;223;19471.35;01.02.13;Kreuzstrasse 60 8640 Rapperswil SG Naturheilpraxis Fruh  CHF 223.00;;;01.02.13;E-Banking Sammelauftrag;-1189.2;18282.15;01.02.13;Ausgleichskasse AR 9102 Herisau CHF 1'189.20;;;01.02.13;E-Banking Sammelauftrag;-500;17782.15;01.02.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;04.02.13;Gutschrift Walter Kellenberger;242;18024.15;04.02.13;Unterdorf 24 9105 Schonengrund  CHF 242.00;;;04.02.13;Gutschrift Albert Germann;672;18696.15;04.02.13;Oberer Baumgarten 4 9127 St. Peterzell  CHF 672.00;;;04.02.13;Gutschrift Marlise Zimmermann;471.6;19167.75;04.02.13;Bahnhofstrasse 2 9424 Rheineck  CHF 471.60;;;04.02.13;E-Banking Sammelauftrag;-533.4;18634.35;04.02.13;ebi-pharm 3038 Kirchlindach Fakt. Nr. 2311408 CHF 436.40;;;;Markus Gerschwiler Gonzen 344 9413 Oberegg A100279 CHF 57.00;;;;Polizeikommando Appenzell-Ausserrhoden Ordnungsbussen 9043 Trogen CHF 40.00;;;05.02.13;Gutschrift Natascha Heim-Mazzanti;376;19010.35;05.02.13;AMP-Strasse 9 9552 Bronschhofen  CHF 376.00;;;06.02.13;Gutschrift Heidi Brunner-Huber;448;19458.35;06.02.13;Steigstrasse 15 9125 Brunnadern  CHF 448.00;;;06.02.13;Gutschrift Heidi Brunner-Huber;448;19906.35;06.02.13;Steigstrasse 15 9125 Brunnadern  CHF 448.00;;;06.02.13;Gutschrift Marlies Gertrud Sturzenegger;1152.1;21058.45;07.02.13;1/8370 SIRNACH 6/CH/UBS/0256-00684765 101382  CHF 1'152.10;;;07.02.13;Posteinzahlung von B-. Weber;1047.4;22105.85;07.02.13;9100 HERISAU CHF 1'047.40;;;;Posteinzahlungsgebühren  CHF 3.55;;;08.02.13;Gutschrift Brigitte Hubler;395.5;22501.35;08.02.13;Huegelweg 11 9230 Flawil  CHF 395.50;;;08.02.13;Gutschrift Angelo Roberto;32.65;22534;08.02.13;2/EICHHOFWEG 7 3/CH/7206 IGIS RECHNUNGSNMMER 101352  CHF 32.65;;;08.02.13;Gutschrift Jakob Manser-Schmid;635;23169;08.02.13;Taa 677 9608 Ganterschwil  CHF 635.00;;;08.02.13;E-Banking Sammelauftrag;-238.5;22930.5;08.02.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;11.02.13;Gutschrift Thomas Fruh;770.2;23700.7;11.02.13;Obere Chergerten 11 8712 Stafa 101409  CHF 770.20;;;11.02.13;Gutschrift Nicole Susanne Obrist;167;23867.7;11.02.13;Brandstrasse 3 9011 St. Gallen 101397  CHF 167.00;;;12.02.13;Gutschrift Karin Hofer;925.5;24793.2;12.02.13;Heui 997 9606 Butschwil Rechn.nr. 101383  CHF 925.50;;;12.02.13;Gutschrift Karin Hofer;261.5;25054.7;12.02.13;Heui 997 9606 Butschwil Rechn.nr. 101384  CHF 261.50;;;12.02.13;Gutschrift Karin Hofer;175;25229.7;12.02.13;Heui 997 9606 Butschwil  CHF 175.00;;;12.02.13;Gutschrift Schreinerei Rusch;195;25424.7;12.02.13;1/9524 ZUZWIL 6/CH/UBS/0256-00900435 101400  CHF 195.00;;;13.02.13;Gutschrift Sibylle Engler;392;25816.7;13.02.13;Obgass 21 9527 Niederhelfenschwil 101391  CHF 392.00;;;13.02.13;Gutschrift Simone Wittenwiller;453.5;26270.2;13.02.13;Unterweg 4a 9552 Bronschhofen  CHF 453.50;;;13.02.13;E-Banking Sammelauftrag;-24.7;26245.5;13.02.13;ebi-pharm 3038 Kirchlindach 2312172 CHF 24.70;;;14.02.13;Gutschrift Rita Eberhard;283.1;26528.6;14.02.13;Stofel 9127 St. Peterzell  CHF 283.10;;;14.02.13;E-Banking Sammelauftrag;-1622.9;24905.7;14.02.13;ebi-pharm 3038 Kirchlindach 2312378 CHF 539.15;;;;Trend sport Travel GMBH Schaffhauserstr.2 8400 Winterthur 2012316/2 Ägypten CHF 1'083.75;;;15.02.13;E-Banking Sammelauftrag;-256.85;24648.85;15.02.13;Omida AG 6403 Küssnacht am Rigi CHF 256.85;;;15.02.13;E-Banking Sammelauftrag;-1000;23648.85;15.02.13;Elsbeth Früh Seeweg 11 8593 Kesswil CHF 1'000.00;;;18.02.13;Gutschrift Beda Gmur;364;24012.85;18.02.13;Kugelmoos 308 9105 Schonengrund  CHF 364.00;;;18.02.13;Gutschrift Leticia Niedermann;323;24335.85;18.02.13;Speerstrasse 20 9500 Wil SG  CHF 323.00;;;18.02.13;E-Banking Sammelauftrag;-217.3;24118.55;18.02.13;Schellenberg, Reformprodukte 8600 Dübendorf 91245 CHF 217.30;;;19.02.13;Gutschrift Daria Keller;814.4;24932.95;19.02.13;Tobel 386 9608 Ganterschwil Rg.Nr. 101320  CHF 814.40;;;20.02.13;E-Banking Sammelauftrag;-1500;23432.95;20.02.13;Thomas Früh obere Chergerten 11 8712 Stäfa CHF 1'500.00;;;21.02.13;Gutschrift Daniela Gantenbein;519.7;23952.65;21.02.13;Chasistrasse 5 9248 Bichwil  CHF 519.70;;;22.02.13;E-Banking Sammelauftrag;-387.15;23565.5;22.02.13;Markus Gerschwiler Gonzen 344 9413 Oberegg A100281 CHF 167.00;;;;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;25.02.13;Gutschrift Hans Zeller;36.65;23602.15;25.02.13;Agen 9312 Haggenschwil  CHF 36.65;;;25.02.13;Gutschrift Ellen Bisig;127;23729.15;25.02.13;Rosengartenstrasse 1 9620 Lichtensteig RG-Nr. 101394  CHF 127.00;;;25.02.13;Gutschrift Vreni Egli;648.2;24377.35;25.02.13;1/9100 HERISAU 6/CH/UBS/0254-00452060  CHF 648.20;;;25.02.13;E-Banking Sammelauftrag;-751.7;23625.65;25.02.13;Quelle Vertriebs AG 8112 Otelfingen CHF 256.75;;;;solutation+benefit gmbh Bernstr.1 3280 Murten CHF 147.00;;;;ebi-pharm 3038 Kirchlindach 2313280 CHF 347.95;;;26.02.13;Gutschrift Mirjam Schefer;482;24107.65;26.02.13;Mossstrasse 6 9445 Rebstein Rechnungsnr.101343  CHF 482.00;;;26.02.13;Posteinzahlung von S. U. M. Fuchs;1209.5;25317.15;26.02.13;8593 KESSWIL 1014271 101429 CHF 1'209.50;;;;Posteinzahlungsgebühren  CHF 3.55;;;27.02.13;Gutschrift Monique Kotesovec;928.1;26245.25;28.02.13;Ratenberg 225 9246 Niederburen 101375  CHF 928.10;;;28.02.13;Gutschrift Roger Zurcher;556.9;26802.15;28.02.13;Stocken 7 9315 Neukirch (Egnach)  CHF 556.90;;;28.02.13;Gutschrift Berghof AG;610;27412.15;28.02.13;Aewil 9608 Ganterschwil  CHF 610.00;;;28.02.13;E-Banking Sammelauftrag;-687.35;26724.8;28.02.13;Strassenverkehrsamt Appenzell-Ausserrhoden 9043 Trogen CHF 467.20;;;;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;28.02.13;E-Banking Sammelauftrag;-3846.55;22878.25;28.02.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 1'045.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 2'000.00;;;01.03.13;Gutschrift David Neher;265;23143.25;01.03.13;Felsensteinstrasse 3 9642 Ebnat-Kappel  CHF 265.00;;;01.03.13;Gutschrift Reto Eigenmann;436.8;23580.05;01.03.13;Stickereistrasse 5 8512 Thundorf Rechnungsnr. 101392  CHF 436.80;;;01.03.13;Gutschrift Claudia Spari;585.5;24165.55;01.03.13;Fohlenweg 4 9230 Flawil  CHF 585.50;;;01.03.13;Posteinzahlung von Manuela Eisenring;172;24337.55;01.03.13;9242 OBERUZWIL CHF 172.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;01.03.13;Gutschrift Jakob Raschle-Hardegger;750;25087.55;01.03.13;Husli 9127 St. Peterzell  CHF 750.00;;;01.03.13;Lastschriftverfahren Viseca Card Services SA;-522.1;24565.45;01.03.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.02.2013 KARTENKONTO 1107 5680 0276 9921 CHF 522.10;;;01.03.13;E-Banking Sammelauftrag;-500;24065.45;01.03.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;04.03.13;E-Banking Sammelauftrag;-199.75;23865.7;04.03.13;Sunrise Communications AG 8000 Zürich CHF 55.45;;;;Sunrise Communications AG 8000 Zürich CHF 144.30;;;05.03.13;Gutschrift Barbara Fabrizio;614.8;24480.5;05.03.13;Chupferfeld 14 9244 Niederuzwil BARBARA FABRIZIO FERRI RECHNUNG: 101333  CHF 614.80;;;05.03.13;Gutschrift Andre Kuster;596.5;25077;05.03.13;Heui 997 9606 Butschwil  CHF 596.50;;;05.03.13;Gutschrift Mina Fritsche;513;25590;05.03.13;Obere Kapfstrasse 12 9100 Herisau  CHF 513.00;;;05.03.13;E-Banking Sammelauftrag;-41.15;25548.85;05.03.13;ebi-pharm 3038 Kirchlindach 2314462 CHF 41.15;;;06.03.13;Gutschrift Thomas Fruh;1500;27048.85;06.03.13;Obere Chergerten 11 8712 Stafa  CHF 1'500.00;;;06.03.13;E-Banking Sammelauftrag;-5000;22048.85;06.03.13;Vaudoise Generale - Primes Compagnie d'Assurances SA Siège toutes branches non vie 1007 Lausanne CHF 5'000.00;;;07.03.13;Gutschrift Andreas Pfister;167;22215.85;07.03.13;Salzwiesstrasse 25 9243 Jonschwil JASMIN  CHF 167.00;;;08.03.13;Gutschrift Trudi Frei-Brunner;315;22530.85;08.03.13;Dreiegglistrasse 7a 9633 Hemberg  CHF 315.00;;;08.03.13;E-Banking Sammelauftrag;-367.5;22163.35;08.03.13;Markus Gerschwiler Gonzen 344 9413 Oberegg A100284 CHF 295.00;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 44.30;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 28.20;;;11.03.13;Posteinzahlung von Bettina Forrer;422.3;22585.65;11.03.13;6613 PORTO RONCO CHF 422.30;;;;Posteinzahlungsgebühren  CHF 2.35;;;11.03.13;Gutschrift Nicola und Kathrin Waldvogel;779;23364.65;11.03.13;Lettenstrasse 10 9008 St. Gallen  CHF 779.00;;;12.03.13;Gutschrift Bruno Fritsche;599;23963.65;12.03.13;1/9100 HERISAU 6/CH/UBS/0254-00880773  CHF 599.00;;;13.03.13;E-Banking Sammelauftrag;-651.45;23312.2;13.03.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;;ebi-pharm 3038 Kirchlindach 2315235 CHF 412.95;;;15.03.13;Gutschrift Antonio Carlo Borando;156.8;23469;15.03.13;1/9243 JONSCHWIL 6/CH/UBS/0254-L0265564  CHF 156.80;;;15.03.13;Gutschrift Dolf Looser;341.5;23810.5;15.03.13;Kienbergerstrasse 14 9500 Wil SG  CHF 341.50;;;15.03.13;E-Banking Sammelauftrag;-1000;22810.5;15.03.13;Elsbeth Früh Seeweg 11 8593 Kesswil CHF 1'000.00;;;18.03.13;Gutschrift Sibylle Engler;311.5;23122;18.03.13;Obgass 21 9527 Niederhelfenschwil 101425  CHF 311.50;;;18.03.13;Posteinzahlung von Maria Raymann;75;23197;18.03.13;8732 NEUHAUS SG CHF 75.00;;;;Posteinzahlungsgebühren  CHF 1.80;;;20.03.13;Posteinzahlung von Eggenberger Ruth;95.5;23292.5;20.03.13;9437 MARBACH SG CHF 95.50;;;;Posteinzahlungsgebühren  CHF 1.80;;;25.03.13;Gutschrift Franz Bachofen;235;23527.5;25.03.13;Letzistrasse 6 8732 Neuhaus SG  CHF 235.00;;;25.03.13;Gutschrift Ernst Weber-Kuratli;655;24182.5;25.03.13;Haldenstrasse 17 9633 Hemberg Rechnung 101424 vom 17.02.13  CHF 655.00;;;25.03.13;E-Banking Sammelauftrag;-1084.75;23097.75;25.03.13;Rolf Kirchmann Hauptstr.132 DE-Gaienhofen 9492 CHF 1'084.75;;;26.03.13;Posteinzahlung von Mettler Vreni;120;23217.75;26.03.13;9652 NEU ST. JOHANN VALENTIN CHF 120.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;27.03.13;E-Banking Sammelauftrag;-220.15;22997.6;27.03.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;28.03.13;Gutschrift Claude Zund;843;23840.6;28.03.13;Gasseli 16 9437 Marbach SG 101426  CHF 843.00;;;28.03.13;Gutschrift Giuseppe Auriemma;234.5;24075.1;28.03.13;1/8640 RAPPERSWIL 6/CH/UBS/0250-00263648 RECHNUNG-NR. 101430  CHF 234.50;;;28.03.13;E-Banking Sammelauftrag;-3110.7;20964.4;28.03.13;EGK Grundversicherungen Hauptsitz 4242 Laufen CHF 86.95;;;;Kantonale Steuerverwaltung Appenzell Ausserrhoden Steuerbezug 9100 Herisau CHF 2'400.00;;;;Steuerverwaltung des Kantons Thurgau Direkte Bundessteuer 8500 Frauenfeld CHF 623.75;;;28.03.13;E-Banking Sammelauftrag;-3846.55;17117.85;28.03.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 1'045.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 2'000.00;;;01.04.13;Lastschriftverfahren Viseca Card Services SA;-356;16761.85;02.04.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.03.2013 KARTENKONTO 1107 5680 0276 9921 CHF 356.00;;;02.04.13;E-Banking Sammelauftrag;-351.75;16410.1;02.04.13;Phytomed AG Tschamerie 3415 Hasle b. Burgdorf CHF 351.75;;;02.04.13;E-Banking Sammelauftrag;-500;15910.1;02.04.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;03.04.13;Gutschrift Alice Klager;629.2;16539.3;03.04.13;Bachstrasse 10 3900 Brig  CHF 629.20;;;03.04.13;Gutschrift Martin Keller;257.3;16796.6;03.04.13;Hofstrasse 4 9633 Hemberg  CHF 257.30;;;04.04.13;Gutschrift Andreas Pfister;475;17271.6;04.04.13;Salzwiesstrasse 25 9243 Jonschwil  CHF 475.00;;;05.04.13;E-Banking Sammelauftrag;-1650.15;15621.45;05.04.13;ebi-pharm 3038 Kirchlindach 2317107 CHF 308.55;;;;Omida AG 6403 Küssnacht am Rigi CHF 256.85;;;;Rolf Kirchmann Hauptstr.132 DE-Gaienhofen 78343 Gaienhofen -de 1510 9491 CHF 1'084.75;;;08.04.13;Gutschrift Hans Ulrich Lieberherr;240;15861.45;08.04.13;Mattstrasse 5 9633 Hemberg  CHF 240.00;;;08.04.13;E-Banking Sammelauftrag;-119.55;15741.9;08.04.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 55.05;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 64.50;;;09.04.13;E-Banking Sammelauftrag;-2266.05;13475.85;09.04.13;Ausgleichskasse AR 9102 Herisau CHF 2'266.05;;;11.04.13;E-Banking Sammelauftrag;-80.8;13395.05;11.04.13;Quelle Vertriebs AG 8112 Otelfingen CHF 80.80;;;12.04.13;Gutschrift Rita Eberhard;120;13515.05;12.04.13;Stofel 9127 St. Peterzell  CHF 120.00;;;12.04.13;Posteinzahlung von Bethli U Jakob Rutz;208.8;13723.85;12.04.13;9122 MOGELSBERG CHF 208.80;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.04.13;E-Banking Sammelauftrag;-309;13414.85;15.04.13;BH Herisau Bahnhofstr.14 9100 Herisau CHF 40.00;;;;Kehl-Raemy Antoinette Dance and Western Shop 8353 Elgg Hobo Lizzy Gr.39 8593 Kesswil CHF 269.00;;;15.04.13;E-Banking Sammelauftrag;-1000;12414.85;15.04.13;Elsbeth Früh Seeweg 11 8593 Kesswil CHF 1'000.00;;;22.04.13;Gutschrift Antonio Carlo Borando;24.5;12439.35;22.04.13;1/9243 JONSCHWIL 6/CH/UBS/0254-L0265564  CHF 24.50;;;22.04.13;E-Banking Sammelauftrag;-609.9;11829.45;22.04.13;Schweizer Akademie für Narbentherapie David Boeger 8590 Romanshorn BT4 - 3.-4.5.2013 CHF 600.00;;;;ebi-pharm 3038 Kirchlindach 2319126 CHF 9.90;;;23.04.13;Gutschrift Peter Forrer;224;12053.45;23.04.13;Dreiegglistrasse 40 9633 Hemberg  CHF 224.00;;;23.04.13;Gutschrift Peter Forrer;56;12109.45;23.04.13;Dreiegglistrasse 40 9633 Hemberg  CHF 56.00;;;24.04.13;Gutschrift Claudia Nussmueller;508.75;12618.2;24.04.13;Fuchsbueelstrasse 20 9030 Abtwil SG RECHNUNGSNR. 101473  CHF 508.75;;;25.04.13;Gutschrift Karin Kropf;180;12798.2;25.04.13;Staatsstrasse 36 9246 Niederburen 101449  CHF 180.00;;;25.04.13;Gutschrift Pascal Moll;213;13011.2;25.04.13;Oberdorfstrasse 16 9243 Jonschwil  CHF 213.00;;;25.04.13;E-Banking Sammelauftrag;-61.55;12949.65;25.04.13;buch.ch AG 8400 Winterthur CHF 61.55;;;26.04.13;Gutschrift Mario Rass;603;13552.65;26.04.13;Bogenstrasse 91 9230 Flawil  CHF 603.00;;;26.04.13;Gutschrift Claudia Schnider;221.5;13774.15;26.04.13;Wolfgangstrasse 9a 9014 St. Gallen  CHF 221.50;;;26.04.13;Gutschrift Schreinerei Rusch;161.5;13935.65;26.04.13;1/9524 ZUZWIL 6/CH/UBS/0256-00900435 101455  CHF 161.50;;;26.04.13;Posteinzahlung von Erismann Corinne;180;14115.65;26.04.13;9247 HENAU CHF 180.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;26.04.13;Gutschrift Ernst Weber-Kuratli;450;14565.65;26.04.13;Haldenstrasse 17 9633 Hemberg Rg 101441 vom 26.03.  CHF 450.00;;;26.04.13;Gutschrift Claudia Spari;180;14745.65;29.04.13;Fohlenweg 4 9230 Flawil  CHF 180.00;;;26.04.13;E-Banking Sammelauftrag;-654.3;14091.35;26.04.13;Omida AG 6403 Küssnacht am Rigi CHF 256.85;;;;Caisse des Médecins 1211 Genève 25 CHF 397.45;;;29.04.13;Gutschrift Ralf Luder;120;14211.35;29.04.13;Rest. Bahnhof Dorfstrasse 5 9125 Brunnadern  CHF 120.00;;;29.04.13;Gutschrift Edith Brunner;240;14451.35;29.04.13;Kugelmoos 349 9105 Schonengrund Gutscheine  CHF 240.00;;;29.04.13;Gutschrift Edith Brunner;567.5;15018.85;29.04.13;Kugelmoos 349 9105 Schonengrund  CHF 567.50;;;29.04.13;Gutschrift Erika Marty-Roth;345.3;15364.15;29.04.13;Churfirstenstrasse 21 9630 Wattwil  CHF 345.30;;;29.04.13;Gutschrift Leticia Niedermann;43;15407.15;29.04.13;Speerstrasse 20 9500 Wil SG  CHF 43.00;;;29.04.13;Gutschrift Ursula Ehrler;776.6;16183.75;29.04.13;Sandbuelstrasse 10 9122 Mogelsberg  CHF 776.60;;;29.04.13;Gutschrift Marco Hagmann;283;16466.75;29.04.13;2/BLUMERSTRASSE 25B 3/CH/9247 HENAU  CHF 283.00;;;29.04.13;Gutschrift Marlies Gertrud Sturzenegger;1206.8;17673.55;30.04.13;1/8370 SIRNACH 6/CH/UBS/0256-00684765  CHF 1'206.80;;;29.04.13;E-Banking Sammelauftrag;-9.15;17664.4;29.04.13;Sunrise Communications AG 8000 Zürich CHF 9.15;;;30.04.13;Gutschrift Martin und Gertraud Gahler;48;17712.4;30.04.13;Hauptstrasse 62 9052 Niederteufen  CHF 48.00;;;30.04.13;Gutschrift Simone Wittenwiller;109.5;17821.9;30.04.13;Unterweg 4a 9552 Bronschhofen  CHF 109.50;;;30.04.13;Gutschrift Marcel Hane-Buchmann;184;18005.9;30.04.13;Blumenstrasse 25a 9247 Henau  CHF 184.00;;;30.04.13;Gutschrift Jurg Fischer;60;18065.9;30.04.13;Salzwiesstrasse 5 9243 Jonschwil  CHF 60.00;;;30.04.13;Gutschrift Jurg Fischer;134;18199.9;30.04.13;Salzwiesstrasse 5 9243 Jonschwil  CHF 134.00;;;30.04.13;E-Banking Sammelauftrag;-3846.55;14353.35;30.04.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 1'045.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 2'000.00;;;01.05.13;Posteinzahlung von M. Rueegsegger;571.4;14924.75;02.05.13;9630 WATTWIL CHF 571.40;;;;Posteinzahlungsgebühren  CHF 2.35;;;01.05.13;Posteinzahlung von Storrer Monika;545.9;15470.65;02.05.13;9105 SCHOENENGRUND  CHF 545.90;;;01.05.13;Gutschrift Roberto Gianfranceschi;120;15590.65;02.05.13;2/FRIEDHOFSTRASSE 3 3/CH/8180 BULACH  CHF 120.00;;;01.05.13;Gutschrift Roberto Gianfranceschi;357.5;15948.15;02.05.13;2/FRIEDHOFSTRASSE 3 3/CH/8180 BULACH  CHF 357.50;;;01.05.13;Gutschrift Roberto Gianfranceschi;120;16068.15;02.05.13;2/FRIEDHOFSTRASSE 3 3/CH/8180 BULACH  CHF 120.00;;;01.05.13;Lastschriftverfahren Viseca Card Services SA;-659.1;15409.05;02.05.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.04.2013 KARTENKONTO 1107 5680 0276 9921 CHF 659.10;;;02.05.13;Gutschrift Karin Hofer;194;15603.05;02.05.13;Heui 997 9606 Butschwil 101467 Tristan Hofer  CHF 194.00;;;02.05.13;Posteinzahlung von F. Baenziger;426.2;16029.25;02.05.13;8590 ROMANSHORN CHF 426.20;;;;Posteinzahlungsgebühren  CHF 2.35;;;02.05.13;E-Banking Sammelauftrag;-500;15529.25;02.05.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;03.05.13;E-Banking Sammelauftrag;-835.8;14693.45;03.05.13;ebi-pharm 3038 Kirchlindach 2319504 CHF 374.50;;;;Phytomed AG Tschamerie 3415 Hasle b. Burgdorf CHF 146.10;;;;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;;Agentur Scherrer GmbH Vita Juwel 9476 Weite CHF 95.05;;;07.05.13;Gutschrift Max Brosi;35.7;14729.15;07.05.13;Unterdorfstrasse 13 9122 Mogelsberg 101481 Liebe Grusse von maya  CHF 35.70;;;07.05.13;Zins 2012 Genossenschafts-Anteil Nr. 1904;7.8;14736.95;03.05.1308.05.13;Posteinzahlung von M. Zimmermann;283.1;15020.05;08.05.13;9424 RHEINECK CHF 283.10;;;;Posteinzahlungsgebühren  CHF 2.35;;;08.05.13;E-Banking Sammelauftrag;-172.7;14847.35;08.05.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 108.20;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 64.50;;;10.05.13;Gutschrift Roger Zurcher;510;15357.35;10.05.13;Stocken 7 9315 Neukirch (Egnach)  CHF 510.00;;;10.05.13;Gutschrift Roger Zurcher;189.6;15546.95;10.05.13;Stocken 7 9315 Neukirch (Egnach)  CHF 189.60;;;10.05.13;E-Banking Sammelauftrag;-960.15;14586.8;10.05.13;Zahnarzt Zentrum Rheineck AG Hauptstrasse 19 9424 Rheineck CHF 278.75;;;;ebi-pharm 3038 Kirchlindach 2320372 CHF 286.50;;;;Politische Gemeinde Gemeindekasse 8593 Kesswil CHF 394.90;;;14.05.13;Gutschrift Beda Gmur;757;15343.8;14.05.13;Kugelmoos 308 9105 Schonengrund  CHF 757.00;;;14.05.13;E-Banking Sammelauftrag;-96.6;15247.2;14.05.13;Hydrantenkorperation Schönengrund 9105 Schönengrund CHF 96.60;;;15.05.13;E-Banking Sammelauftrag;-1000;14247.2;15.05.13;Elsbeth Früh Seeweg 11 8593 Kesswil CHF 1'000.00;;;16.05.13;Posteinzahlung von C.Abderhalden;673.6;14920.8;16.05.13;9125 BRUNNADERN CHF 673.60;;;;Posteinzahlungsgebühren  CHF 2.35;;;16.05.13;E-Banking Sammelauftrag;-814.4;14106.4;16.05.13;Praxis Für Vitale Zahnheilkunde med. dent. Liane Schwotka Hof 667-Lutzenberg 9425 Thal CHF 814.40;;;17.05.13;Posteinzahlung von Yvonne Graf;901.7;15008.1;17.05.13;9621 OBERHELFENSCHWIL CHF 901.70;;;;Posteinzahlungsgebühren  CHF 2.35;;;21.05.13;Posteinzahlung von Pelli Esterina;180;15188.1;21.05.13;8371 BUSSWIL TG CHF 180.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;21.05.13;Gutschrift Adriano Romeo;180;15368.1;21.05.13;Salzwiesstrasse 12 9243 Jonschwil Nr. 101456  CHF 180.00;;;21.05.13;E-Banking Sammelauftrag;-343.1;15025;21.05.13;ebi-pharm 3038 Kirchlindach 2321294 CHF 343.10;;;24.05.13;Gutschrift Mirjam Schefer;210;15235;24.05.13;Mossstrasse 6 9445 Rebstein Rechnungsnr.101419  CHF 210.00;;;24.05.13;E-Banking Sammelauftrag;-220.15;15014.85;24.05.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;27.05.13;Gutschrift Andrea Sabatini-Bisig;256.2;15271.05;27.05.13;Sonnenhalb 25 9631 Ulisbach HERZLICHE GRUESSE  CHF 256.20;;;27.05.13;Gutschrift Ellen Bisig;225;15496.05;27.05.13;Rosengartenstrasse 1 9620 Lichtensteig 101489  CHF 225.00;;;28.05.13;Gutschrift Desiree Niedermann;492.5;15988.55;28.05.13;Moos 4896 9112 Schachen b. Herisau  CHF 492.50;;;28.05.13;Posteinzahlung von B. Weber;471.5;16460.05;28.05.13;9100 HERISAU  CHF 471.50;;;28.05.13;Gutschrift Josua Mettler-Koch;767.2;17227.25;28.05.13;Saegerei und Zimmerei Vordere Haldenstrasse 2 9633 Baechli (Hemberg)  CHF 767.20;;;29.05.13;Gutschrift Mario Rass;440.2;17667.45;29.05.13;Bogenstrasse 91 9230 Flawil  CHF 440.20;;;29.05.13;Gutschrift Marianne Manser-Schmid;33.2;17700.65;29.05.13;Taa 677 9608 Ganterschwil  CHF 33.20;;;29.05.13;Posteinzahlung von Suzanne Fuchs;375.5;18076.15;29.05.13;8593 KESSWIL CHF 375.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;30.05.13;Gutschrift Berghof AG;688;18764.15;30.05.13;Aewil 9608 Ganterschwil 101486  CHF 688.00;;;30.05.13;Gutschrift Claude Zund;768.1;19532.25;30.05.13;Gasseli 16 9437 Marbach SG  CHF 768.10;;;30.05.13;Gutschrift Marco Hagmann;155;19687.25;30.05.13;2/BLUMERSTRASSE 25B 3/CH/9247 HENAU  CHF 155.00;;;30.05.13;Gutschrift Marco Hagmann;533.5;20220.75;30.05.13;2/BLUMERSTRASSE 25B 3/CH/9247 HENAU  CHF 533.50;;;30.05.13;Gutschrift Monique Kotesovec;805;21025.75;31.05.13;Ratenberg 225 9246 Niederburen 101462  CHF 805.00;;;30.05.13;E-Banking Sammelauftrag;-311.05;20714.7;30.05.13;Politische Gemeinde Gemeindekasse 8593 Kesswil CHF 220.00;;;;Sunrise Communication AG Binzmühlenstr. 130 8050 Zürich CHF 34.20;;;;Jelmoli Versand AG 8088 Zürich CHF 56.85;;;30.05.13;E-Banking Sammelauftrag;-500;20214.7;30.05.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;30.05.13;Lastschriftverfahren Viseca Card Services SA;-737.85;19476.85;31.05.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 24.05.2013 KARTENKONTO 1107 5680 0276 9921 CHF 737.85;;;31.05.13;Gutschrift Nicola und Kathrin Waldvogel;868.5;20345.35;31.05.13;Lettenstrasse 10 9008 St. Gallen  CHF 868.50;;;31.05.13;Gutschrift Daniela Kolb;575.9;20921.25;31.05.13;1/9100 HERISAU 6/CH/UBS/0273-Q9806244 DANKE  CHF 575.90;;;31.05.13;Gutschrift Esther Fritsche-Bohi;611;21532.25;31.05.13;Obere Kapfstrasse 12 9100 Herisau  CHF 611.00;;;31.05.13;E-Banking Sammelauftrag;-584.95;20947.3;31.05.13;Walter Preisig Autogarage AG 9103 Schwellbrunn CHF 584.95;;;31.05.13;E-Banking Sammelauftrag;-4351.55;16595.75;31.05.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'400.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 2'000.00;;;03.06.13;Gutschrift Gerhard und Doris Zellner;660;17255.75;03.06.13;Wenigerstrasse 31 9011 St. Gallen  CHF 660.00;;;03.06.13;Gutschrift Stefanie Brunner;360;17615.75;03.06.13;Oberer Goldbachweg 6 9230 Flawil  CHF 360.00;;;03.06.13;Gutschrift Vreni Egli;870;18485.75;03.06.13;1/9100 HERISAU 6/CH/UBS/0254-00452060  CHF 870.00;;;03.06.13;Posteinzahlung von Storrer Fritz;450;18935.75;03.06.13;9105 SCHOENENGRUND  CHF 450.00;;;03.06.13;E-Banking Sammelauftrag;-94.65;18841.1;03.06.13;Flensburger Hefte Verlag GmbH 24937 Flensburg (de) 1604540 Rg 132126 CHF 94.65;;;03.06.13;E-Banking Sammelauftrag EUR 146.60, Umrechnungskurs 1.2623;-185.05;18656.05;03.06.13;MycoVital Gesundheits GmbH 63694 Limeshain (de) RE 113959 KD 1115020 EUR 146.60;;;04.06.13;Gutschrift Heidi Brunner-Huber;480;19136.05;04.06.13;Steigstrasse 15 9125 Brunnadern  CHF 480.00;;;04.06.13;Gutschrift Heidi Brunner-Huber;529;19665.05;04.06.13;Steigstrasse 15 9125 Brunnadern  CHF 529.00;;;06.06.13;Posteinzahlung von Petra Pfister;267;19932.05;06.06.13;9243 JONSCHWIL 101443 CHF 267.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;07.06.13;E-Banking Sammelauftrag;-185.5;19746.55;07.06.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 72.00;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 113.50;;;10.06.13;E-Banking Sammelauftrag;-30;19716.55;10.06.13;Gemeinde Schönengrund Unterdorf 5 9105 Schönengrund CHF 30.00;;;11.06.13;Gutschrift Albert Germann;507;20223.55;11.06.13;Oberer Baumgarten 4 9127 St. Peterzell  CHF 507.00;;;12.06.13;E-Banking Sammelauftrag;-1252.9;18970.65;12.06.13;Schweizer Akademie für Narbentherapie David Boeger 8590 Romanshorn BT3  28.6. - 29.6.13 CHF 600.00;;;;Walter Preisig Autogarage AG 9103 Schwellbrunn 310352 CHF 652.90;;;14.06.13;Posteinzahlung von Buehler Manuela;161.5;19132.15;14.06.13;9410 HEIDEN CHF 161.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;14.06.13;E-Banking Sammelauftrag;-606.9;18525.25;14.06.13;ebi-pharm 3038 Kirchlindach 2323680 CHF 386.75;;;;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;14.06.13;E-Banking Sammelauftrag;-1000;17525.25;14.06.13;Elsbeth Früh Seeweg 11 8593 Kesswil CHF 1'000.00;;;17.06.13;Gutschrift Alfred Kull;613;18138.25;17.06.13;Steigstrasse 25 9621 Oberhelfenschwil  CHF 613.00;;;19.06.13;Posteinzahlung von F. Luder Nef;752.2;18890.45;19.06.13;9125 BRUNNADERN CHF 752.20;;;;Posteinzahlungsgebühren  CHF 2.35;;;21.06.13;E-Banking Sammelauftrag;-576.5;18313.95;21.06.13;ebi-pharm 3038 Kirchlindach 2324184 CHF 325.35;;;;Phytomed AG Tschamerie 3415 Hasle b. Burgdorf CHF 251.15;;;24.06.13;Gutschrift Brigitte Hubler;420;18733.95;24.06.13;Huegelweg 11 9230 Flawil  CHF 420.00;;;27.06.13;Gutschrift Hildegard Huber-Ott;450;19183.95;27.06.13;Kronbergstrasse 1 9104 Waldstatt 101511 02,06,2013  CHF 450.00;;;27.06.13;Posteinzahlung von Rutz Vreny;477;19660.95;27.06.13;9606 BUETSCHWIL R NR. 001515 CHF 477.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;27.06.13;E-Banking Sammelauftrag;-238.5;19422.45;27.06.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;28.06.13;Gutschrift Regula Bruchez;327.8;19750.25;28.06.13;Feldstrasse 3 9608 Ganterschwil  CHF 327.80;;;28.06.13;E-Banking Sammelauftrag;-4190;15560.25;28.06.13;Sunrise Communication AG Binzmühlenstr. 130 8050 Zürich CHF 34.00;;;;Kantonale Steuerverwaltung Appenzell Ausserrhoden Steuerbezug 9100 Herisau CHF 2'400.00;;;;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 1'045.00;;;;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 711.00;;;28.06.13;E-Banking Sammelauftrag;-4821.55;10738.7;28.06.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 2'000.00;;;01.07.13;Gutschrift Margrit Oberlin-Ruckstuhl;670.3;11409;01.07.13;Speerstrasse 28 9604 Luetisburg  CHF 670.30;;;01.07.13;Gutschrift Anita Forrer;1143.7;12552.7;01.07.13;Hofstetten 9127 St. Peterzell  CHF 1'143.70;;;01.07.13;Lastschriftverfahren Viseca Card Services SA;-1447.3;11105.4;01.07.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.06.2013 KARTENKONTO 1107 5680 0276 9921 CHF 1'447.30;;;01.07.13;E-Banking Sammelauftrag;-172.95;10932.45;01.07.13;Simon Keller AG Lyssacherstr. 83 3400 Burgdorf CHF 172.95;;;02.07.13;Posteinzahlung von Bettina Kappeler;30;10962.45;02.07.13;8716 SCHMERIKON TEILZAHLUNG VON 375.95 CHF 30.00;;;;Posteinzahlungsgebühren  CHF 1.50;;;04.07.13;Gutschrift Andre Kuster;963.8;11926.25;04.07.13;Heui 997 9606 Butschwil  CHF 963.80;;;05.07.13;E-Banking Sammelauftrag;-268.5;11657.75;05.07.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;;Strassenverkehrsamt Appenzell-Ausserrhoden 9043 Trogen CHF 30.00;;;08.07.13;Gutschrift Karin Hofer;451.1;12108.85;08.07.13;Heui 997 9606 Butschwil  CHF 451.10;;;08.07.13;E-Banking Sammelauftrag;-229.8;11879.05;08.07.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 68.00;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 161.80;;;09.07.13;E-Banking Sammelauftrag;-2228.55;9650.5;09.07.13;Ausgleichskasse AR 9102 Herisau CHF 2'228.55;;;09.07.13;Einkauf/Tanken BP TS Herisauerstr.8 06.07.2013/20:57 / Maestro-Karten-Nr. 81070244;-78.75;9571.75;09.07.1310.07.13;Gutschrift Trudi Frei-Brunner;120;9691.75;10.07.13;Dreiegglistrasse 7a 9633 Hemberg  CHF 120.00;;;12.07.13;Gutschrift Andreas Oswald;251.5;9943.25;12.07.13;Pfaffengut 7 9312 Haeggenschwil  CHF 251.50;;;15.07.13;Gutschrift Daniela Ruegg;703.1;10646.35;16.07.13;Bildstocklistrasse 4 8733 Eschenbach SG  CHF 703.10;;;15.07.13;Gutschrift Daniela Ruegg;902.1;11548.45;16.07.13;Bildstocklistrasse 4 8733 Eschenbach SG  CHF 902.10;;;15.07.13;Gutschrift Daniela Ruegg;714.9;12263.35;16.07.13;Bildstocklistrasse 4 8733 Eschenbach SG  CHF 714.90;;;15.07.13;E-Banking Sammelauftrag;-597.8;11665.55;15.07.13;<ESR-Zahlung> CHF 378.00;;;;Hilda Stetka Sommertal 9103 Schwellbrunn CHF 200.00;;;;Rubimed AG Grossmatt 3 6052 Hergiswil NW RNR. 75064 CHF 19.80;;;15.07.13;E-Banking Sammelauftrag;-1000;10665.55;15.07.13;Elsbeth Früh Seeweg 11 8593 Kesswil CHF 1'000.00;;;16.07.13;Gutschrift Alessandra Crivelli;175;10840.55;16.07.13;2/OBSTHALDE 3/CH/9573 LITTENHEID  CHF 175.00;;;16.07.13;E-Banking Sammelauftrag;-324.3;10516.25;16.07.13;Naturärzte-Vereinigung der Schweiz Nvs 9100 Herisau CHF 60.00;;;;ebi-pharm 3038 Kirchlindach 2326444 CHF 264.30;;;22.07.13;Gutschrift Claudia Nussmueller;814;11330.25;22.07.13;Fuchsbueelstrasse 20 9030 Abtwil SG  CHF 814.00;;;22.07.13;Posteinzahlung von C. Abderhalden;284;11614.25;22.07.13;9125 BRUNNADERN CHF 284.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;23.07.13;Posteinzahlung von Alice Klaeger;480;12094.25;23.07.13;3900 BRIG CHF 480.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;23.07.13;Gutschrift Maya Krenger;750;12844.25;23.07.13;Kugelmoos 132 9105 Schonengrund  CHF 750.00;;;23.07.13;E-Banking Sammelauftrag;-1200;11644.25;23.07.13;Cornelia Hartmann Haldenstr. 29a 9104 Waldstatt CHF 1'200.00;;;24.07.13;Posteinzahlung von Evelyne Baumgartner;520.8;12165.05;24.07.13;DE-79862 ROECKERSTAND CHF 520.80;;;;Posteinzahlungsgebühren  CHF 2.35;;;26.07.13;Gutschrift Rene Strupler;341.5;12506.55;26.07.13;Wellbergstrasse 1 9243 Jonschwil Malin Strupler Rechnungsdatum 30.6.13 Rechnungsnummer 101518  CHF 341.50;;;26.07.13;Gutschrift Doris Gruenenfelder;60;12566.55;26.07.13;Hasenmattstrasse 42 4900 Langenthal Behandlung Jodok  CHF 60.00;;;26.07.13;Posteinzahlung von Rueegsegger Margrit;888.2;13454.75;26.07.13;9630 WATTWIL CHF 888.20;;;;Posteinzahlungsgebühren  CHF 2.35;;;26.07.13;E-Banking Sammelauftrag;-2848.75;10606;26.07.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;;Provalora CS AG 8556 Wigoltingen CHF 155.40;;;;Kto.Nr.6050.7240.2000 Team Arbeitstreff GmbH Walke 43 9100 Herisau CHF 2'473.20;;;27.07.13;Gutschrift Sonja Bachem-Wehrli;387.5;10993.5;29.07.13;1/8543 BERTSCHIKON 6/CH/UBS/0257-00600771  CHF 387.50;;;29.07.13;Gutschrift Manfred Bleiker und;485;11478.5;29.07.13;Jeannine Bleiker-Moll Im Sooret 5 9535 Wilen b. Wil  CHF 485.00;;;29.07.13;Gutschrift Daniela Wessner;71.6;11550.1;29.07.13;Alpenblickstrasse 15 B 8733 Eschenbach SG  CHF 71.60;;;29.07.13;Gutschrift Michel und Ursula von Niederhausern;387.5;11937.6;29.07.13;Obere Berglistrasse 5 9630 Wattwil  CHF 387.50;;;29.07.13;Gutschrift Michael Huber;541.25;12478.85;29.07.13;Rutistrasse 5a 9542 Munchwilen TG  CHF 541.25;;;29.07.13;Gutschrift Michael Huber;403.75;12882.6;29.07.13;Rutistrasse 5a 9542 Munchwilen TG  CHF 403.75;;;29.07.13;Gutschrift Gerhard und Doris Zellner;879.3;13761.9;29.07.13;Wenigerstrasse 31 9011 St. Gallen Rechnung von Doris und Carole War kein EZ enthalten. lg geri  CHF 879.30;;;29.07.13;Gutschrift Hansueli Laich;115;13876.9;29.07.13;2/ZWISCHENWEG 15 3/CH/8413 NEFTENBACH RG 101531 TIMO  CHF 115.00;;;29.07.13;Gutschrift Hansueli Laich;193.5;14070.4;29.07.13;2/ZWISCHENWEG 15 3/CH/8413 NEFTENBACH RG 101530 CLAUDIA  CHF 193.50;;;29.07.13;Gutschrift Bruno Vogt;420;14490.4;29.07.13;Sonnenbergweg 2 9122 Mogelsberg  CHF 420.00;;;29.07.13;Gutschrift Barbara Anon;207.5;14697.9;29.07.13;Hofstrasse 7B 9015 St. Gallen 101523  CHF 207.50;;;29.07.13;Gutschrift Monique Kotesovec;750;15447.9;30.07.13;Ratenberg 225 9246 Niederburen 101552 14 7 2013  CHF 750.00;;;30.07.13;Gutschrift Marcel Hane-Buchmann;127.5;15575.4;30.07.13;Blumenstrasse 25a 9247 Henau  CHF 127.50;;;30.07.13;Gutschrift Marcel Hane-Buchmann;220.5;15795.9;30.07.13;Blumenstrasse 25a 9247 Henau  CHF 220.50;;;30.07.13;Gutschrift Marlies Gertrud Sturzenegger;1062.3;16858.2;31.07.13;1/8370 SIRNACH 6/CH/UBS/0256-00684765 101559  CHF 1'062.30;;;30.07.13;Gutschrift Martin Keller;493.5;17351.7;31.07.13;Hofstrasse 4 9633 Hemberg  CHF 493.50;;;30.07.13;Gutschrift Martin Keller;197.5;17549.2;31.07.13;Hofstrasse 4 9633 Hemberg  CHF 197.50;;;30.07.13;Gutschrift Hansruedi Sommerhalder-Bernet;15;17564.2;31.07.13;Sonnenhalb 9 9631 Ulisbach  CHF 15.00;;;30.07.13;E-Banking Sammelauftrag;-122.2;17442;30.07.13;Sunrise Communications AG 8000 Zürich CHF 34.20;;;;Solution+Benefit GMBH Bernerstrasse 1 3280 Murten CHF 88.00;;;30.07.13;E-Banking Sammelauftrag;-500;16942;30.07.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;30.07.13;Lastschriftverfahren Viseca Card Services SA;-345.55;16596.45;31.07.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.07.2013 KARTENKONTO 1107 5680 0276 9921 CHF 345.55;;;31.07.13;Gutschrift Anneliese Nussmueller;549;17145.45;31.07.13;Reherstrasse 19 9016 St. Gallen Re.Nr. 101536, Nussmueller Anneliesse  CHF 549.00;;;31.07.13;Posteinzahlung von Bettina Kappeler;30;17175.45;31.07.13;8716 SCHMERIKON TEILZAHLUNG VON 375.95 CHF 30.00;;;;Posteinzahlungsgebühren  CHF 1.50;;;31.07.13;E-Banking Sammelauftrag;-4381.55;12793.9;31.07.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Emil Blattner AG Rietwiesenstrasse 3 8593 Kesswil Autoabstellplatz CHF 120.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 1'940.00;;;02.08.13;Posteinzahlung von Storrer Monika;552.5;13346.4;02.08.13;9105 SCHOENENGRUND  CHF 552.50;;;02.08.13;Posteinzahlung von F. Baenziger;1001.1;14347.5;02.08.13;8590 ROMANSHORN CHF 1'001.10;;;;Posteinzahlungsgebühren  CHF 3.55;;;02.08.13;E-Banking Sammelauftrag;-451.75;13895.75;02.08.13;ebi-pharm 3038 Kirchlindach 2327901 CHF 363.40;;;;Hydrantenkorperation Schönengrund 9105 Schönengrund CHF 88.35;;;05.08.13;Gutschrift Yanik Rene Muller;416;14311.75;05.08.13;1/9015 ST. GALLEN 6/CH/UBS/0254-00123838  CHF 416.00;;;05.08.13;Posteinzahlung von Hansjoerg Frei;94.5;14406.25;05.08.13;9633 HEMBERG CHF 94.50;;;;Posteinzahlungsgebühren  CHF 1.80;;;07.08.13;E-Banking Sammelauftrag;-1703.1;12703.15;07.08.13;Daniela Rüegg Bildstöcklistrasse 4 8733 Eschenbach SG Rückzahlung CHF 703.10;;;;Früh Elsbeth 8593 Kesswil CHF 1'000.00;;;08.08.13;Posteinzahlung von U. Zimmermann;202.5;12905.65;08.08.13;9424 RHEINECK CHF 202.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;08.08.13;Posteinzahlung von Carlos Anon;282.5;13188.15;08.08.13;9100 HERISAU CHF 282.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;08.08.13;E-Banking Sammelauftrag;-273.1;12915.05;08.08.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 64.50;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 138.60;;;;Strassenverkehrsamt Appenzell-Ausserrhoden 9043 Trogen CHF 70.00;;;09.08.13;E-Banking Sammelauftrag;-220.15;12694.9;09.08.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;12.08.13;Gutschrift Roger Zurcher;823.6;13518.5;12.08.13;Stocken 7 9315 Neukirch (Egnach)  CHF 823.60;;;12.08.13;Gutschrift Roger Zurcher;706.1;14224.6;12.08.13;Stocken 7 9315 Neukirch (Egnach)  CHF 706.10;;;12.08.13;E-Banking Sammelauftrag;-567;13657.6;12.08.13;Wäspi Werbetechnik GmbH 9100 Herisau CHF 567.00;;;14.08.13;Posteinzahlung von Brockheim Fabio;260.2;13917.8;14.08.13;9230 FLAWIL R 101341 CHF 260.20;;;;Posteinzahlungsgebühren  CHF 2.35;;;14.08.13;Posteinzahlung von Brocchetta Vinorina;551.5;14469.3;14.08.13;9230 FLAWIL R 101542 CHF 551.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;14.08.13;E-Banking Sammelauftrag;-27.1;14442.2;14.08.13;Thalia Bücher AG buch.ch 4000 Basel CHF 27.10;;;15.08.13;Gutschrift Walter Fischbacher;712;15154.2;15.08.13;Stockenstrasse 12 Postfach 10 9633 Hemberg  CHF 712.00;;;15.08.13;Posteinzahlung von Wielander Sven;271;15425.2;15.08.13;8575 CHF 271.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.08.13;Posteinzahlung von Rutz Vreny;682;16107.2;15.08.13;9606 BUETSCHWIL R.NR. 101543 CHF 682.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.08.13;E-Banking Sammelauftrag;-475.65;15631.55;15.08.13;Thalia Bücher AG buch.ch 4000 Basel CHF 168.20;;;;ebi-pharm 3038 Kirchlindach 2329106 CHF 307.45;;;19.08.13;Gutschrift Rahel Kuhne;161.5;15793.05;19.08.13;Grindlenstrasse 4 9630 Wattwil  CHF 161.50;;;21.08.13;E-Banking Sammelauftrag;-187;15606.05;21.08.13;Markus Gerschwiler Gonzen 344 9413 Oberegg A100296 CHF 187.00;;;21.08.13;E-Banking Sammelauftrag EUR 138.20, Umrechnungskurs 1.2499;-172.74;15433.31;21.08.13;MycoVital Gesundheits GmbH 63694 Limeshain (de) RE 123885 KD 1115020 EUR 138.20;;;23.08.13;E-Banking Sammelauftrag;-400;15033.31;23.08.13;Kanton Appenzell a. Rh. Finanzamt Regierungsgebäude 9100 Herisau Rechnung 1659 CHF 400.00;;;26.08.13;Gutschrift Daniela Dotta;363;15396.31;26.08.13;Im Stadelacker 3b 9212 Arnegg Rg.-Nr. 101570  CHF 363.00;;;26.08.13;Gutschrift Rudolf Kurtz;644;16040.31;26.08.13;Langeggweg 11 9500 Wil RG101557  CHF 644.00;;;26.08.13;Gutschrift Ursula Ehrler;537.2;16577.51;26.08.13;Sandbuelstrasse 10 9122 Mogelsberg  CHF 537.20;;;28.08.13;Gutschrift Veronika Kramer;811;17388.51;29.08.13;Oberdorfstrasse 12 9116 Wolfertswil  CHF 811.00;;;28.08.13;Lastschriftverfahren Viseca Card Services SA;-1264.8;16123.71;29.08.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 23.08.2013 KARTENKONTO 1107 5680 0276 9921 CHF 1'264.80;;;29.08.13;Posteinzahlung von B. Weber;570;16693.71;29.08.13;9100 HERISAU CHF 570.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;29.08.13;E-Banking Sammelauftrag;-220.15;16473.56;29.08.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;30.08.13;Posteinzahlung von Bettina Kappeler;30;16503.56;30.08.13;8716 SCHMERIKON TEILZAHLUNG VON FR. 375.30 CHF 30.00;;;;Posteinzahlungsgebühren  CHF 1.50;;;30.08.13;E-Banking Sammelauftrag;-841.55;15662.01;30.08.13;Sunrise Communications AG 8000 Zürich CHF 34.20;;;;Gemeindeverwaltung Kesswil Gemeindekasse 8593 Kesswil CHF 220.00;;;;Konzert und Theater St. Gallen Genossenschaft Billettkasse 9000 St. Gallen CHF 540.00;;;;H. Schneider Handels AG 9442 Berneck CHF 47.35;;;30.08.13;E-Banking Sammelauftrag;-4881.55;10780.46;30.08.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Emil Blattner AG Rietwiesenstrasse 3 8593 Kesswil Autoabstellplatz CHF 120.00;;;;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 1'940.00;;;02.09.13;Posteinzahlung von Storrer Fritz;240;11020.46;02.09.13;9105 SCHOENENGRUND  CHF 240.00;;;02.09.13;E-Banking Sammelauftrag;-482.9;10537.56;02.09.13;Annemarie und Werner Meier Halden Buchberg 9064 Hundwil CHF 482.90;;;03.09.13;Gutschrift Daniela Ruegg;415;10952.56;03.09.13;Bildstocklistrasse 4 8733 Eschenbach SG Rg-Nr. 101562  CHF 415.00;;;03.09.13;Gutschrift Daniela Ruegg;840;11792.56;03.09.13;Bildstocklistrasse 4 8733 Eschenbach SG Rg-Nr. 101563  CHF 840.00;;;05.09.13;E-Banking Sammelauftrag;-1048.9;10743.66;05.09.13;Phytomed AG Tschamerie 3415 Hasle b. Burgdorf CHF 275.75;;;;Simon Keller AG Lyssacherstr. 83 3400 Burgdorf CHF 261.60;;;;ebi-pharm 3038 Kirchlindach 2330422 CHF 511.55;;;06.09.13;E-Banking Sammelauftrag;-253;10490.66;06.09.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 145.90;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 107.10;;;06.09.13;Auszahlung an Elsbeth Frueh bei Raiffeisenbank Neukirch-Romanshorn;-253.7;10236.96;06.09.13;Raiffeisenbank Neukirch-Romanshorn Amriswilerstrasse 2a 9315 Neukirch (Egnach) CHF 253.70;;;11.09.13;E-Banking Sammelauftrag;-1492.2;8744.76;11.09.13;Finanzverwaltung des Kantons Thurgau Kantonspolizei 8510 Frauenfeld CHF 120.00;;;;Zahnmedizin St.Gallen Hintere Steingasse 9000 St. Gallen CHF 1'372.20;;;12.09.13;Gutschrift Claudia Nussmueller;616.7;9361.46;12.09.13;Fuchsbueelstrasse 20 9030 Abtwil SG  CHF 616.70;;;13.09.13;Gutschrift Tobias Sigrist;268;9629.46;13.09.13;Oswald-Heergasse 2 9244 Niederuzwil  CHF 268.00;;;13.09.13;Gutschrift Tobias Sigrist;175;9804.46;13.09.13;Oswald-Heergasse 2 9244 Niederuzwil  CHF 175.00;;;13.09.13;E-Banking Sammelauftrag;-777;9027.46;13.09.13;EGK Grundversicherungen Hauptsitz 4242 Laufen CHF 20.50;;;;Schellenberg, Reformprodukte 8600 Dübendorf CHF 114.40;;;;Jelmoli Versand AG 8088 Zürich CHF 488.55;;;;Ackermann Vertriebs AG 8112 Otelfingen CHF 153.55;;;19.09.13;Gutschrift Nicola und Kathrin Waldvogel;420;9447.46;19.09.13;Lettenstrasse 10 9008 St. Gallen RD:19.8.13  CHF 420.00;;;19.09.13;Gutschrift Anneliese Nussmueller;776.9;10224.36;19.09.13;Reherstrasse 19 9016 St. Gallen Re.Nr. 101572 v. 19.08.13 Nussmueller Anneliese  CHF 776.90;;;20.09.13;E-Banking Sammelauftrag;-220.15;10004.21;20.09.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;23.09.13;Gutschrift Evang. Kirchgemeinde Schonengrund;2907.7;12911.91;23.09.13;9105 Schonengrund Ruckzahlung Steuern  CHF 2'907.70;;;23.09.13;Gutschrift Mirjam Schefer;232.5;13144.41;23.09.13;Mossstrasse 6 9445 Rebstein 101532  CHF 232.50;;;23.09.13;Gutschrift Rene und Silvia Thony;583.1;13727.51;23.09.13;Eichweidstrasse 24 9244 Niederuzwil  CHF 583.10;;;23.09.13;Gutschrift Rene und Silvia Thony;178.9;13906.41;23.09.13;Eichweidstrasse 24 9244 Niederuzwil  CHF 178.90;;;23.09.13;E-Banking Sammelauftrag;-206;13700.41;23.09.13;ebi-pharm 3038 Kirchlindach Faktura 2331220 - Gutschrift 2332121  ebi-pharm Gutschrift 6309219  ebi-vital CHF 206.00;;;24.09.13;Gutschrift Marcel Hane-Buchmann;406.3;14106.71;24.09.13;Blumenstrasse 25a 9247 Henau  CHF 406.30;;;25.09.13;E-Banking Sammelauftrag;-518.4;13588.31;25.09.13;Wäspi Werbetechnik GmbH 9100 Herisau CHF 518.40;;;26.09.13;Gutschrift Peter Forrer;446.5;14034.81;26.09.13;Dreiegglistrasse 40 9633 Hemberg  CHF 446.50;;;27.09.13;Gutschrift Claude Zund;900;14934.81;27.09.13;Gasseli 16 9437 Marbach SG 101585  CHF 900.00;;;27.09.13;E-Banking Sammelauftrag;-1226.8;13708.01;27.09.13;Sunrise Communications AG 8000 Zürich CHF 34.00;;;;St. Gallisch-Appenzellische Kraftwerke AG 9000 St. Gallen CHF 32.85;;;;Kantonale Steuerverwaltung Appenzell Ausserrhoden Steuerbezug 9100 Herisau CHF 1'159.95;;;30.09.13;Gutschrift Martin und Katrin Ehrbar und Wittau;759;14467.01;30.09.13;Klosterhugel 1 9500 Wil SG RE-Nr. 101576  CHF 759.00;;;30.09.13;Gutschrift Berghof AG;546.5;15013.51;30.09.13;Aewil 9608 Ganterschwil  CHF 546.50;;;30.09.13;Gutschrift Hansueli Laich;20;15033.51;30.09.13;2/ZWISCHENWEG 15 3/CH/8413 NEFTENBACH RG:101584  CHF 20.00;;;30.09.13;Gutschrift Manfred Bleiker und;146.5;15180.01;30.09.13;Jeannine Bleiker-Moll Im Sooret 5 9535 Wilen b. Wil  CHF 146.50;;;30.09.13;E-Banking Sammelauftrag;-4881.55;10298.46;30.09.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Emil Blattner AG Rietwiesenstrasse 3 8593 Kesswil Autoabstellplatz CHF 120.00;;;;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 1'940.00;;;01.10.13;Posteinzahlung von T. Nannick;805.2;11103.66;01.10.13;9113 DEGERSHEIM RECHN NR. 101566 30.8.13 CHF 805.20;;;;Posteinzahlungsgebühren  CHF 2.35;;;01.10.13;Lastschriftverfahren Viseca Card Services SA;-904.9;10198.76;01.10.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.09.2013 KARTENKONTO 1107 5680 0276 9921 CHF 904.90;;;02.10.13;Gutschrift Thomas Fruh;500;10698.76;02.10.13;Obere Chergerten 11 8712 Stafa  CHF 500.00;;;02.10.13;Gutschrift Claudia Spari;510.5;11209.26;02.10.13;Fohlenweg 4 9230 Flawil  CHF 510.50;;;02.10.13;E-Banking Sammelauftrag;-365.6;10843.66;02.10.13;ebi-pharm 3038 Kirchlindach 2332814 CHF 365.60;;;04.10.13;Posteinzahlung von Bettina Kappeler;30;10873.66;04.10.13;8716 SCHMERIKON TEILZAHLUNG VOMN FR 375.30 CHF 30.00;;;;Posteinzahlungsgebühren  CHF 1.50;;;04.10.13;E-Banking Sammelauftrag;-220.15;10653.51;04.10.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;08.10.13;E-Banking Sammelauftrag;-218;10435.51;08.10.13;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 129.00;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 89.00;;;09.10.13;E-Banking Sammelauftrag;-3668.55;6766.96;09.10.13;Ausgleichskasse und IV-Stelle Appenzell Ausserrhoden 9100 Herisau CHF 2'228.55;;;;Svanah 9320 Arbon Grundlagenkurs TEN CHF 1'440.00;;;14.10.13;Gutschrift Desiree Niedermann;180;6946.96;14.10.13;Moos 4896 9112 Schachen b. Herisau  CHF 180.00;;;14.10.13;Gutschrift Roger Blank;237.5;7184.46;14.10.13;1/8304 WALLISELLEN 6/CH/UBS/0222-00801676 101581  CHF 237.50;;;15.10.13;Gutschrift Daniela Kolb;652.7;7837.16;15.10.13;1/9100 HERISAU 6/CH/UBS/0273-Q9806244 DANKE  CHF 652.70;;;16.10.13;Gutschrift Nadia Blank;364;8201.16;16.10.13;Ifangstrasse 15 8152 Glattbrugg  CHF 364.00;;;21.10.13;Gutschrift Petra Mettler;166.7;8367.86;21.10.13;Tuefi 338 9105 Schoenengrund  CHF 166.70;;;21.10.13;Gutschrift Beat Stucki;265;8632.86;21.10.13;Gwadt 11 8735 St. Gallenkappel RECHNUNG 101598  CHF 265.00;;;24.10.13;E-Banking Sammelauftrag;-540.55;8092.31;24.10.13;ebi-pharm 3038 Kirchlindach 2334804 CHF 393.55;;;;Markus Gerschwiler Gonzen 344 9413 Oberegg A100299 CHF 147.00;;;25.10.13;Gutschrift Walter Obrist-Schildknecht;400.2;8492.51;25.10.13;Brandstrasse 3 9011 St. Gallen 101599  CHF 400.20;;;25.10.13;Posteinzahlung von Rueegsegger Margrit;646.4;9138.91;25.10.13;9630 Wattwil CHF 646.40;;;;Posteinzahlungsgebühren  CHF 2.35;;;25.10.13;E-Banking Sammelauftrag;-238.5;8900.41;25.10.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;26.10.13;Gutschrift Hildegard Huber-Ott;583.3;9483.71;28.10.13;Kronbergstrasse 1 9104 Waldstatt RECHNG.NR. 101602 29.09.2013  CHF 583.30;;;28.10.13;Gutschrift Lovecchio Roberto;230;9713.71;28.10.13;oder Noelia Peterweg 9 8305 Dietlikon Nuria Lovecchio  CHF 230.00;;;28.10.13;Gutschrift Martin Signer;246.5;9960.21;28.10.13;Lochweidstrasse 24 9247 Henau 101591  CHF 246.50;;;28.10.13;Gutschrift Josua Mettler-Koch;712.2;10672.41;28.10.13;Saegerei und Zimmerei Vordere Haldenstrasse 2 9633 Baechli (Hemberg) 101608  CHF 712.20;;;28.10.13;E-Banking Sammelauftrag;-79;10593.41;28.10.13;St. Gallisch-Appenzellische Kraftwerke AG 9000 St. Gallen CHF 79.00;;;29.10.13;Gutschrift Monique Joy Kotesovec;150;10743.41;29.10.13;Alte Brunnen 3 7206 Igis Re 101595  CHF 150.00;;;29.10.13;Gutschrift Karin Hofer;729.7;11473.11;29.10.13;Hofacker 6 8733 Eschenbach SG 101589  CHF 729.70;;;29.10.13;Gutschrift Michel und Ursula von Niederhausern;345;11818.11;29.10.13;Obere Berglistrasse 5 9630 Wattwil  CHF 345.00;;;29.10.13;Gutschrift Jakob Raschle-Hardegger;85;11903.11;29.10.13;Husli 9127 St. Peterzell  CHF 85.00;;;29.10.13;E-Banking Sammelauftrag;-301.1;11602.01;29.10.13;Phytomed AG Tschamerie 3415 Hasle b. Burgdorf CHF 301.10;;;30.10.13;Posteinzahlung von Hutter Fabienne;635.7;12237.71;30.10.13;9230 FLAWIL CHF 635.70;;;;Posteinzahlungsgebühren  CHF 2.35;;;30.10.13;Gutschrift Marlies Gertrud Sturzenegger;916.5;13154.21;31.10.13;1/8370 SIRNACH 6/CH/UBS/0256-00684765  CHF 916.50;;;30.10.13;Gutschrift Hansruedi Sommerhalder-Bernet;526.2;13680.41;31.10.13;Sonnenhalb 9 9631 Ulisbach  CHF 526.20;;;30.10.13;Gutschrift Hansruedi Sommerhalder-Bernet;802.2;14482.61;31.10.13;Sonnenhalb 9 9631 Ulisbach  CHF 802.20;;;30.10.13;E-Banking Sammelauftrag;-159.95;14322.66;30.10.13;Gemeindeverwaltung Kesswil Gemeindekasse 8593 Kesswil CHF 117.75;;;;Sunrise Communications AG 8000 Zürich CHF 42.20;;;30.10.13;E-Banking Sammelauftrag;-500;13822.66;30.10.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;30.10.13;Lastschriftverfahren Viseca Card Services SA;-429.95;13392.71;31.10.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.10.2013 KARTENKONTO 1107 5680 0276 9921 CHF 429.95;;;31.10.13;Gutschrift Manuela Tilotta;758.2;14150.91;31.10.13;Zelghalde 10 9500 Wil SG  CHF 758.20;;;31.10.13;Gutschrift Franz Bachofen;731.1;14882.01;31.10.13;Letzistrasse 6 8732 Neuhaus SG  CHF 731.10;;;31.10.13;Gutschrift Heidi Brunner-Huber;536.3;15418.31;31.10.13;Steigstrasse 15 9125 Brunnadern  CHF 536.30;;;31.10.13;E-Banking Sammelauftrag;-4381.55;11036.76;31.10.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Emil Blattner AG Rietwiesenstrasse 3 8593 Kesswil Autoabstellplatz CHF 120.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 1'940.00;;;01.11.13;E-Banking Sammelauftrag;-798.05;10238.71;01.11.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;;Provalora CS AG 8556 Wigoltingen CHF 179.55;;;;ebi-pharm 3038 Kirchlindach 2335690 CHF 398.35;;;04.11.13;Gutschrift Edith Brunner;600;10838.71;04.11.13;Kugelmoos 349 9105 Schonengrund  CHF 600.00;;;04.11.13;Gutschrift Gerhard und Doris Zellner;690;11528.71;04.11.13;Wenigerstrasse 31 9011 St. Gallen Gerhard Zellner  CHF 690.00;;;04.11.13;Gutschrift Gerhard und Doris Zellner;572.5;12101.21;04.11.13;Wenigerstrasse 31 9011 St. Gallen Doris Zellner  CHF 572.50;;;04.11.13;E-Banking Sammelauftrag;-333;11768.21;04.11.13;Eskamed AG Rotbergerstr.34 4054 Basel CHF 333.00;;;06.11.13;Gutschrift Albert Germann;587;12355.21;06.11.13;Oberer Baumgarten 4 9127 St. Peterzell  CHF 587.00;;;07.11.13;Gutschrift Marlise Zimmermann;250;12605.21;07.11.13;Bahnhofstrasse 2 9424 Rheineck  CHF 250.00;;;08.11.13;E-Banking Sammelauftrag;-568.25;12036.96;08.11.13;E. Kern  AG pharmazeutische Kräuterspezialitäten 8867 Niederurnen 411/11.10.13 CHF 350.25;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 89.00;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 129.00;;;11.11.13;E-Banking Sammelauftrag;-367.8;11669.16;11.11.13;Ausgleichskasse und IV-Stelle Appenzell Ausserrhoden 9100 Herisau CHF 367.80;;;12.11.13;Posteinzahlung von Alice Klaeger;180;11849.16;12.11.13;3900 BRIG CHF 180.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;13.11.13;Gutschrift Maja Krenger;150;11999.16;13.11.13;Goldacherstrasse Sulz 9404 Rorschacherberg  CHF 150.00;;;14.11.13;E-Banking Sammelauftrag;-1900;10099.16;14.11.13;AXA Versicherungen AG 8400 Winterthur CHF 1'000.00;;;;Body Art AG Amriswilerstrasse 47 8590 Romanshorn Aboverlängerung Seeweg 11 8593 Kesswil CHF 900.00;;;15.11.13;Posteinzahlung von Rutz Vreny;667.5;10766.66;15.11.13;9606 BUETSCHWIL R NR. 101609 CHF 667.50;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.11.13;Posteinzahlung von H. Meienberger;545;11311.66;15.11.13;9100 HERISAU CHF 545.00;;;;Posteinzahlungsgebühren  CHF 2.35;;;15.11.13;E-Banking Sammelauftrag;-302;11009.66;15.11.13;ebi-pharm 3038 Kirchlindach 2336672 CHF 302.00;;;20.11.13;Gutschrift Daniela Rüegg;707.4;11717.06;20.11.13;Bildstöcklistrasse 4 8733 Eschenbach SG Rg.-Nr. 101620  CHF 707.40;;;20.11.13;Gutschrift Daniela Rüegg;240;11957.06;20.11.13;Bildstöcklistrasse 4 8733 Eschenbach SG Rg.-Nr. 101621  CHF 240.00;;;20.11.13;Gutschrift Anneliese Nussmueller;651.1;12608.16;20.11.13;Reherstrasse 19 9016 St. Gallen Re.Nr. 101613 v. 20.10.13 Nussmueller Anneliese  CHF 651.10;;;20.11.13;Postvergütung von Böhme Jussara;161;12769.16;20.11.13;Gibelhalde 30 b 9100 Herisau Re 101611  CHF 161.00;;;21.11.13;Gutschrift René und Silvia Thöny;436.9;13206.06;21.11.13;Eichweidstrasse 24 9244 Niederuzwil  CHF 436.90;;;25.11.13;Gutschrift Ivo Naef;121;13327.06;25.11.13;St. Peterzellerstrasse 37 9633 Hemberg  CHF 121.00;;;25.11.13;Gutschrift Kurt Fiechter;240;13567.06;25.11.13;1/9100 HERISAU 6/CH/UBS/0254-00112318  CHF 240.00;;;25.11.13;E-Banking Sammelauftrag aus Einzelzahlungen;-909.2;12657.86;25.11.13;Omida AG 6403 Küssnacht am Rigi CHF 238.50;;;;Ex Libris AG 8953 Dietikon CHF 122.60;;;;Ex Libris AG 8953 Dietikon CHF 65.40;;;;Ackermann Vertriebs AG 8112 Otelfingen CHF 112.65;;;;Schaub Institut  AG Am Platz 1 7310 Bad Ragaz 26979 CHF 156.90;;;;Jelmoli Versand AG 8088 Zürich CHF 96.85;;;;NatureSecrets AG Leestrasse 4 8573 Alterswilen CHF 116.30;;;26.11.13;Gutschrift Irène Gort;868.2;13526.06;26.11.13;Hembergerstrasse 23 9630 Wattwil  CHF 868.20;;;27.11.13;Gutschrift Manfred Bleiker und;265;13791.06;27.11.13;Jeannine Bleiker-Moll Im Sooret 5 9535 Wilen b. Wil  CHF 265.00;;;27.11.13;Gutschrift Manfred Bleiker und;676.7;14467.76;27.11.13;Jeannine Bleiker-Moll Im Sooret 5 9535 Wilen b. Wil  CHF 676.70;;;27.11.13;Gutschrift Esther Legenstein;120;14587.76;27.11.13;Sonnenbergstrasse 5 9621 Oberhelfenschwil  CHF 120.00;;;27.11.13;Gutschrift Roger Zürcher;629.5;15217.26;27.11.13;Stocken 7 9315 Neukirch (Egnach)  CHF 629.50;;;27.11.13;Gutschrift Roger Zürcher;120;15337.26;27.11.13;Stocken 7 9315 Neukirch (Egnach)  CHF 120.00;;;27.11.13;Gutschrift Roger Zürcher;196.5;15533.76;27.11.13;Stocken 7 9315 Neukirch (Egnach)  CHF 196.50;;;27.11.13;Gutschrift Roberto Gianfranceschi;448;15981.76;28.11.13;2/FRIEDHOFSTRASSE 3 3/CH/8180 BULACH  CHF 448.00;;;27.11.13;E-Banking Sammelauftrag aus Einzelzahlungen;-187;15794.76;27.11.13;Markus Gerschwiler Gonzen 344 9413 Oberegg A100302 CHF 187.00;;;28.11.13;Gutschrift Martin Ehrbar und Katrin Wittausch;645.8;16440.56;28.11.13;Klosterhuegel 1 9500 Wil SG 101653  CHF 645.80;;;28.11.13;Gutschrift Tobias Sigrist;529;16969.56;28.11.13;Schuetzengartenstrasse 12 9242 Oberuzwil  CHF 529.00;;;28.11.13;Postvergütung von Bertschinger Cécile Melanie;355;17324.56;28.11.13;Rosenbergstrasse 3 9230 Flawil 1.Zahlung von zwei  CHF 355.00;;;28.11.13;Posteinzahlung von Frieda Baenziger;428.8;17753.36;28.11.13;8590 ROMANSHORN CHF 428.80;;;;Posteinzahlungsgebühren (Belastung bei Abschluss)  CHF 2.35;;;28.11.13;E-Banking Sammelauftrag aus Einzelzahlungen;-346.4;17406.96;28.11.13;ebi-pharm 3038 Kirchlindach Fakt. 2337858 CHF 346.40;;;28.11.13;Lastschriftverfahren Viseca Card Services SA;-927.1;16479.86;29.11.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 25.11.2013 KARTENKONTO 1107 5680 0276 9921 CHF 927.10;;;29.11.13;Gutschrift Monica Fisch;205;16684.86;29.11.13;Wildbergstrasse 18 9243 Jonschwil  CHF 205.00;;;29.11.13;Gutschrift Celina Bernhart;593.9;17278.76;29.11.13;Böhlweg 10 9116 Wolfertswil  CHF 593.90;;;29.11.13;Postvergütung von Düring Erika;852;18130.76;29.11.13;Bergstrasse 35 9038 Rehetobel  CHF 852.00;;;29.11.13;Posteinzahlung von Simona Weber;266.2;18396.96;29.11.13;9100 HERISAU  CHF 266.20;;;29.11.13;Posteinzahlung von Fust Niklaus;600.8;18997.76;29.11.13;9424 RHEINECK CHF 600.80;;;;Posteinzahlungsgebühren (Belastung bei Abschluss)  CHF 2.35;;;29.11.13;E-Banking Sammelauftrag aus Einzelzahlungen;-188.35;18809.41;29.11.13;Steuerverwaltung des Kantons Thurgau Direkte Bundessteuer 8500 Frauenfeld CHF 65.35;;;;Sunrise Communications AG 8000 Zürich CHF 34.00;;;;Verlag Gesund GmbH Sarganserstr. 8880 Walenstadt CHF 89.00;;;29.11.13;E-Banking Sammelauftrag aus Daueraufträgen;-4881.55;13927.86;29.11.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 398.40;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Emil Blattner AG Rietwiesenstrasse 3 8593 Kesswil Autoabstellplatz CHF 120.00;;;;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 1'940.00;;;01.12.13;Gutschrift Sonja Bachem-Wehrli;625;14552.86;02.12.13;1/8543 BERTSCHIKON 6/CH/UBS/0257-00600771  CHF 625.00;;;02.12.13;Gutschrift Beat und Margrit Oberlin-Ruckstuhl;656;15208.86;02.12.13;Speerstrasse 28 9604 Lütisburg  CHF 656.00;;;02.12.13;Gutschrift Marco Hagmann;636.3;15845.16;02.12.13;2/BLUMERSTRASSE 25B 3/CH/9247 HENAU  CHF 636.30;;;02.12.13;Gutschrift Anita Doggwiler;525;16370.16;02.12.13;Frauenfelderstrasse 33 8252 Schlatt TG  CHF 525.00;;;03.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-109.8;16260.36;03.12.13;Laboratoires Bioligo SA 1273 Arzier CHF 109.80;;;04.12.13;Posteinzahlung von Bettina Kappeler;30;16290.36;04.12.13;8716 SCHMERIKON TEILZAHLUNG CHF 30.00;;;;Posteinzahlungsgebühren (Belastung bei Abschluss)  CHF 1.50;;;04.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-220.15;16070.21;04.12.13;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;05.12.13;Gutschrift Isabelle Thoma;120;16190.21;05.12.13;Brunnenweg 3 9402 Mörschwil Massage à 60min vom 09.10.2013 Rechnungsnr. 101647  CHF 120.00;;;06.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-2097.15;14093.06;06.12.13;Walter Preisig Autogarage AG 9103 Schwellbrunn CHF 1'546.00;;;;Apotheke zur Eiche AG Pharmavertrieb 9100 Herisau CHF 288.80;;;;Apotheke zur Eiche AG 9100 Herisau CHF 43.85;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 129.00;;;;Swisscom (Schweiz) AG, Bern Contact Center Festnetz Cci 3050 Bern CHF 89.50;;;07.12.13;Gutschrift Urs Mueller;190;14283.06;09.12.13;Mettlenstrasse 2a 9524 Zuzwil SG  CHF 190.00;;;09.12.13;Gutschrift Leticia Niedermann;216.5;14499.56;09.12.13;Speerstrasse 20 9500 Wil SG  CHF 216.50;;;09.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-256.2;14243.36;09.12.13;GfM AG Unt.Steingrubenstr.3 4500 Solothurn CHF 45.40;;;;Jelmoli Versand AG 8088 Zürich CHF 210.80;;;10.12.13;Posteinzahlung von Pelli Esterina;450;14693.36;10.12.13;8371 BUSSWIL TG CHF 450.00;;;;Posteinzahlungsgebühren (Belastung bei Abschluss)  CHF 2.35;;;12.12.13;Gutschrift Carlos Reinhard U/O;531.5;15224.86;12.12.13;1/FRAU SANDRA REINHARD 6/CH/UBS/0227-96239065 ROLAND LUETHI, ABTWIL  CHF 531.50;;;12.12.13;Posteinzahlung von Matthias Fuchs;162.4;15387.26;12.12.13;8593 KESSWIL 101649 CHF 162.40;;;;Posteinzahlungsgebühren (Belastung bei Abschluss)  CHF 2.35;;;13.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-617.9;14769.36;13.12.13;Socamed SA 1700 Fribourg CHF 215.00;;;;Phytomed AG Tschamerie 3415 Hasle b. Burgdorf CHF 182.75;;;;Omida AG 6403 Küssnacht am Rigi CHF 220.15;;;19.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-361.75;14407.61;19.12.13;ebi-pharm 3038 Kirchlindach 2340127 CHF 361.75;;;20.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-495;13912.61;20.12.13;St. Gallisch-Appenzellische Kraftwerke AG 9000 St. Gallen CHF 79.00;;;;IVF Hartmann AG 8212 Neuhausen am Rheinfall CHF 277.00;;;;Markus Gerschwiler Gonzen 344 9413 Oberegg A100303 CHF 139.00;;;23.12.13;Gutschrift Pascal Moll;471.7;14384.31;23.12.13;Oberdorfstrasse 16 9243 Jonschwil Sorry...  CHF 471.70;;;23.12.13;Gutschrift Manuel Anon Garcia;464;14848.31;23.12.13;Rietwiesstrasse 40 9100 Herisau Behandlungen  CHF 464.00;;;24.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-641.75;14206.56;24.12.13;Caisse des Médecins 1211 Genève 25 CHF 560.00;;;;Ackermann Vertriebs AG 8112 Otelfingen CHF 81.75;;;27.12.13;Posteinzahlung von Brigitte Weber;420;14626.56;27.12.13;9100 HERISAU  CHF 420.00;;;27.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-567.4;14059.16;27.12.13;Schaub Institut  AG Am Platz 1 7310 Bad Ragaz 27156 CHF 141.40;;;;Naturärzte-Vereinigung der Schweiz Nvs 9100 Herisau CHF 426.00;;;27.12.13;Lastschriftverfahren Viseca Card Services SA;-822.75;13236.41;30.12.13;Viseca Card Services SA Hagenholzstrasse 56 Postfach 7007 8050 Zuerich 1107568002769921 BELASTUNG GEMAESS RECHNUNG VOM 23.12.2013 KARTENKONTO 1107 5680 0276 9921 CHF 822.75;;;30.12.13;Postvergütung von Bertschinger Cécile Melanie;350.2;13586.61;30.12.13;Rosenbergstrasse 3 9230 Flawil 1.Zahlung von zwei  CHF 350.20;;;30.12.13;E-Banking Sammelauftrag aus Einzelzahlungen;-1812.6;11774.01;30.12.13;Solution+Benefit GMBH Bernerstrasse 1 3280 Murten CHF 147.00;;;;Solution+Benefit GMBH Bernerstrasse 1 3280 Murten CHF 210.00;;;;AXA Versicherungen AG 8400 Winterthur CHF 1'455.60;;;30.12.13;E-Banking Sammelauftrag aus Daueraufträgen;-500;11274.01;30.12.13;Andreas Früh Obere Chergerten 8712 Stäfa CHF 500.00;;;31.12.13;E-Banking Sammelauftrag aus Daueraufträgen;-4519.65;6754.36;31.12.13;Die Eidgenössische Gesundheitskasse Hauptsitz 4242 Laufen CHF 70.00;;;;Assura - Assurance maladie et accidents 1009 Pully CHF 233.25;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 1'370.00;;;;BH Herisau Bahnhofstr.14 9100 Herisau CHF 150.00;;;;Multilease AG 8048 Zürich CHF 403.15;;;;Assura - Assurance maladie et accidents 1009 Pully CHF 233.25;;;;Emil Blattner AG Rietwiesenstrasse 3 8593 Kesswil Autoabstellplatz CHF 120.00;;;;Juergen & Susanne Fuchs Seeweg 11 8593 Kesswil CHF 1'940.00;;;31.12.13;0.050 % Habenzins ab 31.12.12;7.2;6761.56;31.12.1331.12.13;Gebühren Kontoführung;-8;6753.56;31.12.1331.12.13;Gebühren Bareinzahlung Post;-138.2;6615.36;31.12.13

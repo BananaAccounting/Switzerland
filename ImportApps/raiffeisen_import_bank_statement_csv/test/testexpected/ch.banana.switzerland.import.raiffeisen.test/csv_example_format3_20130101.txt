@@ -18,7 +18,517 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l }
-@Error: Unknow format\\
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2013-01-03 & 2013-01-03 &  & Gutschrift Daniel Storrer & 195 & \\
+2013-01-03 & 2013-01-03 &  & E-Banking Sammelauftrag &  & 465\\
+2013-01-04 & 2013-01-04 &  & E-Banking Sammelauftrag &  & 445.05\\
+2013-01-07 & 2013-01-07 &  & Gutschrift Anita Forrer & 392.1 & \\
+2013-01-07 & 2013-01-07 &  & Gutschrift Walter Ehrler & 764.5 & \\
+2013-01-08 & 2013-01-08 &  & Gutschrift Walter Obrist-Schildknecht & 243.5 & \\
+2013-01-08 & 2013-01-08 &  & E-Banking Sammelauftrag &  & 388.8\\
+2013-01-10 & 2013-01-10 &  & Gutschrift Trudi Frei-Brunner & 127 & \\
+2013-01-10 & 2013-01-10 &  & E-Banking Sammelauftrag &  & 277\\
+2013-01-11 & 2013-01-11 &  & Gutschrift Iris Brosi & 167.5 & \\
+2013-01-11 & 2013-01-11 &  & Gutschrift Irina Raschle & 83.5 & \\
+2013-01-11 & 2013-01-11 &  & Gutschrift Max Brosi & 345 & \\
+2013-01-11 & 2013-01-11 &  & Gutschrift Max Brosi & 336 & \\
+2013-01-11 & 2013-01-11 &  & E-Banking Sammelauftrag &  & 685.5\\
+2013-01-14 & 2013-01-14 &  & E-Banking Sammelauftrag &  & 363.3\\
+2013-01-15 & 2013-01-15 &  & Posteinzahlung von C. Abderhalden & 711 & \\
+2013-01-15 & 2013-01-15 &  & Posteinzahlung von A. Abderhalden & 178.1 & \\
+2013-01-15 & 2013-01-15 &  & Posteinzahlung von Bethli U Jakob Rutz Goetti & 251.5 & \\
+2013-01-16 & 2013-01-16 &  & Gutschrift Edith Brunner & 560 & \\
+2013-01-16 & 2013-01-16 &  & E-Banking Sammelauftrag &  & 480\\
+2013-01-17 & 2013-01-17 &  & Posteinzahlung von F. Luder Nef & 782.9 & \\
+2013-01-17 & 2013-01-18 &  & Gutschrift Urs Jager & 94.9 & \\
+2013-01-18 & 2013-01-18 &  & Gutschrift Andreas Oswald & 216.5 & \\
+2013-01-18 & 2013-01-18 &  & E-Banking Sammelauftrag &  & 238.5\\
+2013-01-18 & 2013-01-18 &  & Jahresgeb�hr f�r Maestro Karte Nr. 81070244 &  & 30\\
+2013-01-21 & 2013-01-21 &  & Gutschrift Gerhard und Doris Zellner & 397 & \\
+2013-01-22 & 2013-01-22 &  & Gutschrift Maya Krenger & 301.5 & \\
+2013-01-22 & 2013-01-22 &  & Posteinzahlung von Maria Raymann & 249.3 & \\
+2013-01-23 & 2013-01-23 &  & E-Banking Sammelauftrag &  & 600\\
+2013-01-25 & 2013-01-25 &  & Gutschrift Leo Anton Ledergerber & 476 & \\
+2013-01-25 & 2013-01-25 &  & Posteinzahlung von Ruth Brand & 27.5 & \\
+2013-01-26 & 2013-01-28 &  & Gutschrift Hildegard Huber-Ott & 696 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Walter Fischbacher & 299.6 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Rahel Kuhne & 306.5 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Rahel Kuhne & 167 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Michael Huber & 208.5 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Michael Huber & 278.5 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Marco Hagmann & 350 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Kurt Fiechter & 744.1 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Manfred Bleiker und & 140 & \\
+2013-01-28 & 2013-01-28 &  & Gutschrift Manfred Bleiker und & 420 & \\
+2013-01-28 & 2013-01-28 &  & E-Banking Sammelauftrag &  & 124.25\\
+2013-01-29 & 2013-01-29 &  & Gutschrift Desiree Niedermann & 876.6 & \\
+2013-01-29 & 2013-01-29 &  & Gutschrift Pascal Moll & 133 & \\
+2013-01-29 & 2013-01-29 &  & Gutschrift Marcel Hane-Buchmann & 223 & \\
+2013-01-29 & 2013-01-29 &  & Gutschrift Josua Mettler-Koch & 308 & \\
+2013-01-29 & 2013-01-29 &  & Posteinzahlung von Jacqueline Wiesendanger & 56 & \\
+2013-01-30 & 2013-01-30 &  & Gutschrift Kurt Niederer-Frischknecht & 30.5 & \\
+2013-01-30 & 2013-01-30 &  & Gutschrift Regina Raimondo & 321 & \\
+2013-01-30 & 2013-01-30 &  & Gutschrift Alessandra Crivelli & 223.5 & \\
+2013-01-30 & 2013-01-30 &  & Gutschrift Stefanie Brunner & 336 & \\
+2013-01-30 & 2013-01-30 &  & Gutschrift Nina Milena Vadas & 346 & \\
+2013-01-30 & 2013-01-30 &  & Posteinzahlung von Rueegsegger Margrit & 1680 & \\
+2013-01-30 & 2013-01-30 &  & Posteinzahlung von M. Rueegsegger & 329.5 & \\
+2013-01-30 & 2013-01-30 &  & E-Banking Sammelauftrag &  & 82.3\\
+2013-01-30 & 2013-01-31 &  & Lastschriftverfahren Viseca Card Services SA &  & 399.2\\
+2013-01-31 & 2013-01-31 &  & Gutschrift Beat und Margrith Oberlin & 797.8 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Yvonne Roth & 140 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Karin Kropf & 223.5 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Roger Zurcher & 518.5 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Alfred Kull & 448 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Tobias Sigrist & 237 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Daniela Kolb & 642.1 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Therese Egger & 231 & \\
+2013-01-31 & 2013-01-31 &  & Posteinzahlung von Storrer Monika & 692.4 & \\
+2013-01-31 & 2013-01-31 &  & Posteinzahlung von Susanne Stalder & 206 & \\
+2013-01-31 & 2013-01-31 &  & Posteinzahlung von Bachofen Franz U Karin & 1320 & \\
+2013-01-31 & 2013-01-31 &  & Posteinzahlung von Salliner Appiah & 200 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Barbara Anon & 251 & \\
+2013-01-31 & 2013-01-31 &  & Gutschrift Barbara Anon & 598.5 & \\
+2013-01-31 & 2013-01-31 &  & E-Banking Sammelauftrag &  & 90.85\\
+2013-01-31 & 2013-01-31 &  & E-Banking Sammelauftrag &  & 3846.55\\
+2013-02-01 & 2013-02-01 &  & Gutschrift Marina Bachofen & 223 & \\
+2013-02-01 & 2013-02-01 &  & E-Banking Sammelauftrag &  & 1189.2\\
+2013-02-01 & 2013-02-01 &  & E-Banking Sammelauftrag &  & 500\\
+2013-02-04 & 2013-02-04 &  & Gutschrift Walter Kellenberger & 242 & \\
+2013-02-04 & 2013-02-04 &  & Gutschrift Albert Germann & 672 & \\
+2013-02-04 & 2013-02-04 &  & Gutschrift Marlise Zimmermann & 471.6 & \\
+2013-02-04 & 2013-02-04 &  & E-Banking Sammelauftrag &  & 533.4\\
+2013-02-05 & 2013-02-05 &  & Gutschrift Natascha Heim-Mazzanti & 376 & \\
+2013-02-06 & 2013-02-06 &  & Gutschrift Heidi Brunner-Huber & 448 & \\
+2013-02-06 & 2013-02-06 &  & Gutschrift Heidi Brunner-Huber & 448 & \\
+2013-02-06 & 2013-02-07 &  & Gutschrift Marlies Gertrud Sturzenegger & 1152.1 & \\
+2013-02-07 & 2013-02-07 &  & Posteinzahlung von B-. Weber & 1047.4 & \\
+2013-02-08 & 2013-02-08 &  & Gutschrift Brigitte Hubler & 395.5 & \\
+2013-02-08 & 2013-02-08 &  & Gutschrift Angelo Roberto & 32.65 & \\
+2013-02-08 & 2013-02-08 &  & Gutschrift Jakob Manser-Schmid & 635 & \\
+2013-02-08 & 2013-02-08 &  & E-Banking Sammelauftrag &  & 238.5\\
+2013-02-11 & 2013-02-11 &  & Gutschrift Thomas Fruh & 770.2 & \\
+2013-02-11 & 2013-02-11 &  & Gutschrift Nicole Susanne Obrist & 167 & \\
+2013-02-12 & 2013-02-12 &  & Gutschrift Karin Hofer & 925.5 & \\
+2013-02-12 & 2013-02-12 &  & Gutschrift Karin Hofer & 261.5 & \\
+2013-02-12 & 2013-02-12 &  & Gutschrift Karin Hofer & 175 & \\
+2013-02-12 & 2013-02-12 &  & Gutschrift Schreinerei Rusch & 195 & \\
+2013-02-13 & 2013-02-13 &  & Gutschrift Sibylle Engler & 392 & \\
+2013-02-13 & 2013-02-13 &  & Gutschrift Simone Wittenwiller & 453.5 & \\
+2013-02-13 & 2013-02-13 &  & E-Banking Sammelauftrag &  & 24.7\\
+2013-02-14 & 2013-02-14 &  & Gutschrift Rita Eberhard & 283.1 & \\
+2013-02-14 & 2013-02-14 &  & E-Banking Sammelauftrag &  & 1622.9\\
+2013-02-15 & 2013-02-15 &  & E-Banking Sammelauftrag &  & 256.85\\
+2013-02-15 & 2013-02-15 &  & E-Banking Sammelauftrag &  & 1000\\
+2013-02-18 & 2013-02-18 &  & Gutschrift Beda Gmur & 364 & \\
+2013-02-18 & 2013-02-18 &  & Gutschrift Leticia Niedermann & 323 & \\
+2013-02-18 & 2013-02-18 &  & E-Banking Sammelauftrag &  & 217.3\\
+2013-02-19 & 2013-02-19 &  & Gutschrift Daria Keller & 814.4 & \\
+2013-02-20 & 2013-02-20 &  & E-Banking Sammelauftrag &  & 1500\\
+2013-02-21 & 2013-02-21 &  & Gutschrift Daniela Gantenbein & 519.7 & \\
+2013-02-22 & 2013-02-22 &  & E-Banking Sammelauftrag &  & 387.15\\
+2013-02-25 & 2013-02-25 &  & Gutschrift Hans Zeller & 36.65 & \\
+2013-02-25 & 2013-02-25 &  & Gutschrift Ellen Bisig & 127 & \\
+2013-02-25 & 2013-02-25 &  & Gutschrift Vreni Egli & 648.2 & \\
+2013-02-25 & 2013-02-25 &  & E-Banking Sammelauftrag &  & 751.7\\
+2013-02-26 & 2013-02-26 &  & Gutschrift Mirjam Schefer & 482 & \\
+2013-02-26 & 2013-02-26 &  & Posteinzahlung von S. U. M. Fuchs & 1209.5 & \\
+2013-02-27 & 2013-02-28 &  & Gutschrift Monique Kotesovec & 928.1 & \\
+2013-02-28 & 2013-02-28 &  & Gutschrift Roger Zurcher & 556.9 & \\
+2013-02-28 & 2013-02-28 &  & Gutschrift Berghof AG & 610 & \\
+2013-02-28 & 2013-02-28 &  & E-Banking Sammelauftrag &  & 687.35\\
+2013-02-28 & 2013-02-28 &  & E-Banking Sammelauftrag &  & 3846.55\\
+2013-03-01 & 2013-03-01 &  & Gutschrift David Neher & 265 & \\
+2013-03-01 & 2013-03-01 &  & Gutschrift Reto Eigenmann & 436.8 & \\
+2013-03-01 & 2013-03-01 &  & Gutschrift Claudia Spari & 585.5 & \\
+2013-03-01 & 2013-03-01 &  & Posteinzahlung von Manuela Eisenring & 172 & \\
+2013-03-01 & 2013-03-01 &  & Gutschrift Jakob Raschle-Hardegger & 750 & \\
+2013-03-01 & 2013-03-01 &  & Lastschriftverfahren Viseca Card Services SA &  & 522.1\\
+2013-03-01 & 2013-03-01 &  & E-Banking Sammelauftrag &  & 500\\
+2013-03-04 & 2013-03-04 &  & E-Banking Sammelauftrag &  & 199.75\\
+2013-03-05 & 2013-03-05 &  & Gutschrift Barbara Fabrizio & 614.8 & \\
+2013-03-05 & 2013-03-05 &  & Gutschrift Andre Kuster & 596.5 & \\
+2013-03-05 & 2013-03-05 &  & Gutschrift Mina Fritsche & 513 & \\
+2013-03-05 & 2013-03-05 &  & E-Banking Sammelauftrag &  & 41.15\\
+2013-03-06 & 2013-03-06 &  & Gutschrift Thomas Fruh & 1500 & \\
+2013-03-06 & 2013-03-06 &  & E-Banking Sammelauftrag &  & 5000\\
+2013-03-07 & 2013-03-07 &  & Gutschrift Andreas Pfister & 167 & \\
+2013-03-08 & 2013-03-08 &  & Gutschrift Trudi Frei-Brunner & 315 & \\
+2013-03-08 & 2013-03-08 &  & E-Banking Sammelauftrag &  & 367.5\\
+2013-03-11 & 2013-03-11 &  & Posteinzahlung von Bettina Forrer & 422.3 & \\
+2013-03-11 & 2013-03-11 &  & Gutschrift Nicola und Kathrin Waldvogel & 779 & \\
+2013-03-12 & 2013-03-12 &  & Gutschrift Bruno Fritsche & 599 & \\
+2013-03-13 & 2013-03-13 &  & E-Banking Sammelauftrag &  & 651.45\\
+2013-03-15 & 2013-03-15 &  & Gutschrift Antonio Carlo Borando & 156.8 & \\
+2013-03-15 & 2013-03-15 &  & Gutschrift Dolf Looser & 341.5 & \\
+2013-03-15 & 2013-03-15 &  & E-Banking Sammelauftrag &  & 1000\\
+2013-03-18 & 2013-03-18 &  & Gutschrift Sibylle Engler & 311.5 & \\
+2013-03-18 & 2013-03-18 &  & Posteinzahlung von Maria Raymann & 75 & \\
+2013-03-20 & 2013-03-20 &  & Posteinzahlung von Eggenberger Ruth & 95.5 & \\
+2013-03-25 & 2013-03-25 &  & Gutschrift Franz Bachofen & 235 & \\
+2013-03-25 & 2013-03-25 &  & Gutschrift Ernst Weber-Kuratli & 655 & \\
+2013-03-25 & 2013-03-25 &  & E-Banking Sammelauftrag &  & 1084.75\\
+2013-03-26 & 2013-03-26 &  & Posteinzahlung von Mettler Vreni & 120 & \\
+2013-03-27 & 2013-03-27 &  & E-Banking Sammelauftrag &  & 220.15\\
+2013-03-28 & 2013-03-28 &  & Gutschrift Claude Zund & 843 & \\
+2013-03-28 & 2013-03-28 &  & Gutschrift Giuseppe Auriemma & 234.5 & \\
+2013-03-28 & 2013-03-28 &  & E-Banking Sammelauftrag &  & 3110.7\\
+2013-03-28 & 2013-03-28 &  & E-Banking Sammelauftrag &  & 3846.55\\
+2013-04-01 & 2013-04-02 &  & Lastschriftverfahren Viseca Card Services SA &  & 356\\
+2013-04-02 & 2013-04-02 &  & E-Banking Sammelauftrag &  & 351.75\\
+2013-04-02 & 2013-04-02 &  & E-Banking Sammelauftrag &  & 500\\
+2013-04-03 & 2013-04-03 &  & Gutschrift Alice Klager & 629.2 & \\
+2013-04-03 & 2013-04-03 &  & Gutschrift Martin Keller & 257.3 & \\
+2013-04-04 & 2013-04-04 &  & Gutschrift Andreas Pfister & 475 & \\
+2013-04-05 & 2013-04-05 &  & E-Banking Sammelauftrag &  & 1650.15\\
+2013-04-08 & 2013-04-08 &  & Gutschrift Hans Ulrich Lieberherr & 240 & \\
+2013-04-08 & 2013-04-08 &  & E-Banking Sammelauftrag &  & 119.55\\
+2013-04-09 & 2013-04-09 &  & E-Banking Sammelauftrag &  & 2266.05\\
+2013-04-11 & 2013-04-11 &  & E-Banking Sammelauftrag &  & 80.8\\
+2013-04-12 & 2013-04-12 &  & Gutschrift Rita Eberhard & 120 & \\
+2013-04-12 & 2013-04-12 &  & Posteinzahlung von Bethli U Jakob Rutz & 208.8 & \\
+2013-04-15 & 2013-04-15 &  & E-Banking Sammelauftrag &  & 309\\
+2013-04-15 & 2013-04-15 &  & E-Banking Sammelauftrag &  & 1000\\
+2013-04-22 & 2013-04-22 &  & Gutschrift Antonio Carlo Borando & 24.5 & \\
+2013-04-22 & 2013-04-22 &  & E-Banking Sammelauftrag &  & 609.9\\
+2013-04-23 & 2013-04-23 &  & Gutschrift Peter Forrer & 224 & \\
+2013-04-23 & 2013-04-23 &  & Gutschrift Peter Forrer & 56 & \\
+2013-04-24 & 2013-04-24 &  & Gutschrift Claudia Nussmueller & 508.75 & \\
+2013-04-25 & 2013-04-25 &  & Gutschrift Karin Kropf & 180 & \\
+2013-04-25 & 2013-04-25 &  & Gutschrift Pascal Moll & 213 & \\
+2013-04-25 & 2013-04-25 &  & E-Banking Sammelauftrag &  & 61.55\\
+2013-04-26 & 2013-04-26 &  & Gutschrift Mario Rass & 603 & \\
+2013-04-26 & 2013-04-26 &  & Gutschrift Claudia Schnider & 221.5 & \\
+2013-04-26 & 2013-04-26 &  & Gutschrift Schreinerei Rusch & 161.5 & \\
+2013-04-26 & 2013-04-26 &  & Posteinzahlung von Erismann Corinne & 180 & \\
+2013-04-26 & 2013-04-26 &  & Gutschrift Ernst Weber-Kuratli & 450 & \\
+2013-04-26 & 2013-04-29 &  & Gutschrift Claudia Spari & 180 & \\
+2013-04-26 & 2013-04-26 &  & E-Banking Sammelauftrag &  & 654.3\\
+2013-04-29 & 2013-04-29 &  & Gutschrift Ralf Luder & 120 & \\
+2013-04-29 & 2013-04-29 &  & Gutschrift Edith Brunner & 240 & \\
+2013-04-29 & 2013-04-29 &  & Gutschrift Edith Brunner & 567.5 & \\
+2013-04-29 & 2013-04-29 &  & Gutschrift Erika Marty-Roth & 345.3 & \\
+2013-04-29 & 2013-04-29 &  & Gutschrift Leticia Niedermann & 43 & \\
+2013-04-29 & 2013-04-29 &  & Gutschrift Ursula Ehrler & 776.6 & \\
+2013-04-29 & 2013-04-29 &  & Gutschrift Marco Hagmann & 283 & \\
+2013-04-29 & 2013-04-30 &  & Gutschrift Marlies Gertrud Sturzenegger & 1206.8 & \\
+2013-04-29 & 2013-04-29 &  & E-Banking Sammelauftrag &  & 9.15\\
+2013-04-30 & 2013-04-30 &  & Gutschrift Martin und Gertraud Gahler & 48 & \\
+2013-04-30 & 2013-04-30 &  & Gutschrift Simone Wittenwiller & 109.5 & \\
+2013-04-30 & 2013-04-30 &  & Gutschrift Marcel Hane-Buchmann & 184 & \\
+2013-04-30 & 2013-04-30 &  & Gutschrift Jurg Fischer & 60 & \\
+2013-04-30 & 2013-04-30 &  & Gutschrift Jurg Fischer & 134 & \\
+2013-04-30 & 2013-04-30 &  & E-Banking Sammelauftrag &  & 3846.55\\
+2013-05-01 & 2013-05-02 &  & Posteinzahlung von M. Rueegsegger & 571.4 & \\
+2013-05-01 & 2013-05-02 &  & Posteinzahlung von Storrer Monika & 545.9 & \\
+2013-05-01 & 2013-05-02 &  & Gutschrift Roberto Gianfranceschi & 120 & \\
+2013-05-01 & 2013-05-02 &  & Gutschrift Roberto Gianfranceschi & 357.5 & \\
+2013-05-01 & 2013-05-02 &  & Gutschrift Roberto Gianfranceschi & 120 & \\
+2013-05-01 & 2013-05-02 &  & Lastschriftverfahren Viseca Card Services SA &  & 659.1\\
+2013-05-02 & 2013-05-02 &  & Gutschrift Karin Hofer & 194 & \\
+2013-05-02 & 2013-05-02 &  & Posteinzahlung von F. Baenziger & 426.2 & \\
+2013-05-02 & 2013-05-02 &  & E-Banking Sammelauftrag &  & 500\\
+2013-05-03 & 2013-05-03 &  & E-Banking Sammelauftrag &  & 835.8\\
+2013-05-07 & 2013-05-07 &  & Gutschrift Max Brosi & 35.7 & \\
+2013-05-07 & 2013-05-03 &  & Zins 2012 Genossenschafts-Anteil Nr. 1904 & 7.8 & \\
+2013-05-08 & 2013-05-08 &  & Posteinzahlung von M. Zimmermann & 283.1 & \\
+2013-05-08 & 2013-05-08 &  & E-Banking Sammelauftrag &  & 172.7\\
+2013-05-10 & 2013-05-10 &  & Gutschrift Roger Zurcher & 510 & \\
+2013-05-10 & 2013-05-10 &  & Gutschrift Roger Zurcher & 189.6 & \\
+2013-05-10 & 2013-05-10 &  & E-Banking Sammelauftrag &  & 960.15\\
+2013-05-14 & 2013-05-14 &  & Gutschrift Beda Gmur & 757 & \\
+2013-05-14 & 2013-05-14 &  & E-Banking Sammelauftrag &  & 96.6\\
+2013-05-15 & 2013-05-15 &  & E-Banking Sammelauftrag &  & 1000\\
+2013-05-16 & 2013-05-16 &  & Posteinzahlung von C.Abderhalden & 673.6 & \\
+2013-05-16 & 2013-05-16 &  & E-Banking Sammelauftrag &  & 814.4\\
+2013-05-17 & 2013-05-17 &  & Posteinzahlung von Yvonne Graf & 901.7 & \\
+2013-05-21 & 2013-05-21 &  & Posteinzahlung von Pelli Esterina & 180 & \\
+2013-05-21 & 2013-05-21 &  & Gutschrift Adriano Romeo & 180 & \\
+2013-05-21 & 2013-05-21 &  & E-Banking Sammelauftrag &  & 343.1\\
+2013-05-24 & 2013-05-24 &  & Gutschrift Mirjam Schefer & 210 & \\
+2013-05-24 & 2013-05-24 &  & E-Banking Sammelauftrag &  & 220.15\\
+2013-05-27 & 2013-05-27 &  & Gutschrift Andrea Sabatini-Bisig & 256.2 & \\
+2013-05-27 & 2013-05-27 &  & Gutschrift Ellen Bisig & 225 & \\
+2013-05-28 & 2013-05-28 &  & Gutschrift Desiree Niedermann & 492.5 & \\
+2013-05-28 & 2013-05-28 &  & Posteinzahlung von B. Weber & 471.5 & \\
+2013-05-28 & 2013-05-28 &  & Gutschrift Josua Mettler-Koch & 767.2 & \\
+2013-05-29 & 2013-05-29 &  & Gutschrift Mario Rass & 440.2 & \\
+2013-05-29 & 2013-05-29 &  & Gutschrift Marianne Manser-Schmid & 33.2 & \\
+2013-05-29 & 2013-05-29 &  & Posteinzahlung von Suzanne Fuchs & 375.5 & \\
+2013-05-30 & 2013-05-30 &  & Gutschrift Berghof AG & 688 & \\
+2013-05-30 & 2013-05-30 &  & Gutschrift Claude Zund & 768.1 & \\
+2013-05-30 & 2013-05-30 &  & Gutschrift Marco Hagmann & 155 & \\
+2013-05-30 & 2013-05-30 &  & Gutschrift Marco Hagmann & 533.5 & \\
+2013-05-30 & 2013-05-31 &  & Gutschrift Monique Kotesovec & 805 & \\
+2013-05-30 & 2013-05-30 &  & E-Banking Sammelauftrag &  & 311.05\\
+2013-05-30 & 2013-05-30 &  & E-Banking Sammelauftrag &  & 500\\
+2013-05-30 & 2013-05-31 &  & Lastschriftverfahren Viseca Card Services SA &  & 737.85\\
+2013-05-31 & 2013-05-31 &  & Gutschrift Nicola und Kathrin Waldvogel & 868.5 & \\
+2013-05-31 & 2013-05-31 &  & Gutschrift Daniela Kolb & 575.9 & \\
+2013-05-31 & 2013-05-31 &  & Gutschrift Esther Fritsche-Bohi & 611 & \\
+2013-05-31 & 2013-05-31 &  & E-Banking Sammelauftrag &  & 584.95\\
+2013-05-31 & 2013-05-31 &  & E-Banking Sammelauftrag &  & 4351.55\\
+2013-06-03 & 2013-06-03 &  & Gutschrift Gerhard und Doris Zellner & 660 & \\
+2013-06-03 & 2013-06-03 &  & Gutschrift Stefanie Brunner & 360 & \\
+2013-06-03 & 2013-06-03 &  & Gutschrift Vreni Egli & 870 & \\
+2013-06-03 & 2013-06-03 &  & Posteinzahlung von Storrer Fritz & 450 & \\
+2013-06-03 & 2013-06-03 &  & E-Banking Sammelauftrag &  & 94.65\\
+2013-06-03 & 2013-06-03 &  & E-Banking Sammelauftrag EUR 146.60, Umrechnungskurs 1.2623 &  & 185.05\\
+2013-06-04 & 2013-06-04 &  & Gutschrift Heidi Brunner-Huber & 480 & \\
+2013-06-04 & 2013-06-04 &  & Gutschrift Heidi Brunner-Huber & 529 & \\
+2013-06-06 & 2013-06-06 &  & Posteinzahlung von Petra Pfister & 267 & \\
+2013-06-07 & 2013-06-07 &  & E-Banking Sammelauftrag &  & 185.5\\
+2013-06-10 & 2013-06-10 &  & E-Banking Sammelauftrag &  & 30\\
+2013-06-11 & 2013-06-11 &  & Gutschrift Albert Germann & 507 & \\
+2013-06-12 & 2013-06-12 &  & E-Banking Sammelauftrag &  & 1252.9\\
+2013-06-14 & 2013-06-14 &  & Posteinzahlung von Buehler Manuela & 161.5 & \\
+2013-06-14 & 2013-06-14 &  & E-Banking Sammelauftrag &  & 606.9\\
+2013-06-14 & 2013-06-14 &  & E-Banking Sammelauftrag &  & 1000\\
+2013-06-17 & 2013-06-17 &  & Gutschrift Alfred Kull & 613 & \\
+2013-06-19 & 2013-06-19 &  & Posteinzahlung von F. Luder Nef & 752.2 & \\
+2013-06-21 & 2013-06-21 &  & E-Banking Sammelauftrag &  & 576.5\\
+2013-06-24 & 2013-06-24 &  & Gutschrift Brigitte Hubler & 420 & \\
+2013-06-27 & 2013-06-27 &  & Gutschrift Hildegard Huber-Ott & 450 & \\
+2013-06-27 & 2013-06-27 &  & Posteinzahlung von Rutz Vreny & 477 & \\
+2013-06-27 & 2013-06-27 &  & E-Banking Sammelauftrag &  & 238.5\\
+2013-06-28 & 2013-06-28 &  & Gutschrift Regula Bruchez & 327.8 & \\
+2013-06-28 & 2013-06-28 &  & E-Banking Sammelauftrag &  & 4190\\
+2013-06-28 & 2013-06-28 &  & E-Banking Sammelauftrag &  & 4821.55\\
+2013-07-01 & 2013-07-01 &  & Gutschrift Margrit Oberlin-Ruckstuhl & 670.3 & \\
+2013-07-01 & 2013-07-01 &  & Gutschrift Anita Forrer & 1143.7 & \\
+2013-07-01 & 2013-07-01 &  & Lastschriftverfahren Viseca Card Services SA &  & 1447.3\\
+2013-07-01 & 2013-07-01 &  & E-Banking Sammelauftrag &  & 172.95\\
+2013-07-02 & 2013-07-02 &  & Posteinzahlung von Bettina Kappeler & 30 & \\
+2013-07-04 & 2013-07-04 &  & Gutschrift Andre Kuster & 963.8 & \\
+2013-07-05 & 2013-07-05 &  & E-Banking Sammelauftrag &  & 268.5\\
+2013-07-08 & 2013-07-08 &  & Gutschrift Karin Hofer & 451.1 & \\
+2013-07-08 & 2013-07-08 &  & E-Banking Sammelauftrag &  & 229.8\\
+2013-07-09 & 2013-07-09 &  & E-Banking Sammelauftrag &  & 2228.55\\
+2013-07-09 & 2013-07-09 &  & Einkauf/Tanken BP TS Herisauerstr.8 06.07.2013/20:57 / Maestro-Karten-Nr. 81070244 &  & 78.75\\
+2013-07-10 & 2013-07-10 &  & Gutschrift Trudi Frei-Brunner & 120 & \\
+2013-07-12 & 2013-07-12 &  & Gutschrift Andreas Oswald & 251.5 & \\
+2013-07-15 & 2013-07-16 &  & Gutschrift Daniela Ruegg & 703.1 & \\
+2013-07-15 & 2013-07-16 &  & Gutschrift Daniela Ruegg & 902.1 & \\
+2013-07-15 & 2013-07-16 &  & Gutschrift Daniela Ruegg & 714.9 & \\
+2013-07-15 & 2013-07-15 &  & E-Banking Sammelauftrag &  & 597.8\\
+2013-07-15 & 2013-07-15 &  & E-Banking Sammelauftrag &  & 1000\\
+2013-07-16 & 2013-07-16 &  & Gutschrift Alessandra Crivelli & 175 & \\
+2013-07-16 & 2013-07-16 &  & E-Banking Sammelauftrag &  & 324.3\\
+2013-07-22 & 2013-07-22 &  & Gutschrift Claudia Nussmueller & 814 & \\
+2013-07-22 & 2013-07-22 &  & Posteinzahlung von C. Abderhalden & 284 & \\
+2013-07-23 & 2013-07-23 &  & Posteinzahlung von Alice Klaeger & 480 & \\
+2013-07-23 & 2013-07-23 &  & Gutschrift Maya Krenger & 750 & \\
+2013-07-23 & 2013-07-23 &  & E-Banking Sammelauftrag &  & 1200\\
+2013-07-24 & 2013-07-24 &  & Posteinzahlung von Evelyne Baumgartner & 520.8 & \\
+2013-07-26 & 2013-07-26 &  & Gutschrift Rene Strupler & 341.5 & \\
+2013-07-26 & 2013-07-26 &  & Gutschrift Doris Gruenenfelder & 60 & \\
+2013-07-26 & 2013-07-26 &  & Posteinzahlung von Rueegsegger Margrit & 888.2 & \\
+2013-07-26 & 2013-07-26 &  & E-Banking Sammelauftrag &  & 2848.75\\
+2013-07-27 & 2013-07-29 &  & Gutschrift Sonja Bachem-Wehrli & 387.5 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Manfred Bleiker und & 485 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Daniela Wessner & 71.6 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Michel und Ursula von Niederhausern & 387.5 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Michael Huber & 541.25 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Michael Huber & 403.75 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Gerhard und Doris Zellner & 879.3 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Hansueli Laich & 115 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Hansueli Laich & 193.5 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Bruno Vogt & 420 & \\
+2013-07-29 & 2013-07-29 &  & Gutschrift Barbara Anon & 207.5 & \\
+2013-07-29 & 2013-07-30 &  & Gutschrift Monique Kotesovec & 750 & \\
+2013-07-30 & 2013-07-30 &  & Gutschrift Marcel Hane-Buchmann & 127.5 & \\
+2013-07-30 & 2013-07-30 &  & Gutschrift Marcel Hane-Buchmann & 220.5 & \\
+2013-07-30 & 2013-07-31 &  & Gutschrift Marlies Gertrud Sturzenegger & 1062.3 & \\
+2013-07-30 & 2013-07-31 &  & Gutschrift Martin Keller & 493.5 & \\
+2013-07-30 & 2013-07-31 &  & Gutschrift Martin Keller & 197.5 & \\
+2013-07-30 & 2013-07-31 &  & Gutschrift Hansruedi Sommerhalder-Bernet & 15 & \\
+2013-07-30 & 2013-07-30 &  & E-Banking Sammelauftrag &  & 122.2\\
+2013-07-30 & 2013-07-30 &  & E-Banking Sammelauftrag &  & 500\\
+2013-07-30 & 2013-07-31 &  & Lastschriftverfahren Viseca Card Services SA &  & 345.55\\
+2013-07-31 & 2013-07-31 &  & Gutschrift Anneliese Nussmueller & 549 & \\
+2013-07-31 & 2013-07-31 &  & Posteinzahlung von Bettina Kappeler & 30 & \\
+2013-07-31 & 2013-07-31 &  & E-Banking Sammelauftrag &  & 4381.55\\
+2013-08-02 & 2013-08-02 &  & Posteinzahlung von Storrer Monika & 552.5 & \\
+2013-08-02 & 2013-08-02 &  & Posteinzahlung von F. Baenziger & 1001.1 & \\
+2013-08-02 & 2013-08-02 &  & E-Banking Sammelauftrag &  & 451.75\\
+2013-08-05 & 2013-08-05 &  & Gutschrift Yanik Rene Muller & 416 & \\
+2013-08-05 & 2013-08-05 &  & Posteinzahlung von Hansjoerg Frei & 94.5 & \\
+2013-08-07 & 2013-08-07 &  & E-Banking Sammelauftrag &  & 1703.1\\
+2013-08-08 & 2013-08-08 &  & Posteinzahlung von U. Zimmermann & 202.5 & \\
+2013-08-08 & 2013-08-08 &  & Posteinzahlung von Carlos Anon & 282.5 & \\
+2013-08-08 & 2013-08-08 &  & E-Banking Sammelauftrag &  & 273.1\\
+2013-08-09 & 2013-08-09 &  & E-Banking Sammelauftrag &  & 220.15\\
+2013-08-12 & 2013-08-12 &  & Gutschrift Roger Zurcher & 823.6 & \\
+2013-08-12 & 2013-08-12 &  & Gutschrift Roger Zurcher & 706.1 & \\
+2013-08-12 & 2013-08-12 &  & E-Banking Sammelauftrag &  & 567\\
+2013-08-14 & 2013-08-14 &  & Posteinzahlung von Brockheim Fabio & 260.2 & \\
+2013-08-14 & 2013-08-14 &  & Posteinzahlung von Brocchetta Vinorina & 551.5 & \\
+2013-08-14 & 2013-08-14 &  & E-Banking Sammelauftrag &  & 27.1\\
+2013-08-15 & 2013-08-15 &  & Gutschrift Walter Fischbacher & 712 & \\
+2013-08-15 & 2013-08-15 &  & Posteinzahlung von Wielander Sven & 271 & \\
+2013-08-15 & 2013-08-15 &  & Posteinzahlung von Rutz Vreny & 682 & \\
+2013-08-15 & 2013-08-15 &  & E-Banking Sammelauftrag &  & 475.65\\
+2013-08-19 & 2013-08-19 &  & Gutschrift Rahel Kuhne & 161.5 & \\
+2013-08-21 & 2013-08-21 &  & E-Banking Sammelauftrag &  & 187\\
+2013-08-21 & 2013-08-21 &  & E-Banking Sammelauftrag EUR 138.20, Umrechnungskurs 1.2499 &  & 172.74\\
+2013-08-23 & 2013-08-23 &  & E-Banking Sammelauftrag &  & 400\\
+2013-08-26 & 2013-08-26 &  & Gutschrift Daniela Dotta & 363 & \\
+2013-08-26 & 2013-08-26 &  & Gutschrift Rudolf Kurtz & 644 & \\
+2013-08-26 & 2013-08-26 &  & Gutschrift Ursula Ehrler & 537.2 & \\
+2013-08-28 & 2013-08-29 &  & Gutschrift Veronika Kramer & 811 & \\
+2013-08-28 & 2013-08-29 &  & Lastschriftverfahren Viseca Card Services SA &  & 1264.8\\
+2013-08-29 & 2013-08-29 &  & Posteinzahlung von B. Weber & 570 & \\
+2013-08-29 & 2013-08-29 &  & E-Banking Sammelauftrag &  & 220.15\\
+2013-08-30 & 2013-08-30 &  & Posteinzahlung von Bettina Kappeler & 30 & \\
+2013-08-30 & 2013-08-30 &  & E-Banking Sammelauftrag &  & 841.55\\
+2013-08-30 & 2013-08-30 &  & E-Banking Sammelauftrag &  & 4881.55\\
+2013-09-02 & 2013-09-02 &  & Posteinzahlung von Storrer Fritz & 240 & \\
+2013-09-02 & 2013-09-02 &  & E-Banking Sammelauftrag &  & 482.9\\
+2013-09-03 & 2013-09-03 &  & Gutschrift Daniela Ruegg & 415 & \\
+2013-09-03 & 2013-09-03 &  & Gutschrift Daniela Ruegg & 840 & \\
+2013-09-05 & 2013-09-05 &  & E-Banking Sammelauftrag &  & 1048.9\\
+2013-09-06 & 2013-09-06 &  & E-Banking Sammelauftrag &  & 253\\
+2013-09-06 & 2013-09-06 &  & Auszahlung an Elsbeth Frueh bei Raiffeisenbank Neukirch-Romanshorn &  & 253.7\\
+2013-09-11 & 2013-09-11 &  & E-Banking Sammelauftrag &  & 1492.2\\
+2013-09-12 & 2013-09-12 &  & Gutschrift Claudia Nussmueller & 616.7 & \\
+2013-09-13 & 2013-09-13 &  & Gutschrift Tobias Sigrist & 268 & \\
+2013-09-13 & 2013-09-13 &  & Gutschrift Tobias Sigrist & 175 & \\
+2013-09-13 & 2013-09-13 &  & E-Banking Sammelauftrag &  & 777\\
+2013-09-19 & 2013-09-19 &  & Gutschrift Nicola und Kathrin Waldvogel & 420 & \\
+2013-09-19 & 2013-09-19 &  & Gutschrift Anneliese Nussmueller & 776.9 & \\
+2013-09-20 & 2013-09-20 &  & E-Banking Sammelauftrag &  & 220.15\\
+2013-09-23 & 2013-09-23 &  & Gutschrift Evang. Kirchgemeinde Schonengrund & 2907.7 & \\
+2013-09-23 & 2013-09-23 &  & Gutschrift Mirjam Schefer & 232.5 & \\
+2013-09-23 & 2013-09-23 &  & Gutschrift Rene und Silvia Thony & 583.1 & \\
+2013-09-23 & 2013-09-23 &  & Gutschrift Rene und Silvia Thony & 178.9 & \\
+2013-09-23 & 2013-09-23 &  & E-Banking Sammelauftrag &  & 206\\
+2013-09-24 & 2013-09-24 &  & Gutschrift Marcel Hane-Buchmann & 406.3 & \\
+2013-09-25 & 2013-09-25 &  & E-Banking Sammelauftrag &  & 518.4\\
+2013-09-26 & 2013-09-26 &  & Gutschrift Peter Forrer & 446.5 & \\
+2013-09-27 & 2013-09-27 &  & Gutschrift Claude Zund & 900 & \\
+2013-09-27 & 2013-09-27 &  & E-Banking Sammelauftrag &  & 1226.8\\
+2013-09-30 & 2013-09-30 &  & Gutschrift Martin und Katrin Ehrbar und Wittau & 759 & \\
+2013-09-30 & 2013-09-30 &  & Gutschrift Berghof AG & 546.5 & \\
+2013-09-30 & 2013-09-30 &  & Gutschrift Hansueli Laich & 20 & \\
+2013-09-30 & 2013-09-30 &  & Gutschrift Manfred Bleiker und & 146.5 & \\
+2013-09-30 & 2013-09-30 &  & E-Banking Sammelauftrag &  & 4881.55\\
+2013-10-01 & 2013-10-01 &  & Posteinzahlung von T. Nannick & 805.2 & \\
+2013-10-01 & 2013-10-01 &  & Lastschriftverfahren Viseca Card Services SA &  & 904.9\\
+2013-10-02 & 2013-10-02 &  & Gutschrift Thomas Fruh & 500 & \\
+2013-10-02 & 2013-10-02 &  & Gutschrift Claudia Spari & 510.5 & \\
+2013-10-02 & 2013-10-02 &  & E-Banking Sammelauftrag &  & 365.6\\
+2013-10-04 & 2013-10-04 &  & Posteinzahlung von Bettina Kappeler & 30 & \\
+2013-10-04 & 2013-10-04 &  & E-Banking Sammelauftrag &  & 220.15\\
+2013-10-08 & 2013-10-08 &  & E-Banking Sammelauftrag &  & 218\\
+2013-10-09 & 2013-10-09 &  & E-Banking Sammelauftrag &  & 3668.55\\
+2013-10-14 & 2013-10-14 &  & Gutschrift Desiree Niedermann & 180 & \\
+2013-10-14 & 2013-10-14 &  & Gutschrift Roger Blank & 237.5 & \\
+2013-10-15 & 2013-10-15 &  & Gutschrift Daniela Kolb & 652.7 & \\
+2013-10-16 & 2013-10-16 &  & Gutschrift Nadia Blank & 364 & \\
+2013-10-21 & 2013-10-21 &  & Gutschrift Petra Mettler & 166.7 & \\
+2013-10-21 & 2013-10-21 &  & Gutschrift Beat Stucki & 265 & \\
+2013-10-24 & 2013-10-24 &  & E-Banking Sammelauftrag &  & 540.55\\
+2013-10-25 & 2013-10-25 &  & Gutschrift Walter Obrist-Schildknecht & 400.2 & \\
+2013-10-25 & 2013-10-25 &  & Posteinzahlung von Rueegsegger Margrit & 646.4 & \\
+2013-10-25 & 2013-10-25 &  & E-Banking Sammelauftrag &  & 238.5\\
+2013-10-26 & 2013-10-28 &  & Gutschrift Hildegard Huber-Ott & 583.3 & \\
+2013-10-28 & 2013-10-28 &  & Gutschrift Lovecchio Roberto & 230 & \\
+2013-10-28 & 2013-10-28 &  & Gutschrift Martin Signer & 246.5 & \\
+2013-10-28 & 2013-10-28 &  & Gutschrift Josua Mettler-Koch & 712.2 & \\
+2013-10-28 & 2013-10-28 &  & E-Banking Sammelauftrag &  & 79\\
+2013-10-29 & 2013-10-29 &  & Gutschrift Monique Joy Kotesovec & 150 & \\
+2013-10-29 & 2013-10-29 &  & Gutschrift Karin Hofer & 729.7 & \\
+2013-10-29 & 2013-10-29 &  & Gutschrift Michel und Ursula von Niederhausern & 345 & \\
+2013-10-29 & 2013-10-29 &  & Gutschrift Jakob Raschle-Hardegger & 85 & \\
+2013-10-29 & 2013-10-29 &  & E-Banking Sammelauftrag &  & 301.1\\
+2013-10-30 & 2013-10-30 &  & Posteinzahlung von Hutter Fabienne & 635.7 & \\
+2013-10-30 & 2013-10-31 &  & Gutschrift Marlies Gertrud Sturzenegger & 916.5 & \\
+2013-10-30 & 2013-10-31 &  & Gutschrift Hansruedi Sommerhalder-Bernet & 526.2 & \\
+2013-10-30 & 2013-10-31 &  & Gutschrift Hansruedi Sommerhalder-Bernet & 802.2 & \\
+2013-10-30 & 2013-10-30 &  & E-Banking Sammelauftrag &  & 159.95\\
+2013-10-30 & 2013-10-30 &  & E-Banking Sammelauftrag &  & 500\\
+2013-10-30 & 2013-10-31 &  & Lastschriftverfahren Viseca Card Services SA &  & 429.95\\
+2013-10-31 & 2013-10-31 &  & Gutschrift Manuela Tilotta & 758.2 & \\
+2013-10-31 & 2013-10-31 &  & Gutschrift Franz Bachofen & 731.1 & \\
+2013-10-31 & 2013-10-31 &  & Gutschrift Heidi Brunner-Huber & 536.3 & \\
+2013-10-31 & 2013-10-31 &  & E-Banking Sammelauftrag &  & 4381.55\\
+2013-11-01 & 2013-11-01 &  & E-Banking Sammelauftrag &  & 798.05\\
+2013-11-04 & 2013-11-04 &  & Gutschrift Edith Brunner & 600 & \\
+2013-11-04 & 2013-11-04 &  & Gutschrift Gerhard und Doris Zellner & 690 & \\
+2013-11-04 & 2013-11-04 &  & Gutschrift Gerhard und Doris Zellner & 572.5 & \\
+2013-11-04 & 2013-11-04 &  & E-Banking Sammelauftrag &  & 333\\
+2013-11-06 & 2013-11-06 &  & Gutschrift Albert Germann & 587 & \\
+2013-11-07 & 2013-11-07 &  & Gutschrift Marlise Zimmermann & 250 & \\
+2013-11-08 & 2013-11-08 &  & E-Banking Sammelauftrag &  & 568.25\\
+2013-11-11 & 2013-11-11 &  & E-Banking Sammelauftrag &  & 367.8\\
+2013-11-12 & 2013-11-12 &  & Posteinzahlung von Alice Klaeger & 180 & \\
+2013-11-13 & 2013-11-13 &  & Gutschrift Maja Krenger & 150 & \\
+2013-11-14 & 2013-11-14 &  & E-Banking Sammelauftrag &  & 1900\\
+2013-11-15 & 2013-11-15 &  & Posteinzahlung von Rutz Vreny & 667.5 & \\
+2013-11-15 & 2013-11-15 &  & Posteinzahlung von H. Meienberger & 545 & \\
+2013-11-15 & 2013-11-15 &  & E-Banking Sammelauftrag &  & 302\\
+2013-11-20 & 2013-11-20 &  & Gutschrift Daniela R�egg & 707.4 & \\
+2013-11-20 & 2013-11-20 &  & Gutschrift Daniela R�egg & 240 & \\
+2013-11-20 & 2013-11-20 &  & Gutschrift Anneliese Nussmueller & 651.1 & \\
+2013-11-20 & 2013-11-20 &  & Postverg�tung von B�hme Jussara & 161 & \\
+2013-11-21 & 2013-11-21 &  & Gutschrift Ren� und Silvia Th�ny & 436.9 & \\
+2013-11-25 & 2013-11-25 &  & Gutschrift Ivo Naef & 121 & \\
+2013-11-25 & 2013-11-25 &  & Gutschrift Kurt Fiechter & 240 & \\
+2013-11-25 & 2013-11-25 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 909.2\\
+2013-11-26 & 2013-11-26 &  & Gutschrift Ir�ne Gort & 868.2 & \\
+2013-11-27 & 2013-11-27 &  & Gutschrift Manfred Bleiker und & 265 & \\
+2013-11-27 & 2013-11-27 &  & Gutschrift Manfred Bleiker und & 676.7 & \\
+2013-11-27 & 2013-11-27 &  & Gutschrift Esther Legenstein & 120 & \\
+2013-11-27 & 2013-11-27 &  & Gutschrift Roger Z�rcher & 629.5 & \\
+2013-11-27 & 2013-11-27 &  & Gutschrift Roger Z�rcher & 120 & \\
+2013-11-27 & 2013-11-27 &  & Gutschrift Roger Z�rcher & 196.5 & \\
+2013-11-27 & 2013-11-28 &  & Gutschrift Roberto Gianfranceschi & 448 & \\
+2013-11-27 & 2013-11-27 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 187\\
+2013-11-28 & 2013-11-28 &  & Gutschrift Martin Ehrbar und Katrin Wittausch & 645.8 & \\
+2013-11-28 & 2013-11-28 &  & Gutschrift Tobias Sigrist & 529 & \\
+2013-11-28 & 2013-11-28 &  & Postverg�tung von Bertschinger C�cile Melanie & 355 & \\
+2013-11-28 & 2013-11-28 &  & Posteinzahlung von Frieda Baenziger & 428.8 & \\
+2013-11-28 & 2013-11-28 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 346.4\\
+2013-11-28 & 2013-11-29 &  & Lastschriftverfahren Viseca Card Services SA &  & 927.1\\
+2013-11-29 & 2013-11-29 &  & Gutschrift Monica Fisch & 205 & \\
+2013-11-29 & 2013-11-29 &  & Gutschrift Celina Bernhart & 593.9 & \\
+2013-11-29 & 2013-11-29 &  & Postverg�tung von D�ring Erika & 852 & \\
+2013-11-29 & 2013-11-29 &  & Posteinzahlung von Simona Weber & 266.2 & \\
+2013-11-29 & 2013-11-29 &  & Posteinzahlung von Fust Niklaus & 600.8 & \\
+2013-11-29 & 2013-11-29 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 188.35\\
+2013-11-29 & 2013-11-29 &  & E-Banking Sammelauftrag aus Dauerauftr�gen &  & 4881.55\\
+2013-12-01 & 2013-12-02 &  & Gutschrift Sonja Bachem-Wehrli & 625 & \\
+2013-12-02 & 2013-12-02 &  & Gutschrift Beat und Margrit Oberlin-Ruckstuhl & 656 & \\
+2013-12-02 & 2013-12-02 &  & Gutschrift Marco Hagmann & 636.3 & \\
+2013-12-02 & 2013-12-02 &  & Gutschrift Anita Doggwiler & 525 & \\
+2013-12-03 & 2013-12-03 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 109.8\\
+2013-12-04 & 2013-12-04 &  & Posteinzahlung von Bettina Kappeler & 30 & \\
+2013-12-04 & 2013-12-04 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 220.15\\
+2013-12-05 & 2013-12-05 &  & Gutschrift Isabelle Thoma & 120 & \\
+2013-12-06 & 2013-12-06 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 2097.15\\
+2013-12-07 & 2013-12-09 &  & Gutschrift Urs Mueller & 190 & \\
+2013-12-09 & 2013-12-09 &  & Gutschrift Leticia Niedermann & 216.5 & \\
+2013-12-09 & 2013-12-09 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 256.2\\
+2013-12-10 & 2013-12-10 &  & Posteinzahlung von Pelli Esterina & 450 & \\
+2013-12-12 & 2013-12-12 &  & Gutschrift Carlos Reinhard U/O & 531.5 & \\
+2013-12-12 & 2013-12-12 &  & Posteinzahlung von Matthias Fuchs & 162.4 & \\
+2013-12-13 & 2013-12-13 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 617.9\\
+2013-12-19 & 2013-12-19 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 361.75\\
+2013-12-20 & 2013-12-20 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 495\\
+2013-12-23 & 2013-12-23 &  & Gutschrift Pascal Moll & 471.7 & \\
+2013-12-23 & 2013-12-23 &  & Gutschrift Manuel Anon Garcia & 464 & \\
+2013-12-24 & 2013-12-24 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 641.75\\
+2013-12-27 & 2013-12-27 &  & Posteinzahlung von Brigitte Weber & 420 & \\
+2013-12-27 & 2013-12-27 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 567.4\\
+2013-12-27 & 2013-12-30 &  & Lastschriftverfahren Viseca Card Services SA &  & 822.75\\
+2013-12-30 & 2013-12-30 &  & Postverg�tung von Bertschinger C�cile Melanie & 350.2 & \\
+2013-12-30 & 2013-12-30 &  & E-Banking Sammelauftrag aus Einzelzahlungen &  & 1812.6\\
+2013-12-30 & 2013-12-30 &  & E-Banking Sammelauftrag aus Dauerauftr�gen &  & 500\\
+2013-12-31 & 2013-12-31 &  & E-Banking Sammelauftrag aus Dauerauftr�gen &  & 4519.65\\
+2013-12-31 & 2013-12-31 &  & 0.050 \% Habenzins ab 31.12.12 & 7.2 & \\
+2013-12-31 & 2013-12-31 &  & Geb�hren Kontof�hrung &  & 8\\
+2013-12-31 & 2013-12-31 &  & Geb�hren Bareinzahlung Post &  & 138.2\\
+\\
 \end{tablevalue}
 \end{document}

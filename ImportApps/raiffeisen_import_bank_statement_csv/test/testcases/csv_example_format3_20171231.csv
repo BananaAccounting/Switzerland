@@ -1,69 +1,137 @@
 Booked At;Text;Credit/Debit Amount;Balance;Valuta Date
-02.08.2017 01:51;Description for test;-1770;4671.4;02.08.2017 00:00
-01.09.2017 02:22;Description for test;-1770;2901.4;01.09.2017 00:00
-02.10.2017 03:52;Description for test;-1770;1131.4;02.10.2017 00:00
-23.10.2017 11:18;Description for test;1652.31;2783.71;23.10.2017 00:00
-30.10.2017 12:19;Description for test;6.4;2790.11;30.10.2017 00:00
-02.11.2017 01:50;Description for test;-1770;1020.11;02.11.2017 00:00
-02.11.2017 15:26;Description for test;-41.05;979.06;02.11.2017 00:00
-03.11.2017 02:07;Description for test;175.32;1154.38;03.11.2017 00:00
-06.11.2017 12:03;Description for test;94.08;1248.46;06.11.2017 00:00
-08.11.2017 12:34;Description for test;448.41;1696.87;08.11.2017 00:00
-09.11.2017 00:51;Description for test;9000;10696.87;09.11.2017 00:00
-09.11.2017 07:18;Description for test;-8291.91;2404.96;09.11.2017 00:00
-14.11.2017 00:34;Description for test;355.95;2760.91;14.11.2017 00:00
-14.11.2017 11:44;Description for test;13040;15800.91;14.11.2017 00:00
-15.11.2017 12:03;Description for test;29.55;15830.46;15.11.2017 00:00
-17.11.2017 11:49;Description for test;17.55;15848.01;17.11.2017 00:00
-21.11.2017 19:19;Description for test;59;15907.01;22.11.2017 00:00
-23.11.2017 06:48;Description for test;206.1;16113.11;23.11.2017 00:00
-24.11.2017 12:19;Description for test;-6450;9663.11;24.11.2017 00:00
-24.11.2017 13:19;Description for test;535;10198.11;24.11.2017 00:00
-27.11.2017 01:27;Description for test;-34.3;10163.81;27.11.2017 00:00
-27.11.2017 09:36;Description for test;50;10213.81;27.11.2017 00:00
-27.11.2017 10:52;Description for test;137;10350.81;27.11.2017 00:00
-27.11.2017 12:33;Description for test;23.15;10373.96;27.11.2017 00:00
-28.11.2017 06:17;Description for test;473.55;10847.51;28.11.2017 00:00
-29.11.2017 01:33;Description for test;161.05;11008.56;29.11.2017 00:00
-29.11.2017 02:18;Description for test;169.5;11178.06;29.11.2017 00:00
-30.11.2017 01:19;Description for test;81;11259.06;30.11.2017 00:00
-30.11.2017 02:07;Description for test;65;11324.06;30.11.2017 00:00
-30.11.2017 05:34;Description for test;51;11375.06;30.11.2017 00:00
-30.11.2017 05:34;Description for test;319.9;11694.96;30.11.2017 00:00
-30.11.2017 11:04;Description for test;34.5;11729.46;30.11.2017 00:00
-01.12.2017 07:50;Description for test;-1770;9959.46;01.12.2017 00:00
-04.12.2017 02:18;Description for test;45.5;10004.96;04.12.2017 00:00
-05.12.2017 05:51;Description for test;112;10116.96;05.12.2017 00:00
-05.12.2017 05:51;Description for test;176.9;10293.86;05.12.2017 00:00
-05.12.2017 11:33;Description for test;258.3;10552.16;05.12.2017 00:00
-05.12.2017 12:18;Description for test;59.59;10611.75;05.12.2017 00:00
-07.12.2017 12:03;Description for test;-47.65;10564.1;07.12.2017 00:00
-08.12.2017 00:49;Description for test;152;10716.1;08.12.2017 00:00
-11.12.2017 01:25;Description for test;-312;10404.1;11.12.2017 00:00
-12.12.2017 11:49;Description for test;598.38;11002.48;12.12.2017 00:00
-13.12.2017 12:48;Description for test;511.17;11513.65;13.12.2017 00:00
-18.12.2017 02:48;Description for test;67;11580.65;18.12.2017 00:00
-18.12.2017 11:18;Description for test;203.29;11783.94;18.12.2017 00:00
-19.12.2017 12:19;Description for test;1800;13583.94;19.12.2017 00:00
-20.12.2017 12:19;Description for test;-5512.85;8071.09;20.12.2017 00:00
-20.12.2017 12:19;Description for test;-205.88;7865.21;20.12.2017 00:00
-21.12.2017 00:35;Description for test;31;7896.21;21.12.2017 00:00
-21.12.2017 00:53;Description for test;4503.18;12399.39;21.12.2017 00:00
-21.12.2017 02:03;Description for test;162;12561.39;21.12.2017 00:00
-21.12.2017 02:03;Description for test;194.5;12755.89;21.12.2017 00:00
-21.12.2017 05:34;Description for test;81;12836.89;21.12.2017 00:00
-22.12.2017 08:20;Description for test;108.5;12945.39;22.12.2017 00:00
-22.12.2017 08:49;Description for test;335.8;13281.19;22.12.2017 00:00
-27.12.2017 04:19;Description for test;133;13414.19;27.12.2017 00:00
-27.12.2017 11:03;Description for test;34.5;13448.69;27.12.2017 00:00
-27.12.2017 12:19;Description for test;31.2;13479.89;27.12.2017 00:00
-28.12.2017 02:07;Description for test;24;13503.89;28.12.2017 00:00
-28.12.2017 02:36;Description for test;213.1;13716.99;28.12.2017 00:00
-28.12.2017 05:36;Description for test;42.5;13759.49;28.12.2017 00:00
-28.12.2017 05:36;Description for test;129;13888.49;28.12.2017 00:00
-28.12.2017 11:34;Description for test;669.54;14558.03;28.12.2017 00:00
-29.12.2017 04:35;Description for test;-2842;11716.03;29.12.2017 00:00
-29.12.2017 12:04;Description for test;70.2;11786.23;29.12.2017 00:00
-31.12.2017 00:00;Description for test;0;11786.23;31.12.2017 00:00
-31.12.2017 00:00;Description for test;-25;11761.23;31.12.2017 00:00
-31.12.2017 00:00;Description for test;-3;11758.23;31.12.2017 00:00
+;;;;
+02.08.2017 01:51;O-Docerra Ductatusquam by sere viuntemen numeribo;-1770;4671.4;02.08.2017 00:00
+;;;;
+01.09.2017 02:22;O-Docerra Ductatusquam by sere viuntemen numeribo;-1770;2901.4;01.09.2017 00:00
+;;;;
+02.10.2017 03:52;O-Docerra Ductatusquam by sere viuntemen numeribo;-1770;1131.4;02.10.2017 00:00
+;;;;
+23.10.2017 11:18;Apturiecro ARTAM CASTIANT XXX.;1652.31;2783.71;23.10.2017 00:00
+;;;;
+30.10.2017 12:19;Apturiecro ARTAM CASTIANT XXX.;6.4;2790.11;30.10.2017 00:00
+;;;;
+02.11.2017 01:50;O-Docerra Ductatusquam by sere viuntemen numeribo;-1770;1020.11;02.11.2017 00:00
+;;;;
+02.11.2017 15:26;Vitquaer trum. 2 % TABO XXX 0.57 Pratitubila luva Iuniaracibulcenumn � XXX 2.50 Videre 604 / Divide 74 / Sonch XXX 14.57;-41.05;979.06;02.11.2017 00:00
+;;;;
+03.11.2017 02:07;Apturiecro ARTAM CASTIANT XXX.;175.32;1154.38;03.11.2017 00:00
+;;;;
+06.11.2017 12:03;Apturiecro ARTAM CASTIANT XXX.;94.08;1248.46;06.11.2017 00:00
+;;;;
+08.11.2017 12:34;Apturiecro ARTAM CASTIANT XXX.;448.41;1696.87;08.11.2017 00:00
+;;;;
+09.11.2017 00:51;Apturiecro O�apilia W�tant - semidebit;9000;10696.87;09.11.2017 00:00
+;;;;
+09.11.2017 07:18;O-Docerra Merunitinocus xxx Percunnatudivit TAS 4'733.32, Cuniuntemustrum 0.7255;-8291.91;2404.96;09.11.2017 00:00
+;;;;
+14.11.2017 00:34;Apturiecro Simus Solvente Nared;355.95;2760.91;14.11.2017 00:00
+;;;;
+14.11.2017 11:44;Molurruntquat Incentiuscilla;13040;15800.91;14.11.2017 00:00
+;;;;
+15.11.2017 12:03;Apturiecro ARTAM CASTIANT XXX.;29.55;15830.46;15.11.2017 00:00
+;;;;
+17.11.2017 11:49;Apturiecro ARTAM CASTIANT XXX.;17.55;15848.01;17.11.2017 00:00
+;;;;
+21.11.2017 19:19;Apturiecro NOMNENT ABIET CONSTATEM Y/A;59;15907.01;22.11.2017 00:00
+;;;;
+23.11.2017 06:48;Apturiecro Murritte Cogionis;206.1;16113.11;23.11.2017 00:00
+;;;;
+24.11.2017 12:19;O-Docerra Cuniusa (Frens�planart) O�apilia W�tant - semidebit Frens UH1683502102734323200;-6450;9663.11;24.11.2017 00:00
+;;;;
+24.11.2017 13:19;Apturiecro MitUunisu MenT;535;10198.11;24.11.2017 00:00
+;;;;
+27.11.2017 01:27;O-Docerra Cuniusa by Ventubier q�a;-34.3;10163.81;27.11.2017 00:00
+;;;;
+27.11.2017 09:36;Elicitte�unix top Vitudo Langere W.   Langere P.;50;10213.81;27.11.2017 00:00
+;;;;
+27.11.2017 10:52;Apturiecro UXEMO TERVA;137;10350.81;27.11.2017 00:00
+;;;;
+27.11.2017 12:33;Apturiecro ARTAM CASTIANT XXX.;23.15;10373.96;27.11.2017 00:00
+;;;;
+28.11.2017 06:17;Apturiecro Ausplect Paraest MenT;473.55;10847.51;28.11.2017 00:00
+;;;;
+29.11.2017 01:33;Apturiecro ARTAM CASTIANT XXX.;161.05;11008.56;29.11.2017 00:00
+;;;;
+29.11.2017 02:18;Apturiecro Cosit Diete;169.5;11178.06;29.11.2017 00:00
+;;;;
+30.11.2017 01:19;Apturiecro Inatus Coginae-Conit vos;81;11259.06;30.11.2017 00:00
+;;;;
+30.11.2017 02:07;Apturiecro Babirae Accit;65;11324.06;30.11.2017 00:00
+;;;;
+30.11.2017 05:34;Elicitte�unix top Aestas, Dioneis;51;11375.06;30.11.2017 00:00
+;;;;
+30.11.2017 05:34;Elicitte�unix top Adde.-Dictandiant-Doluci.ALVO;319.9;11694.96;30.11.2017 00:00
+;;;;
+30.11.2017 11:04;Apturiecro ICULTUMN STQUIRES VOS AMNERELLA STQUIRES;34.5;11729.46;30.11.2017 00:00
+;;;;
+01.12.2017 07:50;O-Docerra Ductatusquam by sere viuntemen numeribo;-1770;9959.46;01.12.2017 00:00
+;;;;
+04.12.2017 02:18;Apturiecro Sedendo Cangro-Huntest;45.5;10004.96;04.12.2017 00:00
+;;;;
+05.12.2017 05:51;Elicitte�unix top Nereverba Modita, Undi;112;10116.96;05.12.2017 00:00
+;;;;
+05.12.2017 05:51;Elicitte�unix top Splecentipar, Domitatem;176.9;10293.86;05.12.2017 00:00
+;;;;
+05.12.2017 11:33;Apturiecro tesempecut eo;258.3;10552.16;05.12.2017 00:00
+;;;;
+05.12.2017 12:18;Apturiecro ARTAM CASTIANT XXX.;59.59;10611.75;05.12.2017 00:00
+;;;;
+07.12.2017 12:03;O-Docerra Cuniusa by togniuva patinentricute;-47.65;10564.1;07.12.2017 00:00
+;;;;
+08.12.2017 00:49;Apturiecro Chabibo Habis;152;10716.1;08.12.2017 00:00
+;;;;
+11.12.2017 01:25;O-Docerra Cuniusa by INTRUNT q�c AVA LAMQUO;-312;10404.1;11.12.2017 00:00
+;;;;
+12.12.2017 11:49;Apturiecro ARTAM CASTIANT XXX.;598.38;11002.48;12.12.2017 00:00
+;;;;
+13.12.2017 12:48;Apturiecro ARTAM CASTIANT XXX.;511.17;11513.65;13.12.2017 00:00
+;;;;
+18.12.2017 02:48;Apturiecro Fuientego Volluus;67;11580.65;18.12.2017 00:00
+;;;;
+18.12.2017 11:18;Apturiecro ARTAM CASTIANT XXX.;203.29;11783.94;18.12.2017 00:00
+;;;;
+19.12.2017 12:19;Apturiecro Lincem MenT;1800;13583.94;19.12.2017 00:00
+;;;;
+20.12.2017 12:19;O-Docerra Merunitinocus xxx Percunnatudivit;-5512.85;8071.09;20.12.2017 00:00
+;;;;
+20.12.2017 12:19;O-Docerra Cuniusa (UMEN) TAS 402.12, Cuniuntemustrum 0.1463 FERAPTO-AUDUCI;-205.88;7865.21;20.12.2017 00:00
+;;;;
+21.12.2017 00:35;Apturiecro Aeque Apis;31;7896.21;21.12.2017 00:00
+;;;;
+21.12.2017 00:53;Apturiecro Lincem MenT;4503.18;12399.39;21.12.2017 00:00
+;;;;
+21.12.2017 02:03;Apturiecro Cannaver Sane;162;12561.39;21.12.2017 00:00
+;;;;
+21.12.2017 02:03;Apturiecro Clacchore Duerituuntube;194.5;12755.89;21.12.2017 00:00
+;;;;
+21.12.2017 05:34;Elicitte�unix top Turabies W. vos Turabies J.;81;12836.89;21.12.2017 00:00
+;;;;
+22.12.2017 08:20;Elicitte�unix top Temilintate-Lunt, Nuilis;108.5;12945.39;22.12.2017 00:00
+;;;;
+22.12.2017 08:49;Apturiecro MitUunisu MenT;335.8;13281.19;22.12.2017 00:00
+;;;;
+27.12.2017 04:19;Apturiecro Sunch Retis-Dorae;133;13414.19;27.12.2017 00:00
+;;;;
+27.12.2017 11:03;Apturiecro ICULTUMN STQUIRES VOS AMNERELLA STQUIRES;34.5;13448.69;27.12.2017 00:00
+;;;;
+27.12.2017 12:19;Apturiecro ARTAM CASTIANT XXX.;31.2;13479.89;27.12.2017 00:00
+;;;;
+28.12.2017 02:07;Apturiecro Postas Speri;24;13503.89;28.12.2017 00:00
+;;;;
+28.12.2017 02:36;Apturiecro Fig Perva Merumn Albulini;213.1;13716.99;28.12.2017 00:00
+;;;;
+28.12.2017 05:36;Elicitte�unix top Splecentipar, Domitatem;42.5;13759.49;28.12.2017 00:00
+;;;;
+28.12.2017 05:36;Elicitte�unix top Haest Everal de Natu Foretus;129;13888.49;28.12.2017 00:00
+;;;;
+28.12.2017 11:34;Apturiecro ARTAM CASTIANT XXX.;669.54;14558.03;28.12.2017 00:00
+;;;;
+29.12.2017 04:35;O-Docerra Merunitinocus xxx Duculamque�off;-2842;11716.03;29.12.2017 00:00
+;;;;
+29.12.2017 12:04;Apturiecro ARTAM CASTIANT XXX.;70.2;11786.23;29.12.2017 00:00
+;;;;
+31.12.2017 00:00;0.000 % Habenzins ab 30.06.17 bis 1'000'000;5;11786.23;31.12.2017 00:00
+;;;;
+31.12.2017 00:00;Tep�scit Subica�ervum;-25;11761.23;31.12.2017 00:00
+;;;;
+31.12.2017 00:00;Tep�scit Exsperipsuidion;-3;11758.23;31.12.2017 00:00

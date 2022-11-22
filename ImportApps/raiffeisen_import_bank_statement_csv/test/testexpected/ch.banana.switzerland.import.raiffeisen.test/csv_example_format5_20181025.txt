@@ -20,232 +20,232 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2018-01-01 & 2018-01-03 &  & Description for test &  & 482.2\\
-2018-01-04 & 2018-01-04 &  & Description for test &  & 66.57\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 1500\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 276.65\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 64.6\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 780\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 71.9\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 397.75\\
-2018-01-12 & 2018-01-12 &  & Description for test &  & 520.85\\
-2018-01-16 & 2018-01-16 &  & Description for test &  & 104.6\\
-2018-01-16 & 2018-01-16 &  & Description for test &  & 56.95\\
-2018-01-16 & 2018-01-16 &  & Description for test &  & 80\\
-2018-01-17 & 2018-01-17 &  & Description for test &  & 1000\\
-2018-01-18 & 2018-01-18 &  & Description for test & 10589 & \\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 8.2\\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 5964.05\\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 139.25\\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 340.1\\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 1025.55\\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 149.35\\
-2018-01-18 & 2018-01-18 &  & Description for test &  & 1400\\
-2018-01-19 & 2018-01-19 &  & Description for test & 9396 & \\
-2018-01-19 & 2018-01-19 &  & Description for test &  & 1000\\
-2018-01-20 & 2018-01-22 &  & Description for test &  & 42.3\\
-2018-01-20 & 2018-01-22 &  & Description for test &  & 68\\
-2018-01-22 & 2018-01-22 &  & Description for test &  & 7655.1\\
-2018-01-23 & 2018-01-23 &  & Description for test &  & 56.31\\
-2018-01-24 & 2018-01-24 &  & Description for test &  & 56\\
-2018-01-24 & 2018-01-24 &  & Description for test &  & 84.74\\
-2018-01-25 & 2018-01-25 &  & Description for test &  & 114.35\\
-2018-01-25 & 2018-01-25 &  & Description for test & 91.8 & \\
-2018-01-27 & 2018-01-29 &  & Description for test &  & 93.8\\
-2018-01-29 & 2018-01-29 &  & Description for test &  & 1784.6\\
-2018-01-29 & 2018-01-29 &  & Description for test &  & 200.4\\
-2018-02-01 & 2018-02-01 &  & Description for test &  & 1000\\
-2018-02-01 & 2018-02-01 &  & Description for test &  & 37.2\\
-2018-02-03 & 2018-02-05 &  & Description for test &  & 67.3\\
-2018-02-03 & 2018-02-05 &  & Description for test &  & 104.15\\
-2018-02-05 & 2018-02-05 &  & Description for test & 196.5 & \\
-2018-02-09 & 2018-02-09 &  & Description for test & 10033.61 & \\
-2018-02-09 & 2018-02-09 &  & Description for test &  & 37.4\\
-2018-02-09 & 2018-02-09 &  & Description for test &  & 26.2\\
-2018-02-09 & 2018-02-09 &  & Description for test &  & 2581.8\\
-2018-02-09 & 2018-02-09 &  & Description for test &  & 6880.75\\
-2018-02-13 & 2018-02-13 &  & Description for test & 4572.41 & \\
-2018-02-13 & 2018-02-13 &  & Description for test &  & 46.84\\
-2018-02-13 & 2018-02-13 &  & Description for test &  & 60.95\\
-2018-02-14 & 2018-02-14 &  & Description for test &  & 315.7\\
-2018-02-14 & 2018-02-14 &  & Description for test &  & 780\\
-2018-02-14 & 2018-02-14 &  & Description for test &  & 397.75\\
-2018-02-14 & 2018-02-14 &  & Description for test &  & 630\\
-2018-02-15 & 2018-02-15 &  & Description for test &  & 38.2\\
-2018-02-15 & 2018-02-15 &  & Description for test &  & 107.1\\
-2018-02-15 & 2018-02-15 &  & Description for test &  & 33.8\\
-2018-02-15 & 2018-02-15 &  & Description for test &  & 1551.95\\
-2018-02-15 & 2018-02-15 &  & Description for test &  & 47.5\\
-2018-02-16 & 2018-02-16 &  & Description for test &  & 44.1\\
-2018-02-16 & 2018-02-16 &  & Description for test &  & 1000\\
-2018-02-17 & 2018-02-19 &  & Description for test &  & 45.1\\
-2018-02-21 & 2018-02-21 &  & Description for test &  & 50.7\\
-2018-02-23 & 2018-02-23 &  & Description for test & 6235.8 & \\
-2018-02-25 & 2018-02-26 &  & Description for test &  & 1500\\
-2018-02-26 & 2018-02-26 &  & Description for test &  & 40\\
-2018-02-26 & 2018-02-26 &  & Description for test &  & 297.9\\
-2018-02-26 & 2018-02-26 &  & Description for test &  & 84\\
-2018-02-27 & 2018-02-27 &  & Description for test &  & 49.26\\
-2018-02-27 & 2018-02-27 &  & Description for test &  & 70.7\\
-2018-02-28 & 2018-02-28 &  & Description for test &  & 97.05\\
-2018-03-01 & 2018-03-01 &  & Description for test & 869.4 & \\
-2018-03-02 & 2018-03-02 &  & Description for test &  & 919.79\\
-2018-03-02 & 2018-03-02 &  & Description for test & 3688.7 & \\
-2018-03-03 & 2018-03-05 &  & Description for test &  & 55.8\\
-2018-03-05 & 2018-03-05 &  & Description for test &  & 6921.95\\
-2018-03-06 & 2018-03-06 &  & Description for test &  & 98.9\\
-2018-03-06 & 2018-03-06 &  & Description for test &  & 14.7\\
-2018-03-07 & 2018-03-07 &  & Description for test &  & 26.8\\
-2018-03-07 & 2018-03-07 &  & Description for test &  & 8.6\\
-2018-03-08 & 2018-03-08 &  & Description for test &  & 25.8\\
-2018-03-08 & 2018-03-08 &  & Description for test & 7611.5 & \\
-2018-03-11 & 2018-03-12 &  & Description for test &  & 1500\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 923.1\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 780\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 1026.6\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 412.65\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 305.75\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 28\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 32.3\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 364.2\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 9.85\\
-2018-03-12 & 2018-03-12 &  & Description for test &  & 65.8\\
-2018-03-13 & 2018-03-13 &  & Description for test &  & 59.33\\
-2018-03-15 & 2018-03-15 &  & Description for test &  & 397.75\\
-2018-03-15 & 2018-03-15 &  & Description for test &  & 200.4\\
-2018-03-16 & 2018-03-16 &  & Description for test & 360.8 & \\
-2018-03-16 & 2018-03-16 &  & Description for test & 460.4 & \\
-2018-03-16 & 2018-03-16 &  & Description for test & 430.8 & \\
-2018-03-16 & 2018-03-16 &  & Description for test &  & 40\\
-2018-03-21 & 2018-03-21 &  & Description for test &  & 2262.25\\
-2018-03-21 & 2018-03-21 &  & Description for test & 1033.91 & \\
-2018-03-22 & 2018-03-22 &  & Description for test &  & 555.6\\
-2018-03-23 & 2018-03-23 &  & Description for test &  & 252.9\\
-2018-03-27 & 2018-03-27 &  & Description for test & 460.4 & \\
-2018-03-27 & 2018-03-27 &  & Description for test &  & 847.2\\
-2018-03-28 & 2018-03-28 &  & Description for test &  & 183.1\\
-2018-03-31 & 2018-03-31 &  & Description for test & 0 & \\
-2018-03-31 & 2018-03-31 &  & Description for test &  & 12\\
-2018-03-31 & 2018-03-31 &  & Description for test &  & 9\\
-2018-04-03 & 2018-04-03 &  & Description for test &  & 876.65\\
-2018-04-06 & 2018-04-06 &  & Description for test & 1976.2 & \\
-2018-04-06 & 2018-04-06 &  & Description for test &  & 1967\\
-2018-04-09 & 2018-04-09 &  & Description for test & 2812.7 & \\
-2018-04-11 & 2018-04-11 &  & Description for test &  & 97.75\\
-2018-04-16 & 2018-04-16 &  & Description for test & 2100.13 & \\
-2018-04-16 & 2018-04-16 &  & Description for test &  & 4935.05\\
-2018-04-18 & 2018-04-18 &  & Description for test & 3984.9 & \\
-2018-04-19 & 2018-04-19 &  & Description for test &  & 3877.25\\
-2018-04-23 & 2018-04-23 &  & Description for test & 975.12 & \\
-2018-04-23 & 2018-04-23 &  & Description for test & 3385.19 & \\
-2018-04-25 & 2018-04-25 &  & Description for test &  & 490.65\\
-2018-04-26 & 2018-04-26 &  & Description for test & 2000 & \\
-2018-04-26 & 2018-04-26 &  & Description for test & 2837.86 & \\
-2018-04-26 & 2018-04-26 &  & Description for test &  & 2426.1\\
-2018-04-27 & 2018-04-27 &  & Description for test & 3688.7 & \\
-2018-04-30 & 2018-04-30 &  & Description for test &  & 359.5\\
-2018-04-30 & 2018-04-30 &  & Description for test & 2119.46 & \\
-2018-04-30 & 2018-04-30 &  & Description for test &  & 7397.2\\
-2018-05-03 & 2018-05-03 &  & Description for test &  & 2700\\
-2018-05-08 & 2018-05-08 &  & Description for test & 403.85 & \\
-2018-05-18 & 2018-05-18 &  & Description for test & 7818.89 & \\
-2018-05-22 & 2018-05-22 &  & Description for test &  & 6471.3\\
-2018-05-23 & 2018-05-23 &  & Description for test &  & 420\\
-2018-05-24 & 2018-05-24 &  & Description for test &  & 238.35\\
-2018-05-25 & 2018-05-25 &  & Description for test & 341.39 & \\
-2018-05-25 & 2018-05-25 &  & Description for test & 306.39 & \\
-2018-05-25 & 2018-05-25 &  & Description for test & 1561.63 & \\
-2018-05-25 & 2018-05-25 &  & Description for test & 287 & \\
-2018-05-28 & 2018-05-28 &  & Description for test &  & 229.65\\
-2018-05-28 & 2018-05-28 &  & Description for test & 5104.98 & \\
-2018-05-30 & 2018-05-30 &  & Description for test & 533.1 & \\
-2018-05-31 & 2018-05-31 &  & Description for test &  & 1176.65\\
-2018-06-01 & 2018-06-01 &  & Description for test & 2433.37 & \\
-2018-06-06 & 2018-06-06 &  & Description for test &  & 4230.7\\
-2018-06-06 & 2018-06-06 &  & Description for test &  & 7025.95\\
-2018-06-08 & 2018-06-08 &  & Description for test & 710.8 & \\
-2018-06-11 & 2018-06-11 &  & Description for test &  & 111.75\\
-2018-06-13 & 2018-06-13 &  & Description for test & 484.65 & \\
-2018-06-13 & 2018-06-13 &  & Description for test &  & 909.5\\
-2018-06-15 & 2018-06-15 &  & Description for test & 1895.5 & \\
-2018-06-18 & 2018-06-18 &  & Description for test &  & 1314.8\\
-2018-06-18 & 2018-06-18 &  & Description for test & 5497.01 & \\
-2018-06-20 & 2018-06-20 &  & Description for test &  & 4320\\
-2018-06-26 & 2018-06-26 &  & Description for test & 263.94 & \\
-2018-06-27 & 2018-06-27 &  & Description for test & 384.51 & \\
-2018-06-28 & 2018-06-28 &  & Description for test &  & 2878.35\\
-2018-06-30 & 2018-06-30 &  & Description for test & 0 & \\
-2018-06-30 & 2018-06-30 &  & Description for test &  & 12\\
-2018-07-02 & 2018-07-02 &  & Description for test & 2272.47 & \\
-2018-07-03 & 2018-07-03 &  & Description for test &  & 1000\\
-2018-07-05 & 2018-07-05 &  & Description for test & 2843.28 & \\
-2018-07-05 & 2018-07-05 &  & Description for test &  & 1025.55\\
-2018-07-09 & 2018-07-09 &  & Description for test & 2013.99 & \\
-2018-07-09 & 2018-07-09 &  & Description for test & 180 & \\
-2018-07-10 & 2018-07-10 &  & Description for test & 8733.4 & \\
-2018-07-11 & 2018-07-11 &  & Description for test &  & 4210.41\\
-2018-07-16 & 2018-07-16 &  & Description for test & 1556.8 & \\
-2018-07-17 & 2018-07-17 &  & Description for test &  & 1546.55\\
-2018-07-18 & 2018-07-18 &  & Description for test &  & 56.7\\
-2018-07-20 & 2018-07-20 &  & Description for test &  & 1403.85\\
-2018-07-20 & 2018-07-20 &  & Description for test & 9404.77 & \\
-2018-07-24 & 2018-07-24 &  & Description for test & 2872.9 & \\
-2018-07-25 & 2018-07-25 &  & Description for test &  & 1972.2\\
-2018-07-26 & 2018-07-26 &  & Description for test &  & 2223.35\\
-2018-07-26 & 2018-07-26 &  & Description for test & 2504.57 & \\
-2018-08-02 & 2018-08-02 &  & Description for test &  & 10512.85\\
-2018-08-03 & 2018-08-03 &  & Description for test &  & 5088.21\\
-2018-08-03 & 2018-08-03 &  & Description for test & 1675.82 & \\
-2018-08-09 & 2018-08-09 &  & Description for test & 2013.99 & \\
-2018-08-09 & 2018-08-09 &  & Description for test &  & 144.5\\
-2018-08-10 & 2018-08-10 &  & Description for test & 47.5 & \\
-2018-08-13 & 2018-08-13 &  & Description for test & 1510.49 & \\
-2018-08-13 & 2018-08-13 &  & Description for test & 3524.48 & \\
-2018-08-14 & 2018-08-14 &  & Description for test &  & 8302.35\\
-2018-08-17 & 2018-08-17 &  & Description for test & 3672.57 & \\
-2018-08-20 & 2018-08-20 &  & Description for test & 10747.39 & \\
-2018-08-21 & 2018-08-21 &  & Description for test &  & 4409.9\\
-2018-08-21 & 2018-08-21 &  & Description for test &  & 976.05\\
-2018-08-23 & 2018-08-23 &  & Description for test & 111.5 & \\
-2018-08-24 & 2018-08-24 &  & Description for test &  & 1915.5\\
-2018-08-28 & 2018-08-28 &  & Description for test & 2487.87 & \\
-2018-08-28 & 2018-08-28 &  & Description for test &  & 11855.45\\
-2018-08-31 & 2018-08-31 &  & Description for test & 32.3 & \\
-2018-09-03 & 2018-09-03 &  & Description for test & 3939.13 & \\
-2018-09-03 & 2018-09-03 &  & Description for test & 3820.66 & \\
-2018-09-05 & 2018-09-05 &  & Description for test & 5104.98 & \\
-2018-09-06 & 2018-09-06 &  & Description for test & 887.99 & \\
-2018-09-12 & 2018-09-12 &  & Description for test & 959.07 & \\
-2018-09-17 & 2018-09-17 &  & Description for test & 2200 & \\
-2018-09-19 & 2018-09-19 &  & Description for test &  & 1619.05\\
-2018-09-20 & 2018-09-20 &  & Description for test &  & 6294.3\\
-2018-09-20 & 2018-09-20 &  & Description for test &  & 40\\
-2018-09-21 & 2018-09-21 &  & Description for test & 6586.93 & \\
-2018-09-24 & 2018-09-24 &  & Description for test &  & 5452\\
-2018-09-27 & 2018-09-27 &  & Description for test & 11615.45 & \\
-2018-09-27 & 2018-09-27 &  & Description for test &  & 5783.9\\
-2018-09-28 & 2018-09-28 &  & Description for test &  & 3171.45\\
-2018-09-30 & 2018-09-30 &  & Description for test & 0 & \\
-2018-09-30 & 2018-09-30 &  & Description for test &  & 12\\
-2018-10-01 & 2018-10-01 &  & Description for test &  & 7809.65\\
-2018-10-01 & 2018-10-01 &  & Description for test &  & 1253.2\\
-2018-10-01 & 2018-10-01 &  & Description for test &  & 10.77\\
-2018-10-02 & 2018-10-02 &  & Description for test & 2665.58 & \\
-2018-10-02 & 2018-10-02 &  & Description for test & 2191.7 & \\
-2018-10-03 & 2018-10-03 &  & Description for test &  & 4238.65\\
-2018-10-05 & 2018-10-05 &  & Description for test & 1658.58 & \\
-2018-10-08 & 2018-10-08 &  & Description for test &  & 3861.8\\
-2018-10-11 & 2018-10-11 &  & Description for test & 8618.69 & \\
-2018-10-12 & 2018-10-12 &  & Description for test &  & 486.3\\
-2018-10-12 & 2018-10-12 &  & Description for test & 2369.4 & \\
-2018-10-15 & 2018-10-15 &  & Description for test &  & 679.05\\
-2018-10-17 & 2018-10-17 &  & Description for test & 1742.04 & \\
-2018-10-18 & 2018-10-18 &  & Description for test &  & 622.41\\
-2018-10-19 & 2018-10-19 &  & Description for test & 434 & \\
-2018-10-19 & 2018-10-19 &  & Description for test & 950.5 & \\
-2018-10-19 & 2018-10-19 &  & Description for test &  & 500\\
-2018-10-25 & 2018-10-25 &  & Description for test &  & 589.1\\
-2018-10-26 & 2018-10-26 &  & Description for test & 944.53 & \\
+2018-01-01 & 2018-01-03 &  & Fuittringent Puerreat AT OCUTARTAS 32.84.1154/74:18 / Q. allis Tantava 22010487 REX 756.75, Repribulcendusa 8.1213 &  & 482.2\\
+2018-01-04 & 2018-01-04 &  & Friatuer TABURY 3863        118 15.37.7467/62:10 / Q. allis Tantava 22010487 REX 48.51, Repribulcendusa 8.8387 &  & 66.57\\
+2018-01-12 & 2018-01-12 &  & Friatuer CAPTUM-GURAT DISCENT 24.37.7467/84:63 / Q. allis Tantava 22010487 &  & 1500\\
+2018-01-12 & 2018-01-12 &  & X-vigiunt Hartus a Liquiram (Tuonisu) VI, Fore &  & 276.65\\
+2018-01-12 & 2018-01-12 &  & X-vigiunt Hartus a OPRESCREA TUONISU &  & 64.6\\
+2018-01-12 & 2018-01-12 &  & X-vigiunt Hartus a Renti Jubis a Ariem &  & 780\\
+2018-01-12 & 2018-01-12 &  & X-vigiunt Hartus a Ocutuunt DE &  & 71.9\\
+2018-01-12 & 2018-01-12 &  & X-vigiunt Hartus a CUS TERATTE NUMENT DE &  & 397.75\\
+2018-01-12 & 2018-01-12 &  & X-vigiunt Hartus a Ocutuunt DE &  & 520.85\\
+2018-01-16 & 2018-01-16 &  & Friatuer/intudisu REGRAEST SUALUMENIT 62.37.7467/40:32 / Q. allis Tantava 22010487 &  & 104.6\\
+2018-01-16 & 2018-01-16 &  & Friatuer/intudisu REGRAEST SUALUMENIT 62.37.7467/55:75 / Q. allis Tantava 22010487 &  & 56.95\\
+2018-01-16 & 2018-01-16 &  & Friatuer/intudisu REGRAEST SUALUMENIT 62.37.7467/55:12 / Q. allis Tantava 22010487 &  & 80\\
+2018-01-17 & 2018-01-17 &  & Friatuer CAPTUM-GURAT DISCENT 62.37.7467/84:62 / Q. allis Tantava 22010487 &  & 1000\\
+2018-01-18 & 2018-01-18 &  & Pariderit Bomplebitere Mens & 10589 & \\
+2018-01-18 & 2018-01-18 &  & Friatuer SECT-4613 PUTATER 63.37.7467/24:12 / Q. allis Tantava 22010487 &  & 8.2\\
+2018-01-18 & 2018-01-18 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 5964.05\\
+2018-01-18 & 2018-01-18 &  & X-vigiunt Hartus a Nis VI &  & 139.25\\
+2018-01-18 & 2018-01-18 &  & X-vigiunt Hartus a OPRESCREA TUONISU &  & 340.1\\
+2018-01-18 & 2018-01-18 &  & X-vigiunt Hartus a INIS &  & 1025.55\\
+2018-01-18 & 2018-01-18 &  & X-vigiunt Hartus a AT NOVIT-ABIRIECT DE &  & 149.35\\
+2018-01-18 & 2018-01-18 &  & X-vigiunt Hartus (vatudivianent in teris) Diceant Vitate Teris XT6200678458284722845 &  & 1400\\
+2018-01-19 & 2018-01-19 &  & Pariderit INI NENUISPUTUS VI & 9396 & \\
+2018-01-19 & 2018-01-19 &  & Fuittringent Puerreat AT CABIRIT 80.37.7467/24:28 / Q. allis Tantava 22010487 &  & 1000\\
+2018-01-20 & 2018-01-22 &  & Friatuer Funtuirere Canunc. 38.37.7467/84:36 / Q. allis Tantava 22010487 &  & 42.3\\
+2018-01-20 & 2018-01-22 &  & Friatuer/intudisu REGRAEST SUALUMENIT 80.37.7467/24:63 / Q. allis Tantava 22010487 &  & 68\\
+2018-01-22 & 2018-01-22 &  & X-vigiunt Hartus a Pentere Nument Haeranenducem DE &  & 7655.1\\
+2018-01-23 & 2018-01-23 &  & Friatuer TABURY 3863        118 31.37.7467/47:21 / Q. allis Tantava 22010487 REX 84.63, Repribulcendusa 8.4606 &  & 56.31\\
+2018-01-24 & 2018-01-24 &  & Friatuer EO SAELITTIO TENTUS 10.37.7467/84:17 / Q. allis Tantava 22010487 &  & 56\\
+2018-01-24 & 2018-01-24 &  & Friatuer MH4606             424 21.37.7467/74:85 / Q. allis Tantava 22010487 REX 66.46, Repribulcendusa 8.7483 &  & 84.74\\
+2018-01-25 & 2018-01-25 &  & Friatuer/intudisu REGRAEST SUALUMENIT 83.37.7467/74:75 / Q. allis Tantava 22010487 &  & 114.35\\
+2018-01-25 & 2018-01-25 &  & Pariderit MEN PROXIMOR GENETINO VI & 91.8 & \\
+2018-01-27 & 2018-01-29 &  & Friatuer FUNTUIRERE DE MAGRAE 76.37.7467/54:37 / Q. allis Tantava 22010487 &  & 93.8\\
+2018-01-29 & 2018-01-29 &  & X-vigiunt Hartus a SEDEO A LUCAT VIT REX 8'277.13, pries in spericulura 8.5871 &  & 1784.6\\
+2018-01-29 & 2018-01-29 &  & X-vigiunt Hartus a TALL INIETIS VI &  & 200.4\\
+2018-02-01 & 2018-02-01 &  & Friatuer CAPTUM-GURAT DISCENT 32.37.7467/84:13 / Q. allis Tantava 22010487 &  & 1000\\
+2018-02-01 & 2018-02-01 &  & Friatuer OBTINO ÆDIT 32.37.7467/84:42 / Q. allis Tantava 22010487 &  & 37.2\\
+2018-02-03 & 2018-02-05 &  & Friatuer/intudisu REGRAEST SUALUMENIT 15.15.7467/84:24 / Q. allis Tantava 22010487 &  & 67.3\\
+2018-02-03 & 2018-02-05 &  & Friatuer/intudisu SECT REGRAEST TIUNDE 15.15.7467/74:55 / Q. allis Tantava 22010487 &  & 104.15\\
+2018-02-05 & 2018-02-05 &  & Pariderit Renti Jubis a Ariem & 196.5 & \\
+2018-02-09 & 2018-02-09 &  & Pariderit INI NENUISPUTUS VI & 10033.61 & \\
+2018-02-09 & 2018-02-09 &  & Friatuer Habis Fespor Cat at 40.15.7467/24:47 / Q. allis Tantava 22010487 &  & 37.4\\
+2018-02-09 & 2018-02-09 &  & Friatuer/intudisu SI Pronvense SI 40.15.7467/54:88 / Q. allis Tantava 22010487 &  & 26.2\\
+2018-02-09 & 2018-02-09 &  & X-vigiunt Hartus a ANT AGITI DE &  & 2581.8\\
+2018-02-09 & 2018-02-09 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 6880.75\\
+2018-02-13 & 2018-02-13 &  & Pariderit Bomplebitere Mens & 4572.41 & \\
+2018-02-13 & 2018-02-13 &  & Friatuer TABURY 3863        118 24.15.7467/38:54 / Q. allis Tantava 22010487 REX 12.37, Repribulcendusa 8.6014 &  & 46.84\\
+2018-02-13 & 2018-02-13 &  & Friatuer/intudisu REGRAEST SUALUMENIT 84.15.7467/55:75 / Q. allis Tantava 22010487 &  & 60.95\\
+2018-02-14 & 2018-02-14 &  & X-vigiunt Hartus a Liquiram (Tuonisu) VI, Fore &  & 315.7\\
+2018-02-14 & 2018-02-14 &  & X-vigiunt Hartus a Renti Jubis a Ariem &  & 780\\
+2018-02-14 & 2018-02-14 &  & X-vigiunt Hartus a CUS TERATTE NUMENT DE &  & 397.75\\
+2018-02-14 & 2018-02-14 &  & X-vigiunt Hartus a VADO CALII ADITA &  & 630\\
+2018-02-15 & 2018-02-15 &  & Friatuer PRO NAM COLVELLI 47.15.7467/24:74 / Q. allis Tantava 22010487 &  & 38.2\\
+2018-02-15 & 2018-02-15 &  & Friatuer/intudisu REGRAEST SUALUMENIT 47.15.7467/40:31 / Q. allis Tantava 22010487 &  & 107.1\\
+2018-02-15 & 2018-02-15 &  & Friatuer PRO NAM COLVELLI 47.15.7467/55:31 / Q. allis Tantava 22010487 &  & 33.8\\
+2018-02-15 & 2018-02-15 &  & X-vigiunt Hartus a Dicat Experunta in &  & 1551.95\\
+2018-02-15 & 2018-02-15 &  & X-vigiunt Hartus a ENTION VI &  & 47.5\\
+2018-02-16 & 2018-02-16 &  & Friatuer Funtuirere Eo Mulcem 47.15.7467/54:40 / Q. allis Tantava 22010487 &  & 44.1\\
+2018-02-16 & 2018-02-16 &  & Friatuer CAPTUM-GURAT DISCENT 47.15.7467/62:31 / Q. allis Tantava 22010487 &  & 1000\\
+2018-02-17 & 2018-02-19 &  & Friatuer Funtuirere Eo Mulcem 62.15.7467/84:13 / Q. allis Tantava 22010487 &  & 45.1\\
+2018-02-21 & 2018-02-21 &  & Friatuer AT CATUDISCUS IN QUE 31.15.7467/84:18 / Q. allis Tantava 22010487 &  & 50.7\\
+2018-02-23 & 2018-02-23 &  & Pariderit INI NENUISPUTUS VI & 6235.8 & \\
+2018-02-25 & 2018-02-26 &  & Friatuer CAPTUM-GURAT DISCENT 10.15.7467/74:63 / Q. allis Tantava 22010487 &  & 1500\\
+2018-02-26 & 2018-02-26 &  & X-vigiunt Hartus a sicitio targatia a prieris &  & 40\\
+2018-02-26 & 2018-02-26 &  & X-vigiunt Hartus a XXX &  & 297.9\\
+2018-02-26 & 2018-02-26 &  & X-vigiunt Hartus a Dicat Fillatum &  & 84\\
+2018-02-27 & 2018-02-27 &  & Friatuer TABURY 3863        118 53.15.7467/24:18 / Q. allis Tantava 22010487 REX 30.75, Repribulcendusa 8.7565 &  & 49.26\\
+2018-02-27 & 2018-02-27 &  & Friatuer/intudisu REGRAEST SUALUMENIT 76.15.7467/74:78 / Q. allis Tantava 22010487 &  & 70.7\\
+2018-02-28 & 2018-02-28 &  & Friatuer/intudisu REGRAEST SUALUMENIT 24.15.7467/40:31 / Q. allis Tantava 22010487 &  & 97.05\\
+2018-03-01 & 2018-03-01 &  & Nicciere runifig in Inis & 869.4 & \\
+2018-03-02 & 2018-03-02 &  & X-vigiunt Hartus a Pentere Nument Haeranenducem DE &  & 919.79\\
+2018-03-02 & 2018-03-02 &  & Pariderit O'MIRAXI DE & 3688.7 & \\
+2018-03-03 & 2018-03-05 &  & Friatuer VIVINTIA AT SEPERN 15.84.7467/54:15 / Q. allis Tantava 22010487 &  & 55.8\\
+2018-03-05 & 2018-03-05 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 6921.95\\
+2018-03-06 & 2018-03-06 &  & X-vigiunt Hartus a ENTION VI &  & 98.9\\
+2018-03-06 & 2018-03-06 &  & Friatuer TRIGUS ET ALIUSUPITE 63.84.7467/38:54 / Q. allis Tantava 22010487 &  & 14.7\\
+2018-03-07 & 2018-03-07 &  & Friatuer VIVINTIA AT SEPERN 72.84.7467/84:85 / Q. allis Tantava 22010487 &  & 26.8\\
+2018-03-07 & 2018-03-07 &  & Friatuer TRIGUS ET ALIUSUPITE 72.84.7467/63:84 / Q. allis Tantava 22010487 &  & 8.6\\
+2018-03-08 & 2018-03-08 &  & Friatuer VIVINTIA AT SEPERN 40.84.7467/84:52 / Q. allis Tantava 22010487 &  & 25.8\\
+2018-03-08 & 2018-03-08 &  & Pariderit Bomplebitere Mens & 7611.5 & \\
+2018-03-11 & 2018-03-12 &  & Friatuer CAPTUM-GURAT DISCENT 55.84.7467/74:24 / Q. allis Tantava 22010487 &  & 1500\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a Pentere Nument Haeranenducem DE &  & 923.1\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a Renti Jubis a Ariem &  & 780\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a Pentere Nument Haeranenducem DE &  & 1026.6\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a Ocutuunt DE &  & 412.65\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a Liquiram (Tuonisu) VI, Fore &  & 305.75\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a Dicat Fillatum &  & 28\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a canube quadde Xxx Tudisu Quadus &  & 32.3\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a ENTION VI &  & 364.2\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a AT NOVIT-ABIRIECT DE &  & 9.85\\
+2018-03-12 & 2018-03-12 &  & X-vigiunt Hartus a PAR DE &  & 65.8\\
+2018-03-13 & 2018-03-13 &  & Friatuer MH4606             611 24.84.7467/47:66 / Q. allis Tantava 22010487 REX 13.84, Repribulcendusa 8.8383 &  & 59.33\\
+2018-03-15 & 2018-03-15 &  & X-vigiunt Hartus a CUS TERATTE NUMENT DE &  & 397.75\\
+2018-03-15 & 2018-03-15 &  & X-vigiunt Hartus a TALL INIETIS VI &  & 200.4\\
+2018-03-16 & 2018-03-16 &  & Pariderit INI NENUISPUTUS VI & 360.8 & \\
+2018-03-16 & 2018-03-16 &  & Pariderit INI NENUISPUTUS VI & 460.4 & \\
+2018-03-16 & 2018-03-16 &  & Pariderit INI NENUISPUTUS VI & 430.8 & \\
+2018-03-16 & 2018-03-16 &  & Brant secideo allis A TRI Q. allis 34525423 &  & 40\\
+2018-03-21 & 2018-03-21 &  & X-vigiunt Hartus a Ter. cabibula carit ciraect TUS &  & 2262.25\\
+2018-03-21 & 2018-03-21 &  & Pariderit Bomplebitere Mens & 1033.91 & \\
+2018-03-22 & 2018-03-22 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 555.6\\
+2018-03-23 & 2018-03-23 &  & X-vigiunt Hartus a ENTION VI &  & 252.9\\
+2018-03-27 & 2018-03-27 &  & Pariderit INI NENUISPUTUS VI & 460.4 & \\
+2018-03-27 & 2018-03-27 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 847.2\\
+2018-03-28 & 2018-03-28 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 183.1\\
+2018-03-31 & 2018-03-31 &  & 0.000 \% Interessi avere da 31.12.17 & 8 & \\
+2018-03-31 & 2018-03-31 &  & Serae sal eo cascro tep teris &  & 12\\
+2018-03-31 & 2018-03-31 &  & Serae idest in tubiem/in ganeiud &  & 9\\
+2018-04-03 & 2018-04-03 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 876.65\\
+2018-04-06 & 2018-04-06 &  & Pariderit INI NENUISPUTUS VI & 1976.2 & \\
+2018-04-06 & 2018-04-06 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 1967\\
+2018-04-09 & 2018-04-09 &  & Nicciere runifig in Dicat Experunta SEX DE PES & 2812.7 & \\
+2018-04-11 & 2018-04-11 &  & X-vigiunt Hartus a ENTION VI &  & 97.75\\
+2018-04-16 & 2018-04-16 &  & Pariderit Bomplebitere Mens & 2100.13 & \\
+2018-04-16 & 2018-04-16 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 4935.05\\
+2018-04-18 & 2018-04-18 &  & Pariderit Marda DE & 3984.9 & \\
+2018-04-19 & 2018-04-19 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 3877.25\\
+2018-04-23 & 2018-04-23 &  & Pariderit Bomplebitere Mens & 975.12 & \\
+2018-04-23 & 2018-04-23 &  & Pariderit INI NENUISPUTUS VI & 3385.19 & \\
+2018-04-25 & 2018-04-25 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 490.65\\
+2018-04-26 & 2018-04-26 &  & Pariderit Bomplebitere Mens & 2000 & \\
+2018-04-26 & 2018-04-26 &  & Pariderit Bomplebitere Mens & 2837.86 & \\
+2018-04-26 & 2018-04-26 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 2426.1\\
+2018-04-27 & 2018-04-27 &  & Pariderit O'MIRAXI DE & 3688.7 & \\
+2018-04-30 & 2018-04-30 &  & X-vigiunt Hartus a INI NENUISPUTUS VI &  & 359.5\\
+2018-04-30 & 2018-04-30 &  & Pariderit INI NENUISPUTUS VI & 2119.46 & \\
+2018-04-30 & 2018-04-30 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 7397.2\\
+2018-05-03 & 2018-05-03 &  & X-vigiunt Hartus a BY ARUNDUNCET &  & 2700\\
+2018-05-08 & 2018-05-08 &  & Pariderit INI NENUISPUTUS VI & 403.85 & \\
+2018-05-18 & 2018-05-18 &  & Pariderit INI NENUISPUTUS VI & 7818.89 & \\
+2018-05-22 & 2018-05-22 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 6471.3\\
+2018-05-23 & 2018-05-23 &  & X-vigiunt Hartus a VADO CALII ADITA &  & 420\\
+2018-05-24 & 2018-05-24 &  & X-vigiunt Hartus a SICITIO NIARICA CLAM VEGES A TEP IN &  & 238.35\\
+2018-05-25 & 2018-05-25 &  & Pariderit INI NENUISPUTUS VI & 341.39 & \\
+2018-05-25 & 2018-05-25 &  & Pariderit INI NENUISPUTUS VI & 306.39 & \\
+2018-05-25 & 2018-05-25 &  & Pariderit INI NENUISPUTUS VI & 1561.63 & \\
+2018-05-25 & 2018-05-25 &  & Pariderit INI NENUISPUTUS VI & 287 & \\
+2018-05-28 & 2018-05-28 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 229.65\\
+2018-05-28 & 2018-05-28 &  & Pariderit Morba Perrem Mens & 5104.98 & \\
+2018-05-30 & 2018-05-30 &  & Pariderit Bomplebitere Mens & 533.1 & \\
+2018-05-31 & 2018-05-31 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 1176.65\\
+2018-06-01 & 2018-06-01 &  & Pariderit INI NENUISPUTUS VI & 2433.37 & \\
+2018-06-06 & 2018-06-06 &  & Phradivisu os urrumn Arevolo REX 7'644.75 sortus HOC &  & 4230.7\\
+2018-06-06 & 2018-06-06 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 7025.95\\
+2018-06-08 & 2018-06-08 &  & Pariderit Bomplebitere Mens & 710.8 & \\
+2018-06-11 & 2018-06-11 &  & X-vigiunt Hartus a Liquiram (Tuonisu) VI, Fore &  & 111.75\\
+2018-06-13 & 2018-06-13 &  & Pariderit INI NENUISPUTUS VI & 484.65 & \\
+2018-06-13 & 2018-06-13 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 909.5\\
+2018-06-15 & 2018-06-15 &  & Pariderit Bomplebitere Mens & 1895.5 & \\
+2018-06-18 & 2018-06-18 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 1314.8\\
+2018-06-18 & 2018-06-18 &  & Pariderit INI NENUISPUTUS VI & 5497.01 & \\
+2018-06-20 & 2018-06-20 &  & X-vigiunt Hartus a BY ARUNDUNCET &  & 4320\\
+2018-06-26 & 2018-06-26 &  & Pariderit Bomplebitere Mens & 263.94 & \\
+2018-06-27 & 2018-06-27 &  & Pariderit Morba Perrem Mens & 384.51 & \\
+2018-06-28 & 2018-06-28 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 2878.35\\
+2018-06-30 & 2018-06-30 &  & 0.000 \% Interessi avere da 31.03.18 & 8 & \\
+2018-06-30 & 2018-06-30 &  & Serae sal eo cascro tep teris &  & 12\\
+2018-07-02 & 2018-07-02 &  & Pariderit INI Nenuisputus VI & 2272.47 & \\
+2018-07-03 & 2018-07-03 &  & Fuittringent et inimpupa Supige hunifig Recunde &  & 1000\\
+2018-07-05 & 2018-07-05 &  & Pariderit Bomplebitere Mens & 2843.28 & \\
+2018-07-05 & 2018-07-05 &  & X-vigiunt Hartus a INIS &  & 1025.55\\
+2018-07-09 & 2018-07-09 &  & Pariderit Bomplebitere Mens & 2013.99 & \\
+2018-07-09 & 2018-07-09 &  & Pariderit Jubis Renti & 180 & \\
+2018-07-10 & 2018-07-10 &  & Pariderit INI Nenuisputus VI & 8733.4 & \\
+2018-07-11 & 2018-07-11 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 4210.41\\
+2018-07-16 & 2018-07-16 &  & Pariderit INI Nenuisputus VI & 1556.8 & \\
+2018-07-17 & 2018-07-17 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 1546.55\\
+2018-07-18 & 2018-07-18 &  & X-vigiunt Hartus a TALL Inietis VI &  & 56.7\\
+2018-07-20 & 2018-07-20 &  & X-vigiunt Hartus a Iustrit Loccut VI &  & 1403.85\\
+2018-07-20 & 2018-07-20 &  & Pariderit INI Nenuisputus VI & 9404.77 & \\
+2018-07-24 & 2018-07-24 &  & Pariderit Bomplebitere Mens & 2872.9 & \\
+2018-07-25 & 2018-07-25 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 1972.2\\
+2018-07-26 & 2018-07-26 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 2223.35\\
+2018-07-26 & 2018-07-26 &  & Pariderit INI Nenuisputus VI & 2504.57 & \\
+2018-08-02 & 2018-08-02 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 10512.85\\
+2018-08-03 & 2018-08-03 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 5088.21\\
+2018-08-03 & 2018-08-03 &  & Pariderit INI Nenuisputus VI & 1675.82 & \\
+2018-08-09 & 2018-08-09 &  & Pariderit Bomplebitere Mens & 2013.99 & \\
+2018-08-09 & 2018-08-09 &  & X-vigiunt Hartus a Liquiram (Tuonisu) VI, Fore &  & 144.5\\
+2018-08-10 & 2018-08-10 &  & Pariderit PENTERE NUMENT & 47.5 & \\
+2018-08-13 & 2018-08-13 &  & Pariderit Bomplebitere Mens & 1510.49 & \\
+2018-08-13 & 2018-08-13 &  & Pariderit Bomplebitere Mens & 3524.48 & \\
+2018-08-14 & 2018-08-14 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 8302.35\\
+2018-08-17 & 2018-08-17 &  & Pariderit Bomplebitere Mens & 3672.57 & \\
+2018-08-20 & 2018-08-20 &  & Pariderit INI Nenuisputus VI & 10747.39 & \\
+2018-08-21 & 2018-08-21 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 4409.9\\
+2018-08-21 & 2018-08-21 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 976.05\\
+2018-08-23 & 2018-08-23 &  & Pariderit Parvalenta a Exaciet Perrem & 111.5 & \\
+2018-08-24 & 2018-08-24 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 1915.5\\
+2018-08-28 & 2018-08-28 &  & Pariderit INI Nenuisputus VI & 2487.87 & \\
+2018-08-28 & 2018-08-28 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 11855.45\\
+2018-08-31 & 2018-08-31 &  & Pariderit Canube quadde Xxx. Tudisu Quadus & 32.3 & \\
+2018-09-03 & 2018-09-03 &  & Pariderit Bomplebitere Mens & 3939.13 & \\
+2018-09-03 & 2018-09-03 &  & Pariderit Bomplebitere Mens & 3820.66 & \\
+2018-09-05 & 2018-09-05 &  & Pariderit Morba Perrem Mens & 5104.98 & \\
+2018-09-06 & 2018-09-06 &  & Pariderit INI Nenuisputus VI & 887.99 & \\
+2018-09-12 & 2018-09-12 &  & Pariderit INI Nenuisputus VI & 959.07 & \\
+2018-09-17 & 2018-09-17 &  & Pariderit Bomplebitere Mens & 2200 & \\
+2018-09-19 & 2018-09-19 &  & X-vigiunt Hartus a VINSI PERREM DE &  & 1619.05\\
+2018-09-20 & 2018-09-20 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 6294.3\\
+2018-09-20 & 2018-09-20 &  & X-vigiunt Hartus a Pernere Fillatum Padipe &  & 40\\
+2018-09-21 & 2018-09-21 &  & Pariderit INI Nenuisputus VI & 6586.93 & \\
+2018-09-24 & 2018-09-24 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 5452\\
+2018-09-27 & 2018-09-27 &  & Pariderit INI Nenuisputus VI & 11615.45 & \\
+2018-09-27 & 2018-09-27 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 5783.9\\
+2018-09-28 & 2018-09-28 &  & X-vigiunt Hartus a Gere Cere Derra Opror &  & 3171.45\\
+2018-09-30 & 2018-09-30 &  & 0.000 \% Interessi avere da 30.06.18 & 8 & \\
+2018-09-30 & 2018-09-30 &  & Serae sal eo cascro tep teris &  & 12\\
+2018-10-01 & 2018-10-01 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 7809.65\\
+2018-10-01 & 2018-10-01 &  & X-vigiunt Hartus a INIS &  & 1253.2\\
+2018-10-01 & 2018-10-01 &  & Mittiante in spuerra in orunavales fluum at HOC 4.31 Dompluci carit serae mittiante spuerra in orunavales post. VIT Fredeat� 13 &  & 10.77\\
+2018-10-02 & 2018-10-02 &  & Pariderit Bomplebitere Mens & 2665.58 & \\
+2018-10-02 & 2018-10-02 &  & Pariderit Bomplebitere Mens & 2191.7 & \\
+2018-10-03 & 2018-10-03 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 4238.65\\
+2018-10-05 & 2018-10-05 &  & Pariderit Bomplebitere Mens & 1658.58 & \\
+2018-10-08 & 2018-10-08 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 3861.8\\
+2018-10-11 & 2018-10-11 &  & Pariderit Bomplebitere Mens & 8618.69 & \\
+2018-10-12 & 2018-10-12 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 486.3\\
+2018-10-12 & 2018-10-12 &  & Pariderit Bomplebitere Mens & 2369.4 & \\
+2018-10-15 & 2018-10-15 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 679.05\\
+2018-10-17 & 2018-10-17 &  & Pariderit INI Nenuisputus VI & 1742.04 & \\
+2018-10-18 & 2018-10-18 &  & Hartus cosuunnate t-vigiunt at lonentino tangusa &  & 622.41\\
+2018-10-19 & 2018-10-19 &  & Pariderit Morba Perrem Mens & 434 & \\
+2018-10-19 & 2018-10-19 &  & Pariderit Morba Perrem Mens & 950.5 & \\
+2018-10-19 & 2018-10-19 &  & Fuittringent Puerreat AT LOGITUBIS 80.24.7467/24:80 / Q. allis A TRI 34525423 &  & 500\\
+2018-10-25 & 2018-10-25 &  & X-vigiunt Hartus a SICITIO NIARICA CLAM VEGES A TEP IN &  & 589.1\\
+2018-10-26 & 2018-10-26 &  & Pariderit INI Nenuisputus VI & 944.53 & \\
 \\
 \end{tablevalue}
 \end{document}
