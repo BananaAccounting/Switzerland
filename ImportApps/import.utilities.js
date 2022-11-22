@@ -234,4 +234,36 @@ var ImportUtilities = class ImportUtilities {
 
         return true;
     }
+    getErrorMessage(errorId, lang) {
+        if (!lang)
+            lang = 'en';
+        switch (errorId) {
+            case "ID_ERR_FORMAT_UNKNOWN":
+                 if (lang == 'it')
+                    return "Formato del file *.csv non riconosciuto";
+                 else if (lang == 'fr')
+                    return "Format de fichier *.csv non reconnu";
+                 else if (lang == 'de')
+                    return "Unerkanntes *.csv-Dateiformat";
+                 else
+                    return "Unrecognised *.csv file format";
+        }
+        return '';
+     }
+
+    getLang() {
+        var lang = 'en';
+        if (Banana.application.locale)
+            lang = Banana.application.locale;
+        if (lang.length > 2)
+            lang = lang.substring(0, 2);
+        return lang;
+     }
+
+    getUnknownFormatError(){
+        let errId = "ID_ERR_FORMAT_UNKNOWN"; //error
+        let lang = this.getLang();
+        let msg = this.getErrorMessage(errId, lang);
+        Banana.document.addMessage(msg, errId);
+    }
 }

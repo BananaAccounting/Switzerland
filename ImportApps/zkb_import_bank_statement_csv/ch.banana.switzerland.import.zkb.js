@@ -69,8 +69,9 @@ function exec(string,isTest) {
       return Banana.Converter.arrayToTsv(transactions);
    }
 
-   // Format is unknow, return an error
-   return "@Error: Unknow format";
+   importUtilities.getUnknownFormatError();
+
+   return "";
 }
 
 /**

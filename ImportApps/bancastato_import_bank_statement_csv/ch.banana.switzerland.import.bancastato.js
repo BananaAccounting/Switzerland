@@ -61,8 +61,9 @@ function exec(string,isTest) {
       return Banana.Converter.arrayToTsv(transactions);
    }
 
-   // Format is unknow, return an error
-   return "@Error: Unknow format";
+   importUtilities.getUnknownFormatError();
+
+   return "";
 }
 
 /**
@@ -429,10 +430,37 @@ function BancaStatoFormat1() {
    this.colDescr       = 3;
    this.colAmount      = 5;
    this.colBalance     = 6;
+   this.colDivisa      = 7;
 
    /** Return true if the transactions match this format */
    this.match = function(transactions) {
-      return true;
+      if ( transactions.length <= 1)
+         return false;
+
+      for (i=0;i<transactions.length;i++)
+      {
+         var transaction = transactions[i];
+
+         var formatMatched = false;
+
+         if ( transaction.length  === (this.colDivisa+1)  )
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 8)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if ( formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 8)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
    }
 
 

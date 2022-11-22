@@ -66,8 +66,9 @@ function exec(inData, isTest) {
     return format3Ubs.convertToBananaFormat(intermediaryData);
   }
 
-  // Format is unknow, return an error
-  return "@Error: Unknow format";
+  importUtilities.getUnknownFormatError();
+
+  return "";
 }
 
 /**
