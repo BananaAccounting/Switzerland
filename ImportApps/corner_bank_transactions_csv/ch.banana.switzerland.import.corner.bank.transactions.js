@@ -16,7 +16,10 @@
 // @api = 1.0
 // @pubdate = 2017-06-14
 // @publisher = Banana.ch SA
-// @description = Corner Bank import Transactions (*.csv) [BETA]
+// @description = Corner Bank - Import bank account statement (*.csv)
+// @description.de = Corner Bank - Kontoauszug importieren (*.csv)
+// @description.en = Corner Bank - Import bank account statement (*.csv)
+// @description.it = Cornèr Bank Importazione dell'estratto conto bancario (*.csv)
 // @task = import.transactions
 // @doctype = 100.*; 110.*; 130.*
 // @docproperties =
@@ -31,163 +34,156 @@
 
 //Main function
 function exec(inData, isTest) {
-  let convertionParam = "";
-  let intermediaryData = "";
+  var importUtilities = new ImportUtilities(Banana.document);
 
-  if (!inData) return "";
+  if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
+     return "";
 
-  var importCornerBankTransactions = new ImportCornerBankTransactions(
-    Banana.document
-  );
+  convertionParam = defineConversionParam();
+  //Add the header if present 
+  if (convertionParam.header) {
+      inData = convertionParam.header + inData;
+  }
+  let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
 
-  if (
-    isTest !== true &&
-    !importCornerBankTransactions.verifyBananaAdvancedVersion()
-  )
-    return "";
-
-  //1. Function call to define the conversion parameters
-  convertionParam = importCornerBankTransactions.defineConversionParam();
-
-  //2. we can eventually process the input text
-  inData = importCornerBankTransactions.preProcessInData(inData);
-
-  //3. intermediaryData is an array of objects where the property is the banana column name
-  intermediaryData = importCornerBankTransactions.convertCsvToIntermediaryData(inData,convertionParam);
- 
-  //filters the elements.
-  var isTotalRow = function (row) {
-    return row["Date"].length > 0;
-  };
-  intermediaryData = intermediaryData.filter(isTotalRow);
- 
-  //4. translate categories and Description
-  // can define as much postProcessIntermediaryData function as needed
-  importCornerBankTransactions.postProcessIntermediaryData(intermediaryData);
-
-  //5. sort data
-  intermediaryData = importCornerBankTransactions.sortData(intermediaryData,convertionParam);
-
-  //6. convert to banana format
-  //column that start with "_" are not converted
-  return importCornerBankTransactions.convertToBananaFormat(intermediaryData);
-}
-
-var ImportCornerBankTransactions = class ImportCornerBankTransactions extends ImportUtilities {
-  //The purpose of this function is to let the users define:
-  // - the parameters for the conversion of the CSV file;
-  // - the fields of the csv/table
-  defineConversionParam() {
-    var convertionParam = {};
-
-    /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
-    convertionParam.format = "csv"; // available formats are "csv", "html"
-    convertionParam.separator = ";";
-    convertionParam.textDelim = '"';
-
-    /** SPECIFY THE COLUMN TO USE FOR SORTING
-		 If sortColums is empty the data are not sorted */
-    convertionParam.sortColums = ["Date"];
-    convertionParam.sortDescending = true;
-    /** END */
-
-    /* rowConvert is a function that convert the inputRow (passed as parameter)
-     *  to a convertedRow object
-     * - inputRow is an object where the properties is the column name found in the CSV file
-     * - convertedRow is an  object where the properties are the column name to be exported in Banana
-     * For each column that you need to export in Banana create a line that create convertedRow column
-     * The right part can be any fuction or value
-     * Remember that in Banana
-     * - Date must be in the format "yyyy-mm-dd"
-     * - Number decimal separator must be "." and there should be no thousand separator */
-    convertionParam.rowConverter = function (inputRow, lang) {
-      var convertedRow = {};
-      switch (lang) {
-        case "it":
-          return translateHeaderIt(inputRow, convertedRow);
-        case "de":
-          return translateHeaderDe(inputRow, convertedRow);
-        default:
-          return convertedRow;
-      }
-    };
-    return convertionParam;
+  // Format 1
+  var format1 = new ImportCornerBankFormat1();
+  if (format1.match( transactions))
+  {
+    let intermediaryData = format1.convertCsvToIntermediaryData(transactions,convertionParam);
+    intermediaryData = format1.sortData(intermediaryData, convertionParam);
+    format1.postProcessIntermediaryData(intermediaryData);
+    return format1.convertToBananaFormat(intermediaryData);
   }
 
+  // Format is unknow, return an error
+  importUtilities.getUnknownFormatError();
+
+  return "";
+}
+
+/**
+ * CSV Format 1
+ *
+ * ;;;;;;;;;;;;;;;;;;;;
+ * ;Conto No.;123456/01 CHF;;;;;;;;;;;;;;;;;;;;
+ * ;;;;;;;;;;;;;;;;;;;;
+ * ;Elenco movimenti;;;;;;;;;;;;;;;;;;;;
+ * ;;;;;;;;;;;;;;;;;;;;
+ * ;Conto No.;Data registrazione;Descrizione;Dettaglio;Data valuta;Importo;;;;;;;;;;;;
+ * ;123456/01;31/12/21;Descrizione1;;31/12/21;-40.0;;;;;;;;;;;;
+ * ;;;Spese;40,00- CHF;;;;;;;;;;;;;;;
+ * ;;;Ns.rif: 2022LI60101010101ABCDEFG;;;;;;;;;;;;;;;;
+ * ;123456/01;31/12/21;Descrizione 2;;31/12/21;-34.6;;;;;;;;;;;;
+ * ;;;Spese;7,50 CHF;;;;;;;;;;;;;;;
+ * ;;;Spese reclamate;21,20 CHF;;;;;;;;;;;;;;;
+ * ;;;Totale spese;28,70 CHF;;;;;;;;;;;;;;;
+ * ;;;Ns.rif: 202112DD00000000024C11823;;;;;;;;;;;;;;;;
+ * ;123456/01;31/12/21;Descrizione 3;;31/12/21;236.5;;;;;;;;;;;;
+ */
+
+var ImportCornerBankFormat1 = class ImportCornerBankFormat1 extends ImportUtilities {
+
+  constructor(banDocument){
+    super(banDocument);
+
+    this.colConto = 1;
+    this.colDate = 2;
+    this.colDescr = 3;
+    this.colDetail = 4;
+    this.colDateValuta = 5;
+    this.colAmount= 6;
+  
+    this.currentLength = 19;
+  }
+
+  match(transactions) {
+    if ( transactions.length === 0)
+       return false;
+
+    for (var i=0;i<transactions.length;i++)
+    {
+       var transaction = transactions[i];
+
+       var formatMatched=false;
+       if ( transaction.length  === (this.currentLength)  )
+          formatMatched = true;
+       else
+          formatMatched = false;
+
+       if (formatMatched && transaction[this.colDate].match(/[0-9\/]+/g) && transaction[this.colDate].length === 8)
+          formatMatched = true;
+       else
+          formatMatched = false;
+
+       if ( formatMatched && transaction[this.colDateValuta].match(/[0-9\/]+/g) && transaction[this.colDateValuta].length === 8)
+          formatMatched = true;
+       else
+          formatMatched = false;
+
+       if (formatMatched)
+          return true;
+    }
+
+    return false;
+ }
   //Override the utilities method by adding language control
-  convertCsvToIntermediaryData(inData, convertionParam) {
+  convertCsvToIntermediaryData(transactions, convertionParam) {
     var form = [];
     var intermediaryData = [];
     var lang = "";
-    //Add the header if present
-    if (convertionParam.header) {
-      inData = convertionParam.header + inData;
-    }
 
-    //Read the CSV file and create an array with the data
-    var csvFile = Banana.Converter.csvToArray(inData,convertionParam.separator,convertionParam.textDelim);
     /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
-    We suppose the data will always begin right away after the header line
-    I take the first non-empty line as a reference since in the various test files
-    the initial lines are different.
-    */
-    let fileFirstLine=this.getFileFirstLine(csvFile);
-    convertionParam.headerLineStart =fileFirstLine+4;
-    convertionParam.title=fileFirstLine+2;
-    convertionParam.dataLineStart =fileFirstLine+5;
+    We suppose the data will always begin right away after the header line */
+    convertionParam.headerLineStart = 6;
+    convertionParam.dataLineStart = 7;
+    convertionParam.title = 4;
 
     //Variables used to save the columns titles and the rows values
-    var columns = this.getHeaderData(csvFile, convertionParam.headerLineStart); //array
-    let title= this.getTitle(csvFile, convertionParam.title);
-    var rows = this.getRowData(csvFile, convertionParam.dataLineStart); //array of array
+    var columns = this.getHeaderData(transactions, convertionParam.headerLineStart); //array
+    let title= this.getTitle(transactions, convertionParam.title);
+    var rows = this.getRowData(transactions, convertionParam.dataLineStart); //array of array
 
     //Load the form with data taken from the array. Create objects
     this.loadForm(form, columns, rows);
     //get the language of the headers
     lang = this.getLanguage(title);
-    //Create the new CSV file with converted data
-    var convertedRow;
     //For each row of the form, we call the rowConverter() function and we save the converted data
     for (var i = 0; i < form.length; i++) {
-      convertedRow = convertionParam.rowConverter(form[i], lang);
-      intermediaryData.push(convertedRow);
-    }
+      let convertedRow = {};
+      let transaction = form[i];
+      switch(lang){
+        case "it":
+        if(transaction["Data registrazione"].match(/[0-9\/]+/g) && transaction["Data registrazione"].length == 8){
+          convertedRow = this.translateHeaderIt(transaction, convertedRow);
+          intermediaryData.push(convertedRow);
+        }
+        break;
+        case "de":
+          if(transaction["Erfassungsdatum"].match(/[0-9\/]+/g) && transaction["Erfassungsdatum"].length == 8){
+            convertedRow = this.translateHeaderDe(transaction, convertedRow);
+            intermediaryData.push(convertedRow);
+          }
+          break;
+        default:
+          Banana.console.info("csv format not recognised");
+      }
+  }
     //Return the converted CSV data into the Banana document table
     return intermediaryData;
   }
 
-  preProcessInData(inData) {
-    return inData;
-  }
-
   /**
    * Returns the header of the file
-   * @param {*} csvFile 
+   * @param {*} transactions 
    * @param {*} titleLine line with the header
    * @returns 
    */
-  getTitle(csvFile,titleLine){
-    let titleData=csvFile[titleLine];
-    for (var i = 0; i < titleData.length; i++) {
-      if(titleData[i]){
-        return titleData[i];
-      }
-    }
-    return false;
-  }
-
-  /**
-   * Returns the first line that is not completely empty, this should be the first line of the file 
-   * @param {*} csvFile matrix with csv file data
-   * @returns 
-   */
-  getFileFirstLine(csvFile){
-    for (var i = 0; i < csvFile.length; i++) {
-      let row=csvFile[i];
-      for (var j = 0; j < row.length; j++) {
-        if(row[j]){
-          return i; //return the inital line number
-        }
+  getTitle(transactions,titleRow){
+    let rowData=transactions[titleRow];
+    for (var i = 0; i < rowData.length; i++) {
+      if(rowData[i]){
+        return rowData[i];
       }
     }
     return false;
@@ -309,30 +305,47 @@ var ImportCornerBankTransactions = class ImportCornerBankTransactions extends Im
       }
     }
   }
+
+  translateHeaderIt(inputRow, convertedRow) {
+    convertedRow["Date"] = Banana.Converter.toInternalDateFormat(inputRow["Data registrazione"],"dd.mm.yy");
+    convertedRow["DateValue"] = Banana.Converter.toInternalDateFormat(inputRow["Data valuta"],"dd.mm.yy");
+    convertedRow["Description"] = inputRow["Descrizione"];
+    convertedRow["_Description2"] = inputRow["Dettaglio"];
+    /* use the Banana.Converter.toInternalNumberFormat to convert to the appropriate number format
+     *  we already have negative amounts in Betrag and don't need the to fill the column Expenses*/
+    convertedRow["Income"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"],".");
+    //convertedRow["Expenses"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"], ".");
+    convertedRow["_Balance"] = Banana.Converter.toInternalNumberFormat(inputRow["Saldo"],".");
+    return convertedRow;
+  }
+
+  translateHeaderDe(inputRow, convertedRow) {
+    convertedRow["Date"] = Banana.Converter.toInternalDateFormat(inputRow["Erfassungsdatum"],"dd.mm.yy");
+    convertedRow["DateValue"] = Banana.Converter.toInternalDateFormat(inputRow["Valutadatum"],"dd.mm.yy");
+    convertedRow["Description"] = inputRow["Bezeichnung"];
+    convertedRow["_Description2"] = inputRow["Detail"];
+    /* use the Banana.Converter.toInternalNumberFormat to convert to the appropriate number format
+     *  we already have negative amounts in Betrag and don't need the to fill the column Expenses*/
+    convertedRow["Income"] = Banana.Converter.toInternalNumberFormat(inputRow["Betrag"],".");
+    //convertedRow["Expenses"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"], ".");
+    convertedRow["_Balance"] = Banana.Converter.toInternalNumberFormat(inputRow["Saldo"],".");
+    return convertedRow;
+  }
 };
 
-function translateHeaderIt(inputRow, convertedRow) {
-  convertedRow["Date"] = Banana.Converter.toInternalDateFormat(inputRow["Data registrazione"],"dd.mm.yy");
-  convertedRow["DateValue"] = Banana.Converter.toInternalDateFormat(inputRow["Data valuta"],"dd.mm.yy");
-  convertedRow["Description"] = inputRow["Descrizione"];
-  convertedRow["_Description2"] = inputRow["Dettaglio"];
-  /* use the Banana.Converter.toInternalNumberFormat to convert to the appropriate number format
-   *  we already have negative amounts in Betrag and don't need the to fill the column Expenses*/
-  convertedRow["Income"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"],".");
-  //convertedRow["Expenses"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"], ".");
-  convertedRow["_Balance"] = Banana.Converter.toInternalNumberFormat(inputRow["Saldo"],".");
-  return convertedRow;
-}
+function defineConversionParam() {
+  var convertionParam = {};
+  /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+  convertionParam.format = "csv"; // available formats are "csv", "html"
+  //get text delimiter
+  convertionParam.textDelim = '\"';
+  // get separator
+  convertionParam.separator = ';';
 
-function translateHeaderDe(inputRow, convertedRow) {
-  convertedRow["Date"] = Banana.Converter.toInternalDateFormat(inputRow["Erfassungsdatum"],"dd.mm.yy");
-  convertedRow["DateValue"] = Banana.Converter.toInternalDateFormat(inputRow["Valutadatum"],"dd.mm.yy");
-  convertedRow["Description"] = inputRow["Bezeichnung"];
-  convertedRow["_Description2"] = inputRow["Detail"];
-  /* use the Banana.Converter.toInternalNumberFormat to convert to the appropriate number format
-   *  we already have negative amounts in Betrag and don't need the to fill the column Expenses*/
-  convertedRow["Income"] = Banana.Converter.toInternalNumberFormat(inputRow["Betrag"],".");
-  //convertedRow["Expenses"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"], ".");
-  convertedRow["_Balance"] = Banana.Converter.toInternalNumberFormat(inputRow["Saldo"],".");
-  return convertedRow;
+  /** SPECIFY THE COLUMN TO USE FOR SORTING
+  If sortColums is empty the data are not sorted */
+  convertionParam.sortColums = ["Date", "Description"];
+  convertionParam.sortDescending = false;
+
+  return convertionParam;
 }

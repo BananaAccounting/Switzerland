@@ -59,7 +59,8 @@ TestImportCornerCardTrans.prototype.cleanup = function() {
 TestImportCornerCardTrans.prototype.testImport = function() {
    var fileNameList = [];
 
-   fileNameList.push("file:script/../test/testcases/card_transactions.csv");
+   fileNameList.push("file:script/../test/testcases/csv_cornerbank_example_format1_en_20211104.csv");
+   fileNameList.push("file:script/../test/testcases/csv_cornerbank_example_format1_it_20221123.csv");
    
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);

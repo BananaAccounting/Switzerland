@@ -1,4 +1,4 @@
-%%info_test_name{card_transactions}
+%%info_test_name{csv_cornerbank_example_format1_en_20211104}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -20,18 +20,18 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l }
 Date & Description & ExternalReference & Expenses & Notes\\
-2021-11-01 & MSFT * E0300G8XZ9 & **2456 & 2.71 & Settled transaction\\
-2021-11-01 & KEYCDN CREDITS & **2456 & 47.07 & Settled transaction\\
-2021-11-01 & MICROSOFT*ADVERTISING & **2456 & 56.57 & Settled transaction\\
-2021-11-02 & Quota annua & **2456 & 100.00 & Settled transaction\\
-2021-11-01 & GOOGLE*ADS8075885239 & **2456 & 52.74 & Settled transaction\\
-2021-11-02 & Laederach Chocolaterie, Lugano, CH & **2456 & 49.90 & Pending transaction\\
-2021-10-25 & DNH*GODADDY.COM SWISS & **2456 & 187.90 & Settled transaction\\
-2021-10-16 & DNH*GODADDY.COM CHF & **2456 & 50.47 & Settled transaction\\
-2021-10-15 & Arrotondamento &  & -0.04 & Settled transaction\\
-2021-10-17 & SBB CFF FFS Mobile Ticket & **2456 & 4.30 & Settled transaction\\
-2021-10-14 & SBB EasyRide & **2456 & 2.00 & Settled transaction\\
-2021-10-22 & SEMRUSH.COM & **2456 & 94.72 & Settled transaction\\
+2021-10-14 & XXX IuntIpse & **2618 & 2.00 & Pricite curruniunch\\
+2021-10-15 & Sulestellattis &  & -0.04 & Pricite curruniunch\\
+2021-10-16 & QUO*FERATER.NOS LAC & **2618 & 50.47 & Pricite curruniunch\\
+2021-10-17 & XXX TIO ALL Difice Tartum & **2618 & 4.30 & Pricite curruniunch\\
+2021-10-22 & MINTICO.NOS & **2618 & 94.72 & Pricite curruniunch\\
+2021-10-25 & QUO*FERATER.NOS CEBIT & **2618 & 187.90 & Pricite curruniunch\\
+2021-11-01 & MIVIDE EQUADUM & **2618 & 47.07 & Pricite curruniunch\\
+2021-11-01 & NUMN * O8251O5CF7 & **2618 & 2.71 & Pricite curruniunch\\
+2021-11-01 & SECTUDABO*CUTANGOBASE & **2618 & 56.57 & Pricite curruniunch\\
+2021-11-01 & SOLUCI*VIU3382651803 & **2618 & 52.74 & Pricite curruniunch\\
+2021-11-02 & Penthorda Fentittrunix, Prolor, OS & **2618 & 49.90 & Seratem curruniunch\\
+2021-11-02 & Venes adisu & **2618 & 100.00 & Pricite curruniunch\\
 \\
 \end{tablevalue}
 \end{document}

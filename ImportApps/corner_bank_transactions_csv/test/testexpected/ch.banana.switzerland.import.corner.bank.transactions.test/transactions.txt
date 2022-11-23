@@ -21,9 +21,9 @@
 \begin{tablevalue}{}{ l  l  l  l }
 Date & DateValue & Description & Income\\
 2021-12-31 & 2021-12-31 & Descrizione 2 & -34.6\\
-2021-12-31 & 2021-12-31 & Descrizione1 & -40.0\\
 2021-12-31 & 2021-12-31 & Descrizione 3 & 236.5\\
 2021-12-31 & 2021-12-31 & Descrizione 4 & -143.5\\
+2021-12-31 & 2021-12-31 & Descrizione1 & -40.0\\
 \\
 \end{tablevalue}
 \end{document}
