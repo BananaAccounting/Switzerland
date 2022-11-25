@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-09-28
+// @pubdate = 2022-11-25
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -1520,8 +1520,8 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_details_header;
   currentParam.type = 'color';
-  currentParam.value = userParam.background_color_details_header ? userParam.background_color_details_header : '#337AB7';
-  currentParam.defaultvalue = '#337ab7';
+  currentParam.value = userParam.background_color_details_header ? userParam.background_color_details_header : '#FFFFFF';
+  currentParam.defaultvalue = '#FFFFFF';
   currentParam.tooltip = texts.param_tooltip_background_color_details_header;
   currentParam.readValue = function() {
    userParam.background_color_details_header = this.value;
@@ -1533,8 +1533,8 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_text_color_details_header;
   currentParam.type = 'color';
-  currentParam.value = userParam.text_color_details_header ? userParam.text_color_details_header : '#FFFFFF';
-  currentParam.defaultvalue = '#FFFFFF';
+  currentParam.value = userParam.text_color_details_header ? userParam.text_color_details_header : '#000000';
+  currentParam.defaultvalue = '#000000';
   currentParam.tooltip = texts.param_tooltip_text_color_details_header;
   currentParam.readValue = function() {
    userParam.text_color_details_header = this.value;
@@ -1546,11 +1546,24 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_alternate_lines;
   currentParam.type = 'color';
-  currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#F0F8FF';
-  currentParam.defaultvalue = '#F0F8FF';
+  currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#FFFFFF';
+  currentParam.defaultvalue = '#FFFFFF';
   currentParam.tooltip = texts.param_tooltip_background_color_alternate_lines;
   currentParam.readValue = function() {
    userParam.background_color_alternate_lines = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'color_title_total';
+  currentParam.parentObject = 'styles';
+  currentParam.title = texts.param_color_title_total;
+  currentParam.type = 'color';
+  currentParam.value = userParam.color_title_total ? userParam.color_title_total : '#000000';
+  currentParam.defaultvalue = '#000000';
+  currentParam.tooltip = texts.param_tooltip_color_title_total;
+  currentParam.readValue = function() {
+   userParam.color_title_total = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -1702,9 +1715,10 @@ function initParam() {
 
   //Styles
   userParam.text_color = '#000000';
-  userParam.background_color_details_header = '#337AB7';
-  userParam.text_color_details_header = '#FFFFFF';
-  userParam.background_color_alternate_lines = '#F0F8FF';
+  userParam.background_color_details_header = '#FFFFFF';
+  userParam.text_color_details_header = '#000000';
+  userParam.background_color_alternate_lines = '#FFFFFF';
+  userParam.color_title_total = '#000000';
   userParam.font_family = 'Helvetica';
   userParam.font_size = '10';
 
@@ -1932,13 +1946,22 @@ function verifyParam(userParam) {
     userParam.text_color = '#000000';
   }
   if (!userParam.background_color_details_header) {
-    userParam.background_color_details_header = '#337AB7';
+    userParam.background_color_details_header = '#FFFFFF';
   }
   if (!userParam.text_color_details_header) {
-    userParam.text_color_details_header = '#FFFFFF';
+    userParam.text_color_details_header = '#000000';
   }
   if (!userParam.background_color_alternate_lines) {
-    userParam.background_color_alternate_lines = '#F0F8FF';
+    userParam.background_color_alternate_lines = '#FFFFFF';
+  }
+  if (!userParam.hasOwnProperty('color_title_total')) {
+    // Property doesn't exists: using old version of settings parameters.
+    // In this case use the same color as the previous version of settings parameters.
+    userParam.color_title_total = userParam.background_color_details_header;
+  } else {
+    if (!userParam.color_title_total) {
+      userParam.color_title_total = '#000000';      
+    }
   }
   if (!userParam.font_family) {
     userParam.font_family = 'Helvetica';
@@ -2599,6 +2622,10 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   /* 
     Print the invoice details using net Amounts (VAT excluded) 
   */
+
+  //Remove discount item colum when not used
+  removeDiscountColumn(invoiceObj, userParam); 
+
   var columnsDimension = userParam.details_columns_widths.split(";");
   var repTableObj = detailsTable;
   for (var i = 0; i < columnsDimension.length; i++) {
@@ -2846,15 +2873,16 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   tableRow = repTableObj.addRow();
   tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
   tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
-  
-  // tableRow = repTableObj.addRow();
-  // tableRow.addCell("", "", columnsNumber);
 }
 
 function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
   /* 
     Prints the invoice details using gross Amounts (VAT included)
   */
+
+  //Remove discount item colum when not used
+  removeDiscountColumn(invoiceObj, userParam);
+
   var columnsDimension = userParam.details_columns_widths.split(";");
   var repTableObj = detailsTable;
   for (var i = 0; i < columnsDimension.length; i++) {
@@ -3113,9 +3141,6 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
     vatInfo += " = " + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
     cellVatInfo.addParagraph(vatInfo);
   }
-  
-  // tableRow = repTableObj.addRow();
-  // tableRow.addCell("", "", columnsNumber);
 }
 
 function print_final_texts(repDocObj, invoiceObj, userParam) {
@@ -4017,6 +4042,58 @@ function arrayDifferences(arr1, arr2) {
   return arr;
 }
 
+function removeDiscountColumn(invoiceObj, userParam) {
+  /**
+   * Print the item discount column only when it is used.
+   */
+  let printDiscountColumn = false;
+  for (let i = 0; i < invoiceObj.items.length; i++) {
+    let item = invoiceObj.items[i];
+    if ( (item.discount && item.discount.percent) || (item.discount && item.discount.amount) ) {
+      printDiscountColumn = true;
+      break;
+    }
+  }
+
+  if (!printDiscountColumn) {
+    
+    let columnsNames = userParam.details_columns.split(";");
+    let columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
+    let titlesAlignment = userParam.details_columns_titles_alignment.split(";");
+    let columnsAlignment = userParam.details_columns_alignment.split(";");
+    let columnsDimension = userParam.details_columns_widths.split(";");
+
+    // remove all empty values ("", null, undefined): 
+    columnsNames = columnsNames.filter(function(e){return e});
+    columnsHeaders = columnsHeaders.filter(function(e){return e});
+  
+    // remove the Discount column
+    if (columnsNames.indexOf("Discount") > -1) {
+
+      let index = columnsNames.indexOf("Discount");
+
+      // remove from arrays all the discount data
+      columnsNames.splice(index, 1);
+      columnsHeaders.splice(index, 1);
+      titlesAlignment.splice(index, 1);
+      columnsAlignment.splice(index, 1);
+      columnsDimension.splice(index, 1);
+
+      // replace the userParam with the new columns
+      userParam.details_columns = columnsNames.toString().replace(/,/g, ";");
+      userParam[lang+'_text_details_columns'] = columnsHeaders.toString().replace(/,/g, ";");
+      userParam.details_columns_titles_alignment = titlesAlignment.toString().replace(/,/g, ";");
+      userParam.details_columns_alignment = columnsAlignment.toString().replace(/,/g, ";");
+      userParam.details_columns_widths = columnsDimension.toString().replace(/,/g, ";");
+    }
+  }
+  // Banana.console.log(JSON.stringify(userParam.details_columns, "", " "));
+  // Banana.console.log(JSON.stringify(userParam[lang+'_text_details_columns'], "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_titles_alignment, "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_alignment, "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_widths, "", " "));
+}
+
 /**
  * The method objectHasProperty verifiy if an object contains the requested property.
  * Name can contains a dot '.', in this case the method verify that the given property tree exists.
@@ -4184,6 +4261,7 @@ function set_variables(variables, userParam) {
   variables.$background_color_details_header = userParam.background_color_details_header;
   variables.$text_color_details_header = userParam.text_color_details_header;
   variables.$background_color_alternate_lines = userParam.background_color_alternate_lines;
+  variables.$color_title_total = userParam.color_title_total;
   /* Variables that set the font */
   variables.$font_family = userParam.font_family;
   variables.$font_size = userParam.font_size+"pt";
@@ -4405,6 +4483,9 @@ function setInvoiceTexts(language) {
     texts.predefined_columns_8 = "Articolo,Data,Descrizione,Quantità,Unit,Unit Price,Sconto,Importo (ADVANCED)";
     texts.style_change_confirm_title = "Colonne predefinite";
     texts.style_change_confirm_msg = "Applicare le colonne '%1'?\nLe attuali impostazioni delle colonne saranno sostituite.";
+
+    texts.param_color_title_total = "Colore titolo e totale";
+    texts.param_tooltip_color_title_total = "Inserisci il colore";
   }
   else if (language === 'de') {
     // DE
@@ -4589,6 +4670,9 @@ function setInvoiceTexts(language) {
     texts.predefined_columns_8 = "Artikel,Datum,Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
     texts.style_change_confirm_title = "Vordefinierte Spalten";
     texts.style_change_confirm_msg = "'%1' Spalten anwenden?\nDie aktuellen Spalteneinstellungen werden ersetzt.";
+
+    texts.param_color_title_total = "Titel und Gesamtfarbe";
+    texts.param_tooltip_color_title_total = "Farbe eingeben";
   }
   else if (language === 'fr') {
     //FR
@@ -4773,6 +4857,9 @@ function setInvoiceTexts(language) {
     texts.predefined_columns_8 = "Article,Date,Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
     texts.style_change_confirm_title = "Colonnes prédéfinies";
     texts.style_change_confirm_msg = "Appliquer les colonnes '%1'?\nLes paramètres actuels des colonnes seront remplacés.";
+
+    texts.param_color_title_total = "Couleur titre et totale";
+    texts.param_tooltip_color_title_total = "Insérer la couleur";
   }
   else {
     //EN
@@ -4957,6 +5044,9 @@ function setInvoiceTexts(language) {
     texts.predefined_columns_8 = "Item,Date,Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
     texts.style_change_confirm_title = "Predefined columns";
     texts.style_change_confirm_msg = "Apply '%1' columns?\nCurrent column settings will be replaced.";
+
+    texts.param_color_title_total = "Title and total color";
+    texts.param_tooltip_color_title_total = "Enter the color";
   }
 
   return texts;
