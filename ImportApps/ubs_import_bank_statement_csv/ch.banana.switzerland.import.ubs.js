@@ -902,8 +902,8 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     convertedRow["Description"] = inputRow["Beschreibung1"] + " " + inputRow["Beschreibung2"];
     convertedRow["ExternalReference"] = inputRow["Transaktions-Nr."];
     //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = inputRow["Debit amount"];
-    convertedRow["Income"] = inputRow["Credit amount"];
+    convertedRow["Expenses"] = inputRow["Belastung"];
+    convertedRow["Income"] = inputRow["Gutschrift"];
 
     return convertedRow;
   }
