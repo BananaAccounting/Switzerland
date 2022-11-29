@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-10-26
+// @pubdate = 2022-11-29
 // @publisher = Banana.ch SA
 // @description = [CH10] Layout with Swiss QR Code
 // @description.it = [CH10] Layout with Swiss QR Code
@@ -51,11 +51,6 @@ var BAN_VERSION = "10.0.1";
 var BAN_EXPM_VERSION = "";
 var BAN_ADVANCED;
 var IS_INTEGRATED_INVOICE;
-
-
-// Define the print mode (invoice, delivery note, reminders)
-var PRINT_MODE = "";
-
 
 // Counter for the columns of the Details table
 var columnsNumber = 0;
@@ -447,33 +442,6 @@ function convertParam(userParam) {
 
   var lengthDetailsColumns = "";
   var lengthDetailsTexts = "";
-
-
-
-  //###################################### !!!TEMPORANEO!!! //######################################
-  var currentParam = {};
-  currentParam.name = 'print_mode';
-  currentParam.title = 'SCELTA FORMATO DI STAMPA (PARAMETRO TEMPORANEO!!)';
-  currentParam.type = 'combobox';
-  
-  let printModes = [];
-  printModes.push('invoice');
-  printModes.push('delivery_note');
-  printModes.push('delivery_note_without_amounts');
-  printModes.push('reminder_1');
-  printModes.push('reminder_2');
-  printModes.push('reminder_3');
-  currentParam.items = printModes;
-
-  currentParam.value = userParam.print_mode ? userParam.print_mode : '';
-  currentParam.defaultvalue = 'invoice';
-  currentParam.readValue = function() {
-    userParam.print_mode = this.value;
-  }
-  convertedParam.data.push(currentParam);
-  //#################################################################################################
-
-
 
 
   /*******************************************************************************************
@@ -1809,12 +1777,6 @@ function initParam() {
   }
   var texts = setInvoiceTexts(lang);
 
-
-  //###################################### !!!TEMPORANEO!!! //######################################
-  userParam.print_mode = 'invoice';
-  //################################################################################################
-  
-
   //Include
   userParam.header_print = true;
   userParam.header_row_1 = "";
@@ -1941,14 +1903,6 @@ function verifyParam(userParam) {
     lang = lang.substr(0, 2);
   }
   var texts = setInvoiceTexts(lang);
-
-
-  //###################################### !!!TEMPORANEO!!! //######################################
-  if (!userParam.print_mode) {
-    userParam.print_mode = 'invoice';
-  }
-  //################################################################################################
-
 
   //Include
   if (!userParam.header_print) {
@@ -2222,7 +2176,7 @@ function verifyParam(userParam) {
 //====================================================================//
 // MAIN FUNCTIONS THAT PRINT THE INVOICE
 //====================================================================//
-function printDocument(jsonInvoice, repDocObj, repStyleObj) {
+function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
 
   // Verify the banana version when user clicks ok to print the invoice
   var isCurrentBananaVersionSupported = bananaRequiredVersion(BAN_VERSION, BAN_EXPM_VERSION);
@@ -2245,6 +2199,14 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
       invoiceObj = JSON.parse(jsonInvoice)
     }
 
+    //json for print preferences
+    var preferencesObj = null;
+    if (typeof(jsonPreferences) === 'object') {
+      preferencesObj = jsonPreferences;
+    } else if (typeof(jsonPreferences) === 'string') {
+      preferencesObj = JSON.parse(jsonPreferences)
+    }
+
     // Invoice texts which need translation
     if (invoiceObj.customer_info.lang) {
       lang = invoiceObj.customer_info.lang.toLowerCase(); //in case user insert uppercase language
@@ -2264,24 +2226,8 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
     var variables = {};
     set_variables(variables, userParam);
 
-
-
-    
-    //###################################### !!!TEMPORANEO!!! //######################################
-    //take the print mode from the userParam
-    setPrintMode(userParam);
-    //Banana.console.log("print mode = " + PRINT_MODE);
-    //Banana.console.log(JSON.stringify(userParam, "", " "));
-    
-    //returns the json for the dialog "Print invoice"
-    //getPrintOptions();
-    //################################################################################################
-    
-
-
-
     // Function call to print the invoice document
-    repDocObj = printInvoice(Banana.document, repDocObj, texts, userParam, repStyleObj, invoiceObj, variables);
+    repDocObj = printInvoice(Banana.document, repDocObj, texts, userParam, repStyleObj, invoiceObj, variables, preferencesObj);
     
     // Load the predefined invoice.css styles and the embedded css file entered by the user
     set_css_style(Banana.document, repStyleObj, variables, userParam);
@@ -2289,7 +2235,7 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj) {
   }
 }
 
-function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceObj, variables) {
+function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceObj, variables, preferencesObj) {
 
   /*
     Build the invoice document:
@@ -2311,6 +2257,9 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     repDocObj = reportObj.newReport(getTitle(invoiceObj, texts, userParam) + " " + invoiceObj.document_info.number);
   }
 
+  // Get the print format that is used to print the document.
+  let printFormat = getPrintFormat(preferencesObj);
+
 
   /* PRINT HEADER */
   if (BAN_ADVANCED && typeof(hook_print_header) === typeof(Function)) {
@@ -2320,7 +2269,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT INVOICE INFO FIRST PAGE */
-  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_info_first_page_delivery_note) === typeof(Function)) {
       hook_print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -2336,7 +2285,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT INVOICE INFO PAGES 2+ */
-  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_info_other_pages_delivery_note) === typeof(Function)) {
       hook_print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -2369,18 +2318,18 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT BEGIN TEXT (BEFORE INVOICE DETAILS) */
   var sectionClassBegin = repDocObj.addSection("section_class_begin");
-  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_text_begin_delivery_note) === typeof(Function)) {
       hook_print_text_begin_delivery_note(sectionClassBegin, invoiceObj, texts, userParam);
     } else {
       print_text_begin_delivery_note(sectionClassBegin, invoiceObj, texts, userParam);
     }
   }
-  else if (PRINT_MODE === "reminder_1" || PRINT_MODE === "reminder_2" || PRINT_MODE === "reminder_3") {
+  else if (printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") {
     if (BAN_ADVANCED && typeof(hook_print_text_begin_reminder) === typeof(Function)) {
-      hook_print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam);
+      hook_print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam, printFormat);
     } else {
-      print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam);
+      print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam, printFormat);
     }
   }
   else {
@@ -2395,7 +2344,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   var sectionClassDetails = repDocObj.addSection("section_class_details");
   var detailsTable = sectionClassDetails.addTable("doc_table");
 
-  if (PRINT_MODE === "delivery_note_without_amounts") {
+  if (printFormat === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_details_delivery_note_without_amounts) === typeof(Function)) {
       hook_print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
     } else {
@@ -2422,14 +2371,14 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT FINAL TEXTS (AFTER INVOICE DETAILS) */
   var sectionClassFinalTexts = repDocObj.addSection("section_class_final_texts");
-  if (PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") {
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_final_texts_delivery_note) === typeof(Function)) {
       hook_print_final_texts_delivery_note(sectionClassFinalTexts, invoiceObj, userParam);
     } else {
       print_final_texts_delivery_note(sectionClassFinalTexts, invoiceObj, userParam);
     }
   }
-  else if (PRINT_MODE === "reminder_1" || PRINT_MODE === "reminder_2" || PRINT_MODE === "reminder_3") {
+  else if (printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") {
     if (BAN_ADVANCED && typeof(hook_print_final_texts_reminder) === typeof(Function)) {
       hook_print_final_texts_reminder(sectionClassFinalTexts, invoiceObj, userParam);
     } else {
@@ -2445,7 +2394,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (invoiceObj.document_info.doc_type === "17" || PRINT_MODE === "delivery_note" || PRINT_MODE === "delivery_note_without_amounts") { //17=estimate
+  if (invoiceObj.document_info.doc_type === "17" || printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") { //17=estimate
     userParam.qr_code_add = false; //estimates and delivery notes printed without QRCode
   }
   if (userParam.qr_code_add) {
@@ -5595,15 +5544,25 @@ function isIntegratedInvoice() {
 // REMINDERS IS THE SAME AS THE INVOICE BUT WITH DIFFERENT TEXTS.
 //===================================================================//
 
+function getPrintFormat(preferencesObj) {
+  /**
+   * Function that returns the print format.
+   * The print format is selected from the dialog "Print invoice".
+   * It's returned along with other information in the preferencesObj.
+   */
+  let printformat = "";
+  if (preferencesObj && preferencesObj.print_preferences.length > 0) {
+    for (let i = 0; i < preferencesObj.print_preferences.length; i++) {
+      printformat = preferencesObj.print_preferences[i].print_formats;
+    }
+  }
+  // Banana.console.log(JSON.stringify(preferencesObj, "", " "));
+  // Banana.console.log(printformat);
 
-//###################################### !!!TEMPORANEO!!! //######################################
-//takes the print format from parameters and set the variable PRINT_MODE
-function setPrintMode(userParam) {
-  PRINT_MODE = userParam.print_mode;
+  return printformat;
 }
-//################################################################################################
 
-function getPrintOptions() {
+function getPrintPreferences() {
   /**
    * Function that returns a list of available print modes for the layout.
    * Banana calls this function when the layout is selected in the dialog "Print invoice".
@@ -5616,30 +5575,30 @@ function getPrintOptions() {
   //get program language (system language) and return the object for the language.
   let lang = Banana.application.locale;
   lang = lang.substr(0,2);
-  let printOptions;
+  let printPreferences;
 
   switch(lang){
     case "en":
-      printOptions = getPrintOptions_en();
+      printPreferences = getPrintPreferences_en();
       break;
     case "it":
-      printOptions = getPrintOptions_it();
+      printPreferences = getPrintPreferences_it();
       break;
     case "fr":
-      printOptions = getPrintOptions_fr();
+      printPreferences = getPrintPreferences_fr();
       break;
     case "de":
-      printOptions = getPrintOptions_de();
+      printPreferences = getPrintPreferences_de();
       break;
     default:
-      printOptions = getPrintOptions_en();
+      printPreferences = getPrintPreferences_en();
       break;
   }
-  // Banana.console.log(JSON.stringify(printOptions,"", " "));
-  return printOptions
+  // Banana.console.log(JSON.stringify(printPreferences,"", " "));
+  return printPreferences
 }
 
-function getPrintOptions_en(){
+function getPrintPreferences_en() {
   let printOptions_en =
   {
     "version" : "1.0",
@@ -5659,6 +5618,10 @@ function getPrintOptions_en(){
           {
             "id":"delivery_note" ,
             "text": "Delivery Note"
+          },
+          {
+            "id":"delivery_note_without_amounts",
+            "text":"Delivery Note without amounts"
           },
           {
             "id":"reminder_1",
@@ -5700,7 +5663,7 @@ function getPrintOptions_en(){
   return printOptions_en;
 }
 
-function getPrintOptions_it(){
+function getPrintPreferences_it() {
   let printOptions_it =
   {
     "version" : "1.0",
@@ -5720,6 +5683,10 @@ function getPrintOptions_it(){
           {
             "id":"delivery_note" ,
             "text": "Bollettino di consegna"
+          },
+          {
+            "id":"delivery_note_without_amounts",
+            "text":"Bollettino di consegna senza importi"
           },
           {
             "id":"reminder_1",
@@ -5761,7 +5728,7 @@ function getPrintOptions_it(){
   return printOptions_it;
 }
 
-function getPrintOptions_fr(){
+function getPrintPreferences_fr() {
   let printOptions_fr =
   {
     "version" : "1.0",
@@ -5781,6 +5748,10 @@ function getPrintOptions_fr(){
           {
             "id":"delivery_note" ,
             "text": "Bon de livraison"
+          },
+          {
+            "id":"delivery_note_without_amounts",
+            "text":"Bon de livraison sans montants"
           },
           {
             "id":"reminder_1",
@@ -5822,7 +5793,7 @@ function getPrintOptions_fr(){
   return printOptions_fr;
 }
 
-function getPrintOptions_de(){
+function getPrintPreferences_de() {
   let printOptions_de =
   {
     "version" : "1.0",
@@ -5842,6 +5813,10 @@ function getPrintOptions_de(){
           {
             "id":"delivery_note" ,
             "text": "Lieferschein"
+          },
+          {
+            "id":"delivery_note_without_amounts",
+            "text":"Lieferschein ohne Beträge"
           },
           {
             "id":"reminder_1",
@@ -6418,7 +6393,7 @@ function print_final_texts_delivery_note(repDocObj, invoiceObj, userParam) {
 
 
 
-function print_text_begin_reminder(repDocObj, invoiceObj, texts, userParam) {
+function print_text_begin_reminder(repDocObj, invoiceObj, texts, userParam, printFormat) {
   /*
     Prints the text before the reminder details
   */
@@ -6428,23 +6403,21 @@ function print_text_begin_reminder(repDocObj, invoiceObj, texts, userParam) {
   var tableRow;
   
   // print the title
-  if (PRINT_MODE === "reminder_1" || PRINT_MODE === "reminder_2" || PRINT_MODE === "reminder_3") {
-    textTitle = '%1. ' + texts.reminder;
-    if (userParam[lang+'_title_reminder'] && userParam[lang+'_title_reminder'] !== "<none>") {
-      textTitle = userParam[lang+'_title_reminder'];
-    } else {
-      textTitle = "";
-    }
+  textTitle = '%1. ' + texts.reminder;
+  if (userParam[lang+'_title_reminder'] && userParam[lang+'_title_reminder'] !== "<none>") {
+    textTitle = userParam[lang+'_title_reminder'];
+  } else {
+    textTitle = "";
+  }
 
-    if (textTitle && PRINT_MODE === "reminder_1") {
-      textTitle = textTitle.replace(/%1/g, '1');
-    }
-    else if (textTitle && PRINT_MODE === "reminder_2") {
-      textTitle = textTitle.replace(/%1/g, '2');
-    }
-    else if (textTitle && PRINT_MODE === "reminder_3") {
-      textTitle = textTitle.replace(/%1/g, '3');
-    }
+  if (textTitle && printFormat === "reminder_1") {
+    textTitle = textTitle.replace(/%1/g, '1');
+  }
+  else if (textTitle && printFormat === "reminder_2") {
+    textTitle = textTitle.replace(/%1/g, '2');
+  }
+  else if (textTitle && printFormat === "reminder_3") {
+    textTitle = textTitle.replace(/%1/g, '3');
   }
 
   if (textTitle) {
