@@ -105,7 +105,7 @@ var DocumentChange = class DocumentChange {
     getCurrentTime() {
         var d = new Date();
         var timestring = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-        return Banana.Converter.toInternalTimeFormat(timestring, "hh:mm");
+        return Banana.Converter.toInternalTimeFormat(timestring);
     }
 
 }

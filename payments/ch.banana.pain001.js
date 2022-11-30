@@ -826,18 +826,23 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
     node.addTextNode(transactionInformation.getEndToEndIdentification());
 
     // Payment Type Information
-    var paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
+    // If empty Credit Suisse throws error
+    var paymentTypeInformation = null;
     if (transactionInformation.getLocalInstrumentCode().length > 0) {
+        paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
         node = paymentTypeInformation.addElement('LclInstrm');
         node = node.addElement('Cd');
         node.addTextNode(transactionInformation.getLocalInstrumentCode());
     }
     else if (transactionInformation.getLocalInstrumentProprietary().length > 0) {
+        paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
         node = paymentTypeInformation.addElement('LclInstrm');
         node = node.addElement('Prtry');
         node.addTextNode(transactionInformation.getLocalInstrumentProprietary());
     }
     if (transactionInformation.getCategoryPurpose().length > 0) {
+        if (paymentTypeInformation == null)
+            paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
         node = paymentTypeInformation.addElement('CtgyPurp');
         node = node.addElement('Cd');
         node.addTextNode(transactionInformation.getCategoryPurpose());
