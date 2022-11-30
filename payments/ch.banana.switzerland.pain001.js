@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-05-31
+// @pubdate = 2022-11-30
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -224,12 +224,19 @@ function Pain001Switzerland(banDocument) {
 
     // supported payment formats
     this.ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
+    this.ID_PAIN_FORMAT_001_001_09_CH_03 = "pain.001.001.09.ch.03";
     this.ID_PAIN_FORMAT_001_001_03 = "pain.001.001.03";
     this.painFormats = [];
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
         "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
+        "@version": this.version
+    });
+    this.painFormats.push({
+        "@appId": this.id,
+        "@description": "Swiss Payment Standard 2022 (pain.001.001.09.ch.03)",
+        "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
         "@version": this.version
     });
     this.painFormats.push({
@@ -796,7 +803,8 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     }
     groupHeader.setInitiatingPartyName(initiatingPartyName);
 
-    groupHeader.setSoftwareName("Banana Accounting+/Banana.ch SA");
+    groupHeader.setSoftwareName("Banana Accounting Plus");
+    groupHeader.setSoftwareProvider("Banana.ch SA");
     var version = Banana.application.version;
     // if (version.indexOf(".") > 0)
     //     version = version.substring(0, version.indexOf("."));

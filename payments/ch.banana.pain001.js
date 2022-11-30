@@ -14,6 +14,7 @@
 
 var ID_PAIN_FORMAT_001_001_03 = "pain.001.001.03";
 var ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
+var ID_PAIN_FORMAT_001_001_09_CH_03 = "pain.001.001.09.ch.03";
 
 /*
 * interface TransferFileInterface
@@ -548,7 +549,13 @@ function DomBuilder(painFormat, withSchemaLocation) {
     this.doc = Banana.Xml.newDocument('');
     this.root = this.doc.addElement('Document');
     this.root.setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-    if (this.painFormat.indexOf(".ch.") > 0) {
+    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
+        this.root.setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09');
+        if (withSchemaLocation) {
+            this.root.setAttribute('xsi:schemaLocation', 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09 pain.001.001.09.ch.03.xsd');
+        }
+    }
+    else if (this.painFormat === ID_PAIN_FORMAT_001_001_03_CH_02) {
         this.root.setAttribute('xmlns', 'http://www.six-interbank-clearing.com/de/%1.xsd'.arg(this.painFormat));
         if (withSchemaLocation) {
             this.root.setAttribute('xsi:schemaLocation', 'http://www.six-interbank-clearing.com/de/%1.xsd %2.xsd'.arg(this.painFormat).arg(this.painFormat));
@@ -623,8 +630,14 @@ DomBuilder.prototype.appendBankAddressToDomElement = function (creditor, transac
      */
 DomBuilder.prototype.appendFinancialInstitutionElement = function (debtorAgent, bic) {
     var finInstitution = debtorAgent.addElement('FinInstnId');
-    var node = finInstitution.addElement('BIC');
-    node.addTextNode(bic);
+    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
+        var node = finInstitution.addElement('BICFI');
+        node.addTextNode(bic);
+    }
+    else {
+        var node = finInstitution.addElement('BIC');
+        node.addTextNode(bic);
+    }
     return finInstitution;
 }
 
@@ -726,10 +739,29 @@ DomBuilder.prototype.visitGroupHeader = function (groupHeader) {
         }
     }
     var contactDetails = initiatingParty.addElement('CtctDtls');
-    node = contactDetails.addElement('Nm');
-    node.addTextNode(groupHeader.getSoftwareName());
-    node = contactDetails.addElement('Othr');
-    node.addTextNode(groupHeader.getSoftwareVersion());
+    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
+        var othr = contactDetails.addElement('Othr');
+        node = othr.addElement('ChanlTp');
+        node.addTextNode('NAME');
+        node = othr.addElement('Id');
+        node.addTextNode(groupHeader.getSoftwareName());
+        othr = contactDetails.addElement('Othr');
+        node = othr.addElement('ChanlTp');
+        node.addTextNode('VRSN');
+        node = othr.addElement('Id');
+        node.addTextNode(groupHeader.getSoftwareVersion());
+        othr = contactDetails.addElement('Othr');
+        node = othr.addElement('ChanlTp');
+        node.addTextNode('PRVD');
+        node = othr.addElement('Id');
+        node.addTextNode(groupHeader.getSoftwareProvider());
+    }
+    else {
+        node = contactDetails.addElement('Nm');
+        node.addTextNode(groupHeader.getSoftwareName());
+        node = contactDetails.addElement('Othr');
+        node.addTextNode(groupHeader.getSoftwareVersion());
+    }
 }
 
 /**
@@ -754,7 +786,13 @@ DomBuilder.prototype.visitPaymentInformation = function (paymentInformation) {
     node = this.currentPayment.addElement('CtrlSum');
     node.addTextNode(_formatCurrency(paymentInformation.getControlSumCents()));
 
-    node = this.currentPayment.addElement('ReqdExctnDt');
+    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
+        node = this.currentPayment.addElement('ReqdExctnDt');
+        node = node.addElement('Dt');
+    }
+    else {
+        node = this.currentPayment.addElement('ReqdExctnDt');
+    }
     node.addTextNode(_formatDate(paymentInformation.getDueDate()));
 
     var debtor = this.currentPayment.addElement('Dbtr');
@@ -865,8 +903,14 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
     if (transactionInformation.getBic().length > 0) {
         var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
         var financialInstitution = creditorAgent.addElement('FinInstnId');
-        var bic = financialInstitution.addElement('BIC');
-        bic.addTextNode(transactionInformation.getBic());
+        if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
+            var bic = financialInstitution.addElement('BICFI');
+            bic.addTextNode(transactionInformation.getBic());
+        }
+        else {
+            var bic = financialInstitution.addElement('BIC');
+            bic.addTextNode(transactionInformation.getBic());
+        }
     }
 	else if (transactionInformation.getBankAccount().length > 0) {
         var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
@@ -874,7 +918,7 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
         var name = financialInstitution.addElement('Nm');
 		name.addTextNode(transactionInformation.getBankName());
         // Bank address if needed and supported by schema.
-        if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02])) {
+        if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02, ID_PAIN_FORMAT_001_001_09_CH_03])) {
             this.appendBankAddressToDomElement(financialInstitution, transactionInformation);
         }
         var other = financialInstitution.addElement('Othr');
@@ -888,7 +932,7 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
     node.addTextNode(transactionInformation.getCreditorName());
 
     // Creditor address if needed and supported by schema.
-    if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02])) {
+    if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02, ID_PAIN_FORMAT_001_001_09_CH_03])) {
         this.appendAddressToDomElement(creditor, transactionInformation);
     }
 
@@ -959,10 +1003,15 @@ function GroupHeader(messageIdentification, isTest) {
      */
     this.initiatingPartyName = '';
 
-    /**
+     /**
      * @var string
      */
     this.softwareName = '';
+
+    /**
+     * @var string
+     */
+     this.softwareProvider = '';
 
     /**
      * @var string
@@ -1089,6 +1138,22 @@ GroupHeader.prototype.getSoftwareName = function () {
  */
 GroupHeader.prototype.setSoftwareName = function (softwareName) {
     this.softwareName = softwareName;
+}
+
+/**
+ * @return string
+ */
+ GroupHeader.prototype.getSoftwareProvider = function () {
+    if (!this.softwareProvider)
+        return '';
+    return this.softwareProvider;
+}
+
+/**
+ * @param string softwareProvider
+ */
+ GroupHeader.prototype.setSoftwareProvider = function (softwareProvider) {
+    this.softwareProvider = softwareProvider;
 }
 
 /**
