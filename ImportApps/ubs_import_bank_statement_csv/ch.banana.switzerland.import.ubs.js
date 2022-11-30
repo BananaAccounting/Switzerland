@@ -51,19 +51,17 @@ function exec(inData, isTest) {
   // Format 2
   var format2Ubs = new UBSFormat2();
   if (format2Ubs.match(transactions)) {
-    let intermediaryData = format2Ubs.convertCsvToIntermediaryData(transactions,convertionParam);
-    intermediaryData = format2Ubs.sortData(intermediaryData, convertionParam);
-    format2Ubs.postProcessIntermediaryData(intermediaryData);
-    return format2Ubs.convertToBananaFormat(intermediaryData);
+    transactions = format2Ubs.convert(transactions,convertionParam);
+    transactions = format2Ubs.postProcessIntermediaryData(transactions);
+    return Banana.Converter.arrayToTsv(transactions);
   }
 
   // Format 3
   var format3Ubs = new UBSFormat3();
   if (format3Ubs.match(transactions)) {
-    let intermediaryData = format3Ubs.convertCsvToIntermediaryData(transactions,convertionParam);
-    intermediaryData = format3Ubs.sortData(intermediaryData, convertionParam);
-    format3Ubs.postProcessIntermediaryData(intermediaryData);
-    return format3Ubs.convertToBananaFormat(intermediaryData);
+    transactions = format3Ubs.convert(transactions,convertionParam);
+    transactions = format3Ubs.postProcessIntermediaryData(transactions);
+    return Banana.Converter.arrayToTsv(transactions);
   }
 
   importUtilities.getUnknownFormatError();
@@ -84,7 +82,7 @@ function UBSFormat1() {
 
   this.colCurrency = 5;
   this.colDate = 10;
-  this.colDateValue = 11;
+  this.colDateValuta = 11;
   this.colDescr1 = 12;
   this.colDescr2 = 13;
   this.colDescr3 = 14;
@@ -114,8 +112,8 @@ function UBSFormat1() {
       else formatMatched = false;
 
       if (
-        formatMatched && transaction[this.colDateValue] &&
-        transaction[this.colDateValue].match(/^[0-9]+\.[0-9]+\.[0-9]+$/)
+        formatMatched && transaction[this.colDateValuta] &&
+        transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+$/)
       )
         formatMatched = true;
       else formatMatched = false;
@@ -268,7 +266,7 @@ function UBSFormat1() {
     );
     mappedLine.push(
       Banana.Converter.toInternalDateFormat(
-        element[this.colDateValue],
+        element[this.colDateValuta],
         "dd.mm.yyyy"
       )
     );
@@ -316,7 +314,7 @@ function UBSFormat1() {
     );
     mappedLine.push(
       Banana.Converter.toInternalDateFormat(
-        element[this.colDateValue],
+        element[this.colDateValuta],
         "dd.mm.yyyy"
       )
     );
@@ -377,21 +375,19 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     this.colCount = 12;
 
     this.colDateOperation = 0;
-    this.colTime = 1;
-    this.colDateRec = 2;
-    this.colDateValue = 3;
-    this.colCurrency = 4;
+    this.colDateValuta = 3;
     this.colAmount = 5;
     this.colOpType = 6;
-    this.colBalance = 7;
     this.colTransNr = 8;
     this.colDescr1 = 9;
     this.colDescr2 = 10;
     this.colDescr3 = 11;
-    this.colNotes = 12;
+
+    //Index of columns in import format.
+    this.newColDate = 0;
+    this.newColDescription = 2;
+    this.newColExpenses = 4;
   }
-
-
 
   /** Return true if the transactions match this format */
   match (transactions) {
@@ -415,8 +411,8 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
 
       if (
         formatMatched &&
-        transaction[this.colDateValue] &&
-        transaction[this.colDateValue].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
+        transaction[this.colDateValuta] &&
+        transaction[this.colDateValuta].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
       )
 
       if (formatMatched && transaction[this.colOpType] && transaction[this.colOpType].match(/[a-zA-Z]/))
@@ -429,227 +425,67 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     return false;
   }
 
-  /** Convert the transaction to the format to be imported */
-  convertCsvToIntermediaryData (transactions, convertionParam) {
-    var form = [];
-    var intermediaryData = [];
+    /** Convert the transaction to the format to be imported */
+  convert (transactions, convertionParam) {
+    var transactionsToImport = [];
 
-  /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
-    We suppose the data will always begin right away after the header line */
-    convertionParam.headerLineStart = 9;
-    convertionParam.dataLineStart = 10;
-
-    //Variables used to save the columns titles and the rows values
-    let columns = this.getHeaderData(transactions, convertionParam.headerLineStart); //array
-    let rows = this.getRowData(transactions, convertionParam.dataLineStart); //array of array
-    let lang = this.getLanguage(columns);
-
-    //Load the form with data taken from the array. Create objects
-    this.loadForm(form, columns, rows);
-
-    //For each row of the form, we call the rowConverter() function and we save the converted data
-    for (var i = 0; i < form.length; i++) {
-        let convertedRow = {};
-        switch(lang){
-          case "it":
-          convertedRow = this.translateHeaderIt(form[i], convertedRow);
-          intermediaryData.push(convertedRow);
-          break;
-          case "de":
-            convertedRow = this.translateHeaderDe(form[i], convertedRow);
-            intermediaryData.push(convertedRow);
-            break;
-          case "fr":
-            convertedRow = this.translateHeaderFr(form[i], convertedRow);
-            intermediaryData.push(convertedRow);
-            break;
-          case "en":
-            convertedRow = this.translateHeaderEn(form[i], convertedRow);
-            intermediaryData.push(convertedRow);
-            break;
-          default:
-            Banana.console.info("csv language not recognised");
-        }
+    // Filter and map rows
+    for (i=0;i<transactions.length;i++)
+    {
+        var transaction = transactions[i];
+        if ( transaction.length  < (this.colCount+1) )
+          continue;
+        if (transaction[this.colDateOperation].match(/[0-9\.]+/g) && transaction[this.colDateOperation].length === 10)
+          transactionsToImport.push( this.mapTransaction(transaction));
     }
 
-    return intermediaryData;
+  /** 
+   * Sort rows by date
+   * SPECIFY THE COLUMN TO USE FOR SORTING
+   * If sortColums is empty the data are not sorted
+   * */
+   convertionParam.sortColums = [0, 2]; //0 = "Date" field position, 2 = "Description" field position.
+   convertionParam.sortDescending = false;
+   transactionsToImport = sort(transactionsToImport,convertionParam);
+
+    // Add header and return
+    var header = [["Date","DateValue","Description","ExternalReference","Expenses","Income"]];
+    return header.concat(transactionsToImport);
   }
 
-  formatColumnsNames(columnsTemps) {
-    let columns = [];
-    for (var i = 0; i <= columnsTemps.length; i++) {
-        var colName = columnsTemps[i];
-        /**
-         * Actually we use Started Date as the Completed Date is not Always present
-         * Could be possible to check the state of the transaction using the field "State" to 
-         * define wich date to use, as far we know a transaction can have two main states: COMPLETED 
-         * and PENDING.
-         */
-        switch (colName) {
-            case "Started Date":
-                colName = "Date";
-                break;
-        }
-        columns.push(colName);
-    }
+  mapTransaction (element) {
+    var mappedLine = [];
 
-    return columns;
-  }
-
-  getLanguage(columns) {
-   /**
-    * Check the csv header fields to define the language.
-    * The file is available in the following languages: IT,FR,DE,EN.
-    */
-      var lang = "";
-      if(columns){
-        if (columns[this.colDateOperation] === "Data dell'operazione" &&
-        columns[this.colTime] === "Ora dell'operazione" && columns[this.colDateRec] === "Data di registrazione") {
-          lang = "it";
-          return lang;
-        }
-        if (columns[this.colDateOperation] === "Abschlussdatum" &&
-        columns[this.colTime] === "Abschlusszeit" && columns[this.colDateRec] === "Buchungsdatum") {
-          lang = "de";
-          return lang;
-        }
-
-        if (columns[this.colDateOperation] === "Date de transaction" &&
-        columns[this.colTime] === "Heure de transaction" && columns[this.colDateRec] === "Date de comptabilisation") {
-          lang = "fr";
-          return lang;
-        }
-
-        //Trade date;Trade time;Booking date
-        if (columns[this.colDateOperation] === "Trade date" &&
-        columns[this.colTime] === "Trade time" && columns[this.colDateRec] === "Booking date") {
-          lang = "en";
-          return lang;
-        }
-      }
-      return lang;
-  }
-
-  translateHeaderIt(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let descText = "";
     let dateText = "";
     let dateValueText = "";
 
-    dateText = inputRow["Data dell'operazione"].substring(0, 10);
-    dateValueText = inputRow["Data di valuta"].substring(0, 10);
+    dateText = element[this.colDateOperation].substring(0, 10);
+    dateValueText = element[this.colDateValuta].substring(0, 10);
 
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-    descText = inputRow["Descrizione1"] + " " + inputRow["Descrizione2"] + " "+inputRow["Descrizione3"];
-    convertedRow["Description"] = descText;
-    convertedRow["ExternalReference"] = inputRow["N. di transazione"];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = "";
-    convertedRow["Income"] = "";
+    mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+    mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd"));
+    // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
+    mappedLine.push(element[this.colDescr1] + " " +element[this.colDescr2] + " " +element[this.colDescr3]);
+    mappedLine.push(element[this.colTransNr]);
 
-    if(inputRow && inputRow["Importo della transazione"]){
-      if (inputRow["Importo della transazione"].indexOf("-") == -1) {
-          convertedRow["Income"] = inputRow["Importo della transazione"];
-      } else {
-          convertedRow["Expenses"] = inputRow["Importo della transazione"];
-      }
+    if (element[this.colAmount].indexOf("-") == -1) {
+      mappedLine.push("");
+      mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colAmount],this.decimalSeparator));
+    } else{
+      mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colAmount],this.decimalSeparator));
+      mappedLine.push("");
     }
-
-    return convertedRow;
+    return mappedLine;
   }
 
-  translateHeaderDe(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let descText = "";
-    let dateText = "";
-    let dateValueText = "";
+      //The purpose of this function is to let the user specify how to convert the categories
+  postProcessIntermediaryData(transactions) {
+    let processesData = [];
 
-    dateText = inputRow["Abschlussdatum"].substring(0, 10);
-    dateValueText = inputRow["Valutadatum"].substring(0, 10);
+    if(transactions.length<1)
+      return processesData
 
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-
-    descText = inputRow["Beschreibung1"] + " " + inputRow["Beschreibung2"] + " "+inputRow["Beschreibung3"];
-    convertedRow["Description"] = descText;
-    convertedRow["ExternalReference"] = inputRow["Transaktions-Nr."];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = "";
-    convertedRow["Income"] = "";
-
-    if(inputRow && inputRow["Transaktionsbetrag"]){
-      if (inputRow["Transaktionsbetrag"].indexOf("-") == -1) {
-          convertedRow["Income"] = inputRow["Transaktionsbetrag"];
-      } else {
-          convertedRow["Expenses"] = inputRow["Transaktionsbetrag"];
-      }
-    }
-
-    return convertedRow;
-  }
-
-  translateHeaderFr(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let descText = "";
-    let dateText = "";
-    let dateValueText = "";
-
-    dateText = inputRow["Date de transaction"].substring(0, 10);
-    dateValueText = inputRow["Date de valeur"].substring(0, 10);
-
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-    descText = inputRow["Description1"] + " " + inputRow["Description2"] + " "+inputRow["Description3"];
-    convertedRow["Description"] = descText;
-    convertedRow["ExternalReference"] = inputRow["N° de transaction"];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = "";
-    convertedRow["Income"] = "";
-
-    if(inputRow && inputRow["Montant de la transaction"]){
-      if (inputRow["Montant de la transaction"].indexOf("-") == -1) {
-          convertedRow["Income"] = inputRow["Montant de la transaction"];
-      } else {
-          convertedRow["Expenses"] = inputRow["Montant de la transaction"];
-      }
-    }
-
-    return convertedRow;
-  }
-
-  translateHeaderEn(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let descText = "";
-    let dateText = "";
-    let dateValueText = "";
-
-
-    dateText = inputRow["Trade date"].substring(0, 10);
-    dateValueText = inputRow["Value date"].substring(0, 10);
-
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-    descText = inputRow["Description1"] + " " + inputRow["Description2"] + " "+inputRow["Description3"];
-    convertedRow["Description"] = descText;
-    convertedRow["ExternalReference"] = inputRow["Transaction no."];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = "";
-    convertedRow["Income"] = "";
-
-    if(inputRow && inputRow["Transaction amount"]){
-      if (inputRow["Transaction amount"].indexOf("-") == -1) {
-          convertedRow["Income"] = inputRow["Transaction amount"];
-      } else {
-          convertedRow["Expenses"] = inputRow["Transaction amount"];
-      }
-    }
-
-    return convertedRow;
-  }
-
-  //The purpose of this function is to let the user specify how to convert the categories
-  postProcessIntermediaryData(intermediaryData) {
+    processesData = transactions;
     /** INSERT HERE THE LIST OF ACCOUNTS NAME AND THE CONVERSION NUMBER 
      *   If the content of "Account" is the same of the text 
      *   it will be replaced by the account number given */
@@ -668,14 +504,15 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     }
 
     //Apply the conversions
-    for (var i = 0; i < intermediaryData.length; i++) {
-        var convertedData = intermediaryData[i];
-
+    for (var i = 1; i < processesData.length; i++) {
+        var convertedData = processesData[i];
         //Invert values
-        if (convertedData["Expenses"]) {
-            convertedData["Expenses"] = Banana.SDecimal.invert(convertedData["Expenses"]);
+        if (convertedData[this.newColExpenses]) {
+            convertedData[this.newColExpenses] = Banana.SDecimal.invert(convertedData[this.newColExpenses]);
         }
     }
+
+    return processesData;
   }
 }
 
@@ -704,29 +541,31 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
  *
  */
  var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
-  // Index of columns in csv file
+
+  // Index of columns in *.csv file
 
   constructor(banDocument) {
     super(banDocument);
+    //original file columns
     this.colCount = 13;
 
     this.colDateOperation = 0;
-    this.colTime = 1;
-    this.colDateRec = 2;
-    this.colDateValue = 3;
-    this.colCurrency = 4;
+    this.colDateValuta = 3;
     this.colDebitAmt = 5;
     this.colCreditAmt = 6;
-    this.colIndividualAmt = 7;
-    this.colBalance = 8;
     this.colTransNr = 9;
     this.colDescr1 = 10;
     this.colDescr2 = 11;
     this.colDescr3 = 12;
-    this.colNotes = 13;
+
+    this.decimalSeparator = ".";
+
+    //Index of columns in import format.
+    this.newColDate = 0;
+    this.newColDescription = 2;
+    this.newColExpenses = 4;
+
   }
-
-
 
   /** Return true if the transactions match this format */
   match (transactions) {
@@ -750,8 +589,8 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
 
       if (
         formatMatched &&
-        transaction[this.colDateValue] &&
-        transaction[this.colDateValue].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
+        transaction[this.colDateValuta] &&
+        transaction[this.colDateValuta].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
       )
         formatMatched = true;
       else formatMatched = false;
@@ -767,188 +606,63 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     return false;
   }
 
-  /** Convert the transaction to the format to be imported */
-  convertCsvToIntermediaryData (transactions, convertionParam) {
-    var form = [];
-    var intermediaryData = [];
+     /** Convert the transaction to the format to be imported */
+  convert (transactions, convertionParam) {
+    var transactionsToImport = [];
 
-  /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
-    We suppose the data will always begin right away after the header line */
-    convertionParam.headerLineStart = 9;
-    convertionParam.dataLineStart = 10;
-
-    //Variables used to save the columns titles and the rows values
-    let columns = this.getHeaderData(transactions, convertionParam.headerLineStart); //array
-    let rows = this.getRowData(transactions, convertionParam.dataLineStart); //array of array
-    let lang = this.getLanguage(columns);
-
-    //Load the form with data taken from the array. Create objects
-    this.loadForm(form, columns, rows);
-
-    //For each row of the form, we call the rowConverter() function and we save the converted data
-    for (var i = 0; i < form.length; i++) {
-        let convertedRow = {};
-        switch(lang){
-          case "it":
-          convertedRow = this.translateHeaderIt(form[i], convertedRow);
-          intermediaryData.push(convertedRow);
-          break;
-          case "de":
-            convertedRow = this.translateHeaderDe(form[i], convertedRow);
-            intermediaryData.push(convertedRow);
-            break;
-          case "fr":
-            convertedRow = this.translateHeaderFr(form[i], convertedRow);
-            intermediaryData.push(convertedRow);
-            break;
-          case "en":
-            convertedRow = this.translateHeaderEn(form[i], convertedRow);
-            intermediaryData.push(convertedRow);
-            break;
-          default:
-            Banana.console.info("csv language not recognised");
-        }
+    // Filter and map rows
+    for (i=0;i<transactions.length;i++)
+    {
+        var transaction = transactions[i];
+        if ( transaction.length  < (this.colCount+1) )
+          continue;
+        if (transaction[this.colDateOperation].match(/[0-9\.]+/g) && transaction[this.colDateOperation].length === 10)
+          transactionsToImport.push( this.mapTransaction(transaction));
     }
 
-    return intermediaryData;
-  }
+  /** 
+   * Sort rows by date
+   * SPECIFY THE COLUMN TO USE FOR SORTING
+   * If sortColums is empty the data are not sorted
+   * */
+    convertionParam.sortColums = [this.newColDate, this.newColDescription]; //0 = "Date" field position, 2 = "Description" field position.
+    convertionParam.sortDescending = false;
+    transactionsToImport = sort(transactionsToImport,convertionParam);
 
-  formatColumnsNames(columnsTemps) {
-    let columns = [];
-    for (var i = 0; i <= columnsTemps.length; i++) {
-        var colName = columnsTemps[i];
-        /**
-         * Actually we use Started Date as the Completed Date is not Always present
-         * Could be possible to check the state of the transaction using the field "State" to 
-         * define wich date to use, as far we know a transaction can have two main states: COMPLETED 
-         * and PENDING.
-         */
-        switch (colName) {
-            case "Started Date":
-                colName = "Date";
-                break;
-        }
-        columns.push(colName);
-    }
+    // Add header and return
+    var header = [["Date","DateValue","Description","ExternalReference","Expenses","Income"]];
+    return header.concat(transactionsToImport);
+   }
 
-    return columns;
-  }
+   mapTransaction (element) {
+    var mappedLine = [];
 
-  getLanguage(columns) {
-   /**
-    * Check the csv header fields to define the language.
-    * The file is available in the following languages: IT,FR,DE,EN.
-    */
-      var lang = "";
-      if(columns){
-        if (columns[this.colDateOperation] === "Data dell'operazione" &&
-        columns[this.colTime] === "Ora dell'operazione" && columns[this.colDateRec] === "Data di registrazione") {
-          lang = "it";
-          return lang;
-        }
-        if (columns[this.colDateOperation] === "Abschlussdatum" &&
-        columns[this.colTime] === "Abschlusszeit" && columns[this.colDateRec] === "Buchungsdatum") {
-          lang = "de";
-          return lang;
-        }
-
-        if (columns[this.colDateOperation] === "Date de transaction" &&
-        columns[this.colTime] === "Heure de transaction" && columns[this.colDateRec] === "Date de comptabilisation") {
-          lang = "fr";
-          return lang;
-        }
-
-        //Trade date;Trade time;Booking date
-        if (columns[this.colDateOperation] === "Trade date" &&
-        columns[this.colTime] === "Trade time" && columns[this.colDateRec] === "Booking date") {
-          lang = "en";
-          return lang;
-        }
-      }
-      return lang;
-  }
-
-  translateHeaderIt(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
     let dateText = "";
     let dateValueText = "";
 
-    dateText = inputRow["Data dell'operazione"].substring(0, 10);
-    dateValueText = inputRow["Data di valuta"].substring(0, 10);
+    dateText = element[this.colDateOperation].substring(0, 10);
+    dateValueText = element[this.colDateValuta].substring(0, 10);
 
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-    convertedRow["Description"] = inputRow["Descrizione1"] + " " +inputRow["Descrizione2"];
-    convertedRow["ExternalReference"] = inputRow["N. di transazione"];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = inputRow["Debit amount"];
-    convertedRow["Income"] = inputRow["Credit amount"];
+    mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+    mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd"));
+    // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
+    mappedLine.push(element[this.colDescr1] + " " +element[this.colDescr2]);
+    mappedLine.push(element[this.colTransNr]);
 
+    mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colDebitAmt],this.decimalSeparator));
+    mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colCreditAmt],this.decimalSeparator));
 
-    return convertedRow;
-  }
-
-  translateHeaderDe(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let dateText = "";
-    let dateValueText = "";
-
-    dateText = inputRow["Abschlussdatum"].substring(0, 10);
-    dateValueText = inputRow["Valutadatum"].substring(0, 10);
-
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-
-    convertedRow["Description"] = inputRow["Beschreibung1"] + " " + inputRow["Beschreibung2"];
-    convertedRow["ExternalReference"] = inputRow["Transaktions-Nr."];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = inputRow["Debit amount"];
-    convertedRow["Income"] = inputRow["Credit amount"];
-
-    return convertedRow;
-  }
-
-  translateHeaderFr(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let dateText = "";
-    let dateValueText = "";
-
-    dateText = inputRow["Date de transaction"].substring(0, 10);
-    dateValueText = inputRow["Date de valeur"].substring(0, 10);
-
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-    convertedRow["Description"] = inputRow["Description1"] + " " + inputRow["Description2"];
-    convertedRow["ExternalReference"] = inputRow["N° de transaction"];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = inputRow["Debit amount"];
-    convertedRow["Income"] = inputRow["Credit amount"];
-
-    return convertedRow;
-  }
-
-  translateHeaderEn(inputRow, convertedRow) {
-    //get the Banana Columns Name from csv file columns name
-    let dateText = "";
-    let dateValueText = "";
-
-
-    dateText = inputRow["Trade date"].substring(0, 10);
-    dateValueText = inputRow["Value date"].substring(0, 10);
-
-    convertedRow['Date'] = Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd");
-    convertedRow['DateValue'] = Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd");
-    convertedRow["Description"] = inputRow["Description1"] + " " + inputRow["Description2"];
-    convertedRow["ExternalReference"] = inputRow["Transaction no."];
-    //define if the amount is an income or an expenses.
-    convertedRow["Expenses"] = inputRow["Debit amount"];
-    convertedRow["Income"] = inputRow["Credit amount"];
-
-    return convertedRow;
-  }
+    return mappedLine;
+  }  
 
   //The purpose of this function is to let the user specify how to convert the categories
-  postProcessIntermediaryData(intermediaryData) {
+  postProcessIntermediaryData(transactions) {
+    let processesData = [];
+
+    if(transactions.length<1)
+      return processesData
+
+    processesData = transactions;
     /** INSERT HERE THE LIST OF ACCOUNTS NAME AND THE CONVERSION NUMBER 
      *   If the content of "Account" is the same of the text 
      *   it will be replaced by the account number given */
@@ -967,14 +681,15 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
     }
 
     //Apply the conversions
-    for (var i = 0; i < intermediaryData.length; i++) {
-        var convertedData = intermediaryData[i];
-
+    for (var i = 1; i < processesData.length; i++) {
+        var convertedData = processesData[i];
         //Invert values
-        if (convertedData["Expenses"]) {
-            convertedData["Expenses"] = Banana.SDecimal.invert(convertedData["Expenses"]);
+        if (convertedData[this.newColExpenses]) {
+            convertedData[this.newColExpenses] = Banana.SDecimal.invert(convertedData[this.newColExpenses]);
         }
     }
+
+    return processesData;
   }
 }
 
@@ -1138,10 +853,28 @@ function defineConversionParam(inData) {
   // get separator
   convertionParam.separator = ';';
 
-  /** SPECIFY THE COLUMN TO USE FOR SORTING
-  If sortColums is empty the data are not sorted */
-  convertionParam.sortColums = ["Date", "Description"];
-  convertionParam.sortDescending = false;
-
   return convertionParam;
 }
+
+/** Sort transactions by date and description */
+function sort ( transactions, convertionParam) {
+    if (transactions.length<=0 ||!convertionParam.sortColums || convertionParam.sortColums.length <=0 )
+       return transactions;
+       
+      transactions.sort( function (row1, row2) {
+        for (var i = 0; i < convertionParam.sortColums.length; i++) {
+            var columnIndex = convertionParam.sortColums[i];
+            if (row1[columnIndex] > row2[columnIndex])
+                return 1;
+            else if (row1[columnIndex] < row2[columnIndex])
+                return -1;
+        }
+        return 0;
+      });
+    
+    if (convertionParam.sortDescending)
+      transactions.reverse(); 
+
+    return transactions;
+
+ }

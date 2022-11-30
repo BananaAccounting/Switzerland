@@ -1,0 +1,135 @@
+%%info_test_name{csv_ubs_example_format3_it_20221129}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income\\
+2022-09-27 & 2022-09-27 & COR Wide. Ima. Humquit U,4081 Ortant 18264075-0 07/24, Debit card payment & 9930771BN6222323 & 2.30 & \\
+2022-09-27 & 2022-09-27 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930772BN6316543 & 5.35 & \\
+2022-09-28 & 2022-09-28 & GURUNCH 18264075-0 07/24, ATM Withdrawal & 9930773BN7311676 & 20.00 & \\
+2022-09-30 & 2022-09-30 & AlvEr  *NATE.GRATTO IN,4114 Ortant 18264075-0 07/24, Debit card payment & 9930775BN9537029 & 35.00 & \\
+2022-09-30 & 2022-09-30 & Comen IN,4081 Ortant 18264075-0 07/24, Debit card payment & 9930774BN9423682 & 2.95 & \\
+2022-09-30 & 2022-09-30 & NATA,83555 ALIBUS ALUUS 18264075-0 07/24, Debit card payment & 9930775BN9644309 & 204.63 & \\
+2022-09-30 & 2022-09-30 & Veliris targern ut ingerem nullam  & VR77257GP8344225 & 6.00 & \\
+2022-10-01 & 2022-10-01 & AN QUONERATIA OS H. AN,5436 ORUMEN 18264075-0 07/24, Debit card payment & 9930777BN1222452 & 36.00 & \\
+2022-10-02 & 2022-10-02 & PROR PROR PROR 4143,CONUM SPLIBUS Perurea me volo & 9947275TO7350252 & 40.00 & \\
+2022-10-03 & 2022-10-03 & AlvEr  *Audita Xxx IN,1552 Criginere 18264075-0 07/24, Debit card payment & 9930778BN2320208 & 7.60 & \\
+2022-10-03 & 2022-10-03 & COR Wide. Ima. Humquit U,4081 Ortant 18264075-0 07/24, Debit card payment & 9930777BN2141170 & 2.30 & \\
+2022-10-05 & 2022-10-05 & RIBUS GLAC,1552 CRIGINERE 18264075-0 07/24, Debit card payment & 9930780BN4358849 & 16.00 & \\
+2022-10-07 & 2022-10-07 & AlvEr  *Audita Xxx IN,1552 Criginere 18264075-0 07/24, Debit card payment & 9930782BN6498195 & 11.00 & \\
+2022-10-07 & 2022-10-07 & COR Wide. Ima. Humquit U,4081 Ortant 18264075-0 07/24, Debit card payment & 9930781BN6328071 & 2.30 & \\
+2022-10-08 & 2022-10-08 & Alium Pulus Apicart,6083 Apicart 18264075-0 07/24, Debit card payment & 9930782BN6723476 & 69.95 & \\
+2022-10-08 & 2022-10-08 & Quam Iuvide 62,4081 Semperva 18264075-0 07/24, Debit card payment & 9930782BN7536057 & 39.95 & \\
+2022-10-08 & 2022-10-08 & Quid \& Salac Apicart,6083 Apicart 18264075-0 07/24, Debit card payment & 9930782BN7026096 & 80.30 & \\
+2022-10-08 & 2022-10-08 & Qöan Exactus IN,3103 Simulam Umea 18264075-0 07/24, Debit card payment & 9930782BN7302070 & 5.00 & \\
+2022-10-08 & 2022-10-08 & Tusqui talettra ostincro,5436 Orumen 18264075-0 07/24, Debit card payment & 9930782BN7284975 & 38.40 & \\
+2022-10-08 & 2022-10-08 & VITUS MATURA IN,4081 LOCTURAL 18264075-0 07/24, Debit card payment & 9930784BN8222251 & 47.50 & \\
+2022-10-09 & 2022-10-09 & Rare Domen IN,1654 Fritino-Intrane 18264075-0 07/24, Debit card payment & 9930783BN7824537 & 15.00 & \\
+2022-10-10 & 2022-10-10 & COR Wide. Ima. Humquit U,4081 Ortant 18264075-0 07/24, Debit card payment & 9930784BN9131068 & 2.30 & \\
+2022-10-10 & 2022-10-10 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930785BN9206042 & 2.85 & \\
+2022-10-11 & 2022-10-11 & OS Salibula 18264075-0 07/24, ATM Withdrawal & 9930785BN0080964 & 300.00 & \\
+2022-10-12 & 2022-10-12 & COR Spice Humquit Ortant,4081 Ortant 18264075-0 07/24, Debit card payment & 9930786BN0249157 & 2.30 & \\
+2022-10-12 & 2022-10-12 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930787BN1134997 & 2.85 & \\
+2022-10-12 & 2022-10-12 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930787BN1134072 & 14.75 & \\
+2022-10-13 & 2022-10-13 & Conum Splibus,8803 Salibula TRANSILI, q-dimulam perurea antem & 9947286TO3626440 & 1000.00 & \\
+2022-10-14 & 2022-10-14 & NATA,83555 ALIBUS ALUUS 18264075-0 07/24, Debit card payment & 9930789BN3242003 & 84.22 & \\
+2022-10-15 & 2022-10-15 & Quam Iuvide 62,4081 Semperva 18264075-0 07/24, Debit card payment & 9930789BN4136552 & 17.05 & \\
+2022-10-18 & 2022-10-18 & PAURRUNT'F,5833 MELINVER 18264075-0 07/24, Debit card payment & 9930794BN7683507 & 38.00 & \\
+2022-10-22 & 2022-10-22 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930796BN9829310 & 37.32 & \\
+2022-10-22 & 2022-10-22 & Tumn-4127 Diect,7447 Diect 18264075-0 07/24, Debit card payment & 9930796BN0533729 & 18.25 & \\
+2022-10-23 & 2022-10-23 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930797BN1061960 & 3.85 & \\
+2022-10-25 & 2022-10-25 & Flamire Splibus,8768 Clamerum actumn & 9947798LK8184196 &  & 260.00\\
+2022-10-25 & 2022-10-25 & caurra.vi IN,Dem an Quine 6, VI/Criginere 1552 ieiunt perurea & 9999298ZC5922046 &  & 4369.80\\
+2022-10-26 & 2022-10-26 & Conum Splibus,8803 Salibula exemolum antem Ratti & 9947799MC8346528 & 350.00 & \\
+2022-10-26 & 2022-10-26 & Conum Splibus,8803 Salibula q-dimulam actumn & 9947299TO1473534 &  & 3000.00\\
+2022-10-26 & 2022-10-26 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930801BN4320207 & 2.85 & \\
+2022-10-26 & 2022-10-26 & Vistriet Iustiontro,8803 Salibula actumn & 9930799LK8392827 &  & 332.00\\
+2022-10-27 & 2022-10-27 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 1470300TO6866807 & 23.80 & \\
+2022-10-27 & 2022-10-27 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 1570300TO6866821 & 21.65 & \\
+2022-10-27 & 2022-10-27 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 1670300TO6866836 & 19.95 & \\
+2022-10-27 & 2022-10-27 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 1770300TO6866860 & 19.95 & \\
+2022-10-27 & 2022-10-27 & DERVO FICANTIS,VI INAVESTRIS 1577 NIS NATTINES, q-dimulam perurea antem & 1170300TO6866715 & 1350.00 & \\
+2022-10-27 & 2022-10-27 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930802BN5477196 & 0.65 & \\
+2022-10-27 & 2022-10-27 & SOLVEST RENDIVIO U,CARELIA, 1437 UXIMUSTRIT VOLO OS SECTA, q-dimulam perurea antem & 2170300TO6866966 & 400.05 & \\
+2022-10-27 & 2022-10-27 & SOLVEST RENDIVIO U,CARELIA, 1437 UXIMUSTRIT q-dimulam perurea antem & 2270300TO6866978 & 2644.50 & \\
+2022-10-27 & 2022-10-27 & Sime Morope IN,Træ at Divisto 6, 7223 Imutum, VI q-dimulam perurea antem & 1970300TO6866933 & 114.90 & \\
+2022-10-27 & 2022-10-27 & Stuinere IN,Pervaricentalion 53, 2110 Nienti, VI q-dimulam perurea antem & 2070300TO6866951 & 331.75 & \\
+2022-10-27 & 2022-10-27 & Vargere NIX Disu,1820 Aliburrum (Netribo) q-dimulam perurea antem & 1370300TO6866776 & 158.45 & \\
+2022-10-27 & 2022-10-27 & XXX (Imotulo) IN Factuitum Noviant,Ocurempetuiureta 37, 7707 Haeperrum q-dimulam perurea antem & 1270300TO6866758 & 381.40 & \\
+2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia 18264075-0 07/24, Debit card payment & 9930803BN7080856 & 30.00 & \\
+2022-10-29 & 2022-10-29 & VITUS MATURA IN,4081 LOCTURAL 18264075-0 07/24, Debit card payment & 9930805BN8594754 & 53.00 & \\
+2022-10-31 & 2022-10-31 & COR Wide. Ima. Humquit U,4081 Ortant 18264075-0 07/24, Debit card payment & 9930805BN9558053 & 2.30 & \\
+2022-10-31 & 2022-10-31 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930806BN9643739 & 7.60 & \\
+2022-10-31 & 2022-10-31 & Veliris targern ut ingerem nullam  & VX74405AM1640827 & 6.00 & \\
+2022-11-01 & 2022-11-01 & Iustiontro, Vistriet Actumn NAM MEDEO & 9930305GK5404335 &  & 159.00\\
+2022-11-02 & 2022-11-02 & PROR PROR PROR 4143,CONUM SPLIBUS Perurea me volo & 9947306TO6493694 & 69.90 & \\
+2022-11-02 & 2022-11-02 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930808BN1699456 & 1.95 & \\
+2022-11-02 & 2022-11-02 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930808BN1692390 & 0.65 & \\
+2022-11-02 & 2022-11-02 & SUS OS XXX,4081 Ortant 18264075-0 07/24, Debit card payment & 9930807BN1470349 & 10.00 & \\
+2022-11-04 & 2022-11-04 & NATA,83555 ALIBUS ALUUS 18264075-0 07/24, Debit card payment & 9930810BN3897220 & 138.68 & \\
+2022-11-04 & 2022-11-04 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930809BN3754644 & 30.01 & \\
+2022-11-05 & 2022-11-05 & SUS OS XXX,4081 Ortant 18264075-0 07/24, Debit card payment & 9930810BN3872076 & 32.40 & \\
+2022-11-06 & 2022-11-06 & Qöan Exactus IN,3103 Simulam Umea 18264075-0 07/24, Debit card payment & 9930811BN5358212 & 5.00 & \\
+2022-11-06 & 2022-11-06 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930811BN5353554 & 6.80 & \\
+2022-11-07 & 2022-11-07 & COR Wide. Ima. Humquit U,4081 Ortant 18264075-0 07/24, Debit card payment & 9930812BN6501995 & 2.30 & \\
+2022-11-07 & 2022-11-07 & Comparem (Pribulia) IN,Ansa Aviurrungendusa 1, 3122 Claph q-dimulam perurea antem & 1770311TO2672955 & 99.80 & \\
+2022-11-07 & 2022-11-07 & Comparem (Pribulia) IN,Ansa Aviurrungendusa 1, 3122 Claph q-dimulam perurea antem & 1670311TO2672937 & 52.10 & \\
+2022-11-07 & 2022-11-07 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930813BN6698050 & 2.70 & \\
+2022-11-07 & 2022-11-07 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930813BN6698414 & 4.35 & \\
+2022-11-09 & 2022-11-09 & VITUS MATURA IN,4081 LOCTURAL 18264075-0 07/24, Debit card payment & 9930815BN8595942 & 35.50 & \\
+2022-11-11 & 2022-11-11 & AlvEr  *Audita Xxx IN,1552 Criginere 18264075-0 07/24, Debit card payment & 9930817BN0744322 & 7.60 & \\
+2022-11-11 & 2022-11-11 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930817BN0823792 & 2.85 & \\
+2022-11-11 & 2022-11-11 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930816BN0575688 & 40.50 & \\
+2022-11-12 & 2022-11-12 & RIBUS GLAC,1552 CRIGINERE 18264075-0 07/24, Debit card payment & 9930819BN2427724 & 46.00 & \\
+2022-11-13 & 2022-11-13 & NAM Volle 18264075-0 07/24, Cash Deposit UBS Bancomat & 9930818BN2304994 &  & 584.99\\
+2022-11-13 & 2022-11-13 & Oricia Ingerem,3715 Volle 18264075-0 07/24, Debit card payment & 9930818BN2249039 & 5.90 & \\
+2022-11-14 & 2022-11-14 & AlvEr  *Audita Xxx IN,1552 Criginere 18264075-0 07/24, Debit card payment & 9930820BN3469750 & 7.60 & \\
+2022-11-14 & 2022-11-14 & Pasi Criginere,1552 Criginere 18264075-0 07/24, Debit card payment & 9930820BN3491857 & 2.85 & \\
+2022-11-14 & 2022-11-14 & Propuples Imiracipe,VI q-dimulam perurea antem & 9947317TO2750166 & 600.00 & \\
+2022-11-15 & 2022-11-15 & PROR PROR PROR 4143,CONUM SPLIBUS Perurea me volo & 9947319TO3692084 & 20.00 & \\
+2022-11-15 & 2022-11-15 & RIBUS GLAC,1552 CRIGINERE 18264075-0 07/24, Debit card payment & 9930822BN5346525 & 33.00 & \\
+2022-11-16 & 2022-11-16 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930821BN5214641 & 38.40 & \\
+2022-11-17 & 2022-11-17 & PAURRUNT'F,5833 MELINVER 18264075-0 07/24, Debit card payment & 9930824BN7440205 & 37.40 & \\
+2022-11-17 & 2022-11-17 & PROR PROR PROR 4143,CONUM SPLIBUS Perurea me volo & 9947321TO4906066 & 77.00 & \\
+2022-11-19 & 2022-11-19 & AlvEr  *Wino glac,4081 Loctural 18264075-0 07/24, Debit card payment & 9930825BN8544269 & 22.00 & \\
+2022-11-19 & 2022-11-19 & Iusa Priatto IN,4081 Ortant 18264075-0 07/24, Debit card payment & 9930824BN8387190 & 24.00 & \\
+2022-11-25 & 2022-11-25 & Conum Splibus,8803 Salibula exemolum antem Ratti & 9947829MC0019315 & 350.00 & \\
+2022-11-25 & 2022-11-25 & Flamire Splibus,8768 Clamerum actumn & 9947829LK0098758 &  & 260.00\\
+2022-11-25 & 2022-11-25 & Talettra Naredifiem IN,7447 Diect 18264075-0 07/24, Debit card payment & 9930830BN3928806 & 42.95 & \\
+2022-11-25 & 2022-11-25 & Vistriet Iustiontro,8803 Salibula actumn & 9930829LK0169749 &  & 332.00\\
+2022-11-25 & 2022-11-25 & caurra.vi IN,Dem an Quine 6, VI/Criginere 1552 ieiunt perurea & 9999329ZC6825009 &  & 4369.80\\
+2022-11-26 & 2022-11-26 & At Mentur IN,1760 Iurimoris 18264075-0 07/24, Debit card payment & 9930831BN4750942 & 25.80 & \\
+2022-11-26 & 2022-11-26 & OS Salibula 18264075-0 07/24, ATM Withdrawal & 9930831BN4669730 & 100.00 & \\
+2022-11-26 & 2022-11-26 & Pasi Iurimoris,1760 Iurimoris 18264075-0 07/24, Debit card payment & 9930832BN5596741 & 23.50 & \\
+2022-11-27 & 2022-11-27 & Iustiontro, Vistriet Actumn NAM MEDEO & 9930331GK1909572 &  & 100.00\\
+2022-11-28 & 2022-11-28 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 8570332TO0253102 & 23.05 & \\
+2022-11-28 & 2022-11-28 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 8770332TO0253184 & 19.95 & \\
+2022-11-28 & 2022-11-28 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 8670332TO0253139 & 19.95 & \\
+2022-11-28 & 2022-11-28 & Comparem (Imotulo) IN,3122 Main, VI q-dimulam perurea antem & 8970332TO0253213 & 20.05 & \\
+2022-11-28 & 2022-11-28 & Comparem (Pribulia) IN,Ansa Aviurrungendusa 1, 3122 Claph q-dimulam perurea antem & 2670332TO0253938 & 99.80 & \\
+2022-11-28 & 2022-11-28 & DERVO FICANTIS,VI INAVESTRIS 1577 NIS XXX, POR BIERRUM XXX, q-dimulam perurea antem & 8270332TO0253055 & 1390.00 & \\
+2022-11-28 & 2022-11-28 & GURUNCH,CRIGINERE 18264075-0 07/24, ATM Withdrawal & 9999332BN1248968 & 20.00 & \\
+2022-11-28 & 2022-11-28 & Sime Morope IN,Træ at Divisto 6, 7223 Imutum, VI q-dimulam perurea antem & 2570332TO0253926 & 79.40 & \\
+2022-11-28 & 2022-11-28 & Stuinere IN,Pervaricentalion 53, 2110 Nienti, VI q-dimulam perurea antem & 2470332TO0253914 & 331.75 & \\
+2022-11-28 & 2022-11-28 & Vargere NIX Disu,1820 Aliburrum (Netribo) q-dimulam perurea antem & 8470332TO0253087 & 179.70 & \\
+2022-11-28 & 2022-11-28 & XXX (Imotulo) IN Factuitum Noviant,Ocurempetuiureta 37, 7707 Haeperrum q-dimulam perurea antem & 8370332TO0253075 & 381.40 & \\
+2022-11-28 & 2022-11-28 & XXX. MENTINEQUISTO,8803 SALIBULA q-dimulam perurea antem & 2770332TO0253951 & 2166.50 & \\
+\\
+\end{tablevalue}
+\end{document}
