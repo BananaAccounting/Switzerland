@@ -5551,10 +5551,8 @@ function getPrintFormat(preferencesObj) {
    * It's returned along with other information in the preferencesObj.
    */
   let printformat = "";
-  if (preferencesObj && preferencesObj.print_preferences.length > 0) {
-    for (let i = 0; i < preferencesObj.print_preferences.length; i++) {
-      printformat = preferencesObj.print_preferences[i].print_formats;
-    }
+  if (preferencesObj && preferencesObj.print_choices.print_formats) {
+    printformat = preferencesObj.print_choices.print_formats;
   }
   // Banana.console.log(JSON.stringify(preferencesObj, "", " "));
   // Banana.console.log(printformat);
@@ -5602,6 +5600,8 @@ function getPrintPreferences_en() {
   let printOptions_en =
   {
     "version" : "1.0",
+    "id": "invoice_available_print_preferences",
+    "text":"Print Preferences",
     "base_options" : [
       {
         "id": "print_formats",
@@ -5617,7 +5617,7 @@ function getPrintPreferences_en() {
           },
           {
             "id":"delivery_note" ,
-            "text": "Delivery Note"
+            "text": "Delivery Note with amounts"
           },
           {
             "id":"delivery_note_without_amounts",
@@ -5625,15 +5625,15 @@ function getPrintPreferences_en() {
           },
           {
             "id":"reminder_1",
-            "text": "Reminder 1"
+            "text": "1st reminder"
           },
           {
             "id":"reminder_2",
-            "text":"Reminder 2"
+            "text":"2nd reminder"
           },
           {
             "id":"reminder_3",
-            "text": "Reminder 3"
+            "text": "3rd reminder"
           }
         ],
         "default": "automatic"
@@ -5667,6 +5667,8 @@ function getPrintPreferences_it() {
   let printOptions_it =
   {
     "version" : "1.0",
+    "id": "invoice_available_print_preferences",
+    "text":"Preferenze di stampa",
     "base_options" : [
       {
         "id": "print_formats",
@@ -5682,7 +5684,7 @@ function getPrintPreferences_it() {
           },
           {
             "id":"delivery_note" ,
-            "text": "Bollettino di consegna"
+            "text": "Bollettino di consegna con importi"
           },
           {
             "id":"delivery_note_without_amounts",
@@ -5690,15 +5692,15 @@ function getPrintPreferences_it() {
           },
           {
             "id":"reminder_1",
-            "text": "Richiamo 1"
+            "text": "1. richiamo"
           },
           {
             "id":"reminder_2",
-            "text":"Richiamo 2"
+            "text":"2. richiamo"
           },
           {
             "id":"reminder_3",
-            "text": "Richiamo 3"
+            "text": "3. richiamo"
           }
         ],
         "default": "automatic"
@@ -5732,6 +5734,8 @@ function getPrintPreferences_fr() {
   let printOptions_fr =
   {
     "version" : "1.0",
+    "id": "invoice_available_print_preferences",
+    "text":"Préférences d'impression",
     "base_options" : [
       {
         "id": "print_formats",
@@ -5747,7 +5751,7 @@ function getPrintPreferences_fr() {
           },
           {
             "id":"delivery_note" ,
-            "text": "Bon de livraison"
+            "text": "Bon de livraison avec montants"
           },
           {
             "id":"delivery_note_without_amounts",
@@ -5755,15 +5759,15 @@ function getPrintPreferences_fr() {
           },
           {
             "id":"reminder_1",
-            "text": "Rappel 1"
+            "text": "1er rappel"
           },
           {
             "id":"reminder_2",
-            "text":"Rappel 2"
+            "text":"2e rappel"
           },
           {
             "id":"reminder_3",
-            "text": "Rappel 3"
+            "text": "3e rappel"
           }
         ],
         "default": "automatic"
@@ -5797,6 +5801,8 @@ function getPrintPreferences_de() {
   let printOptions_de =
   {
     "version" : "1.0",
+    "id": "invoice_available_print_preferences",
+    "text":"Druckeinstellungen",
     "base_options" : [
       {
         "id": "print_formats",
@@ -5812,7 +5818,7 @@ function getPrintPreferences_de() {
           },
           {
             "id":"delivery_note" ,
-            "text": "Lieferschein"
+            "text": "Lieferschein mit Beträge"
           },
           {
             "id":"delivery_note_without_amounts",
@@ -5820,15 +5826,15 @@ function getPrintPreferences_de() {
           },
           {
             "id":"reminder_1",
-            "text": "Mahnung 1"
+            "text": "1. Mahnung"
           },
           {
             "id":"reminder_2",
-            "text":"Mahnung 2"
+            "text":"2. Mahnung"
           },
           {
             "id":"reminder_3",
-            "text": "Mahnung 3"
+            "text": "3. Mahnung"
           }
         ],
         "default": "automatic"
