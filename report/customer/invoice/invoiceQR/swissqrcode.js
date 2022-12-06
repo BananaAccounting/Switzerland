@@ -1357,7 +1357,7 @@ var QRBill = class QRBill {
 			qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
 		}
 
-		if (invoiceObj.customer_info.business_name) {
+		if (invoiceObj.customer_info.business_name && invoiceObj.customer_info.business_name.trim().length > 0) {
 			qrcodeData.debtorName += invoiceObj.customer_info.business_name;
 		} else {
 			if (invoiceObj.customer_info.first_name || invoiceObj.customer_info.last_name) {

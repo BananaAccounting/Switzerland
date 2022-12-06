@@ -2150,7 +2150,7 @@ function verifyParam(userParam) {
     userParam.color_title_total = userParam.background_color_details_header;
   } else {
     if (!userParam.color_title_total) {
-      userParam.color_title_total = '#000000';      
+      userParam.color_title_total = '#000000';
     }
   }
   if (!userParam.font_family) {
@@ -4306,40 +4306,92 @@ function arrayDifferences(arr1, arr2) {
   return arr;
 }
 
-/**
- * The method objectHasProperty verifiy if an object contains the requested property.
- * Name can contains a dot '.', in this case the method verify that the given property tree exists.
-*/
 function objectHasProperty(obj, name) {
-    if (!obj || !name) {
-        return false;
-    } else if (name.startsWith("T.") || name.startsWith("I.")) {
-        return false;
-    }
-    return (objectGetProperty(obj, name) !== null);
+  /**
+   * The method objectHasProperty verifiy if an object contains the requested property.
+   * Name can contains a dot '.', in this case the method verify that the given property tree exists.
+  */
+  if (!obj || !name) {
+      return false;
+  } else if (name.startsWith("T.") || name.startsWith("I.")) {
+      return false;
+  }
+  return (objectGetProperty(obj, name) !== null);
 }
 
-/**
- * The method objectHasPoperty verifiy if an object contains the requested property or tree.
- * Name can contains a dot '.', in this case the method verify that the given property tree exists.
-*/
 function objectGetProperty(obj, name) {
-    if (!obj || !name) {
-        return null;
-    } else if (name.startsWith("T.") || name.startsWith("I.")) {
-        return null;
+  /**
+   * The method objectHasPoperty verifiy if an object contains the requested property or tree.
+   * Name can contains a dot '.', in this case the method verify that the given property tree exists.
+  */
+  if (!obj || !name) {
+      return null;
+  } else if (name.startsWith("T.") || name.startsWith("I.")) {
+      return null;
+  }
+  let curObj = obj;
+  let paths = name.trim().toLowerCase().split('.');
+  for (let i = 0; i < paths.length; i++) {
+      let path = paths[i];
+      if (path in curObj) {
+          curObj = curObj[path];
+      } else {
+          return null;
+      }
+  }
+  return curObj;
+}
+
+function removeDiscountColumn(invoiceObj, userParam) {
+  /**
+   * Print the item discount column only when it is used.
+   */
+  let printDiscountColumn = false;
+  for (let i = 0; i < invoiceObj.items.length; i++) {
+    let item = invoiceObj.items[i];
+    if ( (item.discount && item.discount.percent) || (item.discount && item.discount.amount) ) {
+      printDiscountColumn = true;
+      break;
     }
-    let curObj = obj;
-    let paths = name.trim().toLowerCase().split('.');
-    for (let i = 0; i < paths.length; i++) {
-        let path = paths[i];
-        if (path in curObj) {
-            curObj = curObj[path];
-        } else {
-            return null;
-        }
+  }
+
+  if (!printDiscountColumn) {
+    
+    let columnsNames = userParam.details_columns.split(";");
+    let columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
+    let titlesAlignment = userParam.details_columns_titles_alignment.split(";");
+    let columnsAlignment = userParam.details_columns_alignment.split(";");
+    let columnsDimension = userParam.details_columns_widths.split(";");
+
+    // remove all empty values ("", null, undefined): 
+    columnsNames = columnsNames.filter(function(e){return e});
+    columnsHeaders = columnsHeaders.filter(function(e){return e});
+  
+    // remove the Discount column
+    if (columnsNames.indexOf("Discount") > -1) {
+
+      let index = columnsNames.indexOf("Discount");
+
+      // remove from arrays all the discount data
+      columnsNames.splice(index, 1);
+      columnsHeaders.splice(index, 1);
+      titlesAlignment.splice(index, 1);
+      columnsAlignment.splice(index, 1);
+      columnsDimension.splice(index, 1);
+
+      // replace the userParam with the new columns
+      userParam.details_columns = columnsNames.toString().replace(/,/g, ";");
+      userParam[lang+'_text_details_columns'] = columnsHeaders.toString().replace(/,/g, ";");
+      userParam.details_columns_titles_alignment = titlesAlignment.toString().replace(/,/g, ";");
+      userParam.details_columns_alignment = columnsAlignment.toString().replace(/,/g, ";");
+      userParam.details_columns_widths = columnsDimension.toString().replace(/,/g, ";");
     }
-    return curObj;
+  }
+  // Banana.console.log(JSON.stringify(userParam.details_columns, "", " "));
+  // Banana.console.log(JSON.stringify(userParam[lang+'_text_details_columns'], "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_titles_alignment, "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_alignment, "", " "));
+  // Banana.console.log(JSON.stringify(userParam.details_columns_widths, "", " "));
 }
 
 function replaceVariables(cssText, variables) {
@@ -5539,11 +5591,8 @@ function isIntegratedInvoice() {
 
 
 //====================================================================//
-// FUNCTIONS THAT PRINTS THE DELIVERY NOTE AND THE REMINDERS.
-// DELIVERY NOTE IS WITHOUT AMOUNTS, VAT, DISCOUNTS, TOTALS AND QR-CODE.
-// REMINDERS IS THE SAME AS THE INVOICE BUT WITH DIFFERENT TEXTS.
-//===================================================================//
-
+// FUNCTIONS FOR THE PRINT PREFERENCES OF THE DIALOG PRINT INVOICE
+//====================================================================//
 function getPrintFormat(preferencesObj) {
   /**
    * Function that returns the print format.
@@ -5637,26 +5686,6 @@ function getPrintPreferences_en() {
           }
         ],
         "default": "automatic"
-      },
-      {
-        "id": "print_amounts",
-        "text": "Print Amounts",
-        "formats": [
-          {
-            "id":"automatic",
-            "text":"Automatic"
-          },
-          {
-            "id":"amounts",
-            "text": "Print Amounts"
-          },
-          {
-            "id":"noamounts" ,
-            "text": "Do not print Amounts"
-          },
-          
-        ],
-        "default": "automatic"
       }
     ]
   }
@@ -5702,26 +5731,6 @@ function getPrintPreferences_it() {
             "id":"reminder_3",
             "text": "3. richiamo"
           }
-        ],
-        "default": "automatic"
-      },
-      {
-        "id": "print_amounts",
-        "text": "Stampa importi",
-        "formats": [
-          {
-            "id":"automatic",
-            "text":"Automatico"
-          },
-          {
-            "id":"amounts",
-            "text": "Stampa importi"
-          },
-          {
-            "id":"noamounts" ,
-            "text": "Non stampare importi"
-          },
-          
         ],
         "default": "automatic"
       }
@@ -5771,26 +5780,6 @@ function getPrintPreferences_fr() {
           }
         ],
         "default": "automatic"
-      },
-      {
-        "id": "print_amounts",
-        "text": "Imprimer les montants",
-        "formats": [
-          {
-            "id":"automatic",
-            "text":"Automatique"
-          },
-          {
-            "id":"amounts",
-            "text": "Imprimer les montants"
-          },
-          {
-            "id":"noamounts" ,
-            "text": "Ne pas imprimer les montants"
-          },
-          
-        ],
-        "default": "automatic"
       }
     ]
   }
@@ -5838,26 +5827,6 @@ function getPrintPreferences_de() {
           }
         ],
         "default": "automatic"
-      },
-      {
-        "id": "print_amounts",
-        "text": "Beträge drucken",
-        "formats": [
-          {
-            "id":"automatic",
-            "text":"Automatisch"
-          },
-          {
-            "id":"amounts",
-            "text": "Beträge drucken"
-          },
-          {
-            "id":"noamounts" ,
-            "text": "Beträge nicht drucken"
-          },
-          
-        ],
-        "default": "automatic"
       }
     ]
   }
@@ -5870,62 +5839,14 @@ function getPrintPreferences_de() {
 
 
 
-function removeDiscountColumn(invoiceObj, userParam) {
-  /**
-   * Print the item discount column only when it is used.
-   */
-  let printDiscountColumn = false;
-  for (let i = 0; i < invoiceObj.items.length; i++) {
-    let item = invoiceObj.items[i];
-    if ( (item.discount && item.discount.percent) || (item.discount && item.discount.amount) ) {
-      printDiscountColumn = true;
-      break;
-    }
-  }
-
-  if (!printDiscountColumn) {
-    
-    let columnsNames = userParam.details_columns.split(";");
-    let columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
-    let titlesAlignment = userParam.details_columns_titles_alignment.split(";");
-    let columnsAlignment = userParam.details_columns_alignment.split(";");
-    let columnsDimension = userParam.details_columns_widths.split(";");
-
-    // remove all empty values ("", null, undefined): 
-    columnsNames = columnsNames.filter(function(e){return e});
-    columnsHeaders = columnsHeaders.filter(function(e){return e});
-  
-    // remove the Discount column
-    if (columnsNames.indexOf("Discount") > -1) {
-
-      let index = columnsNames.indexOf("Discount");
-
-      // remove from arrays all the discount data
-      columnsNames.splice(index, 1);
-      columnsHeaders.splice(index, 1);
-      titlesAlignment.splice(index, 1);
-      columnsAlignment.splice(index, 1);
-      columnsDimension.splice(index, 1);
-
-      // replace the userParam with the new columns
-      userParam.details_columns = columnsNames.toString().replace(/,/g, ";");
-      userParam[lang+'_text_details_columns'] = columnsHeaders.toString().replace(/,/g, ";");
-      userParam.details_columns_titles_alignment = titlesAlignment.toString().replace(/,/g, ";");
-      userParam.details_columns_alignment = columnsAlignment.toString().replace(/,/g, ";");
-      userParam.details_columns_widths = columnsDimension.toString().replace(/,/g, ";");
-    }
-  }
-  // Banana.console.log(JSON.stringify(userParam.details_columns, "", " "));
-  // Banana.console.log(JSON.stringify(userParam[lang+'_text_details_columns'], "", " "));
-  // Banana.console.log(JSON.stringify(userParam.details_columns_titles_alignment, "", " "));
-  // Banana.console.log(JSON.stringify(userParam.details_columns_alignment, "", " "));
-  // Banana.console.log(JSON.stringify(userParam.details_columns_widths, "", " "));
-}
 
 
 
 
 
+//====================================================================//
+// FUNCTIONS THAT PRINTS THE DELIVERY NOTE
+//====================================================================//
 function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam) {
   /*
     Prints the delivery note information
@@ -6399,6 +6320,9 @@ function print_final_texts_delivery_note(repDocObj, invoiceObj, userParam) {
 
 
 
+//====================================================================//
+// FUNCTIONS THAT PRINTS THE REMINDERS
+//====================================================================//
 function print_text_begin_reminder(repDocObj, invoiceObj, texts, userParam, printFormat) {
   /*
     Prints the text before the reminder details
