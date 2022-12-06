@@ -859,7 +859,9 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 // paymentObj.debtorCurrency
             );
             payment.setDueDate(executionDates[i]);
-            payment.setChargeBearer("CRED"); //Specifies which party/parties will bear the charges of the payment transaction
+            //Specifies which party/parties will bear the charges of the payment transaction
+            //Commented because the user should choose the costs per transaction
+            // payment.setChargeBearer("CRED");
             //Execution confirmation:   NO      YES     NO      YES
             //Detailed confirmation:    NO      YES     YES     NO
             //------                    ---     ---     ---     ---
