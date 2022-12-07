@@ -2301,14 +2301,23 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT CUSTOMER ADDRESS */
-  if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
-    hook_print_customer_address(repDocObj, invoiceObj, userParam);
-  } else {
-    print_customer_address(repDocObj, invoiceObj, userParam);
+  if (IS_INTEGRATED_INVOICE && invoiceObj.shipping_info && invoiceObj.shipping_info.different_shipping_address && (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts")) { //for delivery note use shipping address when available
+    if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
+      hook_print_address_delivery_note(repDocObj, invoiceObj, userParam);
+    } else {
+      print_address_delivery_note(repDocObj, invoiceObj, userParam);
+    }
+  }
+  else {
+    if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
+      hook_print_customer_address(repDocObj, invoiceObj, userParam);
+    } else {
+      print_customer_address(repDocObj, invoiceObj, userParam);
+    }
   }
 
   /* PRINT SHIPPING ADDRESS */
-  if (IS_INTEGRATED_INVOICE && userParam.shipping_address) {
+  if (IS_INTEGRATED_INVOICE && userParam.shipping_address && printFormat !== "delivery_note" && printFormat !== "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_shipping_address) === typeof(Function)) {
       hook_print_shipping_address(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -6062,6 +6071,97 @@ function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, user
         tableRow.addCell(customField.value,"",1);
       }
     }
+  }
+}
+
+function print_address_delivery_note(repDocObj, invoiceObj, userParam) {
+  /*
+    Print the delivery note address
+    Only for integrated invoices. The address is defined using the 10:sadr type commands.
+  */
+  var deliveryAddressTable = "";
+  if (userParam.address_position_dX != 0 || userParam.address_position_dY != 0) {
+    if (userParam.address_left) {
+      deliveryAddressTable = repDocObj.addTable("custom_address_table_left");
+    } else {
+      deliveryAddressTable = repDocObj.addTable("custom_address_table_right");
+    }
+  }
+  else {
+    if (userParam.address_left) {
+      deliveryAddressTable = repDocObj.addTable("address_table_left");
+    } else {
+      deliveryAddressTable = repDocObj.addTable("address_table_right");
+    }
+  }
+
+  tableRow = deliveryAddressTable.addRow();
+  var cell = tableRow.addCell("", "", 1);
+
+  //Small line of the supplier address
+  if (userParam.address_small_line) {
+    if (userParam.address_small_line === "<none>") {
+      cell.addText("","");
+    } else {
+      cell.addText(userParam.address_small_line, "small_address");
+    }
+  }
+  else {
+    var name = "";
+    var address = "";
+    var locality = "";
+    if (invoiceObj.supplier_info.business_name) {
+      name += invoiceObj.supplier_info.business_name;
+    } 
+    else {
+      if (invoiceObj.supplier_info.first_name) {
+        name += invoiceObj.supplier_info.first_name;
+      }
+      if (invoiceObj.supplier_info.last_name) {
+        if (invoiceObj.supplier_info.first_name) {
+          name += " ";
+        }
+        name += invoiceObj.supplier_info.last_name;
+      }
+    }
+    if (invoiceObj.supplier_info.address1) {
+      address += invoiceObj.supplier_info.address1;
+    }
+    if (invoiceObj.supplier_info.postal_code) {
+      locality += invoiceObj.supplier_info.postal_code;
+    }
+    if (invoiceObj.supplier_info.city) {
+      if (invoiceObj.supplier_info.postal_code) {
+        locality += " "; 
+      }
+      locality += invoiceObj.supplier_info.city;
+    }
+
+    var supplierAddressLine = "";
+    if (name) {
+      supplierAddressLine += name;
+    }
+    if (address) {
+      if (name) {
+        supplierAddressLine += " - ";
+      }
+      supplierAddressLine += address;
+    }
+    if (locality) {
+      if (address || name) {
+        supplierAddressLine += " - ";
+      }
+      supplierAddressLine += locality;
+    }
+    if (supplierAddressLine) {
+      cell.addText(supplierAddressLine, "small_address");
+    }
+  }
+  
+  // Delivery address
+  var deliveryAddress = getInvoiceAddress(invoiceObj.shipping_info,userParam).split('\n');
+  for (var i = 0; i < deliveryAddress.length; i++) {
+    cell.addParagraph(deliveryAddress[i]);
   }
 }
 
