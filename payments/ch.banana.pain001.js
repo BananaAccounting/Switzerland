@@ -194,6 +194,12 @@ function CustomerCreditTransferInformation(id, name, amount) {
     this.remittanceInformation = '';
 
     /**
+     * @var string Service level affects the way the payment is made.
+     * S (SEPA) must be used
+     */
+    this.serviceLevelCode = '';
+
+    /**
       * Must be between 0.01 and 999999999.99
       *
       * @var string
@@ -498,6 +504,27 @@ CustomerCreditTransferInformation.prototype.getRemittanceInformation = function 
  */
 CustomerCreditTransferInformation.prototype.setRemittanceInformation = function (remittanceInformation) {
     this.remittanceInformation = remittanceInformation;
+}
+
+/**
+ * @return string
+ */
+ CustomerCreditTransferInformation.prototype.getServiceLevelCode = function () {
+    if (!this.serviceLevelCode)
+        return '';
+    return this.serviceLevelCode;
+}
+
+/**
+ * @param string serviceLevelCode
+ * @throws InvalidArgumentException
+ */
+ CustomerCreditTransferInformation.prototype.setServiceLevelCode = function (serviceLevelCode) {
+    serviceLevelCode = serviceLevelCode.toUpperCase();
+    if (!_inArray(serviceLevelCode, ['SEPA'])) {
+        throw 'Invalid Service Level Code: ' + serviceLevelCode;
+    }
+    this.serviceLevelCode = serviceLevelCode;
 }
 
 /**
@@ -830,7 +857,6 @@ DomBuilder.prototype.visitPaymentInformation = function (paymentInformation) {
         var chargeBearer = this.currentPayment.addElement('ChrgBr');
         chargeBearer.addTextNode(paymentInformation.getChargeBearer());
     }
-
 }
 
 /**
@@ -885,6 +911,13 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
         node = node.addElement('Cd');
         node.addTextNode(transactionInformation.getCategoryPurpose());
     }
+    if (transactionInformation.getServiceLevelCode().length > 0) {
+        if (paymentTypeInformation == null)
+            paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
+        node = paymentTypeInformation.addElement('SvcLvl');
+        node = node.addElement('Cd');
+        node.addTextNode(transactionInformation.getServiceLevelCode());
+    }
 
     // Amount
     var amount = cdtTrfTxInf.addElement('Amt');
@@ -912,11 +945,11 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
             bic.addTextNode(transactionInformation.getBic());
         }
     }
-	else if (transactionInformation.getBankAccount().length > 0) {
+    else if (transactionInformation.getBankAccount().length > 0) {
         var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
         var financialInstitution = creditorAgent.addElement('FinInstnId');
         var name = financialInstitution.addElement('Nm');
-		name.addTextNode(transactionInformation.getBankName());
+        name.addTextNode(transactionInformation.getBankName());
         // Bank address if needed and supported by schema.
         if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02, ID_PAIN_FORMAT_001_001_09_CH_03])) {
             this.appendBankAddressToDomElement(financialInstitution, transactionInformation);
@@ -924,7 +957,7 @@ DomBuilder.prototype.visitTransferInformation = function (transactionInformation
         var other = financialInstitution.addElement('Othr');
         var node = other.addElement('Id');
         node.addTextNode(transactionInformation.getBankAccount());
-	}
+    }
 
     // Creditor 2.79
     var creditor = cdtTrfTxInf.addElement('Cdtr');

@@ -806,8 +806,9 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     groupHeader.setSoftwareName("Banana Accounting Plus");
     groupHeader.setSoftwareProvider("Banana.ch SA");
     var version = Banana.application.version;
-    // if (version.indexOf(".") > 0)
-    //     version = version.substring(0, version.indexOf("."));
+    if (this.isTest && version.lastIndexOf(".") > 0) {
+        version = version.substring(0, version.lastIndexOf(".") - 1);
+    }
     groupHeader.setSoftwareVersion(version);
 
     // Create a transfer file which contains all data to transfer
@@ -927,6 +928,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 }
                 else if (methodId == this.ID_PAYMENT_SEPA) {
                     transfer.setBic(transactionInfoObj.creditorBic);
+                    transfer.setServiceLevelCode("SEPA");
                 }
 
                 // It's possible to add multiple Transfers in one payment
