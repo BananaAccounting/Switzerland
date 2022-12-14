@@ -1911,6 +1911,9 @@ var QRBill = class QRBill {
 			qrcodePymentImageForm.addImage(qrCodeSvgImage, 'qrcode_image');
 			qrcodePymentImageForm.addImage(this.swiss_cross, "qrcode_cross");
 		}
+		else {
+			qrcodePymentImageForm.addParagraph("", "qrcode_rectangle_error");
+		}
 
 
 		/**
@@ -2753,6 +2756,13 @@ var QRBill = class QRBill {
 			style.setAttribute("width","46mm");
 			style.setAttribute("text-align", "center");
 			//style.setAttribute("border","thin solid red");
+			if (this.ERROR) {
+				var rectangleErrorQR = repStyleObj.addStyle(".qrcode_rectangle_error");
+				rectangleErrorQR.setAttribute("width","46mm");
+				rectangleErrorQR.setAttribute("height","46mm");
+				rectangleErrorQR.setAttribute("background-color","white");
+				rectangleErrorQR.setAttribute("border","thin solid black");
+			}
 
 			/* Currency form */
 			style = repStyleObj.addStyle(".qrcode_payment_currency_Form");

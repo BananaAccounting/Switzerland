@@ -1696,8 +1696,8 @@ function convertParam(userParam) {
   currentParam.parentObject = 'styles';
   currentParam.title = texts.param_background_color_alternate_lines;
   currentParam.type = 'color';
-  currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#F2F2F2';
-  currentParam.defaultvalue = '#F2F2F2';
+  currentParam.value = userParam.background_color_alternate_lines ? userParam.background_color_alternate_lines : '#FFFFFF';
+  currentParam.defaultvalue = '#FFFFFF';
   currentParam.tooltip = texts.param_tooltip_background_color_alternate_lines;
   currentParam.readValue = function() {
    userParam.background_color_alternate_lines = this.value;
@@ -1878,7 +1878,7 @@ function initParam() {
   userParam.text_color = '#000000';
   userParam.background_color_details_header = '#FFFFFF';
   userParam.text_color_details_header = '#000000';
-  userParam.background_color_alternate_lines = '#F2F2F2';
+  userParam.background_color_alternate_lines = '#FFFFFF';
   userParam.color_title_total = '#000000';
   userParam.font_family = 'Helvetica';
   userParam.font_size = '10';
@@ -2142,7 +2142,7 @@ function verifyParam(userParam) {
     userParam.text_color_details_header = '#000000';
   }
   if (!userParam.background_color_alternate_lines) {
-    userParam.background_color_alternate_lines = '#F2F2F2';
+    userParam.background_color_alternate_lines = '#FFFFFF';
   }
   if (!userParam.hasOwnProperty('color_title_total')) {
     // Property doesn't exists: using old version of settings parameters.
@@ -2200,11 +2200,13 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
     }
 
     //json for print preferences
-    var preferencesObj = null;
-    if (typeof(jsonPreferences) === 'object') {
-      preferencesObj = jsonPreferences;
-    } else if (typeof(jsonPreferences) === 'string') {
-      preferencesObj = JSON.parse(jsonPreferences)
+    if (jsonPreferences) {
+      var preferencesObj = null;
+      if (typeof(jsonPreferences) === 'object') {
+        preferencesObj = jsonPreferences;
+      } else if (typeof(jsonPreferences) === 'string') {
+        preferencesObj = JSON.parse(jsonPreferences)
+      }
     }
 
     // Invoice texts which need translation
@@ -3409,7 +3411,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   var cellVatInfo = tableRow.addCell("", "padding-right right vat_info", columnsNumber);
   for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
     var vatInfo = "";
-    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_inclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency + " (" + texts.gross + ") // ";
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency + " (" + texts.net + ")";
     vatInfo += " " + texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%";
     vatInfo += " = " + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
     cellVatInfo.addParagraph(vatInfo);
@@ -4600,6 +4603,8 @@ function setInvoiceTexts(language) {
     texts.vat = "IVA";
     texts.rounding = "Arrotondamento";
     texts.total = "TOTALE";
+    texts.gross = "lordo";
+    texts.net = "netto";
     texts.param_include = "Stampa";
     texts.param_header_include = "Intestazione";
     texts.param_header_print = "Intestazione pagina";
@@ -4809,6 +4814,8 @@ function setInvoiceTexts(language) {
     texts.vat = "MwSt";
     texts.rounding = "Rundung";
     texts.total = "Gesamtbetrag";
+    texts.gross = "Brutto";
+    texts.net = "Netto";
     texts.param_include = "Drucken";
     texts.param_header_include = "Kopfzeile";
     texts.param_header_print = "Seitenkopf drucken";
@@ -5018,6 +5025,8 @@ function setInvoiceTexts(language) {
     texts.vat = "TVA";
     texts.rounding = "Arrondi";
     texts.total = "TOTAL";
+    texts.gross = "brut";
+    texts.net = "net";
     texts.param_include = "Imprimer";
     texts.param_header_include = "En-tête";
     texts.param_header_print = "En-tête de page";
@@ -5227,6 +5236,8 @@ function setInvoiceTexts(language) {
     texts.vat = "VAT";
     texts.rounding = "Rounding";
     texts.total = "TOTAL";
+    texts.gross = "gross";
+    texts.net = "net";
     texts.param_include = "Print";
     texts.param_header_include = "Header";
     texts.param_header_print = "Page header";
@@ -6209,10 +6220,12 @@ function print_text_begin_delivery_note(repDocObj, invoiceObj, texts, userParam)
 
 function print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
   /* 
-    Print details delivery note.
+    Print details delivery note without amounts.
     Takes all the XML columns names and columns titles defined in parameters.
     Columns with amounts, vat rates, discounts are removed ("Description;Quantity;ReferenceUnit;UnitPrice;Amount" => "Description;Quantity;ReferenceUnit")
     Columns created by user are not removed.
+
+    Also all the total items rows are removed.
   */
   var columnsNames = userParam.details_columns.split(";");
   var columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
@@ -6289,7 +6302,15 @@ function print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceO
   }
 
   var decimals = getQuantityDecimals(invoiceObj);
+
   
+  //Remove all total items rows from the items array of the json invoiceObj
+  for (var i = 0; i < invoiceObj.items.length; i++) {
+    var item = invoiceObj.items[i];
+    if (item.item_type && item.item_type.indexOf("total") === 0) {
+      invoiceObj.items.splice(i, 1);
+    }
+  }
 
   //ITEMS
   var customColumnMsg = "";
