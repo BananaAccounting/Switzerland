@@ -6305,7 +6305,7 @@ function print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceO
 
   
   //Remove all total items rows from the items array of the json invoiceObj
-  for (var i = 0; i < invoiceObj.items.length; i++) {
+  for (var i = invoiceObj.items.length - 1; i >= 0; i--) {
     var item = invoiceObj.items[i];
     if (item.item_type && item.item_type.indexOf("total") === 0) {
       invoiceObj.items.splice(i, 1);
