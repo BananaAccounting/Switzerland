@@ -1567,10 +1567,6 @@ Pain001Switzerland.prototype.scanCode = function (code) {
         paymentObj.unstructuredMessage = swissQRCodeData.UnstructuredMessage;
         paymentObj.billingInfo = swissQRCodeData.BillingInformation;
     }
-    else {
-        paymentObj.methodId = this.ID_PAYMENT_SEPA;
-        paymentObj.reference = code;
-    }
     return paymentObj;
 }
 
@@ -2302,47 +2298,59 @@ var JsAction = class JsAction {
             return null;
         }
 
-        // reads QRCode
-        var paymentObj = pain001CH.scanCode(code);
-        if (!paymentObj)
-            return null;
-
-        //uuid is set by updateRow() and corresponds to the row uuid
-        //loads transaction date and description from row
-        var row = null;
-        if (tabPos.rowNr < table.rowCount) {
-            row = table.row(tabPos.rowNr);
-            if (row)
-                this._rowGetDoc(paymentObj, row);
+        // Ensure code is an array as code is either string or string[].
+        if (!Array.isArray(code)) {
+            let _code = code;
+            code = [];
+            code.push(_code);
         }
 
-        if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
-            paymentObj["transactionDate"] = pain001CH.currentDate();
-
-        var dialogTitle = 'Payment data';
-        var pageAnchor = 'dlgPaymentData';
-        var editorData = pain001CH.convertPaymData(paymentObj);
-
-        // Open dialog
-        paymentObj = pain001CH.openEditor(dialogTitle, editorData, pageAnchor);
-        if (!paymentObj)
+        if (code.length <= 0)
             return null;
 
-        //verify all data
-        paymentObj = pain001CH.verifyPaymObject(paymentObj);
-
-        var changedRowFields = {};
-        changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
-        this._rowSetAmount(paymentObj, changedRowFields);
-
-        // Create docChange
+        // Convert Qr-Codes into payment objects and save them in a documentchange object 
         var docChange = new DocumentChange();
-        if (tabPos.rowNr == -1)
-            docChange.addOperationRowAdd(tabPos.tableName, changedRowFields);
-        else
-            docChange.addOperationRowModify(tabPos.tableName, tabPos.rowNr, changedRowFields);
-        return docChange.getDocChange();
 
+        for (var i = 0; i < code.length; ++i) {
+            if (code[i].length <= 0)
+                continue;
+
+            // read QRCode
+            var paymentObj = pain001CH.scanCode(code[i]);
+
+            //uuid is set by updateRow() and corresponds to the row uuid
+            //load transaction date and description from row
+            var row = null;
+            if (tabPos.rowNr < table.rowCount) {
+                row = table.row(tabPos.rowNr);
+                if (row)
+                    this._rowGetDoc(paymentObj, row);
+            }
+
+            if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
+                paymentObj["transactionDate"] = pain001CH.currentDate();
+            if (!paymentObj["description"] || paymentObj["description"].length <= 0)
+                paymentObj["description"] = paymentObj["creditorName"];
+
+            // Open dialog for data confirmation
+            /*var dialogTitle = 'Payment data';
+            var pageAnchor = 'dlgPaymentData';
+            var editorData = pain001CH.convertPaymData(paymentObj);
+            paymentObj = pain001CH.openEditor(dialogTitle, editorData, pageAnchor);
+    
+            //verify all data
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);*/
+
+            var changedRowFields = {};
+            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+            this._rowSetAmount(paymentObj, changedRowFields);
+
+            // Add to docChange
+            // Only append rows because qr codes could be more than one and rows must be added to the table
+            docChange.addOperationRowAdd(tabPos.tableName, changedRowFields);
+        }
+
+        return docChange.getDocChange();
     }
 
     /**
