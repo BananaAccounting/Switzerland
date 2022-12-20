@@ -81,47 +81,60 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         var jsonDoc = this.createJsonDocument_Init();
 
-        /*ADD THE ACCOUNTS*/
+        /**
+         * ADD THE ACCOUNTS
+         * Actually the accounts are added at the end of the accounts table, 
+         * the user must then arrange them themselves within the table,
+        */
         this.createJsonDocument_AddAccounts(transactions, jsonDoc);
         /*ADD THE TRANSACTIONS*/
         this.createJsonDocument_AddTransactions(transactions, jsonDoc);
+
         this.jsonDocArray.push(jsonDoc);
 
     }
 
     /**
      * Creates the document change object for the account table.
-     * The accounts list is taken from the debit and credit columns, 
-     * The list of accounts is created from the information in the debit and credit columns.
-     * Accounts that already exist in the chart of accounts are not inserted.
+     * The new accounts list is taken from the debit and credit columns, those
+     * columns contains the description and the number of the accounts used in the transactions.
+     * Accounts that already exists in the chart of accounts are not inserted.
      * @param {*} inData original transactions.
      */
     createJsonDocument_AddAccounts(transactions,jsonDoc) {
 
         let rows=[];
-        const newAccounts = new Set();
+        let newAccountsData = {}; //will contain new accounts data.
+        let accountsList = [];
         let existingAccounts;
 
-        /*Loop trough the transactions starting from the first line of data (= 1)
-        * and get the list of accounts.*/
-        for (var i = 1; i<transactions.length; i++){
-            let tRow = transactions[i];
-            let debitCol = tRow[this.Debit];
-            let creditCol = tRow[this.trCredit];
+        accountsList = this.getAccountsList(transactions);
+        /**Set the object with the new accounts data*/
+        this.setNewAccountsData(accountsList,newAccountsData);
+        /* Get the list of existing accounts*/
+        existingAccounts = this.getExistingAccounts();
+        /* Filter the account by removing the existing ones */
+        this.filterAccountsData(newAccountsData,existingAccounts);
 
-            //add elements
-            newAccounts.add(this.getAccountFromDescription(debitCol));
-            newAccounts.add(this.getAccountFromDescription(creditCol));
+        //add new accounts to the doc change json.
+        if(newAccountsData && newAccountsData.data.length>=0){
+            for(var key in newAccountsData.data){
+                let account = newAccountsData.data[key].account;
+                let description = newAccountsData.data[key].description;
+                
+                //new rows
+                let row = {};
+                row.operation = {};
+                row.operation.name = "add";
+                row.operation.srcFileName = "" //to define.
+                row.fields = {};
+                row.fields["Account"] = account;
+                row.fields["Description"] = description;
 
+                rows.push(row);
+            }
         }
 
-        /* Get the list of existing accounts */
-
-        /* Check if accounts already exists */
-
-        let accountsList = Array.from(newAccounts);
-
-        Banana.console.debug(accountsList);
 
         var dataUnitFilePorperties = {};
         dataUnitFilePorperties.nameXml = "Accounts";
@@ -129,10 +142,93 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         dataUnitFilePorperties.data.rowLists = [];
         dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
 
-        // Banana.Ui.showText(JSON.stringify(dataUnitFilePorperties));
-
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
 
+    }
+
+    /**
+     * Loop trough the transactions starting from the first line of data (= 1)
+     * and get the list of accounts using a set to avoid duplicates
+     * @param {*} transactions
+     */
+    getAccountsList(transactions){
+        const accounts = new Set();
+        for (var i = 1; i<transactions.length; i++){
+            let tRow = transactions[i];
+            let debitCol = tRow[this.Debit];
+            let creditCol = tRow[this.trCredit];
+            //add elements
+            accounts.add(debitCol);
+            accounts.add(creditCol);
+        }
+        //convert the set into an array, as it is more easy to manage.
+        let accountsArr = Array.from(accounts);
+        return accountsArr;
+
+    }
+
+    /**
+     * Filter accounts data that already exists in the account table
+     * by removing them from the "newAccountsData" object.
+     */
+    filterAccountsData(newAccountsData,existingAccounts){
+        let newArray = [];
+        if(newAccountsData){
+            for(var key in newAccountsData.data){
+                const elementObj = newAccountsData.data[key];
+                if(elementObj && elementObj.account){
+                    // check if the account number already exists
+                    if(!existingAccounts.includes(elementObj.account)){
+                        newArray.push(elementObj);
+                    }
+                }
+            }
+        }
+        //overvrite the old array with the new one (filtered one).
+        newAccountsData.data = newArray;
+    }
+
+    setNewAccountsData(accountsList,newAccountsData){
+        let accountsData = [];
+        if(accountsList.length>=0){
+            for (var i = 0; i<accountsList.length; i++){
+                let element = accountsList[i];
+                let accDescription = "";
+                let accountNr = "";
+                let accData = {};
+
+                if(element){
+                    accDescription = element.substring(element.length-1,element.indexOf('-')+1);
+                    accountNr = element.substring(0,element.indexOf('-')-1);
+
+                    accData.account = accountNr.trim();
+                    accData.description = accDescription.trim();
+    
+                    accountsData.push(accData);
+                }
+            }
+        }
+        newAccountsData.data = accountsData;
+    }
+
+    /**
+     * Returns the list of the existing accounts
+     * in the account table.
+     */
+    getExistingAccounts(){
+        let accounts = [];
+        let accountTable = this.banDocument.table("Accounts");
+        if(accountTable){
+            let tRows = accountTable.rows;
+            for(var key in tRows){
+                let row = tRows[key];
+                let account = row.value("Account");
+                if(account){
+                    accounts.push(account);
+                };
+            }
+        }
+        return accounts;
     }
 
     /**
@@ -142,7 +238,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      *  - "1000 - Bank"
      * @param {*} rowField 
      */
-    getAccountFromDescription(rowField){
+    getAccountFromTextField(rowField){
         let account;
         if(rowField){
             account = rowField.substring(0,rowField.indexOf(' '));
