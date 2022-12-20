@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/lorenzo/Programmazione/Repo/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.test.js}
+%%SCRIPT{/Users/ivan/GitHub/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.test.js}
 %
 \begin{testcase}{ReportInvoiceQrCode}
 \begin{test}{testReport}
@@ -6556,7 +6556,7 @@ Consulting services \newline \newline  & 05.05.2022  & 5.0000  & hrs  & 12.50  &
 \multicolumn{285}{l}{}\\
 \multicolumn{284}{l}{TOTAL CHF } & 494.50 \\
 \multicolumn{285}{l}{}\\
-\multicolumn{285}{l}{459.15 CHF VAT 7.70\% = 35.35 CHF \newline }\\
+\multicolumn{285}{l}{494.50 CHF (gross) // 459.15 CHF (net) VAT 7.70\% = 35.35 CHF \newline }\\
 \end{longtable}
   \\
 Receipt \\
@@ -7246,7 +7246,7 @@ Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{TOTAL CHF } & 30.00 \\
 \multicolumn{315}{l}{}\\
-\multicolumn{315}{l}{22.72 CHF VAT 7.70\% = 1.74 CHF \newline }\\
+\multicolumn{315}{l}{24.46 CHF (gross) // 22.72 CHF (net) VAT 7.70\% = 1.74 CHF \newline }\\
 \end{longtable}
 Receipt \\
   \\
@@ -7355,7 +7355,7 @@ Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{TOTAL CHF } & 25.00 \\
 \multicolumn{320}{l}{}\\
-\multicolumn{320}{l}{18.16 CHF VAT 7.70\% = 1.40 CHF \newline }\\
+\multicolumn{320}{l}{19.55 CHF (gross) // 18.16 CHF (net) VAT 7.70\% = 1.40 CHF \newline }\\
 \end{longtable}
 Receipt \\
   \\
@@ -7898,7 +7898,7 @@ aaa \newline \newline  & 2  & pz  & 23.00  & 46.00 \\
 \multicolumn{345}{l}{}\\
 \multicolumn{344}{l}{TOTAL CHF } & 46.00 \\
 \multicolumn{345}{l}{}\\
-\multicolumn{345}{l}{42.71 CHF VAT 7.70\% = 3.29 CHF \newline }\\
+\multicolumn{345}{l}{46.00 CHF (gross) // 42.71 CHF (net) VAT 7.70\% = 3.29 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8007,7 +8007,7 @@ bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{350}{l}{}\\
-\multicolumn{350}{l}{22.93 CHF VAT 7.70\% = 1.77 CHF \newline }\\
+\multicolumn{350}{l}{24.70 CHF (gross) // 22.93 CHF (net) VAT 7.70\% = 1.77 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8116,7 +8116,7 @@ ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{TOTAL CHF } & 22.00 \\
 \multicolumn{355}{l}{}\\
-\multicolumn{355}{l}{39.00 CHF VAT 7.70\% = 3.00 CHF \newline }\\
+\multicolumn{355}{l}{42.00 CHF (gross) // 39.00 CHF (net) VAT 7.70\% = 3.00 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8226,7 +8226,7 @@ ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{TOTAL CHF } & 50.00 \\
 \multicolumn{360}{l}{}\\
-\multicolumn{360}{l}{83.57 CHF VAT 7.70\% = 6.44 CHF \newline }\\
+\multicolumn{360}{l}{90.00 CHF (gross) // 83.57 CHF (net) VAT 7.70\% = 6.44 CHF \newline }\\
 \end{longtable}
 Ricevuta \\
   \\
@@ -8564,7 +8564,7 @@ Item  & Date  & Description  & Quantity  & Unit  & Unit Price  & Discount  & Amo
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{TOTAL CHF } & 131.56 \\
 \multicolumn{378}{l}{}\\
-\multicolumn{378}{l}{122.15 CHF VAT 7.70\% = 9.41 CHF \newline }\\
+\multicolumn{378}{l}{131.56 CHF (gross) // 122.15 CHF (net) VAT 7.70\% = 9.41 CHF \newline }\\
 \end{longtable}
 aFASD\P F AS\P DF\P  AS\P DF ASDF \\
 Receipt \\
@@ -9449,6 +9449,222 @@ ewline RF4911218
 ewline 
 ewline EPD
 ewline //S1/10/18/11/200617/20/1/30/111333999/31/200617/40/0:30}\\
+\subsection{Test25: delivery note}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "delivery_note"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: delivery\_note}
+\begin{reportvalue}{Delivery Note 501}
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 501 \\
+Delivery note date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 501 \\
+Delivery note date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Delivery note \newline \\
+This is the begin text of the delivery note. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{420}{l}{}\\
+\multicolumn{419}{l}{Total net } & 501.39 \\
+\multicolumn{419}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{420}{l}{}\\
+\multicolumn{419}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+This is the final text of the delivery note. \\
+It can be on multiple lines. \\
+Thank you very much. \\
+\begin{longtable}[l]{ l  l  l }
+Footer text left \newline  & Footer text center \newline  & Footer text right \newline \\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "delivery_note_without_amounts"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: delivery\_note\_without\_amounts}
+\begin{reportvalue}{Delivery Note 502}
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 502 \\
+Delivery note date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 502 \\
+Delivery note date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Delivery note \newline \\
+This is the begin text of the delivery note. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l }
+Description  & Quantity  & Unit \\
+Service 1 \newline  & 2.00  & hrs \\
+Service 2 \newline  & 1.00  & hrs \\
+\end{longtable}
+This is the final text of the delivery note. \\
+It can be on multiple lines. \\
+Thank you very much. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "delivery_note_without_amounts"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: delivery\_note\_without\_amounts}
+\begin{reportvalue}{Delivery Note 503}
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 503 \\
+Delivery note date:  & 10.07.2023 \\
+Customer No:  & 1101 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 09.08.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 503 \\
+Delivery note date:  & 10.07.2023 \\
+Customer No:  & 1101 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 09.08.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Delivery note \newline \\
+This is the begin text of the delivery note. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l }
+Description  & Quantity  & Unit \\
+Product A delivered July 2, 2022 in Lugano \newline  &  & \\
+Product A delivered July 3, 2022 in Lugano \newline  &  & \\
+Product A delivered July 4, 2022 in Bern \newline  &  & \\
+Product B delivered July 3, 2022  \newline  &  & \\
+Product B delivered July 4, 2022  \newline  &  & \\
+Services \newline  &  & \\
+\end{longtable}
+This is the final text of the delivery note. \\
+It can be on multiple lines. \\
+Thank you very much. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "delivery_note_without_amounts"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: delivery\_note\_without\_amounts}
+\begin{reportvalue}{Delivery Note 504}
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 504 \\
+Delivery note date:  & 05.01.2023 \\
+Customer No:  & 1101 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 04.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Delivery note No:  & 504 \\
+Delivery note date:  & 05.01.2023 \\
+Customer No:  & 1101 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 04.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Mario Rossi \newline Via ai Boschi \newline 6850 Mendrisio \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Delivery note \newline \\
+This is the begin text of the delivery note. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l }
+Description  & Quantity  & Unit \\
+Product A \newline  & 2.00  & pcs \\
+\end{longtable}
+This is the final text of the delivery note. \\
+It can be on multiple lines. \\
+Thank you very much. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
