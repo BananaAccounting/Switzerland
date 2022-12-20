@@ -20,7 +20,8 @@
 // @description = Bexio - Import transactions (*xlxs)
 // @doctype = 100.*
 // @encoding = utf-8
-// @task = import.file
+// @task = import.transactions
+// @inputdatasource = openfiledialog
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
@@ -98,6 +99,68 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     createJsonDocument_AddAccounts(transactions,jsonDoc) {
 
         let rows=[];
+        const newAccounts = new Set();
+        let existingAccounts;
+
+        /*Loop trough the transactions starting from the first line of data (= 1)
+        * and get the list of accounts.*/
+        for (var i = 1; i<transactions.length; i++){
+            let tRow = transactions[i];
+            let debitCol = tRow[this.Debit];
+            let creditCol = tRow[this.trCredit];
+
+            //add elements
+            newAccounts.add(this.getAccountFromDescription(debitCol));
+            newAccounts.add(this.getAccountFromDescription(creditCol));
+
+        }
+
+        /* Get the list of existing accounts */
+
+        /* Check if accounts already exists */
+
+        let accountsList = Array.from(newAccounts);
+
+        Banana.console.debug(accountsList);
+
+        var dataUnitFilePorperties = {};
+        dataUnitFilePorperties.nameXml = "Accounts";
+        dataUnitFilePorperties.data = {};
+        dataUnitFilePorperties.data.rowLists = [];
+        dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
+
+        // Banana.Ui.showText(JSON.stringify(dataUnitFilePorperties));
+
+        jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
+
+    }
+
+    /**
+     * Finds and returns the account number contained in the debit and credit fields.
+     * Each description follow this format:
+     *  - "1020 - Post"
+     *  - "1000 - Bank"
+     * @param {*} rowField 
+     */
+    getAccountFromDescription(rowField){
+        let account;
+        if(rowField){
+            account = rowField.substring(0,rowField.indexOf(' '));
+            account.trim();
+        }
+
+        return account;
+    }
+
+    /**
+     * Creates the document change object for the transactions table
+     * @param {*} jsonDoc 
+     * @param {*} srcFileName 
+     * @param {*} companyNode 
+     */
+    createJsonDocument_AddTransactions(transactions, jsonDoc) {
+
+        let rows=[];
 
         /*Loop trough the transactions starting from the first line of data (= 1)*/
         for (var i = 1; i<transactions.length; i++){
@@ -120,606 +183,12 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         }
 
         var dataUnitFilePorperties = {};
-        dataUnitFilePorperties.nameXml = "Accounts";
-        dataUnitFilePorperties.data = {};
-        dataUnitFilePorperties.data.rowLists = [];
-        dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
-
-        // Banana.Ui.showText(JSON.stringify(dataUnitFilePorperties));
-
-        jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
-
-    }
-
-    /**
-     * Add the row that define the begin of the base section: Balance, Profit and Loss, Customers and suppliers, Cost centers.
-     * @param {*} bClass 
-     * @param {*} accType 
-     * @returns 
-     */
-    setBaseSectionDelimiterRow(accType){
-        //section
-        var sectionDelimiterRows = {};
-        sectionDelimiterRows.row = {};
-        sectionDelimiterRows.row.operation = {};
-        sectionDelimiterRows.row.operation.name = "add";
-        sectionDelimiterRows.row.fields = {};
-        sectionDelimiterRows.row.fields["Section"] = "*";
-        sectionDelimiterRows.row.fields["Description"] = this.setBaseSectionDescription(accType);
-        sectionDelimiterRows.emptyRow = this.getEmptyRow();
-
-        return sectionDelimiterRows;
-    }
-
-    /**
-     * Add the row that define the begin of the section
-     * Section ref: Assets=1, Liabilities=2, Costs=3, Revenues=4
-     * @param {*} bClass 
-     * @param {*} accType 
-     * @returns the section delemiter row
-     */
-    setSectionDelimiterRow(bClass,accType){
-        //section
-        //costumers and suppliers sections are 1 and 2, for the delimiter of section we want to have 01 and 02
-        if(accType=="C" || accType=="S"){
-            bClass="0"+bClass;
-        }
-        var sectionDelimiterRows = {};
-        sectionDelimiterRows.row = {};
-        sectionDelimiterRows.row.operation = {};
-        sectionDelimiterRows.row.operation.name = "add";
-        sectionDelimiterRows.row.fields = {};
-        sectionDelimiterRows.row.fields["Section"] = bClass
-        //get the description but take only the word after the space.
-        //example TOTAL AKTIVA--> AKTIVA
-        let descr=this.setSectionDescription(bClass,accType);
-        let startPos=descr.indexOf(" ");
-        descr=descr.substr(startPos);
-        sectionDelimiterRows.row.fields["Description"] = descr;
-        sectionDelimiterRows.emptyRow = this.getEmptyRow();
-
-        return sectionDelimiterRows;
-    }
-
-    /**
-     * Creates a row for totalize the balance
-     * @returns the row object
-     */
-    setBalanceDiffRow() {
-        var balanceRows = {};
-        balanceRows.row = {};
-        balanceRows.row.operation = {};
-        balanceRows.row.operation.name = "add";
-        balanceRows.row.fields = {};
-        balanceRows.row.fields["Group"] = "00";
-        balanceRows.row.fields["Description"] = "Verschil moet = 0 (lege cel) zijn";
-        balanceRows.emptyRow = this.getEmptyRow();
-
-        return balanceRows;
-    }
-
-    /**
-     * Creates a row for the annual result (Profit and loss)
-     * @returns the row object
-     */
-    setTotCeRow() {
-        var ceRows = {};
-        ceRows.row = {};
-        ceRows.row.operation = {};
-        ceRows.row.operation.name = "add";
-        ceRows.row.fields = {};
-        ceRows.row.fields["Group"] = "02";
-        ceRows.row.fields["Description"] = "Winst (-) verlies (+) van winst- en verliesrekening";
-        ceRows.row.fields["Gr"] = "0511";
-        ceRows.emptyRow = this.getEmptyRow();
-
-        return ceRows;
-    }
-
-    /* TEMPORARY METHOD, TO BE REVIEWED WHEN WE HAVE A COUPLE OF DIFFERENT AUDIT FILES  
-    sets the group in which the annual result, customers and suppliers are to be reported in the balance sheet.
-    -if the group is 1E, before the group total I add another group to account for the customers
-    -if the group is 2A, before the group total I add another group to account for the annual profit or loss
-    -if the group is 2C, before the group total I add another group to account for suppliers.
-    */
-    setGroupCarriedOver(gr) {
-        var grCarriedOver = {};
-        switch (gr) {
-            case "1E":
-                grCarriedOver.gr = "10"
-                grCarriedOver.description = "Klanten Register";
-                return grCarriedOver;
-            case "2A":
-                grCarriedOver.gr = "0511"
-                grCarriedOver.description = "Winst of verlies lopend jaar";
-                return grCarriedOver;
-            case "2C":
-                grCarriedOver.gr = "20"
-                grCarriedOver.description = "Leveranciers register";
-                return grCarriedOver;
-            default:
-                return null;
-        }
-    }
-
-    /**
-     * Creates the row for the carried over groups
-     * @param {*} grCarriedOver grCarriedOver object
-     * @param {*} grCode
-     * @returns 
-     */
-    setGroupRow_carriedOver(grCarriedOver, grCode) {
-        var grRows = {};
-        if (grCarriedOver != null) {
-            grRows.row = {};
-            grRows.row.operation = {};
-            grRows.row.operation.name = "add";
-            grRows.row.fields = {};
-            grRows.row.fields["Group"] = grCarriedOver.gr;
-            grRows.row.fields["Description"] = grCarriedOver.description;
-            grRows.row.fields["Gr"] = grCode;
-        }
-        return grRows;
-    }
-
-    /**
-     * Creates a gr row
-     * @param {*} grCode
-     * @param {*} bClass 
-     * @param {*} accType 
-     * @param {*} descr 
-     * @returns 
-     */
-    setGroupRow(grCode,bClass,accType,descr) {
-        var grRows = {};
-        grRows.row = {};
-        grRows.row.operation = {};
-        grRows.row.operation.name = "add";
-        grRows.row.fields = {};
-        grRows.row.fields["Group"] = grCode;
-        grRows.row.fields["Description"] = descr;
-        grRows.row.fields["Gr"] = this.setGroupTotal(bClass, accType);
-        grRows.emptyRow = this.getEmptyRow();
-
-        return grRows;
-    }
-
-    /**
-     * creates a line for the total of the section
-     * @param {*} currentAccType 
-     * @param {*} previsousAccType 
-     * @param {*} bClass 
-     * @returns 
-     */
-    setSectionRow(currentAccType, previsousAccType,bClass) {
-        var secRows = {};
-        secRows.row = {};
-        secRows.row.operation = {};
-        secRows.row.operation.name = "add";
-        secRows.row.fields = {};
-        secRows.row.fields["Group"] = this.setGroupTotal(bClass, currentAccType);
-        secRows.row.fields["Description"] = this.setSectionDescription(bClass, currentAccType);
-        secRows.row.fields["Gr"] = this.setSectionGr(previsousAccType);
-        //create an empty row to append after the total row
-        secRows.emptyRow = this.getEmptyRow();
-        return secRows;
-    }
-
-    /**
-     * Returns the gr of the section total line
-     * @param {*} previsousAccType 
-     * @returns 
-     */
-    setSectionGr(previsousAccType) {
-        var sectionTotal = "";
-        if (previsousAccType == "B") {
-            sectionTotal = "00";
-            return sectionTotal;
-        } else if (previsousAccType == "P") {
-            sectionTotal = "02";
-            return sectionTotal;
-        } else if (previsousAccType == "C") {
-            sectionTotal = "10";
-            return sectionTotal;
-        } else if (previsousAccType == "S") {
-            sectionTotal = "20";
-            return sectionTotal;
-        } else {
-            return sectionTotal;
-        }
-    }
-
-    /**
-     * returns the gr of the group total line according zo bclass and account type
-     * @param {*} bClass 
-     * @param {*} accType 
-     * @returns 
-     */
-    setGroupTotal(bClass, accType) {
-        var groupTotal = "";
-        if (accType == "B" || accType == "P") {
-            switch (bClass) {
-                case "1":
-                    groupTotal = "1I"
-                    return groupTotal;
-                case "2":
-                    groupTotal = "2E"
-                    return groupTotal;
-                case "3":
-                    groupTotal = "3G"
-                    return groupTotal;
-                case "4":
-                    groupTotal = "4D"
-                    return groupTotal;
-                default:
-                    return groupTotal;
-            }
-        } else {
-            switch (bClass) {
-                case "1":
-                    groupTotal = "DEB"
-                    return groupTotal;
-                case "2":
-                    groupTotal = "CRE"
-                    return groupTotal;
-                default:
-                    return groupTotal;
-            }
-        }
-    }
-
-    /**
-     * returns the section description according to bclass and account type 
-     * @param {*} bClass 
-     * @param {*} accType 
-     * @returns 
-     */
-    setSectionDescription(bClass, accType) {
-        var descr = "";
-        //Banana.console.debug(accType);
-        if (accType == "B" || accType == "P") {
-            switch (bClass) {
-                case "1":
-                    descr = "TOTALE ACTIVA"
-                    return descr;
-                case "2":
-                    descr = "TOTALE PASSIVA"
-                    return descr;
-                case "3":
-                    descr = "TOTALE LASTEN"
-                    return descr;
-                case "4":
-                    descr = "TOTALE BATEN"
-                    return descr;
-                default:
-                    return descr;
-            }
-        } else {
-            switch (bClass) {
-                case "1":
-                    descr = "Total Klanten"
-                    return descr;
-                case "2":
-                    descr = "Total Leveranciers"
-                    return descr;
-                default:
-                    return descr;
-            }
-
-        }
-
-    }
-    /**
-     * Returns the description of the basic section, based on the account type 
-     * @param {*} accType 
-     * @returns 
-     */
-    setBaseSectionDescription(accType) {
-        var descr = "";
-            switch (accType) {
-                case "B":
-                    descr = "BALANCE"
-                    return descr;
-                case "P":
-                    descr = "WINST- EN VERLIESREKENING"
-                    return descr;
-                case "S":
-                case "C":
-                    descr = "KLANTEN EN LEVERANCIERS"
-                    return descr;
-                default:
-                    return descr;
-            }
-    }
-
-    /**
-     * Return an empty rows, used as space between the other rows.
-     * @returns 
-     */
-    getEmptyRow() {
-        var emptyRow = {};
-        emptyRow.operation = {};
-        emptyRow.operation.name = "add";
-        emptyRow.fields = {};
-
-        return emptyRow;
-    }
-
-    /**
-     * Get a list of all the customers and suppliers accounts
-     * @param {*} customerSupplierNode 
-     * @returns 
-     */
-    getCustomerSuppliers(customerSupplierNode) {
-        var customersSuppliersList = [];
-        while (customerSupplierNode) { // For each customerSupplierNode
-            var accountNumber = customerSupplierNode.firstChildElement('custSupID').text;
-            customersSuppliersList.push(accountNumber); //Add the account to the list
-            customerSupplierNode = customerSupplierNode.nextSiblingElement('customerSupplier'); // Next customerSupplier
-        }
-        //Removing duplicates
-        for (var i = 0; i < customersSuppliersList.length; i++) {
-            for (var x = i + 1; x < customersSuppliersList.length; x++) {
-                if (customersSuppliersList[x] === customersSuppliersList[i]) {
-                    customersSuppliersList.splice(x, 1);
-                    --x;
-                }
-            }
-        }
-        return customersSuppliersList;
-    }
-
-/**
- * set the group for the customers and suppliers according to class.
- * @param {*} bClass 
- * @returns 
- */
-    setCSGrByBclass(bClass) {
-        var gr = "";
-        switch (bClass) {
-            case "1":
-                gr = "DEB"
-                return gr;
-            case "2":
-                gr = "CRE"
-                return gr;
-            default:
-                return gr;
-        }
-    }
-
-    //to define
-    setGrByAccount(account) {
-        var gr = "";
-        switch (account) {
-            case "prova":
-                return gr;
-        }
-        //...
-    }
-
-    /**
-     * Creates the document change object for the transactions table
-     * @param {*} jsonDoc 
-     * @param {*} srcFileName 
-     * @param {*} companyNode 
-     */
-    createJsonDocument_AddTransactions(jsonDoc, srcFileName, companyNode) {
-
-        var rows = [];
-
-        var transactionsNode = companyNode.firstChildElement('transactions');
-        var journalNode = transactionsNode.firstChildElement('journal');
-
-        while (journalNode) {
-
-            var transactionNode = journalNode.firstChildElement('transaction'); // First transaction
-            while (transactionNode) {
-                var nr = "";
-                var desc = "";
-                var trDt = "";
-
-                if (transactionNode.hasChildElements('nr')) {
-                    nr = transactionNode.firstChildElement('nr').text;
-                }
-                if (transactionNode.hasChildElements('desc')) {
-                    desc = transactionNode.firstChildElement('desc').text;
-                }
-                if (transactionNode.hasChildElements('trDt')) {
-                    trDt = transactionNode.firstChildElement('trDt').text;
-                }
-                //Banana.console.log("NEW TRANSACTION: " + nr + "; " + desc + "; " + trDt);
-
-                var trLineNode = transactionNode.firstChildElement('trLine');
-                while (trLineNode) {
-
-                    var trLineNr = "";
-                    var transactionDescription = "";
-                    var trLineAccID = "";
-                    var trLineDocRef = "";
-                    var trLineEffDate = "";
-                    var trLineDesc = "";
-                    var trLineAmnt = "";
-                    var trLineAmntTp = "";
-                    var trLineVatId = "";
-                    var trLineVatPerc = "";
-                    var trLineVatPerc = "";
-                    var trLineVatAmt = "";
-                    var trLineVatAmtTp = "";
-
-                    if (trLineNode.hasChildElements('nr')) {
-                        trLineNr = trLineNode.firstChildElement('nr').text;
-                    }
-                    if (trLineNode.hasChildElements('accID')) {
-                        trLineAccID = trLineNode.firstChildElement('accID').text;
-                    }
-                    if (trLineNode.hasChildElements('docRef')) {
-                        trLineDocRef = trLineNode.firstChildElement('docRef').text;
-                    }
-                    if (trLineNode.hasChildElements('effDate')) {
-                        trLineEffDate = trLineNode.firstChildElement('effDate').text;
-                    }
-                    if (trLineNode.hasChildElements('desc')) {
-                        trLineDesc = trLineNode.firstChildElement('desc').text;
-                    }
-                    if (trLineNode.hasChildElements('amnt')) {
-                        trLineAmnt = trLineNode.firstChildElement('amnt').text;
-                    }
-                    if (trLineNode.hasChildElements('amntTp')) {
-                        trLineAmntTp = trLineNode.firstChildElement('amntTp').text;
-                    }
-
-                    //row VAT 
-                    if (trLineNode.hasChildElements('vat')) {
-                        var trLineVat = trLineNode.firstChildElement('vat');
-                        trLineVatId = trLineVat.firstChildElement('vatID').text;
-                        trLineVatPerc = trLineVat.firstChildElement('vatPerc').text;
-                        trLineVatAmt = trLineVat.firstChildElement('vatAmnt').text;
-                        trLineVatAmtTp = trLineVat.firstChildElement('vatAmntTp').text;
-                        //save the values i will put in the Vat Codes table.
-                        this.vatTransactionsList.push(trLineVatId + "_____" + trLineVatPerc + "_____" + trLineVatAmtTp);
-                        if (trLineVatId)
-                            trLineVatId = "[" + trLineVatId + "]";
-                    }
-
-                    // Description of the transaction
-                    if (desc) {
-                        transactionDescription = desc + ", " + trLineDesc;
-                    } else {
-                        transactionDescription = trLineDesc;
-                    }
-
-                    // Account and ContraAccount of the transaction
-                    if (trLineAmntTp === "D") {
-                        var transactionDebitAccount = trLineAccID;
-                        var transactionCreditAccount = "";
-                    } else if (trLineAmntTp === "C") {
-                        var transactionDebitAccount = "";
-                        var transactionCreditAccount = trLineAccID;
-                    }
-
-                    //add an empty row every new block of transactions
-                    if (this.transNr !== nr) {
-                        var emptyRow = this.getEmptyRow();
-                        rows.push(emptyRow);
-                    }
-
-                    var row = {};
-                    row.operation = {};
-                    row.operation.name = "add";
-                    row.operation.srcFileName = srcFileName;
-                    row.fields = {};
-                    row.fields["Date"] = trLineEffDate;
-                    row.fields["Doc"] = nr;
-                    row.fields["Description"] = transactionDescription;
-                    row.fields["AccountDebit"] = transactionDebitAccount;
-                    row.fields["AccountCredit"] = transactionCreditAccount;
-                    row.fields["Amount"] = Banana.SDecimal.abs(trLineAmnt);
-                    row.fields["VatCode"] = trLineVatId;
-
-
-
-                    rows.push(row);
-
-                    this.transNr = nr;
-
-                    trLineNode = trLineNode.nextSiblingElement('trLine'); // Next trLine
-                } //trLineNode
-
-
-                transactionNode = transactionNode.nextSiblingElement('transaction'); // Next transaction
-            } // transactionNode
-
-            journalNode = journalNode.nextSiblingElement('journal'); // Next journal
-
-        } //journalNode
-
-
-        //se non è la versione advanced,limito le registrazioni importate a 100 righe
-        if (!this.isAdvanced) {
-            rows = rows.slice(0, 100);
-        }
-
-        var dataUnitFilePorperties = {};
         dataUnitFilePorperties.nameXml = "Transactions";
         dataUnitFilePorperties.data = {};
         dataUnitFilePorperties.data.rowLists = [];
         dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
 
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
-    }
-
-    /**
-     * Saves and returns a list with the opening balances
-     * @param {*} companyNode 
-     * @returns 
-     */
-    loadOpeningBalances(companyNode) {
-
-        var openingBalanceList = [];
-            if (companyNode && companyNode.hasChildElements('openingBalance')) {
-                var openingBalanceNode = companyNode.firstChildElement('openingBalance');
-
-                if (openingBalanceNode.hasChildElements('obLine')) {
-                    var obLineNode = openingBalanceNode.firstChildElement('obLine');
-
-                    while (obLineNode) { // For each openingBalance
-
-                        if (obLineNode.hasChildElements('accID')) {
-                            var accID = obLineNode.firstChildElement('accID').text;
-                        }
-                        if (obLineNode.hasChildElements('amnt')) {
-                            var amnt = obLineNode.firstChildElement('amnt').text;
-                        }
-                        if (obLineNode.hasChildElements('amntTp')) {
-                            var amntTp = obLineNode.firstChildElement('amntTp').text;
-                        }
-
-                        openingBalanceList.push(accID + "_____" + amnt + "_____" + amntTp);
-                        obLineNode = obLineNode.nextSiblingElement('obLine'); // Next obLine
-                    }
-                }
-        }
-        return openingBalanceList;
-    }
-
-    /**
-     * Set bClass according to account type 
-     * @param {*} gr 
-     * @param {*} accType 
-     * @returns 
-     */
-    setBclassByAccount(gr, accType) {
-        /* from xml file:
-        
-        Accounts:
-            B=balance => BClass 1 or 2
-            P=profit/loss => BClass 3 or 4
-    
-        Customers / Suppliers:
-            C=customer
-            S=supplier
-            B=both customer and supplier
-            O=Other, no customer or supplier
-        */
-
-        var bClass = "";
-        if (accType === "B") {
-            if (gr.substr(0, 1) == "1")
-                bClass = "1";
-            else
-                bClass = "2";
-        } else if (accType === "P") {
-            if (gr.substr(0, 1) == "3")
-                bClass = "3";
-            else
-                bClass = "4";
-        } else if (accType === "C") {
-                bClass = "1";
-        } else if (accType === "S") {
-                bClass = "2";
-        }
-        return bClass;
     }
 
     /**
@@ -747,53 +216,6 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Returns information to the accounting file.
-     */
-    getAccountingInfo() {
-        this.accountingInfo = {};
-        this.accountingInfo.isDoubleEntry = false;
-        this.accountingInfo.isIncomeExpenses = false;
-        this.accountingInfo.isCashBook = false;
-        this.accountingInfo.multiCurrency = false;
-        this.accountingInfo.withVat = false;
-        this.accountingInfo.vatAccount = "";
-        this.accountingInfo.customersGroup = "";
-        this.accountingInfo.suppliersGroup = "";
-
-        if (this.banDocument) {
-            var fileGroup = this.banDocument.info("Base", "FileTypeGroup");
-            var fileNumber = this.banDocument.info("Base", "FileTypeNumber");
-            var fileVersion = this.banDocument.info("Base", "FileTypeVersion");
-
-            if (fileGroup == "100")
-                this.accountingInfo.isDoubleEntry = true;
-            else if (fileGroup == "110")
-                this.accountingInfo.isIncomeExpenses = true;
-            else if (fileGroup == "130")
-                this.accountingInfo.isCashBook = true;
-
-            if (fileNumber == "110") {
-                this.accountingInfo.withVat = true;
-            }
-            if (fileNumber == "120") {
-                this.accountingInfo.multiCurrency = true;
-            }
-            if (fileNumber == "130") {
-                this.accountingInfo.multiCurrency = true;
-                this.accountingInfo.withVat = true;
-            }
-
-            if (this.banDocument.info("AccountingDataBase", "VatAccount"))
-                this.accountingInfo.vatAccount = this.banDocument.info("AccountingDataBase", "VatAccount");
-
-            if (this.banDocument.info("AccountingDataBase", "CustomersGroup"))
-                this.accountingInfo.customersGroup = this.banDocument.info("AccountingDataBase", "CustomersGroup");
-            if (this.banDocument.info("AccountingDataBase", "SuppliersGroup"))
-                this.accountingInfo.suppliersGroup = this.banDocument.info("AccountingDataBase", "SuppliersGroup");
-        }
-    }
-
-    /**
      * returns the error message
      * @param {*} errorId 
      * @param {*} lang 
@@ -812,27 +234,6 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
                 return '';
         }
     }
-
-    /**
-     * check Banana's licence
-     * @returns 
-     */
-    isBananaAdvanced() {
-        // Starting from version 10.0.7 it is possible to read the property Banana.application.license.isWithinMaxRowLimits 
-        // to check if all application functionalities are permitted
-        // the version Advanced returns isWithinMaxRowLimits always false
-        // other versions return isWithinMaxRowLimits true if the limit of transactions number has not been reached
-
-        if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.0.9") >= 0) {
-            var license = Banana.application.license;
-            //Banana.console.debug(license.licenseType);
-            //tolgo il license.isWithinMaxFreeLines perchè siccome il file inizialmente e vuoto mi darà sempre true.
-            if (license.licenseType === "advanced") {
-                return true;
-            }
-        }
-        return false;
-    }
 }
 
 
@@ -841,6 +242,8 @@ function exec(inData) {
     if (!Banana.document || inData.length <= 0) {
         return "@Cancel";
     }
+
+    var importUtilities = new ImportUtilities(Banana.document);
 
     if (!importUtilities.verifyBananaAdvancedVersion())
         return "";
