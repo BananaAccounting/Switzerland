@@ -31,13 +31,40 @@
 /*
  *   SUMMARY
  *
- *   Import transactions form Bexio to Banana with document change.
+ *   Import transactions form Bexio to Banana using document change.
+ *   After importing the data, the user must arrange the imported accounts
+ *   in the accounts table by setting the correct Bclass and currency for them.
  * 
  */
 
 /**
  * function called from converter
  */
+
+function exec(inData) {
+
+    if (!Banana.document || inData.length <= 0) {
+        return "@Cancel";
+    }
+
+    var importUtilities = new ImportUtilities(Banana.document);
+
+    if (!importUtilities.verifyBananaAdvancedVersion())
+        return "";
+
+    convertionParam = defineConversionParam(inData);
+    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
+
+    //Format 1 (fare controllo del match nel caso ci siano più versioni)
+    let  bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(Banana.document);
+    bexioTransactionsImportFormat1.createJsonDocument(transactions);
+
+    var jsonDoc = { "format": "documentChange", "error": "" };
+    jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
+
+    return jsonDoc;
+
+}
 function setup() {}
 
 /**
@@ -54,9 +81,6 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         //array dei patches
         this.jsonDocArray = [];
 
-        //errors
-        this.ID_ERR_LICENSE_NOTVALID = "ID_ERR_LICENSE_NOTVALID";
-
         //columns
         this.trDate = 0;
         this.trReference = 1;
@@ -72,10 +96,9 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * The createJsonDocument() method takes the original transactions and
-     * creates the Json document with the data to insert into the transactions 
+     * The createJsonDocument() method takes the transactions in the excel file and
+     * creates the Json document with the data to insert into the transactions and accounts
      * table.
-     * @param {*} transactions original transactions mapped from the excel file.
      */
     createJsonDocument(transactions) {
 
@@ -130,6 +153,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
                 row.fields = {};
                 row.fields["Account"] = account;
                 row.fields["Description"] = description;
+                row.fields["Currency"] = this.banDocument.info("AccountingDataBase","BasicCurrency"); //actually set the base currency to all.
 
                 rows.push(row);
             }
@@ -155,7 +179,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         const accounts = new Set();
         for (var i = 1; i<transactions.length; i++){
             let tRow = transactions[i];
-            let debitCol = tRow[this.Debit];
+            let debitCol = tRow[this.trDebit];
             let creditCol = tRow[this.trCredit];
             //add elements
             accounts.add(debitCol);
@@ -232,7 +256,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Finds and returns the account number contained in the debit and credit fields.
+     * Finds and returns the account number contained in the debit or credit fields.
      * Each description follow this format:
      *  - "1020 - Post"
      *  - "1000 - Bank"
@@ -249,10 +273,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Creates the document change object for the transactions table
-     * @param {*} jsonDoc 
-     * @param {*} srcFileName 
-     * @param {*} companyNode 
+     * Creates the document change object for the transactions table.
      */
     createJsonDocument_AddTransactions(transactions, jsonDoc) {
 
@@ -267,15 +288,18 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             row.operation.name = "add";
             row.operation.srcFileName = "" //to define.
             row.fields = {};
+            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tRow[this.trReference],"DD-MM-YYYY");
             row.fields["ExternalReference"] = tRow[this.trReference];
-            row.fields["Debit"] = tRow[this.Debit];
-            row.fields["Credit"] = tRow[this.trCredit];
+            row.fields["AccountDebit"] = this.getAccountFromTextField(tRow[this.trDebit]);
+            row.fields["AccountCredit"] = this.getAccountFromTextField(tRow[this.trCredit]);
             row.fields["Description"] = tRow[this.trDescription];
             row.fields["AmountCurrency"] = tRow[this.trAmount];
             row.fields["ExchangeCurrency"] = tRow[this.trCurrency];
             row.fields["ExchangeRate"] = tRow[this.trExchangeRate];
             row.fields["Amount"] = tRow[this.amountInBaseCurrency];
-            row.fields["VatCode"] =  tRow[this.vatRate];
+            //row.fields["VatCode"] =  tRow[this.vatRate]; //to define how to import correct data
+
+            rows.push(row);
         }
 
         var dataUnitFilePorperties = {};
@@ -310,52 +334,6 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         return jsonDoc;
 
     }
-
-    /**
-     * returns the error message
-     * @param {*} errorId 
-     * @param {*} lang 
-     * @returns 
-     */
-    getErrorMessage(errorId, lang) {
-        if (!lang)
-            lang = 'en';
-        switch (errorId) {
-            case this.ID_ERR_LICENSE_NOTVALID:
-                // Banana.console.debug("advanced message: "+errorId);
-                return "This extension requires Banana Accounting+ Advanced, the import of Transactions is limited to 100 Rows";
-            case this.ID_ERR_VERSION_NOTSUPPORTED:
-                return "This script does not run with your current version of Banana Accounting.\nMinimum version required: %1.\nTo update or for more information click on Help";
-            default:
-                return '';
-        }
-    }
-}
-
-
-function exec(inData) {
-
-    if (!Banana.document || inData.length <= 0) {
-        return "@Cancel";
-    }
-
-    var importUtilities = new ImportUtilities(Banana.document);
-
-    if (!importUtilities.verifyBananaAdvancedVersion())
-        return "";
-
-    convertionParam = defineConversionParam(inData);
-    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-
-    //Format 1 (fare controllo del match)
-    let  bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(Banana.document);
-    bexioTransactionsImportFormat1.createJsonDocument(transactions);
-
-    var jsonDoc = { "format": "documentChange", "error": "" };
-    jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
-
-    return jsonDoc;
-
 }
 
 function defineConversionParam(inData) {
@@ -405,18 +383,3 @@ function defineConversionParam(inData) {
  
 	return ',';
  }
-
-/**
- * returns the language code
- * @returns 
- */
-function  getLang(banDocument) {
-    var lang = 'en';
-    if (banDocument)
-        lang = banDocument.locale;
-    else if (Banana.application.locale)
-        lang = Banana.application.locale;
-    if (lang.length > 2)
-        lang = lang.substring(0, 2);
-    return lang;
-}
