@@ -91,7 +91,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         this.trCurrency = 6;
         this.trExchangeRate = 7;
         this.amountInBaseCurrency = 8;
-        this.vatRate = 9;
+        this.vatRate = 10;
 
     }
 
@@ -110,6 +110,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
          * the user must then arrange them themselves within the table,
         */
         this.createJsonDocument_AddAccounts(transactions, jsonDoc);
+        /** ADD VAT CODES */
+        this.createJsonDocument_AddVatCodes(transactions, jsonDoc);
         /*ADD THE TRANSACTIONS*/
         this.createJsonDocument_AddTransactions(transactions, jsonDoc);
 
@@ -129,13 +131,19 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         let rows=[];
         let newAccountsData = {}; //will contain new accounts data.
         let accountsList = [];
+        let columnsIndxList = [];
         let existingAccounts;
+        let debitCol = this.trDebit;
+        let creditCol = this.trCredit;
 
-        accountsList = this.getAccountsList(transactions);
-        /**Set the object with the new accounts data*/
+        columnsIndxList.push(debitCol);
+        columnsIndxList.push(creditCol);
+
+        accountsList = this.getFileColumnsData(transactions,columnsIndxList);
+        /**Create an object with the new accounts data*/
         this.setNewAccountsData(accountsList,newAccountsData);
         /* Get the list of existing accounts*/
-        existingAccounts = this.getExistingAccounts();
+        existingAccounts = this.getExistingData("Accounts","Account");
         /* Filter the account by removing the existing ones */
         this.filterAccountsData(newAccountsData,existingAccounts);
 
@@ -171,27 +179,6 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Loop trough the transactions starting from the first line of data (= 1)
-     * and get the list of accounts using a set to avoid duplicates
-     * @param {*} transactions
-     */
-    getAccountsList(transactions){
-        const accounts = new Set();
-        for (var i = 1; i<transactions.length; i++){
-            let tRow = transactions[i];
-            let debitCol = tRow[this.trDebit];
-            let creditCol = tRow[this.trCredit];
-            //add elements
-            accounts.add(debitCol);
-            accounts.add(creditCol);
-        }
-        //convert the set into an array, as it is more easy to manage.
-        let accountsArr = Array.from(accounts);
-        return accountsArr;
-
-    }
-
-    /**
      * Filter accounts data that already exists in the account table
      * by removing them from the "newAccountsData" object.
      */
@@ -212,6 +199,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         newAccountsData.data = newArray;
     }
 
+    /**
+     * Given a list of accounts creates an object containing for each account
+     * the account number and the account description.
+     */
     setNewAccountsData(accountsList,newAccountsData){
         let accountsData = [];
         if(accountsList.length>=0){
@@ -223,7 +214,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
                 if(element){
                     accDescription = element.substring(element.length-1,element.indexOf('-')+1);
-                    accountNr = element.substring(0,element.indexOf('-')-1);
+                    accountNr = this.getAccountFromTextField(element);
 
                     accData.account = accountNr.trim();
                     accData.description = accDescription.trim();
@@ -236,27 +227,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Returns the list of the existing accounts
-     * in the account table.
-     */
-    getExistingAccounts(){
-        let accounts = [];
-        let accountTable = this.banDocument.table("Accounts");
-        if(accountTable){
-            let tRows = accountTable.rows;
-            for(var key in tRows){
-                let row = tRows[key];
-                let account = row.value("Account");
-                if(account){
-                    accounts.push(account);
-                };
-            }
-        }
-        return accounts;
-    }
-
-    /**
-     * Finds and returns the account number contained in the debit or credit fields.
+     * Finds and returns the account number contained in the debit or credit fields (Bexio file).
      * Each description follow this format:
      *  - "1020 - Post"
      *  - "1000 - Bank"
@@ -273,6 +244,162 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
+     * Creates the document change object fot vat table
+     */
+    createJsonDocument_AddVatCodes(transactions, jsonDoc){
+        //get the vat code list from the transactions
+        let vatCodesList = [];
+        let newVatCodesData = {};
+        let columnsIndxList = [];
+        let existingVatCodes = [];
+        let rows =[];
+        
+        columnsIndxList.push(this.vatRate);
+
+        vatCodesList = this.getFileColumnsData(transactions,columnsIndxList);
+        /**Create an object with the new accounts data*/
+        this.setNewVatCodesData(vatCodesList,newVatCodesData);
+        existingVatCodes = this.getExistingData("VatCodes","VatCode");
+        this.filterVatCodesData(newVatCodesData,existingVatCodes);
+
+        //add new vat codes to the doc change json.
+        if(newVatCodesData && newVatCodesData.data.length>=0){
+            for(var key in newVatCodesData.data){
+                let code = newVatCodesData.data[key].code;
+                let rate = newVatCodesData.data[key].rate;
+                
+                //new rows
+                let row = {};
+                row.operation = {};
+                row.operation.name = "add";
+                row.operation.srcFileName = "" //to define.
+                row.fields = {};
+                row.fields["VatCode"] = code;
+                row.fields["VatRate"] = rate;
+
+                rows.push(row);
+            }
+        }
+
+
+        var dataUnitFilePorperties = {};
+        dataUnitFilePorperties.nameXml = "VatCodes";
+        dataUnitFilePorperties.data = {};
+        dataUnitFilePorperties.data.rowLists = [];
+        dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
+
+        jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
+    }
+
+    /**
+     * Filter vat codes data that already exists in the vat table
+     * by removing them from the "newVatCodesData" object.
+     */
+    filterVatCodesData(newVatCodesData,existingVatCodes){
+        let newArray = [];
+        let mappedVatCodes = this.getMappedVatCodes();
+        if(newVatCodesData){
+            for(var key in newVatCodesData.data){
+                const elementObj = newVatCodesData.data[key];
+                if(elementObj && elementObj.code){
+                    /**Check if the account number already exists
+                     * in the vat table or if it's already between mapped elements*/
+                    if(!existingVatCodes.includes(elementObj.code) &&
+                        !mappedVatCodes.has(elementObj.code)){
+                            newArray.push(elementObj);
+                    }
+                }
+            }
+        }
+        //overvrite the old array with the new one (filtered one).
+        newVatCodesData.data = newArray;
+    }
+
+    /**
+     * Given a list of accounts creates an object containing for each account
+     * the account number and the account description.
+     */
+    setNewVatCodesData(vatCodesList,newVatCodesData){
+        let vatCodesData = [];
+        if(vatCodesList.length>=0){
+            for (var i = 0; i<vatCodesList.length; i++){
+                let element = vatCodesList[i];
+                let vatCode = "";
+                let vatRate = "";
+                let vatData = {};
+
+                if(element){
+                    vatCode = this.getCodeFromVatField();
+                    vatRate = element.substring(element.indexOf('(')+1, element.indexOf('%'));
+
+                    vatData.code = vatCode.trim();
+                    vatData.rate = vatRate.trim();
+    
+                    vatCodesData.push(vatData);
+                }
+            }
+        }
+        newVatCodesData.data = vatCodesData;
+    }
+
+    /**
+     * Returns a set containing the values in the columns defined in "columns".
+     * We use a set to filter out any repeated values (accounts, vat codes, etc).
+     * @param {*} transactions
+     */
+    getFileColumnsData(transactions,columnsIndxList){
+        const accounts = new Set();
+        for (var i = 1; i<transactions.length; i++){
+            let tRow = transactions[i];
+            if(columnsIndxList.length>=0){
+                for(var j = 0; j<columnsIndxList.length; j++){
+                    let columnData = tRow[columnsIndxList[j]];
+                    accounts.add(columnData);
+                }
+            }
+        }
+        //convert the set into an array, as it is more easy to manage.
+        let vatCodesArray = Array.from(accounts);
+        return vatCodesArray;
+    }
+
+    /**
+     * Returns the list of the existing accounts
+     * in the account table.
+     */
+    getExistingData(tableName,columnName){
+        let accounts = [];
+        let accountTable = this.banDocument.table(tableName);
+        if(accountTable){
+            let tRows = accountTable.rows;
+            for(var key in tRows){
+                let row = tRows[key];
+                let account = row.value(columnName);
+                if(account){
+                    accounts.push(account);
+                };
+            }
+        }
+        return accounts;
+    }
+
+    /**
+     * Finds and returns the vat code contained in the MWST field (Bexio file).
+     * field format:
+     *  - "UN77 (7.70%)"
+     *  - "UR25 (2.50%)"
+     */
+    getCodeFromVatField(rowField){
+        let code = "";
+        if(rowField){
+            code = rowField.substring(0,rowField.indexOf(' '));
+            code.trim();
+        }
+
+        return code;
+    }
+
+    /**
      * Creates the document change object for the transactions table.
      */
     createJsonDocument_AddTransactions(transactions, jsonDoc) {
@@ -282,13 +409,14 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         /*Loop trough the transactions starting from the first line of data (= 1)*/
         for (var i = 1; i<transactions.length; i++){
             let tRow = transactions[i];
+            let vatCode = this.getBananaVatCode(this.getCodeFromVatField(tRow[this.vatRate]));
 
             let row = {};
             row.operation = {};
             row.operation.name = "add";
             row.operation.srcFileName = "" //to define.
             row.fields = {};
-            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tRow[this.trReference],"DD-MM-YYYY");
+            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tRow[this.trDate],"dd-mm-yyyy");
             row.fields["ExternalReference"] = tRow[this.trReference];
             row.fields["AccountDebit"] = this.getAccountFromTextField(tRow[this.trDebit]);
             row.fields["AccountCredit"] = this.getAccountFromTextField(tRow[this.trCredit]);
@@ -297,7 +425,14 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             row.fields["ExchangeCurrency"] = tRow[this.trCurrency];
             row.fields["ExchangeRate"] = tRow[this.trExchangeRate];
             row.fields["Amount"] = tRow[this.amountInBaseCurrency];
-            //row.fields["VatCode"] =  tRow[this.vatRate]; //to define how to import correct data
+            if(vatCode)
+                row.fields["VatCode"] = vatCode;
+            else{
+                /**the vat code is not bwtween the mapped ones
+                 * so we inserted it int the vat codes table.
+                 */
+                row.fields["VatCode"] = tRow[this.vatRate];
+            }
 
             rows.push(row);
         }
@@ -333,6 +468,45 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         return jsonDoc;
 
+    }
+
+    /**
+     * Dato un coidce iva Bexio ritorna il codice corrispondente in Banana.
+     */
+    getBananaVatCode(bxVatCode){
+        if(bxVatCode){
+            let mpdVatCodes = this.getMappedVatCodes();
+            let banVatCode;
+
+            /**get the Banana vat code */
+            banVatCode = mpdVatCodes.get(bxVatCode);
+
+            if(banVatCode){
+                return banVatCode;
+            }
+        }
+
+        return "";
+    }
+
+    /**
+     * Ritorna la struttura contenente i codici iva mappati da Bexio
+     * questa struttura contiene i codici standard, non funziona in 
+     * caso in cui l'utente abbia personalizzato la tabella codici iva.
+     */
+    getMappedVatCodes(){
+        /**
+         * Map structure:
+         * key = Bexio vat code
+         * value = Banana vat code
+         */
+        const vatCodes = new Map ()
+
+        //set codes
+        vatCodes.set("UN77","V77");
+        vatCodes.set("UR25","V25");
+
+        return vatCodes;
     }
 }
 
