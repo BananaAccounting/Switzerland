@@ -9548,8 +9548,8 @@ This is the begin text of the delivery note. \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 Description  & Quantity  & Unit \\
-Service 1 \newline  & 2.00  & hrs \\
-Service 2 \newline  & 1.00  & hrs \\
+Service 1 \newline  & 2.0000  & hrs \\
+Service 2 \newline  & 1.0000  & hrs \\
 \end{longtable}
 This is the final text of the delivery note. \\
 It can be on multiple lines. \\
@@ -9656,7 +9656,7 @@ This is the begin text of the delivery note. \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l }
 Description  & Quantity  & Unit \\
-Product A \newline  & 2.00  & pcs \\
+Product A \newline  & 2.0000  & pcs \\
 \end{longtable}
 This is the final text of the delivery note. \\
 It can be on multiple lines. \\
@@ -9665,6 +9665,887 @@ Thank you very much. \\
 \\
 \end{longtable}
 \end{reportvalue}
+\subsection{Test26: reminder}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "reminder_1"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: reminder\_1}
+\begin{reportvalue}{1. Reminder, invoice 501}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+1. Reminder \newline \\
+This is the begin text of the reminder. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{434}{l}{}\\
+\multicolumn{433}{l}{Total net } & 501.39 \\
+\multicolumn{433}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{434}{l}{}\\
+\multicolumn{433}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+This is the final text of the reminder. \\
+It can be on multiple lines. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Additional information \\
+//S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 540.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF66411003501
+ewline 
+ewline EPD
+ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "reminder_2"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: reminder\_2}
+\begin{reportvalue}{2. Reminder, invoice 502}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+2. Reminder \newline \\
+This is the begin text of the reminder. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{439}{l}{}\\
+\multicolumn{438}{l}{Total net } & 83.57 \\
+\multicolumn{438}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{439}{l}{}\\
+\multicolumn{438}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+This is the final text of the reminder. \\
+It can be on multiple lines. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF39 4110 0350 2 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+90.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+90.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF39 4110 0350 2 \\
+  \\
+Additional information \\
+//S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF39411003502
+ewline 
+ewline EPD
+ewline //S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "reminder_3"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: reminder\_3}
+\begin{reportvalue}{3. Reminder, invoice 503}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 503 \\
+Date:  & 10.07.2023 \\
+Customer No:  & 1101 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 09.08.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 503 \\
+Date:  & 10.07.2023 \\
+Customer No:  & 1101 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 09.08.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+3. Reminder \newline \\
+This is the begin text of the reminder. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A delivered July 2, 2022 in Lugano \newline \newline  &  &  & 46.43  & 46.43 \\
+Product A delivered July 3, 2022 in Lugano \newline \newline  &  &  & 18.57  & 18.57 \\
+Total product A, Lugano \newline \newline  &  &  &  & 65.00 \\
+Product A delivered July 4, 2022 in Bern \newline \newline  &  &  & 27.86  & 27.86 \\
+Total product A, Bern \newline \newline  &  &  &  & 27.86 \\
+Total product A \newline \newline  &  &  &  & 92.86 \\
+Product B delivered July 3, 2022  \newline \newline  &  &  & 37.14  & 37.14 \\
+Product B delivered July 4, 2022  \newline \newline  &  &  & 74.28  & 74.28 \\
+Totale product B \newline \newline  &  &  &  & 111.42 \\
+Total products \newline \newline  &  &  &  & 204.28 \\
+Services \newline \newline  &  &  & 74.28  & 74.28 \\
+\multicolumn{444}{l}{}\\
+\multicolumn{443}{l}{Total net } & 278.56 \\
+\multicolumn{443}{l}{VAT 7.70\% (278.56) } & 21.44 \\
+\multicolumn{444}{l}{}\\
+\multicolumn{443}{l}{TOTAL CHF } & 300.00 \\
+\end{longtable}
+This is the final text of the reminder. \\
+It can be on multiple lines. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF60 4110 1350 3 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+300.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+300.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF60 4110 1350 3 \\
+  \\
+Additional information \\
+//S1/10/503/11/230710/20/1101/31/230710/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 300.00
+ewline CHF
+ewline K
+ewline James Johnson
+ewline Via Carlo Cattaneo
+ewline 6900 Lugano
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF60411013503
+ewline 
+ewline EPD
+ewline //S1/10/503/11/230710/20/1101/31/230710/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "automatic"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: automatic}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 501 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{449}{l}{}\\
+\multicolumn{448}{l}{Total net } & 501.39 \\
+\multicolumn{448}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{449}{l}{}\\
+\multicolumn{448}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Additional information \\
+//S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 540.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF66411003501
+ewline 
+ewline EPD
+ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "automatic"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: automatic}
+\begin{reportvalue}{Invoice 502}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 502 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{454}{l}{}\\
+\multicolumn{453}{l}{Total net } & 83.57 \\
+\multicolumn{453}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{454}{l}{}\\
+\multicolumn{453}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF39 4110 0350 2 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+90.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+90.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF39 4110 0350 2 \\
+  \\
+Additional information \\
+//S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF39411003502
+ewline 
+ewline EPD
+ewline //S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 501 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{459}{l}{}\\
+\multicolumn{458}{l}{Total net } & 501.39 \\
+\multicolumn{458}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{459}{l}{}\\
+\multicolumn{458}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Additional information \\
+//S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 540.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF66411003501
+ewline 
+ewline EPD
+ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_print_preferences",
+    "print_choices": {
+        "print_formats": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 502}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 502 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{464}{l}{}\\
+\multicolumn{463}{l}{Total net } & 83.57 \\
+\multicolumn{463}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{464}{l}{}\\
+\multicolumn{463}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF39 4110 0350 2 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+90.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+90.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF39 4110 0350 2 \\
+  \\
+Additional information \\
+//S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 90.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF39411003502
+ewline 
+ewline EPD
+ewline //S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30}\\
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
