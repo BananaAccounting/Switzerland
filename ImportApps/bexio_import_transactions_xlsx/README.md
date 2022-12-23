@@ -23,5 +23,5 @@ Next, however, he must change all references within the transactions table.
 ## General Notes
 
 - Test are performed using *.csv version of the file.
-
+- Doc page: https://www.banana.ch/apps/it/node/9654.
 
