@@ -70,12 +70,16 @@ function exec(inData,banDocument,isTest) {
 
     //Format 1 (do match check in case there are more versions in the future)
     let  bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(banDoc);
-    bexioTransactionsImportFormat1.createJsonDocument(transactions);
+    if(bexioTransactionsImportFormat1.match(transactions)){
+        bexioTransactionsImportFormat1.createJsonDocument(transactions);
+        var jsonDoc = { "format": "documentChange", "error": "" };
+        jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
+        return jsonDoc;
+    }
 
-    var jsonDoc = { "format": "documentChange", "error": "" };
-    jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
+    importUtilities.getUnknownFormatError();
 
-    return jsonDoc;
+    return "";
 
 }
 
@@ -89,6 +93,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         this.banDocument = banDocument;
         this.transNr = "";
         this.vatTransactionsList = [];
+        this.colCount = 11;
 
         //array dei patches
         this.jsonDocArray = [];
@@ -102,9 +107,44 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         this.trAmount = 5;
         this.trCurrency = 6;
         this.trExchangeRate = 7;
-        this.amountInBaseCurrency = 8;
-        this.vatRate = 10;
+        this.trAmountInBaseCurrency = 8;
+        this.trBaseCurrency = 9;
+        this.trVatRate = 10;
 
+    }
+
+    /** Return true if the transactions match this format */
+    match(transactions){
+        if (transactions.length === 0) 
+            return false;
+
+        for (let i = 0; i < transactions.length; i++) {
+            var transaction = transactions[i];
+
+            var formatMatched = false;
+            /* array should have all columns */
+            if (transaction.length >= this.colCount) 
+                formatMatched = true;
+            else 
+                formatMatched = false;
+
+            if (formatMatched && transaction[this.trDate] &&
+                transaction[this.trDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+                formatMatched = true;
+            else 
+                formatMatched = false;
+
+            if (formatMatched && transaction[this.trCurrency] &&
+                transaction[this.trCurrency].match(/[A-Z]/)) //currencies are always uppecase.
+                formatMatched = true;
+            else 
+                formatMatched = false;
+
+            if (formatMatched) 
+                return true;
+        }
+
+        return false;
     }
 
     /**
@@ -299,7 +339,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         let existingVatCodes = [];
         let rows =[];
         
-        columnsIndxList.push(this.vatRate);
+        columnsIndxList.push(this.trVatRate);
 
         vatCodesList = this.getDataFromFile(transactions,columnsIndxList);
         /**Create an object with the new accounts data*/
@@ -459,7 +499,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         /*Loop trough the transactions starting from the first line of data (= 1)*/
         for (var i = 1; i<transactions.length; i++){
             let tRow = transactions[i];
-            let vatCode = this.getBananaVatCode(this.getCodeFromVatField(tRow[this.vatRate]));
+            let vatCode = this.getBananaVatCode(this.getCodeFromVatField(tRow[this.trVatRate]));
 
             let row = {};
             row.operation = {};
@@ -474,14 +514,14 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             row.fields["AmountCurrency"] = tRow[this.trAmount];
             row.fields["ExchangeCurrency"] = tRow[this.trCurrency];
             row.fields["ExchangeRate"] = tRow[this.trExchangeRate];
-            row.fields["Amount"] = tRow[this.amountInBaseCurrency];
+            row.fields["Amount"] = tRow[this.trAmountInBaseCurrency];
             if(vatCode)
                 row.fields["VatCode"] = vatCode;
             else{
                 /**the vat code is not bwtween the mapped ones
                  * so we inserted it int the vat codes table.
                  */
-                row.fields["VatCode"] = this.getCodeFromVatField(tRow[this.vatRate]);
+                row.fields["VatCode"] = this.getCodeFromVatField(tRow[this.trVatRate]);
             }
 
             rows.push(row);
