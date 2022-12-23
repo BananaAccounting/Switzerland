@@ -17,8 +17,8 @@
 // @api = 1.0
 // @pubdate = 2022-12-19
 // @publisher = Banana.ch SA
-// @description = Bexio - Import transactions (*xlxs)
-// @doctype = 100.*
+// @description = Bexio - Import transactions (*xlsx).
+// @doctype = 100.130
 // @encoding = utf-8
 // @task = import.transactions
 // @inputdatasource = openfiledialog
@@ -29,11 +29,9 @@
 // @includejs = import.utilities.js
 
 /*
- *   SUMMARY
+ * SUMMARY
  *
- *   Import transactions form Bexio to Banana using document change.
- *   After importing the data, the user must arrange the imported accounts
- *   in the accounts table by setting the correct Bclass and currency for them.
+ * Import transactions form Bexio to Banana using document change.
  * 
  */
 
@@ -41,22 +39,37 @@
  * function called from converter
  */
 
-function exec(inData) {
+/**
+ * 
+ * @param {*} inData transactionsData
+ * @param {*} banDocument accounting file, is present only in tests
+ * @param {*} isTest define if it is a test or not.
+ * @returns 
+ */
+function exec(inData,banDocument,isTest) {
 
-    if (!Banana.document || inData.length <= 0) {
-        return "@Cancel";
-    }
+    let banDoc;
 
-    var importUtilities = new ImportUtilities(Banana.document);
+    if (!inData)
+        return "";
 
-    if (!importUtilities.verifyBananaAdvancedVersion())
+    if(isTest && !banDocument)
+        return "";
+    else if (isTest && banDocument)
+        banDoc = banDocument;
+    else
+        banDoc = Banana.document;
+
+    var importUtilities = new ImportUtilities(banDoc);
+
+    if (!isTest && !importUtilities.verifyBananaAdvancedVersion())
         return "";
 
     convertionParam = defineConversionParam(inData);
     let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
 
-    //Format 1 (fare controllo del match nel caso ci siano più versioni)
-    let  bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(Banana.document);
+    //Format 1 (do match check in case there are more versions in the future)
+    let  bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(banDoc);
     bexioTransactionsImportFormat1.createJsonDocument(transactions);
 
     var jsonDoc = { "format": "documentChange", "error": "" };
@@ -65,7 +78,6 @@ function exec(inData) {
     return jsonDoc;
 
 }
-function setup() {}
 
 /**
  * 
@@ -97,25 +109,50 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
     /**
      * The createJsonDocument() method takes the transactions in the excel file and
-     * creates the Json document with the data to insert into the transactions and accounts
-     * table.
+     * creates the Json document with the data to insert into Banana.
      */
     createJsonDocument(transactions) {
 
-        var jsonDoc = this.createJsonDocument_Init();
-
         /**
-         * ADD THE ACCOUNTS
-         * Actually the accounts are added at the end of the accounts table, 
-         * the user must then arrange them themselves within the table,
+         * Create a document for each change.
+         * After each document the banana recalculates the accounting, 
+         * so sequential changes work perfectly.
         */
-        this.createJsonDocument_AddAccounts(transactions, jsonDoc);
-        /** ADD VAT CODES */
-        this.createJsonDocument_AddVatCodes(transactions, jsonDoc);
+        /*ADD THE ACCOUNTS*/
+        if(this.createJsonDocument_AddAccounts(transactions)){
+            this.jsonDocArray.push(this.createJsonDocument_AddAccounts(transactions));
+        }
+        /*ADD VAT CODES */
+        if(this.createJsonDocument_AddVatCodes(transactions)){
+            this.jsonDocArray.push(this.createJsonDocument_AddVatCodes(transactions));
+        }
         /*ADD THE TRANSACTIONS*/
-        this.createJsonDocument_AddTransactions(transactions, jsonDoc);
+        if(this.createJsonDocument_AddTransactions(transactions)){
+            this.jsonDocArray.push(this.createJsonDocument_AddTransactions(transactions));
+        }
+    }
 
-        this.jsonDocArray.push(jsonDoc);
+    /**
+    * initialises the structure for document change.
+    * @returns 
+    */
+    createJsonDocument_Init() {
+
+        var jsonDoc = {};
+        jsonDoc.document = {};
+        jsonDoc.document.dataUnitsfileVersion = "1.0.0";
+        jsonDoc.document.dataUnits = [];
+
+        jsonDoc.creator = {};
+        var d = new Date();
+        var datestring = d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2);
+        var timestring = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+        //jsonDoc.creator.executionDate = Banana.Converter.toInternalDateFormat(datestring, "yyyymmdd");
+        //jsonDoc.creator.executionTime = Banana.Converter.toInternalTimeFormat(timestring, "hh:mm");
+        jsonDoc.creator.name = Banana.script.getParamValue('id');
+        jsonDoc.creator.version = "1.0";
+
+        return jsonDoc;
 
     }
 
@@ -126,7 +163,9 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Accounts that already exists in the chart of accounts are not inserted.
      * @param {*} inData original transactions.
      */
-    createJsonDocument_AddAccounts(transactions,jsonDoc) {
+    createJsonDocument_AddAccounts(transactions) {
+
+        let jsonDoc = this.createJsonDocument_Init();
 
         let rows=[];
         let newAccountsData = {}; //will contain new accounts data.
@@ -139,9 +178,9 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         columnsIndxList.push(debitCol);
         columnsIndxList.push(creditCol);
 
-        accountsList = this.getFileColumnsData(transactions,columnsIndxList);
+        accountsList = this.getDataFromFile(transactions,columnsIndxList);
         /**Create an object with the new accounts data*/
-        this.setNewAccountsData(accountsList,newAccountsData);
+        this.setNewAccountsDataObj(accountsList,newAccountsData);
         /* Get the list of existing accounts*/
         existingAccounts = this.getExistingData("Accounts","Account");
         /* Filter the account by removing the existing ones */
@@ -176,6 +215,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
 
+        return jsonDoc;
+
     }
 
     /**
@@ -203,7 +244,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Given a list of accounts creates an object containing for each account
      * the account number and the account description.
      */
-    setNewAccountsData(accountsList,newAccountsData){
+    setNewAccountsDataObj(accountsList,newAccountsData){
         let accountsData = [];
         if(accountsList.length>=0){
             for (var i = 0; i<accountsList.length; i++){
@@ -246,7 +287,11 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     /**
      * Creates the document change object fot vat table
      */
-    createJsonDocument_AddVatCodes(transactions, jsonDoc){
+    createJsonDocument_AddVatCodes(transactions){
+
+        let jsonDoc = this.createJsonDocument_Init();
+
+
         //get the vat code list from the transactions
         let vatCodesList = [];
         let newVatCodesData = {};
@@ -256,9 +301,9 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         
         columnsIndxList.push(this.vatRate);
 
-        vatCodesList = this.getFileColumnsData(transactions,columnsIndxList);
+        vatCodesList = this.getDataFromFile(transactions,columnsIndxList);
         /**Create an object with the new accounts data*/
-        this.setNewVatCodesData(vatCodesList,newVatCodesData);
+        this.setNewVatCodesDataObj(vatCodesList,newVatCodesData);
         existingVatCodes = this.getExistingData("VatCodes","VatCode");
         this.filterVatCodesData(newVatCodesData,existingVatCodes);
 
@@ -289,11 +334,13 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
 
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
+
+        return jsonDoc;
     }
 
     /**
      * Filter vat codes data that already exists in the vat table
-     * by removing them from the "newVatCodesData" object.
+     * by removing them from the "newVatCodesDataObj" object.
      */
     filterVatCodesData(newVatCodesData,existingVatCodes){
         let newArray = [];
@@ -316,10 +363,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Given a list of accounts creates an object containing for each account
-     * the account number and the account description.
+     * Given a list of accounts creates an object containing for each vat code
+     * the code and the vat rate.
      */
-    setNewVatCodesData(vatCodesList,newVatCodesData){
+    setNewVatCodesDataObj(vatCodesList,newVatCodesData){
         let vatCodesData = [];
         if(vatCodesList.length>=0){
             for (var i = 0; i<vatCodesList.length; i++){
@@ -329,7 +376,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
                 let vatData = {};
 
                 if(element){
-                    vatCode = this.getCodeFromVatField();
+                    vatCode = this.getCodeFromVatField(element);
                     vatRate = element.substring(element.indexOf('(')+1, element.indexOf('%'));
 
                     vatData.code = vatCode.trim();
@@ -343,29 +390,31 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /**
-     * Returns a set containing the values in the columns defined in "columns".
-     * We use a set to filter out any repeated values (accounts, vat codes, etc).
+     * Loops the excel file records and returns a list (set) of data
+     * with the information contained at the "columnsIndxList" columns.
      * @param {*} transactions
      */
-    getFileColumnsData(transactions,columnsIndxList){
+    getDataFromFile(transactions,columnsIndxList){
         const accounts = new Set();
         for (var i = 1; i<transactions.length; i++){
             let tRow = transactions[i];
             if(columnsIndxList.length>=0){
                 for(var j = 0; j<columnsIndxList.length; j++){
                     let columnData = tRow[columnsIndxList[j]];
-                    accounts.add(columnData);
+                    if(columnData){
+                        accounts.add(columnData);
+                    }
                 }
             }
         }
         //convert the set into an array, as it is more easy to manage.
-        let vatCodesArray = Array.from(accounts);
-        return vatCodesArray;
+        let newArray = Array.from(accounts);
+        return newArray;
     }
 
     /**
-     * Returns the list of the existing accounts
-     * in the account table.
+     * Returns a list with the data contained in the table "tableName"
+     * to the column "columnName".
      */
     getExistingData(tableName,columnName){
         let accounts = [];
@@ -402,8 +451,9 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     /**
      * Creates the document change object for the transactions table.
      */
-    createJsonDocument_AddTransactions(transactions, jsonDoc) {
+    createJsonDocument_AddTransactions(transactions) {
 
+        let jsonDoc = this.createJsonDocument_Init();
         let rows=[];
 
         /*Loop trough the transactions starting from the first line of data (= 1)*/
@@ -431,7 +481,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
                 /**the vat code is not bwtween the mapped ones
                  * so we inserted it int the vat codes table.
                  */
-                row.fields["VatCode"] = tRow[this.vatRate];
+                row.fields["VatCode"] = this.getCodeFromVatField(tRow[this.vatRate]);
             }
 
             rows.push(row);
@@ -444,30 +494,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         dataUnitFilePorperties.data.rowLists.push({ "rows": rows });
 
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
-    }
-
-    /**
-     * initialises the structure for document change.
-     * @returns 
-     */
-    createJsonDocument_Init() {
-
-        var jsonDoc = {};
-        jsonDoc.document = {};
-        jsonDoc.document.dataUnitsfileVersion = "1.0.0";
-        jsonDoc.document.dataUnits = [];
-
-        jsonDoc.creator = {};
-        var d = new Date();
-        var datestring = d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2);
-        var timestring = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-        //jsonDoc.creator.executionDate = Banana.Converter.toInternalDateFormat(datestring, "yyyymmdd");
-        //jsonDoc.creator.executionTime = Banana.Converter.toInternalTimeFormat(timestring, "hh:mm");
-        jsonDoc.creator.name = Banana.script.getParamValue('id');
-        jsonDoc.creator.version = "1.0";
 
         return jsonDoc;
-
     }
 
     /**
