@@ -231,6 +231,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             for(var key in newAccountsData.data){
                 let account = newAccountsData.data[key].account;
                 let description = newAccountsData.data[key].description;
+                let bClass = newAccountsData.data[key].bclass;
                 
                 //new rows
                 let row = {};
@@ -240,6 +241,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
                 row.fields = {};
                 row.fields["Account"] = account;
                 row.fields["Description"] = description;
+                row.fields["BClass"] = bClass;
                 row.fields["Currency"] = this.banDocument.info("AccountingDataBase","BasicCurrency"); //actually set the base currency to all.
 
                 rows.push(row);
@@ -290,15 +292,18 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             for (var i = 0; i<accountsList.length; i++){
                 let element = accountsList[i];
                 let accDescription = "";
-                let accountNr = "";
+                let accountNr = ""
+                let accountBclass ="";
                 let accData = {};
 
                 if(element){
                     accDescription = element.substring(element.length-1,element.indexOf('-')+1);
                     accountNr = this.getAccountFromTextField(element);
+                    accountBclass = this.setAccountBclass(element);
 
                     accData.account = accountNr.trim();
                     accData.description = accDescription.trim();
+                    accData.bclass = accountBclass;
     
                     accountsData.push(accData);
                 }
@@ -555,6 +560,39 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         }
 
         return "";
+    }
+
+    /**
+     * Ritorna la bclasse per l'account inserito partendo
+     * dal presupposto che si tratti di un piano dei conti 
+     * svizzero per PMI, altrimenti torna vuoto.
+     */
+    setAccountBclass(account){
+        let bClass = "";
+        let firstDigit = account.substring(0,1);
+        switch(firstDigit){
+            case "1":
+                bClass = "1";
+                return bClass;
+            case "2":
+                bClass = "2";
+                return bClass;
+            case "4":
+                bClass = "3";
+                return bClass;
+            case "4":
+                bClass = "3";
+                return bClass;
+            case "4":
+            case "5":
+            case "6": //some cases is 4.
+            case "8":
+            case "9":
+                bClass = "3";
+                return bClass;
+            default:
+                return bClass;
+        }
     }
 
     /**

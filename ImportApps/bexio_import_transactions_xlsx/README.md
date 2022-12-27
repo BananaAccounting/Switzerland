@@ -9,7 +9,7 @@ After the new accounts are imported the user has to:
 - Reposition the accounts within the table
 - Complete the accounts data:
   * Set the account correct currency.
-  * Set the account group and Bclass.
+  * Set the account group and check the Bclass.
 
 ## Vat Table
 
