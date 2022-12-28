@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Bexio - Import transactions (*xlsx)",
+    "description.en": "Bexio - Import transactions (*xlsx)",
+    "description.de":"Bexio - Buchungen importieren (*xlsx)",
+    "description.it":"Bexio - Importazione registrazioni (*xlsx)",
+    "description.fr":"Bexio - Importation de ecritures (*xlsx)",
+    "id": "ch.banana.switzerland.import.ubs",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Bexio - Import transactions (*xlsx)",
+    "title.en": "Bexio - Import transactions (*xlsx)",
+    "title.de":"Bexio - Buchungen importieren (*xlsx)",
+    "title.it":"Bexio - Importazione registrazioni (*xlsx)",
+    "title.fr":"Bexio - Importation de ecritures (*xlsx)",
+    "version": "1.0"
+}
