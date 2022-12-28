@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2022-12-20
+// @pubdate = 2022-12-27
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -26,6 +26,9 @@
 // @inputdataform = none
 // @includejs = ../ch.banana.ch.invoice.ch10.js
 // @includejs = ../swissqrcode.js
+// @includejs = ../ch.banana.ch.invoice.ch10.parameters.js
+// @includejs = ../ch.banana.ch.invoice.ch10.texts.js
+// @includejs = ../ch.banana.ch.invoice.ch10.printpreferences.js
 // @timeout = -1
 
 

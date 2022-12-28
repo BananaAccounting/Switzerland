@@ -264,16 +264,16 @@ table.info_table_row0 td {
 .doc_table td {
   padding-top: 5px;
   padding-bottom: 1px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 /* Cells of header row of the invoice details table.
    Sets the space between the text in the cell and the cell border (top, bottom, left and right). */
 .doc_table_header td {
   padding-top: 4px;
   padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 /* Item row of the invoice details.
    Sets font weight. */
