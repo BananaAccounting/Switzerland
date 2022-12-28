@@ -36,6 +36,7 @@
                                         {
                                             "fields": {
                                                 "Account": "6555",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Uebrige B�ro-/Verwaltungsaufwan"
                                             },
@@ -47,6 +48,7 @@
                                         {
                                             "fields": {
                                                 "Account": "5832",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Spesen, Reise, Auto, �bernachtun"
                                             },
@@ -58,6 +60,7 @@
                                         {
                                             "fields": {
                                                 "Account": "2190",
+                                                "BClass": "2",
                                                 "Currency": "CHF",
                                                 "Description": "Kreditkart"
                                             },
@@ -69,6 +72,7 @@
                                         {
                                             "fields": {
                                                 "Account": "4700",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Eingangsfrachten und Zol"
                                             },
@@ -80,6 +84,7 @@
                                         {
                                             "fields": {
                                                 "Account": "6923",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Abschreibungen Fahrzeug"
                                             },
@@ -91,6 +96,7 @@
                                         {
                                             "fields": {
                                                 "Account": "8910",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "MwSt"
                                             },
@@ -102,6 +108,7 @@
                                         {
                                             "fields": {
                                                 "Account": "6360",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Geb�hren, Abgaben,  Bewilligunge"
                                             },
@@ -113,6 +120,7 @@
                                         {
                                             "fields": {
                                                 "Account": "2271",
+                                                "BClass": "2",
                                                 "Currency": "CHF",
                                                 "Description": "Kontokorrent AHV, IV, EO, AL"
                                             },
@@ -124,6 +132,7 @@
                                         {
                                             "fields": {
                                                 "Account": "6945",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Rundungsdifferen"
                                             },
@@ -135,6 +144,7 @@
                                         {
                                             "fields": {
                                                 "Account": "4300",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Projektaufwan"
                                             },
@@ -146,6 +156,7 @@
                                         {
                                             "fields": {
                                                 "Account": "9100",
+                                                "BClass": "3",
                                                 "Currency": "CHF",
                                                 "Description": "Er�ffnungsbilan"
                                             },
@@ -157,6 +168,7 @@
                                         {
                                             "fields": {
                                                 "Account": "1800",
+                                                "BClass": "1",
                                                 "Currency": "CHF",
                                                 "Description": "Gr�ndungsaufwan"
                                             },
