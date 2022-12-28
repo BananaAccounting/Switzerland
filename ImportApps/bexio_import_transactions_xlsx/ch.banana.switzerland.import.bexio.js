@@ -13,7 +13,7 @@
 // limitations under the License.
 //
 //
-// @id = ch.banana.switzerland.import.bexio.js
+// @id = ch.banana.switzerland.import.bexio
 // @api = 1.0
 // @pubdate = 2022-12-19
 // @publisher = Banana.ch SA
@@ -36,15 +36,10 @@
  */
 
 /**
- * function called from converter
- */
-
-/**
  * 
  * @param {*} inData transactionsData
  * @param {*} banDocument accounting file, is present only in tests
  * @param {*} isTest define if it is a test or not.
- * @returns 
  */
 function exec(inData,banDocument,isTest) {
 

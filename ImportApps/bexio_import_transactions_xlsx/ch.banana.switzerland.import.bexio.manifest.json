@@ -7,7 +7,7 @@
     "description.de":"Bexio - Buchungen importieren (*xlsx)",
     "description.it":"Bexio - Importazione registrazioni (*xlsx)",
     "description.fr":"Bexio - Importation de ecritures (*xlsx)",
-    "id": "ch.banana.switzerland.import.ubs",
+    "id": "ch.banana.switzerland.import.bexio",
     "language": "en",
     "publisher": "Banana.ch",
     "title": "Bexio - Import transactions (*xlsx)",
