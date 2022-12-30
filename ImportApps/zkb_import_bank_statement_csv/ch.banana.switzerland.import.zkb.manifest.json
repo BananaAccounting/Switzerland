@@ -4,12 +4,16 @@
     "countryCode": "ch",
     "description": "Zürcher Kantonalbank - Import bank account statement (*.csv)",
     "description.en": "Zürcher Kantonalbank - Import bank account statement (*.csv)",
-    "description.de":"Zürcher Kantonalbank - Bankkontoauszug im CSV-Format importieren",
+    "description.de":"Zürcher Kantonalbank - Kontoauszug importieren (*.csv)",
+    "description.fr":"Zürcher Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "description.it":"Zürcher Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
     "id": "ch.banana.switzerland.import.zkb",
     "language": "en",
     "publisher": "Banana.ch",
     "title": "Zürcher Kantonalbank - Import bank account statement (*.csv)",
     "title.en": "Zürcher Kantonalbank - Import bank account statement (*.csv)",
-    "title.de":"Zürcher Kantonalbank - Bankkontoauszug im CSV-Format importieren",
+    "title.de":"Zürcher Kantonalbank - Kontoauszug importieren (*.csv)",
+    "title.fr":"Zürcher Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "title.it":"Zürcher Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
     "version": "1.0"
 }

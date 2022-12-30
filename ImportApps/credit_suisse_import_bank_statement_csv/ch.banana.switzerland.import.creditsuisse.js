@@ -3,7 +3,10 @@
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
 // @description = Credit Suisse - Import bank account statement (*.csv)
+// @description.en = Credit Suisse - Import bank account statement (*.csv)
 // @description.de = Credit Suisse - Kontoauszug importieren (*.csv)
+// @description.fr = Credit Suisse - Importer un relevé de compte bancaire (*.csv)
+// @description.it = Credit Suisse - Importa movimenti estratto conto bancario (*.csv)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions

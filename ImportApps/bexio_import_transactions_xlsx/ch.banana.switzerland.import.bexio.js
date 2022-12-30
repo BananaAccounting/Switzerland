@@ -18,6 +18,10 @@
 // @pubdate = 2022-12-19
 // @publisher = Banana.ch SA
 // @description = Bexio - Import transactions (*xlsx).
+// @description.it = Bexio - Importa registrazioni (*xlsx).
+// @description.en = Bexio - Import transactions (*xlsx).
+// @description.de = Bexio - Buchungen importieren (*xlsx).
+// @description.fr = Bexio - Importation de ecritures (*xlsx).
 // @doctype = 100.130
 // @encoding = utf-8
 // @task = import.transactions

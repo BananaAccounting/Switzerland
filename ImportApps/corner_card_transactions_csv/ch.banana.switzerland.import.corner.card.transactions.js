@@ -18,8 +18,9 @@
 // @publisher = Banana.ch SA
 // @description = Corner Card - Import credit card transactions (*.csv)
 // @description.de = Corner Card - Kreditkartentransaktionen importieren (*.csv)
-// @description.en = Cornèr Card - Import credit card transactions (*.csv)
-// @description.it = Cornèr Card - Importazione movimenti carta di credito (*.csv)
+// @description.en = Corner Card - Import credit card transactions (*.csv)
+// @description.it = Corner Card - Importa movimenti carta di credito (*.csv)
+// @description.fr = Corner Card - Importation de transactions par carte de crédit (*.csv)
 // @task = import.transactions
 // @doctype = *
 // @docproperties = 

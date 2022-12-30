@@ -2,7 +2,11 @@
 // @api = 1.0
 // @pubdate = 2019-09-06
 // @publisher = Banana.ch SA
-// @description = UBS - Import bank account statement  (*.csv)
+// @description = UBS - Import bank account statement (*.csv)
+// @description.en = UBS - Import bank account statement (*.csv)
+// @description.de = UBS - Kontoauszug importieren (*.csv)
+// @description.fr = UBS - Importer un relevé de compte bancaire (*.csv)
+// @description.it = UBS - Importa movimenti estratto conto bancario (*.csv)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions

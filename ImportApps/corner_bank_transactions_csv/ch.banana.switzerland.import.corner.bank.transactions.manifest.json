@@ -5,13 +5,15 @@
     "description": "Corner Bank - Import bank account statement (*.csv)",
     "description.en": "Corner Bank - Import bank account statement (*.csv)",
     "description.de": "Corner Bank - Kontoauszug importieren (*.csv)",
-    "description.it": "Corner Bank - Importazione dell'estratto conto bancario (*.csv)",
+    "description.fr": "Corner Bank - Importer un relevé de compte bancaire (*.csv)",
+    "description.it": "Corner Bank - Importa movimenti estratto conto bancario (*.csv)",
     "id": "ch.banana.switzerland.import.corner.bank.transactions",
     "language": "en",
     "publisher": "Banana.ch",
     "title": "Corner Bank - Import bank account statement (*.csv)",
     "title.en": "Corner Bank - Import bank account statement (*.csv)",
     "title.de": "Corner Bank - Kontoauszug importieren (*.csv)",
-    "title.it": "Corner Bank - Importazione dell'estratto conto bancario (*.csv)",
+    "title.fr": "Corner Bank - Importer un relevé de compte bancaire (*.csv)",
+    "title.it": "Corner Bank - Importa movimenti estratto conto bancario (*.csv)",
     "version": "1.0"
 }

@@ -5,13 +5,15 @@
     "description": "Cornèr Card - Import credit card transactions (*.csv)",
     "description.en": "Cornèr Card - Import credit card transactions (*.csv)",
     "description.de": "Corner Card - Kreditkartentransaktionen importieren (*.csv)",
-    "description.it": "Cornèr Card - Importazione movimenti carta di credito (*.csv)",
+    "description.fr": "Corner Card - Importation de transactions par carte de crédit (*.csv)",
+    "description.it": "Corner Card - Importa movimenti carta di credito (*.csv)",
     "id": "ch.banana.switzerland.import.corner.card.transactions",
     "language": "en",
     "publisher": "Banana.ch",
     "title": "Cornèr Card - Import credit card transactions (*.csv)",
     "title.en": "Cornèr Card - Import credit card transactions (*.csv)",
     "title.de": "Corner Card - Kreditkartentransaktionen importieren (*.csv)",
-    "title.it": "Cornèr Card - Importazione movimenti carta di credito (*.csv)",
+    "title.fr": "Corner Card - Importation de transactions par carte de crédit (*.csv)",
+    "title.it": "Corner Card - Importa movimenti carta di credito (*.csv)",
     "version": "1.0"
 }

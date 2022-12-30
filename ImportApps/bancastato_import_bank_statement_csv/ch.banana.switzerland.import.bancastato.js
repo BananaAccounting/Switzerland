@@ -2,8 +2,11 @@
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
-// @description = BancaStato- Import bank account statement (*.csv)
-// @description.it = BancaStato- Importazione dell'estratto conto bancario (*.csv)
+// @description = BancaStato - Import bank account statement (*.csv)
+// @description.it = BancaStato - Importa movimenti estratto conto bancario (*.csv)
+// @description.en = BancaStato - Import bank account statement (*.csv)
+// @description.de = BancaStato - Kontoauszug importieren (*.csv)
+// @description.fr = BancaStato - Importer un relevé de compte bancaire (*.csv)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions

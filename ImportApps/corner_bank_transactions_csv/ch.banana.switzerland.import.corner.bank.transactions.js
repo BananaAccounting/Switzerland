@@ -19,7 +19,8 @@
 // @description = Corner Bank - Import bank account statement (*.csv)
 // @description.de = Corner Bank - Kontoauszug importieren (*.csv)
 // @description.en = Corner Bank - Import bank account statement (*.csv)
-// @description.it = Cornèr Bank Importazione dell'estratto conto bancario (*.csv)
+// @description.fr = Corner Bank - Importer un relevé de compte bancaire (*.csv)
+// @description.it = Corner Bank - Importa movimenti estratto conto bancario (*.csv)
 // @task = import.transactions
 // @doctype = 100.*; 110.*; 130.*
 // @docproperties =

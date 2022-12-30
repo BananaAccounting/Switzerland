@@ -4,10 +4,16 @@
     "countryCode": "ch",
     "description": "Raiffeisen - Import bank account statement (*.csv)",
     "description.en": "Raiffeisen - Import bank account statement (*.csv)",
+    "description.de": "Raiffeisen - Kontoauszug importieren (*.csv)",
+    "description.fr": "Raiffeisen - Importer un relevé de compte bancaire (*.csv)",
+    "description.it": "Raiffeisen - Importa movimenti estratto conto bancario (*.csv)",
     "id": "ch.banana.switzerland.import.raiffeisen",
     "language": "en",
     "publisher": "Banana.ch",
     "title": "Raiffeisen - Import bank account statement (*.csv)",
     "title.en": "Raiffeisen - Import bank account statement (*.csv)",
+    "title.de": "Raiffeisen - Kontoauszug importieren (*.csv)",
+    "title.fr": "Raiffeisen - Importer un relevé de compte bancaire (*.csv)",
+    "title.it": "Raiffeisen - Importa movimenti estratto conto bancario (*.csv)",
     "version": "1.0"
 }

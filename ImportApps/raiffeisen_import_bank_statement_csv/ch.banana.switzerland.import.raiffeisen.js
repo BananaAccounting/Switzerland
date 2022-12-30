@@ -3,7 +3,10 @@
 // @pubdate = 2021-02-24
 // @publisher = Banana.ch SA
 // @description = Raiffeisen - Import bank account statement (*.csv)
-// @description.de = Raiffeisenbank - Kontoauszug importieren (*.csv)
+// @description.en = Raiffeisen - Import bank account statement (*.csv)
+// @description.de = Raiffeisen - Kontoauszug importieren (*.csv)
+// @description.fr = Raiffeisen - Importer un relevé de compte bancaire (*.csv)
+// @description.it = Raiffeisen - Importa movimenti estratto conto bancario (*.csv)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
