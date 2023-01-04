@@ -9452,7 +9452,7 @@ ewline //S1/10/18/11/200617/20/1/30/111333999/31/200617/40/0:30}\\
 \subsection{Test25: delivery note}
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "delivery_note"
     },
@@ -9508,7 +9508,7 @@ Footer text left \newline  & Footer text center \newline  & Footer text right \n
 \end{reportvalue}
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "delivery_note_without_amounts"
     },
@@ -9560,7 +9560,7 @@ Thank you very much. \\
 \end{reportvalue}
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "delivery_note_without_amounts"
     },
@@ -9616,7 +9616,7 @@ Thank you very much. \\
 \end{reportvalue}
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "delivery_note_without_amounts"
     },
@@ -9668,7 +9668,7 @@ Thank you very much. \\
 \subsection{Test26: reminder}
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "reminder_1"
     },
@@ -9793,7 +9793,7 @@ ewline EPD
 ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "reminder_2"
     },
@@ -9919,7 +9919,7 @@ ewline EPD
 ewline //S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "reminder_3"
     },
@@ -10054,7 +10054,7 @@ ewline EPD
 ewline //S1/10/503/11/230710/20/1101/31/230710/32/7.7/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "automatic"
     },
@@ -10177,7 +10177,7 @@ ewline EPD
 ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "automatic"
     },
@@ -10301,7 +10301,7 @@ ewline EPD
 ewline //S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "invoice"
     },
@@ -10424,7 +10424,7 @@ ewline EPD
 ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
-    "id": "invoice_available_print_preferences",
+    "id": "invoice_available_layout_preferences",
     "print_choices": {
         "print_as": "invoice"
     },

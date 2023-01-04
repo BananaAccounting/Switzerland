@@ -1227,7 +1227,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_19 = function(invoiceNumber, repo
   var preferencesObj =
   {
     "version":"1.0",
-    "id":"invoice_available_print_preferences",
+    "id":"invoice_available_layout_preferences",
     "print_choices": {
       "print_as":printformat
     }
@@ -1274,7 +1274,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   var preferencesObj =
   {
     "version":"1.0",
-    "id":"invoice_available_print_preferences",
+    "id":"invoice_available_layout_preferences",
     "print_choices": {
       "print_as":printformat
     }
