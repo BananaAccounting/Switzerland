@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2022-12-27
+// @pubdate = 2023-01-04
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -1229,7 +1229,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_19 = function(invoiceNumber, repo
     "version":"1.0",
     "id":"invoice_available_print_preferences",
     "print_choices": {
-      "print_formats":printformat
+      "print_as":printformat
     }
   }
   Test.logger.addJson("JSON preferences", JSON.stringify(preferencesObj));
@@ -1276,7 +1276,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
     "version":"1.0",
     "id":"invoice_available_print_preferences",
     "print_choices": {
-      "print_formats":printformat
+      "print_as":printformat
     }
   }
   Test.logger.addJson("JSON preferences", JSON.stringify(preferencesObj));
