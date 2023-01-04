@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2022-12-27 */
+/* Texts update: 2023-01-04 */
 
 
 
@@ -64,13 +64,13 @@ function getPrintPreferences_en() {
   let printOptions_en =
   {
     "version" : "1.0",
-    "id": "invoice_available_print_preferences",
-    "text":"Print Preferences",
+    "id": "invoice_available_layout_preferences",
+    "text":"Layout preferences",
     "base_options" : [
       {
-        "id": "print_formats",
-        "text": "Print Formats",
-        "formats": [
+        "id": "invoice_available_print_as",
+        "text": "Print as",
+        "print_as": [
           {
             "id":"automatic",
             "text":"Automatic"
@@ -111,13 +111,13 @@ function getPrintPreferences_it() {
   let printOptions_it =
   {
     "version" : "1.0",
-    "id": "invoice_available_print_preferences",
-    "text":"Preferenze di stampa",
+    "id": "invoice_available_layout_preferences",
+    "text":"Preferenze del layout",
     "base_options" : [
       {
-        "id": "print_formats",
-        "text": "Formato di stampa",
-        "formats": [
+        "id": "invoice_available_print_as",
+        "text": "Stampa come",
+        "print_as": [
           {
             "id":"automatic",
             "text":"Automatico"
@@ -158,13 +158,13 @@ function getPrintPreferences_fr() {
   let printOptions_fr =
   {
     "version" : "1.0",
-    "id": "invoice_available_print_preferences",
-    "text":"Préférences d'impression",
+    "id": "invoice_available_layout_preferences",
+    "text":"Préférences de mise en page",
     "base_options" : [
       {
-        "id": "print_formats",
-        "text": "Formats d'impression",
-        "formats": [
+        "id": "invoice_available_print_as",
+        "text": "Imprimer comme",
+        "print_as": [
           {
             "id":"automatic",
             "text":"Automatique"
@@ -205,13 +205,13 @@ function getPrintPreferences_de() {
   let printOptions_de =
   {
     "version" : "1.0",
-    "id": "invoice_available_print_preferences",
-    "text":"Druckeinstellungen",
+    "id": "invoice_available_layout_preferences",
+    "text":"Layout-Präferenzen",
     "base_options" : [
       {
-        "id": "print_formats",
-        "text": "Druckformate",
-        "formats": [
+        "id": "invoice_available_print_as",
+        "text": "Drucken als",
+        "print_as": [
           {
             "id":"automatic",
             "text":"Automatisch"
@@ -258,10 +258,13 @@ function getPrintFormat(preferencesObj) {
    * Function that returns the print format.
    * The print format is selected from the dialog "Print invoice".
    * It's returned along with other information in the preferencesObj.
+   * 
+   * https://www.banana.ch/doc/en/node/9980#returned_json_structure_example
+   * 
    */
   let printformat = "";
-  if (preferencesObj && preferencesObj.print_choices.print_formats) {
-    printformat = preferencesObj.print_choices.print_formats;
+  if (preferencesObj && preferencesObj.print_choices.print_as) {
+    printformat = preferencesObj.print_choices.print_as;
   }
   // Banana.console.log(JSON.stringify(preferencesObj, "", " "));
   // Banana.console.log(printformat);
