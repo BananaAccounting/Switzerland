@@ -1,9 +1,12 @@
 <!DOCTYPE RCC><RCC version="1.0">
  <qresource>
- 	<file>ch.banana.ch.invoice.ch10.manifest.json</file>
-    <file>ch.banana.ch.invoice.ch10.js</file>
-    <file>swissqrcode.js</file>
-    <file>checkfunctions.js</file>
-    <file>invoice.css</file>
+   <file>ch.banana.ch.invoice.ch10.manifest.json</file>
+   <file>ch.banana.ch.invoice.ch10.js</file>
+   <file>ch.banana.ch.invoice.ch10.parameters.js</file>
+   <file>ch.banana.ch.invoice.ch10.texts.js</file>
+   <file>ch.banana.ch.invoice.ch10.printpreferences.js</file>
+   <file>swissqrcode.js</file>
+   <file>checkfunctions.js</file>
+   <file>invoice.css</file>
  </qresource>
  </RCC>

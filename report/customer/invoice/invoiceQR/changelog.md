@@ -55,4 +55,7 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 * 2022-09-28
     * Apply setting variable.decimals_quantity to invoice printed from Estimates and Invoices extension
       for the rounding of item's quantity value
-    * Fix the address area is too wide and overflow the envolope window area
+    * Fix the address area is too wide and overflow the envolope window area  
+* 2023-01-09
+	* Added Delivery Notes and Reminders as print options (Advanced plan required).
+	* Added a new color for 'Title and Total' in parameters settings.

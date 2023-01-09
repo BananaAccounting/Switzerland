@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2022-01-15
+// @pubdate = 2023-01-04
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -26,6 +26,9 @@
 // @inputdataform = none
 // @includejs = ../ch.banana.ch.invoice.ch10.js
 // @includejs = ../swissqrcode.js
+// @includejs = ../ch.banana.ch.invoice.ch10.parameters.js
+// @includejs = ../ch.banana.ch.invoice.ch10.texts.js
+// @includejs = ../ch.banana.ch.invoice.ch10.printpreferences.js
 // @timeout = -1
 
 
@@ -42,7 +45,6 @@
 
 //Tests executed with banana advanced license type
 var BAN_ADVANCED = true;
-
 
 
 // Register test case to be executed
@@ -261,6 +263,28 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   this.add_test_invoice_18("16", "Invoice 16"); //prints all vat rates, including vat 0.00% (V0)
   this.add_test_invoice_18("17", "Invoice 17"); //prints all vat rates, excluding no vat (empty)
   this.add_test_invoice_18("18", "Invoice 18"); //no vat rates printed
+
+  //Test DELIVERY NOTE
+  Test.logger.addSubSection("Test25: delivery note");
+  this.add_test_invoice_19("501", "Delivery Note 501", "delivery_note"); //integrated invoice, with amounts, with footer
+  this.add_test_invoice_20("502", "Delivery Note 502", "delivery_note_without_amounts"); //integrated invoice, without amounts, without footer
+  this.add_test_invoice_20("503", "Delivery Note 503", "delivery_note_without_amounts"); //integrated invoice, without amounts, without items subtotals, without footer
+  this.add_test_invoice_20("504", "Delivery Note 504", "delivery_note_without_amounts"); //integrated invoice, without amounts, use shipping address as delivery note address (no customer address used), without footer
+
+  //Test REMINDER
+  Test.logger.addSubSection("Test26: reminder");
+  this.add_test_invoice_20("501", "1. Reminder, invoice 501", "reminder_1"); //integrated invoice, 1st reminder
+  this.add_test_invoice_20("502", "2. Reminder, invoice 502", "reminder_2"); //integrated invoice, 2nd reminder
+  this.add_test_invoice_20("503", "3. Reminder, invoice 503", "reminder_3"); //integrated invoice, 3rd reminder
+
+  //Test AUTOMATIC (invoice)
+  this.add_test_invoice_20("501", "Invoice 501", "automatic"); //integrated invoice
+  this.add_test_invoice_20("502", "Invoice 502", "automatic"); //integrated invoice
+
+  //Test Invoice
+  this.add_test_invoice_20("501", "Invoice 501", "invoice"); //integrated invoice
+  this.add_test_invoice_20("502", "Invoice 502", "invoice"); //integrated invoice
+  
 }
 
 
@@ -1172,6 +1196,105 @@ ReportInvoiceQrCode.prototype.add_test_invoice_18 = function(invoiceNumber, repo
   Test.logger.addText(text);
 }
 
+ReportInvoiceQrCode.prototype.add_test_invoice_19 = function(invoiceNumber, reportName, printformat) {
+  var fileAC2 = "file:script/../test/testcases/invoice_integrated_deliverynote_reminder.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  variables.decimals_quantity = '';
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+
+  var userParam = setUserParam(texts);
+  userParam.en_text_info_delivery_note_number = texts.number_delivery_note;
+  userParam.en_text_info_date_delivery_note = texts.date_delivery_note;
+  userParam.en_title_delivery_note = texts.delivery_note;
+  userParam.en_text_begin_delivery_note = 'This is the begin text of the delivery note.';
+  userParam.en_text_final_delivery_note = 'This is the final text of the delivery note.\nIt can be on multiple lines.\nThank you very much.';
+
+  userParam.footer_add = true;
+  userParam.en_footer_left = 'Footer text left';
+  userParam.en_footer_center = 'Footer text center';
+  userParam.en_footer_right = 'Footer text right';
+
+  userParam.qr_code_add = true;
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_billing_information = true;
+
+  // Print preferences, set the print format
+  var preferencesObj =
+  {
+    "version":"1.0",
+    "id":"invoice_available_layout_preferences",
+    "print_choices": {
+      "print_as":printformat
+    }
+  }
+  Test.logger.addJson("JSON preferences", JSON.stringify(preferencesObj));
+  var printFormat = getPrintFormat(preferencesObj);
+  Test.logger.addSubSection("Get print format from json: " + printFormat);
+
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables, preferencesObj);
+  Test.logger.addReport(reportName, reportTest);
+}
+
+ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, reportName, printformat) {
+  var fileAC2 = "file:script/../test/testcases/invoice_integrated_deliverynote_reminder.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+
+  var userParam = setUserParam(texts);
+  userParam.en_text_info_delivery_note_number = texts.number_delivery_note;
+  userParam.en_text_info_date_delivery_note = texts.date_delivery_note;
+  userParam.en_title_delivery_note = texts.delivery_note;
+  userParam.en_text_begin_delivery_note = 'This is the begin text of the delivery note.';
+  userParam.en_text_final_delivery_note = 'This is the final text of the delivery note.\nIt can be on multiple lines.\nThank you very much.';
+  userParam.en_title_reminder = '%1. ' + texts.reminder;
+  userParam.en_text_begin_reminder = 'This is the begin text of the reminder.';
+  userParam.en_text_final_reminder = 'This is the final text of the reminder.\nIt can be on multiple lines.';
+
+  userParam.footer_add = false;
+  userParam.en_footer_left = 'Footer text left';
+  userParam.en_footer_center = 'Footer text center';
+  userParam.en_footer_right = 'Footer text right';
+
+  userParam.qr_code_add = true;
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_billing_information = true;
+
+  // Print preferences, set the print format
+  var preferencesObj =
+  {
+    "version":"1.0",
+    "id":"invoice_available_layout_preferences",
+    "print_choices": {
+      "print_as":printformat
+    }
+  }
+  Test.logger.addJson("JSON preferences", JSON.stringify(preferencesObj));
+  var printFormat = getPrintFormat(preferencesObj);
+  Test.logger.addSubSection("Get print format from json: " + printFormat);
+
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables, preferencesObj);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  if (!printFormat.startsWith("delivery_note")) { //do not test QRCode text for delivery note, it's never printed
+    var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+    Test.logger.addText(text);
+  }
+}
+
+
+
 function getQRCodeText(banDoc, userParam, invoiceObj, texts, langCode) {
   var qrBill = new QRBill(banDoc, userParam);
   qrBill.defineQrBillType(userParam);
@@ -1449,6 +1572,30 @@ function getJsonInvoice(invoiceNumber) {
   }
   else if (invoiceNumber === "403") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_403.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "501") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_501.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "502") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_502.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "503") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_503.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "504") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_504.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);
