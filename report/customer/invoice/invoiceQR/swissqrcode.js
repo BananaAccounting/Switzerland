@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2022-04-01 */
+/* Script update: 2022-12-20 */
 
 
 
@@ -330,9 +330,9 @@ var QRBill = class QRBill {
 		currentParam.tooltip = texts.param_tooltip_qr_code_add;
 		currentParam.readValue = function() {
 		userParam.qr_code_add = this.value;
-			if (userParam.qr_code_add) { //remove footer when qr code is added
-				userParam.footer_add = false;
-			}
+			// if (userParam.qr_code_add) { //remove footer when qr code is added
+			// 	userParam.footer_add = false;
+			// }
 		}
 		convertedParam.data.push(currentParam);
 
@@ -1357,7 +1357,7 @@ var QRBill = class QRBill {
 			qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
 		}
 
-		if (invoiceObj.customer_info.business_name) {
+		if (invoiceObj.customer_info.business_name && invoiceObj.customer_info.business_name.trim().length > 0) {
 			qrcodeData.debtorName += invoiceObj.customer_info.business_name;
 		} else {
 			if (invoiceObj.customer_info.first_name || invoiceObj.customer_info.last_name) {
@@ -1910,6 +1910,9 @@ var QRBill = class QRBill {
 		if (!this.ERROR) {
 			qrcodePymentImageForm.addImage(qrCodeSvgImage, 'qrcode_image');
 			qrcodePymentImageForm.addImage(this.swiss_cross, "qrcode_cross");
+		}
+		else {
+			qrcodePymentImageForm.addParagraph("", "qrcode_rectangle_error");
 		}
 
 
@@ -2753,6 +2756,13 @@ var QRBill = class QRBill {
 			style.setAttribute("width","46mm");
 			style.setAttribute("text-align", "center");
 			//style.setAttribute("border","thin solid red");
+			if (this.ERROR) {
+				var rectangleErrorQR = repStyleObj.addStyle(".qrcode_rectangle_error");
+				rectangleErrorQR.setAttribute("width","46mm");
+				rectangleErrorQR.setAttribute("height","46mm");
+				rectangleErrorQR.setAttribute("background-color","white");
+				rectangleErrorQR.setAttribute("border","thin solid black");
+			}
 
 			/* Currency form */
 			style = repStyleObj.addStyle(".qrcode_payment_currency_Form");
