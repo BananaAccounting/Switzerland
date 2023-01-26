@@ -1,4 +1,4 @@
-// Copyright [2021] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,12 +14,14 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2022-11-30
+// @pubdate = 2023-01-18
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
 // @doctype = *
-// @includejs = ch.banana.pain001.js
+// @includejs = ch.banana.pain.iso.2009.js
+// @includejs = ch.banana.pain.sps.2021.js
+// @includejs = ch.banana.pain.sps.2022.js
 // @includejs = checkfunctions.js
 // @includejs = documentchange.js
 
@@ -215,12 +217,22 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_QRIBAN_REFERENCE_NOTVALID = "ID_ERR_QRIBAN_REFERENCE_NOTVALID";
     this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
 
-    // payment methods
+    // deprecated payment type 3 in ID_PAIN_FORMAT_001_001_03_CH_02
     this.ID_PAYMENT_QRCODE = "QRCODE";
     this.ID_PAYMENT_QRCODE_DESCRIPTION = "Bank or postal payment (IBAN/QR-IBAN) in CHF & EUR";
 
+    // new payment types defined in ID_PAIN_FORMAT_001_001_09_CH_03
+    //D - Domestic payments in CHF/EUR (with IBAN, QR-IBAN or account)
+    this.ID_PAYMENT_TYPE_D = "D";
+    this.ID_PAYMENT_TYPE_D_DESCRIPTION = "Domestic payment in CHF/EUR";
+
+    //X - Cross-border and domestic payments in foreign currency (with IBAN or account)
+    this.ID_PAYMENT_TYPE_X = "X";
+    this.ID_PAYMENT_TYPE_X_DESCRIPTION = "Domestic payment in foreign currency";
+
+    //S - SEPA transfer in EUR (with IBAN)
     this.ID_PAYMENT_SEPA = "SEPA";
-    this.ID_PAYMENT_SEPA_DESCRIPTION = "SEPA transfer (all currencies)";
+    this.ID_PAYMENT_SEPA_DESCRIPTION = "SEPA transfer in EUR";
 
     // supported payment formats
     this.ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
@@ -229,14 +241,14 @@ function Pain001Switzerland(banDocument) {
     this.painFormats = [];
     this.painFormats.push({
         "@appId": this.id,
-        "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
-        "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
+        "@description": "Swiss Payment Standard 2022 (pain.001.001.09.ch.03)",
+        "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
         "@version": this.version
     });
     this.painFormats.push({
         "@appId": this.id,
-        "@description": "Swiss Payment Standard 2022 (pain.001.001.09.ch.03)",
-        "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
+        "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
+        "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
         "@version": this.version
     });
     this.painFormats.push({
@@ -863,17 +875,35 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             //Specifies which party/parties will bear the charges of the payment transaction
             //Commented because the user should choose the costs per transaction
             // payment.setChargeBearer("CRED");
-            //Execution confirmation:   NO      YES     NO      YES
-            //Detailed confirmation:    NO      YES     YES     NO
+
+            //Collective order -> paymentObj.batchBooking
+            //Detailed confirmation -> paymentObj.confirmationDetailed
+
+            //Collective order:         NO      YES     YES     NO
+            //Detailed confirmation:    YES     NO      YES     NO
             //------                    ---     ---     ---     ---
-            //BtchBookg                 true    true            true
-            //Prtry                     NOA     CWD             CND
-            if (!paymentObj.confirmationExecution && !paymentObj.confirmationDetailed)
-                payment.setOriginAdvice("NOA");
-            else if (paymentObj.confirmationExecution && paymentObj.confirmationDetailed)
-                payment.setOriginAdvice("CWD");
-            else if (paymentObj.confirmationExecution && !paymentObj.confirmationDetailed)
-                payment.setOriginAdvice("CND");
+            //BtchBookg                 false   true    true    false
+            //Prtry                     SIA     CND     CWD     NOA
+            if (paymentObj.bookingIndividual){
+                //single booking
+                payment.setBatchBooking(0);
+                if (paymentObj.confirmationDetailed) {
+                    payment.setOriginAdvice("SIA");
+                }
+                else {
+                    payment.setOriginAdvice("NOA");
+                }
+            }
+            else {
+                //collective order
+                payment.setBatchBooking(1);
+                if (paymentObj.confirmationDetailed) {
+                    payment.setOriginAdvice("CWD");
+                }
+                else {
+                    payment.setOriginAdvice("CND");
+                }
+            }
 
             for (var j = 0; paymentObj.transactions && j < paymentObj.transactions.length; j++) {
                 if (this.toISODate(paymentObj.transactions[j].dueDate) !== executionDates[i])
@@ -944,7 +974,17 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     }
 
     // Attach a domBuilder to the Transfer to create the XML output
-    var domBuilder = new DomBuilder(painFormat, true);
+    var domBuilder = null;
+    if (painFormat === this.ID_PAIN_FORMAT_001_001_03_CH_02) {
+        domBuilder = new DomBuilderSPS2021(painFormat, true);
+    }
+    else if (painFormat === this.ID_PAIN_FORMAT_001_001_09_CH_03) {
+        domBuilder = new DomBuilderSPS2022(painFormat, true);
+    }
+    else {
+        domBuilder = new DomBuilder(painFormat, true);
+    }
+
     transferFile.accept(domBuilder);
 
     // Create the file
@@ -1162,7 +1202,7 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
         case this.ID_ERR_QRIBAN_REFERENCE_NOTVALID:
             return "QRIBAN needs a reference number";
         case this.ID_ERR_VERSION_NOTSUPPORTED:
-            return "Unsupported version. Please use or install the latest version of Banana Accounting Dev Channel with Advanced Plan.";
+            return "Unsupported version. Please use or install the latest version of Banana Accounting Dev Channel with Advanced Plan. <br>Click the Help button to get the link.";
     }
     return "";
 }
@@ -1290,7 +1330,7 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         infoObj.push(infoMsg);
     }
 
-    if (!paymentObj.creditorStreet1 && paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
+    /*if (!paymentObj.creditorStreet1 && paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
         var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
         msg = msg.replace("%1", "Creditor Address");
         msg = "<span style='color:red'>" + msg + "</span>";
@@ -1298,7 +1338,7 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
             'text': msg
         };
         infoObj.push(infoMsg);
-    }
+    }*/
 
     if (!paymentObj.creditorCity) {
         var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
@@ -1785,11 +1825,11 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
-            else if (key === 'creditorStreet1' && value.length <= 0) {
+            /*else if (key === 'creditorStreet1' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
-            }
+            }*/
             else if (key === 'creditorCity' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
@@ -1883,17 +1923,20 @@ Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
         return false;
     }
 
-    var supportedVersion = true;
-    var requiredVersion = "10.0.12";
-    var requiredSerial = "220531";
+    //example Banana.application.serial 100100-230104
+    //example Banana.application.version 10.1.0
+    //version Dev-Channel contains build number 10.1.0.23004
+    var serial = Banana.application.serial;
+    var version = Banana.application.version;
 
-    //example Banana.application.version 10.0.12
-    //example Banana.application.serial 100012-220310
-    if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) < 0) {
+    var supportedVersion = true;
+    var requiredVersion = "10.1.0";
+    var requiredSerial = "230125";
+
+    if (Banana.compareVersion && Banana.compareVersion(version, requiredVersion) < 0) {
         supportedVersion = false;
     }
 
-    var serial = Banana.application.serial;
     if (serial.lastIndexOf('-') > 0) {
         serial = serial.substr(serial.lastIndexOf('-') + 1);
         if (parseInt(serial) < parseInt(requiredSerial)) {
@@ -2237,6 +2280,7 @@ var JsAction = class JsAction {
                 var xml = Banana.Xml.parse(transferFile).firstChildElement('Document').firstChildElement('CstmrCdtTrfInitn');
                 infoMsg.amount3 = qsTr('Total transactions:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('NbOfTxs').text;
                 infoMsg.amount4 = qsTr(', checksum:') + " " + xml.firstChildElement('GrpHdr').firstChildElement('CtrlSum').text;
+                infoMsg.amount2 = obj['@title'];
             }
             infoObj.push(infoMsg);
             /*for (var key in obj) {

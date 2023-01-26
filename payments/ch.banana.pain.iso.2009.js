@@ -1,4 +1,4 @@
-// Copyright [2020] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,10 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-var ID_PAIN_FORMAT_001_001_03 = "pain.001.001.03";
-var ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
-var ID_PAIN_FORMAT_001_001_09_CH_03 = "pain.001.001.09.ch.03";
 
 /*
 * interface TransferFileInterface
@@ -552,446 +548,394 @@ CustomerCreditTransferInformation.prototype.getTransferAmount = function () {
     this.ultimateDebtorName = ultimateDebtorName;
 }
 
-function DomBuilder(painFormat, withSchemaLocation) {
+//ID_PAIN_FORMAT_001_001_03
+var DomBuilder = class DomBuilder {
+    constructor(painFormat, withSchemaLocation) {
+        this.currentTransfer = null;
+        this.currentPayment = null;
+        this.painFormat = painFormat;
+        this.doc = Banana.Xml.newDocument('');
+        this.root = this.doc.addElement('Document');
+        this.root.setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+        this.root.setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:%1'.arg(this.painFormat));
+    }
 
     /**
-     * @var \DOMElement
+     * Appends an address node to the passed dom element containing country and unstructured address lines.
+     * Does nothing if no address exists in transactionInformation.
+     *
+     * @param \DOMElement $creditor
+     * @param CustomerCreditTransferInformation $transactionInformation
      */
-    this.currentTransfer = null;
+    appendAddressToDomElement(creditor, transactionInformation) {
+        if (transactionInformation.getCountry().length < 0 && transactionInformation.getPostalAddress().length < 0) {
+            return; // No address exists, nothing to do.
+        }
+
+        var postalAddress = creditor.addElement('PstlAdr');
+
+        // Generate country address node.
+        if (transactionInformation.getCountry().length > 0) {
+            var node = postalAddress.addElement('Ctry');
+            node.addTextNode(transactionInformation.getCountry());
+        }
+
+        // Ensure postalAddressData is an array as getPostalAddress() returns either string or string[].
+        var postalAddressData = transactionInformation.getPostalAddress();
+        if (!Array.isArray(postalAddressData)) {
+            postalAddressData = Array.from(postalAddressData);
+        }
+        // Generate nodes for each address line.
+        for (var i = 0; i < postalAddressData.length; ++i) {
+            if (postalAddressData[i].length > 0) {
+                var node = postalAddress.addElement('AdrLine');
+                node.addTextNode(postalAddressData[i]);
+            }
+        }
+    }
+
+    appendBankAddressToDomElement(creditor, transactionInformation) {
+        if (transactionInformation.getBankAddress().length < 0) {
+            return; // No address exists, nothing to do.
+        }
+
+        var bankAddress = creditor.addElement('PstlAdr');
+
+        // Ensure bankAddressData is an array as getBankAddress() returns either string or string[].
+        var bankAddressData = transactionInformation.getBankAddress();
+        if (!Array.isArray(bankAddressData)) {
+            bankAddressData = Array.from(bankAddressData);
+        }
+        // Generate nodes for each address line.
+        for (var i = 0; i < bankAddressData.length; ++i) {
+            if (bankAddressData[i].length > 0) {
+                var node = bankAddress.addElement('AdrLine');
+                node.addTextNode(bankAddressData[i]);
+            }
+        }
+    }
 
     /**
-     * @var \DOMELement
-     */
-    this.currentPayment = null;
+         * Append FinInstnId element used in debtorAgent elements.
+         *
+         * @param \DOMElement
+         * @param string bic
+         * @return \DOMElement
+         */
+    appendFinancialInstitutionElement(debtorAgent, bic) {
+        var finInstitution = debtorAgent.addElement('FinInstnId');
+        var node = finInstitution.addElement('BIC');
+        node.addTextNode(bic);
+        return finInstitution;
+    }
 
     /**
-     * @var string
-     */
-    this.painFormat = '';
+         * Append Id element used in Group header and Debtor elements.
+         *
+         * @param  \DOMElement $debtor
+         * @param  string      $id         Unique and unambiguous identification of a party. Length 1-35
+         * @return \DOMElement
+         */
+    appendOrganizationIdentificationElement(debtor, id) {
+        var uId = debtor.addElement('Id');
+        var orgId = uId.addElement('OrgId');
+        var othr = orgId.addElement('Othr');
+        var othrId = othr.addElement('Id');
+        othrId.addTextNode(id);
+
+        return uId;
+    }
 
     /**
-     * @var \DOMDocument
+         * Append remittance element with un-structured message.
+         *
+         * @param  \DOMElement node
+         * @param string message
+         * @return \DOMElement
+         */
+    appendRemittanceElement(node, message) {
+        var remittanceInformation = node.addElement('RmtInf');
+        var ustrd = remittanceInformation.addElement('Ustrd');
+        ustrd.addTextNode(message);
+        return remittanceInformation;
+    }
+
+    /**
+         * Append remittance element with structured creditor reference.
+         *
+         * @param  \DOMElement node
+         * @param TransferInformationInterface $transactionInformation
+         * @return \DOMElement
+         */
+    appendStructuredRemittanceElement(node, transactionInformation) {
+        var creditorReference = transactionInformation.getCreditorReference();
+        var remittanceInformation = node.addElement('RmtInf');
+
+        var structured = remittanceInformation.addElement('Strd');
+        var creditorReferenceInformation = structured.addElement('CdtrRefInf');
+
+        if (transactionInformation.getCreditorReferenceType() == "SCOR") {
+            var tp = creditorReferenceInformation.addElement('Tp');
+            var issuer = tp.addElement('CdOrPrtry');
+            var code = issuer.addElement('Cd');
+            code.addTextNode(transactionInformation.getCreditorReferenceType());
+        }
+        else if (transactionInformation.getCreditorReferenceType() == "QRR") {
+            var tp = creditorReferenceInformation.addElement('Tp');
+            var issuer = tp.addElement('CdOrPrtry');
+            var proprietary = issuer.addElement('Prtry');
+            proprietary.addTextNode(transactionInformation.getCreditorReferenceType());
+        }
+
+        var reference = creditorReferenceInformation.addElement('Ref');
+        reference.addTextNode(creditorReference);
+
+        return remittanceInformation;
+    }
+
+    asXml() {
+        var indent = true;
+        return Banana.Xml.save(this.doc, indent);
+    }
+
+    /**
+     * Add GroupHeader Information to the document
+     *
+     * @param GroupHeader $groupHeader
+     * @return mixed
      */
-    this.painFormat = painFormat;
-    this.doc = Banana.Xml.newDocument('');
-    this.root = this.doc.addElement('Document');
-    this.root.setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
+    visitGroupHeader(groupHeader) {
+        var groupHeaderNode = this.currentTransfer.addElement('GrpHdr');
+        var node = groupHeaderNode.addElement('MsgId');
+        node.addTextNode(groupHeader.getMessageIdentification());
+        node = groupHeaderNode.addElement('CreDtTm');
+        node.addTextNode(_formatDateTime(groupHeader.getCreationDateTime()));
+        node = groupHeaderNode.addElement('NbOfTxs');
+        node.addTextNode(groupHeader.getNumberOfTransactions());
+        node = groupHeaderNode.addElement('CtrlSum');
+        node.addTextNode(_formatCurrency(groupHeader.getControlSumCents()));
+        var initiatingParty = groupHeaderNode.addElement('InitgPty');
+        node = initiatingParty.addElement('Nm');
+        node.addTextNode(groupHeader.getInitiatingPartyName());
+        if (groupHeader.getInitiatingPartyId().length > 0) {
+            this.appendOrganizationIdentificationElement(initiatingParty, groupHeader.getInitiatingPartyId());
+        }
+        var contactDetails = initiatingParty.addElement('CtctDtls');
+        node = contactDetails.addElement('Nm');
+        node.addTextNode(groupHeader.getSoftwareName());
+        node = contactDetails.addElement('Othr');
+        node.addTextNode(groupHeader.getSoftwareVersion());
+        return groupHeaderNode;
+    }
+
+    /**
+     * Crawl PaymentInformation containing the Transactions
+     *
+     * @param PaymentInformation $paymentInformation
+     * @return mixed
+     */
+    visitPaymentInformation(paymentInformation) {
+        this.currentPayment = this.currentTransfer.addElement('PmtInf');
+        var node = this.currentPayment.addElement('PmtInfId');
+        node.addTextNode(paymentInformation.getId());
+        node = this.currentPayment.addElement('PmtMtd');
+        node.addTextNode(paymentInformation.getPaymentMethod());
+        node = this.currentPayment.addElement('BtchBookg');
+        if (parseInt(paymentInformation.getBatchBooking()) <= 0)
+            node.addTextNode('false');
+        else
+            node.addTextNode('true');
+        node = this.currentPayment.addElement('NbOfTxs');
+        node.addTextNode(paymentInformation.getNumberOfTransactions());
+        node = this.currentPayment.addElement('CtrlSum');
+        node.addTextNode(_formatCurrency(paymentInformation.getControlSumCents()));
+
+        node = this.currentPayment.addElement('ReqdExctnDt');
+        node.addTextNode(_formatDate(paymentInformation.getDueDate()));
+
+        var debtor = this.currentPayment.addElement('Dbtr');
+        node = debtor.addElement('Nm');
+        node.addTextNode(paymentInformation.getOriginName());
+
+        if (paymentInformation.getOriginBankPartyIdentification().length > 0) {
+            this.appendOrganizationIdentificationElement(debtor, paymentInformation.getOriginBankPartyIdentification());
+        }
+
+        var debtorAccount = this.currentPayment.addElement('DbtrAcct');
+        node = debtorAccount.addElement('Id');
+        node = node.addElement('IBAN');
+        node.addTextNode(paymentInformation.getOriginAccountIBAN());
+
+        //Debit advice
+        if (paymentInformation.getOriginAdvice().length > 0) {
+            node = debtorAccount.addElement('Tp');
+            node = node.addElement('Prtry');
+            node.addTextNode(paymentInformation.getOriginAdvice());
+        }
+
+        /*if (paymentInformation.getOriginAccountCurrency().length > 0) {
+            node = debtorAccount.addElement('Ccy');
+            node.addTextNode(paymentInformation.getOriginAccountCurrency());
+        }*/
+
+        if (paymentInformation.getOriginAgentBIC().length > 0) {
+            var debtorAgent = this.currentPayment.addElement('DbtrAgt');
+            this.appendFinancialInstitutionElement(debtorAgent, paymentInformation.getOriginAgentBIC());
+        }
+
+        // Charge Bearer
+        if (paymentInformation.getChargeBearer().length > 0) {
+            var chargeBearer = this.currentPayment.addElement('ChrgBr');
+            chargeBearer.addTextNode(paymentInformation.getChargeBearer());
+        }
+    }
+
+    /**
+         * Build the root of the document
+         *
+         * @param TransferFileInterface $transferFile
+         * @return mixed
+         */
+    visitTransferFile(transferFile) {
+        this.currentTransfer = this.root.addElement('CstmrCdtTrfInitn');
+    }
+
+    /**
+     * Crawl Transactions
+     *
+     * @param TransferInformationInterface $transactionInformation
+     * @return mixed
+     */
+    visitTransferInformation(transactionInformation) {
+
+        /** @var $transactionInformation  CustomerCreditTransferInformation */
+        var cdtTrfTxInf = this.currentPayment.addElement('CdtTrfTxInf');
+
+        // PmtId
+        var pmtId = cdtTrfTxInf.addElement('PmtId');
+        if (transactionInformation.getInstructionId().length) {
+            var node = pmtId.addElement('InstrId');
+            node.addTextNode(transactionInformation.getInstructionId());
+        }
+        var node = pmtId.addElement('EndToEndId');
+        node.addTextNode(transactionInformation.getEndToEndIdentification());
+
+        // Payment Type Information
+        // If empty Credit Suisse throws error
+        var paymentTypeInformation = null;
+        if (transactionInformation.getLocalInstrumentCode().length > 0) {
+            paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
+            node = paymentTypeInformation.addElement('LclInstrm');
+            node = node.addElement('Cd');
+            node.addTextNode(transactionInformation.getLocalInstrumentCode());
+        }
+        else if (transactionInformation.getLocalInstrumentProprietary().length > 0) {
+            paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
+            node = paymentTypeInformation.addElement('LclInstrm');
+            node = node.addElement('Prtry');
+            node.addTextNode(transactionInformation.getLocalInstrumentProprietary());
+        }
+        if (transactionInformation.getCategoryPurpose().length > 0) {
+            if (paymentTypeInformation == null)
+                paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
+            node = paymentTypeInformation.addElement('CtgyPurp');
+            node = node.addElement('Cd');
+            node.addTextNode(transactionInformation.getCategoryPurpose());
+        }
+        if (transactionInformation.getServiceLevelCode().length > 0) {
+            if (paymentTypeInformation == null)
+                paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
+            node = paymentTypeInformation.addElement('SvcLvl');
+            node = node.addElement('Cd');
+            node.addTextNode(transactionInformation.getServiceLevelCode());
+        }
+
+        // Amount
+        var amount = cdtTrfTxInf.addElement('Amt');
+        var instructedAmount = amount.addElement('InstdAmt');
+        instructedAmount.addTextNode(_formatCurrency(transactionInformation.getTransferAmount()));
+        instructedAmount.setAttribute('Ccy', transactionInformation.getCurrency());
+
+        // Ultimate Debtor
+        if (transactionInformation.getUltimateDebtorName().length > 0) {
+            var ultimateDebtor = cdtTrfTxInf.addElement('UltmtDbtr');
+            var ultimateDebtorName = ultimateDebtor.addElement('Nm');
+            ultimateDebtorName.addTextNode(transactionInformation.getUltimateDebtorName());
+        }
+
+        //Creditor Agent 2.77
+        if (transactionInformation.getBic().length > 0) {
+            var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
+            var financialInstitution = creditorAgent.addElement('FinInstnId');
+            var bic = financialInstitution.addElement('BIC');
+            bic.addTextNode(transactionInformation.getBic());
+        }
+        else if (transactionInformation.getBankAccount().length > 0) {
+            var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
+            var financialInstitution = creditorAgent.addElement('FinInstnId');
+            var name = financialInstitution.addElement('Nm');
+            name.addTextNode(transactionInformation.getBankName());
+            // Bank address if needed and supported by schema.
+            this.appendBankAddressToDomElement(financialInstitution, transactionInformation);
+            var other = financialInstitution.addElement('Othr');
+            var node = other.addElement('Id');
+            node.addTextNode(transactionInformation.getBankAccount());
+        }
+
+        // Creditor 2.79
+        var creditor = cdtTrfTxInf.addElement('Cdtr');
+        node = creditor.addElement('Nm');
+        node.addTextNode(transactionInformation.getCreditorName());
+
+        // Creditor address if needed and supported by schema.
+        this.appendAddressToDomElement(creditor, transactionInformation);
+
+        // CreditorAccount 2.80
+        var creditorAccount = cdtTrfTxInf.addElement('CdtrAcct');
+        var id = creditorAccount.addElement('Id');
+        var iban = transactionInformation.getIban();
+        var validIban = iban.match(/^[a-zA-Z]{2}.+$/);
+        if (validIban) {
+            var node = id.addElement('IBAN');
+            node.addTextNode(iban);
+        }
+        else {
+            var other = id.addElement('Othr');
+            var node = other.addElement('Id');
+            node.addTextNode(iban);
+        }
+
+        // remittance 2.98 2.99
+        if (transactionInformation.getCreditorReference().length > 0) {
+            this.appendStructuredRemittanceElement(cdtTrfTxInf, transactionInformation);
+        } else if (transactionInformation.getRemittanceInformation().length > 0) {
+            this.appendRemittanceElement(cdtTrfTxInf, transactionInformation.getRemittanceInformation());
+        }
+        return cdtTrfTxInf;
+    }
+}
+
+//ID_PAIN_FORMAT_001_001_09_CH_03
+var DomBuilderSPS2022 = class DomBuilderSPS2022 extends DomBuilder {
+	constructor(painFormat, withSchemaLocation) {
+		super(painFormat, withSchemaLocation);
         this.root.setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09');
         if (withSchemaLocation) {
             this.root.setAttribute('xsi:schemaLocation', 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09 pain.001.001.09.ch.03.xsd');
         }
-    }
-    else if (this.painFormat === ID_PAIN_FORMAT_001_001_03_CH_02) {
+	}
+}
+
+//ID_PAIN_FORMAT_001_001_03_CH_02
+var DomBuilderSPS2021 = class DomBuilderSPS2021 extends DomBuilder {
+    constructor(painFormat, withSchemaLocation) {
+        super(painFormat, withSchemaLocation);
         this.root.setAttribute('xmlns', 'http://www.six-interbank-clearing.com/de/%1.xsd'.arg(this.painFormat));
         if (withSchemaLocation) {
             this.root.setAttribute('xsi:schemaLocation', 'http://www.six-interbank-clearing.com/de/%1.xsd %2.xsd'.arg(this.painFormat).arg(this.painFormat));
         }
     }
-    else {
-        this.root.setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:%1'.arg(this.painFormat));
-    }
 }
-
-/**
- * Appends an address node to the passed dom element containing country and unstructured address lines.
- * Does nothing if no address exists in transactionInformation.
- *
- * @param \DOMElement $creditor
- * @param CustomerCreditTransferInformation $transactionInformation
- */
-DomBuilder.prototype.appendAddressToDomElement = function (creditor, transactionInformation) {
-    if (transactionInformation.getCountry().length < 0 && transactionInformation.getPostalAddress().length < 0) {
-        return; // No address exists, nothing to do.
-    }
-
-    var postalAddress = creditor.addElement('PstlAdr');
-
-    // Generate country address node.
-    if (transactionInformation.getCountry().length > 0) {
-        var node = postalAddress.addElement('Ctry');
-        node.addTextNode(transactionInformation.getCountry());
-    }
-
-    // Ensure postalAddressData is an array as getPostalAddress() returns either string or string[].
-    var postalAddressData = transactionInformation.getPostalAddress();
-    if (!Array.isArray(postalAddressData)) {
-        postalAddressData = Array.from(postalAddressData);
-    }
-    // Generate nodes for each address line.
-    for (var i = 0; i < postalAddressData.length; ++i) {
-        if (postalAddressData[i].length > 0) {
-            var node = postalAddress.addElement('AdrLine');
-            node.addTextNode(postalAddressData[i]);
-        }
-    }
-}
-
-DomBuilder.prototype.appendBankAddressToDomElement = function (creditor, transactionInformation) {
-    if (transactionInformation.getBankAddress().length < 0) {
-        return; // No address exists, nothing to do.
-    }
-
-    var bankAddress = creditor.addElement('PstlAdr');
-
-    // Ensure bankAddressData is an array as getBankAddress() returns either string or string[].
-    var bankAddressData = transactionInformation.getBankAddress();
-    if (!Array.isArray(bankAddressData)) {
-        bankAddressData = Array.from(bankAddressData);
-    }
-    // Generate nodes for each address line.
-    for (var i = 0; i < bankAddressData.length; ++i) {
-        if (bankAddressData[i].length > 0) {
-            var node = bankAddress.addElement('AdrLine');
-            node.addTextNode(bankAddressData[i]);
-        }
-    }
-}
-
-/**
-     * Append FinInstnId element used in debtorAgent elements.
-	 *
-     * @param \DOMElement
-     * @param string bic
-     * @return \DOMElement
-     */
-DomBuilder.prototype.appendFinancialInstitutionElement = function (debtorAgent, bic) {
-    var finInstitution = debtorAgent.addElement('FinInstnId');
-    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
-        var node = finInstitution.addElement('BICFI');
-        node.addTextNode(bic);
-    }
-    else {
-        var node = finInstitution.addElement('BIC');
-        node.addTextNode(bic);
-    }
-    return finInstitution;
-}
-
-/**
-     * Append Id element used in Group header and Debtor elements.
-     *
-     * @param  \DOMElement $debtor
-     * @param  string      $id         Unique and unambiguous identification of a party. Length 1-35
-     * @return \DOMElement
-     */
-DomBuilder.prototype.appendOrganizationIdentificationElement = function (debtor, id) {
-    var uId = debtor.addElement('Id');
-    var orgId = uId.addElement('OrgId');
-    var othr = orgId.addElement('Othr');
-    var othrId = othr.addElement('Id');
-    othrId.addTextNode(id);
-
-    return uId;
-}
-
-/**
-     * Append remittance element with un-structured message.
-     *
-     * @param  \DOMElement node
-     * @param string message
-     * @return \DOMElement
-     */
-DomBuilder.prototype.appendRemittanceElement = function (node, message) {
-    var remittanceInformation = node.addElement('RmtInf');
-    var ustrd = remittanceInformation.addElement('Ustrd');
-    ustrd.addTextNode(message);
-    return remittanceInformation;
-}
-
-/**
-     * Append remittance element with structured creditor reference.
-     *
-     * @param  \DOMElement node
-     * @param TransferInformationInterface $transactionInformation
-     * @return \DOMElement
-     */
-DomBuilder.prototype.appendStructuredRemittanceElement = function (node, transactionInformation) {
-    var creditorReference = transactionInformation.getCreditorReference();
-    var remittanceInformation = node.addElement('RmtInf');
-
-    var structured = remittanceInformation.addElement('Strd');
-    var creditorReferenceInformation = structured.addElement('CdtrRefInf');
-
-    if (transactionInformation.getCreditorReferenceType() == "SCOR") {
-		var tp = creditorReferenceInformation.addElement('Tp');
-        var issuer = tp.addElement('CdOrPrtry');
-        var code = issuer.addElement('Cd');
-        code.addTextNode(transactionInformation.getCreditorReferenceType());
-    }
-    else if (transactionInformation.getCreditorReferenceType() == "QRR") {
-		var tp = creditorReferenceInformation.addElement('Tp');
-        var issuer = tp.addElement('CdOrPrtry');
-        var proprietary = issuer.addElement('Prtry');
-        proprietary.addTextNode(transactionInformation.getCreditorReferenceType());
-    }
-
-    var reference = creditorReferenceInformation.addElement('Ref');
-    reference.addTextNode(creditorReference);
-
-    return remittanceInformation;
-}
-
-DomBuilder.prototype.asXml = function () {
-    var indent = true;
-    return Banana.Xml.save(this.doc, indent);
-}
-
-/**
- * Add GroupHeader Information to the document
- *
- * @param GroupHeader $groupHeader
- * @return mixed
- */
-DomBuilder.prototype.visitGroupHeader = function (groupHeader) {
-    var groupHeaderNode = this.currentTransfer.addElement('GrpHdr');
-    var node = groupHeaderNode.addElement('MsgId');
-    node.addTextNode(groupHeader.getMessageIdentification());
-    node = groupHeaderNode.addElement('CreDtTm');
-    node.addTextNode(_formatDateTime(groupHeader.getCreationDateTime()));
-    node = groupHeaderNode.addElement('NbOfTxs');
-    node.addTextNode(groupHeader.getNumberOfTransactions());
-    node = groupHeaderNode.addElement('CtrlSum');
-    node.addTextNode(_formatCurrency(groupHeader.getControlSumCents()));
-    var initiatingParty = groupHeaderNode.addElement('InitgPty');
-    node = initiatingParty.addElement('Nm');
-    node.addTextNode(groupHeader.getInitiatingPartyName());
-    if (groupHeader.getInitiatingPartyId().length > 0) {
-        if (this.painFormat === ID_PAIN_FORMAT_001_001_03) {
-            this.appendOrganizationIdentificationElement(initiatingParty, groupHeader.getInitiatingPartyId());
-        }
-        else {
-            node = initiatingParty.addElement('Id');
-            node.addTextNode(groupHeader.getInitiatingPartyId());
-        }
-    }
-    var contactDetails = initiatingParty.addElement('CtctDtls');
-    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
-        var othr = contactDetails.addElement('Othr');
-        node = othr.addElement('ChanlTp');
-        node.addTextNode('NAME');
-        node = othr.addElement('Id');
-        node.addTextNode(groupHeader.getSoftwareName());
-        othr = contactDetails.addElement('Othr');
-        node = othr.addElement('ChanlTp');
-        node.addTextNode('VRSN');
-        node = othr.addElement('Id');
-        node.addTextNode(groupHeader.getSoftwareVersion());
-        othr = contactDetails.addElement('Othr');
-        node = othr.addElement('ChanlTp');
-        node.addTextNode('PRVD');
-        node = othr.addElement('Id');
-        node.addTextNode(groupHeader.getSoftwareProvider());
-    }
-    else {
-        node = contactDetails.addElement('Nm');
-        node.addTextNode(groupHeader.getSoftwareName());
-        node = contactDetails.addElement('Othr');
-        node.addTextNode(groupHeader.getSoftwareVersion());
-    }
-}
-
-/**
- * Crawl PaymentInformation containing the Transactions
- *
- * @param PaymentInformation $paymentInformation
- * @return mixed
- */
-DomBuilder.prototype.visitPaymentInformation = function (paymentInformation) {
-    this.currentPayment = this.currentTransfer.addElement('PmtInf');
-    var node = this.currentPayment.addElement('PmtInfId');
-    node.addTextNode(paymentInformation.getId());
-    node = this.currentPayment.addElement('PmtMtd');
-    node.addTextNode(paymentInformation.getPaymentMethod());
-    node = this.currentPayment.addElement('BtchBookg');
-    if (parseInt(paymentInformation.getBatchBooking()) <= 0)
-        node.addTextNode('false');
-    else
-        node.addTextNode('true');
-    node = this.currentPayment.addElement('NbOfTxs');
-    node.addTextNode(paymentInformation.getNumberOfTransactions());
-    node = this.currentPayment.addElement('CtrlSum');
-    node.addTextNode(_formatCurrency(paymentInformation.getControlSumCents()));
-
-    if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
-        node = this.currentPayment.addElement('ReqdExctnDt');
-        node = node.addElement('Dt');
-    }
-    else {
-        node = this.currentPayment.addElement('ReqdExctnDt');
-    }
-    node.addTextNode(_formatDate(paymentInformation.getDueDate()));
-
-    var debtor = this.currentPayment.addElement('Dbtr');
-    node = debtor.addElement('Nm');
-    node.addTextNode(paymentInformation.getOriginName());
-
-    if (paymentInformation.getOriginBankPartyIdentification().length > 0 && this.painFormat === ID_PAIN_FORMAT_001_001_03) {
-        this.appendOrganizationIdentificationElement(debtor, paymentInformation.getOriginBankPartyIdentification());
-    }
-
-    var debtorAccount = this.currentPayment.addElement('DbtrAcct');
-    node = debtorAccount.addElement('Id');
-    node = node.addElement('IBAN');
-    node.addTextNode(paymentInformation.getOriginAccountIBAN());
-
-    //Debit advice
-    if (paymentInformation.getOriginAdvice().length > 0) {
-        node = debtorAccount.addElement('Tp');
-        node = node.addElement('Prtry');
-        node.addTextNode(paymentInformation.getOriginAdvice());
-    }
-
-    /*if (paymentInformation.getOriginAccountCurrency().length > 0) {
-        node = debtorAccount.addElement('Ccy');
-        node.addTextNode(paymentInformation.getOriginAccountCurrency());
-    }*/
-
-    if (paymentInformation.getOriginAgentBIC().length > 0) {
-        var debtorAgent = this.currentPayment.addElement('DbtrAgt');
-        this.appendFinancialInstitutionElement(debtorAgent, paymentInformation.getOriginAgentBIC());
-    }
-
-    // Charge Bearer
-    if (paymentInformation.getChargeBearer().length > 0) {
-        var chargeBearer = this.currentPayment.addElement('ChrgBr');
-        chargeBearer.addTextNode(paymentInformation.getChargeBearer());
-    }
-}
-
-/**
-     * Build the root of the document
-     *
-     * @param TransferFileInterface $transferFile
-     * @return mixed
-     */
-DomBuilder.prototype.visitTransferFile = function (transferFile) {
-    this.currentTransfer = this.root.addElement('CstmrCdtTrfInitn');
-}
-
-/**
- * Crawl Transactions
- *
- * @param TransferInformationInterface $transactionInformation
- * @return mixed
- */
-DomBuilder.prototype.visitTransferInformation = function (transactionInformation) {
-
-    /** @var $transactionInformation  CustomerCreditTransferInformation */
-    var cdtTrfTxInf = this.currentPayment.addElement('CdtTrfTxInf');
-
-    // PmtId
-    var pmtId = cdtTrfTxInf.addElement('PmtId');
-    if (transactionInformation.getInstructionId().length) {
-        var node = pmtId.addElement('InstrId');
-        node.addTextNode(transactionInformation.getInstructionId());
-    }
-    var node = pmtId.addElement('EndToEndId');
-    node.addTextNode(transactionInformation.getEndToEndIdentification());
-
-    // Payment Type Information
-    // If empty Credit Suisse throws error
-    var paymentTypeInformation = null;
-    if (transactionInformation.getLocalInstrumentCode().length > 0) {
-        paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
-        node = paymentTypeInformation.addElement('LclInstrm');
-        node = node.addElement('Cd');
-        node.addTextNode(transactionInformation.getLocalInstrumentCode());
-    }
-    else if (transactionInformation.getLocalInstrumentProprietary().length > 0) {
-        paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
-        node = paymentTypeInformation.addElement('LclInstrm');
-        node = node.addElement('Prtry');
-        node.addTextNode(transactionInformation.getLocalInstrumentProprietary());
-    }
-    if (transactionInformation.getCategoryPurpose().length > 0) {
-        if (paymentTypeInformation == null)
-            paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
-        node = paymentTypeInformation.addElement('CtgyPurp');
-        node = node.addElement('Cd');
-        node.addTextNode(transactionInformation.getCategoryPurpose());
-    }
-    if (transactionInformation.getServiceLevelCode().length > 0) {
-        if (paymentTypeInformation == null)
-            paymentTypeInformation = cdtTrfTxInf.addElement('PmtTpInf');
-        node = paymentTypeInformation.addElement('SvcLvl');
-        node = node.addElement('Cd');
-        node.addTextNode(transactionInformation.getServiceLevelCode());
-    }
-
-    // Amount
-    var amount = cdtTrfTxInf.addElement('Amt');
-    var instructedAmount = amount.addElement('InstdAmt');
-    instructedAmount.addTextNode(_formatCurrency(transactionInformation.getTransferAmount()));
-    instructedAmount.setAttribute('Ccy', transactionInformation.getCurrency());
-
-    // Ultimate Debtor
-    if (transactionInformation.getUltimateDebtorName().length > 0) {
-        var ultimateDebtor = cdtTrfTxInf.addElement('UltmtDbtr');
-        var ultimateDebtorName = ultimateDebtor.addElement('Nm');
-        ultimateDebtorName.addTextNode(transactionInformation.getUltimateDebtorName());
-    }
-
-    //Creditor Agent 2.77
-    if (transactionInformation.getBic().length > 0) {
-        var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
-        var financialInstitution = creditorAgent.addElement('FinInstnId');
-        if (this.painFormat === ID_PAIN_FORMAT_001_001_09_CH_03) {
-            var bic = financialInstitution.addElement('BICFI');
-            bic.addTextNode(transactionInformation.getBic());
-        }
-        else {
-            var bic = financialInstitution.addElement('BIC');
-            bic.addTextNode(transactionInformation.getBic());
-        }
-    }
-    else if (transactionInformation.getBankAccount().length > 0) {
-        var creditorAgent = cdtTrfTxInf.addElement('CdtrAgt');
-        var financialInstitution = creditorAgent.addElement('FinInstnId');
-        var name = financialInstitution.addElement('Nm');
-        name.addTextNode(transactionInformation.getBankName());
-        // Bank address if needed and supported by schema.
-        if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02, ID_PAIN_FORMAT_001_001_09_CH_03])) {
-            this.appendBankAddressToDomElement(financialInstitution, transactionInformation);
-        }
-        var other = financialInstitution.addElement('Othr');
-        var node = other.addElement('Id');
-        node.addTextNode(transactionInformation.getBankAccount());
-    }
-
-    // Creditor 2.79
-    var creditor = cdtTrfTxInf.addElement('Cdtr');
-    node = creditor.addElement('Nm');
-    node.addTextNode(transactionInformation.getCreditorName());
-
-    // Creditor address if needed and supported by schema.
-    if (_inArray(this.painFormat, [ID_PAIN_FORMAT_001_001_03, ID_PAIN_FORMAT_001_001_03_CH_02, ID_PAIN_FORMAT_001_001_09_CH_03])) {
-        this.appendAddressToDomElement(creditor, transactionInformation);
-    }
-
-    // CreditorAccount 2.80
-    var creditorAccount = cdtTrfTxInf.addElement('CdtrAcct');
-    var id = creditorAccount.addElement('Id');
-    var iban = transactionInformation.getIban();
-    var validIban = iban.match(/^[a-zA-Z]{2}.+$/);
-    if (validIban) {
-        var node = id.addElement('IBAN');
-        node.addTextNode(iban);
-    }
-    else {
-        var other = id.addElement('Othr');
-        var node = other.addElement('Id');
-        node.addTextNode(iban);
-    }
-
-    // remittance 2.98 2.99
-    if (transactionInformation.getCreditorReference().length > 0) {
-        this.appendStructuredRemittanceElement(cdtTrfTxInf, transactionInformation);
-    } else if (transactionInformation.getRemittanceInformation().length > 0) {
-        this.appendRemittanceElement(cdtTrfTxInf, transactionInformation.getRemittanceInformation());
-    }
-}
-
 
 /**
  * @param string messageIdentification Maximum length: 35. Reference Number of the bulk.
