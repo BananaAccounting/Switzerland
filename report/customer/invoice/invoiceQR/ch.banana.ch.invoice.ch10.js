@@ -295,10 +295,10 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (invoiceObj.document_info.doc_type === "17" || printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") { //17=estimate
-    userParam.qr_code_add = false; //estimates and delivery notes printed without QRCode
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") {
+    userParam.qr_code_add = false; //delivery notes printed without QRCode
   }
-  if (userParam.qr_code_add) {
+  if (userParam.qr_code_add && invoiceObj.document_info.doc_type !== "17") { // 17=offerta 
     var qrBill = new QRBill(banDoc, userParam);
     qrBill.printQRCode(invoiceObj, repDocObj, repStyleObj, userParam);
   }
