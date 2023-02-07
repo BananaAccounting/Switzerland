@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Aargauische Kantonalbank - Import bank account statement (*.csv)",
+    "description.en": "Aargauische Kantonalbank - Import bank account statement (*.csv)",
+    "description.de":"Aargauische Kantonalbank - Kontoauszug importieren (*.csv)",
+    "description.fr":"Aargauische Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "description.it":"Aargauische Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
+    "id": "ch.banana.switzerland.import.akb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Aargauische Kantonalbank - Import bank account statement (*.csv)",
+    "title.en": "Aargauische Kantonalbank - Import bank account statement (*.csv)",
+    "title.de":"Aargauische Kantonalbank - Kontoauszug importieren (*.csv)",
+    "title.fr":"Aargauische Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "title.it":"Aargauische Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
+    "version": "1.0"
+}
