@@ -2,10 +2,10 @@
 // @api = 1.0
 // @pubdate = 2023-02-08
 // @publisher = Banana.ch SA
-// @description = Bank statement Camt ISO 20022 (Switzerland SPS2021/SPS2022)
-// @description.de = Bankauszug Camt ISO 20022 (Schweiz  SPS2021/SPS2022)
-// @description.fr = Extrait de compte Camt ISO 20022 (Suisse  SPS2021/SPS2022)
-// @description.it = Estratto bancario Camt ISO 20022 (Svizzera  SPS2021/SPS2022)
+// @description = Bank statement Camt ISO 20022 Banana+ (Switzerland)
+// @description.de = Bankauszug Camt ISO 20022 Banana+ (Schweiz)
+// @description.fr = Extrait de compte Camt ISO 20022 Banana+ (Suisse)
+// @description.it = Estratto bancario Camt ISO 20022 Banana+ (Svizzera)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -17,6 +17,7 @@
 // @inputfilefilter.fr = Extrait de compte Camt ISO 20022 (*.xml);;All files (*.*)
 // @inputfilefilter.it = Estratto bancario Camt ISO 20022 (*.xml);;All files (*.*)
 // @includejs = ch.banana.switzerland.import.camt.v2.js
+// @includejs = ch.banana.switzerland.import.camt.v2.sps2022.js
 // @includejs = import.utilities.js
 
 /**
@@ -87,7 +88,7 @@ function settingsDialog() {
    var lang = getApplicationLanguage();
 
    var params = isoCamtReader.defaultParameters();
-   var savedParam = Banana.document.getScriptSettings();
+   var savedParam = Banana.document.getScriptSettings('ch.banana.switzerland.import.camt');
    if (savedParam.length > 0) {
       try {
          params = JSON.parse(savedParam);
@@ -279,7 +280,7 @@ function settingsDialog() {
          convertedParam.data[i].readValue();
       }
 
-      Banana.document.setScriptSettings(JSON.stringify(params));
+      Banana.document.setScriptSettings(JSON.stringify(params), 'ch.banana.switzerland.import.camt');
 
    } else {
       // Legacy dialog (before Banana.Ui.openPropertyEditor)
@@ -330,7 +331,7 @@ function ISO20022CamtFile() {
    this.lang = 'en';
    this.params = this.defaultParameters();
    if (Banana.document) {
-      var savedParam = Banana.document.getScriptSettings();
+      var savedParam = Banana.document.getScriptSettings('ch.banana.switzerland.import.camt');
       if (savedParam.length > 0) {
          try {
             this.params = JSON.parse(savedParam);

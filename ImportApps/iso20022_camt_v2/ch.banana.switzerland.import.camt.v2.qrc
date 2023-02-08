@@ -3,6 +3,6 @@
     <file>ch.banana.switzerland.import.camt.v2.js</file>
     <file>ch.banana.switzerland.import.camt.v2.sps2022.js</file>
     <file>ch.banana.switzerland.import.camt.v2.manifest.json</file>
-    <file>../import.utilities.js</file>
+    <file alias="import.utilities.js">../import.utilities.js</file>
  </qresource>
 </RCC>

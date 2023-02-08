@@ -2,10 +2,10 @@
     "category": "productivity",
     "country":"switzerland",
     "countryCode":"ch",
-    "description": "Bank statement Camt ISO 20022 (Switzerland SPS2021/SPS2022)",
+    "description": "Bank statement Camt ISO 20022 Banana+ (Switzerland)",
     "id":"ch.banana.switzerland.import.camt.v2",
     "language":"",
     "publisher": "Banana.ch",
-    "title": "Bank statement Camt ISO 20022 (Switzerland SPS2021/SPS2022)",
+    "title": "Bank statement Camt ISO 20022 Banana+ (Switzerland)",
     "version": "1.0"
 }
