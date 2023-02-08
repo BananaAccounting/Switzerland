@@ -16,7 +16,6 @@
 // @inputfilefilter.de = Bankauszug Camt ISO 20022 (*.xml);;All files (*.*)
 // @inputfilefilter.fr = Extrait de compte Camt ISO 20022 (*.xml);;All files (*.*)
 // @inputfilefilter.it = Estratto bancario Camt ISO 20022 (*.xml);;All files (*.*)
-// @includejs = ch.banana.switzerland.import.camt.v2.js
 // @includejs = ch.banana.switzerland.import.camt.v2.sps2022.js
 // @includejs = import.utilities.js
 
