@@ -88,7 +88,7 @@ function settingsDialog() {
    var lang = getApplicationLanguage();
 
    var params = isoCamtReader.defaultParameters();
-   var savedParam = Banana.document.getScriptSettings('ch.banana.switzerland.import.camt');
+   var savedParam = Banana.document.getScriptSettings();
    if (savedParam.length > 0) {
       try {
          params = JSON.parse(savedParam);
@@ -280,7 +280,7 @@ function settingsDialog() {
          convertedParam.data[i].readValue();
       }
 
-      Banana.document.setScriptSettings(JSON.stringify(params), 'ch.banana.switzerland.import.camt');
+      Banana.document.setScriptSettings(JSON.stringify(params));
 
    } else {
       // Legacy dialog (before Banana.Ui.openPropertyEditor)
@@ -331,7 +331,7 @@ function ISO20022CamtFile() {
    this.lang = 'en';
    this.params = this.defaultParameters();
    if (Banana.document) {
-      var savedParam = Banana.document.getScriptSettings('ch.banana.switzerland.import.camt');
+      var savedParam = Banana.document.getScriptSettings();
       if (savedParam.length > 0) {
          try {
             this.params = JSON.parse(savedParam);
