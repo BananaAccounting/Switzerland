@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// @includejs = ch.banana.switzerland.import.camt.sps2021.v2.js
+
 /**
  * Define the reader for Iso 20022 camt messages 
  * new version SPS 2022 (valid from November 2022)

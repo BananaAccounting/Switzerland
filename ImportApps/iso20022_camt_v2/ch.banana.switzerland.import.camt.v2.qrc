@@ -1,6 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
  <qresource>
-    <file>ch.banana.switzerland.import.camt.v2.sps2022.js</file>
+    <file>ch.banana.switzerland.import.camt.sps2022.v2.js</file>
+    <file>ch.banana.switzerland.import.camt.sps2021.v2.js</file>
     <file>ch.banana.switzerland.import.camt.v2.js</file>
     <file>ch.banana.switzerland.import.camt.v2.manifest.json</file>
     <file alias="import.utilities.js">../import.utilities.js</file>
