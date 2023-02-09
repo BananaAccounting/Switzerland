@@ -28,14 +28,14 @@ function exec(string, isTest) {
     if (!string)
         return "@Cancel";
 
+    // The extensions runs only with advanced Version of Banana Accounting
+    var importUtilities = new ImportUtilities(Banana.document);
+    if (!isTest && !importUtilities.verifyBananaPLusVersion())
+        return "@Cancel";
+
     var camtFile = new SPS2022CamtFile();
     camtFile.lang = getDocumentLanguage();
     camtFile.setDocument(string);
-
-    // The extensions runs only with advanced Version of Banana Accounting
-    var importUtilities = new ImportUtilities(Banana.document);
-    if (!isTest && !importUtilities.verifyBananaAdvancedVersion())
-        return "@Cancel";
 
     // Debug info for testing
     if (Banana.application.isInternal) {
