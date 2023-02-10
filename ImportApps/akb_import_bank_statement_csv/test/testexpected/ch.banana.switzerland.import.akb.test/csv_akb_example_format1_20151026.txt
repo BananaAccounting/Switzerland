@@ -1,0 +1,203 @@
+%%info_test_name{csv_akb_example_format1_20151026}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2015-07-01 & 2015-07-01 &  & Flaviturumentho / Træ.-By. 635485174 Numentint Nate & 159.09 & \\
+2015-07-02 & 2015-07-02 &  & Flaviturumentho / Træ.-By. 756830233 Numentint Nate & 213.45 & \\
+2015-07-03 & 2015-07-03 &  & Flaviturumentho / Træ.-By. 326838505 Numentint Nate & 112.10 & \\
+2015-07-03 & 2015-07-03 &  & Omultionda Nenditodo 271 13:63 & 1500.00 & \\
+2015-07-06 & 2015-07-06 &  & Cutatubit / Træ.-By. 671877847 B.C.J. Nate &  & 1500.00\\
+2015-07-06 & 2015-07-06 &  & Flaviturumentho / Træ.-By. 313580152 Numentint Nate & 770.21 & \\
+2015-07-06 & 2015-07-06 &  & Omultionda Nenditodo 271 76:46 & 9880.00 & \\
+2015-07-07 & 2015-07-07 &  & Volinterunducet C-Espilit (Iuviam Condicute: 4 / Træ.-By. 782261074) &  & 10665.00\\
+2015-07-07 & 2015-07-07 &  & Flaviturumentho / Træ.-By. 255407673 Numentint Nate & 161.82 & \\
+2015-07-07 & 2015-07-07 &  & Flaviturumentho / Træ.-By. 745032086 Numentint Nate & 144.01 & \\
+2015-07-07 & 2015-07-07 &  & Flaviturumentho / Træ.-By. 261568406 Numentint Nate & 151.84 & \\
+2015-07-09 & 2015-07-09 &  & Flaviturumentho / Træ.-By. 827060762 Numentint Nate & 297.45 & \\
+2015-07-10 & 2015-07-10 &  & Cutatubit C-Espilit / Træ.-By. 678353425 B.C.J. Nate &  & 500.00\\
+2015-07-10 & 2015-07-10 &  & Flaviturumentho / Træ.-By. 616812052 Numentint Nate & 101.74 & \\
+2015-07-13 & 2015-07-13 &  & Flaviturumentho / Træ.-By. 880638256 Numentint Nate & 551.85 & \\
+2015-07-13 & 2015-07-13 &  & Omultionda Nenditodo 271 44:63 & 4350.00 & \\
+2015-07-14 & 2015-07-14 &  & Cutatubit C-Espilit / Træ.-By. 850305371 Sidundix Mortiae By &  & 2393.95\\
+2015-07-14 & 2015-07-14 &  & Cutatubit C-Espilit / Træ.-By. 177050712 Sidundix Mortiae By &  & 2711.95\\
+2015-07-14 & 2015-07-14 &  & Flaviturumentho / Træ.-By. 188714572 Numentint Nate & 84.65 & \\
+2015-07-14 & 2015-07-14 &  & Flaviturumentho / Træ.-By. 344063150 Numentint Nate & 92.33 & \\
+2015-07-14 & 2015-07-14 &  & Flaviturumentho / Træ.-By. 422832565 Numentint Nate & 106.12 & \\
+2015-07-14 & 2015-07-14 &  & Cutatubit C-Espilit / Træ.-By. 276254330 B.C.J. Nate &  & 500.00\\
+2015-07-15 & 2015-07-15 &  & Flaviturumentho / Træ.-By. 384506066 Numentint Nate & 72.65 & \\
+2015-07-16 & 2015-07-16 &  & Flaviturumentho / Træ.-By. 455822575 Numentint Nate & 67.85 & \\
+2015-07-17 & 2015-07-17 &  & Flaviturumentho / Træ.-By. 778024758 Numentint Nate & 41.01 & \\
+2015-07-20 & 2015-07-20 &  & Cutatubit C-Espilit / Træ.-By. 652413616 B.C.J. Nate &  & 500.00\\
+2015-07-20 & 2015-07-20 &  & Flaviturumentho / Træ.-By. 233302207 Numentint Nate & 560.68 & \\
+2015-07-20 & 2015-07-17 &  & Cutatubit Seri Pricem / Træ.-By. 256405320 &  & 910.00\\
+2015-07-20 & 2015-07-20 &  & Omultionda Nenditodo 271 50:35 & 10000.00 & \\
+2015-07-21 & 2015-07-21 &  & Volinterunducet C-Espilit (Iuviam Condicute: 5 / Træ.-By. 878668222) &  & 9843.15\\
+2015-07-21 & 2015-07-21 &  & Flaviturumentho / Træ.-By. 656072630 Numentint Nate & 83.92 & \\
+2015-07-21 & 2015-07-21 &  & Flaviturumentho / Træ.-By. 216682025 Numentint Nate & 14.84 & \\
+2015-07-21 & 2015-07-21 &  & Flaviturumentho / Træ.-By. 371101132 Numentint Nate & 231.57 & \\
+2015-07-22 & 2015-07-22 &  & Flaviturumentho / Træ.-By. 124117175 Numentint Nate & 116.70 & \\
+2015-07-23 & 2015-07-23 &  & Flaviturumentho / Træ.-By. 652653224 Numentint Nate & 85.25 & \\
+2015-07-24 & 2015-07-24 &  & Cutatubit C-Espilit / Træ.-By. 807558133 B.C.J. Nate &  & 500.00\\
+2015-07-24 & 2015-07-24 &  & Flaviturumentho / Træ.-By. 886733700 Numentint Nate & 65.57 & \\
+2015-07-24 & 2015-07-27 &  & Flaviturumentho / Træ.-By. 341264342 6/SIT (Mortiae) By & 21.05 & \\
+2015-07-27 & 2015-07-27 &  & Cutatubit: Pastriplente / Træ.-By. 685312571 Fundita Vegisunissilli &  & 120.00\\
+2015-07-27 & 2015-07-27 &  & Cutatubit C-Espilit / Træ.-By. 720814060 Tum By &  & 143.20\\
+2015-07-27 & 2015-07-27 &  & Flaviturumentho / Træ.-By. 813700545 Numentint Nate & 532.38 & \\
+2015-07-27 & 2015-07-27 &  & Omultionda Nenditodo 271 45:84 & 4500.00 & \\
+2015-07-28 & 2015-07-28 &  & Flaviturumentho / Træ.-By. 503151114 Numentint Nate & 172.37 & \\
+2015-07-28 & 2015-07-28 &  & Flaviturumentho / Træ.-By. 876700388 Numentint Nate & 72.10 & \\
+2015-07-29 & 2015-07-29 &  & Volinterunducet C-Espilit (Iuviam Condicute: 2 / Træ.-By. 184430523) &  & 5159.40\\
+2015-07-29 & 2015-07-29 &  & Flaviturumentho / Træ.-By. 505861441 Numentint Nate & 65.22 & \\
+2015-07-30 & 2015-07-30 &  & Flaviturumentho / Træ.-By. 438837520 Numentint Nate & 27.05 & \\
+2015-07-31 & 2015-07-31 &  & Cutatubit C-Espilit / Træ.-By. 376704332 B.C.J. Nate &  & 330.00\\
+2015-07-31 & 2015-07-31 &  & Flaviturumentho / Træ.-By. 868137350 Numentint Nate & 59.64 & \\
+2015-08-03 & 2015-08-03 &  & Flaviturumentho / Træ.-By. 562503611 Numentint Nate & 988.42 & \\
+2015-08-04 & 2015-08-04 &  & Cutatubit C-Espilit / Træ.-By. 641516262 B.C.J. Nate &  & 200.00\\
+2015-08-04 & 2015-08-04 &  & Flaviturumentho / Træ.-By. 818323448 Numentint Nate & 95.17 & \\
+2015-08-04 & 2015-08-04 &  & Flaviturumentho / Træ.-By. 857062601 Numentint Nate & 62.85 & \\
+2015-08-04 & 2015-08-04 &  & Flaviturumentho / Træ.-By. 757577464 Numentint Nate & 277.95 & \\
+2015-08-05 & 2015-08-05 &  & Flaviturumentho / Træ.-By. 388640433 Numentint Nate & 46.44 & \\
+2015-08-06 & 2015-08-06 &  & Cutatubit C-Espilit / Træ.-By. 236683263 Fundita Vegisunissilli &  & 135.00\\
+2015-08-06 & 2015-08-06 &  & Flaviturumentho / Træ.-By. 307087577 Numentint Nate & 82.01 & \\
+2015-08-07 & 2015-08-07 &  & Cutatubit C-Espilit / Træ.-By. 576014628 B.C.J. Nate &  & 300.00\\
+2015-08-07 & 2015-08-07 &  & Flaviturumentho / Træ.-By. 363567222 Numentint Nate & 97.16 & \\
+2015-08-10 & 2015-08-10 &  & Flaviturumentho / Træ.-By. 538415433 Numentint Nate & 404.81 & \\
+2015-08-10 & 2015-08-10 &  & Omultionda Nenditodo 271 45:85 & 5050.61 & \\
+2015-08-11 & 2015-08-11 &  & Flaviturumentho / Træ.-By. 484071342 Numentint Nate & 31.19 & \\
+2015-08-11 & 2015-08-11 &  & Flaviturumentho / Træ.-By. 421813421 Numentint Nate & 11.61 & \\
+2015-08-11 & 2015-08-11 &  & Flaviturumentho / Træ.-By. 317675564 Numentint Nate & 263.74 & \\
+2015-08-11 & 2015-08-12 &  & Flaviturumentho / Træ.-By. 200138806 6/SIT (Mortiae) By & 27.55 & \\
+2015-08-12 & 2015-08-12 &  & Flaviturumentho / Træ.-By. 855360611 Numentint Nate & 22.47 & \\
+2015-08-13 & 2015-08-13 &  & Volinterunducet C-Espilit (Iuviam Condicute: 7 / Træ.-By. 311526373) &  & 4228.10\\
+2015-08-13 & 2015-08-13 &  & Cutatubit C-Espilit / Træ.-By. 156837168 B.C.J. Nate &  & 500.00\\
+2015-08-13 & 2015-08-13 &  & Flaviturumentho / Træ.-By. 486175616 Numentint Nate & 112.50 & \\
+2015-08-13 & 2015-08-13 &  & Raestquile Nenditodo 271 16:72 &  & 2000.00\\
+2015-08-14 & 2015-08-14 &  & Flaviturumentho / Træ.-By. 824862407 Numentint Nate & 34.57 & \\
+2015-08-17 & 2015-08-17 &  & Flaviturumentho / Træ.-By. 582286505 Numentint Nate & 611.99 & \\
+2015-08-17 & 2015-08-17 &  & Omultionda Nenditodo 271 76:68 & 7330.00 & \\
+2015-08-18 & 2015-08-18 &  & Volinterunducet C-Espilit (Iuviam Condicute: 3 / Træ.-By. 651164278) &  & 8215.60\\
+2015-08-18 & 2015-08-18 &  & Flaviturumentho / Træ.-By. 380881122 Numentint Nate & 128.39 & \\
+2015-08-18 & 2015-08-18 &  & Flaviturumentho / Træ.-By. 710831673 Numentint Nate & 77.21 & \\
+2015-08-18 & 2015-08-18 &  & Flaviturumentho / Træ.-By. 306550677 Numentint Nate & 65.93 & \\
+2015-08-19 & 2015-08-19 &  & Flaviturumentho / Træ.-By. 653362350 Numentint Nate & 67.21 & \\
+2015-08-20 & 2015-08-20 &  & Flaviturumentho / Træ.-By. 822356738 Numentint Nate & 68.45 & \\
+2015-08-21 & 2015-08-21 &  & Flaviturumentho / Træ.-By. 137581075 Numentint Nate & 57.70 & \\
+2015-08-24 & 2015-08-24 &  & Flaviturumentho / Træ.-By. 315714823 Numentint Nate & 414.48 & \\
+2015-08-25 & 2015-08-25 &  & Volinterunducet C-Espilit (Iuviam Condicute: 4 / Træ.-By. 717316822) &  & 635.00\\
+2015-08-25 & 2015-08-25 &  & Flaviturumentho / Træ.-By. 448774557 Numentint Nate & 47.33 & \\
+2015-08-25 & 2015-08-25 &  & Flaviturumentho / Træ.-By. 362285664 Numentint Nate & 44.62 & \\
+2015-08-25 & 2015-08-25 &  & Flaviturumentho / Træ.-By. 851501003 Numentint Nate & 228.23 & \\
+2015-08-26 & 2015-08-26 &  & Flaviturumentho / Træ.-By. 245308630 Numentint Nate & 27.70 & \\
+2015-08-27 & 2015-08-27 &  & Cutatubit: Pastriplente / Træ.-By. 428066240 Fundita Vegisunissilli &  & 120.00\\
+2015-08-27 & 2015-08-27 &  & Flaviturumentho / Træ.-By. 112073261 Numentint Nate & 177.66 & \\
+2015-08-28 & 2015-08-28 &  & Flaviturumentho / Træ.-By. 561778083 Numentint Nate & 80.17 & \\
+2015-08-31 & 2015-08-31 &  & Flaviturumentho / Træ.-By. 815768140 Numentint Nate & 560.74 & \\
+2015-08-31 & 2015-08-31 &  & Taneiuntuinvest Agro Os & 3400.00 & \\
+2015-09-01 & 2015-09-01 &  & Volinterunducet C-Espilit (Iuviam Condicute: 4 / Træ.-By. 842023620) &  & 2376.60\\
+2015-09-01 & 2015-09-01 &  & Flaviturumentho / Træ.-By. 253086347 Numentint Nate & 48.33 & \\
+2015-09-01 & 2015-09-01 &  & Flaviturumentho / Træ.-By. 330463810 Numentint Nate & 94.81 & \\
+2015-09-01 & 2015-09-01 &  & Flaviturumentho / Træ.-By. 187050272 Numentint Nate & 104.25 & \\
+2015-09-02 & 2015-09-02 &  & Flaviturumentho / Træ.-By. 500841084 Numentint Nate & 146.89 & \\
+2015-09-03 & 2015-09-03 &  & Volinterunducet C-Espilit (Iuviam Condicute: 4 / Træ.-By. 242255565) &  & 1537.85\\
+2015-09-03 & 2015-09-03 &  & Flaviturumentho / Træ.-By. 708242540 Numentint Nate & 40.76 & \\
+2015-09-03 & 2015-09-03 &  & Taneiuntuinvest Agro Os & 2750.00 & \\
+2015-09-04 & 2015-09-04 &  & Cutatubit C-Espilit / Træ.-By. 855410378 B.C.J. Nate &  & 500.00\\
+2015-09-04 & 2015-09-04 &  & Cutatubit C-Espilit / Træ.-By. 267433550 Empes Paray &  & 2000.00\\
+2015-09-04 & 2015-09-04 &  & Flaviturumentho / Træ.-By. 461776042 Numentint Nate & 57.00 & \\
+2015-09-04 & 2015-09-04 &  & Raestquile Nenditodo 271 51:28 &  & 1500.00\\
+2015-09-07 & 2015-09-07 &  & Flaviturumentho / Træ.-By. 444484182 Numentint Nate & 449.77 & \\
+2015-09-07 & 2015-09-07 &  & Omultionda Nenditodo 271 45:64 & 6600.00 & \\
+2015-09-08 & 2015-09-08 &  & Volinterunducet C-Espilit (Iuviam Condicute: 1 / Træ.-By. 286854507) &  & 6937.85\\
+2015-09-08 & 2015-09-08 &  & Flaviturumentho / Træ.-By. 785364341 Numentint Nate & 52.12 & \\
+2015-09-08 & 2015-09-08 &  & Flaviturumentho / Træ.-By. 325617076 Numentint Nate & 93.49 & \\
+2015-09-08 & 2015-09-08 &  & Flaviturumentho / Træ.-By. 500544384 Numentint Nate & 109.06 & \\
+2015-09-09 & 2015-09-09 &  & Flaviturumentho / Træ.-By. 746448602 Numentint Nate & 153.99 & \\
+2015-09-10 & 2015-09-10 &  & Flaviturumentho / Træ.-By. 516406623 Numentint Nate & 26.81 & \\
+2015-09-11 & 2015-09-11 &  & Cutatubit C-Espilit / Træ.-By. 321754681 B.C.J. Nate &  & 500.00\\
+2015-09-11 & 2015-09-11 &  & Flaviturumentho / Træ.-By. 770504026 Numentint Nate & 88.09 & \\
+2015-09-14 & 2015-09-14 &  & Flaviturumentho / Træ.-By. 432637540 Numentint Nate & 624.37 & \\
+2015-09-14 & 2015-09-14 &  & Omultionda Nenditodo 271 45:81 & 11100.00 & \\
+2015-09-15 & 2015-09-15 &  & Volinterunducet C-Espilit (Iuviam Condicute: 5 / Træ.-By. 766126718) &  & 6088.35\\
+2015-09-15 & 2015-09-15 &  & Cutatubit C-Espilit / Træ.-By. 887747100 Sidundix Mortiae By &  & 810.00\\
+2015-09-15 & 2015-09-15 &  & Cutatubit C-Espilit / Træ.-By. 126713421 Sidundix Mortiae By &  & 2486.95\\
+2015-09-15 & 2015-09-15 &  & Cutatubit C-Espilit / Træ.-By. 856471201 Sidundix Mortiae By &  & 2303.85\\
+2015-09-15 & 2015-09-15 &  & Flaviturumentho / Træ.-By. 835167625 Numentint Nate & 129.86 & \\
+2015-09-15 & 2015-09-15 &  & Flaviturumentho / Træ.-By. 504525403 Numentint Nate & 70.86 & \\
+2015-09-15 & 2015-09-15 &  & Flaviturumentho / Træ.-By. 500614777 Numentint Nate & 98.11 & \\
+2015-09-16 & 2015-09-16 &  & Flaviturumentho / Træ.-By. 400828720 Numentint Nate & 106.74 & \\
+2015-09-17 & 2015-09-17 &  & Cutatubit C-Espilit / Træ.-By. 324833280 B.C.J. Nate &  & 600.00\\
+2015-09-17 & 2015-09-17 &  & Flaviturumentho / Træ.-By. 682684360 Numentint Nate & 149.97 & \\
+2015-09-18 & 2015-09-18 &  & Flaviturumentho / Træ.-By. 662212543 Numentint Nate & 33.38 & \\
+2015-09-21 & 2015-09-21 &  & Cutatubit C-Espilit / Træ.-By. 342543654 Surantiuncenent Flamquobsquaddum Os &  & 195.60\\
+2015-09-21 & 2015-09-21 &  & Flaviturumentho / Træ.-By. 343363184 Numentint Nate & 361.97 & \\
+2015-09-22 & 2015-09-22 &  & Flaviturumentho / Træ.-By. 542874577 Numentint Nate & 21.08 & \\
+2015-09-22 & 2015-09-22 &  & Flaviturumentho / Træ.-By. 500207370 Numentint Nate & 50.43 & \\
+2015-09-22 & 2015-09-22 &  & Flaviturumentho / Træ.-By. 742212401 Numentint Nate & 100.53 & \\
+2015-09-23 & 2015-09-23 &  & Flaviturumentho / Træ.-By. 211760561 Numentint Nate & 107.77 & \\
+2015-09-24 & 2015-09-24 &  & Cutatubit C-Espilit / Træ.-By. 472723763 B.C.J. Nate &  & 500.00\\
+2015-09-24 & 2015-09-24 &  & Flaviturumentho / Træ.-By. 586283475 Numentint Nate & 165.47 & \\
+2015-09-25 & 2015-09-25 &  & Cutatubit: Pastriplente / Træ.-By. 144211684 Fundita Vegisunissilli &  & 120.00\\
+2015-09-25 & 2015-09-25 &  & Flaviturumentho / Træ.-By. 227536512 Numentint Nate & 103.55 & \\
+2015-09-28 & 2015-09-28 &  & Flaviturumentho / Træ.-By. 740610238 Numentint Nate & 523.45 & \\
+2015-09-28 & 2015-09-28 &  & Omultionda Nenditodo 271 45:10 & 6550.00 & \\
+2015-09-29 & 2015-09-29 &  & Volinterunducet C-Espilit (Iuviam Condicute: 2 / Træ.-By. 542448638) &  & 6231.75\\
+2015-09-29 & 2015-09-29 &  & Flaviturumentho / Træ.-By. 607227711 Numentint Nate & 52.82 & \\
+2015-09-29 & 2015-09-29 &  & Flaviturumentho / Træ.-By. 318451308 Numentint Nate & 33.18 & \\
+2015-09-29 & 2015-09-29 &  & Flaviturumentho / Træ.-By. 725447560 Numentint Nate & 113.42 & \\
+2015-09-30 & 2015-09-30 &  & Cutatubit C-Espilit / Træ.-By. 541752128 Sus Peray Sed Mempes Excinem &  & 60.00\\
+2015-09-30 & 2015-09-30 &  & Pricem Sed Corürego &  & 15.00\\
+2015-10-01 & 2015-10-01 &  & Flaviturumentho / Træ.-By. 404872713 Numentint Nate & 588.36 & \\
+2015-10-01 & 2015-10-01 &  & Taneiuntuinvest Agro Os & 600.00 & \\
+2015-10-02 & 2015-10-02 &  & Volinterunducet C-Espilit (Iuviam Condicute: 4 / Træ.-By. 124128675) &  & 2110.25\\
+2015-10-02 & 2015-10-02 &  & Flaviturumentho / Træ.-By. 843448386 Numentint Nate & 80.32 & \\
+2015-10-05 & 2015-10-05 &  & Cutatubit C-Espilit / Træ.-By. 862585272 B.C.J. Nate &  & 400.00\\
+2015-10-05 & 2015-10-05 &  & Flaviturumentho / Træ.-By. 168806613 Numentint Nate & 383.24 & \\
+2015-10-06 & 2015-10-06 &  & Flaviturumentho / Træ.-By. 562627881 Numentint Nate & 148.83 & \\
+2015-10-06 & 2015-10-06 &  & Flaviturumentho / Træ.-By. 226345050 Numentint Nate & 31.33 & \\
+2015-10-06 & 2015-10-06 &  & Flaviturumentho / Træ.-By. 222065722 Numentint Nate & 135.59 & \\
+2015-10-07 & 2015-10-07 &  & Flaviturumentho / Træ.-By. 262128065 Numentint Nate & 78.52 & \\
+2015-10-07 & 2015-10-07 &  & Omultionda Nenditodo 271 45:43 & 1850.00 & \\
+2015-10-08 & 2015-10-08 &  & Flaviturumentho / Træ.-By. 232813361 Numentint Nate & 75.63 & \\
+2015-10-09 & 2015-10-09 &  & Flaviturumentho / Træ.-By. 461013601 Numentint Nate & 94.41 & \\
+2015-10-12 & 2015-10-12 &  & Flaviturumentho / Træ.-By. 253474786 Numentint Nate & 536.02 & \\
+2015-10-12 & 2015-10-12 &  & Omultionda Nenditodo 271 45:45 & 7800.00 & \\
+2015-10-13 & 2015-10-13 &  & Flaviturumentho / Træ.-By. 704604215 Numentint Nate & 115.11 & \\
+2015-10-13 & 2015-10-13 &  & Flaviturumentho / Træ.-By. 310438452 Numentint Nate & 54.07 & \\
+2015-10-13 & 2015-10-13 &  & Flaviturumentho / Træ.-By. 652004473 Numentint Nate & 306.35 & \\
+2015-10-14 & 2015-10-14 &  & Flaviturumentho / Træ.-By. 475427470 Numentint Nate & 94.32 & \\
+2015-10-15 & 2015-10-15 &  & Flaviturumentho / Træ.-By. 251821772 Numentint Nate & 14.90 & \\
+2015-10-16 & 2015-10-16 &  & Flaviturumentho / Træ.-By. 200002257 Numentint Nate & 10.76 & \\
+2015-10-19 & 2015-10-19 &  & Flaviturumentho / Træ.-By. 176675035 Numentint Nate & 698.16 & \\
+2015-10-19 & 2015-10-19 &  & Taneiuntuinvest Agro Os & 8000.00 & \\
+2015-10-20 & 2015-10-20 &  & Volinterunducet C-Espilit (Iuviam Condicute: 13 / Træ.-By. 485517731) &  & 19411.60\\
+2015-10-20 & 2015-10-20 &  & Flaviturumentho / Træ.-By. 314802062 Numentint Nate & 40.65 & \\
+2015-10-20 & 2015-10-20 &  & Flaviturumentho / Træ.-By. 372130538 Numentint Nate & 32.45 & \\
+2015-10-20 & 2015-10-20 &  & Flaviturumentho / Træ.-By. 150323003 Numentint Nate & 260.17 & \\
+2015-10-21 & 2015-10-21 &  & Cutatubit C-Espilit / Træ.-By. 418173165 Decris Fragro J.O. &  & 980.05\\
+2015-10-21 & 2015-10-21 &  & Flaviturumentho / Træ.-By. 102858012 6/LIA Canguntiurruci By & 15500.00 & \\
+2015-10-21 & 2015-10-21 &  & Flaviturumentho / Træ.-By. 673016658 Numentint Nate & 142.80 & \\
+2015-10-22 & 2015-10-22 &  & Flaviturumentho / Træ.-By. 866076125 Numentint Nate & 66.47 & \\
+2015-10-23 & 2015-10-23 &  & Cutatubit C-Espilit / Træ.-By. 475474067 Call Dore Nenditodo Nate &  & 16000.00\\
+2015-10-23 & 2015-10-23 &  & Flaviturumentho / Træ.-By. 182726684 Numentint Nate & 52.51 & \\
+2015-10-26 & 2015-10-26 &  & Flaviturumentho / Træ.-By. 511811622 Numentint Nate & 631.98 & \\
+\\
+\end{tablevalue}
+\end{document}

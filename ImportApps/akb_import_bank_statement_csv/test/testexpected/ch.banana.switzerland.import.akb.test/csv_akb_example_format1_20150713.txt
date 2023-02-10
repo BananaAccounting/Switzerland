@@ -1,0 +1,207 @@
+%%info_test_name{csv_akb_example_format1_20150713}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2015-01-28 & 2015-01-29 &  & Terucirurrunge: 510635173, 80.86.43�Quaecis-Sione Inneriant�eo &  & 30.00\\
+2015-01-28 & 2015-01-29 &  & Terucirurrunge: 180154310, 80.86.43�Quaecis-Sione Inneriant�eo &  & 30.00\\
+2015-01-28 & 2015-01-28 &  & Atuunnertabstae�cone �si�t Tiatem & 7500.00 & \\
+2015-01-28 & 2015-01-28 &  & Sex�at�noctusica 11�4037 Hiurbitube�nittrigero: Amireriarino� &  & 4000.00\\
+2015-01-28 & 2015-01-28 &  & V�paraliquati 37�1837 A�carit In�nittrigero: Iundinvest� &  & 3510.10\\
+2015-02-11 & 2015-02-11 &  & 1/NECIDEO Aranno-Avation 47�6/BY/8508 Panitiorto�puniurem: Ferunguisico�jubsent Aph 10.86.4343�43.688.243/1201/A18JVSL� & 2567.00 & \\
+2015-03-02 & 2015-03-02 &  & Moregintis�verriater 444 34:37 & 6763.23 & \\
+2015-03-02 & 2015-03-02 &  & Sex�at�noctusica 11�4037 Hiurbitube�nittrigero: Amireriarino� &  & 4000.00\\
+2015-03-02 & 2015-03-02 &  & V�paraliquati 37�1837 A�carit In�nittrigero: Iundinvest� &  & 3510.10\\
+2015-03-06 & 2015-03-06 &  & 5442 Fislisbach�mitteilung: Restilcher Salaer� &  & 1550.00\\
+2015-03-09 & 2015-03-09 &  & 1/NECIDEO Aranno-Avation 47�6/BY/8508 Panitiorto�puniurem: 64.440.607, 130616243336�SPIS Numn Verriater MULI�7483 Verriater� & 67.30 & \\
+2015-03-25 & 2015-03-25 &  & Moregintis�verriater 444 56:52 & 5120.00 & \\
+2015-03-27 & 2015-03-27 &  & V�paraliquati 37�1837 A�carit In�nittrigero: Iundinvest� &  & 3630.10\\
+2015-03-27 & 2015-03-27 &  & Semplatas W-Quobset / Nor.-At. 188647404� &  & 1820.60\\
+2015-03-30 & 2015-03-30 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 62.12.43�STO Lone 862,78�SIT 1,45 Vos 34�CAUT/PEM 1,67� & 183.71 & \\
+2015-03-31 & 2015-03-31 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 37.12.43�STO Lone 62,11�SIT 1,34 Vos 6�CAUT/PEM 1,67� & 30.14 & \\
+2015-03-31 & 2015-03-31 &  & Moregintis�verriater 444 56:84 & 700.00 & \\
+2015-03-31 & 2015-03-31 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 62.12.43�STO Lone 4,56�SIT 1,33 Vos 1�CAUT/PEM 1,67� & 5.77 & \\
+2015-04-01 & 2015-04-01 &  & 8412 Gebenstorf�mitteilung: Telefon Kontenbetrag Aufladen� &  & 900.00\\
+2015-04-02 & 2015-04-02 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 30.46.43�STO Lone 61,62�SIT 1,15 Vos 6�CAUT/PEM 1,67� & 48.13 & \\
+2015-04-07 & 2015-04-07 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 51.46.43�STO Lone 820,43�SIT 1,88 Vos 1�CAUT/PEM 1,67� & 162.57 & \\
+2015-04-08 & 2015-04-08 &  & Moregintis�verriater 444 34:12 & 800.00 & \\
+2015-04-08 & 2015-04-08 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 51.46.43�STO Lone 325,12�SIT 6,66 Vos 8�CAUT/PEM 1,67� & 168.04 & \\
+2015-04-09 & 2015-04-09 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 1070.00\\
+2015-04-09 & 2015-04-09 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 10.46.43�STO Lone 56,62�SIT 1,46 Vos 1�CAUT/PEM 1,67� & 10.26 & \\
+2015-04-10 & 2015-04-10 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 56.46.43�STO Lone 66,43�SIT 1,75 Vos 4�CAUT/PEM 1,67� & 65.91 & \\
+2015-04-13 & 2015-04-13 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 55.46.43�STO Lone 353,40�SIT 1,10 Vos 15�CAUT/PEM 1,67� & 342.84 & \\
+2015-04-14 & 2015-04-14 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 37.46.43�STO Lone 88,78�SIT 1,10 Vos 4�CAUT/PEM 1,67� & 58.14 & \\
+2015-04-14 & 2015-04-14 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 55.46.43�STO Lone 41,46�SIT 1,52 Vos 6�CAUT/PEM 1,67� & 45.48 & \\
+2015-04-14 & 2015-04-14 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 55.46.43�STO Lone 381,10�SIT 1,10 Vos 1�CAUT/PEM 1,67� & 147.91 & \\
+2015-04-15 & 2015-04-15 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 43.46.43�STO Lone 10,56�SIT 1,82 Vos 1�CAUT/PEM 1,67� & 21.02 & \\
+2015-04-16 & 2015-04-16 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 87.46.43�STO Lone 40,46�SIT 1,10 Vos 6�CAUT/PEM 1,67� & 59.39 & \\
+2015-04-17 & 2015-04-17 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 919.00\\
+2015-04-17 & 2015-04-17 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 15.46.43�STO Lone 40,67�SIT 1,10 Vos 6�CAUT/PEM 1,67� & 58.79 & \\
+2015-04-20 & 2015-04-20 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 71.46.43�STO Lone 518,62�SIT 1,71 Vos 43�CAUT/PEM 1,67� & 495.71 & \\
+2015-04-21 & 2015-04-21 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 10.46.43�STO Lone 42,43�SIT 1,34 Vos 1�CAUT/PEM 1,67� & 32.64 & \\
+2015-04-21 & 2015-04-21 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 71.46.43�STO Lone 45,87�SIT 1,43 Vos 1�CAUT/PEM 1,67� & 54.46 & \\
+2015-04-21 & 2015-04-21 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 71.46.43�STO Lone 58,43�SIT 1,55 Vos 4�CAUT/PEM 1,67� & 81.22 & \\
+2015-04-23 & 2015-04-23 &  & Vescresciongit 37�1837 Tubsivit�nittrigero: Covum Ascepar 4343 + Trisi 4343�SPIS Numn Verriater Muli� &  & 240.00\\
+2015-04-24 & 2015-04-24 &  & 5001 Aarau� &  & 417.85\\
+2015-04-24 & 2015-04-24 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 75.46.43�STO Lone 52,43�SIT 1,62 Vos 4�CAUT/PEM 1,67� & 85.45 & \\
+2015-04-27 & 2015-04-27 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 73.46.43�STO Lone 417,52�SIT 1,47 Vos 37�CAUT/PEM 1,67� & 398.45 & \\
+2015-04-27 & 2015-04-27 &  & V�paraliquati 37�1837 A�carit In�nittrigero: Iundinvest� &  & 120.00\\
+2015-04-28 & 2015-04-28 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 80.46.43�STO Lone 44,78�SIT 1,55 Vos 1�CAUT/PEM 1,67� & 37.22 & \\
+2015-04-28 & 2015-04-28 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 73.46.43�STO Lone 82,67�SIT 1,10 Vos 1�CAUT/PEM 1,67� & 17.57 & \\
+2015-04-28 & 2015-04-28 &  & Moregintis�verriater 444 34:61 & 8740.00 & \\
+2015-04-28 & 2015-04-28 &  & Semplatas W-Quobset / Nor.-At. 748061588� &  & 1820.60\\
+2015-04-29 & 2015-04-29 &  & Vescresciongit 37�1837 Tubsivit�nittrigero: Covum 1. C. 4343� &  & 7020.00\\
+2015-04-29 & 2015-04-29 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 55.46.43�STO Lone 78,43�SIT 1,55 Vos 1�CAUT/PEM 1,67� & 35.02 & \\
+2015-04-30 & 2015-04-30 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 62.46.43�STO Lone 78,37�SIT 1,37 Vos 1�CAUT/PEM 1,67� & 38.36 & \\
+2015-05-04 & 2015-05-04 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 46.40.43�STO Lone 684,62�SIT 1,34 Vos 71�CAUT/PEM 1,67� & 592.19 & \\
+2015-05-04 & 2015-05-04 &  & Moregintis� & 6670.00 & \\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 756245135�TUM In�diventuntino. 71�8647 Duceratone� &  & 143.20\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 413340338�MORPENTE IN�2676 Propere� &  & 262.10\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 725578052�NUMNIMPLAM Nuincerem�cone Eorunt SENTO�7278 Timus� &  & 60.80\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 310272864�XXX Ventineripiget IN�6201 Panitiorto� &  & 1481.80\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 207150504�XXX Ventineripiget IN�6201 Panitiorto� &  & 804.50\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 236654071�XXX Habo�horgavingunt IN�5836 Siritam� &  & 498.25\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 138711056�XXX Ventineripiget IN�6201 Panitiorto� &  & 89.60\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 200304800�Y.G.M. MULI�4525 Vitiolundo�nittrigero: Modirimivitam Incerres� &  & 500.00\\
+2015-05-05 & 2015-05-05 &  & Semplatas W-Quobset / Nor.-At. 107376548�F. State + Por. In�aptendactianerunti 860�8718 Siritam� &  & 2000.00\\
+2015-05-05 & 2015-05-05 &  & Ineriganduci 1�7163 Tempentum� &  & 1876.00\\
+2015-05-05 & 2015-05-05 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 40.40.43�STO Lone 588,12�SIT 1,71 Vos 1�CAUT/PEM 1,67� & 162.13 & \\
+2015-05-05 & 2015-05-05 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 46.40.43�STO Lone 78,10�SIT 1,22 Vos 1�CAUT/PEM 1,67� & 37.96 & \\
+2015-05-05 & 2015-05-05 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 46.40.43�STO Lone 13,37�SIT 1,71 Vos 6�CAUT/PEM 1,67� & 72.27 & \\
+2015-05-06 & 2015-05-06 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 20.40.43�STO Lone 44,52�SIT 1,82 Vos 6�CAUT/PEM 1,67� & 49.67 & \\
+2015-05-07 & 2015-05-07 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 51.40.43�STO Lone 62,47�SIT 1,34 Vos 1�CAUT/PEM 1,67� & 30.29 & \\
+2015-05-08 & 2015-05-08 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 82.40.43�STO Lone 78,52�SIT 1,55 Vos 1�CAUT/PEM 1,67� & 35.72 & \\
+2015-05-11 & 2015-05-11 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 34.40.43�STO Lone 353,71�SIT 1,52 Vos 71�CAUT/PEM 1,67� & 342.98 & \\
+2015-05-11 & 2015-05-11 &  & Moregintis� & 5500.00 & \\
+2015-05-12 & 2015-05-12 &  & Semplatas W-Quobset / Nor.-At. 385840872�INSUM Des Muli�cangobsecto 82�3246 Phrietiury� &  & 3214.70\\
+2015-05-12 & 2015-05-12 &  & Semplatas W-Quobset / Nor.-At. 108824821�Y.G.M. MULI�4525 Vitiolundo�nittrigero: Modirimivitam Incerres� &  & 500.00\\
+2015-05-12 & 2015-05-12 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 52.40.43�STO Lone 61,46�SIT 1,55 Vos 1�CAUT/PEM 1,67� & 36.47 & \\
+2015-05-12 & 2015-05-12 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 34.40.43�STO Lone 66,46�SIT 1,33 Vos 6�CAUT/PEM 1,67� & 69.88 & \\
+2015-05-12 & 2015-05-12 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 34.40.43�STO Lone 667,67�SIT 1,60 Vos 4�CAUT/PEM 1,67� & 113.74 & \\
+2015-05-13 & 2015-05-13 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 55.40.43�STO Lone 352,45�SIT 1,45 Vos 4�CAUT/PEM 1,67� & 153.00 & \\
+2015-05-15 & 2015-05-15 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 43.40.43�STO Lone 444,43�SIT 1,42 Vos 87�CAUT/PEM 1,67� & 372.43 & \\
+2015-05-15 & 2015-05-13 &  & Semplatas Olos Sunius / Nor.-At. 636617818� &  & 2710.00\\
+2015-05-18 & 2015-05-18 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 82.40.43�STO Lone 133,52�SIT 1,82 Vos 55�CAUT/PEM 1,67� & 307.77 & \\
+2015-05-18 & 2015-05-18 &  & Moregintis� & 5000.00 & \\
+2015-05-19 & 2015-05-19 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 82.40.43�STO Lone 835,43�SIT 1,61 Vos 4�CAUT/PEM 1,67� & 107.39 & \\
+2015-05-19 & 2015-05-19 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 82.40.43�STO Lone 387,43�SIT 6,61 Vos 4�CAUT/PEM 1,67� & 304.27 & \\
+2015-05-19 & 2015-05-19 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 84.40.43�STO Lone 46,43�SIT 1,10 Vos 6�CAUT/PEM 1,67� & 60.74 & \\
+2015-05-20 & 2015-05-20 &  & Semplatas W-Quobset / Nor.-At. 260282361�R.I. Tericum XXX�SUSTAM�1386 Tannervus�nittrigero: 671080� &  & 307.55\\
+2015-05-20 & 2015-05-20 &  & Semplatas W-Quobset / Nor.-At. 771354854�R.I. Tericum XXX�SUSTAM�1386 Tannervus�nittrigero: 576207� &  & 87.05\\
+2015-05-20 & 2015-05-20 &  & Semplatas W-Quobset / Nor.-At. 347578205�INQUAM Cittit M.I.�3240 Cante� &  & 555.55\\
+2015-05-20 & 2015-05-20 &  & Semplatas W-Quobset / Nor.-At. 353107834�F. State + Por. In�aptendactianerunti 860�8718 Siritam� &  & 2000.00\\
+2015-05-20 & 2015-05-20 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 71.40.43�STO Lone 61,46�SIT 1,52 Vos 1�CAUT/PEM 1,67� & 36.48 & \\
+2015-05-21 & 2015-05-21 &  & Semplatas W-Quobset / Nor.-At. 414061828�Y.G.M. MULI�4525 Vitiolundo�nittrigero: Modirimivitam Incerres� &  & 500.00\\
+2015-05-21 & 2015-05-21 &  & Semplatas W-Quobset / Nor.-At. 187662427�XXX Ficubitiuntemile Panitiorto�panitiorto� &  & 1808.70\\
+2015-05-21 & 2015-05-21 &  & Semplatas W-Quobset / Nor.-At. 362304734�MITTEST Strisi Escrisi�glasuadestavesex 670�4812 Aliganditabo�nittrigero: Exemplus 754633� &  & 205.20\\
+2015-05-21 & 2015-05-21 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 10.40.43�STO Lone 35,10�SIT 1,61 Vos 1�CAUT/PEM 1,67� & 98.54 & \\
+2015-05-22 & 2015-05-22 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 52.40.43�STO Lone 34,47�SIT 1,46 Vos 1�CAUT/PEM 1,67� & 11.36 & \\
+2015-05-26 & 2015-05-26 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 60.40.43�STO Lone 806,78�SIT 1,15 Vos 80�CAUT/PEM 1,67� & 613.18 & \\
+2015-05-26 & 2015-05-22 &  & Semplatas Olos Sunius / Nor.-At. 654868025� &  & 1010.00\\
+2015-05-26 & 2015-05-26 &  & Moregintis� & 6870.00 & \\
+2015-05-27 & 2015-05-27 &  & V�paraliquati 37�1837 A�carit In�nittrigero: Iundinvest� &  & 120.00\\
+2015-05-27 & 2015-05-27 &  & 5001 Aarau� &  & 3384.00\\
+2015-05-27 & 2015-05-27 &  & Ineriganduci 1�7163 Tempentum� &  & 1854.85\\
+2015-05-27 & 2015-05-27 &  & Ineriganduci 1�7163 Tempentum� &  & 810.00\\
+2015-05-27 & 2015-05-27 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 73.40.43�STO Lone 26,62�SIT 1,84 Vos 6�CAUT/PEM 1,67� & 67.11 & \\
+2015-05-27 & 2015-05-27 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 60.40.43�STO Lone 45,52�SIT 1,43 Vos 1�CAUT/PEM 1,67� & 54.51 & \\
+2015-05-27 & 2015-05-27 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 60.40.43�STO Lone 334,47�SIT 1,35 Vos 4�CAUT/PEM 1,67� & 135.42 & \\
+2015-05-28 & 2015-05-28 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 500.00\\
+2015-05-28 & 2015-05-28 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 80.40.43�STO Lone 82,87�SIT 1,80 Vos 1�CAUT/PEM 1,67� & 78.52 & \\
+2015-05-29 & 2015-05-29 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 55.40.43�STO Lone 520,11�SIT 1,47 Vos 1�CAUT/PEM 1,67� & 112.85 & \\
+2015-06-01 & 2015-06-01 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 500.00\\
+2015-06-01 & 2015-06-01 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 86.20.43�STO Lone 532,68�SIT 1,46 Vos 84�CAUT/PEM 1,67� & 450.05 & \\
+2015-06-02 & 2015-06-02 &  & Tiatem Bentium Obar Xxx�coepe�hortuncrisubent 683�Puniurem: Supa Xxx Cat Auccerunga Freque De O�adducare Car Acculebibus, Bitino At�y Segroteniae Spelecistas.� & 4900.00 & \\
+2015-06-02 & 2015-06-02 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 30.20.43�STO Lone 33,43�SIT 1,11 Vos 1�CAUT/PEM 1,67� & 72.50 & \\
+2015-06-02 & 2015-06-02 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 86.20.43�STO Lone 78,10�SIT 1,55 Vos 6�CAUT/PEM 1,67� & 37.97 & \\
+2015-06-02 & 2015-06-02 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 86.20.43�STO Lone 52,46�SIT 1,55 Vos 1�CAUT/PEM 1,67� & 83.67 & \\
+2015-06-03 & 2015-06-03 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 12.20.43�STO Lone 827,40�SIT 1,30 Vos 52�CAUT/PEM 1,67� & 286.03 & \\
+2015-06-05 & 2015-06-05 &  & Semplatas W-Quobset / Nor.-At. 511518082�INQUAM Cittit M.I.�3240 Cante� &  & 1401.30\\
+2015-06-05 & 2015-06-05 &  & Semplatas W-Quobset / Nor.-At. 655560454�COGIT Fraeprow In�tequaranducia 123�8718 Siritam� &  & 976.30\\
+2015-06-05 & 2015-06-05 &  & Semplatas W-Quobset / Nor.-At. 106458752�Y.G.M. MULI�4525 Vitiolundo�nittrigero: Modirimivitam Incerres� &  & 1000.00\\
+2015-06-05 & 2015-06-05 &  & Semplatas W-Quobset / Nor.-At. 573766253� &  & 2220.60\\
+2015-06-05 & 2015-06-05 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 40.20.43�STO Lone 874,12�SIT 1,80 Vos 15�CAUT/PEM 1,67� & 670.28 & \\
+2015-06-08 & 2015-06-08 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 82.20.43�STO Lone 556,68�SIT 1,71 Vos 60�CAUT/PEM 1,67� & 624.45 & \\
+2015-06-09 & 2015-06-09 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 10.20.43�STO Lone 720,87�SIT 1,42 Vos 4�CAUT/PEM 1,67� & 146.29 & \\
+2015-06-09 & 2015-06-09 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 82.20.43�STO Lone 321,68�SIT 4,52 Vos 6�CAUT/PEM 1,67� & 171.43 & \\
+2015-06-09 & 2015-06-09 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 82.20.43�STO Lone 616,52�SIT 1,34 Vos 43�CAUT/PEM 1,67� & 263.18 & \\
+2015-06-10 & 2015-06-10 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 56.20.43�STO Lone 60,43�SIT 1,10 Vos 1�CAUT/PEM 1,67� & 26.66 & \\
+2015-06-11 & 2015-06-11 &  & Aptendactianerunti 860�8718 Siritam� &  & 2000.00\\
+2015-06-11 & 2015-06-11 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 34.20.43�STO Lone 40,45�SIT 1,10 Vos 4�CAUT/PEM 1,67� & 59.34 & \\
+2015-06-12 & 2015-06-12 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 52.20.43�STO Lone 63,10�SIT 1,43 Vos 6�CAUT/PEM 1,67� & 41.75 & \\
+2015-06-15 & 2015-06-15 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 43.20.43�STO Lone 370,37�SIT 1,22 Vos 73�CAUT/PEM 1,67� & 548.56 & \\
+2015-06-15 & 2015-06-12 &  & Semplatas Olos Sunius / Nor.-At. 844657546� &  & 960.00\\
+2015-06-16 & 2015-06-16 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 500.00\\
+2015-06-16 & 2015-06-16 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 87.20.43�STO Lone 61,67�SIT 1,55 Vos 1�CAUT/PEM 1,67� & 35.87 & \\
+2015-06-16 & 2015-06-16 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 43.20.43�STO Lone 63,12�SIT 1,67 Vos 1�CAUT/PEM 1,67� & 40.70 & \\
+2015-06-16 & 2015-06-16 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 43.20.43�STO Lone 71,12�SIT 1,12 Vos 6�CAUT/PEM 1,67� & 56.67 & \\
+2015-06-17 & 2015-06-17 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 15.20.43�STO Lone 87,71�SIT 1,20 Vos 1�CAUT/PEM 1,67� & 16.14 & \\
+2015-06-18 & 2015-06-18 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 82.20.43�STO Lone 381,43�SIT 1,51 Vos 6�CAUT/PEM 1,67� & 150.43 & \\
+2015-06-18 & 2015-06-18 &  & Moregintis� & 4640.00 & \\
+2015-06-19 & 2015-06-19 &  & 3000 Bern�eidg. Steuerverwaltung�bern�referenz: No.6053201506170927/0910870 Q03/201�4 Restguthaben - Mwst 0320472415� & 1134.90 & \\
+2015-06-19 & 2015-06-19 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 84.20.43�STO Lone 78,40�SIT 1,37 Vos 6�CAUT/PEM 1,67� & 37.91 & \\
+2015-06-22 & 2015-06-22 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 52.20.43�STO Lone 434,68�SIT 1,78 Vos 55�CAUT/PEM 1,67� & 660.30 & \\
+2015-06-22 & 2015-06-22 &  & Moregintis� & 6230.00 & \\
+2015-06-22 & 2015-06-22 &  & Gro 265.67, Vada: 1.648� & 184.68 & \\
+2015-06-23 & 2015-06-23 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 71.20.43�STO Lone 44,56�SIT 1,82 Vos 6�CAUT/PEM 1,67� & 48.92 & \\
+2015-06-23 & 2015-06-23 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 52.20.43�STO Lone 588,62�SIT 6,10 Vos 4�CAUT/PEM 1,67� & 158.55 & \\
+2015-06-23 & 2015-06-23 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 52.20.43�STO Lone 757,62�SIT 4,23 Vos 6�CAUT/PEM 1,67� & 214.68 & \\
+2015-06-23 & 2015-06-23 &  & 8046 Zuerich� &  & 2970.00\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 826223552�CULAUT Nommus In�rucitquatur 1�7612 Rantum Os� &  & 804.60\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 617851314�PERUM Miriet OS�4828 Culchortumeddum� &  & 435.10\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 153445004�INQUAM Cittit M.I.�3240 Cante� &  & 1052.95\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 612465308�R.I. Tericum XXX�SUSTAM�1386 Tannervus�nittrigero: 178051� &  & 66.25\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 565173615�BOMIVO Siritam�mantiptequarae Separe�ent VI�5065 Siritam� &  & 120.00\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 573141642�VICULO Scite In�niantinginvalus 670�8718 Siritam� &  & 650.90\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 873828460�FRUMUTIS�GRABIT Secendacte IN�2783 Siritam�nittrigero: Facieiuntriuvivit 4343�ANT: 2757�TIATEM�SPIS Numn Verriater Muli Pistescem� &  & 30.00\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 852505105�SERUNUMNIUSTIMEN�7483 Verriater� &  & 4082.10\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 121127828�INQUAM Cittit M.I.�3240 Cante� &  & 1264.65\\
+2015-06-24 & 2015-06-24 &  & Semplatas W-Quobset / Nor.-At. 360605503�F. State + Por. In�aptendactianerunti 860�8718 Siritam� &  & 2000.00\\
+2015-06-24 & 2015-06-24 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 75.20.43�STO Lone 67,12�SIT 1,62 Vos 1�CAUT/PEM 1,67� & 82.40 & \\
+2015-06-25 & 2015-06-25 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 300.00\\
+2015-06-25 & 2015-06-25 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 11.20.43�STO Lone 64,40�SIT 1,71 Vos 6�CAUT/PEM 1,67� & 55.85 & \\
+2015-06-26 & 2015-06-26 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 60.20.43�STO Lone 47,78�SIT 1,78 Vos 4�CAUT/PEM 1,67� & 97.00 & \\
+2015-06-26 & 2015-06-26 &  & V�paraliquati 37�1837 A�carit In�nittrigero: Iundinvest� &  & 120.00\\
+2015-06-29 & 2015-06-29 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 55.20.43�STO Lone 475,45�SIT 1,18 Vos 37�CAUT/PEM 1,67� & 532.67 & \\
+2015-06-30 & 2015-06-30 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 62.20.43�STO Lone 334,37�SIT 1,66 Vos 6�CAUT/PEM 1,67� & 188.84 & \\
+2015-06-30 & 2015-06-30 &  & 8412 Gebenstorf� &  & 500.00\\
+2015-06-30 & 2015-06-30 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 55.20.43�STO Lone 70,47�SIT 1,71 Vos 1�CAUT/PEM 1,67� & 59.78 & \\
+2015-06-30 & 2015-06-30 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 55.20.43�STO Lone 12,56�SIT 1,26 Vos 6�CAUT/PEM 1,67� & 68.42 & \\
+2015-06-30 & 2015-06-30 &  & Sunius Que Aut�pere� &  & 15.00\\
+2015-07-01 & 2015-07-01 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 86.51.43�STO Lone 536,68�SIT 1,64 Vos 6�CAUT/PEM 1,67� & 159.09 & \\
+2015-07-02 & 2015-07-02 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 30.51.43�STO Lone 487,71�SIT 1,43 Vos 6�CAUT/PEM 1,67� & 213.45 & \\
+2015-07-03 & 2015-07-03 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 12.51.43�STO Lone 187,37�SIT 1,47 Vos 4�CAUT/PEM 1,67� & 112.10 & \\
+2015-07-03 & 2015-07-03 &  & Moregintis� & 1500.00 & \\
+2015-07-06 & 2015-07-06 &  & Nittrigero: Modirimivitam Incerres� &  & 1500.00\\
+2015-07-06 & 2015-07-06 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 20.51.43�STO Lone 755,43�SIT 1,71 Vos 78�CAUT/PEM 1,67� & 770.21 & \\
+2015-07-06 & 2015-07-06 &  & Moregintis� & 9880.00 & \\
+2015-07-07 & 2015-07-07 &  & Semplatas W-Quobset / Nor.-At. 102885551�AEPTION Vempectoductas�vescresciongit 37�1837 Tubsivit�nittrigero: Ex Caph Calascerit�spis Numn� &  & 135.00\\
+2015-07-07 & 2015-07-07 &  & Semplatas W-Quobset / Nor.-At. 442213265�AEPTION Vempectoductas�vescresciongit 37�1837 Tubsivit�nittrigero: Covum 1. C. 4343� &  & 10530.00\\
+2015-07-07 & 2015-07-07 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 51.51.43�STO Lone 588,47�SIT 1,88 Vos 1�CAUT/PEM 1,67� & 161.82 & \\
+2015-07-07 & 2015-07-07 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 731052643 Eo-Nam 20.51.43�STO Lone 668,43�SIT 6,37 Vos 8�CAUT/PEM 1,67� & 144.01 & \\
+2015-07-07 & 2015-07-07 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 630728424 Si-Nam 20.51.43�STO Lone 884,62�SIT 6,70 Vos 1�CAUT/PEM 1,67� & 151.84 & \\
+2015-07-09 & 2015-07-09 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 10.51.43�STO Lone 242,37�SIT 1,40 Vos 52�CAUT/PEM 1,67� & 297.45 & \\
+2015-07-10 & 2015-07-10 &  & 8412 Gebenstorf�mitteilung: Telefonkarten Aufladen� &  & 500.00\\
+2015-07-10 & 2015-07-10 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 56.51.43�STO Lone 216,56�SIT 1,61 Vos 1�CAUT/PEM 1,67� & 101.74 & \\
+2015-07-13 & 2015-07-13 &  & Comniuva-Cone 6�A 38386 Pugantum�puniurem: Me 745200150 Et-Nam 55.51.43�STO Lone 556,87�SIT 1,43 Vos 52�CAUT/PEM 1,67� & 551.85 & \\
+2015-07-13 & 2015-07-13 &  & Moregintis� & 4350.00 & \\
+\\
+\end{tablevalue}
+\end{document}

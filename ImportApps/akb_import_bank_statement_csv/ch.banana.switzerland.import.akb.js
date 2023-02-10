@@ -112,7 +112,8 @@ function AKBFormat2() {
 
          var formatMatched = false;
          /* array should have all columns */
-         if (transaction.length >= this.colCount) 
+        if (transaction.length === this.colCount ||
+           (transaction.length === this.colCount+1 && transaction[this.colCount].length === 0))
             formatMatched = true;
          else 
             formatMatched = false;
