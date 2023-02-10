@@ -98,6 +98,12 @@ function settingsDialog() {
             Banana.console.log(err.toString());
         }
     }
+    else {
+        //import params from ch.banana.switzerland.import.camt (old version)
+        var importedParams = isoCamtReader.importScriptSettings();
+        if (importedParams)
+            params = importedParams;
+    }
 
     var dialogTitle = Banana.script.getParamLocaleValue('description');
     if (!dialogTitle)

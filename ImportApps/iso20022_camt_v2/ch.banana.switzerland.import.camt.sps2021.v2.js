@@ -30,6 +30,12 @@ var ISO20022CamtFile = class ISO20022CamtFile {
                     Banana.console.log(err.toString());
                 }
             }
+            else {
+                //import params from ch.banana.switzerland.import.camt (old version)
+                var importedParams = this.importScriptSettings();
+                if (importedParams)
+                    this.params = importedParams;
+            }
         }
     }
 
@@ -57,6 +63,54 @@ var ISO20022CamtFile = class ISO20022CamtFile {
         params.customer_no.keep_initial_zeros = false;
 
         return params;
+    }
+
+    importScriptSettings_extract(rowObj,rowNr,table) {
+        var key1 = 'PREFERITI';
+        var key2 = 'Apps';
+        var key3 = 'ch.banana.switzerland.import.camt';
+        if (rowObj)
+            return rowObj.value('Key1')=== key1 && rowObj.value('Key2')=== key2 && rowObj.value('Key3')=== key3;
+        return null;
+    }
+
+    importScriptSettings() {
+        if (!Banana.document)
+            return null;
+
+        var sysKeyTable = Banana.document.table('Syskey');
+        if (!sysKeyTable)
+            return null;
+
+        var rows = sysKeyTable.findRows(this.importScriptSettings_extract);
+        if (!rows || rows.length <=0)
+            return null;
+
+        var importedParams = rows[0].value('Value');
+        if (importedParams.length<=0)
+            return null;
+
+        importedParams = JSON.parse(importedParams);
+
+        if (importedParams) {
+            var params = this.defaultParameters();
+            for (var key in params) {
+                if (params.hasOwnProperty(key) && importedParams.hasOwnProperty(key)) {
+                    if (typeof (params[key]) === 'object') {
+                        for (var key2 in params[key]) {
+                            if (importedParams[key][key2]) {
+                                params[key][key2] = importedParams[key][key2];
+                            }
+                        }
+                    }
+                    else {
+                        params.key = importedParams.key;
+                    }
+                }
+            }
+            return params;
+        }
+        return null;
     }
 
     setDocument(xml) {
