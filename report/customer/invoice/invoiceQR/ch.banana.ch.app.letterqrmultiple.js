@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2022-05-18
+// @pubdate = 2023-02-14
 // @publisher = Banana.ch SA
 // @description = QR-Invoice from Excel
 // @description.it = QR-Fattura da Excel
@@ -149,7 +149,7 @@ function getRowsToPrint(userParam) {
   }
 
   //All the rows ("*")
-  else if (userParam.print_multiple_rows === "*") {
+  else if (!userParam.print_multiple_rows || userParam.print_multiple_rows === "*") {
     var table = Banana.document.table('QRCode');
     for (var i = 0; i < table.rowCount; i++) {
       var tRow = table.row(i);
@@ -805,10 +805,10 @@ function convertParam(userParam) {
     currentParam.parentObject = 'print_multiple';
     currentParam.title = texts.print_multiple_rows;
     currentParam.type = 'string';
-    currentParam.value = userParam.print_multiple_rows ? userParam.print_multiple_rows : '';
+    currentParam.value = userParam.print_multiple_rows ? userParam.print_multiple_rows : '*';
     currentParam.defaultvalue = '*';
     currentParam.readValue = function() {
-     userParam.print_multiple_rows = this.value;
+     userParam.print_multiple_rows = this.value.trim();
     }
     convertedParam.data.push(currentParam);
 
@@ -1121,7 +1121,7 @@ function initUserParam() {
   userParam.font_family = 'Helvetica';
   userParam.font_size = '10';
   userParam.css = '';
-  userParam.print_multiple_rows = '';
+  userParam.print_multiple_rows = '*';
   userParam.print_multiple_details = false;
   userParam.print_multiple_empty_amount = true; //include amount
 
