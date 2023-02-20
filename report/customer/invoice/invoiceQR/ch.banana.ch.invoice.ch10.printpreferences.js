@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2023-01-04 */
+/* Texts update: 2023-02-20 */
 
 
 
@@ -98,6 +98,14 @@ function getPrintPreferences_en() {
           {
             "id":"reminder_3",
             "text": "3rd reminder"
+          },
+          {
+            "id":"estimate",
+            "text": "Estimate"
+          },
+          {
+            "id":"proforma_invoice",
+            "text": "Proforma Invoice"
           }
         ],
         "default": "automatic"
@@ -145,6 +153,14 @@ function getPrintPreferences_it() {
           {
             "id":"reminder_3",
             "text": "3. richiamo"
+          },
+          {
+            "id":"estimate",
+            "text": "Offerta"
+          },
+          {
+            "id":"proforma_invoice",
+            "text": "Fattura Proforma"
           }
         ],
         "default": "automatic"
@@ -192,6 +208,14 @@ function getPrintPreferences_fr() {
           {
             "id":"reminder_3",
             "text": "3e rappel"
+          },
+          {
+            "id":"estimate",
+            "text": "Offre"
+          },
+          {
+            "id":"proforma_invoice",
+            "text": "Facture Proforma"
           }
         ],
         "default": "automatic"
@@ -239,6 +263,14 @@ function getPrintPreferences_de() {
           {
             "id":"reminder_3",
             "text": "3. Mahnung"
+          },
+          {
+            "id":"estimate",
+            "text": "Offerte"
+          },
+          {
+            "id":"proforma_invoice",
+            "text": "Proforma-Rechnung"
           }
         ],
         "default": "automatic"
