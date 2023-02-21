@@ -1182,7 +1182,7 @@ var QRBill = class QRBill {
 
 		/* Currency and amount */
 		qrcodeData.currency = invoiceObj.document_info.currency.toUpperCase();
-		qrcodeData.amount = invoiceObj.billing_info.total_to_pay;
+		qrcodeData.amount = Banana.Converter.toInternalNumberFormat(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay,2));
 		if (!qrcodeData.amount || Banana.SDecimal.sign(qrcodeData.amount) < 0) {
 			qrcodeData.amount = "0.00";
 		}
