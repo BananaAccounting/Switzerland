@@ -10546,6 +10546,222 @@ ewline RF39411003502
 ewline 
 ewline EPD
 ewline //S1/10/502/11/230103/20/1100/31/230103/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "proforma_invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: proforma\_invoice}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Proforma Invoice 501 \newline \\
+This is the begin text of the proforma invoice. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{469}{l}{}\\
+\multicolumn{468}{l}{Total net } & 501.39 \\
+\multicolumn{468}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{469}{l}{}\\
+\multicolumn{468}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+This is the final text of the proforma invoice. \\
+It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "proforma_invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: proforma\_invoice}
+\begin{reportvalue}{Invoice 502}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Proforma Invoice 502 \newline \\
+This is the begin text of the proforma invoice. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{474}{l}{}\\
+\multicolumn{473}{l}{Total net } & 83.57 \\
+\multicolumn{473}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{474}{l}{}\\
+\multicolumn{473}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+This is the final text of the proforma invoice. \\
+It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "estimate"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: estimate}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Estimate:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Validity:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Estimate:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Validity:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Estimate 501 \newline \\
+This is the begin text of the estimate. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{479}{l}{}\\
+\multicolumn{478}{l}{Total net } & 501.39 \\
+\multicolumn{478}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{479}{l}{}\\
+\multicolumn{478}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+This is the final text of the estimate. \\
+It can be on multiple lines. \\
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "estimate"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: estimate}
+\begin{reportvalue}{Invoice 502}
+\begin{longtable}[l]{ l  l }
+Estimate:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Validity:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Estimate:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Validity:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Estimate 502 \newline \\
+This is the begin text of the estimate. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{484}{l}{}\\
+\multicolumn{483}{l}{Total net } & 83.57 \\
+\multicolumn{483}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{484}{l}{}\\
+\multicolumn{483}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+This is the final text of the estimate. \\
+It can be on multiple lines. \\
+\end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
