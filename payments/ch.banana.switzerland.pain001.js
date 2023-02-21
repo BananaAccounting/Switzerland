@@ -204,6 +204,7 @@ function Pain001Switzerland(banDocument) {
     // errors id
     this.ID_ERR_DATE_NOTVALID = "ID_ERR_DATE_NOTVALID";
     this.ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
+    this.ID_ERR_ELEMENT_EXCEEDED_LENGTH = "ID_ERR_ELEMENT_EXCEEDED_LENGTH";
     this.ID_ERR_ELEMENT_REQUIRED = "ID_ERR_ELEMENT_REQUIRED";
     this.ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
     this.ID_ERR_IBAN_NOTVALID = "ID_ERR_IBAN_NOTVALID";
@@ -217,22 +218,19 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_QRIBAN_REFERENCE_NOTVALID = "ID_ERR_QRIBAN_REFERENCE_NOTVALID";
     this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
 
-    // deprecated payment type 3 in ID_PAIN_FORMAT_001_001_03_CH_02
+    // PT:3 in ID_PAIN_FORMAT_001_001_03_CH_02
+    // PT:D in ID_PAIN_FORMAT_001_001_09_CH_03
+    //D - Domestic payments in CHF/EUR (with IBAN, QRIBAN or account)
     this.ID_PAYMENT_QRCODE = "QRCODE";
-    this.ID_PAYMENT_QRCODE_DESCRIPTION = "Bank or postal payment (IBAN/QR-IBAN) in CHF & EUR";
-
-    // new payment types defined in ID_PAIN_FORMAT_001_001_09_CH_03
-    //D - Domestic payments in CHF/EUR (with IBAN, QR-IBAN or account)
-    this.ID_PAYMENT_TYPE_D = "D";
-    this.ID_PAYMENT_TYPE_D_DESCRIPTION = "Domestic payment in CHF/EUR";
-
-    //X - Cross-border and domestic payments in foreign currency (with IBAN or account)
-    this.ID_PAYMENT_TYPE_X = "X";
-    this.ID_PAYMENT_TYPE_X_DESCRIPTION = "Domestic payment in foreign currency";
+    this.ID_PAYMENT_QRCODE_DESCRIPTION = "Domestic payment in CHF/EUR (with IBAN, QR-IBAN or account)";
 
     //S - SEPA transfer in EUR (with IBAN)
     this.ID_PAYMENT_SEPA = "SEPA";
-    this.ID_PAYMENT_SEPA_DESCRIPTION = "SEPA transfer in EUR";
+    this.ID_PAYMENT_SEPA_DESCRIPTION = "SEPA payment in EUR (with IBAN)";
+
+    //X - Cross-border and domestic payments in foreign currency (with IBAN or account)
+    this.ID_PAYMENT_TYPE_X = "X";
+    this.ID_PAYMENT_TYPE_X_DESCRIPTION = "Domestic payment in foreign currency (with IBAN or account)";
 
     // supported payment formats
     this.ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
@@ -1179,6 +1177,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "Invalid date format. Plese enter the date in the format \"dd.mm.yyyy\"";
         case this.ID_ERR_ELEMENT_EMPTY:
             return "%1 is not defined";
+        case this.ID_ERR_ELEMENT_EXCEEDED_LENGTH:
+            return "Maximum %1 characters";
         case this.ID_ERR_ELEMENT_REQUIRED:
             return "This is a required field";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
@@ -1825,6 +1825,12 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
             }
+            else if (key === 'creditorName' && value.length > 70) {
+                params.data[i].errorId = this.ID_ERR_ELEMENT_EXCEEDED_LENGTH;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EXCEEDED_LENGTH);
+                params.data[i].errorMsg = params.data[i].errorMsg.replace("%1", "70");
+                error = true;
+            }
             /*else if (key === 'creditorStreet1' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
@@ -1914,7 +1920,8 @@ Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
         return false;
 
     var isExperimental = Banana.application.isExperimental;
-    if (!isExperimental) {
+    var isInternal = Banana.application.isInternal;
+    if (!isExperimental && !isInternal) {
         var msg = this.getErrorMessage(this.ID_ERR_EXPERIMENTAL_REQUIRED, this.getLang());
         if (suppressMsg)
             Banana.console.warn(msg);
