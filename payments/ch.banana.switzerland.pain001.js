@@ -222,11 +222,11 @@ function Pain001Switzerland(banDocument) {
     // PT:D in ID_PAIN_FORMAT_001_001_09_CH_03
     //D - Domestic payments in CHF/EUR (with IBAN, QRIBAN or account)
     this.ID_PAYMENT_QRCODE = "QRCODE";
-    this.ID_PAYMENT_QRCODE_DESCRIPTION = "Domestic payment in CHF/EUR (with IBAN, QR-IBAN or account)";
+    this.ID_PAYMENT_QRCODE_DESCRIPTION = "Bank or postal payment (IBAN/QR-IBAN) in CHF & EUR";
 
     //S - SEPA transfer in EUR (with IBAN)
     this.ID_PAYMENT_SEPA = "SEPA";
-    this.ID_PAYMENT_SEPA_DESCRIPTION = "SEPA payment in EUR (with IBAN)";
+    this.ID_PAYMENT_SEPA_DESCRIPTION = "SEPA transfer in EUR";
 
     //X - Cross-border and domestic payments in foreign currency (with IBAN or account)
     this.ID_PAYMENT_TYPE_X = "X";
