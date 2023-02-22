@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Basler Kantonalbank - Import bank account statement (*.csv)",
+    "description.en": "Basler Kantonalbank - Import bank account statement (*.csv)",
+    "description.de":"Basler Kantonalbank - Kontoauszug importieren (*.csv)",
+    "description.fr":"Basler Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "description.it":"Basler Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
+    "id": "ch.banana.switzerland.import.bkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Basler Kantonalbank - Import bank account statement (*.csv)",
+    "title.en": "Basler Kantonalbank - Import bank account statement (*.csv)",
+    "title.de":"Basler Kantonalbank - Kontoauszug importieren (*.csv)",
+    "title.fr":"Basler Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "title.it":"Basler Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
+    "version": "1.0"
+}
