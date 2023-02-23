@@ -59,8 +59,8 @@ TestImportBkb.prototype.cleanup = function() {
 TestImportBkb.prototype.testImport = function() {
    var fileNameList = [];
 
-   fileNameList.push("file:script/../test/testcases/csv_bkb_example_format1_20163006.csv");
-   fileNameList.push("file:script/../test/testcases/csv_bkb_example_format2_20230122.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bkb_example_format1A_20163006.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bkb_example_format1B_20230122.csv");
    
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);

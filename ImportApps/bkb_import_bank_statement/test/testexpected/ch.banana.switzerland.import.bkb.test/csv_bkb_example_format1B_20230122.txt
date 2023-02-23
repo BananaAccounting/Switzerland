@@ -1,4 +1,4 @@
-%%info_test_name{csv_bkb_example_format1_20163006}
+%%info_test_name{csv_bkb_example_format1B_20230122}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -20,10 +20,13 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2016-06-30 & 2016-06-30 &  & Gebuhren Sonst. Dienstleistungen Dienstleistungsgebuhren Bkb Buchungsnr. 382578143 &  & 90.9\\
-2016-06-30 & 2016-06-30 &  & Ruckvergutung Gebuhren Bkb Buchungsnr. 382578169 & 18 & \\
-2016-06-30 & 2016-06-30 &  & Paketgebuhr Bkb Buchungsnr. 382582120 &  & 30\\
-2016-07-01 & 2016-07-01 &  & Kassentransaktion Bkb Buchungsnr. 382829086 &  & 2000.00\\
+2023-01-03 & 2023-01-03 &  & Subsim Flumquobandione De Lansonius 2 & 4992.95 & \\
+2023-01-10 & 2023-01-10 &  & Fer Hyactaburgensi De 1811 Ocuscierem &  & 683.25\\
+2023-01-26 & 2023-01-20 &  & Brumentate Nix Somnibullituungi Ferumenem: Nunch De Exemultis &  & 80.8\\
+2023-02-01 & 2023-02-01 &  & Fer Hyactaburgensi De 1811 Ocuscierem &  & 1341.80\\
+2023-02-03 & 2023-02-03 &  & Diculis Stesendiniusto 1811 Ocuscierem &  & 758.9\\
+2023-02-06 & 2023-02-06 &  & Fer-Lano Compluductur De 8255 Perbent &  & 915.1\\
+2023-02-10 & 2023-02-10 &  & Subsim Flumquobandione De Lansonius 2 & 3295.62 & \\
 \\
 \end{tablevalue}
 \end{document}
