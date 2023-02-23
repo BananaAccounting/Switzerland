@@ -40,6 +40,14 @@ function exec(string,isTest) {
    var fieldSeparator = findSeparator(string);
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
 
+   // Format 5
+   var format5 = new ZKBFormat5();
+   if (format5.match( transactions))
+   {
+      transactions = format5.convert(transactions);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
    // Format 4
    var format4 = new ZKBFormat4();
    if ( format4.match( transactions))
@@ -106,6 +114,93 @@ function findSeparator( string) {
 }
 
 /**
+ * ZKB Format 5
+ *
+ * "Datum";"Buchungstext";"Konto";"Whg";"Belastung";"Gutschrift"
+ * "13.02.2023";"Gernenteret mEnturra (4) nostiam senstunanam, par tas ocens 56, SI-2408 sonest";"VW41 3107 4800 7571 4746 7";"ELL";"75.30";""
+ * "13.02.2023";"Gernenteret mEnturra (4) BomilentRat, rectunch. 621, SI-7031 Xxx n. Tüangi";"VW41 3107 4800 7571 4746 7";"ELL";"650.00";""
+ * "13.02.2023";"Gernenteret mEnturra (4) Identas Supia, Tangranterit. 10, SI-1137 Tabile me Ino";"VW41 3107 4800 7571 4746 7";"ELL";"533.10";""
+ */
+function ZKBFormat5() {
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colExternalRef = 2;
+   this.colValuta = 3;
+   this.colDebit = 4;
+   this.colCredit = 5;
+
+   this.colCount = 6;
+
+   /** Return true if the transactions match this format */
+   this.match = function(transactions) {
+      if (transactions.length === 0) 
+         return false;
+
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+  
+         var formatMatched = false;
+         /* array should have all columns */
+         if (transaction.length === this.colCount) 
+            formatMatched = true;
+         else 
+            formatMatched = false;
+  
+         if (formatMatched && transaction[this.colDate] &&
+          transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else 
+            formatMatched = false;
+  
+         if (formatMatched) return true;
+      }
+  
+      return false;
+   }
+
+   /** Convert the transaction to the format to be imported */
+   this.convert = function(transactions) {
+      var transactionsToImport = [];
+
+      for (i=1;i<transactions.length;i++) // First row contains the header
+      {
+         var transaction = transactions[i];
+
+         if ( transaction.length === 0) {
+            // Righe vuote
+            continue;
+         } 
+         if(transaction.length === this.colCount){
+            transactionsToImport.push(this.mapTransaction(transaction));
+         }
+            
+      }
+
+      // Sort rows by date (just invert)
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date","Doc","ExternalReference","Description","Income","Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   /** Return true if the transaction is a transaction row */
+   this.mapTransaction = function(element) {
+      var mappedLine = [];
+
+      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colExternalRef]);
+      var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
+      mappedLine.push( Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
+
+      return mappedLine;
+   }
+}
+
+/**
  * ZKB Format 4
  * With ZKB-Referenz and Referenznummer columns
  *
@@ -117,13 +212,13 @@ function findSeparator( string) {
  *
  */
 function ZKBFormat4() {
-   this.colDate     		= 0;
-   this.colDescr    		= 1;
-   this.colExternalRef     = 2;
-   this.colDebit    		= 4;
-   this.colCredit   		= 5;
-   this.colDateValuta    	= 6;
-   this.colBalance      	= 7;
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colExternalRef = 2;
+   this.colDebit = 4;
+   this.colCredit = 5;
+   this.colDateValuta = 6;
+   this.colBalance = 7;
 
    /** Return true if the transactions match this format */
    this.match = function(transactions) {
@@ -482,13 +577,13 @@ function ZKBFormat3() {
  * ,"SWISSCOM (SCHWEIZ) AG ALTE TIEFENAUSTRASSE 6 3050 BERN","155.85",,,,
  */
 function ZKBFormat2() {
-   this.colDate     		= 0;
-   this.colDescr    		= 1;
-   this.colDetail          = 2;
-   this.colDebit    		= 5;
-   this.colCredit   		= 6;
-   this.colDateValuta    	= 7;
-   this.colBalance      	= 8;
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colDetail = 2;
+   this.colDebit = 5;
+   this.colCredit = 6;
+   this.colDateValuta = 7;
+   this.colBalance = 8;
 
    /** Return true if the transactions match this format */
    this.match = function(transactions) {
@@ -595,13 +690,13 @@ function ZKBFormat2() {
  * ,"MR PINCO, STRASSE, DORF","1500.00",,,,
  */
 function ZKBFormat1() {
-   this.colDate     		= 0;
-   this.colDescr    		= 1;
-   this.colDetail         = 2;
-   this.colDebit    		= 3;
-   this.colCredit   		= 4;
-   this.colDateValuta    	= 5;
-   this.colBalance      	= 6;
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colDetail = 2;
+   this.colDebit = 3;
+   this.colCredit = 4;
+   this.colDateValuta = 5;
+   this.colBalance = 6;
 
    /** Return true if the transactions match this format */
    this.match = function(transactions) {
@@ -690,90 +785,4 @@ function ZKBFormat1() {
 
       return mappedLine;
    }
-}
-
-function verifyBananaVersion() {
-   if (!Banana.document)
-       return false;
-
-   var lang = getLang();
-
-   var BAN_VERSION_MIN = "10.0.12";
-   var BAN_DEV_VERSION_MIN = "";
-   var CURR_VERSION = bananaRequiredVersion(BAN_VERSION_MIN, BAN_DEV_VERSION_MIN);
-   var CURR_LICENSE = isBananaAdvanced();
-
-   if (!CURR_VERSION) {
-       var msg = getErrorMessage(ID_ERR_VERSION_NOTSUPPORTED, lang);
-       msg = msg.replace("%1", BAN_VERSION_MIN);
-       Banana.document.addMessage(msg, ID_ERR_VERSION_NOTSUPPORTED);
-       return false;
-   }
-   if (!CURR_LICENSE) {
-       var msg = getErrorMessage(ID_ERR_LICENSE_NOTVALID, lang);
-       Banana.document.addMessage(msg, ID_ERR_LICENSE_NOTVALID);
-       return false;
-   }
-   return true;
-}
-
-function bananaRequiredVersion(requiredVersion, expmVersion) {
-   /**
-    * Check Banana version
-    */
-   if (expmVersion) {
-       requiredVersion = requiredVersion + "." + expmVersion;
-   }
-   if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, requiredVersion) >= 0) {
-       return true;
-   }
-   return false;
-}
-
-function isBananaAdvanced() {
-   // Starting from version 10.0.7 it is possible to read the property Banana.application.license.isWithinMaxRowLimits 
-   // to check if all application functionalities are permitted
-   // the version Advanced returns isWithinMaxRowLimits always false
-   // other versions return isWithinMaxRowLimits true if the limit of transactions number has not been reached
-
-   if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.0.12") >= 0) {
-       var license = Banana.application.license;
-       if (license.licenseType === "advanced" || license.isWithinMaxFreeLines) {
-           return true;
-       }
-   }
-
-   return false;
-}
-
-function getErrorMessage(errorId, lang) {
-   if (!lang)
-       lang = 'en';
-   switch (errorId) {
-       case ID_ERR_EXPERIMENTAL_REQUIRED:
-           return "The Experimental version is required";
-       case ID_ERR_LICENSE_NOTVALID:
-           return "This extension requires Banana Accounting+ Advanced";
-       case ID_ERR_VERSION_NOTSUPPORTED:
-           if (lang == 'it')
-               return "Lo script non funziona con la vostra attuale versione di Banana Contabilità.\nVersione minimina richiesta: %1.\nPer aggiornare o per maggiori informazioni cliccare su Aiuto";
-           else if (lang == 'fr')
-               return "Ce script ne s'exécute pas avec votre version actuelle de Banana Comptabilité.\nVersion minimale requise: %1.\nPour mettre à jour ou pour plus d'informations, cliquez sur Aide";
-           else if (lang == 'de')
-               return "Das Skript wird mit Ihrer aktuellen Version von Banana Buchhaltung nicht ausgeführt.\nMindestversion erforderlich: %1.\nKlicken Sie auf Hilfe, um zu aktualisieren oder weitere Informationen zu bekommen";
-           else
-               return "This script does not run with your current version of Banana Accounting.\nMinimum version required: %1.\nTo update or for more information click on Help";
-   }
-   return '';
-}
-
-function getLang() {
-   var lang = 'en';
-   if (Banana.document)
-       lang = Banana.document.locale;
-   else if (Banana.application.locale)
-       lang = Banana.application.locale;
-   if (lang.length > 2)
-       lang = lang.substr(0, 2);
-   return lang;
 }

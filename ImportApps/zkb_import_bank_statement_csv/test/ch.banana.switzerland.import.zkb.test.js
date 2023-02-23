@@ -71,6 +71,7 @@ TestImportZkb.prototype.testImport = function() {
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format3_20171230.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format3_20220614.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format4_20161103.csv");
+   fileNameList.push("file:script/../test/testcases/csv_zkb_example_format5_20230223.csv");
    
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
