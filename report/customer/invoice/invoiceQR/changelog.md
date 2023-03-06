@@ -58,4 +58,6 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
     * Fix the address area is too wide and overflow the envolope window area  
 * 2023-01-09
 	* Added Delivery Notes and Reminders as print options (Advanced plan required).
-	* Added a new color for 'Title and Total' in parameters settings.
+	* Added a new color for 'Title and Total' in parameters settings.  
+* 2023-03-06
+	* Added Proforma Invoice and Estimate as print options (Advanced plan required).  
