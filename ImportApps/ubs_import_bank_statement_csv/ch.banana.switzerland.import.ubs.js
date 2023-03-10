@@ -164,13 +164,23 @@ function UBSFormat1() {
     /** Complete, filter and map rows */
     var lastCompleteTransaction = null;
 
-    for (
-      var i = 0;
-      i < transactions.length;
-      i++ // First row contains the header
-    ) {
+    for (var i = 0; i < transactions.length;i++ ) {
+      // First row contains the header
       var mappedTransaction = [];
       var transaction = transactions[i];
+
+      Banana.console.debug(transaction);
+      Banana.console.debug("length: " + transaction.length);
+      /*Banana.console.debug("last column nr: " + this.colCount + this.colBalance);
+      Banana.console.debug("last column content: " + transaction[this.colCount + this.colBalance]);
+      Banana.console.debug("penultima colonna: " + transaction[this.colCount + this.colCredit]);
+      Banana.console.debug("terultima colonna: " + transaction[this.colCount + this.colDebit]);
+      Banana.console.debug("quartultima colonna: " + transaction[this.colCount + this.colDetails]);
+      Banana.console.debug("quintulrima colonna: " + transaction[this.colCount + this.colExchRate]);*/
+      /*for(var j = 0; j < transaction.length;j++){
+        Banana.console.debug("j: " + transaction[j]);
+      }
+      Banana.console.debug("*********************");*/
 
       if (
         transaction.length <= this.colDate ||
@@ -178,12 +188,10 @@ function UBSFormat1() {
       )
         continue;
 
-      if (
-        transaction.length >= this.colCount + this.colBalance &&
+      if (transaction.length >= this.colCount + this.colBalance &&
         (transaction[this.colCount + this.colDebit].length > 0 ||
           transaction[this.colCount + this.colCredit].length > 0 ||
-          transaction[this.colCount + this.colBalance].length > 0)
-      ) {
+          transaction[this.colCount + this.colBalance].length > 0)) {
         // Is a complete row
         if (lastCompleteTransaction) {
           mappedTransaction = this.mapTransaction(lastCompleteTransaction);
