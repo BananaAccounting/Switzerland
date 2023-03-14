@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2023-01-04
+// @pubdate = 2023-02-21
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -264,26 +264,34 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   this.add_test_invoice_18("17", "Invoice 17"); //prints all vat rates, excluding no vat (empty)
   this.add_test_invoice_18("18", "Invoice 18"); //no vat rates printed
 
-  //Test DELIVERY NOTE
+  //Test DELIVERY NOTE (selected as print preference)
   Test.logger.addSubSection("Test25: delivery note");
   this.add_test_invoice_19("501", "Delivery Note 501", "delivery_note"); //integrated invoice, with amounts, with footer
   this.add_test_invoice_20("502", "Delivery Note 502", "delivery_note_without_amounts"); //integrated invoice, without amounts, without footer
   this.add_test_invoice_20("503", "Delivery Note 503", "delivery_note_without_amounts"); //integrated invoice, without amounts, without items subtotals, without footer
   this.add_test_invoice_20("504", "Delivery Note 504", "delivery_note_without_amounts"); //integrated invoice, without amounts, use shipping address as delivery note address (no customer address used), without footer
 
-  //Test REMINDER
+  //Test REMINDER (selected as print preference)
   Test.logger.addSubSection("Test26: reminder");
   this.add_test_invoice_20("501", "1. Reminder, invoice 501", "reminder_1"); //integrated invoice, 1st reminder
   this.add_test_invoice_20("502", "2. Reminder, invoice 502", "reminder_2"); //integrated invoice, 2nd reminder
   this.add_test_invoice_20("503", "3. Reminder, invoice 503", "reminder_3"); //integrated invoice, 3rd reminder
 
-  //Test AUTOMATIC (invoice)
+  //Test AUTOMATIC (invoice) - (selected as print preference)
   this.add_test_invoice_20("501", "Invoice 501", "automatic"); //integrated invoice
   this.add_test_invoice_20("502", "Invoice 502", "automatic"); //integrated invoice
 
-  //Test Invoice
+  //Test Invoice (selected as print preference)
   this.add_test_invoice_20("501", "Invoice 501", "invoice"); //integrated invoice
   this.add_test_invoice_20("502", "Invoice 502", "invoice"); //integrated invoice
+
+  //Test Proforma Invoice (selected as print preference)
+  this.add_test_invoice_20("501", "Invoice 501", "proforma_invoice"); //integrated invoice
+  this.add_test_invoice_20("502", "Invoice 502", "proforma_invoice"); //integrated invoice
+
+  //Test Estimate (selected as print preference)
+  this.add_test_invoice_20("501", "Invoice 501", "estimate"); //integrated invoice
+  this.add_test_invoice_20("502", "Invoice 502", "estimate"); //integrated invoice
   
 }
 
@@ -1251,20 +1259,39 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   var texts = setInvoiceTexts('en');
 
   var userParam = setUserParam(texts);
+
+  //Delivery notes params
   userParam.en_text_info_delivery_note_number = texts.number_delivery_note;
   userParam.en_text_info_date_delivery_note = texts.date_delivery_note;
   userParam.en_title_delivery_note = texts.delivery_note;
   userParam.en_text_begin_delivery_note = 'This is the begin text of the delivery note.';
   userParam.en_text_final_delivery_note = 'This is the final text of the delivery note.\nIt can be on multiple lines.\nThank you very much.';
+
+  //Reminders params
   userParam.en_title_reminder = '%1. ' + texts.reminder;
   userParam.en_text_begin_reminder = 'This is the begin text of the reminder.';
   userParam.en_text_final_reminder = 'This is the final text of the reminder.\nIt can be on multiple lines.';
 
+  //Proforma invoice params
+  userParam.en_title_proforma_invoice = texts.proforma_invoice + " <DocInvoice>";
+  userParam.en_text_begin_proforma_invoice = 'This is the begin text of the proforma invoice.';
+  userParam.en_text_final_proforma_invoice = 'This is the final text of the proforma invoice.\nIt can be on multiple lines.';
+  
+  //Estimate params
+  userParam.en_text_info_offer_number = texts.offer;
+  userParam.en_text_info_date_offer = texts.date;
+  userParam.en_text_info_validity_date_offer = texts.validity_terms_label;
+  userParam.en_title_doctype_17 = texts.offer + " <DocInvoice>";
+  userParam.en_text_begin_offer = 'This is the begin text of the estimate.';
+  userParam.en_text_final_offer = 'This is the final text of the estimate.\nIt can be on multiple lines.';
+
+  //Footer params
   userParam.footer_add = false;
   userParam.en_footer_left = 'Footer text left';
   userParam.en_footer_center = 'Footer text center';
   userParam.en_footer_right = 'Footer text right';
 
+  //QR params
   userParam.qr_code_add = true;
   userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
   userParam.qr_code_reference_type = 'SCOR'
@@ -1287,7 +1314,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables, preferencesObj);
   Test.logger.addReport(reportName, reportTest);
   //QRCode text
-  if (!printFormat.startsWith("delivery_note")) { //do not test QRCode text for delivery note, it's never printed
+  if (!printFormat.startsWith("delivery_note") && printformat !== "proforma_invoice" && printformat !== "estimate") { //do not test QRCode text (for deliverynote, proformainvoice and estimates), it's never printed
     var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
     Test.logger.addText(text);
   }

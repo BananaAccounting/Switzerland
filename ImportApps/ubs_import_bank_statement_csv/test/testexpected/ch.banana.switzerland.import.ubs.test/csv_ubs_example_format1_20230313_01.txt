@@ -1,0 +1,171 @@
+%%info_test_name{csv_ubs_example_format1_20230313_01}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & IsDetail\\
+2023-02-01 & 2023-02-01 &  & 2980032TI4375759 & "U-Quadunt-Subsemolex, Conis Mula, Ex 7882 Conunt, Parimuliunumula: I-64521 Pere Saleg, Experis: 51671 Dortuod Xxx: 13.16.7, 328, Perigerungi- Ius Dorbillatumquisisi" & 799.90 &  & \\
+2023-02-01 & 2023-02-01 &  & 9973532LP4064170 & "Mustate Equaestantäex, Pase-Movide Ut, Prabirigate. 73,, 6438 Ibach" &  & 80.00 & \\
+2023-02-01 & 2023-02-01 &  & 9973532KH8369203 & "Premplegere, IOI0X Suspitubila Eo Xxx, Fluunc 13 Fluci, Chius-Graect Ut, 5371 Pargem" &  & 501.30 & \\
+2023-02-02 & 2023-02-02 &  & 9999033ZC4233302 & "Poneümens, Aduere + Nultis Persupa-Optunt, Obtintiavircipleg 28 W, 4713 Tindi, Ex, Parimuliunumula: I-54174 Pere Saleg, Experis: 38714 Dortuod Xxx: 22.80.7, 555" & 6682.80 &  & \\
+2023-02-02 & 2023-02-02 &  & 9999033ZC4280540 & "Poneümens, Criput Quilla, Difig 63, 4876 Tatrier, Ex, Parimuliunumula: I-46758 Pere Saleg, Experis: 3342014 Dortuod Xxx: 80.80, .4007" & 5000.00 &  & \\
+2023-02-02 & 2023-02-02 &  & 9999033ZC4233460 & "Poneümens, Aduere + Nultis Persupa-Optunt, Obtintiavircipleg 28 W, 4713 Tindi, Ex, Parimuliunumula: I-28857 Pere Saleg, Experis: 38714 Dortuod Xxx: 22.80.7, 555" & 4898.90 &  & \\
+2023-02-02 & 2023-02-02 &  & 9999033ZC3971870 & "Poneümens, Solore Ansit, Obtintiavircipleg 2, 4713 Tindi, Ex, Parimuliunumula: I-78717 Pere Saleg, Experis: 3406806 Dortuod Xxx: 80.80, .4007" & 332.65 &  & \\
+2023-02-02 & 2023-02-02 &  & 9973533KH8411682 & "Premplegere, HPL3Y Suspitubila Eo Xxx, Fluunc 13 Fluci, Num-Aut Ut, 3065 Riplego, Mulchius: 472860843, Obangingulus: 58" &  & 236.55 & \\
+2023-02-02 & 2023-02-02 &  & 9973533KH8411731 & "Premplegere, HPL3Y Suspitubila Eo Xxx, Fluunc 13 Fluci, Num-Aut Ut, 3065 Riplego, Mulchius: 103085324, Obangingulus: 58" &  & 496.50 & \\
+2023-02-02 & 2023-02-02 &  & 9973532KH8369774 & "Premplegere, Calis, Stuid Ut, Ex 5560 Pectate, Ex.3738330400 Fig 10.37.4007, Ex.7041306714 Fig 10.37.4007" &  & 7564.52 & \\
+2023-02-03 & 2023-02-03 &  & 9999034ZC4628550 & "Poneümens, Salincere M. Ius Salincere M., Forentinerescet 74, Ex/novente 6861, Parimuliunumula: I-26646 Pere Saleg,  Experis: 80205 Dortuod Xxx: 80.80., 6 555" & 3500.00 &  & \\
+2023-02-03 & 2023-02-03 &  & 9901533E64783234 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302010005643, All  /   3007.10/NR.0010005643/KOM., 28.99/DAT.01.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 2978.11 &  & \\
+2023-02-06 & 2023-02-06 &  & 9901534E64975210 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302020006599, All  /   2996.25/NR.0020006599/KOM., 28.58/DAT.02.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 2967.67 &  & \\
+2023-02-06 & 2023-02-06 &  & 9999037ZC5350788 & "Poneümens, Retumquadit Ut, Tiustuirit 2, Ex/perae Ut 6302, 63.71.5127 I-31345" & 338.00 &  & \\
+2023-02-06 & 2023-02-06 &  & 9999037ZC5040210 & "Poneümens, Fenento. Caponumeni, Sucero 63, Ex/suum Ut 1102, Parimuliunumula: I-60765 Pere Saleg,  Experis: 28823 Dortuod Xxx: 22.80., 6 555" & 251.10 &  & \\
+2023-02-07 & 2023-02-07 &  & 9999038ZC5466953 & "Poneümens, Factuludispulingun, Ex, Parimuliunumula: I-22668 Pere Saleg,  Experis: 36224 Dortuod Xxx: 22.80., 6 555" & 4442.85 &  & S\\
+2023-02-07 & 2023-02-07 &  & 9999038ZC5466953 & "Ireüde Rea Mura Oüt Factuludispulingun" & -3.950000000 &  & D\\
+2023-02-07 & 2023-02-07 &  & 9901535E65104847 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302030007645, All  /   3474.90/NR.0030007645/KOM., 33.15/DAT.03.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 3441.75 &  & \\
+2023-02-07 & 2023-02-07 &  & 9901536E65175759 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302040010695, All  /   3041.85/NR.0040010695/KOM., 13.52/DAT.04.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 3028.33 &  & \\
+2023-02-07 & 2023-02-07 &  & 9999038ZC5415853 & "Poneümens, Eo. Numulumn Tava Ut, Opponieramilibus 7A, Ex/tava 4280, Parimuliunumula: I-74176 Pere Saleg,  Experis: 2438063 Dortuod Xxx: 77.0, 7 .4007" & 2471.00 &  & \\
+2023-02-07 & 2023-02-07 &  & 9973538KH8500175 & "Premplegere, LWS1M Suspitubila Eo Xxx, Fluunc 13 Fluci, Ligitabere Ut, 5412 Captum" &  & 668.02 & \\
+2023-02-08 & 2023-02-07 &  & 9930539BN6109321 & "Laterunium Xxx Aretrunt, Aucet 78561241-0 2350, Xxx Conera, Gro 81.22.10 61:38:10 Si: 10041081, Stiura Ant 6,813.56" & 3300.00 &  & \\
+2023-02-08 & 2023-02-08 &  & 9973539KH8509270 & "Premplegere, TAPF5 Suspitubila Eo Xxx, Fluunc 13 Fluci, Rigna Toduci Ut, Turaestinquada 45, Mulchius  88832015" &  & 132.95 & \\
+2023-02-08 & 2023-02-08 &  & 9973539KH8509293 & "Premplegere, XGH1F Suspitubila Eo Xxx, Fluunc 13 Fluci, Milla Ut, Ex" &  & 1865.75 & \\
+2023-02-09 & 2023-02-09 &  & 9999040ZC6363853 & "Poneümens, Vegatus Punit, Grateranietumen 47, 1862 Convare, Ex, I-70664 Potava-Et. 8182" & 4826.90 &  & \\
+2023-02-09 & 2023-02-09 &  & 0601040TO7674348 & "U-Quadunt-Subsemolex, Mante Oricascia Pausa Auprope, 6312 Steinhausen, Rechnungsnummer: R-13692 Ihre Kunde, Nnummer: 11204 Zahlbar Bis: 09.02.2, 023, Gutschrifts- Und Belastungsanzeigen" & 926.80 &  & \\
+2023-02-09 & 2023-02-09 &  & 9973540KH8519425 & "Premplegere, IOI0X Suspitubila Eo Xxx, Fluunc 13 Fluci, Chius-Graect Ut, 5371 Pargem" &  & 445.55 & \\
+2023-02-09 & 2023-02-09 &  & 9973539KH8509328 & "Premplegere, Calis, Stuid Ut, Ex 5560 Pectate, Ex.3002680304 Fig 28.37.4007" &  & 5196.53 & \\
+2023-02-10 & 2023-02-10 &  & 9999041ZC6669465 & "Poneümens, Aduere Sevent-Auprope, Alita 4F, 2362 Genavimple, Ex, Parimuliunumula: I-57762 Pere Saleg, Experis: 32041 Dortuod Xxx: 80.80.7, 555" & 11600.00 &  & \\
+2023-02-10 & 2023-02-10 &  & 9999041ZC6627238 & "Poneümens, Invera Sonsum, Atubem Belentanatus 6, Ex-3082 Pecula, Parimuliunumula: I-11636 Pere Saleg, Experis: 7314060 Dortuod Xxx: 83.80, .4007" & 2367.25 &  & \\
+2023-02-10 & 2023-02-10 &  & 9901540E65660238 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302080003788, All  /   2140.90/NR.0080003788/KOM., 18.87/DAT.08.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 2122.03 &  & \\
+2023-02-13 & 2023-02-13 &  & 9999044ZC6958183 & "Poneümens, Puli . Fœnum Et Ut, Taliuridisperum 73, Ex/tindi 4713, Candacum" & 3000.00 &  & \\
+2023-02-13 & 2023-02-13 &  & 9999044ZC6771806 & "Poneümens, Ut.Ute. Cor Alitumne, Tingurruntrima 5, 1355 Conunt, Ex, Parimuliunumula: I-41732 Pere Saleg, Experis: 6333257 Dortuod Xxx: 71.80, .4007" & 2833.00 &  & \\
+2023-02-13 & 2023-02-13 &  & 9999044ZC7000080 & "Poneümens, Solore Riertur, Suungente, 8832 Pressigit, Ex, Parimuliunumula: I-51488 Pere Saleg, Experis: 7268215 Dortuod Xxx: 16.80, .4007" & 65.00 &  & \\
+2023-02-13 & 2023-02-13 &  & 9999044ZC7032608 & "Poneümens, Retumquadit Ut, Tiustuirit 2, Ex/perae Ut 6302, 88.37.4007 I-25112" & 48.70 &  & \\
+2023-02-13 & 2023-02-13 &  & 9973044TJ0723180 & "U-Quadunt-Flattinvesura" &  & 158.15 & S\\
+2023-02-13 & 2023-02-13 &  & 9973044TJ0723180 & "Avige Mora, Alumella 3274, Ut-73851, Ex" & -118.980000000 &  & D\\
+2023-02-13 & 2023-02-13 &  & 9973044TJ0723180 & "Auprope Toduci Pote, 4910 Ried Im Innenkreis, De" & -39.170000000 &  & D\\
+2023-02-14 & 2023-02-14 &  & 9901543E66059478 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302110008220, All  /   5089.55/NR.0010008220/KOM., 36.82/DAT.11.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 5052.73 &  & \\
+2023-02-14 & 2023-02-14 &  & 9901542E65980702 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302100007712, All  /   2202.55/NR.0000007712/KOM., 10.85/DAT.10.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 2191.70 &  & \\
+2023-02-14 & 2023-02-14 &  & 9999045ZC7241695 & "Poneümens, Milla Ut, Dietionduod 63, Ex/siliriersit 7885, Subsemolex De 2124630" & 1044.90 &  & \\
+2023-02-15 & 2023-02-15 &  & 9973546KH8561763 & "Premplegere, GEB7V Suspitubila Eo Xxx, Fluunc 13 Fluci, Vadductumn Liuncro Pote, 1582 Ima, 65.37          8028173" &  & 803.30 & \\
+2023-02-15 & 2023-02-15 &  & 9973546KH8561766 & "Premplegere, XGH1F Suspitubila Eo Xxx, Fluunc 13 Fluci, Milla Ut, Ex" &  & 923.55 & \\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Poneülascittinque" &  & 13434.17 & S\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Restia Toduci Peria Ut, Ex Rest 7572" & -44.340000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Ulumn Graescectis Pote, Ex Convare 1862" & -38.500000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Quispor Ut, Disieinsiliuncent 47, Ex Ex 6023 Poprego" & -48.850000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Denentimuliccit Tindi - Gracciengun, Ex Tindi 4713" & -50.000000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Bet Susupa \& Ventento Xxx. Ut, Ex 7280 Urrum" & -66.200000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Bet Susupa \& Ventento Xxx. Ut, Ex 7280 Urrum" & -89.300000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Pate, Ex 6861 Novente" & -92.650000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Tianam Toduci Liuncro Ut, Ex 2526 Covengiusa" & -102.150000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Bet Susupa \& Ventento Xxx. Ut, Ex 7280 Urrum" & -102.400000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Plura Toduci Me, Ex 8846 Aduccant" & -120.600000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Sile \& Silla Ut, Ex Tindi 4713" & -123.250000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Tianam Toduci Liuncro Ut, Ex 2526 Covengiusa" & -128.700000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Plura Toduci Me, Ex 8846 Aduccant" & -129.250000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Gruntunium Habili, Ex 8800 Vistantine" & -133.950000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Lumerte Conte Est. Ut, Ex Berte 7085" & -148.650000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Ter-Sple Pote, Ex 8456 Picuiter Ut" & -149.700000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Plura Toduci Me, Ex 8846 Aduccant" & -159.400000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Conas Rierva Ut, Ex Quobursex 8737" & -222.650000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Solvent Mulluci Ut, Ex 5373 Riplego" & -229.000000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Solervis Ut, Ex Ilis 3253" & -244.900000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Obanto Nerrae Ut, Ex Simpere Insi 3286" & -259.820000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Coem Rea Vinetinch Ut, Ex Conera 3026" & -310.200000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "6QPC Liuncro; Num-Factate Struniant, Nomnimitum 50, Ex Bredra 7737" & -350.000000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Bet Susupa \& Ventento Xxx. Ut, Ex 7280 Urrum" & -351.050000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "6QPC Liuncro; Num-Factate Struniant, Nomnimitum 50, Ex Bredra 7737" & -390.000000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Num Pare Surbit Exerba Me, Ex 7711 Gradrae-Prirusa" & -456.650000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Insi-Spilla Bredra Ut, Ex 7737 Bredra" & -538.900000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Insi-Spilla Bredra Ut, Ex 7737 Bredra" & -829.900000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Lumerte Conte Est. Ut, Ex Berte 7085" & -920.600000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Sentere Peria Liuncro Ut, Vimicursiontarepe 83, Ex Berte 7085" & -925.860000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Get Ut, Ex Tindi 4713" & -1278.750000000 &  & D\\
+2023-02-15 & 2023-02-15 &  & BU05835C10088852 & "Decelintempetia Peret 37, Ex Pret 5402" & -4398.000000000 &  & D\\
+2023-02-16 & 2023-02-16 &  & 9973547KH8575766 & "Premplegere, IOI0X Suspitubila Eo Xxx, Fluunc 13 Fluci, Chius-Graect Ut, 5371 Pargem" &  & 7574.65 & \\
+2023-02-17 & 2023-02-17 &  & 9901547E66500411 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302150007914, All  /    932.95/NR.0050007914/KOM., 7.55/DAT.15.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 925.40 &  & \\
+2023-02-17 & 2023-02-17 &  & 9973047TI6299697 & "U-Quadunt-Pulecte, Harae Plevent Mitatulae Pote, Ex. Et. 4665184, Potava Et. 152" &  & 76.97 & \\
+2023-02-17 & 2023-02-17 &  & 9973547KH8575839 & "Premplegere, Venda Suspitubila Eo Xxx, Fluunc 13 Fluci, Pelium . Et Ut, 6024 Eandispuero, 4007/22/71 / 2111337" &  & 159.31 & \\
+2023-02-17 & 2023-02-17 &  & 9973048TJ0943850 & "U-Quadunt-Flattinvesura" &  & 290.66 & S\\
+2023-02-17 & 2023-02-17 &  & 9973048TJ0943850 & "Reanumea Ius Iplatuens Tindi, Ex" & -50.000000000 &  & D\\
+2023-02-17 & 2023-02-17 &  & 9973048TJ0943850 & "Avige Mora, Alumella 3274, Ut-73851, Ex" & -240.660000000 &  & D\\
+2023-02-17 & 2023-02-17 &  & 9973047TI6300121 & "U-Quadunt-Pulecte, Quide Pote V.Y. Merunt, Ex. Et. 15216222 - Sufere, Saleg Et. 1880117" &  & 2207.95 & \\
+2023-02-20 & 2023-02-20 &  & 9901548E66754887 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302160004772, All  /   3460.55/NR.0060004772/KOM., 31.81/DAT.16.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 3428.74 &  & \\
+2023-02-20 & 2023-02-20 &  & 9999051ZC8557988 & "Poneümens, Cabo Clartint, Seprore 33, 7082 Angi, Ex, Parimuliunumula: I-68843 Pere Saleg,  Experis: 48446 Dortuod Xxx: 16.80., 6 555" & 65.00 &  & \\
+2023-02-21 & 2023-02-21 &  & 9999052ZC8669431 & "Poneümens, Scem Noventrelint, Aeraduervalve 2, Ex/novente 6861, Parimuliunumula: I-32733 Pere Saleg, Experis: 2180 Dortuod Xxx: 22.80.30, 10" & 6597.95 &  & \\
+2023-02-21 & 2023-02-21 &  & 9901550E66999509 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302180006202, All  /   5823.75/NR.0080006202/KOM., 33.20/DAT.18.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 5790.55 &  & \\
+2023-02-21 & 2023-02-21 &  & 9901549E66927372 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302170009121, All  /   1677.40/NR.0070009121/KOM., 7.93/DAT.17.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 1669.47 &  & \\
+2023-02-21 & 2023-02-21 &  & 9973552KH8616917 & "Premplegere, LWS1M Suspitubila Eo Xxx, Fluunc 13 Fluci, Ligitabere Ut, 5412 Captum" &  & 241.13 & \\
+2023-02-21 & 2023-02-21 &  & 9973552KH8616924 & "Premplegere, LWS1M Suspitubila Eo Xxx, Fluunc 13 Fluci, Ligitabere Ut, 5412 Captum" &  & 361.72 & \\
+2023-02-21 & 2023-02-21 &  & GW51370I57115163 & "Poneülascittinque" &  & 1574.52 & S\\
+2023-02-21 & 2023-02-21 &  & GW51370I57115163 & "Vengula Ut, Ex 6370 Ierrum" & -722.790000000 &  & D\\
+2023-02-21 & 2023-02-21 &  & GW51370I57115163 & "Plura Toduci Me, Ex 8846 Aduccant" & -444.130000000 &  & D\\
+2023-02-21 & 2023-02-21 &  & GW51370I57115163 & "Periper Funde Ut, Ex Paritabant 6503" & -262.230000000 &  & D\\
+2023-02-21 & 2023-02-21 &  & GW51370I57115163 & "Plura Toduci Me, Ex 8846 Aduccant" & -128.570000000 &  & D\\
+2023-02-21 & 2023-02-21 &  & GW51370I57115163 & "Imum Liuncro Ut, Aptiunianigungrum 2, Ex Ilis 3253" & -16.800000000 &  & D\\
+2023-02-22 & 2023-02-22 &  & 9973553KH8625701 & "Premplegere, IOI0X Suspitubila Eo Xxx, Fluunc 13 Fluci, Chius-Graect Ut, 5371 Pargem" &  & 1411.55 & \\
+2023-02-22 & 2023-02-22 &  & 9973552KH8619219 & "Premplegere, LVN4G Suspitubila Eo Xxx, Fluunc 13 Fluci, Mens Ut Nerrae Per Ut, 5156 Liunimplant, Xxx 8703703 / 33.22.10" &  & 3253.00 & \\
+2023-02-22 & 2023-02-22 &  & 9973552KH8619220 & "Premplegere, LVN4G Suspitubila Eo Xxx, Fluunc 13 Fluci, Mens Ut Nerrae Per Ut, 5156 Liunimplant, Xxx 3654370 / 46.22.10" &  & 3468.75 & \\
+2023-02-23 & 2023-02-23 &  & 9999054ZC9532639 & "Poneümens, Hoc Xxx Quaddum Pradmitangungera, Curiamillunium 2, 2213 Lintall, Ex, I-68551" & 98.10 &  & \\
+2023-02-23 & 2023-02-23 &  & 9973553KH8625723 & "Premplegere, Calis, Stuid Ut, Ex 5560 Pectate, Ex.1654862757 Fig 74.22.4007, Ex.4640042081 Fig 74.22.4007" &  & 109.50 & \\
+2023-02-24 & 2023-02-24 &  & 9999055ZC9625442 & "Poneümens, Puli . Fœnum Et Ut, Taliuridisperum 73, Ex/tindi 4713, Candacum" & 1000.00 &  & \\
+2023-02-24 & 2023-02-24 &  & 9973554KH8634327 & "Premplegere, Venda Suspitubila Eo Xxx, Fluunc 13 Fluci, Pelium . Et Ut, 6024 Eandispuero, 4007/22/63 / 6368633" &  & 415.85 & \\
+2023-02-24 & 2023-02-24 &  & 1730055TI0464201 & "U-Quadunt-Flattinvesura, Incect Todivis Captumuncenstius Cor, Ex Pret 1577, J1HL1532073 //M2/30/6481871225 /13/, 570560718" &  & 20946.00 & \\
+2023-02-27 & 2023-02-27 &  & 9999058ZC1335845 & "Poneümens, Dedam Ellum, Ilententus 4, 5326 Aquilicibus, Ex" & 20000.00 &  & \\
+2023-02-27 & 2023-02-25 &  & 9930557BN3335070 & "Laterunium Xxx Aretrunt, Aucet 38688326-0 6765, Xxx Conera, Gro 28.22.10 81:88:38 Si: 10041081, Stiura Ant 7,120.56" & 7400.00 &  & \\
+2023-02-27 & 2023-02-27 &  & 9901555E68047581 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302230004094, All  /   4750.00/NR.0030004094/KOM., 23.22/DAT.23.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 4726.78 &  & \\
+2023-02-27 & 2023-02-25 &  & 9930557BN4126080 & "Laterunium Xxx Aretrunt, Aucet 38688326-0 6765, Xxx Conera, Gro 28.22.10 63:16:74 Si: 10041081, Stiura Ant 6,120.56" & 3400.00 &  & \\
+2023-02-27 & 2023-02-27 &  & 9999058ZC1053003 & "Poneümens, Maranesta Nanungua, Ut. Ute. Nem. Copeceat Funnerunies, 88, 2832 Alintegius Ex, I-66716" & 318.45 &  & \\
+2023-02-27 & 2023-02-27 &  & 9999058ZC1076528 & "Poneümens, Serescell Evest, Funnerunies 88, 2832 Alintegius, Ex, I-50257" & 240.85 &  & \\
+2023-02-27 & 2023-02-27 &  & 9999058ZC0789671 & "Poneümens, Xxx-Vervado Derant, Flumento 2, Ex/conera 4870, I-72513YIG-Et. 10740" & 200.00 &  & \\
+2023-02-27 & 2023-02-27 &  & 9999058ZC0725185 & "Poneümens, Opiradeo Salonch-Fenti, Rambuliquarestep 40, 1785 Uxorate Me, Ex, I-51011 / 15828 / 80.80.4007" & 131.50 &  & \\
+2023-02-27 & 2023-02-27 &  & 9973055TI1338566 & "U-Quadunt-Pulecte, Menter Conte Me, Rem-406106272 - Sufere" &  & 107.02 & \\
+2023-02-27 & 2023-02-27 &  & 9973558KH9214902 & "Premplegere, JCM2J Suspitubila Eo Xxx, Fluunc 13 Fluci, Vigunius (Liuncro) Ut, 2262 Gerunicula, Maturibericion: 3062761, Mulchius Gro 80.22.4007, Mulchius Et. 8488328586240560, Elluvile +66446264844" &  & 119.80 & \\
+2023-02-27 & 2023-02-27 &  & 9973055TI1339264 & "U-Quadunt-Pulecte, Quide Pote V.Y. Merunt, Ex. Et. 11861066 - Sufere, Saleg Et. 1880117" &  & 207.16 & \\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790780 & "Mustate Equaestantäex, Vadmile Prenissita Ut, Perigerungi- Ius Dorbillatumquisisi" &  & 291.00 & \\
+2023-02-27 & 2023-02-27 &  & 9973055TI1340525 & "U-Quadunt-Pulecte, Num Coeguis Pote, Ex, Saleg Et. 38675, Ex. 15745202, - Sufere" &  & 2539.22 & \\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790710 & "Mustate Equaestantäex" &  & 2901.93 & S\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790710 & "Igro Nulam, 4713 Tindi" & -1151.560000000 &  & D\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790710 & "Vegem Duerant" & -598.810000000 &  & D\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790710 & "Alicia Colo, Alintegius Ut" & -1151.560000000 &  & D\\
+2023-02-27 & 2023-02-27 &  & 9973558LK5959091 & "Orbillincero, Dedam Ellum, Olor Orbillincero" &  & 5953.65 & \\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790750 & "Mustate Equaestantäex" &  & 17543.71 & S\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790750 & "Visciet Equaer, 6467 Schattdorf" & -4577.960000000 &  & D\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790750 & "Equaer Stione, 6467 Schattdorf" & -5230.880000000 &  & D\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790750 & "Mulus Ellum, 6422 Steinen" & -4678.300000000 &  & D\\
+2023-02-27 & 2023-02-27 &  & 9973558LP5790750 & "Quendo Equaer, 6467 Schattdorf" & -3056.570000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & 9901557E68265233 & "Subsemolex, Fercuruci Liuncro Ut, 8005 Zuerich, /ROC/202302250005893, All  /   2960.65/NR.0050005893/KOM., 26.83/DAT.25.02.2023/BIKE + Climb, Up     /ibach, Gutschrifts- Und Belastungsanzeigen" & 2933.82 &  & \\
+2023-02-28 & 2023-02-28 &  & 9999059ZC2014663 & "Poneümens, Conde Magna, Revestion 83, 4713 Tindi, Ex, I-24370" & 466.50 &  & \\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Quado Ex-Rescentuuncect" &  & 60.95 & S\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Mangituilat Xxx Abituervest" & -10.000000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Mangituilat Xxx Abituervest" & -10.000000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Ireüde Rea Mura Oüt Factuludispulingun" & -3.950000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Fruniuvimungita Ret" & -5.400000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Umellum Radratis Imonduccitiamodisceleg" & 5.400000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Natudum Xxx Laph" & -37.000000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "R-Quadunt Ant Semple" & -3.300000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Umellum Radratis Imonduccitiamodisceleg" & 3.300000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Cat Abituungi Ant" & -6.300000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Umellum Radratis Imonduccitiamodisceleg" & 6.300000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Orbillincero Ant Semple" & -3.300000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & WI58053UT0773843 & "Umellum Radratis Imonduccitiamodisceleg" & 3.300000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & 9973559LP6987560 & "Mustate Equaestantäex" &  & 7080.00 & S\\
+2023-02-28 & 2023-02-28 &  & 9973559LP6987560 & "Volvo Intquam-Practo, 6430 Schwyz" & -80.000000000 &  & D\\
+2023-02-28 & 2023-02-28 &  & 9973559LP6987560 & "Perictis Pedectictent, Ex Conera 3026" & -7000.000000000 &  & D\\
+\\
+\end{tablevalue}
+\end{document}

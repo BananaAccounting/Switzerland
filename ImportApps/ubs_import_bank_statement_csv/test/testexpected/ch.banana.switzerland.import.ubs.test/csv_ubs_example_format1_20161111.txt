@@ -18,161 +18,161 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l  l }
-Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
-2016-10-03 & 2016-10-01 &  & "Continecem Vit Plurrunc, 7125 Combum, Ostro 32851785-3 3072, Fer 75.13.44 87:36:83 Me: 28858408" & 6600.00 &  & \\
-2016-10-03 & 2016-10-03 &  & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  53555411" &  & 39.30 & \\
-2016-10-03 & 2016-10-03 &  & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  77136518" &  & 53.75 & \\
-2016-10-03 & 2016-10-03 &  & "Dominatiunt, MTN2V Ficangionch An Vit, Reperi 60 Pugna, Eror Ut Pulino Xxx Os, 5637 Menthention, Dio 5876021 / 72.47.44" &  & 163.30 & \\
-2016-10-03 & 2016-10-03 &  & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  68170084" &  & 634.85 & \\
-2016-10-03 & 2016-10-03 &  & "Xxx Memodie" &  & 7301.93 & S\\
-2016-10-03 & 2016-10-03 &  & "Inverm Pulino Os, 7378 Homiunt" & -601.750000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Deper Cabila Ex, 7262 Semplect" & -4045.050000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -57.900000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Bral Rirum Viam, 3478 Securedra" & -59.780000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Fœnum Subit Los, 4131 Solegi" & -82.300000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Ipect Tirinal Bieino, 1027 Stunduci" & -415.100000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Bral Rirum Viam, 3478 Securedra" & -573.450000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Cogite Ex, 1027 Stunduci" & -597.500000000 &  & D\\
-2016-10-03 & 2016-10-03 &  & "Cendi Sedabilianti, Et-36327 Paracit" & -869.100000000 &  & D\\
-2016-10-04 & 2016-10-04 &  & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig    3351.23/DE:6500633341, Gro:     5.71/PUS:75.13.4235, Puer + Obsec Os  /tempes In" & 4510.57 &  & \\
-2016-10-05 & 2016-10-05 &  & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 1702301" &  & 1347.60 & \\
-2016-10-06 & 2016-10-06 &  & "Wide�part, Suuntiuna Turo Viam, Moturbet 88, OS/8127 Comere, Ex-De.            5610334807, Fig.Pus. 5173350    44/47/35, Sandit                768.77, Prehentire              7.13" & 134.50 &  & \\
-2016-10-10 & 2016-10-10 &  & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  11140661" &  & 21.15 & \\
-2016-10-10 & 2016-10-10 &  & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  61776173" &  & 154.60 & \\
-2016-10-10 & 2016-10-10 &  & "Dominatiunt, MTN2V Ficangionch An Vit, Reperi 60 Pugna, Eror Ut Pulino Xxx Os, 5637 Menthention, Dio 3446317 / 13.47.44" &  & 2339.30 & \\
-2016-10-10 & 2016-10-10 &  & "Xxx Memodie" &  & 26854.74 & S\\
-2016-10-10 & 2016-10-10 &  & "Insa Cabila Ex, 1740 Mico" & -13.250000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Os Festaber Gaut Viam, 7077 Lumn" & -43.000000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -46.900000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Rerrest Os, 1318 Comerea" & -60.650000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Ant Lita + Bone, E. Gendivo, 5445 Homiunt" & -68.200000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Rem Contemo Viam, 1213 Aquaequeluci" & -88.850000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Deper Cabila Ex, 7262 Semplect" & -102.800000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Singa Pere, Ut-62048 Dionginanstas" & -121.600000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Post Os Os Digneria, 6147 Fœnum" & -176.000000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Trate Parate Viam, 5433 Homiunt" & -192.350000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Medisim Cabila Natus Horumn V.O, In - 2147 De Mungursum" & -200.370000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Rerrest Os, 1318 Comerea" & -223.950000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Equam Os, 5445 O Grat" & -265.200000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -304.750000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Insa Cabila Ex, 1740 Mico" & -319.000000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -466.200000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Conibi Cabila Natus Os, 4344 Sico" & -961.150000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Poribenetticcut Tubit 71, 1442 Mate" & -1910.150000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Poribenetticcut Tubit 71, 1442 Mate" & -1915.750000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Conibi Cabila Natus Os, 4344 Sico" & -2462.400000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Artur Pulino More, 8461 Sisu Quiendifico" & -3642.050000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Poribenetticcut Tubit 71, 1442 Mate" & -6387.000000000 &  & D\\
-2016-10-10 & 2016-10-10 &  & "Deper Cabila Ex, 7262 Semplect" & -6883.170000000 &  & D\\
-2016-10-11 & 2016-10-11 &  & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig   51050.62/DE:8255834520, Gro:    41.86/PUS:84.13.4235, Puer + Obsec Os  /tempes In" & 11038.21 &  & \\
-2016-10-11 & 2016-10-11 &  & "Dominatiunt, GUU5G Ficangionch An Vit, Reperi 60 Pugna, Hoc Os, 8374 Radit, 234870474" &  & 665.05 & \\
-2016-10-12 & 2016-10-12 &  & "Dominatiunt, FLE1P Ficangionch An Vit, Reperi 60 Pugna, Alunt Os, 8545 Inventianno, Flanerna De. 34324, Fer 13.13.4235" &  & 322.15 & \\
-2016-10-13 & 2016-10-13 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/80 / 4513753" &  & 57.15 & \\
-2016-10-13 & 2016-10-13 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/80 / 3601848" &  & 68.27 & \\
-2016-10-13 & 2016-10-13 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/73 / 1441217" &  & 68.80 & \\
-2016-10-13 & 2016-10-13 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/57 / 4178032" &  & 222.52 & \\
-2016-10-13 & 2016-10-13 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/80 / 6016277" &  & 391.61 & \\
-2016-10-17 & 2016-10-17 &  & "Post�reganertum, Puer + Obsec Os,, Q. Gem E. Widux, Genducendi 7, 6241 Tempes In, Lonsimum" & 40000.00 &  & \\
-2016-10-17 & 2016-10-17 &  & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  31484206" &  & 129.95 & \\
-2016-10-17 & 2016-10-17 &  & "Xxx Memodie" &  & 10685.40 & S\\
-2016-10-17 & 2016-10-17 &  & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -34.550000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Conibi Cabila Natus Os, 4344 Sico" & -40.950000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Insa Cabila Ex, 1740 Mico" & -80.450000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Conibi Cabila Natus Os, 4344 Sico" & -135.900000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Cangus Os Nolo Ex, 2005 Ex-Pessus" & -233.700000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Fintque Rirum Os, 2413 Sonaventi" & -260.800000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -338.700000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Conibi Cabila Natus Os, 4344 Sico" & -442.150000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -672.000000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Tamquaec Os, 1567 Fundabus" & -778.700000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -2479.500000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Deper Cabila Ex, 7262 Semplect" & -79.080000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Deper Cabila Ex, 7262 Semplect" & -3007.520000000 &  & D\\
-2016-10-17 & 2016-10-17 &  & "Habules Os, 2527 Stumela" & -2101.400000000 &  & D\\
-2016-10-18 & 2016-10-18 &  & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig    2404.13/DE:3331068087, Gro:    66.68/PUS:51.13.4235, Puer + Obsec Os  /tempes In" & 5389.71 &  & \\
-2016-10-18 & 2016-10-18 &  & "Continecem Vit Plurrunc, 7125 Combum, Ostro 32851785-3 3072, Fer 88.13.44 84:10:36 Me: 28858408" & 5300.00 &  & \\
-2016-10-18 & 2016-10-18 &  & "Dominatiunt, MTN2V Ficangionch An Vit, Reperi 60 Pugna, Eror Ut Pulino Xxx Os, 5637 Menthention, Dio 2202673 / 60.47.44" &  & 12.05 & \\
-2016-10-20 & 2016-10-20 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/47 / 1818476" &  & 15.88 & \\
-2016-10-20 & 2016-10-20 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/13 / 5114781" &  & 47.63 & \\
-2016-10-20 & 2016-10-20 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/13 / 4726521" &  & 96.57 & \\
-2016-10-20 & 2016-10-20 &  & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/44 / 7364342" &  & 406.00 & \\
-2016-10-24 & 2016-10-24 &  & "Post�reganertum, Puer + Obsec Os,, Q. Gem E. Widux, Genducendi 7, 6241 Tempes In, Lonsimum" & 30000.00 &  & \\
-2016-10-24 & 2016-10-24 &  & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  81714713" &  & 13.35 & \\
-2016-10-25 & 2016-10-25 &  & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig    2740.60/DE:8826370235, Gro:    10.67/PUS:18.13.4235, Puer + Obsec Os  /tempes In" & 6027.30 &  & \\
-2016-10-25 & 2016-10-25 &  & "Xxx Memodie" &  & 56745.23 & S\\
-2016-10-25 & 2016-10-25 &  & "Deper Cabila Ex, 7262 Semplect" & -456.820000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Habules Os, 2527 Stumela" & -2101.400000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Natubitas Ex, 4470 Plebra 5 Cipsubi" & -49.600000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Carit Effigna Logiligna Os, 8756 Ducitus At" & -64.260000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Rem Contemo Viam, 1213 Aquaequeluci" & -64.550000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Fintque Rirum Os, 2413 Sonaventi" & -72.350000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Rerrest Os, 1318 Comerea" & -96.300000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Nabibuli Combum, 7125 Combum" & -110.150000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Conibi Cabila Natus Os, 4344 Sico" & -119.350000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Mutia'E Spulurbela Bieino, 3758 Ceniuntium" & -181.000000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Tabus Viam, 6704 Cauray" & -182.800000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Aut Anes Gentimitiusit Viam, 7020 At Solvi" & -206.800000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Singa Pere, Ut-62048 Dionginanstas" & -220.600000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Parunt Invemplus-Potella, 8784 Culcere" & -326.300000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Expesec Combum, 7125 Combum" & -480.000000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Naraxime Widux-Branasune, 5470 Pula" & -650.000000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Molunum Cabittis Sub" & -750.000000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Viunt Rirum Os, 3003 Multis" & -762.050000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Dentansa, 7625 Suaespor" & -1019.700000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Dentansa, 7625 Suaespor" & -1166.500000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Fintque Rirum Os, 2413 Sonaventi" & -1450.650000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Singa Pere, Ut-62048 Dionginanstas" & -1669.800000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Frunumn Latimpultinges Os, 3225 Homiunt" & -1800.750000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Fintque Rirum Os, 2413 Sonaventi" & -1887.850000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Bral Rirum Viam, 3478 Securedra" & -2181.850000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Dita Nern Ex, 2467 Peripse-Stur" & -3906.900000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Viunt Rirum Os, 3003 Multis" & -4406.400000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Sit Taraest Viam, Si 5635 Discentinch" & -4488.900000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Ingral Rirum Os, 6062 Simunte" & -6263.100000000 &  & D\\
-2016-10-25 & 2016-10-25 &  & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -19608.500000000 &  & D\\
-2016-10-26 & 2016-10-26 &  & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 8721468" &  & 72.10 & \\
-2016-10-26 & 2016-10-26 &  & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 5180145" &  & 84.70 & \\
-2016-10-26 & 2016-10-26 &  & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 2612743" &  & 291.40 & \\
-2016-10-26 & 2016-10-26 &  & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 2004218" &  & 390.35 & \\
-2016-10-27 & 2016-10-27 &  & "Bresede Tudifficem�eo, Cura Novela" &  & 592.30 & \\
-2016-10-27 & 2016-10-27 &  & "Bresede Tudifficem�eo" &  & 8850.10 & S\\
-2016-10-27 & 2016-10-27 &  & "Aestris Plento, 4360 Niuntalcet" & -4108.000000000 &  & D\\
-2016-10-27 & 2016-10-27 &  & "Plento Turbem, 4360 Niuntalcet" & -4742.100000000 &  & D\\
-2016-10-31 & 2016-10-29 &  & "Continecem Vit Plurrunc, 7125 Combum, Ostro 32851785-3 3072, Fer 35.13.44 44:24:60 Me: 28858408" & 1000.00 &  & \\
-2016-10-31 & 2016-10-31 &  & "Rinam Si-Magitiminvegat" &  & 47.00 & S\\
-2016-10-31 & 2016-10-31 &  & "Contiustinatube Sal" & -0.200000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Segrate Senterva Octiolvegranguluditane" & 0.200000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Netindo Vit Cuci" & -47.000000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Hat Osteresec Men" & -8.700000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Segrate Senterva Octiolvegranguluditane" & 8.700000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Contiustinatube Centatudico" & -0.400000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Segrate Senterva Octiolvegranguluditane" & 0.400000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Sirabiguideo Men Haudit" & -1.200000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Segrate Senterva Octiolvegranguluditane" & 1.200000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  20224354" &  & 232.85 & \\
-2016-10-31 & 2016-10-31 &  & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  70645286" &  & 241.30 & \\
-2016-10-31 & 2016-10-31 &  & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  15240810" &  & 371.40 & \\
-2016-10-31 & 2016-10-31 &  & "Bresede Tudifficem�eo, Pero-Bieino Combum Os, 6241 Tempes In" &  & 4323.50 & \\
-2016-10-31 & 2016-10-31 &  & "Xxx Memodie" &  & 11906.67 & S\\
-2016-10-31 & 2016-10-31 &  & "Deper Cabila Ex, 7262 Semplect" & -27.930000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Natubitas Ex, 4470 Plebra Cipsubi" & -31.750000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Equam Os, 5445 O Grat" & -32.100000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Mantum Viam, 8306 Simuniunis" & -48.700000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Habules Os, 2527 Stumela" & -70.300000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Rerrest Os, 1318 Comerea" & -134.100000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Ingral Rirum Os, 6062 Simunte" & -143.150000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Rem Contemo Viam, 1213 Aquaequeluci" & -144.400000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Post Os Os Digneria, 6147 Fœnum" & -166.000000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -323.150000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Conibi Cabila Natus Os, 4344 Sico" & -360.950000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Rem Contemo Viam, 1213 Aquaequeluci" & -372.100000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Deper Cabila Ex, 7262 Semplect" & -616.270000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Deper Cabila Ex, 7262 Semplect" & -1041.150000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Cendi Sedabilianti, Et-36327 Paracit" & -1108.210000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Deper Cabila Ex, 7262 Semplect" & -1408.260000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Habules Os, 2527 Stumela" & -2160.150000000 &  & D\\
-2016-10-31 & 2016-10-31 &  & "Bral Rirum Viam, 3478 Securedra" & -3718.000000000 &  & D\\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & IsDetail\\
+2016-10-03 & 2016-10-01 &  & JJ16564WQ3354432 & "Continecem Vit Plurrunc, 7125 Combum, Ostro 32851785-3 3072, Fer 75.13.44 87:36:83 Me: 28858408" & 6600.00 &  & \\
+2016-10-03 & 2016-10-03 &  & 7774600BJ2008360 & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  53555411" &  & 39.30 & \\
+2016-10-03 & 2016-10-03 &  & 3585346XT1618255 & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  77136518" &  & 53.75 & \\
+2016-10-03 & 2016-10-03 &  & 2487234HA2087750 & "Dominatiunt, MTN2V Ficangionch An Vit, Reperi 60 Pugna, Eror Ut Pulino Xxx Os, 5637 Menthention, Dio 5876021 / 72.47.44" &  & 163.30 & \\
+2016-10-03 & 2016-10-03 &  & 7884261AC6338587 & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  68170084" &  & 634.85 & \\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Xxx Memodie" &  & 7301.93 & S\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Inverm Pulino Os, 7378 Homiunt" & -601.750000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Deper Cabila Ex, 7262 Semplect" & -4045.050000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -57.900000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Bral Rirum Viam, 3478 Securedra" & -59.780000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Fœnum Subit Los, 4131 Solegi" & -82.300000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Ipect Tirinal Bieino, 1027 Stunduci" & -415.100000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Bral Rirum Viam, 3478 Securedra" & -573.450000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Cogite Ex, 1027 Stunduci" & -597.500000000 &  & D\\
+2016-10-03 & 2016-10-03 &  & UY73562G71371218 & "Cendi Sedabilianti, Et-36327 Paracit" & -869.100000000 &  & D\\
+2016-10-04 & 2016-10-04 &  & 3615206N46823711 & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig    3351.23/DE:6500633341, Gro:     5.71/PUS:75.13.4235, Puer + Obsec Os  /tempes In" & 4510.57 &  & \\
+2016-10-05 & 2016-10-05 &  & 4305036SO3031031 & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 1702301" &  & 1347.60 & \\
+2016-10-06 & 2016-10-06 &  & 4467104AJ3660664 & "Wide�part, Suuntiuna Turo Viam, Moturbet 88, OS/8127 Comere, Ex-De.            5610334807, Fig.Pus. 5173350    44/47/35, Sandit                768.77, Prehentire              7.13" & 134.50 &  & \\
+2016-10-10 & 2016-10-10 &  & 8045277NV4171261 & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  11140661" &  & 21.15 & \\
+2016-10-10 & 2016-10-10 &  & 2130068FN2552807 & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  61776173" &  & 154.60 & \\
+2016-10-10 & 2016-10-10 &  & 1857324NU8440054 & "Dominatiunt, MTN2V Ficangionch An Vit, Reperi 60 Pugna, Eror Ut Pulino Xxx Os, 5637 Menthention, Dio 3446317 / 13.47.44" &  & 2339.30 & \\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Xxx Memodie" &  & 26854.74 & S\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Insa Cabila Ex, 1740 Mico" & -13.250000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Os Festaber Gaut Viam, 7077 Lumn" & -43.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -46.900000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Rerrest Os, 1318 Comerea" & -60.650000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Ant Lita + Bone, E. Gendivo, 5445 Homiunt" & -68.200000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Rem Contemo Viam, 1213 Aquaequeluci" & -88.850000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Deper Cabila Ex, 7262 Semplect" & -102.800000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Singa Pere, Ut-62048 Dionginanstas" & -121.600000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Post Os Os Digneria, 6147 Fœnum" & -176.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Trate Parate Viam, 5433 Homiunt" & -192.350000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Medisim Cabila Natus Horumn V.O, In - 2147 De Mungursum" & -200.370000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Rerrest Os, 1318 Comerea" & -223.950000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Equam Os, 5445 O Grat" & -265.200000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -304.750000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Insa Cabila Ex, 1740 Mico" & -319.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -466.200000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Conibi Cabila Natus Os, 4344 Sico" & -961.150000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Poribenetticcut Tubit 71, 1442 Mate" & -1910.150000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Poribenetticcut Tubit 71, 1442 Mate" & -1915.750000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Conibi Cabila Natus Os, 4344 Sico" & -2462.400000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Artur Pulino More, 8461 Sisu Quiendifico" & -3642.050000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Poribenetticcut Tubit 71, 1442 Mate" & -6387.000000000 &  & D\\
+2016-10-10 & 2016-10-10 &  & RH16208Q16277066 & "Deper Cabila Ex, 7262 Semplect" & -6883.170000000 &  & D\\
+2016-10-11 & 2016-10-11 &  & 8674557AF0646134 & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig   51050.62/DE:8255834520, Gro:    41.86/PUS:84.13.4235, Puer + Obsec Os  /tempes In" & 11038.21 &  & \\
+2016-10-11 & 2016-10-11 &  & 5423111UM8285034 & "Dominatiunt, GUU5G Ficangionch An Vit, Reperi 60 Pugna, Hoc Os, 8374 Radit, 234870474" &  & 665.05 & \\
+2016-10-12 & 2016-10-12 &  & 5643372QX2721043 & "Dominatiunt, FLE1P Ficangionch An Vit, Reperi 60 Pugna, Alunt Os, 8545 Inventianno, Flanerna De. 34324, Fer 13.13.4235" &  & 322.15 & \\
+2016-10-13 & 2016-10-13 &  & 5863112YW8314137 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/80 / 4513753" &  & 57.15 & \\
+2016-10-13 & 2016-10-13 &  & 4814574KL7413071 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/80 / 3601848" &  & 68.27 & \\
+2016-10-13 & 2016-10-13 &  & 7610571XW1151084 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/73 / 1441217" &  & 68.80 & \\
+2016-10-13 & 2016-10-13 &  & 8100732QG2343541 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/57 / 4178032" &  & 222.52 & \\
+2016-10-13 & 2016-10-13 &  & 7708234YJ2735824 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/80 / 6016277" &  & 391.61 & \\
+2016-10-17 & 2016-10-17 &  & 4567764LN7202046 & "Post�reganertum, Puer + Obsec Os,, Q. Gem E. Widux, Genducendi 7, 6241 Tempes In, Lonsimum" & 40000.00 &  & \\
+2016-10-17 & 2016-10-17 &  & 6667150NA8867670 & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  31484206" &  & 129.95 & \\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Xxx Memodie" &  & 10685.40 & S\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -34.550000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Conibi Cabila Natus Os, 4344 Sico" & -40.950000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Insa Cabila Ex, 1740 Mico" & -80.450000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Conibi Cabila Natus Os, 4344 Sico" & -135.900000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Cangus Os Nolo Ex, 2005 Ex-Pessus" & -233.700000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Fintque Rirum Os, 2413 Sonaventi" & -260.800000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -338.700000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Conibi Cabila Natus Os, 4344 Sico" & -442.150000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -672.000000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Tamquaec Os, 1567 Fundabus" & -778.700000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Cendae Sicum+Rirum Os, 7737 Paurritura" & -2479.500000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Deper Cabila Ex, 7262 Semplect" & -79.080000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Deper Cabila Ex, 7262 Semplect" & -3007.520000000 &  & D\\
+2016-10-17 & 2016-10-17 &  & YI78444A23338532 & "Habules Os, 2527 Stumela" & -2101.400000000 &  & D\\
+2016-10-18 & 2016-10-18 &  & 3833040Q15682586 & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig    2404.13/DE:3331068087, Gro:    66.68/PUS:51.13.4235, Puer + Obsec Os  /tempes In" & 5389.71 &  & \\
+2016-10-18 & 2016-10-18 &  & DE47048DC1430106 & "Continecem Vit Plurrunc, 7125 Combum, Ostro 32851785-3 3072, Fer 88.13.44 84:10:36 Me: 28858408" & 5300.00 &  & \\
+2016-10-18 & 2016-10-18 &  & 1567307WV3313642 & "Dominatiunt, MTN2V Ficangionch An Vit, Reperi 60 Pugna, Eror Ut Pulino Xxx Os, 5637 Menthention, Dio 2202673 / 60.47.44" &  & 12.05 & \\
+2016-10-20 & 2016-10-20 &  & 4785064QR0180835 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/47 / 1818476" &  & 15.88 & \\
+2016-10-20 & 2016-10-20 &  & 5210324AI8522707 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/13 / 5114781" &  & 47.63 & \\
+2016-10-20 & 2016-10-20 &  & 6617616MX4520308 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/13 / 4726521" &  & 96.57 & \\
+2016-10-20 & 2016-10-20 &  & 4708252LY0766450 & "Dominatiunt, Pulus Ficangionch An Vit, Reperi 60 Pugna, Probus + Eo. Os, Os-5446 Hodeciptura, 4235/13/44 / 7364342" &  & 406.00 & \\
+2016-10-24 & 2016-10-24 &  & 6872300HB8106725 & "Post�reganertum, Puer + Obsec Os,, Q. Gem E. Widux, Genducendi 7, 6241 Tempes In, Lonsimum" & 30000.00 &  & \\
+2016-10-24 & 2016-10-24 &  & 3822450NO6788553 & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  81714713" &  & 13.35 & \\
+2016-10-25 & 2016-10-25 &  & 6133107L46206328 & "Wide�part, MHH84, Aut Suscura Reliundo Os, 5783 Homiunt, Fig    2740.60/DE:8826370235, Gro:    10.67/PUS:18.13.4235, Puer + Obsec Os  /tempes In" & 6027.30 &  & \\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Xxx Memodie" &  & 56745.23 & S\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Deper Cabila Ex, 7262 Semplect" & -456.820000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Habules Os, 2527 Stumela" & -2101.400000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Natubitas Ex, 4470 Plebra 5 Cipsubi" & -49.600000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Carit Effigna Logiligna Os, 8756 Ducitus At" & -64.260000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Rem Contemo Viam, 1213 Aquaequeluci" & -64.550000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Fintque Rirum Os, 2413 Sonaventi" & -72.350000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Rerrest Os, 1318 Comerea" & -96.300000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Nabibuli Combum, 7125 Combum" & -110.150000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Conibi Cabila Natus Os, 4344 Sico" & -119.350000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Mutia'E Spulurbela Bieino, 3758 Ceniuntium" & -181.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Tabus Viam, 6704 Cauray" & -182.800000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Aut Anes Gentimitiusit Viam, 7020 At Solvi" & -206.800000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Singa Pere, Ut-62048 Dionginanstas" & -220.600000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Parunt Invemplus-Potella, 8784 Culcere" & -326.300000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Expesec Combum, 7125 Combum" & -480.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Naraxime Widux-Branasune, 5470 Pula" & -650.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Molunum Cabittis Sub" & -750.000000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Viunt Rirum Os, 3003 Multis" & -762.050000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Dentansa, 7625 Suaespor" & -1019.700000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Dentansa, 7625 Suaespor" & -1166.500000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Fintque Rirum Os, 2413 Sonaventi" & -1450.650000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Singa Pere, Ut-62048 Dionginanstas" & -1669.800000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Frunumn Latimpultinges Os, 3225 Homiunt" & -1800.750000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Fintque Rirum Os, 2413 Sonaventi" & -1887.850000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Bral Rirum Viam, 3478 Securedra" & -2181.850000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Dita Nern Ex, 2467 Peripse-Stur" & -3906.900000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Viunt Rirum Os, 3003 Multis" & -4406.400000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Sit Taraest Viam, Si 5635 Discentinch" & -4488.900000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Ingral Rirum Os, 6062 Simunte" & -6263.100000000 &  & D\\
+2016-10-25 & 2016-10-25 &  & BN77184R17434771 & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -19608.500000000 &  & D\\
+2016-10-26 & 2016-10-26 &  & 2508175VX0383216 & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 8721468" &  & 72.10 & \\
+2016-10-26 & 2016-10-26 &  & 8144217TP6768266 & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 5180145" &  & 84.70 & \\
+2016-10-26 & 2016-10-26 &  & 1261834YV1886681 & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 2612743" &  & 291.40 & \\
+2016-10-26 & 2016-10-26 &  & 2808152XE7850845 & "Dominatiunt, CMD1Q Ficangionch An Vit, Reperi 60 Pugna, Nosus-Eliate Os, 2186 Dicant, Flanerna, 2004218" &  & 390.35 & \\
+2016-10-27 & 2016-10-27 &  & 6273311VE7648820 & "Bresede Tudifficem�eo, Cura Novela" &  & 592.30 & \\
+2016-10-27 & 2016-10-27 &  & 6367002JD8487314 & "Bresede Tudifficem�eo" &  & 8850.10 & S\\
+2016-10-27 & 2016-10-27 &  & 6367002JD8487314 & "Aestris Plento, 4360 Niuntalcet" & -4108.000000000 &  & D\\
+2016-10-27 & 2016-10-27 &  & 6367002JD8487314 & "Plento Turbem, 4360 Niuntalcet" & -4742.100000000 &  & D\\
+2016-10-31 & 2016-10-29 &  & YT67172PO5641455 & "Continecem Vit Plurrunc, 7125 Combum, Ostro 32851785-3 3072, Fer 35.13.44 44:24:60 Me: 28858408" & 1000.00 &  & \\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Rinam Si-Magitiminvegat" &  & 47.00 & S\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Contiustinatube Sal" & -0.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Segrate Senterva Octiolvegranguluditane" & 0.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Netindo Vit Cuci" & -47.000000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Hat Osteresec Men" & -8.700000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Segrate Senterva Octiolvegranguluditane" & 8.700000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Contiustinatube Centatudico" & -0.400000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Segrate Senterva Octiolvegranguluditane" & 0.400000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Sirabiguideo Men Haudit" & -1.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & IR23538TI6443074 & "Segrate Senterva Octiolvegranguluditane" & 1.200000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & 7553015CW0547052 & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  20224354" &  & 232.85 & \\
+2016-10-31 & 2016-10-31 &  & 1583552FK1327826 & "Dominatiunt, PGW6V Ficangionch An Vit, Reperi 60 Pugna, Potubitino Os, Sputubillia 7, Flanerna  70645286" &  & 241.30 & \\
+2016-10-31 & 2016-10-31 &  & 2053268NV0650582 & "Dominatiunt, GVIF6 Ficangionch An Vit, Reperi 60 Pugna, Trini Cabila Bonstem, Siniundiscrige 88, Flanerna  15240810" &  & 371.40 & \\
+2016-10-31 & 2016-10-31 &  & 8406616QS6131113 & "Bresede Tudifficem�eo, Pero-Bieino Combum Os, 6241 Tempes In" &  & 4323.50 & \\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Xxx Memodie" &  & 11906.67 & S\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Deper Cabila Ex, 7262 Semplect" & -27.930000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Natubitas Ex, 4470 Plebra Cipsubi" & -31.750000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Equam Os, 5445 O Grat" & -32.100000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Mantum Viam, 8306 Simuniunis" & -48.700000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Habules Os, 2527 Stumela" & -70.300000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Rerrest Os, 1318 Comerea" & -134.100000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Ingral Rirum Os, 6062 Simunte" & -143.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Rem Contemo Viam, 1213 Aquaequeluci" & -144.400000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Post Os Os Digneria, 6147 Fœnum" & -166.000000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Cat Prasto + Sitquaec Mor. Os, 5002 Copra" & -323.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Conibi Cabila Natus Os, 4344 Sico" & -360.950000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Rem Contemo Viam, 1213 Aquaequeluci" & -372.100000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Deper Cabila Ex, 7262 Semplect" & -616.270000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Deper Cabila Ex, 7262 Semplect" & -1041.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Cendi Sedabilianti, Et-36327 Paracit" & -1108.210000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Deper Cabila Ex, 7262 Semplect" & -1408.260000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Habules Os, 2527 Stumela" & -2160.150000000 &  & D\\
+2016-10-31 & 2016-10-31 &  & SM71157J11800534 & "Bral Rirum Viam, 3478 Securedra" & -3718.000000000 &  & D\\
 \\
 \end{tablevalue}
 \end{document}
