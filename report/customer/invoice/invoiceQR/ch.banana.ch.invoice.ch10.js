@@ -244,10 +244,19 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     }
   }
   else {
-    if (BAN_ADVANCED && typeof(hook_print_text_begin) === typeof(Function)) {
-      hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
-    } else {
-      print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
+    if (userParam.use_markdown) {
+      if (BAN_ADVANCED && typeof(hook_print_text_begin_md) === typeof(Function)) {
+        hook_print_text_begin_md(sectionClassBegin, invoiceObj, texts, userParam);
+      } else {
+        print_text_begin_md(sectionClassBegin, invoiceObj, texts, userParam);
+      }
+    }
+    else {
+      if (BAN_ADVANCED && typeof(hook_print_text_begin) === typeof(Function)) {
+        hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
+      } else {
+        print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
+      }
     }
   }
 
@@ -265,17 +274,35 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   else {
     // invoice, offers, reminders
     if (userParam.details_gross_amounts) {
-      if (BAN_ADVANCED && typeof(hook_print_details_gross_amounts) === typeof(Function)) {
-        hook_print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
-      } else {
-        print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+      if (userParam.use_markdown) {
+        if (BAN_ADVANCED && typeof(hook_print_details_gross_amounts_md) === typeof(Function)) {
+          hook_print_details_gross_amounts_md(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        } else {
+          print_details_gross_amounts_md(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        }
+      }
+      else {
+        if (BAN_ADVANCED && typeof(hook_print_details_gross_amounts) === typeof(Function)) {
+          hook_print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        } else {
+          print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        }
       }
     }
     else {
-      if (BAN_ADVANCED && typeof(hook_print_details_net_amounts) === typeof(Function)) {
-        hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
-      } else {
-        print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+      if (userParam.use_markdown) {
+        if (BAN_ADVANCED && typeof(hook_print_details_net_amounts_md) === typeof(Function)) {
+          hook_print_details_net_amounts_md(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        } else {
+          print_details_net_amounts_md(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        }
+      }
+      else {
+        if (BAN_ADVANCED && typeof(hook_print_details_net_amounts) === typeof(Function)) {
+          hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        } else {
+          print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables);
+        }
       }
     }
   }
@@ -304,10 +331,19 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     }
   }
   else {
-    if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
-      hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
-    } else {
-      print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
+    if (userParam.use_markdown) {
+      if (BAN_ADVANCED && typeof(hook_print_final_texts_md) === typeof(Function)) {
+        hook_print_final_texts_md(sectionClassFinalTexts, invoiceObj, userParam);
+      } else {
+        print_final_texts_md(sectionClassFinalTexts, invoiceObj, userParam);
+      }
+    }
+    else {
+      if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
+        hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
+      } else {
+        print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
+      }
     }
   }
 
@@ -3348,6 +3384,780 @@ function print_final_texts_proforma_invoice(repDocObj, invoiceObj, userParam) {
         }
       }
     }
+  }
+}
+
+
+
+
+
+
+
+//====================================================================//
+// FUNCTIONS THAT PRINT THE INVOICE DETAILS USING THE MARKDOWN FOR THE DESCRIPTION.
+// USER CAN REPLACE THEM WITH 'HOOK' FUNCTIONS DEFINED USING EMBEDDED 
+// JAVASCRIPT FILES ON DOCUMENTS TABLE
+//====================================================================//
+function columnNamesToValuesMd(invoiceObj, text) {
+  /*
+    Function that replaces the xml column names of the customer address
+    with the respective data
+  */
+  var docInvoice = invoiceObj.document_info.number;
+  var courtesy = invoiceObj.customer_info.courtesy;
+  var businessName = invoiceObj.customer_info.business_name;
+  var businessUnit = invoiceObj.customer_info.business_unit;
+  var businessUnit2 = invoiceObj.customer_info.business_unit2;
+  var businessUnit3 = invoiceObj.customer_info.business_unit3;
+  var businessUnit4 = invoiceObj.customer_info.business_unit4;
+  var firstName = invoiceObj.customer_info.first_name;
+  var lastName = invoiceObj.customer_info.last_name;
+  var address1 = invoiceObj.customer_info.address1;
+  var address2 = invoiceObj.customer_info.address2;
+  var address3 = invoiceObj.customer_info.address3;
+  var postalCode = invoiceObj.customer_info.postal_code;
+  var city = invoiceObj.customer_info.city;
+  var state = invoiceObj.customer_info.state;
+  var country = invoiceObj.customer_info.country;
+  var countryCode = invoiceObj.customer_info.country_code;
+
+  // Replaces column names with values (only with the advanced license)
+  if (BAN_ADVANCED) {
+    if (docInvoice && text.indexOf("{{DocInvoice}}") > -1) {
+      text = text.replace(/{{DocInvoice}}/g, docInvoice.trim());
+    } else {
+      text = text.replace(/{{DocInvoice}}/g, "{{}}");
+    }
+    if (courtesy && text.indexOf("{{NamePrefix}}") > -1) {
+      text = text.replace(/{{NamePrefix}}/g, courtesy.trim());
+    } else {
+      text = text.replace(/{{NamePrefix}}/g, "{{}}");
+    }
+    if (businessName && text.indexOf("{{OrganisationName}}") > -1) {
+      text = text.replace(/{{OrganisationName}}/g, businessName.trim());
+    } else {
+      text = text.replace(/{{OrganisationName}}/g, "{{}}");
+    }
+    if (businessUnit && text.indexOf("{{OrganisationUnit}}") > -1) {
+      text = text.replace(/{{OrganisationUnit}}/g, businessUnit.trim());
+    } else {
+      text = text.replace(/{{OrganisationUnit}}/g, "{{}}");
+    }
+    if (businessUnit2 && text.indexOf("{{OrganisationUnit2}}") > -1) {
+      text = text.replace(/{{OrganisationUnit2}}/g, businessUnit2.trim());
+    } else {
+      text = text.replace(/{{OrganisationUnit2}}/g, "{{}}");
+    }
+    if (businessUnit3 && text.indexOf("{{OrganisationUnit3}}") > -1) {
+      text = text.replace(/{{OrganisationUnit3}}/g, businessUnit3.trim());
+    } else {
+      text = text.replace(/{{OrganisationUnit3}}/g, "{{}}");
+    }
+    if (businessUnit4 && text.indexOf("{{OrganisationUnit4}}") > -1) {
+      text = text.replace(/{{OrganisationUnit4}}/g, businessUnit4.trim());
+    } else {
+      text = text.replace(/{{OrganisationUnit4}}/g, "{{}}");
+    }
+    if (firstName && text.indexOf("{{FirstName}}") > -1) {
+      text = text.replace(/{{FirstName}}/g, firstName.trim());
+    } else {
+      text = text.replace(/{{FirstName}}/g, "{{}}");
+    }
+    if (lastName && text.indexOf("{{FamilyName}}") > -1) {
+      text = text.replace(/{{FamilyName}}/g, lastName.trim());
+    } else {
+      text = text.replace(/{{FamilyName}}/g, "{{}}");
+    }
+    if (address1 && text.indexOf("{{Street}}") > -1) {
+      text = text.replace(/{{Street}}/g, address1.trim());
+    } else {
+      text = text.replace(/{{Street}}/g, "{{}}");
+    }
+    if (address2 && text.indexOf("{{AddressExtra}}") > -1) {
+      text = text.replace(/{{AddressExtra}}/g, address2.trim());
+    } else {
+      text = text.replace(/{{AddressExtra}}/g, "{{}}");
+    }
+    if (address3 && text.indexOf("{{POBox}}") > -1) {
+      text = text.replace(/{{POBox}}/g, address3.trim());
+    } else {
+      text = text.replace(/{{POBox}}/g, "{{}}");
+    }
+    if (postalCode && text.indexOf("{{PostalCode}}") > -1) {
+      text = text.replace(/{{PostalCode}}/g, postalCode.trim());
+    } else {
+      text = text.replace(/{{PostalCode}}/g, "{{}}");
+    }
+    if (city && text.indexOf("{{Locality}}") > -1) {
+      text = text.replace(/{{Locality}}/g, city.trim());
+    } else {
+      text = text.replace(/{{Locality}}/g, "{{}}");
+    }
+    if (state && text.indexOf("{{Region}}") > -1) {
+      text = text.replace(/{{Region}}/g, state.trim());
+    } else {
+      text = text.replace(/{{Region}}/g, "{{}}");
+    }
+    if (country && text.indexOf("{{Country}}") > -1) {
+      text = text.replace(/{{Country}}/g, country.trim());
+    } else {
+      text = text.replace(/{{Country}}/g, "{{}}");
+    }
+    if (countryCode && text.indexOf("{{CountryCode}}") > -1) {
+      text = text.replace(/{{CountryCode}}/g, countryCode.trim());
+    } else {
+      text = text.replace(/{{CountryCode}}/g, "{{}}");
+    }
+    text = text.replace(/ \n/g,"");
+    text = text.replace(/{{}} /g,"");
+    text = text.replace(/ {{}}/g,"");
+    text = text.replace(/{{}}\n/g,"");
+    text = text.replace(/{{}}/g,"");
+  }
+
+  return text;
+}
+
+function print_text_begin_md(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the text before the invoice details
+
+    Only text entered in the edit dialog can be a markdown text.
+
+    Text entered in parameters is always a simple text, cannot be markdown
+  */
+  var textTitle = getTitle(invoiceObj, texts, userParam);
+
+  var textBegin = invoiceObj.document_info.text_begin;
+  var textBeginSettings = userParam[lang+'_text_begin'];
+  var textBeginOffer = userParam[lang+'_text_begin_offer'];
+  var table = repDocObj.addTable("begin_text_table");
+  var tableRow;
+  
+  // print the title
+  if (textTitle) {
+    textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
+    textTitle = columnNamesToValues(invoiceObj, textTitle);
+    tableRow = table.addRow();
+    var titleCell = tableRow.addCell("","",1);
+    titleCell.addParagraph(textTitle, "title_text");
+  }
+
+  if (textBegin) {
+    textBegin = columnNamesToValuesMd(invoiceObj, textBegin);
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    var format = "md"; //md,html,text
+    textCell.addStructuredText(textBegin, format, ""); // "" = stylesheet
+  }
+}
+
+function print_final_texts_md(repDocObj, invoiceObj, userParam) {
+  /*
+    Prints the text after the invoice details
+
+    Only text entered in the edit dialog can be a markdown text.
+
+    Text entered in parameters is always a simple text, cannot be markdown
+  */
+
+  // Notes (multiple lines)
+  if (invoiceObj.note.length > 0) {
+    for (var i = 0; i < invoiceObj.note.length; i++) {
+      if (invoiceObj.note[i].description) {
+        var textNote = invoiceObj.note[i].description;
+        textNote = columnNamesToValuesMd(invoiceObj, textNote);
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        var format = "md"; //md,html,text
+        paragraph.addStructuredText(textNote, format, ""); // "" = stylesheet
+      }
+    }    
+  }
+
+  //Text taken from the Settings dialog's parameter "Final text"
+  if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (userParam[lang+'_text_final'] && userParam[lang+'_text_final'] !== "<none>") {
+      var text = userParam[lang+'_text_final'];
+      text = text.split('\n');
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
+    }
+
+    // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
+    else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final']) {
+      var textDefault = [];
+      var text = [];
+      for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
+        var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
+        if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
+          textDefault = invoiceObj.template_parameters.footer_texts[i].text;
+        }
+        else if (textLang == lang) {
+          text = invoiceObj.template_parameters.footer_texts[i].text;
+        }
+      }
+      if (text.join().length <= 0) {
+        text = textDefault;
+      }
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
+    }
+  }
+  else { //estimates
+    if (userParam[lang+'_text_final_offer'] && userParam[lang+'_text_final_offer'] !== "<none>") {
+      var text = userParam[lang+'_text_final_offer'];
+      text = text.split('\n');
+      if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+        repDocObj.addParagraph(" ", "");
+      }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
+    }
+  }
+}
+
+function print_details_net_amounts_md(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
+  /* 
+    Print the invoice details using net Amounts (VAT excluded) 
+  */
+  
+  removeDiscountColumn(invoiceObj, userParam);
+
+  var columnsDimension = userParam.details_columns_widths.split(";");
+  var repTableObj = detailsTable;
+  for (var i = 0; i < columnsDimension.length; i++) {
+    repTableObj.addColumn().setStyleAttributes("width:"+columnsDimension[i]);
+  }
+
+  var header = repTableObj.getHeader().addRow();
+
+  // Creates the header with the parameter's values
+  // If user insert other columns names we use them,
+  // otherwise we use the XmlValue inserted when choosing the columns to display
+  var columnsNames = userParam.details_columns.split(";");
+  var columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
+  var titlesAlignment = userParam.details_columns_titles_alignment.split(";");
+
+  // remove all empty values ("", null, undefined): 
+  columnsNames = columnsNames.filter(function(e){return e});
+  columnsHeaders = columnsHeaders.filter(function(e){return e});
+
+  if (columnsNames.length == columnsHeaders.length) {
+    for (var i = 0; i < columnsHeaders.length; i++) {
+      var alignment = titlesAlignment[i];
+      if (alignment !== "left" && alignment !== "center" && alignment !== "right") {
+        alignment = "center";
+      }
+      columnsHeaders[i] = columnsHeaders[i].trim();
+      if (columnsHeaders[i] === "<none>") {
+        header.addCell("", "doc_table_header", 1);
+      } else {
+        header.addCell(columnsHeaders[i], "doc_table_header "+ alignment, 1);
+      }
+      columnsNumber ++;
+    }
+  }
+  else {
+    for (var i = 0; i < columnsNames.length; i++) {
+      columnsNames[i] = columnsNames[i].trim().toLowerCase();
+      header.addCell(columnsNames[i], "doc_table_header center", 1);
+      columnsNumber ++;
+    }
+  }
+
+  var decimals = getQuantityDecimals(invoiceObj);
+  var columnsAlignment = userParam.details_columns_alignment.split(";");
+
+  //ITEMS
+  var customColumnMsg = "";
+  for (var i = 0; i < invoiceObj.items.length; i++) {
+
+    var item = invoiceObj.items[i];
+    var className = "item_cell"; // row with amount
+    if (item.item_type && item.item_type.indexOf("total") === 0) {
+      className = "subtotal_cell"; // row with DocType 10:tot
+    }
+    if (item.item_type && item.item_type.indexOf("note") === 0) {
+      className = "note_cell"; // row without amount
+    }
+    if (item.item_type && item.item_type.indexOf("header") === 0) {
+      className = "header_cell"; // row with DocType 10:hdr
+    }
+
+    var classNameEvenRow = "";
+    if (i % 2 == 0) {
+      classNameEvenRow = "even_rows_background_color";
+    }
+
+    tableRow = repTableObj.addRow();
+
+    for (var j = 0; j < columnsNames.length; j++) {
+      var alignment = columnsAlignment[j];
+      if (alignment !== "left" && alignment !== "center" && alignment !== "right") {
+        alignment = "left";
+      }
+
+      if (columnsNames[j].trim().toLowerCase() === "description") {
+        //When 10:hdr with empty description, let empty line
+        if (item.item_type && item.item_type.indexOf("header") === 0 && !item.description) {
+          tableRow.addCell(" ", classNameEvenRow, 1);
+        }
+        else {
+          // tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right ", 1);
+          var format = "md"; //md,html,text
+          var description = columnNamesToValuesMd(invoiceObj, item.description)
+          descriptionCell.addStructuredText(description, format, ""); // "" = stylesheet
+        }
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "quantity") {
+        if (IS_INTEGRATED_INVOICE) {
+          // If referenceUnit is empty we do not print the quantity.
+          // With this we can avoid to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
+          if (item.mesure_unit) {
+            if (variables.decimals_quantity !== "") {
+              decimals = variables.decimals_quantity;
+            }
+            var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
+            tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          } else {
+            tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+          }
+        }
+        else {
+          if (item.quantity) {
+            decimals = variables.decimals_quantity
+            var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
+            tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          }
+          else {
+            tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+          }
+        }
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "referenceunit" || columnsNames[j] === "mesure_unit") {
+        var itemValue = formatItemsValue(item.mesure_unit, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "unitprice" || columnsNames[j] === "unit_price") {
+        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_exclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "amount" || columnsNames[j] === "total_amount_vat_exclusive") {
+        var itemValue = formatItemsValue(item.total_amount_vat_exclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "vatrate" || columnsNames[j] === "vat_rate") {
+        var itemValue = formatItemsValue(item.unit_price.vat_rate, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "discount") {
+        var itemValue = "";
+        if (item.discount && item.discount.percent) {
+          itemValue = formatItemsValue(item.discount.percent, variables, columnsNames[j], className, item);
+          itemValue.value += "%";
+        }
+        else if (item.discount && item.discount.amount) {
+          itemValue = formatItemsValue(item.discount.amount, variables, columnsNames[j], className, item);
+        }
+        else {
+          itemValue = formatItemsValue("", variables, columnsNames[j], className, item);
+        }
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "number") {
+        var itemValue = formatItemsValue(item.number, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else {
+        var userColumnValue = "";
+        var columnsName = columnsNames[j];
+        var itemValue = "";
+        //User defined columns only available with advanced version
+        //In settings dialog, must start with "T." for integrated ivoices or "I." for estimates invoices
+        //This prevent conflicts with JSON fields.
+        if (BAN_ADVANCED) {
+          //JSON contains a property with the name of the column (Item, Date)
+          //In JSON all names are lower case
+          if (objectHasProperty(item, columnsName)) {
+            itemValue = formatItemsValue(objectGetProperty(item, columnsName), variables, columnsName, className, item);
+          }
+          else {
+            userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsName);
+            columnsName = columnsName.substring(2);
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);            
+          }
+        }
+        else {
+          customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
+        }
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+    }
+  }
+  // Show message when using "T.Column" with a non advanced version of Banana+
+  if (customColumnMsg.length > 0) {
+    banDoc.addMessage(customColumnMsg);
+  }
+
+  tableRow = repTableObj.addRow();
+  tableRow.addCell("", "border-top", columnsNumber);
+
+  //DISCOUNT
+  //used only for the "Application Invoice"
+  //on normal invoices discounts are entered as items in transactions
+  if (invoiceObj.billing_info.total_discount_vat_exclusive) {
+    tableRow = repTableObj.addRow();
+    let discountText = invoiceObj.billing_info.discount.description ?
+      invoiceObj.billing_info.discount.description : texts.discount;
+    if (invoiceObj.billing_info.discount.percent)
+      discountText += " " + invoiceObj.billing_info.discount.percent + "%";
+    tableRow.addCell(discountText, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_discount_vat_exclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //PRINT 0% VAT RATE
+  //only when a VatCode with 0% VAT is used (i.e. V0)
+  //when VAT is 0 but no VatCode is used (without VAT), the VAT rate is not printed
+  if (invoiceObj.billing_info.total_vat_rate_zero) {
+    invoiceObj.billing_info.total_vat_rate_zero.vat_rate = Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rate_zero.total_vat_amount,variables.decimals_amounts,true); //"0.00";
+    invoiceObj.billing_info.total_vat_rates.unshift(invoiceObj.billing_info.total_vat_rate_zero);
+  }
+
+  //TOTAL NET
+  if (invoiceObj.billing_info.total_vat_rates.length > 0) {
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.totalnet, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_amount_vat_exclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+
+    for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
+      tableRow = repTableObj.addRow();
+      tableRow.addCell(texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "% (" + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + ")", "padding-left padding-right", columnsNumber-1);
+      tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+    }
+  }
+
+  //TOTAL ROUNDING DIFFERENCE
+  if (invoiceObj.billing_info.total_rounding_difference.length) {
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.rounding, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //DEPOSIT
+  //Only used for the Application Invoice
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow = repTableObj.addRow();
+    if (invoiceObj.billing_info.total_advance_payment_description) {
+      tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
+    } else {
+      tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
+    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  tableRow = repTableObj.addRow();
+  if (invoiceObj.billing_info.total_vat_rates.length > 0 || invoiceObj.billing_info.total_rounding_difference.length) {
+    tableRow.addCell("", "border-top", columnsNumber);
+  } else {
+    tableRow.addCell("", "", columnsNumber);
+  }
+
+  //FINAL TOTAL
+  tableRow = repTableObj.addRow();
+  tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
+  tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
+}
+
+function print_details_gross_amounts_md(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
+  /* 
+    Prints the invoice details using gross Amounts (VAT included)
+  */
+
+  removeDiscountColumn(invoiceObj, userParam);
+
+  var columnsDimension = userParam.details_columns_widths.split(";");
+  var repTableObj = detailsTable;
+  for (var i = 0; i < columnsDimension.length; i++) {
+    repTableObj.addColumn().setStyleAttributes("width:"+columnsDimension[i]);
+  }
+
+  var header = repTableObj.getHeader().addRow();
+
+  // Creates the header with the parameter's values
+  // If user insert other columns names we use them,
+  // otherwise we use the XmlValue inserted when choosing the columns to display
+  var columnsNames = userParam.details_columns.split(";");
+  var columnsHeaders = userParam[lang+'_text_details_columns'].split(";");
+  var titlesAlignment = userParam.details_columns_titles_alignment.split(";");
+
+  // remove all empty values ("", null, undefined): 
+  columnsNames = columnsNames.filter(function(e){return e});
+  columnsHeaders = columnsHeaders.filter(function(e){return e});
+
+  if (columnsNames.length == columnsHeaders.length) {
+    for (var i = 0; i < columnsHeaders.length; i++) {
+      var alignment = titlesAlignment[i];
+      if (alignment !== "left" && alignment !== "center" && alignment !== "right") {
+        alignment = "center";
+      }
+      columnsHeaders[i] = columnsHeaders[i].trim();
+      if (columnsHeaders[i] === "<none>") {
+        header.addCell("", "doc_table_header", 1);
+      } else {
+        header.addCell(columnsHeaders[i], "doc_table_header "+ alignment, 1);
+      }
+      columnsNumber ++;
+    }
+  }
+  else {
+    for (var i = 0; i < columnsNames.length; i++) {
+      columnsNames[i] = columnsNames[i].trim();
+      header.addCell(columnsNames[i], "doc_table_header center", 1);
+      columnsNumber ++;
+    }
+  }
+
+  var decimals = getQuantityDecimals(invoiceObj);
+  var columnsAlignment = userParam.details_columns_alignment.split(";");
+
+  //ITEMS
+  var customColumnMsg = "";
+  for (var i = 0; i < invoiceObj.items.length; i++) {
+
+    var item = invoiceObj.items[i];
+    var className = "item_cell"; // row with amount
+    if (item.item_type && item.item_type.indexOf("total") === 0) {
+      className = "subtotal_cell"; // row with DocType 10:tot
+    }
+    if (item.item_type && item.item_type.indexOf("note") === 0) {
+      className = "note_cell"; // row without amount
+    }
+    if (item.item_type && item.item_type.indexOf("header") === 0) {
+      className = "header_cell"; // row with DocType 10:hdr
+    }
+
+    var classNameEvenRow = "";
+    if (i % 2 == 0) {
+      classNameEvenRow = "even_rows_background_color";
+    }
+
+    tableRow = repTableObj.addRow();
+
+    for (var j = 0; j < columnsNames.length; j++) {
+      var alignment = columnsAlignment[j];
+      if (alignment !== "left" && alignment !== "center" && alignment !== "right") {
+        alignment = "left";
+      }
+
+      if (columnsNames[j].trim().toLowerCase() === "description") {
+        //When 10:hdr with empty description, let empty line
+        if (item.item_type && item.item_type.indexOf("header") === 0 && !item.description) {
+          tableRow.addCell(" ", classNameEvenRow, 1);
+        }
+        else {
+          // tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          var descriptionCell = tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right ", 1);
+          var format = "md"; //md,html,text
+          var description = columnNamesToValuesMd(invoiceObj, item.description)
+          descriptionCell.addStructuredText(description, format, ""); // "" = stylesheet
+        }
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "quantity") {
+        if (IS_INTEGRATED_INVOICE) {
+          // If referenceUnit is empty we do not print the quantity.
+          // With this we can avoit to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
+          if (item.mesure_unit) {
+            if (variables.decimals_quantity !== "") {
+              decimals = variables.decimals_quantity;
+            }
+            var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
+            tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          } else {
+            tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+          }
+        }
+        else {
+          if (item.quantity) {
+            decimals = variables.decimals_quantity;
+            var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
+            tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+          }
+          else {
+            tableRow.addCell("", classNameEvenRow + " " + alignment + " padding-left padding-right " + className, 1);
+          }
+        }
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "referenceunit" || columnsNames[j] === "mesure_unit") {
+        var itemValue = formatItemsValue(item.mesure_unit, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "unitprice" || columnsNames[j] === "unit_price") {
+        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_inclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "amount" || columnsNames[j] === "total_amount_vat_inclusive") {
+        var itemValue = formatItemsValue(item.total_amount_vat_inclusive, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "vatrate" || columnsNames[j] === "vat_rate") {
+        var itemValue = formatItemsValue(item.unit_price.vat_rate, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "discount") {
+        var itemValue = "";
+        if (item.discount && item.discount.percent) {
+          itemValue = formatItemsValue(item.discount.percent, variables, columnsNames[j], className, item);
+          itemValue.value += "%";
+        }
+        else if (item.discount && item.discount.amount) {
+          itemValue = formatItemsValue(item.discount.amount, variables, columnsNames[j], className, item);
+        }
+        else {
+          itemValue = formatItemsValue("", variables, columnsNames[j], className, item);
+        }
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else if (columnsNames[j].trim().toLowerCase() === "number") {
+        var itemValue = formatItemsValue(item.number, variables, columnsNames[j], className, item);
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+      else {
+        var userColumnValue = "";
+        var columnsName = columnsNames[j];
+        var itemValue = "";
+        //User defined columns only available with advanced version
+        //In settings dialog, must start with "T." for integrated ivoices or "I." for estimates invoices
+        //This prevent conflicts with JSON fields.
+        if (BAN_ADVANCED) {
+          //JSON contains a property with the name of the column (Item, Date)
+          //In JSON all names are lower case
+          if (objectHasProperty(item, columnsName)) {
+            itemValue = formatItemsValue(objectGetProperty(item, columnsName), variables, columnsName, className, item);
+          }
+          else {
+            userColumnValue = getUserColumnValue(banDoc, item.origin_row, item.number, columnsName);
+            columnsName = columnsName.substring(2);
+            itemValue = formatItemsValue(userColumnValue, variables, columnsName, className, item);            
+          }
+        }
+        else {
+          customColumnMsg = "The customization with custom columns requires Banana Accounting+ Advanced";
+        }
+        tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
+      }
+    }
+  }
+  // Show message when using custom column with a non advanced version of Banana+
+  if (customColumnMsg.length > 0) {
+    banDoc.addMessage(customColumnMsg);
+  }
+
+  tableRow = repTableObj.addRow();
+  tableRow.addCell("", "border-top", columnsNumber);
+
+  //SUBTOTAL
+  //used only for the "Application Invoice"
+  //Print subtotal if there is discount or rounding or deposit
+  if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+    && (invoiceObj.billing_info.total_discount_vat_inclusive 
+    || invoiceObj.billing_info.total_rounding_difference 
+    || invoiceObj.billing_info.total_advance_payment)
+  ) {
+    
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.subtotal, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_amount_vat_inclusive_before_discount, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //DISCOUNT
+  //used only for the "Application Invoice"
+  //on normal invoices discounts are entered as items in transactions
+  if (invoiceObj.billing_info.total_discount_vat_inclusive) {
+    tableRow = repTableObj.addRow();
+    let discountText = invoiceObj.billing_info.discount.description ?
+      invoiceObj.billing_info.discount.description : texts.discount;
+    if (invoiceObj.billing_info.discount.percent)
+      discountText += " " + invoiceObj.billing_info.discount.percent + "%";
+    tableRow.addCell(discountText, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_discount_vat_inclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //TOTAL ROUNDING DIFFERENCE
+  if (invoiceObj.billing_info.total_rounding_difference) {
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.rounding, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  //DEPOSIT
+  //Only used for the Application Invoice
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow = repTableObj.addRow();
+    if (invoiceObj.billing_info.total_advance_payment_description) {
+      tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
+    } else {
+      tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
+    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
+  tableRow = repTableObj.addRow();
+  if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+    && (invoiceObj.billing_info.total_discount_vat_inclusive 
+    || invoiceObj.billing_info.total_rounding_difference 
+    || invoiceObj.billing_info.total_advance_payment)
+  ) {
+    tableRow.addCell("", "border-top", columnsNumber);
+  } else {
+    tableRow.addCell("", "", columnsNumber);
+  }
+
+  //FINAL TOTAL
+  tableRow = repTableObj.addRow();
+  tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
+  tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
+  
+  tableRow = repTableObj.addRow();
+  tableRow.addCell("", "", columnsNumber);
+
+  //VAT INFO
+  tableRow = repTableObj.addRow();
+  var cellVatInfo = tableRow.addCell("", "padding-right right vat_info", columnsNumber);
+  for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
+    var vatInfo = "";
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_inclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency + " (" + texts.gross + ") // ";
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency + " (" + texts.net + ")";
+    vatInfo += " " + texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%";
+    vatInfo += " = " + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
+    cellVatInfo.addParagraph(vatInfo);
   }
 }
 

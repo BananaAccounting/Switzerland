@@ -266,6 +266,11 @@ function setTexts_it(texts) {
 
   texts.param_color_title_total = "Colore titolo e totale";
   texts.param_tooltip_color_title_total = "Inserisci il colore";
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  texts.param_use_markdown = "Use Markdown";
+  texts.param_tooltip_use_markdown = "Check to use texts as markdown";
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
 }
 
 function setTexts_fr(texts) {
@@ -485,7 +490,12 @@ function setTexts_fr(texts) {
   texts.param_tooltip_text_final_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
 
   texts.param_color_title_total = "Couleur titre et totale";
-  texts.param_tooltip_color_title_total = "Insérer la couleur"; 
+  texts.param_tooltip_color_title_total = "Insérer la couleur";
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  texts.param_use_markdown = "Use Markdown";
+  texts.param_tooltip_use_markdown = "Check to use texts as markdown";
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
 }
 
 function setTexts_de(texts) {
@@ -706,6 +716,11 @@ function setTexts_de(texts) {
 
   texts.param_color_title_total = "Titel und Gesamtfarbe";
   texts.param_tooltip_color_title_total = "Farbe eingeben";
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  texts.param_use_markdown = "Use Markdown";
+  texts.param_tooltip_use_markdown = "Check to use texts as markdown";
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
 }
 
 function setTexts_en(texts) {
@@ -926,5 +941,10 @@ function setTexts_en(texts) {
 
   texts.param_color_title_total = "Title and total color";
   texts.param_tooltip_color_title_total = "Enter the color";
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  texts.param_use_markdown = "Use Markdown";
+  texts.param_tooltip_use_markdown = "Check to use texts as markdown";
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
 }
 

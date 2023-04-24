@@ -84,6 +84,29 @@ function convertParam(userParam) {
   var lengthDetailsTexts = "";
 
 
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  if (!IS_INTEGRATED_INVOICE) {
+    // Use Markdown
+    var currentParam = {};
+    currentParam.name = 'use_markdown';
+    currentParam.title = texts.param_use_markdown;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.use_markdown ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_use_markdown;
+    currentParam.readValue = function() {
+      userParam.use_markdown = this.value;
+    }
+    convertedParam.data.push(currentParam);
+  }
+  else {
+    userParam.use_markdown = false;
+  }
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+
+
+
   /*******************************************************************************************
   * INCLUDE
   *******************************************************************************************/
@@ -1477,6 +1500,11 @@ function initParam() {
   }
   var texts = setInvoiceTexts(lang);
 
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  userParam.use_markdown = false;
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+
   //Include
   userParam.header_print = true;
   userParam.header_row_1 = "";
@@ -1608,6 +1636,13 @@ function verifyParam(userParam) {
     lang = lang.substr(0, 2);
   }
   var texts = setInvoiceTexts(lang);
+
+
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
+  if (!userParam.use_markdown) {
+    userParam.use_markdown = false;
+  }
+  //////////////////////////////////////    TMP PARAMETER    ///////////////////////////////////////////////
 
   //Include
   if (!userParam.header_print) {
