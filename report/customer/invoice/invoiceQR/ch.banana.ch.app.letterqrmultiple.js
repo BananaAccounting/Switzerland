@@ -21,7 +21,7 @@
 // @description.de = QR-Rechnung aus Excel
 // @description.fr = Facture QR d'Excel
 // @description.en = QR-Invoice from Excel
-// @doctype = *
+// @doctype = 400.100
 // @task = app.command
 // @timeout = -1
 // @includejs = swissqrcode.js
