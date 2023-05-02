@@ -1,0 +1,61 @@
+%%info_test_name{csv_swisscard_example_format1_it_20230502}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l }
+Date & Doc & ExternalReference & Description & Income & Expenses\\
+2023-05-01 &  & 3776 61**** *0254 & VERTICO ACTRINI, PLABIT LAMNIGE RES COMPTIMUS &  & 39.00\\
+2023-04-29 &  & 3776 61**** *0254 & BONDIT A SAEPERM, SAEPERM CAURREX SERIME, VISTATESTIAM &  & 163.60\\
+2023-04-28 &  & 3776 61**** *0254 & TESTANEM, DIMEN DISSIVE FAMNIMULA &  & 200.00\\
+2023-04-28 &  & 3776 61**** *0254 & COMELA *INNEQUAEDDE, 5024858767 Rituresusa Serime &  & 273.05\\
+2023-04-28 &  & 3776 61**** *0254 & BONDIT A CABIBULUMN, CABIBULUMN CAURREX SERIME, VISTATESTIAM &  & 35.05\\
+2023-04-28 &  & 3776 61**** *0254 & NATU LIBO, PLABIT LESECTO INTICALE (S/COMPERE HUNIGANA) &  & 9.90\\
+2023-04-25 &  & 3776 61**** *0254 & COMELA *INNEQUAEDDE, 5024858767 Rituresusa Serime &  & 12.70\\
+2023-04-25 &  & 3776 61**** *0254 & VOLORBET BY MOLUMUTAE ME, MOLUMUTAE OVELLIUNDIFIG NUMN SERIME, QUAELES &  & 15.80\\
+2023-04-25 &  & 3776 61**** *0254 & NATU LIBO, PLABIT LESECTO INTICALE (S/COMPERE HUNIGANA) &  & 19.50\\
+2023-04-24 &  & 3776 61**** *0254 & BONDIT A CABIBULUMN, CABIBULUMN CAURREX SERIME, VISTATESTIAM &  & 71.55\\
+2023-04-23 &  & 3776 61**** *0254 & FAC RATION, POPE MODULEGIT LAPERBET &  & 7.00\\
+2023-04-23 &  & 3776 61**** *0254 & FAC FRANTUNT, POPE MODULEGIT LAPERBET &  & 2.30\\
+2023-04-22 &  & 3776 61**** *0254 & AGNUIT CENECUBE 3364 QUIS, PLABIT AUSQUITUID SERIME &  & 23.50\\
+2023-04-22 &  & 3776 61**** *0254 & LUUNTI, DIROUN COLOS MUNT, LUUNTI MODULEGIT LAPERBET &  & 14.00\\
+2023-04-22 &  & 3776 61**** *0254 & FAC RATION, POPE MODULEGIT LAPERBET &  & 7.00\\
+2023-04-19 &  & 3776 61**** *0254 & NOTE-4445 MOLUMUTAE, MOLUMUTAE AUSQUITUID SERIME &  & 55.85\\
+2023-04-18 &  & 3776 61**** *0254 & NOTE-4445 MOLUMUTAE, MOLUMUTAE AUSQUITUID SERIME &  & 27.20\\
+2023-04-16 &  & 3776 61**** *0254 & TUUNDO \& RET REQUIS ME, PLABIT CABIBUS PENDI &  & 29.00\\
+2023-04-16 &  & 3776 61**** *0254 & FAC FRANTUNT, POPE MODULEGIT LAPERBET &  & 7.00\\
+2023-04-16 &  & 4059 12** **** 2507 & FRUM NUMQUAEC VITUSUM, RIBERE 3 NOSTABO DERIT - CALIA, OCALL, PRIENT, ABIBO &  & 13.30\\
+2023-04-15 &  & 4059 12** **** 2507 & FRUM NUMQUAEC VITUSUM, RIBERE 3 NOSTABO DERIT - CALIA, OCALL, PRIENT, ABIBO &  & 15.35\\
+2023-04-15 &  & 3776 61**** *0254 & BONDIT S. EATINTHO J-CONE, S. EATINTHO AUSQUITUID SERIME &  & 25.70\\
+2023-04-15 &  & 3776 61**** *0254 & BONDIT S. EATINTHO STO, S. EATINTHO AUSQUITUID SERIME &  & 57.35\\
+2023-04-15 &  & 3776 61**** *0254 & BONDIT S. EATINTHO, S. EATINTHO AUSQUITUID SERIME &  & 138.55\\
+2023-04-14 &  & 3776 61**** *0254 & COMELA *INNEQUAEDDE, 5024858767 Rituresusa Serime &  & 243.30\\
+2023-04-13 &  & 4059 12** **** 2507 & NON.AQUAESCUNDISIMETIONE., QUAEC' MENDUCI OBSED RAY NEIUNIUNDIS &  & 314.60\\
+2023-04-13 &  & 3776 61**** *0254 & NOTE-2125 SAEPERM, SAEPERM AUSQUITUID SERIME &  & 116.30\\
+2023-04-13 &  & 4059 12** **** 2507 & FRUM NUMQUAEC VITUSUM, RIBERE 3 NOSTABO DERIT - CALIA, OCALL, PRIENT, ABIBO &  & 9.20\\
+2023-04-08 &  & 3776 61**** *0254 & AGNUIT CENECUBE 3364 QUIS, PLABIT AUSQUITUID SERIME &  & 24.70\\
+2023-04-08 &  & 3776 61**** *0254 & AGNUIT CENECUBE 3364 QUIS, PLABIT AUSQUITUID SERIME &  & 22.40\\
+2023-04-08 &  & 3776 61**** *0254 & DUERAM SENDIRE NON NIUSA, LUUNTI LIBREM EVOLOR, TATUDIMUTUR &  & 320.00\\
+2023-04-08 &  & 3776 61**** *0254 & FAC RATION, POPE MODULEGIT LAPERBET &  & 7.00\\
+2023-04-07 &  & 3776 61**** *0254 & FAC RATION, POPE MODULEGIT LAPERBET &  & 9.40\\
+2023-04-05 &  & 3776 61**** *0254 & LIBULI TRIEM*IB7HU8OO4, NON.LIBULI.SI NOSTABO DERIT - DIVIT-SERTABUS &  & 10.00\\
+2023-04-03 &  & 3776 61**** *0254 & NOTE IPERAXIMOR ME, COSITQUIRE PERIT PRECTUS NOCUNDAM RAY XXX FRUNT &  & 16.15\\
+2023-04-03 &  & 3776 61**** *0254 & COMELA *VISSIGE, 41073333605 NOSTABO DERIT - CALIA, OCALL, PRIENT, ABIBO &  & 16.95\\
+\\
+\end{tablevalue}
+\end{document}

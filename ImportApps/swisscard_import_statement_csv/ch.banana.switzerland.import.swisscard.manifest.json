@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Swisscard - Import transactions (*.csv)",
+    "description.en": "Swisscard - Import transactions (*.csv)",
+    "description.it": "Swisscard - Importa movimenti (*.csv)",
+    "description.de": "Swisscard - Bewegungen importieren (*.csv)",
+    "description.fr": "Swisscard - Importer mouvements (*.csv)",
+    "id": "ch.banana.switzerland.import.swisscard",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Swisscard - Import transactions (*.csv)",
+    "title.en": "Swisscard - Import transactions (*.csv)",
+    "title.it": "Swisscard - Importa movimenti (*.csv)",
+    "title.de": "Swisscard - Bewegungen importieren (*.csv)",
+    "title.fr": "Swisscard - Importer mouvements (*.csv)",
+    "version": "1.0"
+}

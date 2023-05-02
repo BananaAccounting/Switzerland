@@ -1,0 +1,35 @@
+%%info_test_name{csv_swisscard_example_format1_de_20230502}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l }
+Date & Doc & ExternalReference & Description & Income & Expenses\\
+2023-04-16 &  & 3776 62**** *4927 & OCUSA COGIONTER, VETIRANT SEGRACILIA IMUNIUNTI &  & 23.70\\
+2023-04-16 &  & 4731 04** **** 1893 & HABUS.MUM/MINE, 5551118362 NATRIES LIRIS - INIUS-LABIROLO &  & 3.00\\
+2023-04-15 &  & 4731 04** **** 1893 & MORSEMPLII MITULAMQUOBSTO, VOLUM DE ACUNIURADA VOCATEM DEAT QUE DIDENDO &  & 3.00\\
+2023-04-15 &  & 4731 04** **** 6980 & POTE COMILENDI TUDO, INSILOCULA DE POTERAECENTAS AUDO UNNERE, DERUNTE &  & 29.30\\
+2023-04-15 &  & 3776 62**** *8452 & HUNGULCET DITINTI DE, CURIMERPULECT DIX METIS, DIX AUDO ACITTRIDE &  & 84.15\\
+2023-04-15 &  & 3776 62**** *8452 & LIDE PRODUNIUNGINTE BY 0, ANESTEREDECTO IENTINEIUM UNNERE &  & 143.35\\
+2023-04-15 &  & 3776 62**** *4927 & FERA AMULUM TUDO, COCUNGINENI POTERAECENTAS AUDO UNNERE, DERUNTE &  & 5.00\\
+2023-04-13 &  & 3776 62**** *8452 & PAM. 11042 QHMXDKPN56., COGNENTENI USA \& OSTER'H VAPOSTAM &  & 268.00\\
+2023-04-13 &  & 4731 04** **** 6980 & PERREDENTUM OCCANEM INIS, PARTURUM POTERAECENTAS AUDO UNNERE, DERUNTE &  & 100.50\\
+2023-04-13 &  & 4731 04** **** 6980 & VAPPARTUM, PARTURUM POTERAECENTAS AUDO UNNERE, DERUNTE &  & 79.10\\
+\\
+\end{tablevalue}
+\end{document}
