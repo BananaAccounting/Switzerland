@@ -1,0 +1,41 @@
+%%info_test_name{csv_cornerbank_example_format2_EUR_20230503}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2023-01-09 & 2023-01-09 &  & Gralis varenteque restas  & 701.65 & \\
+2023-01-18 & 2023-01-18 &  & Mordupartatiquo  & 1450.0 & \\
+2023-02-03 & 2023-02-03 &  & I-olfacta  &  & 35.09\\
+2023-02-07 & 2023-02-07 &  & I-olfacta  &  & 1274.55\\
+2023-02-08 & 2023-02-10 &  & Nutione restas  & 7880.41 & \\
+2023-02-14 & 2023-02-13 &  & Gralis varenteque aervatuellit  & 350.56 & \\
+2023-02-23 & 2023-02-23 &  & I-olfacta  &  & 2009.51\\
+2023-02-24 & 2023-02-24 &  & Mordupartatiquo  & 1800.0 & \\
+2023-02-27 & 2023-02-27 &  & Mordupartatiquo  & 4100.0 & \\
+2023-02-28 & 2023-02-28 &  & Vervadusitiandacturam  &  & 15.51\\
+2023-03-02 & 2023-03-02 &  & I-olfacta  &  & 33.2\\
+2023-03-07 & 2023-03-07 &  & I-olfacta  &  & 1033.47\\
+2023-03-13 & 2023-03-13 &  & I-olfacta  &  & 630.56\\
+2023-03-20 & 2023-03-20 &  & Gralis varenteque aervatuellit  & 700.0 & \\
+2023-03-31 & 2023-03-31 &  & Vervadusitiandacturam  &  & 5.15\\
+2023-03-31 & 2023-03-31 &  & Exiliquiniuniurest  &  & 5.07\\
+\\
+\end{tablevalue}
+\end{document}
