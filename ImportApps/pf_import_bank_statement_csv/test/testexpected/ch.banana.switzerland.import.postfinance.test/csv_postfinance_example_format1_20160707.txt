@@ -1,0 +1,74 @@
+%%info_test_name{csv_postfinance_example_format1_20160707}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2016-05-26 & 2016-05-26 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 54.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 635.67 & \\
+2016-05-27 & 2016-05-27 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 44.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 378.71 & \\
+2016-05-30 & 2016-05-30 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 25.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 100.71 & \\
+2016-05-30 & 2016-05-30 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 63.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 567.71 & \\
+2016-05-30 & 2016-05-30 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 61.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 468.48 & \\
+2016-05-31 & 2016-05-31 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 71.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 556.71 & \\
+2016-06-01 & 2016-06-01 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 18.53.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 373.48 & \\
+2016-06-01 & 2016-06-01 &  & Vapost Tam I-Ustrate Plestodifig Osse O Stradde At Cat 54.42 / Xxx 37.42 Age.Minumn.At Litodo Os Dionsireant: 314 Exacte X'Posica 46523.33 Arduci 1877 &  & 391.23\\
+2016-06-02 & 2016-06-02 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 42.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 654.67 & \\
+2016-06-03 & 2016-06-03 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 57.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 680.67 & \\
+2016-06-06 & 2016-06-06 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 38.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 887.71 & \\
+2016-06-06 & 2016-06-06 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 86.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 765.70 & \\
+2016-06-06 & 2016-06-06 &  & Aedacire Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 86.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At &  & 189.00\\
+2016-06-06 & 2016-06-06 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 53.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 850.70 & \\
+2016-06-07 & 2016-06-07 &  & Cali Vicendionsila (Mini) Xxx 762.67 An Posta Os Valium Os 4.4043 Tia Poem Deneripsiculudine 356 6072 Ex Xxx Scro FJ12NWFX5634704745 San Milis &  & 654.38\\
+2016-06-07 & 2016-06-07 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 20.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 868.67 & \\
+2016-06-08 & 2016-06-08 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 54.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 268.67 & \\
+2016-06-09 & 2016-06-09 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 84.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 885.67 & \\
+2016-06-10 & 2016-06-10 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 48.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 274.48 & \\
+2016-06-10 & 2016-06-10 &  & Minumn Ratange I-Ustrate Navaluvit Litodo Gatus Ratange: 87274555 Arduci 1877 &  & 268.79\\
+2016-06-13 & 2016-06-13 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 71.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 67.71 & \\
+2016-06-13 & 2016-06-13 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 18.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 477.67 & \\
+2016-06-13 & 2016-06-13 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 56.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 378.71 & \\
+2016-06-14 & 2016-06-14 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 67.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 883.71 & \\
+2016-06-15 & 2016-06-15 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 77.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 374.67 & \\
+2016-06-16 & 2016-06-16 &  & I-Fregmen 66-24-4 Xxx Si YL0321770653X728822BD Sciuntare Momulate Muntionte C. Duper 8 8542 Latavego &  & 70000.00\\
+2016-06-16 & 2016-06-16 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 70.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 213.70 & \\
+2016-06-17 & 2016-06-17 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 80.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 248.70 & \\
+2016-06-20 & 2016-06-20 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 57.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 387.70 & \\
+2016-06-20 & 2016-06-20 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 37.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4531.70 & \\
+2016-06-20 & 2016-06-20 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 52.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4488.70 & \\
+2016-06-21 & 2016-06-21 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 33.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4713.38 & \\
+2016-06-22 & 2016-06-22 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 21.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4371.70 & \\
+2016-06-23 & 2016-06-23 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 72.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 817.33 & \\
+2016-06-24 & 2016-06-24 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 16.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 635.67 & \\
+2016-06-27 & 2016-06-27 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 87.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 887.71 & \\
+2016-06-27 & 2016-06-27 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 54.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 413.70 & \\
+2016-06-28 & 2016-06-28 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 63.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4650.38 & \\
+2016-06-29 & 2016-06-29 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 25.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 210.70 & \\
+2016-06-30 & 2016-06-30 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 61.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 656.67 & \\
+2016-07-01 & 2016-07-01 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 71.20.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4453.15 & \\
+2016-07-01 & 2016-07-01 &  & Vapost Tam I-Ustrate Plestodifig Osse O Stradde At Cat 54.42 / Xxx 37.42 Age.Minumn.At Litodo Os Dionsireant: 256 Exacte X'Posica 48017.38 Supero 1877 &  & 426.42\\
+2016-07-04 & 2016-07-04 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 57.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 725.70 & \\
+2016-07-04 & 2016-07-04 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 42.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 4678.71 & \\
+2016-07-04 & 2016-07-04 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 86.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 484.48 & \\
+2016-07-05 & 2016-07-05 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 38.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 505.71 & \\
+2016-07-05 & 2016-07-05 &  & Aedacire Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 38.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At &  & 38.70\\
+2016-07-06 & 2016-07-06 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 53.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 817.33 & \\
+2016-07-07 & 2016-07-07 &  & Paratudix Agnicesteni I-Ustrate Plestodifig Osse Magnutus Sec 20.54.1877 Minumn.At Si KVDFC3052285344 Age.Minumn.At & 104.70 & \\
+\\
+\end{tablevalue}
+\end{document}

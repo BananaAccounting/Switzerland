@@ -1,0 +1,61 @@
+%%info_test_name{csv_postfinance_example_format3_20101031}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2010-09-01 & 2010-09-01 &  & Regerumeri Xxx Ine. Rideo - Xxx 75.28.4682 & 800.00 & \\
+2010-09-02 & 2010-08-31 &  & Ovum/sediviscatiris - Xxx 28.28.4682 &  & 42.75\\
+2010-09-03 & 2010-09-03 &  & Regerumeri Xxx Ine. Rideo - Xxx 63.28.4682 & 1200.00 & \\
+2010-09-14 & 2010-09-10 &  & Ovum/sediviscatiris - Xxx 63.28.4682 &  & 44.95\\
+2010-09-17 & 2010-09-17 &  & Regerumeri Xxx Ine. Rideo - Xxx 75.28.4682 & 700.00 & \\
+2010-09-20 & 2010-09-20 &  & Regerumeri Xxx Ine. Rideo - Xxx 58.28.4682 & 500.00 & \\
+2010-09-27 & 2010-09-27 &  & W-Gangunt 24315 - Pendirestiffictransolunius Dio &  & 282.60\\
+2010-09-28 & 2010-09-24 &  & Ovum/sediviscatiris - Xxx 58.28.4682 &  & 49.00\\
+2010-09-28 & 2010-09-28 &  & Regerumeri Xxx Ine. Rideo - Xxx 51.28.4682 & 600.00 & \\
+2010-09-30 & 2010-09-30 &  & Solo Dem Hyacta-Ral 700 - Humelumentem: & 400.00 & \\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-2055-5 - De.Solone Exactianavit Ut &  & 1400.00\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-36815-7 - Veranest &  & 300.00\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-87515-1 - Liquit-Pontare &  & 249.30\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-87515-1 - Liquit-Pontare &  & 203.95\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-7670-4 - Priate Chabit &  & 141.50\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-88560-5 - Multiunt De. Tabicustio Vi &  & 140.00\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-34663-7 - Seniura Astiurungobtis Ut &  & 58.85\\
+2010-09-30 & 2010-09-30 &  & W-Gangunt 75-27675-7 - Testanes (Proxita) Ut, Agna &  & 36.25\\
+2010-09-30 & 2010-09-30 &  & H�s Ige Hyacta-Xxx Loduci 4682 - Vivivio�fig Habulac Ine Pam 3555.77 &  & 3.00\\
+2010-10-04 & 2010-10-02 &  & Ovum/sediviscatiris - Xxx 25.63.4682 &  & 30.15\\
+2010-10-06 & 2010-10-06 &  & Regerumeri - Xxx Ine. Rideo Xxx 30.63.4682 & 900.00 & \\
+2010-10-06 & 2010-10-06 &  & Solo Dem Rideo 28-2-2 - Tem Ut & 392.00 & \\
+2010-10-13 & 2010-10-11 &  & Ovum/sediviscatiris - Xxx 36.63.4682 &  & 39.95\\
+2010-10-19 & 2010-10-19 &  & Regerumeri - Xxx Ine. Rideo Xxx 10.63.4682 & 500.00 & \\
+2010-10-25 & 2010-10-25 &  & Solo Dem Rideo 28-2-2 - Tem Ut & 110.00 & \\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-2055-5 - De.Solone Exactianavit Ut &  & 1400.00\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-36815-7 - Veranest &  & 300.00\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-45521-6 - Substo By &  & 115.50\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-28743-1 - Mate - Trunt Ut &  & 122.85\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-87515-1 - Liquit-Pontare &  & 249.30\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-88560-5 - Multiunt De. Tabicustio Vi &  & 140.00\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-87515-1 - Liquit-Pontare &  & 119.65\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-73547-1 - Multiunt De. Tabicustio Vi &  & 110.00\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-88716-7 - Diusquam Osto &  & 131.55\\
+2010-10-29 & 2010-10-29 &  & W-Gangunt 75-13080-1 - Magnunans &  & 45.00\\
+2010-10-31 & 2010-10-31 &  & H�s Ige Hyacta-Xxx Anduxemum 4682 - Vivivio�fig De�agna Ine Pam 3555.77 & 0.00 & \\
+\\
+\end{tablevalue}
+\end{document}

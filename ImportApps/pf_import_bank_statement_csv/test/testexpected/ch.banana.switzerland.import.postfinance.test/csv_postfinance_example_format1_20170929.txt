@@ -1,0 +1,235 @@
+%%info_test_name{csv_postfinance_example_format1_20170929}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2017-07-03 & 2017-07-03 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 182 Si 1742760/2171 RES385.78/UT:8735153827 PRO:0.88/REM:37.68.6585 Samnetion'T Rate /at. Ovicar & 392.15 & \\
+2017-07-04 & 2017-07-04 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 541 Si 6221673/2171 RES628.78/UT:3656857740 PRO:7.27/REM:86.33.6585 Samnetion'T Rate /at. Ovicar & 272.76 & \\
+2017-07-04 & 2017-07-04 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 541 Si 2035712/2171 RES3542.78/UT:8433045644 PRO:80.68/REM:40.68.6585 Samnetion'T Rate /at. Ovicar & 1159.94 & \\
+2017-07-05 & 2017-07-05 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 230 Si 7418416/2171 RES88.78/UT:4273543843 PRO:6.18/REM:36.33.6585 Samnetion'T Rate /at. Ovicar & 55.35 & \\
+2017-07-05 & 2017-07-05 &  & S-Pricale 86-68412-3 Pertumnumen An Hyacutuobtio 1333 Dabo &  & 432.9\\
+2017-07-05 & 2017-07-05 &  & S-Pricale 86-15640-5 Conianes Paddum Sit, Mento, Ditquatens Vi Protura (Pam�de) Protura Vi &  & 1126.1\\
+2017-07-05 & 2017-07-05 &  & S-Pricale 86-15640-5 Conianes Paddum Sit, Mento, Ditquatens Vi Protura (Pam�de) Protura Vi &  & 874.35\\
+2017-07-05 & 2017-07-05 &  & S-Pricale 86-15640-5 Conianes Paddum Sit, Mento, Ditquatens Vi Protura (Pam�de) Protura Vi &  & 54\\
+2017-07-05 & 2017-07-05 &  & Stanavimen Xxx Tiongeris 1281 Pupecurrucem: Aectunium Cect Scat Astestas 51 1284 Tervio 864042HA61N20MQP Iuncretangit: At-Ut.5835576786 Que.Rem. 163313065/68/46 DERAER66.78 FICUTUBITA7.50 & 92.2 & \\
+2017-07-06 & 2017-07-06 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 101 W1 4610571/2171 RES402.78/UT:2744447738 PRO:7.81/REM:46.33.6585 Samnetion'T Rate /at. Ovicar & 171.51 & \\
+2017-07-06 & 2017-07-06 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 35.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 37 & \\
+2017-07-06 & 2017-07-06 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 35.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-07-07 & 2017-07-07 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 500 W1 5202468/2171 RES383.78/UT:8037320446 PRO:2.52/REM:35.33.6585 Samnetion'T Rate /at. Ovicar & 299.5 & \\
+2017-07-07 & 2017-07-07 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 68.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 209 & \\
+2017-07-07 & 2017-07-07 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 68.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 1.38\\
+2017-07-07 & 2017-07-07 &  & Ticingeriant Dum 33.33.6585 Dionis Ut. GSVI0828 Evicusum: Berviderum Ut�canes At. Ovicar &  & 700\\
+2017-07-10 & 2017-07-10 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 640 W1 5664687/2171 RES653.78/UT:5107768154 PRO:2.53/REM:68.33.6585 Samnetion'T Rate /at. Ovicar & 785.18 & \\
+2017-07-10 & 2017-07-10 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 64.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 85 & \\
+2017-07-10 & 2017-07-10 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 64.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-10 & 2017-07-10 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 33.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 119 & \\
+2017-07-10 & 2017-07-10 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 33.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-11 & 2017-07-11 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 781 W1 2534263/2171 RES178.78/UT:8126447614 PRO:3.33/REM:33.33.6585 Samnetion'T Rate /at. Ovicar & 496.93 & \\
+2017-07-11 & 2017-07-11 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 781 W1 2125637/2171 RES484.78/UT:5683536270 PRO:0.40/REM:64.33.6585 Samnetion'T Rate /at. Ovicar & 330.3 & \\
+2017-07-11 & 2017-07-11 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 48.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 10 & \\
+2017-07-11 & 2017-07-11 &  & Numete X�k Vio/que Xxx Tit 48.- Respicet: NU4316347463710 2 Etuonsit�vi Dum 48.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.1\\
+2017-07-12 & 2017-07-12 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 824 W1 1234717/2171 RES643.78/UT:4405450135 PRO:2.68/REM:48.33.6585 Samnetion'T Rate /at. Ovicar & 196.94 & \\
+2017-07-13 & 2017-07-13 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 134 Si 8831578/2171 RES326.78/UT:2374123634 PRO:2.68/REM:52.33.6585 Samnetion'T Rate /at. Ovicar & 235.87 & \\
+2017-07-13 & 2017-07-13 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 80.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 120 & \\
+2017-07-13 & 2017-07-13 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 80.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.69\\
+2017-07-14 & 2017-07-14 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 432 Si 4783732/2171 RES700.78/UT:1056114585 PRO:2.28/REM:80.33.6585 Samnetion'T Rate /at. Ovicar & 429.08 & \\
+2017-07-14 & 2017-07-14 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 68.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 30 & \\
+2017-07-14 & 2017-07-14 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 68.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-07-17 & 2017-07-17 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 484 Si 6600403/2171 RES107.78/UT:2873085752 PRO:2.18/REM:68.33.6585 Samnetion'T Rate /at. Ovicar & 431.35 & \\
+2017-07-17 & 2017-07-17 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 50.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 196 & \\
+2017-07-17 & 2017-07-17 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 50.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.69\\
+2017-07-17 & 2017-07-17 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 47.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 50 & \\
+2017-07-17 & 2017-07-17 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 47.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-17 & 2017-07-16 &  & Post/tinfluvidullae Dum 13.33.6585 Dionis Ut. GSVI0828 Actula T�simiripe Moterundo Funium Ex &  & 360\\
+2017-07-18 & 2017-07-18 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 806 Si 3785033/2171 RES441.21/UT:7071414371 PRO:0.73/REM:50.33.6585 Samnetion'T Rate /at. Ovicar & 527.83 & \\
+2017-07-18 & 2017-07-18 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 806 Si 6732126/2171 RES648.78/UT:6157448625 PRO:2.26/REM:47.33.6585 Samnetion'T Rate /at. Ovicar & 316.12 & \\
+2017-07-18 & 2017-07-18 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 65.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 20 & \\
+2017-07-18 & 2017-07-18 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 65.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-07-19 & 2017-07-19 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 477 Si 6310486/2171 RES844.78/UT:5373110761 PRO:5.86/REM:65.33.6585 Samnetion'T Rate /at. Ovicar & 192.42 & \\
+2017-07-20 & 2017-07-20 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 330 W1 8846625/2171 RES144.78/UT:6411548746 PRO:6.20/REM:51.33.6585 Samnetion'T Rate /at. Ovicar & 181.07 & \\
+2017-07-20 & 2017-07-20 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 48.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 355 & \\
+2017-07-20 & 2017-07-20 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 8 Etuonsit�vi Dum 48.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 1.15\\
+2017-07-20 & 2017-07-20 &  & Plerinquidecustum�et Dum 40.33.6585 Dionis Ut. GSVI0828 Berviderum At. Ovicar 7 Ut�canes &  & 1701\\
+2017-07-21 & 2017-07-21 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 315 W1 4544044/2171 RES212.78/UT:1548761105 PRO:3.27/REM:48.33.6585 Samnetion'T Rate /at. Ovicar & 484.68 & \\
+2017-07-21 & 2017-07-21 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 40.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 46 & \\
+2017-07-21 & 2017-07-21 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 40.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-07-24 & 2017-07-24 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 670 W1 4701704/2171 RES310.78/UT:4678351667 PRO:4.13/REM:40.33.6585 Samnetion'T Rate /at. Ovicar & 619.84 & \\
+2017-07-24 & 2017-07-24 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 67.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 55 & \\
+2017-07-24 & 2017-07-24 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 67.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-24 & 2017-07-23 &  & Post/tinfluvidullae Dum 38.33.6585 Dionis Ut. GSVI0828 Potudivis L�func-Imus L�func &  & 95\\
+2017-07-25 & 2017-07-25 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 886 W1 1104203/2171 RES134.78/UT:1048132133 PRO:5.28/REM:67.33.6585 Samnetion'T Rate /at. Ovicar & 686.08 & \\
+2017-07-25 & 2017-07-25 &  & S-Pricale 86-74041-5 Sex Amalige (Uspisi) An Pam�de Videreat-Ut. 7676777006 &  & 720.1\\
+2017-07-26 & 2017-07-26 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 62.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 95 & \\
+2017-07-26 & 2017-07-26 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 62.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-27 & 2017-07-27 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 510 Si 8505354/2171 RES370.78/UT:1632280804 PRO:2.21/REM:62.33.6585 Samnetion'T Rate /at. Ovicar & 427.61 & \\
+2017-07-27 & 2017-07-27 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 63.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 75 & \\
+2017-07-27 & 2017-07-27 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 63.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.69\\
+2017-07-27 & 2017-07-27 &  & Ticingeriant Dum 87.33.6585 Dionis Ut. GSVI0828 Berviderum At. Ovicar 7 Ut�canes &  & 6500\\
+2017-07-28 & 2017-07-28 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 268 Si 8108188/2171 RES53.78/UT:5328832200 PRO:5.48/REM:63.33.6585 Samnetion'T Rate /at. Ovicar & 80.9 & \\
+2017-07-28 & 2017-07-28 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 87.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 66 & \\
+2017-07-28 & 2017-07-28 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 87.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-31 & 2017-07-31 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 511 Si 2222571/2171 RES221.78/UT:5857116330 PRO:2.13/REM:87.33.6585 Samnetion'T Rate /at. Ovicar & 286.53 & \\
+2017-07-31 & 2017-07-31 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 37.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 75 & \\
+2017-07-31 & 2017-07-31 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 37.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-07-31 & 2017-07-31 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 46.33.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 35 & \\
+2017-07-31 & 2017-07-31 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 46.33.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-02 & 2017-08-02 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 266 Si 5887628/2171 RES241.78/UT:2678605307 PRO:2.53/REM:46.33.6585 Samnetion'T Rate /at. Ovicar & 246.37 & \\
+2017-08-02 & 2017-08-02 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 266 W1 4526748/2171 RES341.78/UT:3028282130 PRO:0.67/REM:37.33.6585 Samnetion'T Rate /at. Ovicar & 304.78 & \\
+2017-08-03 & 2017-08-02 &  & Post/tinfluvidullae Dum 30.64.6585 Dionis Ut. GSVI0828 Y�renticut An At. Ovicar &  & 120.95\\
+2017-08-03 & 2017-08-03 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 30.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 72 & \\
+2017-08-03 & 2017-08-03 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 30.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-08-04 & 2017-08-04 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 431 W1 4110550/2171 RES862.78/UT:3055132216 PRO:7.37/REM:30.64.6585 Samnetion'T Rate /at. Ovicar & 267.71 & \\
+2017-08-04 & 2017-08-04 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 36.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 40 & \\
+2017-08-04 & 2017-08-04 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 36.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-04 & 2017-08-04 &  & Numete X�k Vio/que Xxx Tit 48.- Respicet: NU4316347463710 2 Etuonsit�vi Dum 36.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.1\\
+2017-08-07 & 2017-08-07 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 236 W1 1515220/2171 RES332.78/UT:7737552476 PRO:2.27/REM:36.64.6585 Samnetion'T Rate /at. Ovicar & 252.76 & \\
+2017-08-07 & 2017-08-04 &  & Post/tinfluvidullae Dum 46.64.6585 Dionis Ut. GSVI0828 Into Saer Xxx Scat At. Ovicar &  & 270\\
+2017-08-08 & 2017-08-08 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 402 W1 3218473/2171 RES551.78/UT:2421518662 PRO:2.54/REM:46.64.6585 Samnetion'T Rate /at. Ovicar & 293.36 & \\
+2017-08-08 & 2017-08-08 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 402 W1 1453553/2171 RES452.78/UT:6787675368 PRO:5.88/REM:35.64.6585 Samnetion'T Rate /at. Ovicar & 263.15 & \\
+2017-08-08 & 2017-08-07 &  & Post/tinfluvidullae Dum 33.64.6585 Dionis Ut. GSVI0828 Dit Jubiturbite B083 At. Ovicar &  & 602\\
+2017-08-10 & 2017-08-10 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 627 Si 4262535/2171 RES885.78/UT:5325384553 PRO:7.27/REM:64.64.6585 Samnetion'T Rate /at. Ovicar & 187.76 & \\
+2017-08-10 & 2017-08-10 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 84.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 47 & \\
+2017-08-10 & 2017-08-10 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 84.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-08-11 & 2017-08-11 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 48.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 35 & \\
+2017-08-11 & 2017-08-11 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 48.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-11 & 2017-08-11 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 425 Si 7425357/2171 RES538.78/UT:7357605772 PRO:0.54/REM:84.64.6585 Samnetion'T Rate /at. Ovicar & 490.28 & \\
+2017-08-14 & 2017-08-14 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 80.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 15 & \\
+2017-08-14 & 2017-08-14 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 80.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-14 & 2017-08-14 &  & Flam Xxx Evolo 50-7-7 Mum Quientemore An Rathorecrisque 40 5476 L�func Inguluva: Xxx Secuini Plendabo An Medeanabuluunis 357 5214 Oventum Iuncretangit: 7135 578 Si 7466017/2171 RES685.78/UT:8853755336 PRO:5.67/REM:48.64.6585 Samnetion'T Rate /at. Ovicar & 569.39 & \\
+2017-08-15 & 2017-08-15 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 448466KR8542OVEU Iuncretangit: RES118.78/UT:3056330367 Pro: 5.16/REM:52.64.6585 Samnetion'T Rate /at. Ovicar & 519.32 & \\
+2017-08-15 & 2017-08-15 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 417874LA1865NY8T Iuncretangit: RES486.78/UT:5675701086 Pro: 0.73/REM:80.64.6585 Samnetion'T Rate /at. Ovicar & 394.56 & \\
+2017-08-15 & 2017-08-15 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 47.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 30 & \\
+2017-08-15 & 2017-08-15 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 47.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-16 & 2017-08-16 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 187036KY3554WFUN Iuncretangit: RES184.78/UT:4280777573 Pro: 7.88/REM:47.64.6585 Samnetion'T Rate /at. Ovicar & 292.79 & \\
+2017-08-16 & 2017-08-16 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 50.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 91 & \\
+2017-08-16 & 2017-08-16 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 50.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-08-17 & 2017-08-17 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 866410VF012541KO Iuncretangit: RES307.78/UT:5588413828 Pro: 5.62/REM:50.64.6585 Samnetion'T Rate /at. Ovicar & 138.47 & \\
+2017-08-17 & 2017-08-17 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 13.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 80 & \\
+2017-08-17 & 2017-08-17 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 13.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-08-18 & 2017-08-18 &  & S-Pricale 86-1265-7 Diuspleculique A�somire-Adrattion Sportunticeper Ipatetiunicut &  & 1247.95\\
+2017-08-18 & 2017-08-18 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 647154MR870F7WRA Iuncretangit: RES146.78/UT:8664350882 Pro: 3.23/REM:13.64.6585 Samnetion'T Rate /at. Ovicar & 617.49 & \\
+2017-08-18 & 2017-08-18 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 65.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 58 & \\
+2017-08-18 & 2017-08-18 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 65.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-21 & 2017-08-21 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 48.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 80 & \\
+2017-08-21 & 2017-08-21 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 48.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-08-21 & 2017-08-21 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 51.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 30 & \\
+2017-08-21 & 2017-08-21 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 51.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-21 & 2017-08-21 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 811188AB487K3840 Iuncretangit: RES676.78/UT:2844838504 Pro: 5.63/REM:65.64.6585 Samnetion'T Rate /at. Ovicar & 649.74 & \\
+2017-08-22 & 2017-08-22 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 865355WR708RMGRG Iuncretangit: RES776.78/UT:1641845364 Pro: 3.87/REM:51.64.6585 Samnetion'T Rate /at. Ovicar & 474.31 & \\
+2017-08-22 & 2017-08-22 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 776777OI225RSY15 Iuncretangit: RES152.78/UT:6320716328 Pro: 0.88/REM:48.64.6585 Samnetion'T Rate /at. Ovicar & 267.79 & \\
+2017-08-22 & 2017-08-22 &  & Vicuprow Plentquiured Dum 67.64.6585 Dionis Ut. GSVI0828 Berviderum At. Ovicar 7 Ut�canes &  & 1700\\
+2017-08-22 & 2017-08-22 &  & Ticingeriant Dum 67.64.6585 Dionis Ut. GSVI0828 Berviderum At. Ovicar 7 Ut�canes &  & 3600\\
+2017-08-23 & 2017-08-23 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 356356XR167HCF7J Iuncretangit: RES463.78/UT:7428533611 Pro: 5.31/REM:88.64.6585 Samnetion'T Rate /at. Ovicar & 142.43 & \\
+2017-08-24 & 2017-08-24 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 142813IG372QDRIA Iuncretangit: RES508.78/UT:7007682825 Pro: 7.28/REM:67.64.6585 Samnetion'T Rate /at. Ovicar & 195.08 & \\
+2017-08-24 & 2017-08-24 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 38.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 69 & \\
+2017-08-24 & 2017-08-24 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 38.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-25 & 2017-08-25 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 317204SY261T7AJQ Iuncretangit: RES253.78/UT:2503472750 Pro: 0.24/REM:38.64.6585 Samnetion'T Rate /at. Ovicar & 404.27 & \\
+2017-08-25 & 2017-08-25 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 27.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 136 & \\
+2017-08-25 & 2017-08-25 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 27.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.92\\
+2017-08-25 & 2017-08-25 &  & S-Pricale 86-74041-5 Sex Amalige (Uspisi) An Pam�de Videreat-Ut. 7676777006 &  & 720.1\\
+2017-08-27 & 2017-08-27 &  & Ticingeriant Dum 87.64.6585 Dionis Ut. GSVI0828 Evicusum: Senterant Debruret Omniae &  & 300\\
+2017-08-28 & 2017-08-28 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 63.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 35 & \\
+2017-08-28 & 2017-08-28 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 63.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-08-28 & 2017-08-28 &  & Numete X�k Vio/que Xxx Tit 48.- Respicet: NU4316347463710 2 Etuonsit�vi Dum 63.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.1\\
+2017-08-28 & 2017-08-28 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 62.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 105 & \\
+2017-08-28 & 2017-08-28 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 62.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-08-28 & 2017-08-28 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 144241VL3043557M Iuncretangit: RES562.78/UT:3601711847 Pro: 0.33/REM:27.64.6585 Samnetion'T Rate /at. Ovicar & 354.93 & \\
+2017-08-29 & 2017-08-29 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 620034IP476KX1CC Iuncretangit: RES570.78/UT:4107167338 Pro: 0.13/REM:62.64.6585 Samnetion'T Rate /at. Ovicar & 483.26 & \\
+2017-08-29 & 2017-08-29 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 665222IA305TM750 Iuncretangit: RES233.78/UT:6604061114 Pro: 3.87/REM:63.64.6585 Samnetion'T Rate /at. Ovicar & 473.31 & \\
+2017-08-29 & 2017-08-29 &  & Stanavimen Xxx Tiongeris 1281 Pupecurrucem: Aectunium Cect Scat Astestas 51 1284 Tervio 380848EX425KQ2L5 Iuncretangit: At-Ut.5835576786 Que.Rem. 163313065/64/67 DERAER468.78 FICUTUBITA5.40 & 253.3 & \\
+2017-08-31 & 2017-08-31 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 873400JS323RBHWS Iuncretangit: RES643.78/UT:5352080430 Pro: 2.13/REM:37.64.6585 Samnetion'T Rate /at. Ovicar & 196.84 & \\
+2017-08-31 & 2017-08-31 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 40.64.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 20 & \\
+2017-08-31 & 2017-08-31 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 40.64.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-01 & 2017-09-01 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 145823XB837P12EW Iuncretangit: RES341.78/UT:4008116231 Pro: 2.88/REM:40.64.6585 Samnetion'T Rate /at. Ovicar & 305.59 & \\
+2017-09-04 & 2017-09-04 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 86.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 73 & \\
+2017-09-04 & 2017-09-04 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 86.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-04 & 2017-09-04 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 186115KI010QXRT7 Iuncretangit: RES602.78/UT:3133548350 Pro: 2.22/REM:54.64.6585 Samnetion'T Rate /at. Ovicar & 309.21 & \\
+2017-09-04 & 2017-09-04 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 30.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 65 & \\
+2017-09-04 & 2017-09-04 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 30.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-05 & 2017-09-05 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 340486PF82500H4M Iuncretangit: RES152.78/UT:8855380814 Pro: 2.73/REM:86.84.6585 Samnetion'T Rate /at. Ovicar & 268.56 & \\
+2017-09-05 & 2017-09-05 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 308573QB11884KDY Iuncretangit: RES87.78/UT:2412184586 Pro: 6.16/REM:30.84.6585 Samnetion'T Rate /at. Ovicar & 54.04 & \\
+2017-09-06 & 2017-09-06 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 35.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 67 & \\
+2017-09-06 & 2017-09-06 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 35.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-07 & 2017-09-07 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 841171JY661BA7WM Iuncretangit: RES/345.78/UT.5783202002/PRO. 2.40/REM.35.84.6585/SAMNETION' A Rate By /at. Ovicar 646043310522310 & 233.7 & \\
+2017-09-07 & 2017-09-07 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 68.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 70 & \\
+2017-09-07 & 2017-09-07 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 68.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-08 & 2017-09-08 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 103128AK846RITFF Iuncretangit: RES/45.78/UT.1553031005/PRO. 6.20/REM.68.84.6585/SAMNETION' A Rate By /at. Ovicar 740550743300316 & 86.07 & \\
+2017-09-08 & 2017-09-08 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 33.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 30 & \\
+2017-09-08 & 2017-09-08 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 33.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-11 & 2017-09-11 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 64.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 30 & \\
+2017-09-11 & 2017-09-11 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 64.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-11 & 2017-09-11 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 644103AQ524B84PT Iuncretangit: RES/683.78/UT.1283881404/PRO. 7.26/REM.33.84.6585/SAMNETION' A Rate By /at. Ovicar 760430752534565 & 211.12 & \\
+2017-09-12 & 2017-09-12 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 414722LI536WYY38 Iuncretangit: RES/471.78/UT.6741818720/PRO. 5.16/REM.84.84.6585/SAMNETION' A Rate By /at. Ovicar 708216057788181 & 103.24 & \\
+2017-09-12 & 2017-09-12 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 800237GT850AQU0A Iuncretangit: RES/144.78/UT.4181510467/PRO. 7.81/REM.64.84.6585/SAMNETION' A Rate By /at. Ovicar 337831470464425 & 142.48 & \\
+2017-09-12 & 2017-09-12 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 52.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 45 & \\
+2017-09-12 & 2017-09-12 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 52.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-13 & 2017-09-13 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 668602NS053EA4X2 Iuncretangit: RES/351.78/UT.6272150533/PRO. 2.87/REM.52.84.6585/SAMNETION' A Rate By /at. Ovicar 723288422745513 & 404.73 & \\
+2017-09-13 & 2017-09-13 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 80.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 35 & \\
+2017-09-13 & 2017-09-13 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 80.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-14 & 2017-09-14 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 160723JE66001TX8 Iuncretangit: RES/642.78/UT.1620712636/PRO. 7.73/REM.80.84.6585/SAMNETION' A Rate By /at. Ovicar 758251375865803 & 147.29 & \\
+2017-09-14 & 2017-09-14 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 68.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 75 & \\
+2017-09-14 & 2017-09-14 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 68.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-15 & 2017-09-15 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 888520PT64167HNS Iuncretangit: RES/341.78/UT.6022371630/PRO. 3.26/REM.68.84.6585/SAMNETION' A Rate By /at. Ovicar 886330715805522 & 450.12 & \\
+2017-09-15 & 2017-09-15 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 47.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 65 & \\
+2017-09-15 & 2017-09-15 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 47.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-18 & 2017-09-14 &  & Post/tinfluvidullae Dum 47.84.6585 Dionis Ut. GSVI0828 Colebrunga By-Sex At. Ovicar &  & 65\\
+2017-09-18 & 2017-09-18 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 13.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 87 & \\
+2017-09-18 & 2017-09-18 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 13.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.69\\
+2017-09-18 & 2017-09-18 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 50.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 64 & \\
+2017-09-18 & 2017-09-18 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 50.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-18 & 2017-09-18 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 287027YB647IBNOC Iuncretangit: RES/631.78/UT.8126455205/PRO. 5.30/REM.47.84.6585/SAMNETION' A Rate By /at. Ovicar 226020373731432 & 741.64 & \\
+2017-09-19 & 2017-09-19 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 317071IH745NU0B8 Iuncretangit: RES/788.78/UT.3517515712/PRO. 5.40/REM.50.84.6585/SAMNETION' A Rate By /at. Ovicar 446275884056738 & 542.3 & \\
+2017-09-19 & 2017-09-19 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 751232QW877MPEK2 Iuncretangit: RES/607.78/UT.3825740857/PRO. 0.67/REM.13.84.6585/SAMNETION' A Rate By /at. Ovicar 672727252388883 & 211.78 & \\
+2017-09-19 & 2017-09-19 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 51.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 69 & \\
+2017-09-19 & 2017-09-19 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 51.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-20 & 2017-09-20 &  & S-Pricale 86-7026-6 Agnumn Uspisi 2764 Meret &  & 322.5\\
+2017-09-20 & 2017-09-20 &  & S-Pricale 86-144-5 Mum Quientemore An 4345 L�func &  & 344.15\\
+2017-09-20 & 2017-09-20 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 415273QB477AU5M6 Iuncretangit: RES/341.78/UT.2645614780/PRO. 7.40/REM.51.84.6585/SAMNETION' A Rate By /at. Ovicar 880107883850304 & 306.8 & \\
+2017-09-20 & 2017-09-20 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 48.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 74 & \\
+2017-09-20 & 2017-09-20 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 48.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-21 & 2017-09-21 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 486245YM003Q0UEN Iuncretangit: RES/133.78/UT.5545515421/PRO. 0.28/REM.48.84.6585/SAMNETION' A Rate By /at. Ovicar 572582514802710 & 275.66 & \\
+2017-09-21 & 2017-09-21 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 40.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 45 & \\
+2017-09-21 & 2017-09-21 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 40.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-22 & 2017-09-22 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 667417FG736CF1QO Iuncretangit: RES/335.78/UT.3182340583/PRO. 3.50/REM.40.84.6585/SAMNETION' A Rate By /at. Ovicar 648007668276374 & 454.22 & \\
+2017-09-22 & 2017-09-22 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 88.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 206 & \\
+2017-09-22 & 2017-09-22 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 7 Etuonsit�vi Dum 88.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 1.38\\
+2017-09-22 & 2017-09-22 &  & Vicuprow Plentquiured Dum 67.84.6585 Dionis Ut. GSVI0828 Berviderum At. Ovicar 7 Ut�canes &  & 1700\\
+2017-09-22 & 2017-09-22 &  & Ticingeriant Dum 67.84.6585 Dionis Ut. GSVI0828 Berviderum At. Ovicar 7 Ut�canes &  & 5000\\
+2017-09-25 & 2017-09-25 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 837387JY731Q3E2Q Iuncretangit: RES/341.78/UT.6516006040/PRO. 3.36/REM.88.84.6585/SAMNETION' A Rate By /at. Ovicar 126363584056382 & 450.97 & \\
+2017-09-25 & 2017-09-25 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 38.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 70 & \\
+2017-09-25 & 2017-09-25 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 38.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-25 & 2017-09-25 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 67.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 40 & \\
+2017-09-25 & 2017-09-25 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 67.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+2017-09-25 & 2017-09-25 &  & S-Pricale 86-74041-5 Sex Amalige (Uspisi) An Pam�de Videreat-Ut. 7676777006 &  & 720.1\\
+2017-09-26 & 2017-09-24 &  & Post/tinfluvidullae Dum 27.84.6585 Dionis Ut. GSVI0828 Et At. Ovicar Octis An At. Ovicar &  & 150\\
+2017-09-26 & 2017-09-26 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 184153BI8476GEAA Iuncretangit: RES/864.78/UT.7225370642/PRO. 0.88/REM.38.84.6585/SAMNETION' A Rate By /at. Ovicar 126024235580518 & 389.59 & \\
+2017-09-26 & 2017-09-26 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 373670TJ2637OW4T Iuncretangit: RES/147.78/UT.5330562048/PRO. 2.23/REM.67.84.6585/SAMNETION' A Rate By /at. Ovicar 820351111832512 & 254.49 & \\
+2017-09-26 & 2017-09-26 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 62.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 52 & \\
+2017-09-26 & 2017-09-26 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 1 Etuonsit�vi Dum 62.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.46\\
+2017-09-27 & 2017-09-27 &  & S-Pricale 40-63776-4 Invente Dera An KL5276847470882274481 Agna Novetis At.Ovicar An Chorto Birate 47 Idepangi 1721 At.Ovicar &  & 972\\
+2017-09-27 & 2017-09-27 &  & S-Pricale 40-63776-4 Invente Dera An IT8827314111178845362 Agna Novetis At.Ovicar An Chorto Birate 47 Idepangi 1721 At.Ovicar &  & 50\\
+2017-09-27 & 2017-09-27 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 558446LY080VTFNF Iuncretangit: RES/118.78/UT.2518543266/PRO. 5.68/REM.62.84.6585/SAMNETION' A Rate By /at. Ovicar 287767084820822 & 224.41 & \\
+2017-09-28 & 2017-09-28 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 386431MH734YOC7E Iuncretangit: RES/441.78/UT.3124151758/PRO. 0.40/REM.63.84.6585/SAMNETION' A Rate By /at. Ovicar 270402263187567 & 484.55 & \\
+2017-09-29 & 2017-09-29 &  & Stanavimen Xxx Tiongeris 255 Pupecurrucem: Xxx Secuini Plendabo An 5214 Coeper 447828QG174MMF33 Iuncretangit: RES/133.78/UT.7344177117/PRO. 3.20/REM.87.84.6585/SAMNETION' A Rate By /at. Ovicar 341300775366610 & 498.07 & \\
+2017-09-29 & 2017-09-29 &  & Stanavimen Vio/que Longusquides Etuonsit�vi Dum 46.84.6585 Samnetion'T Rate NU4316347463710 8261 At.Ovicar & 128 & \\
+2017-09-29 & 2017-09-29 &  & Numete X�k Vio/que De Tit 48.86 Respicet: NU4316347463710 2 Etuonsit�vi Dum 46.84.6585 Samnetion'T Rate 8261 At.Ovicar &  & 0.23\\
+\\
+\end{tablevalue}
+\end{document}

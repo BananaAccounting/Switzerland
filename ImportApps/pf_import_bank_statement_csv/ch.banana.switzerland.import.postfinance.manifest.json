@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Postfinance - Import bank account statement (*.csv)",
+    "description.en": "Postfinance - Import bank account statement (*.csv)",
+    "description.de": "Postfinance - Kontoauszug importieren (*.csv)",
+    "description.fr": "Postfinance - Importer un relevé de compte bancaire (*.csv)",
+    "description.it": "Postfinance - Importa movimenti estratto conto bancario (*.csv)",
+    "id": "ch.banana.switzerland.import.postfinance",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Postfinance - Import bank account statement (*.csv)",
+    "title.en": "Postfinance - Import bank account statement (*.csv)",
+    "title.de": "Postfinance - Kontoauszug importieren (*.csv)",
+    "title.fr": "Postfinance - Importer un relevé de compte bancaire (*.csv)",
+    "title.it": "Postfinance - Importa movimenti estratto conto bancario(*.csv)",
+    "version": "1.0"
+}

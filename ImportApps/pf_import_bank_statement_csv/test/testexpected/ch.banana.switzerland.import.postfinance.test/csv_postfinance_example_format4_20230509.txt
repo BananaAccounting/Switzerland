@@ -1,0 +1,82 @@
+%%info_test_name{csv_postfinance_example_format4_20230509}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l }
+Date & Doc & Description & Income & Expenses\\
+2023-03-08 &  & Famain &  & \\
+2022-04-04 &  & 1.7\% Suppl. Chf All'Estero &  & 1.70\\
+2022-04-04 &  & Artion *Ellum RES52163467544XXX &  & 100.12\\
+2022-04-05 &  & 1.7\% Suppl. Chf All'Estero &  & 0.18\\
+2022-04-05 &  & Artion *CENUMETUNDE52163467544XXX &  & 10.66\\
+2022-04-05 &  & Corsaepe Obsto 6YYV Nis 36.56 Effect 8.1823 Ost 22.77.6604 Ter 36.86 8.52\% De Todivispect Cor Pasus Fertumquobsemo Ter 0.42 &  & 10.54\\
+2022-04-06 &  & Simulat Ost Motas & 299.20 & \\
+2022-04-06 &  & Muruscarex Vicantanetisnos &  & 7.50\\
+2022-04-08 &  & 1.7\% Suppl. Chf All'Estero &  & 0.25\\
+2022-04-08 &  & Artion *Num Rem Hic SI1324126664STO &  & 14.60\\
+2022-04-09 &  & Artion *MIVIUNT52163467544RAY &  & 12.95\\
+2022-04-12 &  & Artion *Expect CUNT1324126664NOS &  & 26.13\\
+2022-04-13 &  & 1.7\% Suppl. Chf All'Estero &  & 0.19\\
+2022-04-13 &  & Artion *EVADDUPINSI52163467544XXX &  & 11.00\\
+2022-04-14 &  & 1.7\% Suppl. Chf All'Estero &  & 0.36\\
+2022-04-14 &  & Artion *MULICILIUNT52163467544CUS &  & 21.21\\
+2022-04-14 &  & 1.7\% Suppl. Chf All'Estero &  & 0.18\\
+2022-04-14 &  & Artion *P0437160837260XXX &  & 10.61\\
+2022-04-16 &  & Artion *Lite SCIMUR1324126664NOS &  & 88.49\\
+2022-04-20 &  & Pattinde Nathoc Fœnum Natio & 200.00 & \\
+2022-04-20 &  & Martima.Idepuentiantxxx &  & 24.90\\
+2022-04-20 &  & Artion *Ducengiticaral1324126664NOS &  & 556.06\\
+2022-04-21 &  & Pattinde Nathoc Fœnum Natio & 500.00 & \\
+2022-04-21 &  & Artion *8XFTVKFOOJE1324126664NOS &  & 44.15\\
+2022-04-22 &  & 1.7\% Suppl. Chf All'Estero &  & 0.06\\
+2022-04-22 &  & Artion *SUUNIANDO7886825405XXX &  & 3.24\\
+2022-04-22 &  & 1.7\% Suppl. Chf All'Estero &  & 0.59\\
+2022-04-22 &  & Artion *DICULIUSTAM5204663142STO &  & 34.45\\
+2022-04-23 &  & 1.7\% Suppl. Chf All'Estero &  & 0.36\\
+2022-04-23 &  & Artion *Sempere RES4674607338XXX &  & 21.46\\
+2022-04-24 &  & Artion *Ducengiticaral1324126664NOS &  & 560.37\\
+2022-04-26 &  & Pattinde Nathoc Fœnum Natio & 600.00 & \\
+2022-04-26 &  & Pattinde Nathoc Fœnum Natio & 100.00 & \\
+2022-04-26 &  & 1.7\% Suppl. Chf All'Estero &  & 0.37\\
+2022-04-26 &  & Artion *AERATHOMBUS52163467544XXX &  & 21.57\\
+2022-04-27 &  & Side.Oscolumnos &  & 121.68\\
+2022-04-27 &  & 1.7\% Suppl. Chf All'Estero &  & 2.29\\
+2022-04-27 &  & Artion *RECURRIPSUB5805530453XXX &  & 134.85\\
+2022-04-27 &  & 1.7\% Suppl. Chf All'Estero &  & 1.57\\
+2022-04-27 &  & Artion *ERNESCERE52443771478CUS &  & 92.48\\
+2022-04-27 &  & 1.7\% Suppl. Chf All'Estero &  & 1.67\\
+2022-04-27 &  & Artion *Mired TER1324126664STO &  & 98.37\\
+2022-04-27 &  & 1.7\% Suppl. Chf All'Estero &  & 0.55\\
+2022-04-27 &  & Artion *CONDIDISCIT2754568615LAT &  & 32.16\\
+2022-04-28 &  & Pattinde Nathoc Fœnum Natio & 400.00 & \\
+2022-04-30 &  & 1.7\% Suppl. Chf All'Estero &  & 0.09\\
+2022-04-30 &  & Artion *INTUSQUAM52163467544MOX &  & 5.35\\
+2022-04-30 &  & Subiles Gracipe 700533AurbireCUS &  & 78.66\\
+2022-05-01 &  & Putudo Trige*8E6FI7QI2putudo.Et/nulect Nis 4.86 Effect 8.1480 Ost 37.77.6604 Ter 5.77 8.52\% De Todivispect Cor Pasus Fertumquobsemo Ter 0.76 &  & 4.21\\
+2022-05-01 &  & Aratimote Patubitmodo Conde Monch Nis 0.56 Effect 8.1480 Ost 37.77.6604 Ter 0.62 8.52\% De Todivispect Cor Pasus Fertumquobsemo Ter 0.77 &  & 8.44\\
+2022-05-02 &  & Pattinde Nathoc Fœnum Natio & 300.00 & \\
+2022-05-03 &  & 1.7\% Suppl. Chf All'Estero &  & 0.26\\
+2022-05-03 &  & Artion *Mentio SET1324126664STO &  & 15.00\\
+2022-05-03 &  & Artion *Expect CUNT1324126664NOS &  & 11.11\\
+2022-05-04 &  & Artion *Expect CUNT1324126664NOS &  & 21.93\\
+2022-05-04 &  & 1.7\% Suppl. Chf All'Estero &  & 0.88\\
+2022-05-04 &  & Artion *PRATIUNDICO52163467544XXX &  & 52.00\\
+\\
+\end{tablevalue}
+\end{document}

@@ -1,0 +1,66 @@
+%%info_test_name{csv_postfinance_example_format1_20161114}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2016-11-04 & 2016-11-04 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 67.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 1111.50 & \\
+2016-11-04 & 2016-11-04 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.24527734 Xxx 30 Et. 5'206,85 Pect/hat 78,41 & 3719.74 & \\
+2016-11-04 & 2016-11-07 &  & Caraestop Maxilegmen Vem Astquissione Cor 55.60.1604 Rerumn Dificia 52-553843-0 Meractuid Vi: 628706ES878237B4 & 558.60 & \\
+2016-11-07 & 2016-11-07 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 55.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 898.50 & \\
+2016-11-07 & 2016-11-07 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 62.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 2949.00 & \\
+2016-11-07 & 2016-11-07 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.78335442 Xxx 127 Et. 10'564,47 Pect/hat 457,54 & 12058.54 & \\
+2016-11-07 & 2016-11-08 &  & Caraestop Maxilegmen Vem Astquissione Cor 64.60.1604 Rerumn Dificia 52-553843-0 Meractuid Vi: 556545KD847702R3 & 897.90 & \\
+2016-11-08 & 2016-11-08 &  & W-Priguid 78-63327-5 Rimindacceat Fabila Optus Quadducita Xxx. Fabila &  & 100.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 44-8-8 Que Medramiribi In TY0122445681N41610813 Viavine Metiunch Idere Petiae Terres 55 5288 Adum C. Cullum Mulchore Cogit Antimulis Metiunch &  & 1051.95\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-52423-7 Prote Me Os Enterus Morodi Vi Sommutum Enterus Ies Rectuer Indipem 3348 3303 Vescaperis Colodes An Prote Me. 5345535458 &  & 117.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-88050-8 Deine Modestipe Vi Icipuliunduna Ini Vi Sit Vescaperis Cangunieta Faccinater Ini Tentela &  & 11988.35\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-3066-5 Etioèe Oprow Os Atem Vale Offino 4283 Tendum Atem Nabem Nabem &  & 1362.25\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-1260-3 Oprow Serow Magit Cor Seceris Sentas Vescaperis Colodes Bantum Me. 21124120 &  & 148.50\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 38-441712-7 Minsusa Inieriantuium Os &  & 169.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-4678-7 Saluva Picire 4275 Rüpant Colodes Xxx Actescit Me. 34362483 &  & 181.40\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 38-57865-5 Nantinveria Praduer Colodes Avatuiti Mutudo &  & 240.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 15-854518-8 Paddusa Molate Yécor Raespitabo Nattium &  & 275.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-3066-5 Etioèe Oprow Os Atem Vale Offino 4283 Tendum Atem Colo Peragnunt &  & 35.65\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-3066-5 Etioèe Oprow Os Atem Vale Offino 4283 Tendum Atem Nabis Devemplum &  & 480.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-6273-3 Que Medramiribi In 2807 Despetiuster Colodes Ita Vi Tentela &  & 50.70\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 38-804323-8 Imetrect &  & 530.00\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-3066-5 Etioèe Oprow Os Atem Vale Offino 4283 Tendum Atem Aduenduci &  & 552.15\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 52-6273-3 Que Medramiribi In 2807 Despetiuster Colodes Ita Doccem Tentela &  & 80.30\\
+2016-11-08 & 2016-11-08 &  & W-Priguid 78-21-5 Xxx Os XX5558511787D668172YA P. Fenis \&ost; Et Os Xxx D. Occet 5 6050 Tendum Colodes Fenis Cor 55.55.1604 &  & 972.00\\
+2016-11-08 & 2016-11-08 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 64.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 1099.80 & \\
+2016-11-08 & 2016-11-08 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.80626503 Xxx 21 Et. 0'273,44 Pect/hat 567,88 & 5316.49 & \\
+2016-11-08 & 2016-11-09 &  & Caraestop Maxilegmen Vem Astquissione Cor 51.60.1604 Rerumn Dificia 52-553843-0 Meractuid Vi: 724385MH0341075E & 1119.50 & \\
+2016-11-09 & 2016-11-09 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 51.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 2234.40 & \\
+2016-11-09 & 2016-11-09 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.56047547 Xxx 72 Et. 0'630,45 Pect/hat 767,85 & 5696.77 & \\
+2016-11-09 & 2016-11-10 &  & Caraestop Maxilegmen Vem Astquissione Cor 73.60.1604 Rerumn Dificia 52-553843-0 Meractuid Vi: 204110BH400120C3 & 1427.40 & \\
+2016-11-10 & 2016-11-10 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 73.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 1019.10 & \\
+2016-11-10 & 2016-11-10 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.46684108 Xxx 55 Et. 5'822,21 Pect/hat 44,70 & 3632.68 & \\
+2016-11-10 & 2016-11-11 &  & Caraestop Maxilegmen Vem Astquissione Cor 55.60.1604 Rerumn Dificia 52-553843-0 Meractuid Vi: 433835UM1062767P & 1183.80 & \\
+2016-11-11 & 2016-11-11 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 55.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 1288.80 & \\
+2016-11-11 & 2016-11-11 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.56313153 Xxx 42 Et. 8'478,10 Pect/hat 56,18 & 2612.42 & \\
+2016-11-11 & 2016-11-14 &  & Caraestop Maxilegmen Vem Astquissione Cor 60.60.1604 Rerumn Dificia 52-553843-0 Meractuid Vi: 558734RK720133H8 & 1477.70 & \\
+2016-11-12 & 2016-11-12 &  & Urbili Colodes W-Sercire Lunieculi Rerumn Ferva Colodes: 521128 Tentela 1604 &  & 746.44\\
+2016-11-14 & 2016-11-14 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 10.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 957.90 & \\
+2016-11-14 & 2016-11-14 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 60.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 580.50 & \\
+2016-11-14 & 2016-11-14 &  & Caraestop Metiuncento W-Sercire Rediolvendi Vale Domerves Cor 43.60.1604 Urbili.Me Os YUAQY7231352664 Cor.Urbili.Me & 756.60 & \\
+2016-11-14 & 2016-11-14 &  & Supire Sed Missa 44-230-3 Rüexite Banicunuiunt Semplendactali 3 7157 Rüpant Nuiberam: Mutum Os Xxx Sitate 5 5251 Choret Biecutuunduer: Salannate Impare Ple.50071552 Xxx 41 Et. 55'266,85 Pect/hat 573,84 & 10000.72 & \\
+\\
+\end{tablevalue}
+\end{document}

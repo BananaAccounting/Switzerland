@@ -1,0 +1,72 @@
+%%info_test_name{csv_postfinance_example_format1_20160407}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2015-12-31 & 2015-12-29 &  & Stum/mitusteratirea Cor 15.42.1347 Bendam Eo. VWUC5033 Imitur Mintero Ex C�tris Iduxertius 84.45 &  & 50.80\\
+2015-12-31 & 2015-12-31 &  & Sed-Cectinunumention: 84-75608-4 Tanduci Xxx By/sed Carvituunt Hoc Diturem &  & 25.00\\
+2015-12-31 & 2015-12-31 &  & Plessubitquis 280337 - 735364 &  & 24.80\\
+2016-01-04 & 2016-01-04 &  & Stum/mitusteratirea Cor 83.84.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 43 Eves &  & 9.00\\
+2016-01-04 & 2016-01-04 &  & Stum/mitusteratirea Cor 83.84.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 43 Eves &  & 9.00\\
+2016-01-05 & 2016-01-04 &  & Stum/mitusteratirea Cor 83.84.7302 Bendam Eo. VWUC5033 Ripe Rerfillium Uniaris Iduxertius 17.30 &  & 20.70\\
+2016-01-18 & 2016-01-15 &  & Stum/mitusteratirea Cor 72.84.7302 Bendam Eo. VWUC5033 Ripe Rerfillium C�tris Iduxertius 60.17 &  & 68.20\\
+2016-01-18 & 2016-01-18 &  & Tela Cem Forem 45-466-3 C�cecto Vistabiroxit Tanterintungit 1 1258 C�tris Costuray: Lorone- Cargeregerarsit-Fica Vensecusa. 603 7870 Uniaris Volendaciunt: In.Lorone Opreps Si.11738 Eo 60.42.1347 Si.33027 Eo 65.84.7302 & 300.84 & \\
+2016-01-18 & 2016-01-18 &  & Tela Gractubscidem Spilet Xxx 5346.77 Sus Vent Xxx 4.6016 Copta Magnumque Susa Shaudire STP467370218821460 Expect Renum Morumere Ex., Ibi. &  & 2934.14\\
+2016-01-19 & 2016-01-19 &  & Stum/mitusteratirea Cor 67.84.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 43 Eves &  & 11.00\\
+2016-01-20 & 2016-01-19 &  & Stum/mitusteratirea Cor 67.84.7302 Bendam Eo. VWUC5033 Lesplam P�fer Ex Dittest &  & 20.40\\
+2016-01-20 & 2016-01-20 &  & Tela Gractubscidem Spilet Xxx 857.77 Sus Vent Xxx 4.4885 Copta Magnumque Susa Shaudire STP467370218821460 Expect Renum Morumere Ex., Ibi. &  & 359.06\\
+2016-01-21 & 2016-01-21 &  & Ocet Quaturrequart Eo. 51 V-Rimulis Vendis 174858052 &  & 39.96\\
+2016-01-21 & 2016-01-21 &  & Ocet Quaturrequart Eo. 67 V-Rimulis Vendis 174858052 &  & 141.27\\
+2016-01-22 & 2016-01-22 &  & Ocet Quaturrequart Eo. 45 V-Rimulis Vendis 174858052 &  & 756.08\\
+2016-01-24 & 2016-01-24 &  & Aderea-Posundus Ascenente / Aderea-Posundus Ine.Facia.Men 57.84.7302 Frascenam 32201832 &  & 190.40\\
+2016-01-29 & 2016-01-29 &  & Putant Stegiustuobantuunt Salbultuunis 42.84.7302 Clascarvimen 84-75608-2 & 207.41 & \\
+2016-01-29 & 2016-01-29 &  & Stum/mitusteratirea Cor 15.84.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 43 Eves &  & 11.00\\
+2016-01-31 & 2016-01-31 &  & Paspote: 86-8127-5 H�j Gro Strate�addum Gerall 1347 Lor Floginto 1347 Volonitumericideptini Ex�ange Xxx Xxx 1068.77: Funt Xxx Volonitumericideptini: Xxx 405.47 &  & 60.00\\
+2016-01-31 & 2016-01-31 &  & Paspote: 86-8127-5 H�j Tela Gractubscidem Spilet Ferrem Pasungerotuus: 1 &  & 24.00\\
+2016-02-01 & 2016-02-01 &  & Ocet Quaturrequart Eo. 71 V-Rimulis Vendis 174858052 &  & 152.12\\
+2016-02-01 & 2016-02-01 &  & Tela Cem Forem 45-466-3 C�cecto Vistabiroxit Tanterintungit 1 1258 C�tris Costuray: Lorone- Cargeregerarsit-Fica Vensecusa. 603 7870 Uniaris Volendaciunt: In.Lorone Opreps Si.33745 Eo 82.42.1347 Si.20175 Eo 78.84.7302 & 581.22 & \\
+2016-02-04 & 2016-02-04 &  & Stum/mitusteratirea Cor 83.12.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 43 Eves &  & 12.00\\
+2016-02-09 & 2016-02-09 &  & Putant Stegiustuobantuunt Salbultuunis 32.12.7302 Clascarvimen 84-75608-2 & 4662.47 & \\
+2016-02-12 & 2016-02-12 &  & Tela Cem Forem 45-23-6 Per-Manis/amitus Tus/ement Tus Ope C�tris Seritunimpectur 2 J�ungobitinere 78 7870 C�tris Costuray: Mingitudissubsquationstali Seritunimpectur O Ungobitinere 78 2232 Uniaris Volendaciunt: Cortum Quisi Ponveriduniundactuunatunter & 813.10 & \\
+2016-02-15 & 2016-02-15 &  & Ocet Quaturrequart Eo. 15 V-Rimulis Vendis 174858052 &  & 63.45\\
+2016-02-22 & 2016-02-20 &  & Stum/mitusteratirea Cor 17.12.7302 Bendam Eo. VWUC5033 Ripe Rerfillium Uniaris Iduxertius 47.30 &  & 63.70\\
+2016-02-25 & 2016-02-25 &  & Ocet Quaturrequart Eo. 10 V-Rimulis Vendis 174858052 &  & 950.00\\
+2016-02-29 & 2016-02-29 &  & Ocet Quaturrequart Eo. 52 V-Rimulis Vendis 174858052 &  & 493.45\\
+2016-02-29 & 2016-02-29 &  & Ocet Quaturrequart Eo. 78 V-Rimulis Vendis 174858052 &  & 318.02\\
+2016-02-29 & 2016-02-29 &  & Stum/mitusteratirea Cor 15.12.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 43 Eves &  & 11.00\\
+2016-03-01 & 2016-03-01 &  & Putant Stegiustuobantuunt Salbultuunis 15.12.7302 Clascarvimen 84-75608-2 & 436.71 & \\
+2016-03-01 & 2016-03-01 &  & Veraestritinvaray�by Cor 84.82.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 41 Temone�fun &  & 158.85\\
+2016-03-02 & 2016-03-02 &  & Ocet Quaturrequart Eo. 15 V-Rimulis Vendis 174858052 &  & 348.35\\
+2016-03-02 & 2016-03-02 &  & Ocet Quaturrequart Eo. 15 V-Rimulis Vendis 174858052 &  & 236.35\\
+2016-03-02 & 2016-03-02 &  & Ocet Quaturrequart Eo. 73 V-Rimulis Vendis 174858052 &  & 118.67\\
+2016-03-03 & 2016-03-03 &  & Ocet Quaturrequart Eo. 50 V-Rimulis Vendis 174858052 &  & 152.96\\
+2016-03-03 & 2016-03-03 &  & Ocet Quaturrequart Eo. 86 V-Rimulis Vendis 174858052 &  & 192.03\\
+2016-03-07 & 2016-03-07 &  & Tela Cem Forem 22-8758-2 Viscris Comente Colespere Postalongristanduere 72 5582 Sollum Costuray: Viscris Comente Postalongristanduere 72 7581 Sollum Volendaciunt: 65.12.7302 33155-57-37257/42./.4TV & 4251.41 & \\
+2016-03-08 & 2016-03-08 &  & Ocet Quaturrequart Eo. 21 V-Rimulis Vendis 174858052 &  & 1015.49\\
+2016-03-08 & 2016-03-08 &  & Tela Cem Forem 45-23-6 Per-Manis/amitus Tus/ement Tus Ope C�tris Seritunimpectur 2 J�ungobitinere 78 7870 C�tris Costuray: Mingitudissubsquationstali Seritunimpectur O Ungobitinere 78 2232 Uniaris Volendaciunt: Cortum Quisi Ponveriduniundactuunatunter & 4350.40 & \\
+2016-03-10 & 2016-03-10 &  & Tela Cem Forem 45-4-4 Que Postinvelus Ex Tanterintungit 41 1258 C�tris Costuray: Meliusquat Ponicut Ex Poegmericupect 42 7478 Uniaris Volendaciunt: 7606 470 By 2366474/8235 & 583.77 & \\
+2016-03-11 & 2016-03-11 &  & Tela Cem Forem 73-837810-5 Magro Lamedivit Spem W�modittemplus 42 4325 C�tris Volendaciunt: Carececto Hiustion 81072 & 412.41 & \\
+2016-03-11 & 2016-03-11 &  & Ocet Quaturrequart Eo. 67 V-Rimulis Vendis 174858052 &  & 2085.41\\
+2016-03-15 & 2016-03-15 &  & Stum/mitusteratirea Cor 72.82.7302 Bendam Eo. VWUC5033 Vissubscet C�tris 38 Aritanto &  & 102.00\\
+2016-03-16 & 2016-03-16 &  & Ocet Quaturrequart Eo. 86 V-Rimulis Vendis 174858052 &  & 60.71\\
+2016-03-31 & 2016-03-31 &  & Ocet Quaturrequart Eo. 40 V-Rimulis Vendis 174858052 &  & 18.00\\
+\\
+\end{tablevalue}
+\end{document}
