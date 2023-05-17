@@ -3011,7 +3011,7 @@ var QRBill = class QRBill {
 
 
 		/* Creditor (Payable to) */
-		qrcodeData.creditorAddressType = "K";
+		qrcodeData.creditorAddressType = "S";
 		qrcodeData.creditorName = "";
 		qrcodeData.creditorAddress1 = "";
 		qrcodeData.creditorAddress2 = "";
@@ -3053,7 +3053,6 @@ var QRBill = class QRBill {
 		}
 
 		//Replace the default values using the "Payable to" address parameters
-		//If "Payable to" address is selected we use structured type address, otherwise combined address.
 		if (userParam.qr_code_payable_to) {
 
 			//Reset all values before using parameters to avoid default values are used
@@ -3152,7 +3151,7 @@ var QRBill = class QRBill {
 		}
 
 		/* Debtor (Payable by) */
-		qrcodeData.debtorAddressType = "K";
+		qrcodeData.debtorAddressType = "S";
 		qrcodeData.debtorName = "";
 		qrcodeData.debtorAddress1 = "";
 		qrcodeData.debtorAddress2 = "";
@@ -3160,24 +3159,30 @@ var QRBill = class QRBill {
 		qrcodeData.debtorCity = "";
 		qrcodeData.debtorCountry = "";
 
-		if (userParam.qr_code_debtor_address_type) {
-			qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
-		}
+		// if (userParam.qr_code_debtor_address_type) {
+		// 	qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
+		// }
 
+		// Assign name/familyname to debtorName field
 		if (userParam.customer_address_name) {
-			qrcodeData.debtorName += userParam.customer_address_name;
+			qrcodeData.debtorName = userParam.customer_address_name.trim();
 		}
+		// When organisation name exists, always replace name/familyname with organisation name
+		if (userParam.customer_address_organisation) {
+        	qrcodeData.debtorName = userParam.customer_address_organisation.trim();
+      	}
+
 		if (userParam.customer_address_address) {
-			qrcodeData.debtorAddress1 = userParam.customer_address_address;
+			qrcodeData.debtorAddress1 = userParam.customer_address_address.trim();
 		}
 		if (userParam.customer_address_house_number) {
-			qrcodeData.debtorAddress2 = userParam.customer_address_house_number;
+			qrcodeData.debtorAddress2 = userParam.customer_address_house_number.trim();
 		}
 		if (userParam.customer_address_postal_code) {
-			qrcodeData.debtorPostalcode = userParam.customer_address_postal_code;
+			qrcodeData.debtorPostalcode = userParam.customer_address_postal_code.trim();
 		}
 		if (userParam.customer_address_locality) {
-			qrcodeData.debtorCity = userParam.customer_address_locality;
+			qrcodeData.debtorCity = userParam.customer_address_locality.trim();
 		}
 		if (userParam.customer_address_country_code) {
 			qrcodeData.debtorCountry = userParam.customer_address_country_code.toUpperCase().trim(); 

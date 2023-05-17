@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/lorenzo/Programmazione/Repo/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.app.letterqrmultiple.test.js}
+%%SCRIPT{/Users/ivan/GitHub/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.app.letterqrmultiple.test.js}
 %
 \begin{testcase}{ReportLetterQrMultiple}
 \begin{test}{testReport}
@@ -87,12 +87,12 @@ Via Abc Uno 231 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -177,12 +177,12 @@ Via Abc Due 232 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -265,12 +265,12 @@ Via Abc Tre 233 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -354,12 +354,12 @@ Via Abc Cinque 235 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -443,12 +443,12 @@ Via Abc Sei 236 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -535,12 +535,12 @@ Via Abc Uno 231 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -551,12 +551,12 @@ ewline
 ewline 
 ewline 85.00
 ewline CHF
-ewline K
+ewline S
 ewline Pinco Pallino1
 ewline Via Abc Uno 231
-ewline 6901 LuganoUno
 ewline 
-ewline 
+ewline 6901
+ewline LuganoUno
 ewline CH
 ewline NON
 ewline 
@@ -625,12 +625,12 @@ Via Abc Due 232 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -641,12 +641,12 @@ ewline
 ewline 
 ewline 90.00
 ewline EUR
-ewline K
+ewline S
 ewline Pinco Pallino2
 ewline Via Abc Due 232
-ewline 6902 LuganoDue
 ewline 
-ewline 
+ewline 6902
+ewline LuganoDue
 ewline CH
 ewline NON
 ewline 
@@ -713,12 +713,12 @@ Via Abc Tre 233 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -729,12 +729,12 @@ ewline
 ewline 
 ewline 1200.50
 ewline CHF
-ewline K
+ewline S
 ewline Pinco Pallino3
 ewline Via Abc Tre 233
-ewline 6903 LuganoTre
 ewline 
-ewline 
+ewline 6903
+ewline LuganoTre
 ewline CH
 ewline NON
 ewline 
@@ -802,12 +802,12 @@ Via Abc Cinque 235 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -818,12 +818,12 @@ ewline
 ewline 
 ewline 110.00
 ewline CHF
-ewline K
+ewline S
 ewline Pinco Pallino5
 ewline Via Abc Cinque 235
-ewline 6905 LuganoCinque
 ewline 
-ewline 
+ewline 6905
+ewline LuganoCinque
 ewline CH
 ewline NON
 ewline 
@@ -891,12 +891,12 @@ Via Abc Sei 236 \\
 ewline 0200
 ewline 1
 ewline CH5204835012345671000
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -907,12 +907,12 @@ ewline
 ewline 
 ewline 120.00
 ewline EUR
-ewline K
+ewline S
 ewline Pinco Pallino6
 ewline Via Abc Sei 236
-ewline 6906 LuganoSei
 ewline 
-ewline 
+ewline 6906
+ewline LuganoSei
 ewline CH
 ewline NON
 ewline 

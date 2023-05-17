@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2023-02-14
+// @pubdate = 2023-05-17
 // @publisher = Banana.ch SA
 // @description = QR-Invoice from Excel
 // @description.it = QR-Fattura da Excel
@@ -42,6 +42,8 @@
 var BAN_VERSION = "10.0.12";
 var BAN_EXPM_VERSION = "22089";
 var BAN_ADVANCED;
+var IS_HEADER_LOGO_PRINTED = false;
+var IS_HEADER_ADDRESS_PRINTED = false;
 
 
 function exec(string) {
@@ -363,8 +365,8 @@ function setCustomerAddressMultiple(userParam, qrSettings, rowObject, rows) {
   for (var i = 0; i < tableRows.length; i++) {
 
     if (tableRows[i].row == rows) {
-
-      //Initialize customer address "Strucured type"
+      
+      userParam.customer_address_organisation = tableRows[i].OrganisationName;
       userParam.customer_address_prefix = tableRows[i].NamePrefix;
       userParam.customer_address_name = tableRows[i].Name;
       userParam.customer_address_address = tableRows[i].Street;
@@ -378,9 +380,9 @@ function setCustomerAddressMultiple(userParam, qrSettings, rowObject, rows) {
 
       qrSettings.qr_code_empty_address = false;
 
-      if (tableRows[i].AddressExtra) {
-        qrSettings.qr_code_debtor_address_type = 'S';
-      }
+      // if (tableRows[i].AddressExtra) {
+      //   qrSettings.qr_code_debtor_address_type = 'S';
+      // }
     }
   }
 }
@@ -450,27 +452,55 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
   //Banana.console.log(JSON.stringify(reportParam, "", " "));
 
   // Set sections of the report
-  var sectionSenderAddress = report.addSection("sender-address");
-  
+
+  if (reportParam.print_header_logo) {
+    var sectionSenderAddress = report.getHeader().addSection();
+  } else {
+    var sectionSenderAddress = report.addSection("sender-address");
+  }
+
   var sectionDate;
-  if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
-    sectionDate = report.addSection("date-without-addresses");
+  if (reportParam.print_header_logo) {
+    if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
+      sectionDate = report.addSection("date-with-logo-without-addresses");
+    }
+    else {
+      sectionDate = report.addSection("date");
+    }
   }
   else {
-    sectionDate = report.addSection("date");
+    if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
+      sectionDate = report.addSection("date-without-addresses");
+    }
+    else {
+      sectionDate = report.addSection("date");
+    }
   }
 
   var sectionCustomerAddress = report.addSection("customer-address");
   
   var sectionLetter;
-  if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date) {
-    sectionLetter = report.addSection("letter-without-addresses-and-date");
-  }
-  else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date) {
-    sectionLetter = report.addSection("letter-without-addresses");
+  if (reportParam.print_header_logo) {
+    if (!reportParam.print_customer_address && !reportParam.print_date) {
+      sectionLetter = report.addSection("letter-with-logo-without-addresses-and-date");
+    }
+    else if (!reportParam.print_customer_address && reportParam.print_date) {
+      sectionLetter = report.addSection("letter-with-logo-without-addresses");
+    }
+    else {
+      sectionLetter = report.addSection("letter");
+    }
   }
   else {
-    sectionLetter = report.addSection("letter");
+    if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date) {
+      sectionLetter = report.addSection("letter-without-addresses-and-date");
+    }
+    else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date) {
+      sectionLetter = report.addSection("letter-without-addresses");
+    }
+    else {
+      sectionLetter = report.addSection("letter");
+    }
   }
 
 
@@ -478,12 +508,41 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
 
   //******************************************************************************************
 
+  
+  if (reportParam.print_header_logo) {
 
-  // Print sender address
-  if (reportParam.print_sender_address) {
-    sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
-    sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
-    sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
+    if (!IS_HEADER_LOGO_PRINTED) {
+      // Adds logo only the first time when printing multiple reports
+      sectionSenderAddress = report.addSection();
+      var logoFormat = Banana.Report.logoFormat(reportParam.header_logo_name); //Logo
+      if (logoFormat) {
+        var logoElement = logoFormat.createDocNode(sectionSenderAddress, stylesheet, "logo");
+        report.getHeader().addChild(logoElement);
+      } else {
+        sectionSenderAddress.addClass("sender-address");
+      }
+
+      IS_HEADER_LOGO_PRINTED = true;
+    }
+
+    if (reportParam.print_sender_address) {
+      if (!IS_HEADER_ADDRESS_PRINTED) {
+        // Adds sender address only the first time when printing multiple reports
+        sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
+        sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+        sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
+        
+        IS_HEADER_ADDRESS_PRINTED = true;
+      }
+    }
+  }
+  else {
+    // Print sender address
+    if (reportParam.print_sender_address) {
+      sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
+      sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+      sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
+    }
   }
 
   // Print date
@@ -494,13 +553,28 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
   // Print customer address
   if (reportParam.print_customer_address) {
 
-    if (reportParam.customer_address_prefix) {
-      sectionCustomerAddress.addParagraph(reportParam.customer_address_prefix, "");
+    var prefix = reportParam.customer_address_prefix;
+    var organisation = reportParam.customer_address_organisation;
+    var name = reportParam.customer_address_name;
+    var address = reportParam.customer_address_address;
+    var number = reportParam.customer_address_house_number;
+    var postalcode = reportParam.customer_address_postal_code;
+    var locality = reportParam.customer_address_locality;
+
+    if (prefix) {
+      sectionCustomerAddress.addParagraph(prefix, "");
     }
 
-    sectionCustomerAddress.addParagraph(reportParam.customer_address_name, "");
-    sectionCustomerAddress.addParagraph(reportParam.customer_address_address + " " + reportParam.customer_address_house_number, "");
-    sectionCustomerAddress.addParagraph(reportParam.customer_address_postal_code + " " + reportParam.customer_address_locality, "");
+    if (organisation) {
+      sectionCustomerAddress.addParagraph(organisation, "");
+    }
+
+    if (name) {
+      sectionCustomerAddress.addParagraph(name, "");
+    }
+
+    sectionCustomerAddress.addParagraph(address + " " + number, "");
+    sectionCustomerAddress.addParagraph(postalcode + " " + locality, "");
   }
 
   // Print letter text
@@ -673,6 +747,30 @@ function convertParam(userParam) {
   currentParam.editable = false;
   currentParam.readValue = function() {
     userParam.include_letter = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'print_header_logo';
+  currentParam.parentObject = 'include_letter';
+  currentParam.title = texts.print_header_logo;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_header_logo ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_header_logo = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  var currentParam = {};
+  currentParam.name = 'header_logo_name';
+  currentParam.parentObject = 'include_letter'
+  currentParam.title = texts.header_logo_name;
+  currentParam.type = 'string';
+  currentParam.value = userParam.header_logo_name ? userParam.header_logo_name : 'Logo';
+  currentParam.defaultvalue = 'Logo';
+  currentParam.readValue = function() {
+      userParam.header_logo_name = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -1092,6 +1190,8 @@ function convertParam(userParam) {
 
 function initUserParam() {
   var userParam = {};
+  userParam.print_header_logo = false;
+  userParam.header_logo_name = 'Logo';
   userParam.print_title_text = '';
   userParam.print_begin_text = '';
   userParam.print_final_text = '';
@@ -1108,6 +1208,7 @@ function initUserParam() {
   userParam.sender_address_locality = '';
   userParam.sender_address_country_code = '';
   userParam.sender_address_iban = '';
+  userParam.customer_address_organisation = '';
   userParam.customer_address_name = '';
   userParam.customer_address_address = '';
   userParam.customer_address_house_number = '';
@@ -1232,6 +1333,8 @@ function setTexts(language) {
   var texts = {};
 
   if (language === 'it') {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Nome logo";
     texts.include_letter = 'Includi nella lettera';
     texts.print_sender_address = 'Indirizzo mittente';
     texts.print_customer_address = 'Indirizzo cliente';
@@ -1268,6 +1371,8 @@ function setTexts(language) {
     texts.total = 'Totale';
   }
   else if (language === 'fr') {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Logo nom";
     texts.include_letter = 'Inclure dans la lettre';
     texts.print_sender_address = "Adresse de l'expéditeur";
     texts.print_customer_address = 'Adresse du client';
@@ -1304,6 +1409,8 @@ function setTexts(language) {
     texts.total = 'Total';
   }
   else if (language === 'de') {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Logo-Name";
     texts.include_letter = 'In den Brief einfügen';
     texts.print_sender_address = 'Adresse des Absenders';
     texts.print_customer_address = 'Adresse des Kunden';
@@ -1340,6 +1447,8 @@ function setTexts(language) {
     texts.total = 'Gesamtbetrag';
   }
   else {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Logo name";
     texts.include_letter = 'Include in letter';
     texts.print_sender_address = 'Sender address';
     texts.print_customer_address = 'Customer address';
