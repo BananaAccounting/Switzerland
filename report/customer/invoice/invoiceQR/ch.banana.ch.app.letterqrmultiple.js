@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2023-05-17
+// @pubdate = 2023-05-19
 // @publisher = Banana.ch SA
 // @description = QR-Invoice from Excel
 // @description.it = QR-Fattura da Excel
@@ -316,8 +316,7 @@ function initReportMultiple(banDoc, userParam, reportParam, rowObject, rows) {
 function setSenderAddress(banDoc, userParam, qrSettings) {
 
   /**
-   * With extension parameter settins we use the 'Structured' address type (S)
-   * With address from accounting we use 'Combined' address type (K)
+   * We always use the 'Structured' address type (S)
    */
 
   if (userParam.sender_address_from_accounting) { //from File->Properties
@@ -340,7 +339,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
     userParam.supplier_info_first_name = banDoc.info("AccountingDataBase","Name");
     userParam.supplier_info_last_name = banDoc.info("AccountingDataBase","FamilyName");
     userParam.supplier_info_address1 = banDoc.info("AccountingDataBase","Address1");
-    userParam.supplier_info_address2 = banDoc.info("AccountingDataBase","Address2");
+    userParam.supplier_info_address2 = ''; //banDoc.info("AccountingDataBase","Address2");
     userParam.supplier_info_postal_code = banDoc.info("AccountingDataBase","Zip");
     userParam.supplier_info_city = banDoc.info("AccountingDataBase","City");
     userParam.supplier_info_country_code = banDoc.info("AccountingDataBase","CountryCode");
@@ -360,6 +359,10 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
 }
 
 function setCustomerAddressMultiple(userParam, qrSettings, rowObject, rows) {
+
+  /**
+   * We always use 'Strucutred' address type (S), even if the 'AddressExtra' colum of the table for the house number is not used
+   */
 
   var tableRows = rowObject.table;
   for (var i = 0; i < tableRows.length; i++) {
