@@ -1,4 +1,4 @@
-/* CSS update: 2022-04-04 */
+/* CSS update: 2023-05-19 */
 
 @page {
   margin-top: 0cm;
@@ -42,6 +42,13 @@ body {
    position:absolute;
 }
 
+.date-with-logo-without-addresses {
+   font-size: $font_size;
+   margin-top: 4.5cm;
+   margin-left: 2cm;
+   position:absolute;
+}
+
 .customer-address {
    font-size: $font_size;
    margin-top: 4.5cm;
@@ -61,8 +68,20 @@ body {
    margin-right: 1.5cm;
 }
 
+.letter-with-logo-without-addresses-and-date {
+   margin-top: 4.5cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+}
+
 .letter-without-addresses {
    margin-top: 4cm;
+   margin-left: 2cm;
+   margin-right: 1.5cm;
+}
+
+.letter-with-logo-without-addresses {
+   margin-top: 6.5cm;
    margin-left: 2cm;
    margin-right: 1.5cm;
 }
@@ -111,3 +130,10 @@ body {
   width: auto;
 }
 
+.logo {
+   font-size: 11pt;
+   margin-top: 1.2cm;
+   margin-left: 2.27cm;
+   margin-right: 1.2cm;
+   position: absolute;
+}
