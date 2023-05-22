@@ -108,6 +108,8 @@ function PFCSVFormat4() {
    this.colDebit = 3;
    this.colAmount = 4;
 
+   this.dateFormat = 'dd-mm-yyyy';
+
    /** Return true if the transactions match this format */
    this.match = function (transactions) {
       if (transactions.length === 0)
@@ -122,11 +124,17 @@ function PFCSVFormat4() {
          else
             formatMatched = false;
 
-         if (formatMatched && transaction[this.colDate].match(/[0-9]{2,4}(\.|-)[0-9]{2}(\.|-)[0-9]{2,4}/g) &&
-            transaction[this.colDate].length === 10)
+         if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\.)[0-9]{2}(\.)[0-9]{2}/g)) {
+            this.dateFormat = 'dd.mm.yy';
             formatMatched = true;
-         else
+         } else if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\.|-)[0-9]{2}(\.|-)[0-9]{4}/g)) {
+            formatMatched = true;
+         } else if (formatMatched && transaction[this.colDate].match(/[0-9]{4}(\.|-)[0-9]{2}(\.|-)[0-9]{2}/g)) {
+            formatMatched = true;
+            this.dateFormat = 'yyyy-mm-dd';
+         } else {
             formatMatched = false;
+         }
 
          if (formatMatched)
             return true;
@@ -160,7 +168,7 @@ function PFCSVFormat4() {
    this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], 'yyyy-mm-dd'));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], this.dateFormat));
       mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
       mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
