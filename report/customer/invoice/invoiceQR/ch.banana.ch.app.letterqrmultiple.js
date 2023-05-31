@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2023-05-19
+// @pubdate = 2023-05-31
 // @publisher = Banana.ch SA
 // @description = QR-Invoice from Excel
 // @description.it = QR-Fattura da Excel
@@ -455,14 +455,14 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
   //Banana.console.log(JSON.stringify(reportParam, "", " "));
 
   // Set sections of the report
-
-  if (reportParam.print_header_logo) {
-    var sectionSenderAddress = report.getHeader().addSection();
-  } else {
-    var sectionSenderAddress = report.addSection("sender-address");
-  }
-
+  var sectionSenderAddress;
   var sectionDate;
+  var sectionCustomerAddress;
+  var sectionLetter;
+
+
+  sectionSenderAddress = report.addSection("sender-address");
+  
   if (reportParam.print_header_logo) {
     if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
       sectionDate = report.addSection("date-with-logo-without-addresses");
@@ -480,9 +480,8 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
     }
   }
 
-  var sectionCustomerAddress = report.addSection("customer-address");
-  
-  var sectionLetter;
+  sectionCustomerAddress = report.addSection("customer-address");
+
   if (reportParam.print_header_logo) {
     if (!reportParam.print_customer_address && !reportParam.print_date) {
       sectionLetter = report.addSection("letter-with-logo-without-addresses-and-date");
@@ -516,7 +515,7 @@ function printReport(banDoc, report, stylesheet, reportParam, row) {
 
     if (!IS_HEADER_LOGO_PRINTED) {
       // Adds logo only the first time when printing multiple reports
-      sectionSenderAddress = report.addSection();
+      sectionSenderAddress = report.getHeader().addSection();
       var logoFormat = Banana.Report.logoFormat(reportParam.header_logo_name); //Logo
       if (logoFormat) {
         var logoElement = logoFormat.createDocNode(sectionSenderAddress, stylesheet, "logo");
