@@ -3394,14 +3394,17 @@ function print_final_texts_proforma_invoice(repDocObj, invoiceObj, userParam) {
 
 
 //====================================================================//
-// FUNCTIONS THAT PRINT THE INVOICE DETAILS USING THE MARKDOWN FOR THE DESCRIPTION.
+// FUNCTIONS THAT PRINT THE INVOICE/ESTIMATE/DELIVERY NOTE/REMINDER
+// DETAILS USING THE MARKDOWN FOR THE BEGIN/END/DESCRIPTION TEXTS.
 // USER CAN REPLACE THEM WITH 'HOOK' FUNCTIONS DEFINED USING EMBEDDED 
 // JAVASCRIPT FILES ON DOCUMENTS TABLE
 //====================================================================//
 function columnNamesToValuesMd(invoiceObj, text) {
   /*
     Function that replaces the xml column names of the customer address
-    with the respective data
+    with the respective data.
+    With the Markdown text we use the "{{" and "}}"" to indicate a variable
+    that must be replaced.
   */
   var docInvoice = invoiceObj.document_info.number;
   var courtesy = invoiceObj.customer_info.courtesy;
