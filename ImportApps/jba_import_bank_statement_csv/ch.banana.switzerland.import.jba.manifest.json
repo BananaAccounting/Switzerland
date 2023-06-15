@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Julius Bär - Import bank account statement .csv (Banana+ Advanced)",
+    "description.en": "Julius Bär - Import bank account statement .csv (Banana+ Advanced)",
+    "description.de":"Julius Bär - Kontoauszug importieren .csv (Banana+ Advanced)",
+    "description.fr":"Julius Bär - Importer un relevé de compte bancaire .csv (Banana+ Advanced)",
+    "description.it":"Julius Bär - Importa movimenti estratto conto bancario .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.zkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Julius Bär - Import bank account statement .csv (Banana+ Advanced)",
+    "title.en": "Julius Bär - Import bank account statement .csv (Banana+ Advanced)",
+    "title.de":"Julius Bär - Kontoauszug importieren .csv (Banana+ Advanced)",
+    "title.fr":"Julius Bär - Importer un relevé de compte bancaire .csv (Banana+ Advanced)",
+    "title.it":"Julius Bär - Importa movimenti estratto conto bancario .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>ch.banana.switzerland.import.jba.js</file>
+     <file>../import.utilities.js</file>
+     <file>ch.banana.switzerland.import.jba.manifest.json</file>
+ </qresource>
+ </RCC>
