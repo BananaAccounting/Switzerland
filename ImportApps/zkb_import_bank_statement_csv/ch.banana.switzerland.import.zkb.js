@@ -176,9 +176,7 @@ function ZKBFormat6() {
             // Righe vuote
             continue;
          }
-         if (transaction.length === this.colCount) {
-            transactionsToImport.push(this.mapTransaction(transaction));
-         }
+         transactionsToImport.push(this.mapTransaction(transaction));
 
       }
 
