@@ -36,33 +36,34 @@ function TestImportZkb() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportZkb.prototype.initTestCase = function() {
+TestImportZkb.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportZkb.prototype.cleanupTestCase = function() {
+TestImportZkb.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportZkb.prototype.init = function() {
+TestImportZkb.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportZkb.prototype.cleanup = function() {
+TestImportZkb.prototype.cleanup = function () {
 
 }
 
-TestImportZkb.prototype.testImport = function() {
+TestImportZkb.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format1_20090308.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format2_20091105.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format2_20121012.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format2_20121204.csv");
+   fileNameList.push("file:script/../test/testcases/csv_zkb_example_format2_20230615.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format3_20141013.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format3_20161201.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format3_20170130A.csv");
@@ -72,7 +73,8 @@ TestImportZkb.prototype.testImport = function() {
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format3_20220614.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format4_20161103.csv");
    fileNameList.push("file:script/../test/testcases/csv_zkb_example_format5_20230223.csv");
-   
+   fileNameList.push("file:script/../test/testcases/csv_zkb_example_format6_20230615.csv");
+
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
 
@@ -84,9 +86,9 @@ TestImportZkb.prototype.testImport = function() {
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
-      var transactions = exec(fileContent,true); //takes the exec from the import script.
+      var transactions = exec(fileContent, true); //takes the exec from the import script.
       this.testLogger.addCsv('', transactions);
-      
+
       if (!this.progressBar.step())
          break;
    }
