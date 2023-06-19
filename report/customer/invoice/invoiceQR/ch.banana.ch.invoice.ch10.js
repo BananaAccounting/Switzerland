@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2023-02-20
+// @pubdate = 2023-06-16
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -1610,7 +1610,11 @@ function formatItemsValue(value, variables, columnName, className, item) {
     itemFormatted.className = className;
   }
   else if (columnName === "vatrate" || columnName === "vat_rate") {
-    itemFormatted.value = Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(value));
+    if (className === "item_cell") { //print vat rate only for items rows
+      itemFormatted.value = Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(value));
+    } else {
+      itemFormatted.value = "";
+    }
     itemFormatted.className = className;
   }
   else if (columnName) {
