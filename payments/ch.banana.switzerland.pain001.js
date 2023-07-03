@@ -206,6 +206,7 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_ELEMENT_EMPTY = "ID_ERR_ELEMENT_EMPTY";
     this.ID_ERR_ELEMENT_EXCEEDED_LENGTH = "ID_ERR_ELEMENT_EXCEEDED_LENGTH";
     this.ID_ERR_ELEMENT_REQUIRED = "ID_ERR_ELEMENT_REQUIRED";
+    this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED = "ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED";
     this.ID_ERR_EXPERIMENTAL_REQUIRED = "ID_ERR_EXPERIMENTAL_REQUIRED";
     this.ID_ERR_IBAN_NOTVALID = "ID_ERR_IBAN_NOTVALID";
     this.ID_ERR_IBAN_REFERENCE_NOTVALID = "ID_ERR_IBAN_REFERENCE_NOTVALID";
@@ -951,10 +952,12 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                     transfer.setCategoryPurpose(categoryPurpose);
                 }
 
-                if (methodId == this.ID_PAYMENT_QRCODE) {
+                if (methodId === this.ID_PAYMENT_QRCODE) {
+                    if (transactionInfoObj.creditorBic.length>0)
+                        transfer.setBic(transactionInfoObj.creditorBic);
                     transfer.setCreditorReferenceType(transactionInfoObj.referenceType);
                 }
-                else if (methodId == this.ID_PAYMENT_SEPA) {
+                else if (methodId === this.ID_PAYMENT_SEPA) {
                     transfer.setBic(transactionInfoObj.creditorBic);
                     transfer.setServiceLevelCode("SEPA");
                 }
@@ -1181,6 +1184,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "Maximum %1 characters";
         case this.ID_ERR_ELEMENT_REQUIRED:
             return "This is a required field";
+        case this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED:
+            return "The Country code is recommended (Alpha-2 code).\nExamples: CH for Switzerland, LI for Liechtenstein";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
             return "The pain message is empty, impossible to validate or save the message";
         case this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID":
@@ -1831,11 +1836,11 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
                 params.data[i].errorMsg = params.data[i].errorMsg.replace("%1", "70");
                 error = true;
             }
-            /*else if (key === 'creditorStreet1' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
+            else if (key === 'creditorCountry' && value.length !== 2) {
+                params.data[i].errorId = this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED);
                 error = true;
-            }*/
+            }
             else if (key === 'creditorCity' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
