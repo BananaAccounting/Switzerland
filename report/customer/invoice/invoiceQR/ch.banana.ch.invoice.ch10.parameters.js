@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2023-02-20 */
+/* User parameters update: 2023-06-16 */
 
 
 
@@ -473,10 +473,11 @@ function convertParam(userParam) {
         3. Number;Description;Amount
         4. Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount
         5. I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount (ADVANCED)
+        6. Description;Quantity;ReferenceUnit;UnitPrice;VatRate;Amount
       Estimates-Invoices only:
-        6. Description;Discount;Amount (ADVANCED)
-        7. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
-        8. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+        7. Description;Discount;Amount (ADVANCED)
+        8. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+        9. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
      */
     var predefinedColumns = [];
     predefinedColumns.push(texts.predefined_columns_0);
@@ -485,11 +486,12 @@ function convertParam(userParam) {
     predefinedColumns.push(texts.predefined_columns_3);
     predefinedColumns.push(texts.predefined_columns_4);
     predefinedColumns.push(texts.predefined_columns_5);
+    predefinedColumns.push(texts.predefined_columns_6);
 
     var predefinedColumnsEstInv = [];
-    predefinedColumnsEstInv.push(texts.predefined_columns_6);
     predefinedColumnsEstInv.push(texts.predefined_columns_7);
     predefinedColumnsEstInv.push(texts.predefined_columns_8);
+    predefinedColumnsEstInv.push(texts.predefined_columns_9);
 
     var currentParam = {};
     currentParam.name = 'details_columns_predefined';
@@ -1903,9 +1905,10 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
   // 3. Number;Description;Amount
   // 4. Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount
   // 5. I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount (ADVANCED)
-  // 6. Description;Discount;Amount (ADVANCED)
-  // 7. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
-  // 8. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+  // 6. Description;Quantity;ReferenceUnit;UnitPrice;VatRate;Amount
+  // 7. Description;Discount;Amount (ADVANCED)
+  // 8. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+  // 9. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
 
   var texts = setInvoiceTexts(lang);
 
@@ -2094,8 +2097,45 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
       }
     }
   }
-  else if (parseInt(index) == 6 && !IS_INTEGRATED_INVOICE) {
-    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_6).replace(" (ADVANCED)",""));
+  else if (parseInt(index) == 6) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_6));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Description;Quantity;ReferenceUnit;UnitPrice;VatRate;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '40%;10%;10%;20%;10%;10%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;center;center;right;center;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;center;center;right;center;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Description;Quantity;Unit;UnitPrice;%VAT;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Descrizione;Quantità;Unità;Prezzo Unità;%IVA;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;MwSt%;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Libellé;Quantité;Unité;Prix Unitaire;%TVA;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 7 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_7).replace(" (ADVANCED)",""));
     if (!answer) {
       for (var i = 0; i < userParam.data.length; i++) {
         if (userParam.data[i].name === 'details_columns_predefined') {
@@ -2131,8 +2171,8 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
       }
     }
   }
-  else if (parseInt(index) == 7 && !IS_INTEGRATED_INVOICE) {
-    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_7).replace(" (ADVANCED)",""));
+  else if (parseInt(index) == 8 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_8).replace(" (ADVANCED)",""));
     if (!answer) {
       for (var i = 0; i < userParam.data.length; i++) {
         if (userParam.data[i].name === 'details_columns_predefined') {
@@ -2168,8 +2208,8 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
       }
     }
   }
-  else if (parseInt(index) == 8 && !IS_INTEGRATED_INVOICE) {
-    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_8).replace(" (ADVANCED)",""));
+  else if (parseInt(index) == 9 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_9).replace(" (ADVANCED)",""));
     if (!answer) {
       for (var i = 0; i < userParam.data.length; i++) {
         if (userParam.data[i].name === 'details_columns_predefined') {

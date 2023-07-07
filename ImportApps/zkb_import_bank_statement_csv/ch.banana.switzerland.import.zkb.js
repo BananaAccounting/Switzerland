@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
-// @description = Zürcher Kantonalbank - Import bank account statement  (*.csv)
-// @description.de = Zürcher Kantonalbank -  Kontoauszug importieren (*.csv)
-// @description.en = Zürcher Kantonalbank - Import bank account statement (*.csv)
-// @description.fr = Zürcher Kantonalbank - Importer un relevé de compte bancaire (*.csv)
-// @description.it = Zürcher Kantonalbank - Importa movimenti estratto conto bancario (*.csv)
+// @description = Zürcher Kantonalbank - Import bank account statement .csv (Banana+ Advanced)
+// @description.de = Zürcher Kantonalbank -  Kontoauszug importieren .csv (Banana+ Advanced)
+// @description.en = Zürcher Kantonalbank - Import bank account statement .csv (Banana+ Advanced)
+// @description.fr = Zürcher Kantonalbank - Importer un relevé de compte bancaire .csv (Banana+ Advanced)
+// @description.it = Zürcher Kantonalbank - Importa movimenti estratto conto bancario .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -24,58 +24,60 @@ ID_ERR_LICENSE_NOTVALID = "ID_ERR_LICENSE_NOTVALID";
 ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
 
 var applicationSupportIsDetail = Banana.compareVersion &&
-        (Banana.compareVersion(Banana.application.version, "10.0.12") >= 0)
+   (Banana.compareVersion(Banana.application.version, "10.0.12") >= 0)
 
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(string,isTest) {
+function exec(string, isTest) {
 
 
-	var importUtilities = new ImportUtilities(Banana.document);
-  
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
-		return "";
+   var importUtilities = new ImportUtilities(Banana.document);
+
+   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+      return "";
 
    var fieldSeparator = findSeparator(string);
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
 
+   // Format 6, with details
+   var format6 = new ZKBFormat6();
+   if (format6.match(transactions)) {
+      transactions = format6.convert(transactions);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
    // Format 5
    var format5 = new ZKBFormat5();
-   if (format5.match( transactions))
-   {
+   if (format5.match(transactions)) {
       transactions = format5.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 4
    var format4 = new ZKBFormat4();
-   if ( format4.match( transactions))
-   {
+   if (format4.match(transactions)) {
       transactions = format4.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 3
    var format3 = new ZKBFormat3();
-   if ( format3.match( transactions))
-   {
+   if (format3.match(transactions)) {
       transactions = format3.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 2
    var format2 = new ZKBFormat2();
-   if ( format2.match( transactions))
-   {
+   if (format2.match(transactions)) {
       transactions = format2.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 1
    var format1 = new ZKBFormat1();
-   if ( format1.match( transactions))
-   {
+   if (format1.match(transactions)) {
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -88,13 +90,13 @@ function exec(string,isTest) {
 /**
  * The function findSeparator is used to find the field separator.
  */
-function findSeparator( string) {
+function findSeparator(string) {
 
-   var commaCount=0;
-   var semicolonCount=0;
-   var tabCount=0;
+   var commaCount = 0;
+   var semicolonCount = 0;
+   var tabCount = 0;
 
-   for(var i = 0; i < 1000 && i < string.length; i++) {
+   for (var i = 0; i < 1000 && i < string.length; i++) {
       var c = string[i];
       if (c === ',')
          commaCount++;
@@ -106,11 +108,100 @@ function findSeparator( string) {
 
    if (tabCount > commaCount && tabCount > semicolonCount) {
       return '\t';
-   } else if (semicolonCount > commaCount)	{
+   } else if (semicolonCount > commaCount) {
       return ';';
    }
 
    return ',';
+}
+
+/**
+ * ZKB Format 6, with details (without details format works with format2)
+ *
+ * "Datum";"Buchungstext";"Zahlungszweck";"Whg";"Betrag Detail";"ZKB-Referenz";"Referenznummer";"Belastung CHF";"Gutschrift CHF";"Valuta";"Saldo CHF";"Zahlungszweck";"Details"
+ */
+function ZKBFormat6() {
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colPaymentPurpose = 2;
+   this.colExternalRef = 5;
+   this.colDebit = 7;
+   this.colCredit = 8;
+   this.colDateValuta = 9;
+
+   this.colCount = 13;
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactions) {
+      if (transactions.length === 0)
+         return false;
+
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+
+         var formatMatched = false;
+         /* array should have all columns */
+         if (transaction.length === this.colCount)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction[this.colDate] &&
+            transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction[this.colDateValuta] &&
+            transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched) return true;
+      }
+
+      return false;
+   }
+
+   /** Convert the transaction to the format to be imported */
+   this.convert = function (transactions) {
+      var transactionsToImport = [];
+
+      for (i = 1; i < transactions.length; i++) // First row contains the header
+      {
+         var transaction = transactions[i];
+
+         if (transaction.length === 0) {
+            // Righe vuote
+            continue;
+         }
+         transactionsToImport.push(this.mapTransaction(transaction));
+
+      }
+
+      // Sort rows by date (just invert)
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   /** Return true if the transaction is a transaction row */
+   this.mapTransaction = function (element) {
+      var mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colExternalRef]);
+      var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
+
+      return mappedLine;
+   }
 }
 
 /**
@@ -132,69 +223,69 @@ function ZKBFormat5() {
    this.colCount = 6;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if (transactions.length === 0) 
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
       for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-  
+
          var formatMatched = false;
          /* array should have all columns */
-         if (transaction.length === this.colCount) 
+         if (transaction.length === this.colCount)
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-  
+
          if (formatMatched && transaction[this.colDate] &&
-          transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-  
+
          if (formatMatched) return true;
       }
-  
+
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } 
-         if(transaction.length === this.colCount){
+         }
+         if (transaction.length === this.colCount) {
             transactionsToImport.push(this.mapTransaction(transaction));
          }
-            
+
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","Doc","ExternalReference","Description","Income","Expenses"]];
+      var header = [["Date", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
       mappedLine.push(""); // Doc is empty for now
       mappedLine.push(element[this.colExternalRef]);
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase(tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
@@ -221,68 +312,68 @@ function ZKBFormat4() {
    this.colBalance = 7;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
-      if ( transactions[0].length === (this.colBalance+1))
+      if (transactions[0].length === (this.colBalance + 1))
          return true;
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       /** Complete, filter and map rows */
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } else if ( !this.isDetailRow(transaction)) {
-            if ( isPreviousCompleteTransaction === true)
-               transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+         } else if (!this.isDetailRow(transaction)) {
+            if (isPreviousCompleteTransaction === true)
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
          } else {
-            this.fillDetailRow( transaction, lastCompleteTransaction);
-            transactionsToImport.push( this.mapTransaction(transaction));
+            this.fillDetailRow(transaction, lastCompleteTransaction);
+            transactionsToImport.push(this.mapTransaction(transaction));
             isPreviousCompleteTransaction = false;
          }
       }
-      if ( isPreviousCompleteTransaction === true) {
-         transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction[this.colDate].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction[this.colDate].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow[this.colDate] = totalRow[this.colDate];
       detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
       // Copy amount from complete row to detail row
-      if ( detailRow[this.colDetail].length > 0) {
-         if ( totalRow[this.colDebit].length > 0) {
+      if (detailRow[this.colDetail].length > 0) {
+         if (totalRow[this.colDebit].length > 0) {
             detailRow[this.colDebit] = detailRow[this.colDetail];
          } else if (totalRow[this.colCredit].length > 0) {
             detailRow[this.colCredit] = detailRow[this.colDetail];
@@ -294,16 +385,16 @@ function ZKBFormat4() {
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
@@ -354,26 +445,26 @@ function ZKBFormat4() {
 function ZKBFormat3() {
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
-      if ( transactions[0].length === 10)
+      if (transactions[0].length === 10)
          return true;
-      if ( transactions[0].length === 11)
+      if (transactions[0].length === 11)
          return true;
-      if ( transactions[0].length === 12)
+      if (transactions[0].length === 12)
          return true;
       return false;
    }
 
-   this.transactionIsNotEmpty = function(obj) {
-       if (obj.length > 2 && (obj[0].length > 0 || obj[1].length > 0))
-           return true;
-       return false;
+   this.transactionIsNotEmpty = function (obj) {
+      if (obj.length > 2 && (obj[0].length > 0 || obj[1].length > 0))
+         return true;
+      return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       /** Complete, filter and map rows */
@@ -385,22 +476,22 @@ function ZKBFormat3() {
       /** Remove emtpy rows */
       transactions = transactions.filter(this.transactionIsNotEmpty);
 
-      for (i=1; i<transactions.length; i++) { // First row contains the header
+      for (i = 1; i < transactions.length; i++) { // First row contains the header
 
          var transaction = transactions[i];
-         if ( transaction.length === 0)
+         if (transaction.length === 0)
             continue; // Empty row, skip
 
          var mappedTransaction = this.mapTransaction(transaction);
          mappedTransaction['_RowNr'] = i;
 
-         if ( !this.isDetailRow(mappedTransaction)) {
+         if (!this.isDetailRow(mappedTransaction)) {
             transactionBlockNr++;
             mappedTransaction['_BlockNr'] = transactionBlockNr;
             lastCompleteTransactionPrinted = false;
-            if ( isPreviousCompleteTransaction === true) {
+            if (isPreviousCompleteTransaction === true) {
                // Print total row
-               transactionsToImport.push( lastCompleteTransaction);
+               transactionsToImport.push(lastCompleteTransaction);
             }
             lastCompleteTransaction = mappedTransaction;
             isPreviousCompleteTransaction = true;
@@ -416,23 +507,23 @@ function ZKBFormat3() {
                }
 
                // Print the detail row as detail row
-               this.fillDetailRow( mappedTransaction, lastCompleteTransaction);
+               this.fillDetailRow(mappedTransaction, lastCompleteTransaction);
                if (applicationSupportIsDetail)
                   mappedTransaction['IsDetail'] = 'D';
-               transactionsToImport.push( mappedTransaction);
+               transactionsToImport.push(mappedTransaction);
                isPreviousCompleteTransaction = false;
             } else {
                // If there is NOT a detail amount there is only one detail row
 
                // Print only the detail row as single row
-               this.fillDetailRow( mappedTransaction, lastCompleteTransaction);
-               transactionsToImport.push( mappedTransaction);
+               this.fillDetailRow(mappedTransaction, lastCompleteTransaction);
+               transactionsToImport.push(mappedTransaction);
                isPreviousCompleteTransaction = false;
             }
          }
       }
 
-      if ( isPreviousCompleteTransaction === true) {
+      if (isPreviousCompleteTransaction === true) {
          transactionsToImport.push(lastCompleteTransaction);
       }
 
@@ -441,32 +532,32 @@ function ZKBFormat3() {
       transactionsToImport.sort(this.sortCounterpartTransactions);
 
       // Add header and return
-      var headers = ["Date","DateValue","Doc","ExternalReference","Description","Income","Expenses","ExchangeCurrency","Notes","IsDetail"];
+      var headers = ["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses", "ExchangeCurrency", "Notes", "IsDetail"];
       if (Banana.document && Banana.document.table("Transactions")) {
-          // Remove columnd that are not present in the table transaction
+         // Remove columnd that are not present in the table transaction
          var headersTableTransaction = Banana.document.table("Transactions").columnNames;
-         headersTableTransaction += ["Income","Expenses","IsDetail"];
-         headers = headers.filter(function(item){return headersTableTransaction.indexOf(item) >= 0;});
+         headersTableTransaction += ["Income", "Expenses", "IsDetail"];
+         headers = headers.filter(function (item) { return headersTableTransaction.indexOf(item) >= 0; });
       }
       return this.mapTransactionArray(headers, transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction["Date"].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction["Date"].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow["Date"] = totalRow["Date"];
       detailRow["DateValue"] = totalRow["DateValue"];
 
       // Copy amount from complete row to detail row
-      if ( detailRow["_AmountDetail"].length > 0) {
-         if ( totalRow["Income"].length > 0) {
+      if (detailRow["_AmountDetail"].length > 0) {
+         if (totalRow["Income"].length > 0) {
             detailRow["Income"] = detailRow["_AmountDetail"];
          } else if (totalRow["Expenses"].length > 0) {
             detailRow["Expenses"] = detailRow["_AmountDetail"];
@@ -476,37 +567,37 @@ function ZKBFormat3() {
          detailRow["Expenses"] = totalRow["Expenses"];
       }
 
-      if ( detailRow["Description"].length === 0)
+      if (detailRow["Description"].length === 0)
          detailRow["Description"] = totalRow["Description"];
 
-      if ( detailRow["ExternalReference"].length === 0)
+      if (detailRow["ExternalReference"].length === 0)
          detailRow["ExternalReference"] = totalRow["ExternalReference"];
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
 
       var mappedLine = {};
 
-      mappedLine['Date']=Banana.Converter.toInternalDateFormat(element[0],'dd.mm.yyyy');
-      mappedLine['Description']=element[1];
-      mappedLine['ExchangeCurrency']=element[2];
-      mappedLine['_AmountDetail']=Banana.Converter.toInternalNumberFormat(element[3],".");
-      mappedLine['ExternalReference']=element[4];
-      mappedLine['_Reference']=element[5];
-      mappedLine['Expenses']=Banana.Converter.toInternalNumberFormat(element[6],".");
-      mappedLine['Income']=Banana.Converter.toInternalNumberFormat(element[7],".");
-      mappedLine['DateValue']=Banana.Converter.toInternalDateFormat(element[8]);
-      mappedLine['_Balance']=Banana.Converter.toInternalNumberFormat(element[9],".");
+      mappedLine['Date'] = Banana.Converter.toInternalDateFormat(element[0], 'dd.mm.yyyy');
+      mappedLine['Description'] = element[1];
+      mappedLine['ExchangeCurrency'] = element[2];
+      mappedLine['_AmountDetail'] = Banana.Converter.toInternalNumberFormat(element[3], ".");
+      mappedLine['ExternalReference'] = element[4];
+      mappedLine['_Reference'] = element[5];
+      mappedLine['Expenses'] = Banana.Converter.toInternalNumberFormat(element[6], ".");
+      mappedLine['Income'] = Banana.Converter.toInternalNumberFormat(element[7], ".");
+      mappedLine['DateValue'] = Banana.Converter.toInternalDateFormat(element[8]);
+      mappedLine['_Balance'] = Banana.Converter.toInternalNumberFormat(element[9], ".");
       //append the details only if are there.
-      if(element[10] && element[11])
-         mappedLine['Notes']=element[10]+", "+element[11];
-      else if(!element[10] && element[11])
-         mappedLine['Notes']=element[11];
-      else if(!element[11] && element[10])
-         mappedLine['Notes']=element[10];
-      else  
-         mappedLine['Notes']="";
+      if (element[10] && element[11])
+         mappedLine['Notes'] = element[10] + ", " + element[11];
+      else if (!element[10] && element[11])
+         mappedLine['Notes'] = element[11];
+      else if (!element[11] && element[10])
+         mappedLine['Notes'] = element[10];
+      else
+         mappedLine['Notes'] = "";
       // Clean / Fill fields
       mappedLine["Description"] = mappedLine["Description"].replace(/ {2,}/g, '').trim();
       mappedLine["Description"] = Banana.Converter.stringToCamelCase(mappedLine["Description"]);
@@ -514,7 +605,7 @@ function ZKBFormat3() {
       return mappedLine;
    }
 
-   this.mapTransactionArray = function(headers, objArray) {
+   this.mapTransactionArray = function (headers, objArray) {
       var mappedObject = [];
 
       // Write header
@@ -540,16 +631,16 @@ function ZKBFormat3() {
       return mappedObject;
    }
 
-   this.sortCounterpartTransactions = function(a, b) {
+   this.sortCounterpartTransactions = function (a, b) {
       if (a["Date"] > b["Date"]) {
-          return 1;
-      } else if (a["Date"] < b["Date"]){
-        return -1;
+         return 1;
+      } else if (a["Date"] < b["Date"]) {
+         return -1;
       } else {
          if (a["_RowNr"] > b["_RowNr"]) {
-             return 1;
+            return 1;
          } else if (a["_RowNr"] < b["_RowNr"])
-             return -1;
+            return -1;
          return 0;
       }
    }
@@ -580,74 +671,75 @@ function ZKBFormat2() {
    this.colDate = 0;
    this.colDescr = 1;
    this.colDetail = 2;
+   this.colExternalRef = 3;
    this.colDebit = 5;
    this.colCredit = 6;
    this.colDateValuta = 7;
    this.colBalance = 8;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
-      if ( transactions[0].length === (this.colBalance+1))
+      if (transactions[0].length === (this.colBalance + 1))
          return true;
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       /** Complete, filter and map rows */
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } else if ( !this.isDetailRow(transaction)) {
-            if ( isPreviousCompleteTransaction === true)
-               transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+         } else if (!this.isDetailRow(transaction)) {
+            if (isPreviousCompleteTransaction === true)
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
          } else {
-            this.fillDetailRow( transaction, lastCompleteTransaction);
-            transactionsToImport.push( this.mapTransaction(transaction));
+            this.fillDetailRow(transaction, lastCompleteTransaction);
+            transactionsToImport.push(this.mapTransaction(transaction));
             isPreviousCompleteTransaction = false;
          }
       }
-      if ( isPreviousCompleteTransaction === true) {
-         transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction[this.colDate].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction[this.colDate].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow[this.colDate] = totalRow[this.colDate];
       detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
       // Copy amount from complete row to detail row
-      if ( detailRow[this.colDetail].length > 0) {
-         if ( totalRow[this.colDebit].length > 0) {
+      if (detailRow[this.colDetail].length > 0) {
+         if (totalRow[this.colDebit].length > 0) {
             detailRow[this.colDebit] = detailRow[this.colDetail];
          } else if (totalRow[this.colCredit].length > 0) {
             detailRow[this.colCredit] = detailRow[this.colDetail];
@@ -659,16 +751,17 @@ function ZKBFormat2() {
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colExternalRef]);
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
@@ -699,68 +792,68 @@ function ZKBFormat1() {
    this.colBalance = 6;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
-      if ( transactions[0].length === (this.colBalance+1))
+      if (transactions[0].length === (this.colBalance + 1))
          return true;
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Complete, filter and map rows
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } else if ( !this.isDetailRow(transaction)) {
-            if ( isPreviousCompleteTransaction === true)
-               transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+         } else if (!this.isDetailRow(transaction)) {
+            if (isPreviousCompleteTransaction === true)
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
          } else {
-            this.fillDetailRow( transaction, lastCompleteTransaction);
-            transactionsToImport.push( this.mapTransaction(transaction));
+            this.fillDetailRow(transaction, lastCompleteTransaction);
+            transactionsToImport.push(this.mapTransaction(transaction));
             isPreviousCompleteTransaction = false;
          }
       }
-      if ( isPreviousCompleteTransaction === true) {
-         transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction[this.colDate].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction[this.colDate].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow[this.colDate] = totalRow[this.colDate];
       detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
       // Copy amount from complete row to detail row
-      if ( detailRow[this.colDetail].length > 0) {
-         if ( totalRow[this.colDebit].length > 0) {
+      if (detailRow[this.colDetail].length > 0) {
+         if (totalRow[this.colDebit].length > 0) {
             detailRow[this.colDebit] = detailRow[this.colDetail];
          } else if (totalRow[this.colCredit].length > 0) {
             detailRow[this.colCredit] = detailRow[this.colDetail];
@@ -772,16 +865,16 @@ function ZKBFormat1() {
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ' '); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
