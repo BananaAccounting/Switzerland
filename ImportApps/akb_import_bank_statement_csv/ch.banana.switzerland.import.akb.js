@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2023-02-07
 // @publisher = Banana.ch SA
-// @description = Aargauische Kantonalbank - Import bank account statement  (*.csv)
-// @description.de = Aargauische Kantonalbank -  Kontoauszug importieren (*.csv)
-// @description.en = Aargauische Kantonalbank - Import bank account statement (*.csv)
-// @description.fr = Aargauische Kantonalbank - Importer un relevé de compte bancaire (*.csv)
-// @description.it = Aargauische Kantonalbank - Importa movimenti estratto conto bancario (*.csv)
+// @description = Aargauische Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.de = Aargauische Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.en = Aargauische Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.fr = Aargauische Kantonalbank - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = Aargauische Kantonalbank - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
