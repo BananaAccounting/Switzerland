@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2023-05-09
 // @publisher = Banana.ch SA
-// @description = Postfinance - Import account statement (*.csv)
-// @description.de = Postfinance - Kontoauszug importieren (*.csv)
-// @description.en = Postfinance - Import account statement (*.csv)
-// @description.fr = Postfinance - Importer un relevé de compte (*.csv)
-// @description.it = Postfinance - Importa movimenti estratto conto (*.csv)
+// @description = Postfinance - Import account statement .csv (Banana+ Advanced)
+// @description.de = Postfinance - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.en = Postfinance - Import account statement .csv (Banana+ Advanced)
+// @description.fr = Postfinance - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = Postfinance - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
