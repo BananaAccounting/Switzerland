@@ -17,11 +17,11 @@
 // @api = 1.0
 // @pubdate = 2022-12-19
 // @publisher = Banana.ch SA
-// @description = Bexio - Import transactions (*xlsx).
-// @description.it = Bexio - Importa registrazioni (*xlsx).
-// @description.en = Bexio - Import transactions (*xlsx).
-// @description.de = Bexio - Buchungen importieren (*xlsx).
-// @description.fr = Bexio - Importation de ecritures (*xlsx).
+// @description = Bexio - Import movements .xlsx (Banana+ Advanced)
+// @description.it = Bexio - Importa movimenti .xlsx (Banana+ Advanced)
+// @description.en = Bexio - Import movements .xlsx (Banana+ Advanced)
+// @description.de = Bexio - Bewegungen importieren .xlsx (Banana+ Advanced)
+// @description.fr = Bexio - Importer mouvements .xlsx (Banana+ Advanced)
 // @doctype = 100.130
 // @encoding = utf-8
 // @task = import.transactions
@@ -45,14 +45,14 @@
  * @param {*} banDocument accounting file, is present only in tests
  * @param {*} isTest define if it is a test or not.
  */
-function exec(inData,banDocument,isTest) {
+function exec(inData, banDocument, isTest) {
 
     let banDoc;
 
     if (!inData)
         return "";
 
-    if(isTest && !banDocument)
+    if (isTest && !banDocument)
         return "";
     else if (isTest && banDocument)
         banDoc = banDocument;
@@ -68,8 +68,8 @@ function exec(inData,banDocument,isTest) {
     let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
 
     //Format 1 (do match check in case there are more versions in the future)
-    let  bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(banDoc);
-    if(bexioTransactionsImportFormat1.match(transactions)){
+    let bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(banDoc);
+    if (bexioTransactionsImportFormat1.match(transactions)) {
         bexioTransactionsImportFormat1.createJsonDocument(transactions);
         var jsonDoc = { "format": "documentChange", "error": "" };
         jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
@@ -113,8 +113,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     }
 
     /** Return true if the transactions match this format */
-    match(transactions){
-        if (transactions.length === 0) 
+    match(transactions) {
+        if (transactions.length === 0)
             return false;
 
         for (let i = 0; i < transactions.length; i++) {
@@ -122,24 +122,24 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
             var formatMatched = false;
             /* array should have all columns */
-            if (transaction.length >= this.colCount) 
+            if (transaction.length >= this.colCount)
                 formatMatched = true;
-            else 
+            else
                 formatMatched = false;
 
             if (formatMatched && transaction[this.trDate] &&
                 transaction[this.trDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
                 formatMatched = true;
-            else 
+            else
                 formatMatched = false;
 
             if (formatMatched && transaction[this.trCurrency] &&
                 transaction[this.trCurrency].match(/[A-Z]/)) //currencies are always uppecase.
                 formatMatched = true;
-            else 
+            else
                 formatMatched = false;
 
-            if (formatMatched) 
+            if (formatMatched)
                 return true;
         }
 
@@ -158,15 +158,15 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
          * so sequential changes work perfectly.
         */
         /*ADD THE ACCOUNTS*/
-        if(this.createJsonDocument_AddAccounts(transactions)){
+        if (this.createJsonDocument_AddAccounts(transactions)) {
             this.jsonDocArray.push(this.createJsonDocument_AddAccounts(transactions));
         }
         /*ADD VAT CODES */
-        if(this.createJsonDocument_AddVatCodes(transactions)){
+        if (this.createJsonDocument_AddVatCodes(transactions)) {
             this.jsonDocArray.push(this.createJsonDocument_AddVatCodes(transactions));
         }
         /*ADD THE TRANSACTIONS*/
-        if(this.createJsonDocument_AddTransactions(transactions)){
+        if (this.createJsonDocument_AddTransactions(transactions)) {
             this.jsonDocArray.push(this.createJsonDocument_AddTransactions(transactions));
         }
     }
@@ -206,7 +206,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         let jsonDoc = this.createJsonDocument_Init();
 
-        let rows=[];
+        let rows = [];
         let newAccountsData = {}; //will contain new accounts data.
         let accountsList = [];
         let columnsIndxList = [];
@@ -217,21 +217,21 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         columnsIndxList.push(debitCol);
         columnsIndxList.push(creditCol);
 
-        accountsList = this.getDataFromFile(transactions,columnsIndxList);
+        accountsList = this.getDataFromFile(transactions, columnsIndxList);
         /**Create an object with the new accounts data*/
-        this.setNewAccountsDataObj(accountsList,newAccountsData);
+        this.setNewAccountsDataObj(accountsList, newAccountsData);
         /* Get the list of existing accounts*/
-        existingAccounts = this.getExistingData("Accounts","Account");
+        existingAccounts = this.getExistingData("Accounts", "Account");
         /* Filter the account by removing the existing ones */
-        this.filterAccountsData(newAccountsData,existingAccounts);
+        this.filterAccountsData(newAccountsData, existingAccounts);
 
         //add new accounts to the doc change json.
-        if(newAccountsData && newAccountsData.data.length>=0){
-            for(var key in newAccountsData.data){
+        if (newAccountsData && newAccountsData.data.length >= 0) {
+            for (var key in newAccountsData.data) {
                 let account = newAccountsData.data[key].account;
                 let description = newAccountsData.data[key].description;
                 let bClass = newAccountsData.data[key].bclass;
-                
+
                 //new rows
                 let row = {};
                 row.operation = {};
@@ -241,7 +241,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
                 row.fields["Account"] = account;
                 row.fields["Description"] = description;
                 row.fields["BClass"] = bClass;
-                row.fields["Currency"] = this.banDocument.info("AccountingDataBase","BasicCurrency"); //actually set the base currency to all.
+                row.fields["Currency"] = this.banDocument.info("AccountingDataBase", "BasicCurrency"); //actually set the base currency to all.
 
                 rows.push(row);
             }
@@ -264,14 +264,14 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Filter accounts data that already exists in the account table
      * by removing them from the "newAccountsData" object.
      */
-    filterAccountsData(newAccountsData,existingAccounts){
+    filterAccountsData(newAccountsData, existingAccounts) {
         let newArray = [];
-        if(newAccountsData){
-            for(var key in newAccountsData.data){
+        if (newAccountsData) {
+            for (var key in newAccountsData.data) {
                 const elementObj = newAccountsData.data[key];
-                if(elementObj && elementObj.account){
+                if (elementObj && elementObj.account) {
                     // check if the account number already exists
-                    if(!existingAccounts.includes(elementObj.account)){
+                    if (!existingAccounts.includes(elementObj.account)) {
                         newArray.push(elementObj);
                     }
                 }
@@ -285,25 +285,25 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Given a list of accounts creates an object containing for each account
      * the account number and the account description.
      */
-    setNewAccountsDataObj(accountsList,newAccountsData){
+    setNewAccountsDataObj(accountsList, newAccountsData) {
         let accountsData = [];
-        if(accountsList.length>=0){
-            for (var i = 0; i<accountsList.length; i++){
+        if (accountsList.length >= 0) {
+            for (var i = 0; i < accountsList.length; i++) {
                 let element = accountsList[i];
                 let accDescription = "";
                 let accountNr = ""
-                let accountBclass ="";
+                let accountBclass = "";
                 let accData = {};
 
-                if(element){
-                    accDescription = element.substring(element.length-1,element.indexOf('-')+1);
+                if (element) {
+                    accDescription = element.substring(element.length - 1, element.indexOf('-') + 1);
                     accountNr = this.getAccountFromTextField(element);
                     accountBclass = this.setAccountBclass(element);
 
                     accData.account = accountNr.trim();
                     accData.description = accDescription.trim();
                     accData.bclass = accountBclass;
-    
+
                     accountsData.push(accData);
                 }
             }
@@ -318,10 +318,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      *  - "1000 - Bank"
      * @param {*} rowField 
      */
-    getAccountFromTextField(rowField){
+    getAccountFromTextField(rowField) {
         let account;
-        if(rowField){
-            account = rowField.substring(0,rowField.indexOf(' '));
+        if (rowField) {
+            account = rowField.substring(0, rowField.indexOf(' '));
             account.trim();
         }
 
@@ -331,7 +331,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     /**
      * Creates the document change object fot vat table
      */
-    createJsonDocument_AddVatCodes(transactions){
+    createJsonDocument_AddVatCodes(transactions) {
 
         let jsonDoc = this.createJsonDocument_Init();
 
@@ -341,22 +341,22 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         let newVatCodesData = {};
         let columnsIndxList = [];
         let existingVatCodes = [];
-        let rows =[];
-        
+        let rows = [];
+
         columnsIndxList.push(this.trVatRate);
 
-        vatCodesList = this.getDataFromFile(transactions,columnsIndxList);
+        vatCodesList = this.getDataFromFile(transactions, columnsIndxList);
         /**Create an object with the new accounts data*/
-        this.setNewVatCodesDataObj(vatCodesList,newVatCodesData);
-        existingVatCodes = this.getExistingData("VatCodes","VatCode");
-        this.filterVatCodesData(newVatCodesData,existingVatCodes);
+        this.setNewVatCodesDataObj(vatCodesList, newVatCodesData);
+        existingVatCodes = this.getExistingData("VatCodes", "VatCode");
+        this.filterVatCodesData(newVatCodesData, existingVatCodes);
 
         //add new vat codes to the doc change json.
-        if(newVatCodesData && newVatCodesData.data.length>=0){
-            for(var key in newVatCodesData.data){
+        if (newVatCodesData && newVatCodesData.data.length >= 0) {
+            for (var key in newVatCodesData.data) {
                 let code = newVatCodesData.data[key].code;
                 let rate = newVatCodesData.data[key].rate;
-                
+
                 //new rows
                 let row = {};
                 row.operation = {};
@@ -386,18 +386,18 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Filter vat codes data that already exists in the vat table
      * by removing them from the "newVatCodesDataObj" object.
      */
-    filterVatCodesData(newVatCodesData,existingVatCodes){
+    filterVatCodesData(newVatCodesData, existingVatCodes) {
         let newArray = [];
         let mappedVatCodes = this.getMappedVatCodes();
-        if(newVatCodesData){
-            for(var key in newVatCodesData.data){
+        if (newVatCodesData) {
+            for (var key in newVatCodesData.data) {
                 const elementObj = newVatCodesData.data[key];
-                if(elementObj && elementObj.code){
+                if (elementObj && elementObj.code) {
                     /**Check if the account number already exists
                      * in the vat table or if it's already between mapped elements*/
-                    if(!existingVatCodes.includes(elementObj.code) &&
-                        !mappedVatCodes.has(elementObj.code)){
-                            newArray.push(elementObj);
+                    if (!existingVatCodes.includes(elementObj.code) &&
+                        !mappedVatCodes.has(elementObj.code)) {
+                        newArray.push(elementObj);
                     }
                 }
             }
@@ -410,22 +410,22 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Given a list of accounts creates an object containing for each vat code
      * the code and the vat rate.
      */
-    setNewVatCodesDataObj(vatCodesList,newVatCodesData){
+    setNewVatCodesDataObj(vatCodesList, newVatCodesData) {
         let vatCodesData = [];
-        if(vatCodesList.length>=0){
-            for (var i = 0; i<vatCodesList.length; i++){
+        if (vatCodesList.length >= 0) {
+            for (var i = 0; i < vatCodesList.length; i++) {
                 let element = vatCodesList[i];
                 let vatCode = "";
                 let vatRate = "";
                 let vatData = {};
 
-                if(element){
+                if (element) {
                     vatCode = this.getCodeFromVatField(element);
-                    vatRate = element.substring(element.indexOf('(')+1, element.indexOf('%'));
+                    vatRate = element.substring(element.indexOf('(') + 1, element.indexOf('%'));
 
                     vatData.code = vatCode.trim();
                     vatData.rate = vatRate.trim();
-    
+
                     vatCodesData.push(vatData);
                 }
             }
@@ -438,14 +438,14 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * with the information contained at the "columnsIndxList" columns.
      * @param {*} transactions
      */
-    getDataFromFile(transactions,columnsIndxList){
+    getDataFromFile(transactions, columnsIndxList) {
         const accounts = new Set();
-        for (var i = 1; i<transactions.length; i++){
+        for (var i = 1; i < transactions.length; i++) {
             let tRow = transactions[i];
-            if(columnsIndxList.length>=0){
-                for(var j = 0; j<columnsIndxList.length; j++){
+            if (columnsIndxList.length >= 0) {
+                for (var j = 0; j < columnsIndxList.length; j++) {
                     let columnData = tRow[columnsIndxList[j]];
-                    if(columnData){
+                    if (columnData) {
                         accounts.add(columnData);
                     }
                 }
@@ -460,15 +460,15 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * Returns a list with the data contained in the table "tableName"
      * to the column "columnName".
      */
-    getExistingData(tableName,columnName){
+    getExistingData(tableName, columnName) {
         let accounts = [];
         let accountTable = this.banDocument.table(tableName);
-        if(accountTable){
+        if (accountTable) {
             let tRows = accountTable.rows;
-            for(var key in tRows){
+            for (var key in tRows) {
                 let row = tRows[key];
                 let account = row.value(columnName);
-                if(account){
+                if (account) {
                     accounts.push(account);
                 };
             }
@@ -482,10 +482,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      *  - "UN77 (7.70%)"
      *  - "UR25 (2.50%)"
      */
-    getCodeFromVatField(rowField){
+    getCodeFromVatField(rowField) {
         let code = "";
-        if(rowField){
-            code = rowField.substring(0,rowField.indexOf(' '));
+        if (rowField) {
+            code = rowField.substring(0, rowField.indexOf(' '));
             code.trim();
         }
 
@@ -498,10 +498,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     createJsonDocument_AddTransactions(transactions) {
 
         let jsonDoc = this.createJsonDocument_Init();
-        let rows=[];
+        let rows = [];
 
         /*Loop trough the transactions starting from the first line of data (= 1)*/
-        for (var i = 1; i<transactions.length; i++){
+        for (var i = 1; i < transactions.length; i++) {
             let tRow = transactions[i];
             let vatCode = this.getBananaVatCode(this.getCodeFromVatField(tRow[this.trVatRate]));
 
@@ -510,7 +510,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             row.operation.name = "add";
             row.operation.srcFileName = "" //to define.
             row.fields = {};
-            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tRow[this.trDate],"dd-mm-yyyy");
+            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tRow[this.trDate], "dd-mm-yyyy");
             row.fields["ExternalReference"] = tRow[this.trReference];
             row.fields["AccountDebit"] = this.getAccountFromTextField(tRow[this.trDebit]);
             row.fields["AccountCredit"] = this.getAccountFromTextField(tRow[this.trCredit]);
@@ -519,9 +519,9 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             row.fields["ExchangeCurrency"] = tRow[this.trCurrency];
             row.fields["ExchangeRate"] = tRow[this.trExchangeRate];
             row.fields["Amount"] = tRow[this.trAmountInBaseCurrency];
-            if(vatCode)
+            if (vatCode)
                 row.fields["VatCode"] = vatCode;
-            else{
+            else {
                 /**the vat code is not bwtween the mapped ones
                  * so we inserted it int the vat codes table.
                  */
@@ -545,15 +545,15 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     /**
      * Dato un coidce iva Bexio ritorna il codice corrispondente in Banana.
      */
-    getBananaVatCode(bxVatCode){
-        if(bxVatCode){
+    getBananaVatCode(bxVatCode) {
+        if (bxVatCode) {
             let mpdVatCodes = this.getMappedVatCodes();
             let banVatCode;
 
             /**get the Banana vat code */
             banVatCode = mpdVatCodes.get(bxVatCode);
 
-            if(banVatCode){
+            if (banVatCode) {
                 return banVatCode;
             }
         }
@@ -566,10 +566,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * dal presupposto che si tratti di un piano dei conti 
      * svizzero per PMI, altrimenti torna vuoto.
      */
-    setAccountBclass(account){
+    setAccountBclass(account) {
         let bClass = "";
-        let firstDigit = account.substring(0,1);
-        switch(firstDigit){
+        let firstDigit = account.substring(0, 1);
+        switch (firstDigit) {
             case "1":
                 bClass = "1";
                 return bClass;
@@ -599,66 +599,64 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * questa struttura contiene i codici standard, non funziona in 
      * caso in cui l'utente abbia personalizzato la tabella codici iva.
      */
-    getMappedVatCodes(){
+    getMappedVatCodes() {
         /**
          * Map structure:
          * key = Bexio vat code
          * value = Banana vat code
          */
-        const vatCodes = new Map ()
+        const vatCodes = new Map()
 
         //set codes
-        vatCodes.set("UN77","V77");
-        vatCodes.set("UR25","V25");
+        vatCodes.set("UN77", "V77");
+        vatCodes.set("UR25", "V25");
 
         return vatCodes;
     }
 }
 
 function defineConversionParam(inData) {
-	var convertionParam = {};
-	/** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
-	convertionParam.format = "csv"; // available formats are "csv", "html"
-	//get text delimiter
-	convertionParam.textDelim = '\"';
-	// get separator
-	convertionParam.separator = findSeparator(inData);
-  
-	/** SPECIFY THE COLUMN TO USE FOR SORTING
-	If sortColums is empty the data are not sorted */
-	convertionParam.sortColums = ["Date", "Description"];
-	convertionParam.sortDescending = false;
-  
-	return convertionParam;
+    var convertionParam = {};
+    /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+    convertionParam.format = "csv"; // available formats are "csv", "html"
+    //get text delimiter
+    convertionParam.textDelim = '\"';
+    // get separator
+    convertionParam.separator = findSeparator(inData);
+
+    /** SPECIFY THE COLUMN TO USE FOR SORTING
+    If sortColums is empty the data are not sorted */
+    convertionParam.sortColums = ["Date", "Description"];
+    convertionParam.sortDescending = false;
+
+    return convertionParam;
 }
 
 /**
  * The function findSeparator is used to find the field separator.
  */
-  function findSeparator(inData) {
+function findSeparator(inData) {
 
-	var commaCount=0;
-	var semicolonCount=0;
-	var tabCount=0;
- 
-	for(var i = 0; i < 1000 && i < inData.length; i++) {
-	   var c = inData[i];
-	   if (c === ',')
-		  commaCount++;
-	   else if (c === ';')
-		  semicolonCount++;
-	   else if (c === '\t')
-		  tabCount++;
-	}
- 
-	if (tabCount > commaCount && tabCount > semicolonCount)
-	{
-	   return '\t';
-	}
-	else if (semicolonCount > commaCount)
-	{
-	   return ';';
-	}
- 
-	return ',';
- }
+    var commaCount = 0;
+    var semicolonCount = 0;
+    var tabCount = 0;
+
+    for (var i = 0; i < 1000 && i < inData.length; i++) {
+        var c = inData[i];
+        if (c === ',')
+            commaCount++;
+        else if (c === ';')
+            semicolonCount++;
+        else if (c === '\t')
+            tabCount++;
+    }
+
+    if (tabCount > commaCount && tabCount > semicolonCount) {
+        return '\t';
+    }
+    else if (semicolonCount > commaCount) {
+        return ';';
+    }
+
+    return ',';
+}
