@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
-// @description = Credit Suisse - Import bank account statement (*.csv)
-// @description.en = Credit Suisse - Import bank account statement (*.csv)
-// @description.de = Credit Suisse - Kontoauszug importieren (*.csv)
-// @description.fr = Credit Suisse - Importer un relevé de compte bancaire (*.csv)
-// @description.it = Credit Suisse - Importa movimenti estratto conto bancario (*.csv)
+// @description = Credit Suisse - Import account statement .csv (Banana+ Advanced)
+// @description.en = Credit Suisse - Import account statement .csv (Banana+ Advanced)
+// @description.de = Credit Suisse - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Credit Suisse - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = Credit Suisse - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -26,42 +26,39 @@ function exec(string, isTest) {
 
    var importUtilities = new ImportUtilities(Banana.document);
 
-   if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
+   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
       return "";
 
-  var applicationSupportIsDetail = Banana.compareVersion &&
-  (Banana.compareVersion(Banana.application.version, "8.0.5") >= 0)
+   var applicationSupportIsDetail = Banana.compareVersion &&
+      (Banana.compareVersion(Banana.application.version, "8.0.5") >= 0)
 
    //If the file contains double quotations marks, remove them
    var cleanString = string;
-   if ( cleanString.match(/""/)) {
-   cleanString = cleanString.replace(/^"/mg,"");
-   cleanString = cleanString.replace(/"$/mg,"");
-   cleanString = cleanString.replace(/""/g,"\"");
+   if (cleanString.match(/""/)) {
+      cleanString = cleanString.replace(/^"/mg, "");
+      cleanString = cleanString.replace(/"$/mg, "");
+      cleanString = cleanString.replace(/""/g, "\"");
    }
 
-var transactions = Banana.Converter.csvToArray(cleanString, ',', '"');
+   var transactions = Banana.Converter.csvToArray(cleanString, ',', '"');
 
    // Format 3
    var format3 = new CSFormat3();
-   if ( format3.match( transactions))
-   {
+   if (format3.match(transactions)) {
       transactions = format3.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 2
    var format2 = new CSFormat2();
-   if ( format2.match( transactions))
-   {
+   if (format2.match(transactions)) {
       transactions = format2.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 1
    var format1 = new CSFormat1();
-   if ( format1.match( transactions))
-   {
+   if (format1.match(transactions)) {
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -93,39 +90,38 @@ var transactions = Banana.Converter.csvToArray(cleanString, ',', '"');
 
 function CSFormat3() {
 
-   this.colDate            = 0;
-   this.colDatePost        = 1;
-   this.colDescr           = 2;
-   this.colDebit           = 3;
-   this.colCredit          = 4;
-   this.colDateValuta      = 5;
-   this.colBalance         = 6;
+   this.colDate = 0;
+   this.colDatePost = 1;
+   this.colDescr = 2;
+   this.colDebit = 3;
+   this.colCredit = 4;
+   this.colDateValuta = 5;
+   this.colBalance = 6;
 
    this.decimalSeparator = ".";
 
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
 
          var formatMatched = false;
 
-         if ( transaction.length  === (this.colBalance+1)  )
+         if (transaction.length === (this.colBalance + 1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
+         if (formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
@@ -139,45 +135,44 @@ function CSFormat3() {
 
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1) )
+         if (transaction.length < (this.colBalance + 1))
             continue;
          if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
-            transactionsToImport.push( this.mapTransaction(transaction));
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate],"dd.mm.yyyy"));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta],"dd.mm.yyyy"));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,},/g, ' ,'); //remove white spaces
       tidyDescr = Banana.Converter.stringToCamelCase(tidyDescr);
       tidyDescr = this.wrapDescr(tidyDescr); // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
-      mappedLine.push( tidyDescr);
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], this.decimalSeparator));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], this.decimalSeparator));
+      mappedLine.push(tidyDescr);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], this.decimalSeparator));
 
       return mappedLine;
    }
 
-   this.wrapDescr = function(descr) {
+   this.wrapDescr = function (descr) {
       descr = descr.replace(/"/g, '\\\"');
       return '"' + descr + '"';
    }
@@ -196,32 +191,31 @@ function CSFormat3() {
 
 function CSFormat2() {
 
-   this.colDate     	  = 0;
-   this.colDescr    	  = 1;
-   this.colDebit		  = 2;
-   this.colCredit  	  = 3;
-   this.colBalance	  = 4;
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colDebit = 2;
+   this.colCredit = 3;
+   this.colBalance = 4;
 
    this.decimalSeparator = ".";
 
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
 
          var formatMatched = false;
 
-         if ( transaction.length  === (this.colBalance+1)  )
+         if (transaction.length === (this.colBalance + 1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
@@ -235,43 +229,42 @@ function CSFormat2() {
 
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1))
+         if (transaction.length < (this.colBalance + 1))
             continue;
          if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
-            transactionsToImport.push( this.mapTransaction(transaction));
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate],"dd.mm.yyyy"));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,},/g, ' ,'); //remove white spaces
       tidyDescr = Banana.Converter.stringToCamelCase(tidyDescr);
       tidyDescr = this.wrapDescr(tidyDescr); // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
-      mappedLine.push( tidyDescr);
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], this.decimalSeparator));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], this.decimalSeparator));
+      mappedLine.push(tidyDescr);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], this.decimalSeparator));
       return mappedLine;
    }
 
-   this.wrapDescr = function(descr) {
+   this.wrapDescr = function (descr) {
       descr = descr.replace(/"/g, '\\\"');
       return '"' + descr + '"';
    }
@@ -296,37 +289,36 @@ function CSFormat2() {
 
 function CSFormat1() {
 
-   this.colDate     	   = 0;
-   this.colDescr    	   = 1;
-   this.colDebit		   = 2;
-   this.colCredit  	   = 3;
-   this.colDateValuta	= 4;
-   this.colBalance		= 5;
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colDebit = 2;
+   this.colCredit = 3;
+   this.colDateValuta = 4;
+   this.colBalance = 5;
 
    this.decimalSeparator = ".";
 
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
 
-         var formatMatched=false;
-         if ( transaction.length  === (this.colBalance+1)  )
+         var formatMatched = false;
+         if (transaction.length === (this.colBalance + 1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
+         if (formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
@@ -340,45 +332,44 @@ function CSFormat1() {
 
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1) )
+         if (transaction.length < (this.colBalance + 1))
             continue;
-         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length==10 &&
-               transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length==10)
-            transactionsToImport.push( this.mapTransaction(transaction));
+         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length == 10 &&
+            transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length == 10)
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate],"dd.mm.yyyy"));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta],"dd.mm.yyyy"));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
       tidyDescr = this.wrapDescr(tidyDescr); // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
-      mappedLine.push( tidyDescr);
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], this.decimalSeparator));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], this.decimalSeparator));
+      mappedLine.push(tidyDescr);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], this.decimalSeparator));
 
       return mappedLine;
    }
 
-   this.wrapDescr = function(descr) {
+   this.wrapDescr = function (descr) {
       descr = descr.replace(/"/g, '\\\"');
       return '"' + descr + '"';
    }
