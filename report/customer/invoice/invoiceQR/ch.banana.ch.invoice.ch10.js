@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2023-06-16
+// @pubdate = 2023-07-31
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -1033,18 +1033,6 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
-  //DEPOSIT
-  //Only used for the Application Invoice
-  if (invoiceObj.billing_info.total_advance_payment) {
-    tableRow = repTableObj.addRow();
-    if (invoiceObj.billing_info.total_advance_payment_description) {
-      tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
-    } else {
-      tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
-    }
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
-  }
-
   tableRow = repTableObj.addRow();
   if (invoiceObj.billing_info.total_vat_rates.length > 0 || invoiceObj.billing_info.total_rounding_difference.length) {
     tableRow.addCell("", "border-top", columnsNumber);
@@ -1054,8 +1042,37 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
 
   //FINAL TOTAL
   tableRow = repTableObj.addRow();
-  tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
-  tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_amount_vat_inclusive, variables.decimals_amounts, true), "total_cell total_cell_border right", 1);
+  }
+  else {
+    tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
+  }
+
+  //PARTIAL PAYMENTS
+  //Can be partial payment transactions for integrated invoice or deposit for application estimates-invoices
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow = repTableObj.addRow();
+    tableRow.addCell("", "border-top", columnsNumber);
+    tableRow = repTableObj.addRow();
+
+    if (!IS_INTEGRATED_INVOICE) {
+      if (invoiceObj.billing_info.total_advance_payment_description) {
+        tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
+      } else {
+        tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
+      }
+    }
+    else {
+      tableRow.addCell(texts.paidamount, "padding-left padding-right", columnsNumber-1);
+    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.pending + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell total_cell_border right", 1);
+  }
 }
 
 function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
@@ -1250,11 +1267,10 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   //SUBTOTAL
   //used only for the "Application Invoice"
-  //Print subtotal if there is discount or rounding or deposit
+  //Print subtotal if there is discount or rounding
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
-    || invoiceObj.billing_info.total_rounding_difference 
-    || invoiceObj.billing_info.total_advance_payment)
+    || invoiceObj.billing_info.total_rounding_difference)
   ) {
     
     tableRow = repTableObj.addRow();
@@ -1282,23 +1298,10 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
-  //DEPOSIT
-  //Only used for the Application Invoice
-  if (invoiceObj.billing_info.total_advance_payment) {
-    tableRow = repTableObj.addRow();
-    if (invoiceObj.billing_info.total_advance_payment_description) {
-      tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
-    } else {
-      tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
-    }
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
-  }
-
   tableRow = repTableObj.addRow();
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
-    || invoiceObj.billing_info.total_rounding_difference 
-    || invoiceObj.billing_info.total_advance_payment)
+    || invoiceObj.billing_info.total_rounding_difference)
   ) {
     tableRow.addCell("", "border-top", columnsNumber);
   } else {
@@ -1307,9 +1310,38 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   //FINAL TOTAL
   tableRow = repTableObj.addRow();
-  tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
-  tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
-  
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_amount_vat_inclusive, variables.decimals_amounts, true), "total_cell total_cell_border right", 1);
+  }
+  else {
+    tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
+  }
+
+  //PARTIAL PAYMENTS
+  //Can be partial payment transactions for integrated invoice or deposit for application estimates-invoices
+  if (invoiceObj.billing_info.total_advance_payment) {
+    tableRow = repTableObj.addRow();
+    tableRow.addCell("", "border-top", columnsNumber);
+    tableRow = repTableObj.addRow();
+
+    if (!IS_INTEGRATED_INVOICE) {
+      if (invoiceObj.billing_info.total_advance_payment_description) {
+        tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
+      } else {
+        tableRow.addCell(texts.deposit, "padding-left padding-right", columnsNumber-1);
+      }
+    }
+    else {
+      tableRow.addCell(texts.paidamount, "padding-left padding-right", columnsNumber-1);
+    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(invoiceObj.billing_info.total_advance_payment), variables.decimals_amounts, true), "right padding-left padding-right", 1);
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.pending + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell total_cell_border right", 1);
+  }
+
   tableRow = repTableObj.addRow();
   tableRow.addCell("", "", columnsNumber);
 

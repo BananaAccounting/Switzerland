@@ -1,4 +1,4 @@
-/* CSS update: 2022-12-10  */
+/* CSS update: 2023-07-31  */
 
 /* Page definition.
    Sets margins of the document.
@@ -290,6 +290,12 @@ table.info_table_row0 td {
   border-bottom-style: double;
   border-bottom-color: $color_title_total;
   border-bottom-width: 1px;
+}
+/* Total bottom border with partial payments */
+.total_cell_border {
+  border-bottom-style: solid;
+  border-bottom-color: $color_title_total;
+  border-bottom-width: 2px;
 }
 /* Subtotal row of the invoice details.
    Sets the font weight and a bottom border used as underline for the entire row. */

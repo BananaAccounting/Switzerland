@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2023-06-16 */
+/* Texts update: 2023-07-31 */
 
 
 
@@ -70,11 +70,13 @@ function setTexts_it(texts) {
   texts.amount = "Importo";
   texts.discount = "Sconto";
   texts.deposit = "Acconto";
+  texts.paidamount = "Pagamenti";
   texts.totalnet = "Totale netto";
   texts.subtotal = "Sottototale";
   texts.vat = "IVA";
   texts.rounding = "Arrotondamento";
   texts.total = "TOTALE";
+  texts.pending = "Saldo a nostro favore";
   texts.gross = "lordo";
   texts.net = "netto";
   texts.param_include = "Stampa";
@@ -291,11 +293,13 @@ function setTexts_fr(texts) {
   texts.amount = "Montant";
   texts.discount = "Rabais";
   texts.deposit = "Acompte";
+  texts.paidamount = "Paiements";
   texts.totalnet = "Total net";
   texts.subtotal = "Sous-total";
   texts.vat = "TVA";
   texts.rounding = "Arrondi";
   texts.total = "TOTAL";
+  texts.pending = "Solde en notre faveur";
   texts.gross = "brut";
   texts.net = "net";
   texts.param_include = "Imprimer";
@@ -512,11 +516,13 @@ function setTexts_de(texts) {
   texts.amount = "Betrag";
   texts.discount = "Rabatt";
   texts.deposit = "Anzahlung";
+  texts.paidamount = "Zahlungen";
   texts.totalnet = "Netto-Betrag";
   texts.subtotal = "Zwischentotal";
   texts.vat = "MwSt";
   texts.rounding = "Rundung";
   texts.total = "Gesamtbetrag";
+  texts.pending = "Ausstehend";
   texts.gross = "Brutto";
   texts.net = "Netto";
   texts.param_include = "Drucken";
@@ -733,11 +739,13 @@ function setTexts_en(texts) {
   texts.amount = "Amount";
   texts.discount = "Discount";
   texts.deposit = "Deposit";
+  texts.paidamount = "Payments";
   texts.totalnet = "Total net";
   texts.subtotal = "Subtotal";
   texts.vat = "VAT";
   texts.rounding = "Rounding";
   texts.total = "TOTAL";
+  texts.pending = "Balance in our favor";
   texts.gross = "gross";
   texts.net = "net";
   texts.param_include = "Print";
