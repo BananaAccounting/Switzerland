@@ -7680,7 +7680,7 @@ ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{334}{l}{TOTAL CHF } & 42.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{334}{l}{testo acconto } & 20.00 \\
-\multicolumn{334}{l}{Balance in our favor CHF } & 22.00 \\
+\multicolumn{334}{l}{Outstanding balance CHF } & 22.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{335}{l}{}\\
 \end{longtable}
@@ -7792,7 +7792,7 @@ ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{339}{l}{TOTAL CHF } & 90.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{339}{l}{testo acconto } & 40.00 \\
-\multicolumn{339}{l}{Balance in our favor CHF } & 50.00 \\
+\multicolumn{339}{l}{Outstanding balance CHF } & 50.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{340}{l}{}\\
 \end{longtable}
@@ -8118,7 +8118,7 @@ ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{354}{l}{TOTAL CHF } & 42.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{testo acconto } & 20.00 \\
-\multicolumn{354}{l}{Balance in our favor CHF } & 22.00 \\
+\multicolumn{354}{l}{Outstanding balance CHF } & 22.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{355}{l}{42.00 CHF (gross) // 39.00 CHF (net) VAT 7.70\% = 3.00 CHF \newline }\\
 \end{longtable}
@@ -8230,7 +8230,7 @@ ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{359}{l}{TOTAL CHF } & 90.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{testo acconto } & 40.00 \\
-\multicolumn{359}{l}{Balance in our favor CHF } & 50.00 \\
+\multicolumn{359}{l}{Outstanding balance CHF } & 50.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{360}{l}{90.00 CHF (gross) // 83.57 CHF (net) VAT 7.70\% = 6.44 CHF \newline }\\
 \end{longtable}
