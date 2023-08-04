@@ -299,7 +299,7 @@ function setTexts_fr(texts) {
   texts.vat = "TVA";
   texts.rounding = "Arrondi";
   texts.total = "TOTAL";
-  texts.pending = "Solde en notre faveur";
+  texts.pending = "Solde restant";
   texts.gross = "brut";
   texts.net = "net";
   texts.param_include = "Imprimer";
@@ -522,7 +522,7 @@ function setTexts_de(texts) {
   texts.vat = "MwSt";
   texts.rounding = "Rundung";
   texts.total = "Gesamtbetrag";
-  texts.pending = "Ausstehend";
+  texts.pending = "Ausstehender Betrag";
   texts.gross = "Brutto";
   texts.net = "Netto";
   texts.param_include = "Drucken";
@@ -745,7 +745,7 @@ function setTexts_en(texts) {
   texts.vat = "VAT";
   texts.rounding = "Rounding";
   texts.total = "TOTAL";
-  texts.pending = "Balance in our favor";
+  texts.pending = "Outstanding balance";
   texts.gross = "gross";
   texts.net = "net";
   texts.param_include = "Print";
