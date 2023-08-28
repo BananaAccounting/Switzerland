@@ -1317,14 +1317,14 @@ var QRBill = class QRBill {
 			}
 			qrcodeData.billingInformation = "";
 		} 
-		else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor, add only billing information
-			qrcodeData.additionalInformation = "";
-			if (userParam.qr_code_billing_information) {
-				qrcodeData.billingInformation = this.qrBillingInformation(invoiceObj);
-			} else {
-				qrcodeData.billingInformation = "";
-			}
-		}
+		// else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor, add only billing information
+		// 	qrcodeData.additionalInformation = "";
+		// 	if (userParam.qr_code_billing_information) {
+		// 		qrcodeData.billingInformation = this.qrBillingInformation(invoiceObj);
+		// 	} else {
+		// 		qrcodeData.billingInformation = "";
+		// 	}
+		// }
 		else { //add both additional and billing information
 			qrcodeData.additionalInformation = this.qrAdditionalInformation(invoiceObj, userParam.qr_code_additional_information);
 			if (userParam.qr_code_billing_information) {
@@ -1338,10 +1338,15 @@ var QRBill = class QRBill {
 		// We cut the unstructured Additional information with "..." at the end
 		var str = qrcodeData.additionalInformation + qrcodeData.billingInformation;
 		if (str.length > 140) {
-			str = str.split("//");
-			var addInfo = str[0];
-			var billInfo = "//"+str[1];
-			qrcodeData.additionalInformation = addInfo.substring(0, (137-(billInfo.length)))+ "...";
+			if (str.indexOf("//") > -1) { // additional and billing information
+				str = str.split("//");
+				var addInfo = str[0];
+				var billInfo = "//"+str[1];
+				qrcodeData.additionalInformation = addInfo.substring(0, (137-(billInfo.length)))+ "...";
+			}
+			else { // additional information only
+				qrcodeData.additionalInformation = str.substring(0, 137)+ "...";
+			}
 		}
 
 		/* Debtor (Payable by) */
@@ -2797,7 +2802,7 @@ var QRBill = class QRBill {
 			style.setAttribute("font-family", fontFamily);
 			style.setAttribute("font-size", fontSizePayment);
 			style.setAttribute("width","87mm");
-			style.setAttribute("height","88mm");
+			style.setAttribute("height","90mm");
 			//style.setAttribute("border","thin solid red");
 			if (userParam.qr_code_add_border_separator) {
 				style.setAttribute("border-top","thin dashed black");
@@ -2807,11 +2812,11 @@ var QRBill = class QRBill {
 			style = repStyleObj.addStyle(".qrcode_payment_further_info_Form");
 			style.setAttribute("position", "absolute");
 			style.setAttribute("left", "67mm");
-			style.setAttribute("top", "280mm");
+			style.setAttribute("top", "282mm");
 			style.setAttribute("color", "black");
 			style.setAttribute("font-family", fontFamily);
 			style.setAttribute("font-size", fontSizePayment);
-			style.setAttribute("width","137mm");
+			style.setAttribute("width","138mm");
 			style.setAttribute("height","10mm");
 			//style.setAttribute("border","thin solid red");
 
