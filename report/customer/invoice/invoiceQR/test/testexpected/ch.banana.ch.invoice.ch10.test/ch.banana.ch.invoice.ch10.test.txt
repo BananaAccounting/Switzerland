@@ -918,6 +918,7 @@ Riferimento \\
 11 34560 00000 10000 40000 03605  \\
   \\
 Informazioni aggiuntive \\
+Order of June 2020s \\
 //S1/10/36/11/220201/20/100004/30/123456789/31/220201/32/8/40/0:30 \\
   \\
 Pagabile da (nome/indirizzo) \\
@@ -951,7 +952,7 @@ ewline
 ewline 
 ewline QRR
 ewline 113456000000100004000003605
-ewline 
+ewline Order of June 2020s
 ewline EPD
 ewline //S1/10/36/11/220201/20/100004/30/123456789/31/220201/32/8/40/0:30}\\
 \begin{reportvalue}{Invoice 361}
@@ -1329,6 +1330,7 @@ Riferimento \\
 11 34560 00000 10000 40362 02001  \\
   \\
 Informazioni aggiuntive \\
+Fattura 36-2020 \\
 //S1/10/362020/11/220305/20/100004/30/123456789/31/220305/32/8/40/0:30 \\
   \\
 Pagabile da (nome/indirizzo) \\
@@ -1362,7 +1364,7 @@ ewline
 ewline 
 ewline QRR
 ewline 113456000000100004036202001
-ewline 
+ewline Fattura 36-2020
 ewline EPD
 ewline //S1/10/362020/11/220305/20/100004/30/123456789/31/220305/32/8/40/0:30}\\
 \subsection{Test3 negative: QRR with IBAN}
