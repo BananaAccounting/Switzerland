@@ -22,14 +22,18 @@ function csvToBanana(csvObj) {
    var banana = {};
    banana['Date'] = csvObj['Date'];
    banana['Description'] = `${csvObj['Description']} ${csvObj['Subject']}`;
+
+   var amount = csvObj['Original amount'] ? csvObj['Original amount'] : csvObj['Amount'];
    
-   if (Number(csvObj['Amount']) > 0) {
-     banana['Income'] = Math.abs(csvObj['Amount']);
+   if (Number(amount) > 0) {
+     banana['Income'] = amount;
      banana['Expenses'] = '';
    } else {
      banana['Income'] = '';
-     banana['Expenses'] = Math.abs(csvObj['Amount']);
+     banana['Expenses'] = amount;
    }
+
+   banana['Amount'] = csvObj['Amount'];
    
    banana['AmountCurrency'] = csvObj['Original amount'];
    banana['ExchangeCurrency'] = csvObj['Original currency'] || 'CHF';
@@ -51,7 +55,16 @@ function exec(inText) {
    var arrayOfObjects = Banana.Converter.arrayToObject(headers, csvFile, true);
    var bananaObjects = arrayOfObjects.map(csvToBanana);
 
-   var tsvFile = Banana.Converter.objectArrayToCsv(['Date', 'Description', 'Income', 'Expenses', 'AmountCurrency','ExchangeCurrency','ExchangeRate'], bananaObjects, '\t');
+   var tsvFile = Banana.Converter.objectArrayToCsv([
+    'Date', 
+    'Description', 
+    'Income', 
+    'Expenses',
+    'Amount',
+    'AmountCurrency',
+    'ExchangeCurrency',
+    'ExchangeRate',
+    ], bananaObjects, '\t');
    
    // Return the converted tsv file
    return tsvFile;
