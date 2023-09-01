@@ -43,6 +43,13 @@ function exec(inData, isTest) {
       var fieldSeparator = findSeparator(inData);
       var transactions = Banana.Converter.csvToArray(inData, fieldSeparator);
 
+      // Format 5
+      var format5 = new PFCSVFormat5();
+      if (format5.match(transactions)) {
+         transactions = format5.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
       // Format 4
       var format4 = new PFCSVFormat4();
       if (format4.match(transactions)) {
@@ -82,6 +89,83 @@ function exec(inData, isTest) {
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+/**
+ * PFCSV Format 5
+ * Example: pfcsv.#20230901
+**/
+function PFCSVFormat5() {
+
+   this.colDate = 0;
+   this.colMovType = 1;
+   this.colDescr = 2;
+   this.colCredit = 3;
+   this.colDebit = 4;
+
+   this.dateFormat = 'dd.mm.yyyy';
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactions) {
+      if (transactions.length === 0)
+         return false;
+
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+
+         var formatMatched = false;
+         if (transaction.length === this.colDebit + 1)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\.)[0-9]{2}(\.)[0-9]{2}/g)) {
+            formatMatched = true;
+         } else {
+            formatMatched = false;
+         }
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   /** Convert the transaction to the format to be imported */
+   this.convert = function (transactions) {
+      var transactionsToImport = [];
+
+      // Filter and map rows
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+         if (transaction.length < (this.colAmount + 1))
+            continue;
+         if (transaction[this.colDate] && transaction[this.colDate].match(/[0-9]{2}(\.)[0-9]{2}(\.)[0-9]{4}/g) && transaction[this.colDate].length == 10)
+            transactionsToImport.push(this.mapTransaction(transaction));
+      }
+
+      // Sort rows by date (just invert)
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "Doc", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+
+   this.mapTransaction = function (element) {
+      var mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], this.dateFormat));
+      mappedLine.push(""); // Doc is empty for now
+      var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit]));
+      amountDebit = element[this.colDebit].replace(/-/g, ''); //remove minus sign
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit));
+
+      return mappedLine;
+   }
 }
 
 /**
@@ -123,13 +207,9 @@ function PFCSVFormat4() {
             formatMatched = true;
          else
             formatMatched = false;
-
-         if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\.)[0-9]{2}(\.)[0-9]{2}/g)) {
-            this.dateFormat = 'dd.mm.yy';
+         if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\-)[0-9]{2}(\-)[0-9]{4}/g)) {
             formatMatched = true;
-         } else if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\.|-)[0-9]{2}(\.|-)[0-9]{4}/g)) {
-            formatMatched = true;
-         } else if (formatMatched && transaction[this.colDate].match(/[0-9]{4}(\.|-)[0-9]{2}(\.|-)[0-9]{2}/g)) {
+         } else if (formatMatched && transaction[this.colDate].match(/[0-9]{4}(\-)[0-9]{2}(\-)[0-9]{2}/g)) {
             formatMatched = true;
             this.dateFormat = 'yyyy-mm-dd';
          } else {
@@ -152,7 +232,7 @@ function PFCSVFormat4() {
          var transaction = transactions[i];
          if (transaction.length < (this.colAmount + 1))
             continue;
-         if (transaction[this.colDate].match(/[0-9]{2,4}(\.|-)[0-9]{2}(\.|-)[0-9]{2,4}/g) && transaction[this.colDate].length == 10)
+         if (transaction[this.colDate].match(/[0-9]{2,4}(\-)[0-9]{2}(\-)[0-9]{2,4}/g) && transaction[this.colDate].length == 10)
             transactionsToImport.push(this.mapTransaction(transaction));
       }
 
