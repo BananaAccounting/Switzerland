@@ -1,4 +1,4 @@
-// @id = ch.banana.app.import_neon_csv
+// @id = ch.banana.switzerland.import.neon-free
 // @api = 1.0
 // @pubdate = 2023-08-30
 // @publisher = bobobo1618
