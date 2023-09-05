@@ -32,30 +32,30 @@
 Test.registerTestCase(new TestImportUbsTrans());
 
 // Here we define the class, the name of the class is not important
-function TestImportUbsTrans() {}
+function TestImportUbsTrans() { }
 
 // This method will be called at the beginning of the test case
-TestImportUbsTrans.prototype.initTestCase = function() {
+TestImportUbsTrans.prototype.initTestCase = function () {
     this.testLogger = Test.logger;
     this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportUbsTrans.prototype.cleanupTestCase = function() {
+TestImportUbsTrans.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportUbsTrans.prototype.init = function() {
+TestImportUbsTrans.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportUbsTrans.prototype.cleanup = function() {
+TestImportUbsTrans.prototype.cleanup = function () {
 
 }
 
-TestImportUbsTrans.prototype.testImport = function() {
+TestImportUbsTrans.prototype.testImport = function () {
     var fileNameList = [];
 
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format1_20120629.csv");
@@ -65,6 +65,7 @@ TestImportUbsTrans.prototype.testImport = function() {
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format1_20180831.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format1_20230313_01.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format1_20230313_02.csv");
+    fileNameList.push("file:script/../test/testcases/csv_ubs_example_format1_20230905_03.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format2_de_20220928.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format2_en_20220928.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format2_fr_20220928.csv");

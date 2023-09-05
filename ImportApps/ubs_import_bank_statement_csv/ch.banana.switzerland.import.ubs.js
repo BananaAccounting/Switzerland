@@ -902,7 +902,7 @@ function defineConversionParam(inData) {
     //get text delimiter
     convertionParam.textDelim = '"';
     // get separator
-    convertionParam.separator = ";";
+    convertionParam.separator = findSeparator(inData);
 
     return convertionParam;
 }
@@ -928,4 +928,30 @@ function sort(transactions, convertionParam) {
     if (convertionParam.sortDescending) transactions.reverse();
 
     return transactions;
+}
+
+function findSeparator(string) {
+
+    var commaCount = 0;
+    var semicolonCount = 0;
+    var tabCount = 0;
+
+    for (var i = 0; i < 1000 && i < string.length; i++) {
+        var c = string[i];
+        if (c === ',')
+            commaCount++;
+        else if (c === ';')
+            semicolonCount++;
+        else if (c === '\t')
+            tabCount++;
+    }
+
+    if (tabCount > commaCount && tabCount > semicolonCount) {
+        return '\t';
+    }
+    else if (semicolonCount > commaCount) {
+        return ';';
+    }
+
+    return ',';
 }
