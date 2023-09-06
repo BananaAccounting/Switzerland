@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2023-02-22
 // @publisher = Banana.ch SA
-// @description = Basler Kantonalbank - Import bank account statement (*.csv)
-// @description.en = Basler Kantonalbank - Import bank account statement (*.csv)
-// @description.de = Basler Kantonalbank - Kontoauszug importieren (*.csv)
-// @description.fr = Basler Kantonalbank - Importer un relevé de compte bancaire (*.csv)
-// @description.it = Basler Kantonalbank - Importa movimenti estratto conto bancario (*.csv)
+// @description = Basler Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.en = Basler Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.de = Basler Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Basler Kantonalbank - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = Basler Kantonalbank - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -25,18 +25,17 @@
  */
 function exec(string, isTest) {
 
-	var importUtilities = new ImportUtilities(Banana.document);
-  
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
-		return "";
+   var importUtilities = new ImportUtilities(Banana.document);
+
+   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+      return "";
 
    var fieldSeparator = findSeparator(string);
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
 
    // Format 1
    var format1 = new BKBFormat1();
-   if ( format1.match( transactions))
-   {
+   if (format1.match(transactions)) {
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -74,42 +73,42 @@ function BKBFormat1() {
    this.decimalSeparator = ".";
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
+   this.match = function (transactions) {
 
-      if (transactions.length === 0) 
+      if (transactions.length === 0)
          return false;
 
       for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-   
+
          var formatMatched = false;
          /* array should have all columns */
-         if (transaction.length >= this.colCount) 
+         if (transaction.length >= this.colCount)
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-   
+
          if (formatMatched && transaction[this.colDate] &&
-             transaction[this.colDate].match(/^(0?[1-9]|1[012])[\/.](0?[1-9]|[12][0-9]|3[01])[\/.]\d{4}$/))
-               formatMatched = true;
-            else 
-               formatMatched = false;
-      
+            transaction[this.colDate].match(/^(0?[1-9]|1[012])[\/.](0?[1-9]|[12][0-9]|3[01])[\/.]\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
          if (formatMatched && transaction[this.colDateValuta] &&
-             transaction[this.colDateValuta].match(/^(0?[1-9]|1[012])[\/.](0?[1-9]|[12][0-9]|3[01])[\/.]\d{4}$/))
-               formatMatched = true;
-         else 
-               formatMatched = false;
-   
-         if (formatMatched) 
+            transaction[this.colDateValuta].match(/^(0?[1-9]|1[012])[\/.](0?[1-9]|[12][0-9]|3[01])[\/.]\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
             return true;
       }
-   
+
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(rows) {
+   this.convert = function (rows) {
       var transactionsToImport = [];
 
       for (var i = 1; i < rows.length; i++)
@@ -117,33 +116,33 @@ function BKBFormat1() {
 
       // Sort rows by date
       if (transactionsToImport.length > 1) {
-         if (transactionsToImport[0][0] > transactionsToImport[transactionsToImport.length-1][0]) {
+         if (transactionsToImport[0][0] > transactionsToImport[transactionsToImport.length - 1][0]) {
             transactionsToImport = transactionsToImport.reverse();
          }
       }
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return the transaction converted in the import format */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
       let date = element[this.colDate].substring(0, 10);
 
-      if(date.indexOf(".") > -1){
-         mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate],"dd.mm.yyyy"));
+      if (date.indexOf(".") > -1) {
+         mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
          mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
-      }else{
-         mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate],"mm/dd/yyyy"));
+      } else {
+         mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "mm/dd/yyyy"));
          mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "mm/dd/yyyy"));
       }
       mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ' '); //remove white spaces
       mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat( element[this.colCredit], this.decimalSeparator));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat( element[this.colDebit], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], this.decimalSeparator));
 
       return mappedLine;
    }
@@ -153,13 +152,13 @@ function BKBFormat1() {
 /**
  * The function findSeparator is used to find the field separator.
  */
-function findSeparator( string) {
+function findSeparator(string) {
 
-   var commaCount=0;
-   var semicolonCount=0;
-   var tabCount=0;
+   var commaCount = 0;
+   var semicolonCount = 0;
+   var tabCount = 0;
 
-   for(var i = 0; i < 1000 && i < string.length; i++) {
+   for (var i = 0; i < 1000 && i < string.length; i++) {
       var c = string[i];
       if (c === ',')
          commaCount++;
@@ -169,12 +168,10 @@ function findSeparator( string) {
          tabCount++;
    }
 
-   if (tabCount > commaCount && tabCount > semicolonCount)
-   {
+   if (tabCount > commaCount && tabCount > semicolonCount) {
       return '\t';
    }
-   else if (semicolonCount > commaCount)
-   {
+   else if (semicolonCount > commaCount) {
       return ';';
    }
 

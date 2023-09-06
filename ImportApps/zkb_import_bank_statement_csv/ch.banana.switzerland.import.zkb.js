@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
-// @description = Zürcher Kantonalbank - Import bank account statement .csv (Banana+ Advanced)
-// @description.de = Zürcher Kantonalbank -  Kontoauszug importieren .csv (Banana+ Advanced)
-// @description.en = Zürcher Kantonalbank - Import bank account statement .csv (Banana+ Advanced)
-// @description.fr = Zürcher Kantonalbank - Importer un relevé de compte bancaire .csv (Banana+ Advanced)
-// @description.it = Zürcher Kantonalbank - Importa movimenti estratto conto bancario .csv (Banana+ Advanced)
+// @description = Zürcher Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.de = Zürcher Kantonalbank -  Bewegungen importieren .csv (Banana+ Advanced)
+// @description.en = Zürcher Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.fr = Zürcher Kantonalbank - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = Zürcher Kantonalbank - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions

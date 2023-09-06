@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2021-02-24
 // @publisher = Banana.ch SA
-// @description = Raiffeisen - Import bank account statement (*.csv)
-// @description.en = Raiffeisen - Import bank account statement (*.csv)
-// @description.de = Raiffeisen - Kontoauszug importieren (*.csv)
-// @description.fr = Raiffeisen - Importer un relevé de compte bancaire (*.csv)
-// @description.it = Raiffeisen - Importa movimenti estratto conto bancario (*.csv)
+// @description = Raiffeisen - Import account statement .csv (Banana+ Advanced)
+// @description.en = Raiffeisen - Import account statement .csv (Banana+ Advanced)
+// @description.de = Raiffeisen - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Raiffeisen - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = Raiffeisen - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -22,23 +22,23 @@
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(string,isTest) {
+function exec(string, isTest) {
 
 	var importUtilities = new ImportUtilities(Banana.document);
-  
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
+
+	if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
 		return "";
 
-   var transactions = Banana.Converter.csvToArray(string, ';', '§');
+	var transactions = Banana.Converter.csvToArray(string, ';', '§');
 
-   // Format 5
-   var format5 = new RaiffeisenFormat5();
-   if (format5.match(transactions)) {
-      transactions = format5.convert(transactions);
-      return Banana.Converter.arrayToTsv(transactions);
-   }
+	// Format 5
+	var format5 = new RaiffeisenFormat5();
+	if (format5.match(transactions)) {
+		transactions = format5.convert(transactions);
+		return Banana.Converter.arrayToTsv(transactions);
+	}
 
-   // Format 4
+	// Format 4
 	var format4 = new RaiffeisenFormat4();
 	if (format4.match(transactions)) {
 		transactions = format4.convert(transactions);
@@ -96,105 +96,105 @@ function exec(string,isTest) {
  * CHXXXXXXXXXXXXXXXXXXX;04.05.2021 00:00;Ordine collettivo e-banking da pagamenti singoli;-1967;239.1;04.05.2021 00:00
  */
 function RaiffeisenFormat5() {
-   this.colIBAN = 0;
-   this.colDate = 1;
-   this.colDescr = 2;
-   this.colAmount = 3;
-   this.colBalance = 4;
-   this.colDateValuta = 5;
+	this.colIBAN = 0;
+	this.colDate = 1;
+	this.colDescr = 2;
+	this.colAmount = 3;
+	this.colBalance = 4;
+	this.colDateValuta = 5;
 
-   /** Return true if the transactions match this format */
-   this.match = function (transactions) {
-      if (transactions.length === 0)
-         return false;
+	/** Return true if the transactions match this format */
+	this.match = function (transactions) {
+		if (transactions.length === 0)
+			return false;
 
-      for (i = 0; i < transactions.length; i++) {
-         var transaction = transactions[i];
+		for (i = 0; i < transactions.length; i++) {
+			var transaction = transactions[i];
 
-         var formatMatched = false;
+			var formatMatched = false;
 
-         /* array should have all columns */
-         if (transaction.length === (this.colDateValuta + 1))
-            formatMatched = true;
-         else
-            formatMatched = false;
+			/* array should have all columns */
+			if (transaction.length === (this.colDateValuta + 1))
+				formatMatched = true;
+			else
+				formatMatched = false;
 
-            //13 as the format colud be es: 01.01.22 00:00 or 01.01.2022 00:00
-         if (formatMatched && transaction[this.colDate].length > 13
-            && transaction[this.colDate].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/))
-            formatMatched = true;
-         else
-            formatMatched = false;
+			//13 as the format colud be es: 01.01.22 00:00 or 01.01.2022 00:00
+			if (formatMatched && transaction[this.colDate].length > 13
+				&& transaction[this.colDate].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/))
+				formatMatched = true;
+			else
+				formatMatched = false;
 
-         if (formatMatched && transaction[this.colDateValuta].length > 13
-            && transaction[this.colDateValuta].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/))
-            formatMatched = true;
-         else
-            formatMatched = false;
+			if (formatMatched && transaction[this.colDateValuta].length > 13
+				&& transaction[this.colDateValuta].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/))
+				formatMatched = true;
+			else
+				formatMatched = false;
 
-         if (formatMatched)
-            return true;
-      }
-
-      return false;
-   }
-
-   /** Convert the transaction to the format to be imported */
-   this.convert = function (transactions) {
-      var transactionsToImport = [];
-
-      // Filter and map rows
-      for (i = 0; i < transactions.length; i++) {
-         var transaction = transactions[i];
-         if (transaction.length < (this.colBalance + 1)){
-            continue;
-		 }
-         if (transaction[this.colDate].length >= 13
-           && transaction[this.colDateValuta].length >= 13){
-            transactionsToImport.push(this.mapTransaction(transaction));
+			if (formatMatched)
+				return true;
 		}
-      }
 
-      // Add header and return
-      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
-      return header.concat(transactionsToImport);
-   }
+		return false;
+	}
 
-   this.mapTransaction = function (element) {
-      var mappedLine = [];
+	/** Convert the transaction to the format to be imported */
+	this.convert = function (transactions) {
+		var transactionsToImport = [];
 
-      var dateText = element[this.colDate].substring(0, 10);
-      if (dateText.indexOf(".") > -1)
-      	mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
-      else
-      	mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
-      
-      dateText = element[this.colDateValuta].substring(0, 10);
-      if (dateText.indexOf(".") > -1)
-      	mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
-      else
-      	mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+		// Filter and map rows
+		for (i = 0; i < transactions.length; i++) {
+			var transaction = transactions[i];
+			if (transaction.length < (this.colBalance + 1)) {
+				continue;
+			}
+			if (transaction[this.colDate].length >= 13
+				&& transaction[this.colDateValuta].length >= 13) {
+				transactionsToImport.push(this.mapTransaction(transaction));
+			}
+		}
 
-      mappedLine.push(""); // Doc is empty for now
-      mappedLine.push(element[this.colDescr]);
-      if (element[this.colAmount].length > 0) {
-         if (element[this.colAmount].substring(0, 1) === '-') {
-            mappedLine.push("");
-            var amount;
-            if (element[this.colAmount].length > 1)
-               amount = element[this.colAmount].substring(1);
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
-         } else {
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
-            mappedLine.push("");
-         }
-      } else {
-         mappedLine.push("");
-         mappedLine.push("");
-      }
+		// Add header and return
+		var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+		return header.concat(transactionsToImport);
+	}
 
-      return mappedLine;
-   }
+	this.mapTransaction = function (element) {
+		var mappedLine = [];
+
+		var dateText = element[this.colDate].substring(0, 10);
+		if (dateText.indexOf(".") > -1)
+			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
+		else
+			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+
+		dateText = element[this.colDateValuta].substring(0, 10);
+		if (dateText.indexOf(".") > -1)
+			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
+		else
+			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+
+		mappedLine.push(""); // Doc is empty for now
+		mappedLine.push(element[this.colDescr]);
+		if (element[this.colAmount].length > 0) {
+			if (element[this.colAmount].substring(0, 1) === '-') {
+				mappedLine.push("");
+				var amount;
+				if (element[this.colAmount].length > 1)
+					amount = element[this.colAmount].substring(1);
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+			} else {
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
+				mappedLine.push("");
+			}
+		} else {
+			mappedLine.push("");
+			mappedLine.push("");
+		}
+
+		return mappedLine;
+	}
 }
 
 /**
@@ -227,13 +227,13 @@ function RaiffeisenFormat4() {
 			else
 				formatMatched = false;
 			if (formatMatched && transaction[this.colDate].length > 15
-            && transaction[this.colDate].match(/^[0-9]+\-[0-9]+\-[0-9]+\s[0-9]+\:[0-9]+\:[0-9]+\.[0-9]+$/))
+				&& transaction[this.colDate].match(/^[0-9]+\-[0-9]+\-[0-9]+\s[0-9]+\:[0-9]+\:[0-9]+\.[0-9]+$/))
 				formatMatched = true;
 			else
 				formatMatched = false;
 
 			if (formatMatched && transaction[this.colDateValuta].length > 15
-            && transaction[this.colDateValuta].match(/^[0-9]+\-[0-9]+\-[0-9]+\s[0-9]+\:[0-9]+\:[0-9]+\.[0-9]+$/))
+				&& transaction[this.colDateValuta].match(/^[0-9]+\-[0-9]+\-[0-9]+\s[0-9]+\:[0-9]+\:[0-9]+\.[0-9]+$/))
 				formatMatched = true;
 			else
 				formatMatched = false;
@@ -254,8 +254,8 @@ function RaiffeisenFormat4() {
 			var transaction = transactions[i];
 			if (transaction.length < (this.colBalance + 1))
 				continue;
-         if (transaction[this.colDate].length >= 15
-             && transaction[this.colDateValuta].length >= 15)
+			if (transaction[this.colDate].length >= 15
+				&& transaction[this.colDateValuta].length >= 15)
 				transactionsToImport.push(this.mapTransaction(transaction));
 		}
 
@@ -273,14 +273,14 @@ function RaiffeisenFormat4() {
 		mappedLine.push(""); // Doc is empty for now
 		mappedLine.push(element[this.colDescr]);
 		if (element[this.colAmount].length > 0) {
-         if (element[this.colAmount].substring(0, 1) === '-') {
+			if (element[this.colAmount].substring(0, 1) === '-') {
 				mappedLine.push("");
 				var amount;
 				if (element[this.colAmount].length > 1)
 					amount = element[this.colAmount].substring(1);
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
 			} else {
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
 				mappedLine.push("");
 			}
 		} else {
@@ -322,13 +322,13 @@ function RaiffeisenFormat3() {
 			else
 				formatMatched = false;
 
-         if (formatMatched && transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) &&
+			if (formatMatched && transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) &&
 				transaction[this.colDate].length >= 8)
 				formatMatched = true;
 			else
 				formatMatched = false;
 
-         if (formatMatched && transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) &&
+			if (formatMatched && transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) &&
 				transaction[this.colDateValuta].length >= 8)
 				formatMatched = true;
 			else
@@ -350,8 +350,8 @@ function RaiffeisenFormat3() {
 			var transaction = transactions[i];
 			if (transaction.length < (this.colBalance + 1))
 				continue;
-         if (transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) && transaction[this.colDate].length >= 8 &&
-            transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) && transaction[this.colDateValuta].length >= 8)
+			if (transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) && transaction[this.colDate].length >= 8 &&
+				transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+( [0-9]+:[0-9]+)?$/) && transaction[this.colDateValuta].length >= 8)
 				transactionsToImport.push(this.mapTransaction(transaction));
 		}
 
@@ -368,14 +368,14 @@ function RaiffeisenFormat3() {
 		mappedLine.push(""); // Doc is empty for now
 		mappedLine.push(element[this.colDescr]);
 		if (element[this.colAmount].length > 0) {
-         if (element[this.colAmount].substring(0, 1) === '-') {
+			if (element[this.colAmount].substring(0, 1) === '-') {
 				mappedLine.push("");
 				var amount;
 				if (element[this.colAmount].length > 1)
 					amount = element[this.colAmount].substring(1);
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
 			} else {
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
 				mappedLine.push("");
 			}
 		} else {
@@ -428,7 +428,7 @@ function RaiffeisenFormat2() {
 				this.dateFormat = "yyyy.mm.dd";
 				formatMatched = true;
 			}
-            else {
+			else {
 				formatMatched = false;
 			}
 
@@ -459,7 +459,7 @@ function RaiffeisenFormat2() {
 			}
 
 			if ((transaction[this.colDate].match(/^[0-9]{2}\/[0-9]{2}\/[0-9]{2,4}$/) &&
-					transaction[this.colDateValuta].match(/^[0-9]{2}\/[0-9]{2}\/[0-9]{2,4}$/)) ||
+				transaction[this.colDateValuta].match(/^[0-9]{2}\/[0-9]{2}\/[0-9]{2,4}$/)) ||
 				(transaction[this.colDate].match(/^[0-9]{2,4}\-[0-9]{2}\-[0-9]{2}$/) ||
 					transaction[this.colDateValuta].match(/^[0-9]{2,4}\-[0-9]{2}\-[0-9]{2}$/))) {
 				transactionsToImport.push(this.mapTransaction(transaction));
@@ -481,14 +481,14 @@ function RaiffeisenFormat2() {
 		mappedLine.push(""); // Doc is empty for now
 		mappedLine.push(element[this.colDescr]);
 		if (element[this.colAmount].length > 0) {
-         if (element[this.colAmount].substring(0, 1) === '-') {
+			if (element[this.colAmount].substring(0, 1) === '-') {
 				mappedLine.push("");
 				var amount;
 				if (element[this.colAmount].length > 1)
 					amount = element[this.colAmount].substring(1);
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
 			} else {
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
 				mappedLine.push("");
 			}
 		} else {
@@ -559,8 +559,8 @@ function RaiffeisenFormat1() {
 			var transaction = transactions[i];
 			if (transaction.length < (this.colBalance + 1))
 				continue;
-         if (transaction[this.colDate].match(/^[0-9\-]+$/) && transaction[this.colDate].length === 10 &&
-            transaction[this.colDateValuta].match(/^[0-9\-]+$/) && transaction[this.colDateValuta].length === 10)
+			if (transaction[this.colDate].match(/^[0-9\-]+$/) && transaction[this.colDate].length === 10 &&
+				transaction[this.colDateValuta].match(/^[0-9\-]+$/) && transaction[this.colDateValuta].length === 10)
 				transactionsToImport.push(this.mapTransaction(transaction));
 		}
 
@@ -579,14 +579,14 @@ function RaiffeisenFormat1() {
 		mappedLine.push(""); // Doc is empty for now
 		mappedLine.push(element[this.colDescr]);
 		if (element[this.colAmount].length > 0) {
-         if (element[this.colAmount].substring(0, 1) === '-') {
+			if (element[this.colAmount].substring(0, 1) === '-') {
 				mappedLine.push("");
 				var amount;
 				if (element[this.colAmount].length > 1)
 					amount = element[this.colAmount].substring(1);
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
 			} else {
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
 				mappedLine.push("");
 			}
 		} else {

@@ -16,11 +16,11 @@
 // @api = 1.0
 // @pubdate = 2021-11-05
 // @publisher = Banana.ch SA
-// @description = Corner Card - Import credit card transactions (*.csv)
-// @description.de = Corner Card - Kreditkartentransaktionen importieren (*.csv)
-// @description.en = Corner Card - Import credit card transactions (*.csv)
-// @description.it = Corner Card - Importa movimenti carta di credito (*.csv)
-// @description.fr = Corner Card - Importation de transactions par carte de crédit (*.csv)
+// @description = Corner Card - Import account statement .csv (Banana+ Advanced)
+// @description.de = Corner Card - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.en = Corner Card - Import account statement .csv (Banana+ Advanced)
+// @description.it = Corner Card - Importa movimenti .csv (Banana+ Advanced)
+// @description.fr = Corner Card - Importer mouvements .csv (Banana+ Advanced)
 // @task = import.transactions
 // @doctype = *
 // @docproperties = 
@@ -35,12 +35,12 @@
 // @includejs = import.utilities.js
 
 //Main function
-function exec(inData,isTest) {
+function exec(inData, isTest) {
 
 	var importUtilities = new ImportUtilities(Banana.document);
 
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
-	   return "";
+	if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+		return "";
 
 	convertionParam = defineConversionParam(inData);
 	//Add the header if present 
@@ -48,20 +48,17 @@ function exec(inData,isTest) {
 		inData = convertionParam.header + inData;
 	}
 	let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-  
+
 	// Format 1
 	var format1 = new ImportCornerCardFormat1();
-	if (format1.match(transactions))
-	{
-	  let intermediaryData = format1.convertCsvToIntermediaryData(transactions,convertionParam);
-	  intermediaryData = format1.sortData(intermediaryData, convertionParam);
-	  format1.postProcessIntermediaryData(intermediaryData);
-	  return format1.convertToBananaFormat(intermediaryData);
+	if (format1.match(transactions)) {
+		let intermediaryData = format1.convertCsvToIntermediaryData(transactions);
+		return Banana.Converter.arrayToTsv(intermediaryData);
 	}
-  
+
 	// Format is unknow, return an error
 	importUtilities.getUnknownFormatError();
-  
+
 	return "";
 }
 
@@ -84,156 +81,106 @@ var ImportCornerCardFormat1 = class ImportCornerCardFormat1 extends ImportUtilit
 		this.colCard = 2;
 		this.colCurrency = 3;
 		this.colAmount = 4;
-		this.colStatus= 5;
-    }
+		this.colStatus = 5;
+	}
 
 	match(transactions) {
 		if (transactions.length === 0)
-		   return false;
-	
-		for (var i=0;i<transactions.length;i++)
-		{
-		   var transaction = transactions[i];
-	
-		   var formatMatched=false;
-		   if ( transaction.length  === (this.colStatus + 1)  )
-			  formatMatched = true;
-		   else
-			  formatMatched = false;
-	
-		   if (formatMatched && transaction[this.colDate].match(/[0-9\/]+/g) && transaction[this.colDate].length === 10)
-			  formatMatched = true;
-		   else
-			  formatMatched = false;
-	
-		   if (formatMatched)
-			  return true;
+			return false;
+
+		for (var i = 0; i < transactions.length; i++) {
+			var transaction = transactions[i];
+
+			var formatMatched = false;
+			if (transaction.length === (this.colStatus + 1))
+				formatMatched = true;
+			else
+				formatMatched = false;
+
+			if (formatMatched && transaction[this.colDate].match(/[0-9\/]+/g) && transaction[this.colDate].length === 10)
+				formatMatched = true;
+			else
+				formatMatched = false;
+
+			if (formatMatched)
+				return true;
 		}
-	
+
 		return false;
-	 }
+	}
 	//The purpose of this function is to let the users define:
 	// - the parameters for the conversion of the CSV file;
 	// - the fields of the csv/table
 	convertCsvToIntermediaryData(transactions) {
 
-		let form = [];
-		let intermediaryData = [];
+		var transactionsToImport = [];
 
-		/** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
-		We suppose the data will always begin right away after the header line */
-		convertionParam.headerLineStart = 0;
-		convertionParam.dataLineStart = 1;
+		for (var i = 1; i < transactions.length; i++) // First row contains the header
+		{
+			var transaction = transactions[i];
 
-		//Variables used to save the columns titles and the rows values
-		let columns = this.getHeaderData(transactions, convertionParam.headerLineStart); //array
-		let rows = this.getRowData(transactions, convertionParam.dataLineStart); //array of array
-		let lang = this.getLanguage(transactions, convertionParam.headerLineStart);
+			if (transaction.length === 0) {
+				// Righe vuote
+				continue;
+			}
 
-		//Load the form with data taken from the array. Create objects
-		this.loadForm(form, columns, rows);
-		//get the language of the headers
-		//For each row of the form, we call the rowConverter() function and we save the converted data
-		for (var i = 0; i < form.length; i++) {
-			let convertedRow = {};
-			let transaction = form[i];
-			switch(lang){
-				case "it":
-				if(transaction["Data"].match(/[0-9\/]+/g) && transaction["Data"].length == 10){
-					convertedRow = this.translateHeaderIt(transaction, convertedRow);
-					intermediaryData.push(convertedRow);
-				}
-				break;
-				case "en":
-				if(transaction["Date"].match(/[0-9\/]+/g) && transaction["Date"].length == 10)
-					convertedRow = this.translateHeaderEn(transaction, convertedRow);
-					intermediaryData.push(convertedRow);
-				break;
-				default:
-				Banana.console.info("csv format not recognised");
+			if (transaction[this.colDate] && transaction[this.colDate].match(/[0-9\/]+/g) &&
+				transaction[this.colDate].length == 10) {
+				transactionsToImport.push(this.mapTransaction(transaction));
 			}
 		}
-    //Return the converted CSV data into the Banana document table
-    return intermediaryData;
-	}	
 
-	getLanguage(transactions,headerRow) {
-		//Check language on header field: "Description".
-		let lang = "en";
-		let headerData = transactions[headerRow];
-		for (var i = 0; i < headerData.length; i++) {
-			let element = headerData[i];
-			switch(element){
-				case "Descrizione":
-				lang = "it";
-				break;
-			}
-		}
-		return lang;
+		// Sort rows by date
+		transactionsToImport = transactionsToImport.reverse();
+
+		// Add header and return
+		var header = [["Date", "Description", "ExternalReference", "Income", "Expenses", "Notes"]];
+		return header.concat(transactionsToImport);
 	}
 
-	translateHeaderEn(inputRow, convertedRow) {
+	mapTransaction(element) {
 
-		convertedRow["Date"] = Banana.Converter.toInternalDateFormat(inputRow["Date"],"dd/mm/yyyy");
-		convertedRow["Description"] = inputRow["Description"];
-		convertedRow["ExternalReference"] = inputRow["Card"];
-		convertedRow["Expenses"] = Banana.Converter.toInternalNumberFormat(inputRow["Amount"]);
-		convertedRow["Notes"] = inputRow["Status"];
+		var mappedLine = [];
 
-		return convertedRow;
-	  }
-	
-	  translateHeaderIt(inputRow, convertedRow) {
-
-		convertedRow["Date"] = Banana.Converter.toInternalDateFormat(inputRow["Data"],"dd/mm/yyyy");
-		convertedRow["Description"] = inputRow["Descrizione"];
-		convertedRow["ExternalReference"] = inputRow["Carta"];
-		convertedRow["Expenses"] = Banana.Converter.toInternalNumberFormat(inputRow["Importo"]);
-		convertedRow["Notes"] = inputRow["Stato"];
-
-		return convertedRow;
-	  }
-
-
-
-	//The purpose of this function is to let the user specify how to convert the categories
- 	postProcessIntermediaryData(intermediaryData) {
-
-		/** INSERT HERE ALL THE DESCRIPTIONS OF THE VALUES THAT GOES ON THE "Account Credit" COLUMN
-		*	If the Amount value has one of these descriptions, then we invert that value.
-		*	When inverted the value goes on the "Account Credit" column */
-		var negatives = [];
-
-		/** INSERT HERE THE LIST OF ACCOUNTS NAME AND THE CONVERSION NUMBER 
-		*   If the content of "Account" is the same of the text 
-		*   it will be replaced by the account number given */
-		//Accounts conversion
-		var accounts = {
-			//...
-		}
-
-		/** INSERT HERE THE LIST OF CATEGORIES NAME AND THE CONVERSION NUMBER 
-		*   If the content of "ContraAccount" is the same of the text 
-		*   it will be replaced by the account number given */
-
-		//Categories conversion
-		var categories = {
-			//...
-		}
-
-		//Apply the conversions
-		for (var i = 0; i < intermediaryData.length; i++) {
-			var convertedData = intermediaryData[i];
-			//Invert values
-			for (var j = 0; j < negatives.length; j++) {
-				if (convertedData["Description"] && convertedData["Expenses"]) {
-					if (convertedData["Description"] === negatives[j]) {
-						convertedData["Expenses"] = Banana.SDecimal.invert(convertedData["Expenses"]);
-					}
-				}
+		mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd/mm/yyyy"));
+		mappedLine.push(element[this.colDescr]);
+		mappedLine.push(element[this.colCard]);
+		var amount = element[this.colAmount];
+		if (amount) {
+			if (amount[0] === "-") {
+				amount = amount.replace(/-/g, ''); //remove minus sign
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
+				mappedLine.push("");
+			} else {
+				mappedLine.push("");
+				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
 			}
+		} else {
+			mappedLine.push("");
+			mappedLine.push("");
 		}
+		mappedLine.push(element[this.colStatus]);
+
+		return mappedLine;
 	}
+
+	/** Sort transactions by date */
+	sort(transactions) {
+		if (transactions.length <= 0)
+			return transactions;
+		var i = 0;
+		var previousDate = transactions[0][this.colDate];
+		while (i < transactions.length) {
+			var date = transactions[i][this.colDate];
+			if (previousDate > 0 && previousDate > date)
+				return transactions.reverse();
+			else if (previousDate > 0 && previousDate < date)
+				return transactions;
+			i++;
+		}
+		return transactions;
+	}
+
 }
 
 function defineConversionParam(inData) {
@@ -244,43 +191,41 @@ function defineConversionParam(inData) {
 	convertionParam.textDelim = '\"';
 	// get separator
 	convertionParam.separator = findSeparator(inData);
-  
+
 	/** SPECIFY THE COLUMN TO USE FOR SORTING
 	If sortColums is empty the data are not sorted */
 	convertionParam.sortColums = ["Date", "Description"];
 	convertionParam.sortDescending = false;
-  
-	return convertionParam;
-  }
 
-  /**
- * The function findSeparator is used to find the field separator.
- */
+	return convertionParam;
+}
+
+/**
+* The function findSeparator is used to find the field separator.
+*/
 function findSeparator(inData) {
 
-	var commaCount=0;
-	var semicolonCount=0;
-	var tabCount=0;
- 
-	for(var i = 0; i < 1000 && i < inData.length; i++) {
-	   var c = inData[i];
-	   if (c === ',')
-		  commaCount++;
-	   else if (c === ';')
-		  semicolonCount++;
-	   else if (c === '\t')
-		  tabCount++;
+	var commaCount = 0;
+	var semicolonCount = 0;
+	var tabCount = 0;
+
+	for (var i = 0; i < 1000 && i < inData.length; i++) {
+		var c = inData[i];
+		if (c === ',')
+			commaCount++;
+		else if (c === ';')
+			semicolonCount++;
+		else if (c === '\t')
+			tabCount++;
 	}
- 
-	if (tabCount > commaCount && tabCount > semicolonCount)
-	{
-	   return '\t';
+
+	if (tabCount > commaCount && tabCount > semicolonCount) {
+		return '\t';
 	}
-	else if (semicolonCount > commaCount)
-	{
-	   return ';';
+	else if (semicolonCount > commaCount) {
+		return ';';
 	}
- 
+
 	return ',';
- }
+}
 

@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2019-09-06
 // @publisher = Banana.ch SA
-// @description = UBS - Import bank account statement (*.csv)
-// @description.en = UBS - Import bank account statement (*.csv)
-// @description.de = UBS - Kontoauszug importieren (*.csv)
-// @description.fr = UBS - Importer un relevé de compte bancaire (*.csv)
-// @description.it = UBS - Importa movimenti estratto conto bancario (*.csv)
+// @description = UBS - Import account statement .csv (Banana+ Advanced)
+// @description.en = UBS - Import account statement .csv (Banana+ Advanced)
+// @description.de = UBS - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = UBS - Importer mouvements .csv (Banana+ Advanced)
+// @description.it = UBS - Importa movimenti .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -102,7 +102,7 @@ function UBSFormat1() {
     this.colBalance = -1;
 
     /** Return true if the transactions match this format */
-    this.match = function(transactions) {
+    this.match = function (transactions) {
         if (transactions.length === 0) return false;
 
         for (i = 0; i < transactions.length; i++) {
@@ -134,7 +134,7 @@ function UBSFormat1() {
     };
 
     /** Convert the transaction to the format to be imported */
-    this.convert = function(transactions) {
+    this.convert = function (transactions) {
         this.colCount =
             transactions.length > 1 ? transactions[0].length : this.colCount;
 
@@ -164,7 +164,7 @@ function UBSFormat1() {
     };
 
     /** Convert the transaction to the format to be imported */
-    this.convertTransactions = function(transactions) {
+    this.convertTransactions = function (transactions) {
         var transactionsToImport = [];
 
         /** Complete, filter and map rows */
@@ -234,7 +234,7 @@ function UBSFormat1() {
         return transactionsToImport;
     };
 
-    this.mapTransaction = function(element) {
+    this.mapTransaction = function (element) {
         var mappedLine = [];
 
         if (
@@ -282,7 +282,7 @@ function UBSFormat1() {
         return mappedLine;
     };
 
-    this.mapDetailTransaction = function(element) {
+    this.mapDetailTransaction = function (element) {
         var mappedLine = [];
 
         if (
@@ -329,7 +329,7 @@ function UBSFormat1() {
     /**
      * Return the descrition for the requested line.
      */
-    this.mapDescription = function(line) {
+    this.mapDescription = function (line) {
         var descr = line[this.colDescr1];
         if (line[this.colDescr2].length) descr += ", " + line[this.colDescr2];
         if (line[this.colDescr3].length) descr += ", " + line[this.colDescr3];
@@ -769,7 +769,7 @@ function UBSFormatCc1() {
     this.colDate = -1;
 
     /** Return true if the transactions match this format */
-    this.match = function(transactions) {
+    this.match = function (transactions) {
         if (transactions.length === 0) return false;
 
         for (i = 0; i < transactions.length; i++) {
@@ -797,7 +797,7 @@ function UBSFormatCc1() {
     };
 
     /** Convert the transaction to the format to be imported */
-    this.convert = function(transactions) {
+    this.convert = function (transactions) {
         this.colCount =
             transactions.length > 1 ? transactions[0].length : this.colCount;
 
@@ -818,7 +818,7 @@ function UBSFormatCc1() {
     };
 
     /** Convert the transaction to the format to be imported */
-    this.convertTransactions = function(transactions) {
+    this.convertTransactions = function (transactions) {
         var transactionsToImport = [];
 
         /** Complete, filter and map rows */
@@ -842,7 +842,7 @@ function UBSFormatCc1() {
         return transactionsToImport;
     };
 
-    this.mapTransaction = function(element) {
+    this.mapTransaction = function (element) {
         var mappedLine = [];
 
         if (
@@ -886,7 +886,7 @@ function UBSFormatCc1() {
         return mappedLine;
     };
 
-    this.convertDescription = function(text) {
+    this.convertDescription = function (text) {
         var convertedDescr = text.replace(/  +/g, " ");
         convertedDescr = convertedDescr.replace(/"/g, '\\"');
         return '"' + convertedDescr + '"'; // Banana.Converter.stringToCamelCase(convertedDescr);
@@ -902,7 +902,7 @@ function defineConversionParam(inData) {
     //get text delimiter
     convertionParam.textDelim = '"';
     // get separator
-    convertionParam.separator = ";";
+    convertionParam.separator = findSeparator(inData);
 
     return convertionParam;
 }
@@ -916,7 +916,7 @@ function sort(transactions, convertionParam) {
     )
         return transactions;
 
-    transactions.sort(function(row1, row2) {
+    transactions.sort(function (row1, row2) {
         for (var i = 0; i < convertionParam.sortColums.length; i++) {
             var columnIndex = convertionParam.sortColums[i];
             if (row1[columnIndex] > row2[columnIndex]) return 1;
@@ -928,4 +928,30 @@ function sort(transactions, convertionParam) {
     if (convertionParam.sortDescending) transactions.reverse();
 
     return transactions;
+}
+
+function findSeparator(string) {
+
+    var commaCount = 0;
+    var semicolonCount = 0;
+    var tabCount = 0;
+
+    for (var i = 0; i < 1000 && i < string.length; i++) {
+        var c = string[i];
+        if (c === ',')
+            commaCount++;
+        else if (c === ';')
+            semicolonCount++;
+        else if (c === '\t')
+            tabCount++;
+    }
+
+    if (tabCount > commaCount && tabCount > semicolonCount) {
+        return '\t';
+    }
+    else if (semicolonCount > commaCount) {
+        return ';';
+    }
+
+    return ',';
 }

@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2023-05-02
 // @publisher = Banana.ch SA
-// @description = Swisscard - Import transactions (*.csv)
-// @description.it = Swisscard - Importa movimenti (*.csv)
-// @description.en = Swisscard - Import transactions (*.csv)
-// @description.de = Swisscard - Bewegungen importieren (*.csv)
-// @description.fr = Swisscard - Importer mouvements (*.csv)
+// @description = Swisscard - Import movements .csv (Banana+ Advanced)
+// @description.it = Swisscard - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = Swisscard - Import movements .csv (Banana+ Advanced)
+// @description.de = Swisscard - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Swisscard - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -22,20 +22,19 @@
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(string,isTest) {
+function exec(string, isTest) {
 
-	var importUtilities = new ImportUtilities(Banana.document);
-  
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
-		return "";
+   var importUtilities = new ImportUtilities(Banana.document);
+
+   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+      return "";
 
    var fieldSeparator = findSeparator(string);
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '');
 
    // Format 1
    var format1 = new SwisscardFormat1();
-   if ( format1.match( transactions))
-   {
+   if (format1.match(transactions)) {
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -50,11 +49,11 @@ function exec(string,isTest) {
  */
 function findSeparator(string) {
 
-   var commaCount=0;
-   var semicolonCount=0;
-   var tabCount=0;
+   var commaCount = 0;
+   var semicolonCount = 0;
+   var tabCount = 0;
 
-   for(var i = 0; i < 1000 && i < string.length; i++) {
+   for (var i = 0; i < 1000 && i < string.length; i++) {
       var c = string[i];
       if (c === ',')
          commaCount++;
@@ -64,12 +63,10 @@ function findSeparator(string) {
          tabCount++;
    }
 
-   if (tabCount > commaCount && tabCount > semicolonCount)
-   {
+   if (tabCount > commaCount && tabCount > semicolonCount) {
       return '\t';
    }
-   else if (semicolonCount > commaCount)
-   {
+   else if (semicolonCount > commaCount) {
       return ';';
    }
 
@@ -83,30 +80,29 @@ function findSeparator(string) {
 
 function SwisscardFormat1() {
 
-   this.colDate        = 0;
-   this.colDescr       = 1;
-   this.colCardNr      = 2;
-   this.colAmount      = 4;
-   this.colAmountType  = 5;
-   this.colCategory    = 7;
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colCardNr = 2;
+   this.colAmount = 4;
+   this.colAmountType = 5;
+   this.colCategory = 7;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length <= 1)
+   this.match = function (transactions) {
+      if (transactions.length <= 1)
          return false;
 
-      for (i = 0; i<transactions.length; i++ )
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
 
          var formatMatched = false;
 
-         if ( transaction.length  === (this.colCategory+1)  )
+         if (transaction.length === (this.colCategory + 1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
@@ -118,36 +114,34 @@ function SwisscardFormat1() {
 
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colCategory+1) )
+         if (transaction.length < (this.colCategory + 1))
             continue;
          if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
-            transactionsToImport.push( this.mapTransaction(transaction));
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date
       transactionsToImport = this.sort(transactionsToImport);
 
       // Add header and return
-      var header = [["Date","Doc","ExternalReference","Description","Income","Expenses"]];
+      var header = [["Date", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
    /** Sort transactions by date */
-   this.sort = function( transactions) {
-      if (transactions.length<=0)
+   this.sort = function (transactions) {
+      if (transactions.length <= 0)
          return transactions;
-      var i=0;
+      var i = 0;
       var previousDate = transactions[0][this.colDate];
-      while (i<transactions.length)
-      {
+      while (i < transactions.length) {
          var date = transactions[i][this.colDate];
          if (previousDate > 0 && previousDate > date)
             return transactions.reverse();
@@ -158,23 +152,23 @@ function SwisscardFormat1() {
       return transactions;
    }
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( ""); // Doc is empty for now
-      mappedLine.push( element[this.colCardNr]);
-      mappedLine.push( element[this.colDescr] + " " + element[this.colCategory]);
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colCardNr]);
+      mappedLine.push(element[this.colDescr] + " " + element[this.colCategory]);
       var amount = element[this.colAmount];
-      if ( amount.length > 0) {
-         if ( amount[0] === "-") {
+      if (amount.length > 0) {
+         if (amount[0] === "-") {
             amount = amount.replace(/-/g, ''); //remove minus sign
-            mappedLine.push( Banana.Converter.toInternalNumberFormat( amount, "."));
-            mappedLine.push( "");
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
+            mappedLine.push("");
 
          } else {
-            mappedLine.push( "");
-            mappedLine.push( Banana.Converter.toInternalNumberFormat( amount, "."));
+            mappedLine.push("");
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
          }
       }
 

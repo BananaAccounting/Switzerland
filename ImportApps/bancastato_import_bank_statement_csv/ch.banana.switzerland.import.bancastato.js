@@ -2,11 +2,11 @@
 // @api = 1.0
 // @pubdate = 2020-06-30
 // @publisher = Banana.ch SA
-// @description = BancaStato - Import bank account statement (*.csv)
-// @description.it = BancaStato - Importa movimenti estratto conto bancario (*.csv)
-// @description.en = BancaStato - Import bank account statement (*.csv)
-// @description.de = BancaStato - Kontoauszug importieren (*.csv)
-// @description.fr = BancaStato - Importer un relevé de compte bancaire (*.csv)
+// @description = BancaStato - Import account statement .csv (Banana+ Advanced)
+// @description.it = BancaStato - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = BancaStato - Import account statement .csv (Banana+ Advanced)
+// @description.de = BancaStato - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = BancaStato - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -22,44 +22,40 @@
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(string,isTest) {
+function exec(string, isTest) {
 
-	var importUtilities = new ImportUtilities(Banana.document);
-  
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
-		return "";
+   var importUtilities = new ImportUtilities(Banana.document);
+
+   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+      return "";
 
    var fieldSeparator = findSeparator(string);
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
 
    // Format 4
    var format4 = new BancaStatoFormat4();
-   if (format4.match(transactions))
-   {
+   if (format4.match(transactions)) {
       transactions = format4.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 3
    var format3 = new BancaStatoFormat3();
-   if ( format3.match( transactions))
-   {
+   if (format3.match(transactions)) {
       transactions = format3.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 2
    var format2 = new BancaStatoFormat2();
-   if ( format2.match( transactions))
-   {
+   if (format2.match(transactions)) {
       transactions = format2.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 1
    var format1 = new BancaStatoFormat1();
-   if ( format1.match( transactions))
-   {
+   if (format1.match(transactions)) {
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -74,11 +70,11 @@ function exec(string,isTest) {
  */
 function findSeparator(string) {
 
-   var commaCount=0;
-   var semicolonCount=0;
-   var tabCount=0;
+   var commaCount = 0;
+   var semicolonCount = 0;
+   var tabCount = 0;
 
-   for(var i = 0; i < 1000 && i < string.length; i++) {
+   for (var i = 0; i < 1000 && i < string.length; i++) {
       var c = string[i];
       if (c === ',')
          commaCount++;
@@ -88,12 +84,10 @@ function findSeparator(string) {
          tabCount++;
    }
 
-   if (tabCount > commaCount && tabCount > semicolonCount)
-   {
+   if (tabCount > commaCount && tabCount > semicolonCount) {
       return '\t';
    }
-   else if (semicolonCount > commaCount)
-   {
+   else if (semicolonCount > commaCount) {
       return ';';
    }
 
@@ -116,38 +110,37 @@ function findSeparator(string) {
  * 03.10.2022;03.10.2022;456789012;"Descrizione Pagamento";;340.30;60’248.72
  * 
  */
- function BancaStatoFormat4() {
+function BancaStatoFormat4() {
 
-   this.colDate        = 0;
-   this.colDateValuta  = 1;
-   this.conNrOrdine    = 2;
-   this.colDescr       = 3;
-   this.colDebit       = 4;
-   this.colCredit      = 5;
-   this.colBalance     = 6;
+   this.colDate = 0;
+   this.colDateValuta = 1;
+   this.conNrOrdine = 2;
+   this.colDescr = 3;
+   this.colDebit = 4;
+   this.colCredit = 5;
+   this.colBalance = 6;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length === 0)
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
 
          var formatMatched = false;
 
-         if ( transaction.length  === (this.colBalance+1)  )
+         if (transaction.length === (this.colBalance + 1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
+         if (formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
             formatMatched = true;
          else
             formatMatched = false;
@@ -160,36 +153,34 @@ function findSeparator(string) {
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1) )
+         if (transaction.length < (this.colBalance + 1))
             continue;
-         if (transaction[this.colDate].match(/[0-9\.]+/g) &&   transaction[this.colDateValuta].match(/[0-9\.]+/g))
-            transactionsToImport.push( this.mapTransaction(transaction));
+         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDateValuta].match(/[0-9\.]+/g))
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date
       transactionsToImport = this.sort(transactionsToImport);
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","ExternalReference","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
    /** Sort transactions by date */
-   this.sort = function( transactions) {
-      if (transactions.length<=0)
+   this.sort = function (transactions) {
+      if (transactions.length <= 0)
          return transactions;
-      var i=0;
+      var i = 0;
       var previousDate = transactions[0][this.colDate];
-      while (i<transactions.length)
-      {
+      while (i < transactions.length) {
          var date = transactions[i][this.colDate];
          if (previousDate > 0 && previousDate > date)
             return transactions.reverse();
@@ -200,16 +191,16 @@ function findSeparator(string) {
       return transactions;
    }
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat( element[this.colDate],"dd.mm.yyyy"));
-      mappedLine.push( Banana.Converter.toInternalDateFormat( element[this.colDateValuta],"dd.mm.yyyy"));
-      mappedLine.push( ""); // Doc is empty for now
-      mappedLine.push( element[this.conNrOrdine]);
-      mappedLine.push( element[this.colDescr]);
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], "."));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], "."));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.conNrOrdine]);
+      mappedLine.push(element[this.colDescr]);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], "."));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], "."));
 
 
       return mappedLine;
@@ -235,20 +226,20 @@ function findSeparator(string) {
 
 function BancaStatoFormat3() {
 
-   this.colDate        = 0;
-   this.colDateValuta  = 1;
-   this.colExtRef      = 2;
-   this.colDescr       = 4;
-   this.colDebit       = 6;
-   this.colCredit      = 5;
-   this.colBalance     = 7;
+   this.colDate = 0;
+   this.colDateValuta = 1;
+   this.colExtRef = 2;
+   this.colDescr = 4;
+   this.colDebit = 6;
+   this.colCredit = 5;
+   this.colBalance = 7;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length <= 1)
-          return false;
-      if ( transactions[0].length !== (this.colBalance+1))
-          return false;
+   this.match = function (transactions) {
+      if (transactions.length <= 1)
+         return false;
+      if (transactions[0].length !== (this.colBalance + 1))
+         return false;
       for (var row = 0; row < transactions.length; row++) {
          if (transactions[row][this.colDate].match(/[0-9\.]+/g)) {
             if (!transactions[row][this.colDateValuta].match(/[0-9\.]+/g))
@@ -259,36 +250,34 @@ function BancaStatoFormat3() {
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1) )
+         if (transaction.length < (this.colBalance + 1))
             continue;
-         if (transaction[this.colDate].match(/[0-9\.]+/g) &&   transaction[this.colDateValuta].match(/[0-9\.]+/g))
-            transactionsToImport.push( this.mapTransaction(transaction));
+         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDateValuta].match(/[0-9\.]+/g))
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date
       transactionsToImport = this.sort(transactionsToImport);
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","ExternalReference","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
    /** Sort transactions by date */
-   this.sort = function( transactions) {
-      if (transactions.length<=0)
+   this.sort = function (transactions) {
+      if (transactions.length <= 0)
          return transactions;
-      var i=0;
+      var i = 0;
       var previousDate = transactions[0][this.colDate];
-      while (i<transactions.length)
-      {
+      while (i < transactions.length) {
          var date = transactions[i][this.colDate];
          if (previousDate > 0 && previousDate > date)
             return transactions.reverse();
@@ -299,16 +288,16 @@ function BancaStatoFormat3() {
       return transactions;
    }
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat( element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat( element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
-      mappedLine.push( element[this.colExtRef]);
-      mappedLine.push( element[this.colDescr]);
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], "."));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], "."));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colExtRef]);
+      mappedLine.push(element[this.colDescr]);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], "."));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], "."));
 
       return mappedLine;
    }
@@ -342,54 +331,52 @@ function BancaStatoFormat3() {
 
 function BancaStatoFormat2() {
 
-   this.colDate        = 0;
-   this.colDateValuta  = 1;
-   this.colExtRef      = 2;
-   this.colDescr       = 4;
-   this.colDebit       = 7;
-   this.colCredit      = 6;
-   this.colBalance     = 8;
+   this.colDate = 0;
+   this.colDateValuta = 1;
+   this.colExtRef = 2;
+   this.colDescr = 4;
+   this.colDebit = 7;
+   this.colCredit = 6;
+   this.colBalance = 8;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length <= 1)
-          return false;
-      if ( transactions[0].length !== (this.colBalance+1))
-          return false;
+   this.match = function (transactions) {
+      if (transactions.length <= 1)
+         return false;
+      if (transactions[0].length !== (this.colBalance + 1))
+         return false;
       return true;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1) )
+         if (transaction.length < (this.colBalance + 1))
             continue;
-         if (transaction[this.colDate].match(/[0-9\.]+/g) &&   transaction[this.colDateValuta].match(/[0-9\.]+/g))
-            transactionsToImport.push( this.mapTransaction(transaction));
+         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDateValuta].match(/[0-9\.]+/g))
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date
       transactionsToImport = this.sort(transactionsToImport);
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","ExternalReference","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
    /** Sort transactions by date */
-   this.sort = function( transactions) {
-      if (transactions.length<=0)
+   this.sort = function (transactions) {
+      if (transactions.length <= 0)
          return transactions;
-      var i=0;
+      var i = 0;
       var previousDate = transactions[0][this.colDate];
-      while (i<transactions.length)
-      {
+      while (i < transactions.length) {
          var date = transactions[i][this.colDate];
          if (previousDate > 0 && previousDate > date)
             return transactions.reverse();
@@ -400,16 +387,16 @@ function BancaStatoFormat2() {
       return transactions;
    }
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat( element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat( element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
-      mappedLine.push( element[this.colExtRef]);
-      mappedLine.push( element[this.colDescr]);
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], "."));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], "."));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colExtRef]);
+      mappedLine.push(element[this.colDescr]);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], "."));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], "."));
 
       return mappedLine;
    }
@@ -427,36 +414,35 @@ function BancaStatoFormat2() {
 
 function BancaStatoFormat1() {
 
-   this.colDate        = 0;
-   this.colDateValuta  = 4;
-   this.colExtRef      = 2;
-   this.colDescr       = 3;
-   this.colAmount      = 5;
-   this.colBalance     = 6;
-   this.colDivisa      = 7;
+   this.colDate = 0;
+   this.colDateValuta = 4;
+   this.colExtRef = 2;
+   this.colDescr = 3;
+   this.colAmount = 5;
+   this.colBalance = 6;
+   this.colDivisa = 7;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if ( transactions.length <= 1)
+   this.match = function (transactions) {
+      if (transactions.length <= 1)
          return false;
 
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
 
          var formatMatched = false;
 
-         if ( transaction.length  === (this.colDivisa+1)  )
+         if (transaction.length === (this.colDivisa + 1))
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 8)
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 8)
             formatMatched = true;
          else
             formatMatched = false;
 
-         if ( formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 8)
+         if (formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 8)
             formatMatched = true;
          else
             formatMatched = false;
@@ -468,36 +454,34 @@ function BancaStatoFormat1() {
 
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       // Filter and map rows
-      for (i=0;i<transactions.length;i++)
-      {
+      for (i = 0; i < transactions.length; i++) {
          var transaction = transactions[i];
-         if ( transaction.length  < (this.colBalance+1) )
+         if (transaction.length < (this.colBalance + 1))
             continue;
-         if (transaction[this.colDate].match(/[0-9\.]+/g) &&   transaction[this.colDateValuta].match(/[0-9\.]+/g))
-            transactionsToImport.push( this.mapTransaction(transaction));
+         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDateValuta].match(/[0-9\.]+/g))
+            transactionsToImport.push(this.mapTransaction(transaction));
       }
 
       // Sort rows by date
       transactionsToImport = this.sort(transactionsToImport);
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","ExternalReference","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
 
    /** Sort transactions by date */
-   this.sort = function( transactions) {
-      if (transactions.length<=0)
+   this.sort = function (transactions) {
+      if (transactions.length <= 0)
          return transactions;
-      var i=0;
+      var i = 0;
       var previousDate = transactions[0][this.colDate];
-      while (i<transactions.length)
-      {
+      while (i < transactions.length) {
          var date = transactions[i][this.colDate];
          if (previousDate > 0 && previousDate > date)
             return transactions.reverse();
@@ -508,23 +492,23 @@ function BancaStatoFormat1() {
       return transactions;
    }
 
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
-      mappedLine.push( element[this.colExtRef]);
-      mappedLine.push( element[this.colDescr]);
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
+      mappedLine.push(element[this.colExtRef]);
+      mappedLine.push(element[this.colDescr]);
       var amount = element[this.colAmount];
-      if ( amount.length > 0) {
-         if ( amount[0] === "-") {
-            mappedLine.push( "");
+      if (amount.length > 0) {
+         if (amount[0] === "-") {
+            mappedLine.push("");
             amount = amount.replace(/-/g, ''); //remove minus sign
-            mappedLine.push( Banana.Converter.toInternalNumberFormat( amount, "."));
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
          } else {
-            mappedLine.push( Banana.Converter.toInternalNumberFormat( amount, "."));
-            mappedLine.push( "");
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
+            mappedLine.push("");
          }
       }
 
