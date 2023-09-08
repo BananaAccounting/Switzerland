@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Berner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Berner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.de": "Berner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Berner Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it": "Berner Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.bekb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Berner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Berner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.de": "Berner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Berner Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it": "Berner Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
