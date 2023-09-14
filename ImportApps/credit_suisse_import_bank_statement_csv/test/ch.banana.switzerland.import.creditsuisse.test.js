@@ -36,27 +36,27 @@ function TestImportCreditSuisse() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportCreditSuisse.prototype.initTestCase = function() {
+TestImportCreditSuisse.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportCreditSuisse.prototype.cleanupTestCase = function() {
+TestImportCreditSuisse.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportCreditSuisse.prototype.init = function() {
+TestImportCreditSuisse.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportCreditSuisse.prototype.cleanup = function() {
+TestImportCreditSuisse.prototype.cleanup = function () {
 
 }
 
-TestImportCreditSuisse.prototype.testImport = function() {
+TestImportCreditSuisse.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format1_20111109.csv");
@@ -64,7 +64,9 @@ TestImportCreditSuisse.prototype.testImport = function() {
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format1_20190930.csv");
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format2_20170301.csv");
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format3_20171103.csv");
-  
+   fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format4_20230901.csv");
+   fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format4_20230905.csv");
+
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
 
@@ -76,9 +78,9 @@ TestImportCreditSuisse.prototype.testImport = function() {
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
-      var transactions = exec(fileContent,true);
+      var transactions = exec(fileContent, true);
       this.testLogger.addCsv('', transactions);
-      
+
       if (!this.progressBar.step())
          break;
    }

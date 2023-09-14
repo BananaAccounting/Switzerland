@@ -1,6 +1,20 @@
-﻿// @id = ch.banana.switzerland.import.creditsuisse
+﻿// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// @id = ch.banana.switzerland.import.creditsuisse
 // @api = 1.0
-// @pubdate = 2020-06-30
+// @pubdate = 2023-09-14
 // @publisher = Banana.ch SA
 // @description = Credit Suisse - Import account statement .csv (Banana+ Advanced)
 // @description.en = Credit Suisse - Import account statement .csv (Banana+ Advanced)
@@ -29,9 +43,6 @@ function exec(string, isTest) {
    if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
       return "";
 
-   var applicationSupportIsDetail = Banana.compareVersion &&
-      (Banana.compareVersion(Banana.application.version, "8.0.5") >= 0)
-
    //If the file contains double quotations marks, remove them
    var cleanString = string;
    if (cleanString.match(/""/)) {
@@ -41,6 +52,13 @@ function exec(string, isTest) {
    }
 
    var transactions = Banana.Converter.csvToArray(cleanString, ',', '"');
+
+   // Format 4
+   var format4 = new CSFormat4();
+   if (format4.match(transactions)) {
+      transactions = format4.convert(transactions);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
 
    // Format 3
    var format3 = new CSFormat3();
@@ -67,6 +85,109 @@ function exec(string, isTest) {
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * CS format 4
+ * 
+ * Obstipse an 87.16.1047 43:46:35 REST
+ * Sulliquam dombum
+ * Seris,"Notipsusput Bonequat Nisi,WM75 3348 5865 2817 4454 7,Comna ParI, Secunum"
+ * Icaph,8'024.64 CHF
+ * Sulliquam
+ * Buchungsdatum,Text,Belastung,Gutschrift,Valutadatum,Saldo,Valutasaldo,Buchungszeitpunkt
+ * 31.12.2021,"Alegatinam Sonavit Einescenthost XXX ,78.16.3426 18:68 Noup Vivita 46 ,Fectit-Ut. 6843 17KD VOLO 2736 ",49.95,,31.12.2021,-1911.70,-1911.70,31.12.2021 04:27:56
+ * 31.12.2021,"Alegatinam Sonavit Einescenthost XXX ,78.16.3426 18:12 Nost'p ME 71, Füxxx ,Fectit-Ut. 6843 17KD VOLO 2736 ",84.80,,31.12.2021,,-1911.70,31.12.2021 04:27:56
+ * 31.12.2021,"Icaph imi Liongobangissimile ,boxäan piendipse Terunum",91.94,,31.12.2021,,-1911.70,01.01.2022 01:58:47
+ */
+function CSFormat4() {
+
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colDebit = 2;
+   this.colCredit = 3;
+   this.colDateValuta = 4;
+   this.colBalance = 5;
+
+   this.colCount = 8;
+
+   this.decimalSeparator = ".";
+
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactions) {
+      if (transactions.length === 0)
+         return false;
+
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+
+         var formatMatched = false;
+         if (transaction.length === (this.colCount))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 10)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 10)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+
+   /** Convert the transaction to the format to be imported */
+   this.convert = function (transactions) {
+      var transactionsToImport = [];
+
+      // Filter and map rows
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+         if (transaction.length < (this.colBalance + 1))
+            continue;
+         if (transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length == 10 &&
+            transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length == 10)
+            transactionsToImport.push(this.mapTransaction(transaction));
+      }
+
+      // Sort rows by date (just invert)
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+
+   this.mapTransaction = function (element) {
+      var mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta], "dd.mm.yyyy"));
+      mappedLine.push(""); // Doc is empty for now
+      var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
+      tidyDescr = this.wrapDescr(tidyDescr); // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
+      mappedLine.push(tidyDescr);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], this.decimalSeparator));
+
+      return mappedLine;
+   }
+
+   this.wrapDescr = function (descr) {
+      descr = descr.replace(/"/g, '\\\"');
+      return '"' + descr + '"';
+   }
 }
 
 /**
