@@ -1,0 +1,49 @@
+%%info_test_name{csv_migrosbank_example_format1_20230908}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l }
+Date & Doc & Description & Income & Expenses\\
+2023-07-18 &  & Rentemple &  & 51.76\\
+2023-07-20 &  & Anispus rentemple & 2190.00 & \\
+2023-07-24 &  & Rentemple &  & 708.25\\
+2023-07-25 &  & Rentemple &  & 371.75\\
+2023-07-28 &  & Anispus rentemple & 2640.00 & \\
+2023-07-28 &  & Anispus rentemple & 140.00 & \\
+2023-07-31 &  & Anispus rentemple & 2540.00 & \\
+2023-07-31 &  & Anispus rentemple & 2610.00 & \\
+2023-08-03 &  & Anispus rentemple & 2300.00 & \\
+2023-08-04 &  & Anispus rentemple & 2500.00 & \\
+2023-08-07 &  & Anispus rentemple & 975.00 & \\
+2023-08-08 &  & Rentemple &  & 216.50\\
+2023-08-10 &  & Raepribulle multubiti morpus usa 84.60.6581 vi 80.60.6581 triente 67010185 &  & 5.00\\
+2023-08-10 &  & Vicum eo eviore patem usa 84.60.6581 vi 80.60.6581 &  & 3.00\\
+2023-08-18 &  & Anispus rentemple & 2190.00 & \\
+2023-08-28 &  & Anispus rentemple & 2640.00 & \\
+2023-08-29 &  & Anispus rentemple & 140.00 & \\
+2023-08-29 &  & Rentemple &  & 161.55\\
+2023-08-30 &  & Rentemple &  & 166.00\\
+2023-08-31 &  & Anispus rentemple & 2610.00 & \\
+2023-09-01 &  & Anispus rentemple & 2400.00 & \\
+2023-09-01 &  & Anispus rentemple & 2300.00 & \\
+2023-09-04 &  & Rentemple &  & 204.45\\
+2023-09-06 &  & Anispus rentemple & 975.00 & \\
+\\
+\end{tablevalue}
+\end{document}
