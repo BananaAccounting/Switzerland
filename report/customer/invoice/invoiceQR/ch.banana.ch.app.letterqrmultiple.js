@@ -710,6 +710,15 @@ function convertFields(text, reportParam, row) {
     }
   }
 
+  if (text.indexOf("<Notes>") > -1 && row) {
+    var tableRows = reportParam.table;
+    for (var i = 0; i < tableRows.length; i++) {
+      if (tableRows[i].row == row) {
+        text = text.replace(/<Notes>/g, tableRows[i].Notes);
+      }
+    }
+  }
+  
   return text;
 }
 
