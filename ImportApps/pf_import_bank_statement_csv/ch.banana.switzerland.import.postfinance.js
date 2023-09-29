@@ -1,6 +1,20 @@
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 // @id = ch.banana.switzerland.import.postfinance
 // @api = 1.0
-// @pubdate = 2023-05-09
+// @pubdate = 2023-09-29
 // @publisher = Banana.ch SA
 // @description = Postfinance - Import account statement .csv (Banana+ Advanced)
 // @description.de = Postfinance - Bewegungen importieren .csv (Banana+ Advanced)
@@ -78,6 +92,13 @@ function exec(inData, isTest) {
          return Banana.Converter.arrayToTsv(transactions);
       }
 
+      // Credit Card format 1
+      var format1_CreditCard = new PFCSVFormat1_CreditCard();
+      if (format1_CreditCard.match(transactions)) {
+         transactions = format1_CreditCard.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
       // Format 1
       var format1 = new PFCSVFormat1();
       if (format1.match(transactions)) {
@@ -89,6 +110,92 @@ function exec(inData, isTest) {
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * Credit Card format 1
+ * Kartenkonto:;0000 1234 5467 7654
+ * Karte:;XXXX XXXX XXXX 1111 PostFinance Visa Business Card
+ * Datum;Buchungsdetails;Gutschrift in CHF;Lastschrift in CHF
+ * 2023-08-24;"Tankstelle Marche        Brugg BE";;-94.70
+ * 2023-08-21;"Tankstelle Marche        Brugg BE";;-114.05
+ * 2023-08-10;"6131 STORNO JAHRESPREIS";80.00;
+**/
+function PFCSVFormat1_CreditCard() {
+
+   this.colDate = 0;
+   this.colDescr = 1;
+   this.colCredit = 2;
+   this.colDebit = 3;
+
+   this.dateFormat = 'dd-mm-yyyy';
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactions) {
+      if (transactions.length === 0)
+         return false;
+
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+
+         var formatMatched = false;
+         if (transaction.length === this.colDebit + 1)
+            formatMatched = true;
+         else
+            formatMatched = false;
+         if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\-)[0-9]{2}(\-)[0-9]{4}/g)) {
+            formatMatched = true;
+         } else if (formatMatched && transaction[this.colDate].match(/[0-9]{4}(\-)[0-9]{2}(\-)[0-9]{2}/g)) {
+            formatMatched = true;
+            this.dateFormat = 'yyyy-mm-dd';
+         } else {
+            formatMatched = false;
+         }
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   /** Convert the transaction to the format to be imported */
+   this.convert = function (transactions) {
+      var transactionsToImport = [];
+
+      // Filter and map rows
+      for (i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+         if (transaction.length < (this.colAmount + 1))
+            continue;
+         if (transaction[this.colDate] && transaction[this.colDate].match(/[0-9]{2,4}(\-)[0-9]{2}(\-)[0-9]{2,4}/g)
+            && transaction[this.colDate].length == 10)
+            transactionsToImport.push(this.mapTransaction(transaction));
+      }
+
+      // Sort rows by date (just invert)
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "Doc", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+
+   this.mapTransaction = function (element) {
+      var mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate], this.dateFormat));
+      mappedLine.push(""); // Doc is empty for now
+      var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      var amount = element[this.colCredit].replace(/-/g, ''); //remove minus sign
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(amount));
+      amount = element[this.colDebit].replace(/-/g, ''); //remove minus sign
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(amount));
+
+      return mappedLine;
+   }
 }
 /**
  * PFCSV Format 5
@@ -164,6 +271,7 @@ function PFCSVFormat5() {
       amountDebit = element[this.colDebit].replace(/-/g, ''); //remove minus sign
       mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit));
 
+      Banana.console.debug(mappedLine);
       return mappedLine;
    }
 }

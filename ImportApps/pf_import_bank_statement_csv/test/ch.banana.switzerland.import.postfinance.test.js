@@ -69,6 +69,7 @@ TestImportPostfinanceTrans.prototype.testImport = function () {
     fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format3_20101031.csv");
     fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format4_20230509.csv");
     fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format5_20230901.csv");
+    fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format1_CreditCard_20230929.csv");
 
     var parentLogger = this.testLogger;
     this.progressBar.start(fileNameList.length);
