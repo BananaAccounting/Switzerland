@@ -61,3 +61,5 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Added a new color for 'Title and Total' in parameters settings.  
 * 2023-03-06
 	* Added Proforma Invoice and Estimate as print options (Advanced plan required).  
+* 2023-09-22
+	* Added the QR Slip as print options (Advanced plan required).  

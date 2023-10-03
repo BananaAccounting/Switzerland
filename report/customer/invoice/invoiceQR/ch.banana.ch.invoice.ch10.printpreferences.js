@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2023-02-20 */
+/* Texts update: 2023-09-22 */
 
 
 
@@ -106,6 +106,10 @@ function getPrintPreferences_en() {
           {
             "id":"proforma_invoice",
             "text": "Proforma Invoice"
+          },
+          {
+            "id":"qrcode_slip",
+            "text": "QR slip"
           }
         ],
         "default": "automatic"
@@ -161,6 +165,10 @@ function getPrintPreferences_it() {
           {
             "id":"proforma_invoice",
             "text": "Fattura Proforma"
+          },
+          {
+            "id":"qrcode_slip",
+            "text": "Bollettino QR"
           }
         ],
         "default": "automatic"
@@ -216,6 +224,10 @@ function getPrintPreferences_fr() {
           {
             "id":"proforma_invoice",
             "text": "Facture Proforma"
+          },
+          {
+            "id":"qrcode_slip",
+            "text": "Bulletin QR"
           }
         ],
         "default": "automatic"
@@ -271,6 +283,10 @@ function getPrintPreferences_de() {
           {
             "id":"proforma_invoice",
             "text": "Proforma-Rechnung"
+          },
+          {
+            "id":"qrcode_slip",
+            "text": "QR-Einzahlungsschein"
           }
         ],
         "default": "automatic"
