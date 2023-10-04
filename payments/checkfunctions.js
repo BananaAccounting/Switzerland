@@ -30,9 +30,18 @@ function isQRIBAN(input) {
 }
 
 /*
- * Returns 1 if the IBAN is valid 
- * Returns FALSE if the IBAN's length is not as should be (for CH the IBAN Should be 21 chars long starting with CH )
- * Returns any other number (checksum) when the IBAN is invalid (check digits do not match)
+ * Remove not allowed characters from BIC number
+ */
+function cleanBIC(input) {
+    var bic = input;
+    if (!bic)
+        bic = "";
+    bic = bic.replace(/ /g, "");
+    return bic;
+}
+
+/*
+ * Remove not allowed characters from IBAN
  */
 function cleanIBAN(input) {
     var iban = String(input).toUpperCase().replace(/[^A-Z0-9]/g, '');
@@ -121,6 +130,7 @@ function isSwissCountry(input) {
 
   /**
      * Remove not allowed characters from string
+     * to get a compatible id string
      */
  function _swiftString(_string) {
     if (!_string)

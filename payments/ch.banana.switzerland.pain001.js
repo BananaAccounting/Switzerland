@@ -866,7 +866,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
             var payment = new PaymentInformation(
                 currentPmtInfId, // Payment Information Identification unique inside msg
                 cleanIBAN(paymentObj.debtorIban), // IBAN the money is transferred from
-                paymentObj.debtorBic,  // BIC
+                cleanBIC(paymentObj.debtorBic),  // BIC
                 paymentObj.debtorName, // Debtor Name
                 // paymentObj.debtorCurrency
             );
@@ -954,11 +954,11 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
                 if (methodId === this.ID_PAYMENT_QRCODE) {
                     if (transactionInfoObj.creditorBic.length>0)
-                        transfer.setBic(transactionInfoObj.creditorBic);
+                        transfer.setBic(cleanBIC(transactionInfoObj.creditorBic));
                     transfer.setCreditorReferenceType(transactionInfoObj.referenceType);
                 }
                 else if (methodId === this.ID_PAYMENT_SEPA) {
-                    transfer.setBic(transactionInfoObj.creditorBic);
+                    transfer.setBic(cleanBIC(transactionInfoObj.creditorBic));
                     transfer.setServiceLevelCode("SEPA");
                 }
 
