@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.migrosbank
 // @api = 1.0
-// @pubdate = 2023-09-14
+// @pubdate = 2023-10-10
 // @publisher = Banana.ch SA
 // @description = Migros Bank - Import account statement .csv (Banana+ Advanced)
 // @description.en = Migros Bank - Import account statement .csv (Banana+ Advanced)
@@ -60,7 +60,7 @@ function exec(string, isTest) {
 }
 
 /**
- * Migros Bank Format 1:
+ * Migros Bank Format 1 A):
  * Kontoauszug bis: 04.09.2023 ;;;
  * ;;;
  * Kontonummer: 543.278.22;;;
@@ -76,6 +76,19 @@ function exec(string, isTest) {
  * 04.09.23;Zahlungseingang;1838.00;04.09.23
  * 04.09.23;Zahlungs;-204.45;04.09.23
  * 
+ * Migros Bank Format 1 B), valutare in futuro se fare un formato differente per conti privati,
+ * per ora cambia solo la data e le intestazioni:
+ * Moristra rerva eo:;2023-09-13
+ * Moristra rerva lant:;2023-10-10
+ * ;
+ * Sciercipsidea:;Rerva haragine
+ * ;
+ * ;
+ * ;
+ * Data;Testo di registrazione;Importo;Valuta
+ * 15.09.2023;Frunt stantuisu me quaesecerinum XXX/UT/PUS, Dis Frangunattis 47h, 1782 Raraequone;-105.45;15.09.2023
+ * 15.09.2023;DIDUNT Humquit-Costripe EO, Dis Volluvis 1, 7888 Prescrente;-230.95;15.09.2023
+ * 19.09.2023;CLAVIANTO AUFERVA EO, DIS MINENT 8, 6686 COLUMEA;-150.80;19.09.2023
  */
 var MBFormat1 = class MBFormat1 {
 
@@ -87,6 +100,7 @@ var MBFormat1 = class MBFormat1 {
 
       this.colCount = 4;
       this.decimalSeparator = ".";
+      this.dateFormat = "dd.mm.yy";
    }
 
    /** Return true if the transactions match this format */
@@ -106,19 +120,28 @@ var MBFormat1 = class MBFormat1 {
             formatMatched = false;
 
          if (formatMatched && transaction[this.colDate] &&
-            transaction[this.colDate].match(/[0-9\.]+/g) && transaction[this.colDate].length === 8)
+            transaction[this.colDate].match(/^(0[1-9]|[12][0-9]|3[01])[-.](0[1-9]|1[0-2])[-.]\d{2}$/)) {
             formatMatched = true;
-         else
+         } else if (formatMatched && transaction[this.colDate] &&
+            transaction[this.colDate].match(/^(0[1-9]|[12][0-9]|3[01])[-.](0[1-9]|1[0-2])[-.]\d{4}$/)) {
+            this.dateFormat = "dd.mm.yyyy";
+            formatMatched = true;
+         }
+         else {
             formatMatched = false;
+         }
 
          if (formatMatched && transaction[this.colDateValuta] &&
-            transaction[this.colDateValuta].match(/[0-9\.]+/g) && transaction[this.colDateValuta].length === 8)
+            transaction[this.colDateValuta].match(/\b\d{2}[.-]\d{2}[.-](?:\d{2}|\d{4})\b/g)) {
             formatMatched = true;
-         else
+         }
+         else {
             formatMatched = false;
+         }
 
-         if (formatMatched)
+         if (formatMatched) {
             return true;
+         }
       }
 
       return false;
@@ -131,14 +154,14 @@ var MBFormat1 = class MBFormat1 {
       for (var i = 0; i < rows.length; i++) {
          let transaction = rows[i];
          if (transaction.length == this.colCount &&
-            transaction[this.colDate].match(/[0-9\.]+/g) &&
-            transaction[this.colDate].length === 8) {
+            transaction[this.colDate].match(/^(0[1-9]|[12][0-9]|3[01])[-.](0[1-9]|1[0-2])[-.](\d{4}|\d{2})$/)) {
             transactionsToImport.push(this.mapTransaction(rows[i]));
          }
       }
 
       // Sort rows by date
-      transactionsToImport = transactionsToImport.reverse();
+      if (this.dateFormat !== "dd.mm.yyyy") // transactions in the format B are already provided in the correct order.
+         transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
       var header = [["Date", "Doc", "Description", "Income", "Expenses"]];
@@ -149,7 +172,7 @@ var MBFormat1 = class MBFormat1 {
    mapTransaction(transaction) {
       var mappedLine = [];
 
-      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction[this.colDate], "dd.mm.yy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction[this.colDate], this.dateFormat));
       mappedLine.push(""); // Doc is empty for now
       mappedLine.push(transaction[this.colDescr]);
       var amount = transaction[this.colAmount];

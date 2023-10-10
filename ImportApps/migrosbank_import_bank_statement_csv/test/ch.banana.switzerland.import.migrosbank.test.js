@@ -61,6 +61,7 @@ TestImportMigrosBank.prototype.testImport = function () {
 
    fileNameList.push("file:script/../test/testcases/csv_migrosbank_example_format1_20230906.csv");
    fileNameList.push("file:script/../test/testcases/csv_migrosbank_example_format1_20230908.csv");
+   fileNameList.push("file:script/../test/testcases/csv_migrosbank_example_format1_20231010.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
