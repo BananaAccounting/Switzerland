@@ -14,6 +14,7 @@
 // @inputdatasource = openfiledialog
 // @inputencoding = utf8
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
+// @includejs = import.utilities.js
 
 /* CSV file example:
 "Date";"Amount";"Original amount";"Original currency";"Exchange rate";"Description";"Subject";"Category";"Tags";"Wise";"Spaces"
@@ -41,6 +42,11 @@ function csvToBanana(csvObj) {
 
 // Parse the data and return the data to be imported as a tab separated file.
 function exec(inText) {
+
+  var importutilities = new ImportUtilities(Banana.document);
+  if ( !importutilities.verifyBananaAdvancedVersion() ) {
+    return "";
+  }
 
   // Convert a csv file to an array of array.
   // Parameters are: text to convert, values separator, delimiter for text values
