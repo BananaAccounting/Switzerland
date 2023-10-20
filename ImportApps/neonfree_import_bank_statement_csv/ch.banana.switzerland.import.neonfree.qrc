@@ -1,0 +1,6 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+<file>ch.banana.switzerland.import.neonfree.json</file>
+<file>ch.banana.switzerland.import.neonfree.js</file>
+</qresource>
+</RCC>
