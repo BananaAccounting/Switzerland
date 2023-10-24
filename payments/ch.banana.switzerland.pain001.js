@@ -288,12 +288,22 @@ Pain001Switzerland.prototype.convertParam = function (param) {
     convertedParam.data.push(currentParam);
 
     currentParam = {};
-    currentParam.name = 'fieldAdditionalInfo';
-    currentParam.title = 'Field for additional infos (XML name)';
-    currentParam.type = 'string';
-    currentParam.value = param.fieldAdditionalInfo ? param.fieldAdditionalInfo : '';
+    currentParam.name = 'syncTransactionDefault';
+    currentParam.title = 'Include payment data into transaction (Default value)';
+    currentParam.type = 'bool';
+    currentParam.value = param.syncTransactionDefault ? param.syncTransactionDefault : false;
     currentParam.readValue = function () {
-        param.fieldAdditionalInfo = this.value;
+        param.syncTransactionDefault = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = 'storeMessageInNotesDefault';
+    currentParam.title = 'Use column \'Notes\' for payment messages (Default value)';
+    currentParam.type = 'bool';
+    currentParam.value = param.storeMessageInNotesDefault ? param.storeMessageInNotesDefault : false;
+    currentParam.readValue = function () {
+        param.storeMessageInNotesDefault = this.value;
     }
     convertedParam.data.push(currentParam);
 
@@ -568,7 +578,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
         currentParam = {};
         currentParam.name = 'unstructuredMessage';
-        currentParam.title = "Additional Information";
+        currentParam.title = "Unstructured message";
         currentParam.type = 'string';
         currentParam.value = paymentObj.unstructuredMessage ? paymentObj.unstructuredMessage : '';
         currentParam.defaultvalue = '';
@@ -750,13 +760,22 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'syncTransaction';
-    currentParam.title = "Auto-synchronize";
+    currentParam.title = "Include payment data into transaction";
     currentParam.type = 'bool';
-    currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.syncTransaction ? true : false;
     currentParam.defaultvalue = true;
     currentParam.readValue = function () {
         paymentObj.syncTransaction = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = 'storeMessageInNotes';
+    currentParam.title = 'Use column \'Notes\' for payment messages';
+    currentParam.type = 'bool';
+    currentParam.value = paymentObj.storeMessageInNotes ? true : false;
+    currentParam.readValue = function () {
+        paymentObj.storeMessageInNotes = this.value;
     }
     convertedParam.data.push(currentParam);
 
@@ -1244,7 +1263,9 @@ Pain001Switzerland.prototype.getTexts = function (language) {
 Pain001Switzerland.prototype.initPaymObject = function () {
 
     // if syncTransaction=true data is synchronized with transaction row
-    var syncTransaction = true;
+    var syncTransaction = this.param.syncTransactionDefault;
+    //if storeMessageInNotes=true unstructured message is stored in Notes field
+    var storeMessageInNotes = this.param.storeMessageInNotesDefault;
 
     var paymentObj = {
         "methodId": this.ID_PAYMENT_QRCODE,
@@ -1279,6 +1300,7 @@ Pain001Switzerland.prototype.initPaymObject = function () {
         "dueDate": "",
         "description": "",
         "syncTransaction": syncTransaction,
+        "storeMessageInNotes": storeMessageInNotes,
         "@appId": this.id,
         "@type": "payment/data",
         "@version": this.version,
@@ -1291,7 +1313,9 @@ Pain001Switzerland.prototype.initPaymObject = function () {
 Pain001Switzerland.prototype.initParam = function () {
     var param = {};
     param.messageSenderName = "";
-    param.fieldAdditionalInfo = "Notes";
+    //param.fieldAdditionalInfo = "Notes";  //deprecated
+    param.syncTransactionDefault=true;
+    param.storeMessageInNotesDefault=false;
     param.creditorGroups = "";
     return param;
 }
@@ -1985,12 +2009,12 @@ Pain001Switzerland.prototype.verifyParam = function () {
 
     if (!this.param.messageSenderName)
         this.param.messageSenderName = defaultParam.messageSenderName;
-    if (!this.param.fieldAdditionalInfo)
-        this.param.fieldAdditionalInfo = defaultParam.fieldAdditionalInfo;
     if (!this.param.creditorGroups)
         this.param.creditorGroups = defaultParam.creditorGroups;
-    /*if (!this.param.syncTransactionLast)
-        this.param.syncTransactionLast = false;*/
+    if (typeof this.param.syncTransactionDefault === 'undefined')
+        this.param.syncTransactionDefault = true;
+    if (typeof this.param.storeMessageInNotesDefault === 'undefined')
+        this.param.storeMessageInNotesDefault = false;
 }
 
 /**
@@ -2074,6 +2098,7 @@ var JsAction = class JsAction {
         //load creditor id and amount if data is syncronized with transaction row
         if (row) {
             this._rowGetAccount(paymentObj, row);
+            this._rowGetUnstructuredMessage(paymentObj, row);
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
             if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
@@ -2466,6 +2491,16 @@ var JsAction = class JsAction {
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
+        else if (tabPos.columnName === "Notes") {
+
+            //read unstructured message from transaction
+            this._rowGetUnstructuredMessage(paymentObj, row);
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
+
+            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+        }
         else if (tabPos.columnName === "Account" || tabPos.columnName === "AccountCredit"
             || tabPos.columnName === "AccountDebit" || tabPos.columnName === "Cc1"
             || tabPos.columnName === "Cc2" || tabPos.columnName === "Cc3") {
@@ -2488,12 +2523,16 @@ var JsAction = class JsAction {
             //Amount
             this._rowSetAmount(paymentObj, changedRowFields);
 
+            //Unstructured message
+            this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
+
             //Date
             this._rowSetDoc(paymentObj, changedRowFields);
 
             //if data is deleted from row, the payment object is updated
             if (tabPos.changeSource === "edit_delete") {
                 this._rowGetAccount(paymentObj, row);
+                this._rowGetUnstructuredMessage(paymentObj, row);
                 this._rowGetAmount(paymentObj, row);
                 this._rowGetDoc(paymentObj, row);
             }
@@ -2510,6 +2549,7 @@ var JsAction = class JsAction {
             //errors are displayed on the message window by function getInfo()
 
             this._rowGetAccount(paymentObj, row);
+            this._rowGetUnstructuredMessage(paymentObj, row);
             this._rowGetAmount(paymentObj, row);
             this._rowGetDoc(paymentObj, row);
 
@@ -2532,6 +2572,9 @@ var JsAction = class JsAction {
 
             //Amount
             this._rowSetAmount(paymentObj, changedRowFields);
+
+            //Unstructured message
+            this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
 
             //Doc and dates
             this._rowSetDoc(paymentObj, changedRowFields);
@@ -2655,6 +2698,16 @@ var JsAction = class JsAction {
         }
     }
 
+    //Read unstructured message from row and write it to paymentObj
+    //if param.storeMessageInNotes == false doesn't synchronize data with the Notes field
+    _rowGetUnstructuredMessage(paymentObj, row) {
+        if (!paymentObj || !paymentObj.storeMessageInNotes || !row)
+            return;
+
+        var unstructuredMessage = row.value("Notes");
+        paymentObj.unstructuredMessage = unstructuredMessage;
+    }
+
     //Read amount from row and write it to paymentObj
     _rowGetAmount(paymentObj, row) {
         if (!paymentObj || !paymentObj.syncTransaction || !row || !this.pain001CH.docInfo)
@@ -2731,6 +2784,16 @@ var JsAction = class JsAction {
                 row["Account"] = accountId;
             }
         }
+    }
+
+    //Read message from paymentObj and write it to the object row
+    //if param.storeMessageInNotes == false doesn't synchronize data with the Notes field
+    _rowSetUnstructuredMessage(paymentObj, row) {
+        if (!paymentObj || !paymentObj.storeMessageInNotes || !row )
+            return;
+
+        var message = paymentObj.unstructuredMessage;
+        row["Notes"] = message;
     }
 
     //Remove amount from object row
