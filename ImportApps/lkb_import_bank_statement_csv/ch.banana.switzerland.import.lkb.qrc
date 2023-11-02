@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>ch.banana.switzerland.import.lkb.js</file>
+        <file>../import.utilities.js</file>
+        <file>ch.banana.switzerland.import.lkb.manifest.json</file>
+    </qresource>
+</RCC>
