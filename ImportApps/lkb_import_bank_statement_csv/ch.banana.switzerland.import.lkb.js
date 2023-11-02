@@ -22,6 +22,13 @@ function exec(string) {
 
     var fieldSeparator = findSeparator(string);
     var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+    let transactionsData = getformattedData(csvData, convertionParam);
+
+    // Format 5, this format works with the header names.
+    var format5 = new LKBFormat5();
+    if (format5.match(transactionsData)) {
+        return format5.processTransactions(transactionsData);
+    }
 
     // Format 4
     var format4 = new LKBFormat4();
@@ -82,6 +89,145 @@ function findSeparator(string) {
     }
 
     return ',';
+}
+
+/**
+ * LKB Format 5
+ *
+ * Example A: lkb.#20231102.csv
+ * Buchung;Valuta;Buchungstext;Belastung;Gutschrift;Saldo (CHF)
+ * 02.11.2023;31.10.2023;"Warenbezug/Dienstleistung / 1556885576 Bezugsort: Description ";23.90;;
+ * 02.11.2023;31.10.2023;"Warenbezug/Dienstleistung / 1556695048 Bezugsort: Description ";22.80;;
+ * 02.11.2023;31.10.2023;"Warenbezug/Dienstleistung / 1556701551 Bezugsort: Description ";142.56;;
+*/
+function LKBFormat5() {
+
+    /** Return true if the transactions match this format */
+    this.match = function (transactionsData) {
+        if (transactionsData.length === 0)
+            return false;
+
+        for (var i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+
+            var formatMatched = true;
+
+            if (formatMatched && transaction["Buchung"] && transaction["Buchung"].length >= 10 &&
+                transaction["Buchung"].match(/^\d{2}-\d{2}-\d{4}$/))
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched && transaction["Valuta"] && transaction["Valuta"].length >= 10 &&
+                transaction["Valuta"].match(/^\d{2}-\d{2}-\d{4}$/))
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched)
+                return true;
+        }
+
+        return false;
+    }
+
+    /** Convert the transaction to the format to be imported */
+    this.processTransactions = function (transactionsData) {
+        let headers = [];
+        let objectArrayToCsv = [];
+
+        let transactionsObjs = [];
+        for (let i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            let trRow = initTrRowObjectStructure();
+            trRow.Date = Banana.Converter.toInternalDateFormat(transaction["Buchung"], "dd.mm.yyyy");
+            trRow.DateValue = Banana.Converter.toInternalDateFormat(transaction["Valuta"], "dd.mm.yyyy");
+            trRow.ExternalReference = transaction["Buchungstext"].replace(/\/ *(\d+) /, '$1');
+            trRow.Description = transaction["Buchungstext"];
+            trRow.Income = transaction["Gutschrift"];
+            trRow.Expenses = transaction["Belastung"];
+
+            transactionsObjs.push(trRow);
+        }
+
+        headers = ["Date", "DateValue", "ExternalReference", "Description", "Income", "Expenses"];
+        objectArrayToCsv = Banana.Converter.objectArrayToCsv(headers, transactionsObjs, ";");
+
+        return objectArrayToCsv;
+    }
+
+    this.initTrRowObjectStructure = function () {
+        let trRow = {};
+
+        trRow.Date = "";
+        trRow.DateValue = "";
+        trRow.ExternalReference = "";
+        trRow.Description = "";
+        trRow.Income = "";
+        trRow.Expenses = "";
+
+        return trRow;
+    }
+
+    /** Return true if the transaction is a transaction row */
+    this.isDetailRow = function (transaction) {
+        if (transaction[this.colDate].length === 0) // Date (first field) is empty
+            return true;
+        return false;
+    }
+
+    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
+    this.fillDetailRow = function (detailRow, totalRow) {
+        // Copy dates
+        detailRow[this.colDate] = totalRow[this.colDate];
+        detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
+
+        // Copy amount from complete row to detail row
+        if (detailRow[this.colDetail].length > 0) {
+            if (totalRow[this.colDebit].length > 0) {
+                detailRow[this.colDebit] = detailRow[this.colDetail];
+            } else if (totalRow[this.colCredit].length > 0) {
+                detailRow[this.colCredit] = detailRow[this.colDetail];
+            }
+        } else {
+            detailRow[this.colDebit] = totalRow[this.colDebit];
+            detailRow[this.colCredit] = totalRow[this.colCredit];
+        }
+    }
+
+    /** Sort transactions by date */
+    this.sort = function (transactions) {
+        if (transactions.length <= 0)
+            return transactions;
+        var i = 0;
+        var previousDate = transactions[0][this.colDate];
+        while (i < transactions.length) {
+            var date = transactions[i][this.colDate];
+            if (previousDate.length > 0 && previousDate > date)
+                return transactions.reverse();
+            else if (previousDate.length > 0 && previousDate < date)
+                return transactions;
+            i++;
+        }
+        return transactions;
+    }
+
+    /** Return true if the transaction is a transaction row */
+    this.mapTransaction = function (element) {
+        var mappedLine = [];
+
+        mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+        mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+        var externalReference = element[this.colDescr].replace(/.+\/ *([^ ]+) */, '$1'); //remove white spaces
+        mappedLine.push(externalReference);
+        mappedLine.push(""); // Doc is empty for now
+        var tidyDescr = element[this.colDescrDetail].replace(/ {2,}/g, ' '); //remove white spaces
+        mappedLine.push(tidyDescr);
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+
+        return mappedLine;
+    }
 }
 
 /**
