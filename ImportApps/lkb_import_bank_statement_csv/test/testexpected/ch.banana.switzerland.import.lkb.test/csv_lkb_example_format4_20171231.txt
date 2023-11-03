@@ -1,0 +1,51 @@
+%%info_test_name{csv_lkb_example_format4_20171231}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & ExternalReference & Doc & Description & Income & Expenses\\
+2017-10-13 & 2017-10-13 & 655543230 &  & Navigun Doceceniuva & 60.00 & \\
+2017-10-16 & 2017-10-16 & 510223441 &  & Navigun Doceceniuva &  & 37.50\\
+2017-10-25 & 2017-10-25 & 735807543 &  & Navigun Doceceniuva &  & 468.85\\
+2017-10-27 & 2017-10-27 & 824807058 &  & Navigun Doceceniuva &  & 53.23\\
+2017-10-27 & 2017-10-27 & 503500132 &  & Navigun Doceceniuva & 145.00 & \\
+2017-10-27 & 2017-10-27 & 133572623 &  & Navigun Doceceniuva & 120.00 & \\
+2017-10-31 & 2017-10-31 & 445834168 &  & Navigun Doceceniuva & 60.00 & \\
+2017-11-07 & 2017-11-07 & 587415510 &  & Navigun Doceceniuva & 100.00 & \\
+2017-11-13 & 2017-11-13 & 147133554 &  & Navigun Doceceniuva & 60.00 & \\
+2017-11-24 & 2017-11-24 & 668402471 &  & Navigun Doceceniuva &  & 468.85\\
+2017-11-28 & 2017-11-28 & 322572282 &  & Navigun Doceceniuva & 145.00 & \\
+2017-11-28 & 2017-11-28 & 521035816 &  & Navigun Doceceniuva & 100.00 & \\
+2017-11-28 & 2017-11-28 & 412672786 &  & Navigun Doceceniuva & 200.00 & \\
+2017-11-28 & 2017-11-28 & 143603666 &  & Navigun Doceceniuva & 120.00 & \\
+2017-11-29 & 2017-11-29 & 746773167 &  & Navigun Doceceniuva & 100.00 & \\
+2017-11-30 & 2017-11-30 & 810450706 &  & Navigun Doceceniuva & 60.00 & \\
+2017-12-01 & 2017-12-01 & 542857868 &  & Navigun Doceceniuva & 100.00 & \\
+2017-12-07 & 2017-12-07 & 162046810 &  & Navigun Doceceniuva & 100.00 & \\
+2017-12-13 & 2017-12-13 & 167770033 &  & Navigun Doceceniuva & 60.00 & \\
+2017-12-22 & 2017-12-22 & 744070120 &  & Navigun Doceceniuva &  & 468.85\\
+2017-12-27 & 2017-12-27 & 558757478 &  & Navigun Doceceniuva & 50.00 & \\
+2017-12-28 & 2017-12-28 & 823261723 &  & Navigun Doceceniuva & 145.00 & \\
+2017-12-28 & 2017-12-28 & 248541131 &  & Navigun Doceceniuva & 120.00 & \\
+2017-12-28 & 2017-12-28 & 413124333 &  & Navigun Doceceniuva & 100.00 & \\
+2017-12-29 & 2017-12-29 & 345746381 &  & Navigun Doceceniuva &  & 516.00\\
+2017-12-29 & 2017-12-29 & 860370753 &  & Navigun Doceceniuva & 60.00 & \\
+\\
+\end{tablevalue}
+\end{document}
