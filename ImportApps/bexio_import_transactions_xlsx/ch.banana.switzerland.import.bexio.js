@@ -1,4 +1,4 @@
-// Copyright [2018] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.import.bexio
 // @api = 1.0
-// @pubdate = 2022-12-19
+// @pubdate = 2023-11-07
 // @publisher = Banana.ch SA
 // @description = Bexio - Import movements .xlsx (Banana+ Advanced)
 // @description.it = Bexio - Importa movimenti .xlsx (Banana+ Advanced)
@@ -26,11 +26,12 @@
 // @encoding = utf-8
 // @task = import.transactions
 // @inputdatasource = openfiledialog
-// @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
-// @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
-// @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
-// @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
+// @inputfilefilter = Text files (*.txt *.csv *.xlsx);;All files (*.*)
+// @inputfilefilter.de = Text (*.txt *.csv *.xlsx);;Alle Dateien (*.*)
+// @inputfilefilter.fr = Texte (*.txt *.csv *.xlsx);;Tous (*.*)
+// @inputfilefilter.it = Testo (*.txt *.csv *.xlsx);;Tutti i files (*.*)
 // @includejs = import.utilities.js
+// @timeout = -1
 
 /*
  * SUMMARY
@@ -66,11 +67,12 @@ function exec(inData, banDocument, isTest) {
 
     convertionParam = defineConversionParam(inData);
     let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
+    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
     //Format 1 (do match check in case there are more versions in the future)
     let bexioTransactionsImportFormat1 = new BexioTransactionsImportFormat1(banDoc);
-    if (bexioTransactionsImportFormat1.match(transactions)) {
-        bexioTransactionsImportFormat1.createJsonDocument(transactions);
+    if (bexioTransactionsImportFormat1.match(transactionsData)) {
+        bexioTransactionsImportFormat1.createJsonDocument(transactionsData);
         var jsonDoc = { "format": "documentChange", "error": "" };
         jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
         return jsonDoc;
@@ -90,25 +92,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
     constructor(banDocument) {
         this.version = '1.0';
         this.banDocument = banDocument;
-        this.transNr = "";
-        this.vatTransactionsList = [];
-        this.colCount = 11;
-
         //array dei patches
         this.jsonDocArray = [];
-
-        //columns
-        this.trDate = 0;
-        this.trReference = 1;
-        this.trDebit = 2;
-        this.trCredit = 3;
-        this.trDescription = 4;
-        this.trAmount = 5;
-        this.trCurrency = 6;
-        this.trExchangeRate = 7;
-        this.trAmountInBaseCurrency = 8;
-        this.trBaseCurrency = 9;
-        this.trVatRate = 10;
 
     }
 
@@ -121,20 +106,15 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             var transaction = transactions[i];
 
             var formatMatched = false;
-            /* array should have all columns */
-            if (transaction.length >= this.colCount)
+
+            if (transaction["Id"] && transaction["Id"].length >= 0 ||
+                transaction["Referenz"] && transaction["Referenz"] >= 0)
                 formatMatched = true;
             else
                 formatMatched = false;
 
-            if (formatMatched && transaction[this.trDate] &&
-                transaction[this.trDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
-                formatMatched = true;
-            else
-                formatMatched = false;
-
-            if (formatMatched && transaction[this.trCurrency] &&
-                transaction[this.trCurrency].match(/[A-Z]/)) //currencies are always uppecase.
+            if (formatMatched && transaction["Datum"] &&
+                transaction["Datum"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
                 formatMatched = true;
             else
                 formatMatched = false;
@@ -184,8 +164,6 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         jsonDoc.creator = {};
         var d = new Date();
-        var datestring = d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2);
-        var timestring = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
         //jsonDoc.creator.executionDate = Banana.Converter.toInternalDateFormat(datestring, "yyyymmdd");
         //jsonDoc.creator.executionTime = Banana.Converter.toInternalTimeFormat(timestring, "hh:mm");
         jsonDoc.creator.name = Banana.script.getParamValue('id');
@@ -211,8 +189,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         let accountsList = [];
         let columnsIndxList = [];
         let existingAccounts;
-        let debitCol = this.trDebit;
-        let creditCol = this.trCredit;
+        const debitCol = "Soll";
+        const creditCol = "Haben";
 
         columnsIndxList.push(debitCol);
         columnsIndxList.push(creditCol);
@@ -338,14 +316,15 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         //get the vat code list from the transactions
         let vatCodesList = [];
+        let columnsNames = [];
+        const vatCodeCl = "MWST";
         let newVatCodesData = {};
-        let columnsIndxList = [];
         let existingVatCodes = [];
         let rows = [];
 
-        columnsIndxList.push(this.trVatRate);
+        columnsNames.push(vatCodeCl);
 
-        vatCodesList = this.getDataFromFile(transactions, columnsIndxList);
+        vatCodesList = this.getDataFromFile(transactions, columnsNames);
         /**Create an object with the new accounts data*/
         this.setNewVatCodesDataObj(vatCodesList, newVatCodesData);
         existingVatCodes = this.getExistingData("VatCodes", "VatCode");
@@ -435,24 +414,20 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
     /**
      * Loops the excel file records and returns a list (set) of data
-     * with the information contained at the "columnsIndxList" columns.
+     * with the information contained in the "columnName" column.
      * @param {*} transactions
      */
-    getDataFromFile(transactions, columnsIndxList) {
-        const accounts = new Set();
-        for (var i = 1; i < transactions.length; i++) {
-            let tRow = transactions[i];
-            if (columnsIndxList.length >= 0) {
-                for (var j = 0; j < columnsIndxList.length; j++) {
-                    let columnData = tRow[columnsIndxList[j]];
-                    if (columnData) {
-                        accounts.add(columnData);
-                    }
+    getDataFromFile(transactions, columnnNames) {
+        const elements = new Set();
+        transactions.forEach((item) => {
+            columnnNames.forEach((property) => {
+                if (item.hasOwnProperty(property)) {
+                    elements.add(item[property]);
                 }
-            }
-        }
+            });
+        });
         //convert the set into an array, as it is more easy to manage.
-        let newArray = Array.from(accounts);
+        let newArray = Array.from(elements);
         return newArray;
     }
 
@@ -502,30 +477,30 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         /*Loop trough the transactions starting from the first line of data (= 1)*/
         for (var i = 1; i < transactions.length; i++) {
-            let tRow = transactions[i];
-            let vatCode = this.getBananaVatCode(this.getCodeFromVatField(tRow[this.trVatRate]));
+            let transaction = transactions[i];
+            let vatCode = this.getBananaVatCode(this.getCodeFromVatField(transaction["MWST"]));
 
             let row = {};
             row.operation = {};
             row.operation.name = "add";
             row.operation.srcFileName = "" //to define.
             row.fields = {};
-            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tRow[this.trDate], "dd-mm-yyyy");
-            row.fields["ExternalReference"] = tRow[this.trReference];
-            row.fields["AccountDebit"] = this.getAccountFromTextField(tRow[this.trDebit]);
-            row.fields["AccountCredit"] = this.getAccountFromTextField(tRow[this.trCredit]);
-            row.fields["Description"] = tRow[this.trDescription];
-            row.fields["AmountCurrency"] = tRow[this.trAmount];
-            row.fields["ExchangeCurrency"] = tRow[this.trCurrency];
-            row.fields["ExchangeRate"] = tRow[this.trExchangeRate];
-            row.fields["Amount"] = tRow[this.trAmountInBaseCurrency];
+            row.fields["Date"] = Banana.Converter.toInternalDateFormat(transaction["Datum"], "dd-mm-yyyy");
+            row.fields["ExternalReference"] = this.getExternalReference(transaction);
+            row.fields["AccountDebit"] = this.getAccountFromTextField(transaction["Soll"]);
+            row.fields["AccountCredit"] = this.getAccountFromTextField(transaction["Haben"]);
+            row.fields["Description"] = transaction["Beschreibung"] + ", " + transaction["Referenz"];
+            row.fields["AmountCurrency"] = transaction["Betrag"];
+            row.fields["ExchangeCurrency"] = transaction["Buchungswährung"];
+            row.fields["ExchangeRate"] = transaction["Umrechnungsfaktor"];
+            row.fields["Amount"] = transaction["Betrag in Basiswährung"];
             if (vatCode)
                 row.fields["VatCode"] = vatCode;
             else {
                 /**the vat code is not bwtween the mapped ones
                  * so we inserted it int the vat codes table.
                  */
-                row.fields["VatCode"] = this.getCodeFromVatField(tRow[this.trVatRate]);
+                row.fields["VatCode"] = this.getCodeFromVatField(transaction["MWST"]);
             }
 
             rows.push(row);
@@ -540,6 +515,17 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
 
         return jsonDoc;
+    }
+
+    /** The newer version have the "id" field, the older versions have the "Referenz" field.
+     * It is more correct to use the "id" field when it is present.
+     */
+    getExternalReference(transaction) {
+        if (transaction["Id"].length >= 0) {
+            return transaction["Id"];
+        } else {
+            return transaction["Referenz"];
+        }
     }
 
     /**
@@ -630,6 +616,15 @@ function defineConversionParam(inData) {
     convertionParam.sortDescending = false;
 
     return convertionParam;
+}
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+    var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+    var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+    let form = [];
+    //Load the form with data taken from the array. Create objects
+    importUtilities.loadForm(form, columns, rows);
+    return form;
 }
 
 /**
