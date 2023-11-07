@@ -107,8 +107,8 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
             var formatMatched = false;
 
-            if (transaction["Id"] && transaction["Id"].length >= 0 ||
-                transaction["Referenz"] && transaction["Referenz"] >= 0)
+            if ((transaction["Id"] && transaction["Id"].length >= 0) ||
+                (transaction["Referenz"] && transaction["Referenz"].length >= 0))
                 formatMatched = true;
             else
                 formatMatched = false;
@@ -421,7 +421,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         const elements = new Set();
         transactions.forEach((item) => {
             columnnNames.forEach((property) => {
-                if (item.hasOwnProperty(property)) {
+                if (item[property] && item.hasOwnProperty(property)) {
                     elements.add(item[property]);
                 }
             });
@@ -521,7 +521,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
      * It is more correct to use the "id" field when it is present.
      */
     getExternalReference(transaction) {
-        if (transaction["Id"].length >= 0) {
+        if (transaction["Id"] && transaction["Id"].length >= 0) {
             return transaction["Id"];
         } else {
             return transaction["Referenz"];
@@ -568,9 +568,10 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             case "4":
                 bClass = "3";
                 return bClass;
-            case "4":
+            case "3":
             case "5":
             case "6": //some cases is 4.
+            case "7":
             case "8":
             case "9":
                 bClass = "3";
@@ -595,7 +596,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
 
         //set codes
         vatCodes.set("UN77", "V77");
-        vatCodes.set("UR25", "V25");
+        vatCodes.set("UR25", "V25-N"); // Nuovi codici iva.
 
         return vatCodes;
     }
