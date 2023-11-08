@@ -476,7 +476,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         let rows = [];
 
         /*Loop trough the transactions starting from the first line of data (= 1)*/
-        for (var i = 1; i < transactions.length; i++) {
+        for (var i = 0; i < transactions.length; i++) {
             let transaction = transactions[i];
             let vatCode = this.getBananaVatCode(this.getCodeFromVatField(transaction["MWST"]));
 
@@ -489,7 +489,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             row.fields["ExternalReference"] = this.getExternalReference(transaction);
             row.fields["AccountDebit"] = this.getAccountFromTextField(transaction["Soll"]);
             row.fields["AccountCredit"] = this.getAccountFromTextField(transaction["Haben"]);
-            row.fields["Description"] = transaction["Beschreibung"] + ", " + transaction["Referenz"];
+            row.fields["Description"] = this.getDescription(transaction);
             row.fields["AmountCurrency"] = transaction["Betrag"];
             row.fields["ExchangeCurrency"] = transaction["Buchungswährung"];
             row.fields["ExchangeRate"] = transaction["Umrechnungsfaktor"];
@@ -506,6 +506,7 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
             rows.push(row);
         }
 
+        rows = rows.reverse(); // revere the rows in order.
         var dataUnitFilePorperties = {};
         dataUnitFilePorperties.nameXml = "Transactions";
         dataUnitFilePorperties.data = {};
@@ -515,6 +516,16 @@ var BexioTransactionsImportFormat1 = class BexioTransactionsImportFormat1 {
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
 
         return jsonDoc;
+    }
+
+    getDescription(transaction) {
+        let description = "";
+        if (transaction["Beschreibung"] && transaction["Beschreibung"].length >= 0)
+            description = transaction["Beschreibung"] + ", " + transaction["Referenz"];
+        else
+            description = transaction["Referenz"];
+
+        return description;
     }
 
     /** The newer version have the "id" field, the older versions have the "Referenz" field.
