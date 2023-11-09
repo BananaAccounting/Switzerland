@@ -48,6 +48,10 @@
  */
 function exec(inData, banDocument, isTest) {
 
+    var progressBar = Banana.application.progressBar;
+    progressBar.start("Elaborating rows", 1);
+    progressBar.step();
+
     let banDoc;
 
     if (!inData)
@@ -75,10 +79,13 @@ function exec(inData, banDocument, isTest) {
         bexioTransactionsImportFormat1.createJsonDocument(transactionsData);
         var jsonDoc = { "format": "documentChange", "error": "" };
         jsonDoc["data"] = bexioTransactionsImportFormat1.jsonDocArray;
+        progressBar.finish();
         return jsonDoc;
     }
 
     importUtilities.getUnknownFormatError();
+
+    progressBar.finish();
 
     return "";
 
