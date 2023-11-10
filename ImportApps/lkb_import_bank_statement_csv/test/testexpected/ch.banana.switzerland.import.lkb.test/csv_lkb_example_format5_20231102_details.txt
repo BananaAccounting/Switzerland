@@ -1,4 +1,4 @@
-%%info_test_name{ch.banana.switzerland.import.bexio.test}
+%%info_test_name{csv_lkb_example_format5_20231102_details}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -18,12 +18,11 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/P/Switzerland/ImportApps/bexio_import_transactions_xlsx/test/ch.banana.switzerland.import.bexio.test.js}
-%
-\begin{testcase}{TestImportBexioTrans}
-\begin{test}{testJsonInvoiceStructure}
-\keyvalue{ImportFormBexio}{testReport}
-\keyvalue{Result}{Passed}
-\end{test}
-\end{testcase}
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2023-11-02 & 2023-10-31 &  & 2625225726 & Dittestumn/Mangendiviaria / 2625225726 Lumeriens: Obanem DE Renduci AN Pascenteronundice: 62.65.72 / 63:38:85 Dedial-Me.: 2820 FEST FEST 4437 Amissa: HAT 687.36 &  & 142.56\\
+2023-11-02 & 2023-10-31 &  & 1178414707 & Dittestumn/Mangendiviaria / 1178414707 Lumeriens: TEA XXX XXX Oppari O Pascenteronundice: 62.65.72 / 85:34:36 Dedial-Me.: 2820 FEST FEST 4437 Amissa: HAT 75.57 &  & 22.80\\
+2023-11-02 & 2023-10-31 &  & 3646216252 & Dittestumn/Mangendiviaria / 3646216252 Lumeriens: Pect Obus File Malia Pascenteronundice: 62.65.72 / 11:24:82 Dedial-Me.: 2820 FEST FEST 4437 Amissa: HAT 72.20 &  & 23.90\\
+\\
+\end{tablevalue}
 \end{document}
