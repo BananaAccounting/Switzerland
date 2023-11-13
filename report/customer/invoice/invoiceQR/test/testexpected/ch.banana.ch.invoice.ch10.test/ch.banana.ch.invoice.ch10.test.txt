@@ -6811,7 +6811,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Te e tisane \newline \newline  & 4.00  &  & 5.30  & 21.20 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{295}{l}{}\\
-\multicolumn{294}{l}{Discount } & 2.20 \\
+\multicolumn{294}{l}{Discount } & -2.20 \\
 \multicolumn{295}{l}{}\\
 \multicolumn{294}{l}{TOTAL CHF } & 25.00 \\
 \end{longtable}
@@ -6917,7 +6917,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Tisane e te \newline \newline  & 5.00  &  & 4.92  & 24.61 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{300}{l}{}\\
-\multicolumn{299}{l}{Discount } & 2.35 \\
+\multicolumn{299}{l}{Discount } & -2.35 \\
 \multicolumn{299}{l}{Total net } & 28.26 \\
 \multicolumn{299}{l}{VAT 7.70\% (22.72) } & 1.74 \\
 \multicolumn{300}{l}{}\\
@@ -7025,7 +7025,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Te e tisane \newline \newline  & 4.00  &  & 5.00  & 20.00 \\
 Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{305}{l}{}\\
-\multicolumn{304}{l}{Discount } & 2.40 \\
+\multicolumn{304}{l}{Discount } & -2.40 \\
 \multicolumn{304}{l}{Total net } & 23.60 \\
 \multicolumn{304}{l}{VAT 7.70\% (18.16) } & 1.40 \\
 \multicolumn{305}{l}{}\\
@@ -7135,7 +7135,7 @@ Te e tisane \newline \newline  & 4.00  &  & 5.30  & 21.20 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{310}{l}{}\\
 \multicolumn{309}{l}{Subtotal } & 27.20 \\
-\multicolumn{309}{l}{Discount } & 2.20 \\
+\multicolumn{309}{l}{Discount } & -2.20 \\
 \multicolumn{310}{l}{}\\
 \multicolumn{309}{l}{TOTAL CHF } & 25.00 \\
 \multicolumn{310}{l}{}\\
@@ -7244,7 +7244,7 @@ Tisane e te \newline \newline  & 5.00  &  & 5.30  & 26.50 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{Subtotal } & 32.50 \\
-\multicolumn{314}{l}{Discount } & 2.50 \\
+\multicolumn{314}{l}{Discount } & -2.50 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{TOTAL CHF } & 30.00 \\
 \multicolumn{315}{l}{}\\
@@ -7353,7 +7353,7 @@ Te e tisane \newline \newline  & 4.00  &  & 5.39  & 21.54 \\
 Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{Subtotal } & 27.54 \\
-\multicolumn{319}{l}{Discount } & 2.54 \\
+\multicolumn{319}{l}{Discount } & -2.54 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{TOTAL CHF } & 25.00 \\
 \multicolumn{320}{l}{}\\
@@ -7570,7 +7570,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{Subtotal } & 26.00 \\
-\multicolumn{329}{l}{testo sconto 5\% } & 1.30 \\
+\multicolumn{329}{l}{testo sconto 5\% } & -1.30 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{330}{l}{}\\
@@ -7678,11 +7678,9 @@ Invoice 7 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{335}{l}{}\\
+\multicolumn{334}{l}{testo acconto } & -20.00 \\
 \multicolumn{335}{l}{}\\
-\multicolumn{334}{l}{TOTAL CHF } & 42.00 \\
-\multicolumn{335}{l}{}\\
-\multicolumn{334}{l}{testo acconto } & 20.00 \\
-\multicolumn{334}{l}{Outstanding balance CHF } & 22.00 \\
+\multicolumn{334}{l}{TOTAL CHF } & 22.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{335}{l}{}\\
 \end{longtable}
@@ -7789,12 +7787,10 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{339}{l}{Subtotal } & 100.00 \\
-\multicolumn{339}{l}{testo sconto } & 10.00 \\
+\multicolumn{339}{l}{testo sconto } & -10.00 \\
+\multicolumn{339}{l}{testo acconto } & -40.00 \\
 \multicolumn{340}{l}{}\\
-\multicolumn{339}{l}{TOTAL CHF } & 90.00 \\
-\multicolumn{340}{l}{}\\
-\multicolumn{339}{l}{testo acconto } & 40.00 \\
-\multicolumn{339}{l}{Outstanding balance CHF } & 50.00 \\
+\multicolumn{339}{l}{TOTAL CHF } & 50.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{340}{l}{}\\
 \end{longtable}
@@ -8008,7 +8004,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{Subtotal } & 26.00 \\
-\multicolumn{349}{l}{testo sconto 5\% } & 1.30 \\
+\multicolumn{349}{l}{testo sconto 5\% } & -1.30 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{350}{l}{}\\
@@ -8116,11 +8112,9 @@ Invoice 11 \newline \\
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{355}{l}{}\\
+\multicolumn{354}{l}{testo acconto } & -20.00 \\
 \multicolumn{355}{l}{}\\
-\multicolumn{354}{l}{TOTAL CHF } & 42.00 \\
-\multicolumn{355}{l}{}\\
-\multicolumn{354}{l}{testo acconto } & 20.00 \\
-\multicolumn{354}{l}{Outstanding balance CHF } & 22.00 \\
+\multicolumn{354}{l}{TOTAL CHF } & 22.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{355}{l}{42.00 CHF (gross) // 39.00 CHF (net) VAT 7.70\% = 3.00 CHF \newline }\\
 \end{longtable}
@@ -8227,12 +8221,10 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{Subtotal } & 100.00 \\
-\multicolumn{359}{l}{testo sconto } & 10.00 \\
+\multicolumn{359}{l}{testo sconto } & -10.00 \\
+\multicolumn{359}{l}{testo acconto } & -40.00 \\
 \multicolumn{360}{l}{}\\
-\multicolumn{359}{l}{TOTAL CHF } & 90.00 \\
-\multicolumn{360}{l}{}\\
-\multicolumn{359}{l}{testo acconto } & 40.00 \\
-\multicolumn{359}{l}{Outstanding balance CHF } & 50.00 \\
+\multicolumn{359}{l}{TOTAL CHF } & 50.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{360}{l}{90.00 CHF (gross) // 83.57 CHF (net) VAT 7.70\% = 6.44 CHF \newline }\\
 \end{longtable}
@@ -8568,7 +8560,7 @@ Item  & Date  & Description  & Quantity  & Unit  & Unit Price  & Discount  & Amo
 4000  &  & Spese di spedizione \newline \newline  & 1.00  &  & 6.00  &  & 6.00 \\
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{Subtotal } & 133.93 \\
-\multicolumn{377}{l}{Discount } & 2.37 \\
+\multicolumn{377}{l}{Discount } & -2.37 \\
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{TOTAL CHF } & 131.56 \\
 \multicolumn{378}{l}{}\\
@@ -10769,6 +10761,810 @@ Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
 \end{longtable}
 This is the final text of the estimate. \\
 It can be on multiple lines. \\
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "receipt"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: receipt}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Receipt \newline \\
+This is the begin text of the receipt. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{489}{l}{}\\
+\multicolumn{488}{l}{Total net } & 501.39 \\
+\multicolumn{488}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{489}{l}{}\\
+\multicolumn{488}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+This is the final text of the receipt. \\
+It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "receipt"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: receipt}
+\begin{reportvalue}{Invoice 502}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 02.02.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Receipt \newline \\
+This is the begin text of the receipt. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{494}{l}{}\\
+\multicolumn{493}{l}{Total net } & 83.57 \\
+\multicolumn{493}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{494}{l}{}\\
+\multicolumn{493}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+This is the final text of the receipt. \\
+It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice_with_payments"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice\_with\_payments}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 501 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{499}{l}{}\\
+\multicolumn{498}{l}{Total net } & 501.39 \\
+\multicolumn{498}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{499}{l}{}\\
+\multicolumn{498}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+540.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF66 4110 0350 1 \\
+  \\
+Additional information \\
+//S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 540.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF66411003501
+ewline 
+ewline EPD
+ewline //S1/10/501/11/230101/20/1100/31/230101/32/7.7/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice_with_payments"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice\_with\_payments}
+\begin{reportvalue}{Invoice 505}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 505 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+Product B \newline \newline  &  &  & 57.80  & 57.80 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{Total net } & 559.19 \\
+\multicolumn{503}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{503}{l}{VAT 3.80\% (57.80) } & 2.20 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{TOTAL CHF } & 600.00 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{Payments } & -550.00 \\
+\multicolumn{503}{l}{Outstanding balance CHF } & 50.00 \\
+\end{longtable}
+  \\
+  \\
+bla bla bla \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+50.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+50.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Additional information \\
+//S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 50.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF55411003505
+ewline 
+ewline EPD
+ewline //S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "reminder_3"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: reminder\_3}
+\begin{reportvalue}{Invoice 505}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Invoice date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+Date:  & 05.03.2023 \\
+Due date:  & 10.03.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Invoice date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+Date:  & 05.03.2023 \\
+Due date:  & 10.03.2023 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+3. Reminder \newline \\
+This is the begin text of the reminder. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+Product B \newline \newline  &  &  & 57.80  & 57.80 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{Total net } & 559.19 \\
+\multicolumn{508}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{508}{l}{VAT 3.80\% (57.80) } & 2.20 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{TOTAL CHF } & 600.00 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{Payments } & -550.00 \\
+\multicolumn{508}{l}{Outstanding balance CHF } & 50.00 \\
+\end{longtable}
+This is the final text of the reminder. \\
+It can be on multiple lines. \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+50.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+50.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Additional information \\
+//S1/10/505/11/230305/20/1100/31/230305/32/7.7:501.39;3.8:57.8/40/0:5 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 50.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF55411003505
+ewline 
+ewline EPD
+ewline //S1/10/505/11/230305/20/1100/31/230305/32/7.7:501.39;3.8:57.8/40/0:5}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "automatic"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: automatic}
+\begin{reportvalue}{Invoice 505}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 505 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+Product B \newline \newline  &  &  & 57.80  & 57.80 \\
+\multicolumn{514}{l}{}\\
+\multicolumn{513}{l}{Total net } & 559.19 \\
+\multicolumn{513}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{513}{l}{VAT 3.80\% (57.80) } & 2.20 \\
+\multicolumn{514}{l}{}\\
+\multicolumn{513}{l}{TOTAL CHF } & 600.00 \\
+\end{longtable}
+  \\
+  \\
+bla bla bla \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+600.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+600.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Additional information \\
+//S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 600.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF55411003505
+ewline 
+ewline EPD
+ewline //S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 505}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 505 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+Product B \newline \newline  &  &  & 57.80  & 57.80 \\
+\multicolumn{519}{l}{}\\
+\multicolumn{518}{l}{Total net } & 559.19 \\
+\multicolumn{518}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{518}{l}{VAT 3.80\% (57.80) } & 2.20 \\
+\multicolumn{519}{l}{}\\
+\multicolumn{518}{l}{TOTAL CHF } & 600.00 \\
+\end{longtable}
+  \\
+  \\
+bla bla bla \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+600.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+600.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Additional information \\
+//S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 600.00
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF55411003505
+ewline 
+ewline EPD
+ewline //S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "proforma_invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: proforma\_invoice}
+\begin{reportvalue}{Invoice 505}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Proforma Invoice 505 \newline \\
+This is the begin text of the proforma invoice. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+Product B \newline \newline  &  &  & 57.80  & 57.80 \\
+\multicolumn{524}{l}{}\\
+\multicolumn{523}{l}{Total net } & 559.19 \\
+\multicolumn{523}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{523}{l}{VAT 3.80\% (57.80) } & 2.20 \\
+\multicolumn{524}{l}{}\\
+\multicolumn{523}{l}{TOTAL CHF } & 600.00 \\
+\end{longtable}
+This is the final text of the proforma invoice. \\
+It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
 \end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}

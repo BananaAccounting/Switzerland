@@ -63,3 +63,10 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Added Proforma Invoice and Estimate as print options (Advanced plan required).  
 * 2023-09-22
 	* Added the QR Slip as print options (Advanced plan required).  
+* 2023-11-13
+	* Added Receipt as print option (Advanced plan required).
+	* Added Invoice With Payments as print option for integrated invoice (Advanced plan and Banana 10.1.14.23306 or higher required).
+	* Added Payments on reminders for integrated invoice.
+	* Added reminder dates as information for integrated invoice when using the Print Reminders function.
+	* Deposit on Estimates-Invoices Application is now printed with negative sign.
+	* Discount on Estimates-Invoices Application is now printed with negative sign.  

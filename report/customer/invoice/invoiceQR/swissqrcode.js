@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2022-12-20 */
+/* Script update: 2023-11-13 */
 
 
 
@@ -72,6 +72,12 @@ var QRBill = class QRBill {
 		this.ID_ERR_CREDITORR_CITY = "ID_ERR_CREDITORR_CITY";
 		this.ID_ERR_CREDITOR_COUNTRY = "ID_ERR_CREDITOR_COUNTRY";
 		this.ID_ERR_CREDITOR_COUNTRY_WRONG = "ID_ERR_CREDITOR_COUNTRY_WRONG";
+		this.ID_ERR_LENGTH_ADDRESS_NAME = "ID_ERR_LENGTH_ADDRESS_NAME";
+		this.ID_ERR_LENGTH_ADDRESS_STREET = "ID_ERR_LENGTH_ADDRESS_STREET";
+		this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER = "ID_ERR_LENGTH_ADDRESS_HOUSENUMBER";
+		this.ID_ERR_LENGTH_ADDRESS_POSTALCODE = "ID_ERR_LENGTH_ADDRESS_POSTALCODE";
+		this.ID_ERR_LENGTH_ADDRESS_CITY = "ID_ERR_LENGTH_ADDRESS_CITY";
+		this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY = "ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY";
 
 		//swiss cross image
 		this.swiss_cross = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxOS44IDE5LjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE5LjggMTkuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGRkZGRkY7fQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuNDM1NztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cjwvc3R5bGU+Cjxwb2x5Z29uIHBvaW50cz0iMTguMywwLjcgMS42LDAuNyAwLjcsMC43IDAuNywxLjYgMC43LDE4LjMgMC43LDE5LjEgMS42LDE5LjEgMTguMywxOS4xIDE5LjEsMTkuMSAxOS4xLDE4LjMgMTkuMSwxLjYgMTkuMSwwLjcgIi8+CjxyZWN0IHg9IjguMyIgeT0iNCIgY2xhc3M9InN0MCIgd2lkdGg9IjMuMyIgaGVpZ2h0PSIxMSIvPgo8cmVjdCB4PSI0LjQiIHk9IjcuOSIgY2xhc3M9InN0MCIgd2lkdGg9IjExIiBoZWlnaHQ9IjMuMyIvPgo8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjAuNywxLjYgMC43LDE4LjMgMC43LDE5LjEgMS42LDE5LjEgMTguMywxOS4xIDE5LjEsMTkuMSAxOS4xLDE4LjMgMTkuMSwxLjYgMTkuMSwwLjcgMTguMywwLjcgCgkxLjYsMC43IDAuNywwLjcgIi8+Cjwvc3ZnPgo=";
@@ -297,6 +303,66 @@ var QRBill = class QRBill {
 					return "Adresse: Falscher Ländercode";
 				} else {
 					return "Address: Incorrect country code";
+				}
+			case this.ID_ERR_LENGTH_ADDRESS_NAME:
+				if (lang === 'it') {
+					return "Nome troppo lungo, max 70 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Nom trop long, 70 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "Name zu lang, max. 70 Zeichen: " + value;
+				} else {
+					return "Name too long, max 70 characters: " + value;
+				}
+			case this.ID_ERR_LENGTH_ADDRESS_STREET:
+				if (lang === 'it') {
+					return "Indirizzo troppo lungo, max 70 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Adresse trop long, 70 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "Adresse zu lang, max. 70 Zeichen: " + value;
+				} else {
+					return "Address too long, max 70 characters: " + value;
+				}
+			case this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER:
+				if (lang === 'it') {
+					return "Numero civico troppo lungo, max 16 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Numéro maison trop long, 16 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "Hausnummer zu lang, max. 16 Zeichen: " + value;
+				} else {
+					return "House number too long, max 16 characters: " + value;
+				}
+			case this.ID_ERR_LENGTH_ADDRESS_POSTALCODE:
+				if (lang === 'it') {
+					return "Codice postale troppo lungo, max 16 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Code postal trop long, 16 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "Postleitzahl zu lang, max. 16 Zeichen: " + value;
+				} else {
+					return "Postal code too long, max 16 characters: " + value;
+				}
+			case this.ID_ERR_LENGTH_ADDRESS_CITY:
+				if (lang === 'it') {
+					return "Località troppo lungo, max 35 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Localité trop long, 35 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "Ort zu lang, max. 35 Zeichen: " + value;
+				} else {
+					return "Locality too long, max 35 characters: " + value;
+				}
+			case this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY:
+				if (lang === 'it') {
+					return "Codice postale+Località troppo lungo, max 70 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Code postal+Localité trop long, 70 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "Postleitzahl+Ort zu lang, max. 70 Zeichen: " + value;
+				} else {
+					return "Postal code+Locality too long, max 70 characters: " + value;
 				}
 		}
 		return "";
@@ -1272,6 +1338,39 @@ var QRBill = class QRBill {
 			}
 		}
 		
+		//Check the length of the data
+		if (qrcodeData.creditorAddressType === "S") {
+			if (qrcodeData.creditorName && qrcodeData.creditorName.length > 70) {
+				qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.creditorName);
+			}
+			if (qrcodeData.creditorAddress1 && qrcodeData.creditorAddress1.length > 70) {
+				qrcodeData.creditorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.creditorAddress1);
+			}
+			if (qrcodeData.creditorAddress2 && qrcodeData.creditorAddress2.length > 16) {
+				qrcodeData.creditorAddress2 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER, langDoc, qrcodeData.creditorAddress2);
+			}
+			if (qrcodeData.creditorPostalcode && qrcodeData.creditorPostalcode.length > 16) {
+				qrcodeData.creditorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE, langDoc, qrcodeData.creditorPostalcode);
+			}
+			if (qrcodeData.creditorCity && qrcodeData.creditorCity.length > 35) {
+				qrcodeData.creditorCity = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_CITY, langDoc, qrcodeData.creditorCity);
+			}
+		}
+		else {
+			if (qrcodeData.creditorName && qrcodeData.creditorName.length > 70) {
+				qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.creditorName);
+			}
+			if (qrcodeData.creditorAddress1 && qrcodeData.creditorAddress1.length > 70) {
+				qrcodeData.creditorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.creditorAddress1);
+			}
+			if (qrcodeData.creditorPostalcode && qrcodeData.creditorCity) {
+				var strCreditorPostalcodeCity = qrcodeData.creditorPostalcode + " " + qrcodeData.creditorCity;
+				if (strCreditorPostalcodeCity.length > 70) {
+					qrcodeData.creditorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY, langDoc, strCreditorPostalcodeCity);
+					qrcodeData.creditorCity = " "; //only print the error message one time. Empty space to avoid "missing locality error".
+				}
+			}
+		}
 
 		if (!qrcodeData.creditorName) {
 			qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_NAME, langDoc);
@@ -1367,27 +1466,27 @@ var QRBill = class QRBill {
 		} else {
 			if (invoiceObj.customer_info.first_name || invoiceObj.customer_info.last_name) {
 				if (invoiceObj.customer_info.first_name) {
-					qrcodeData.debtorName += invoiceObj.customer_info.first_name;
+					qrcodeData.debtorName += invoiceObj.customer_info.first_name.trim();
 				}
 				if (invoiceObj.customer_info.last_name) {
 					if (invoiceObj.customer_info.first_name) {
 						qrcodeData.debtorName += " ";
 					}
-					qrcodeData.debtorName += invoiceObj.customer_info.last_name;
+					qrcodeData.debtorName += invoiceObj.customer_info.last_name.trim();
 				}
 			}		
 		}
 		if (invoiceObj.customer_info.address1) {
-			qrcodeData.debtorAddress1 = invoiceObj.customer_info.address1;
+			qrcodeData.debtorAddress1 = invoiceObj.customer_info.address1.trim();
 		}
 		if (invoiceObj.customer_info.address2) {
-			qrcodeData.debtorAddress2 = invoiceObj.customer_info.address2;
+			qrcodeData.debtorAddress2 = invoiceObj.customer_info.address2.trim();
 		}
 		if (invoiceObj.customer_info.postal_code) {
-			qrcodeData.debtorPostalcode = invoiceObj.customer_info.postal_code;
+			qrcodeData.debtorPostalcode = invoiceObj.customer_info.postal_code.trim();
 		}
 		if (invoiceObj.customer_info.city) {
-			qrcodeData.debtorCity = invoiceObj.customer_info.city;
+			qrcodeData.debtorCity = invoiceObj.customer_info.city.trim();
 		}
 
 		// Country code "10:adr:cco" of Transactions table will be available with the new Experimental.
@@ -1397,6 +1496,40 @@ var QRBill = class QRBill {
 		} 
 		else if (!invoiceObj.customer_info.country_code && invoiceObj.customer_info.country) {
 			qrcodeData.debtorCountry = invoiceObj.customer_info.country.toUpperCase().trim();
+		}
+
+		//Check the length of the data
+		if (qrcodeData.debtorAddressType === "S") {
+			if (qrcodeData.debtorName && qrcodeData.debtorName.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.debtorName);
+			}
+			if (qrcodeData.debtorAddress1 && qrcodeData.debtorAddress1.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.debtorAddress1);
+			}
+			if (qrcodeData.debtorAddress2 && qrcodeData.debtorAddress2.length > 16 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorAddress2 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER, langDoc, qrcodeData.debtorAddress2);
+			}
+			if (qrcodeData.debtorPostalcode && qrcodeData.debtorPostalcode.length > 16 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE, langDoc, qrcodeData.debtorPostalcode);
+			}
+			if (qrcodeData.debtorCity && qrcodeData.debtorCity.length > 35 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorCity = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_CITY, langDoc, qrcodeData.debtorCity);
+			}
+		}
+		else {
+			if (qrcodeData.debtorName && qrcodeData.debtorName.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.debtorName);
+			}
+			if (qrcodeData.debtorAddress1 && qrcodeData.debtorAddress1.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+				qrcodeData.debtorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.debtorAddress1);
+			}
+			if (qrcodeData.debtorPostalcode && qrcodeData.debtorCity) {
+				var strDebtorPostalcodeCity = qrcodeData.debtorPostalcode + " " + qrcodeData.debtorCity;
+				if (strDebtorPostalcodeCity.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+					qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY, langDoc, strDebtorPostalcodeCity);
+					qrcodeData.debtorCity = " "; //only print the error message one time. Empty space to avoid "missing locality error".
+				}
+			}
 		}
 
 		Banana.application.showMessages(false); //disable dialog message notifications; only show in Messages panel
@@ -1792,7 +1925,11 @@ var QRBill = class QRBill {
 				rCreAddText += qrcodeData.creditorAddress2;
 			}
 		}
-		receiptCreditorAddressParagraph.addText(rCreAddText, "qrcode_value_receipt qrcode_lineSpacing9");
+		if (rCreAddText.indexOf("@error") < 0) { 
+			receiptCreditorAddressParagraph.addText(rCreAddText, "qrcode_value_receipt qrcode_lineSpacing9");
+		} else if (rCreAddText.indexOf("@error") > -1) {
+			receiptCreditorAddressParagraph.addText(rCreAddText, "qrcode_value_receipt qrcode_error qrcode_lineSpacing9");
+		}
 
 		// if (qrcodeData.creditorAddress2.indexOf("@error") > -1) {
 		// 	qrcodeReceiptForm.addParagraph(qrcodeData.creditorAddress2, "qrcode_value_receipt qrcode_error qrcode_lineSpacing9");
@@ -1860,7 +1997,12 @@ var QRBill = class QRBill {
 					rDebAddText += qrcodeData.debtorAddress2;
 				}
 			}
-			receiptDebtorAddressParagraph.addText(rDebAddText, "qrcode_value_receipt qrcode_lineSpacing9");
+			if (rDebAddText.indexOf("@error") < 0) { 
+				receiptDebtorAddressParagraph.addText(rDebAddText, "qrcode_value_receipt qrcode_lineSpacing9");
+			} else if (rDebAddText.indexOf("@error") > -1) {
+				receiptDebtorAddressParagraph.addText(rDebAddText, "qrcode_value_receipt qrcode_error qrcode_lineSpacing9");
+			}
+
 
 			// if (qrcodeData.debtorAddress2.indexOf("@error") > -1) {
 			// 	qrcodeReceiptForm.addParagraph(qrcodeData.debtorAddress2, "qrcode_value_receipt qrcode_error qrcode_lineSpacing9");
@@ -1969,7 +2111,12 @@ var QRBill = class QRBill {
 				pCreAddText += qrcodeData.creditorAddress2;
 			}
 		}
-		paymentCreditorAddressParagraph.addText(pCreAddText, "qrcode_value_payment qrcode_lineSpacing11");
+
+		if (pCreAddText.indexOf("@error") < 0) {
+			paymentCreditorAddressParagraph.addText(pCreAddText, "qrcode_value_payment qrcode_lineSpacing11");
+		} else if (pCreAddText.indexOf("@error") > -1) {
+			paymentCreditorAddressParagraph.addText(pCreAddText, "qrcode_value_payment qrcode_error qrcode_lineSpacing11");
+		}
 
 		// if (qrcodeData.creditorAddress2.indexOf("@error") > -1) {
 		// 	qrcodePaymentTextForm.addParagraph(qrcodeData.creditorAddress2, "qrcode_value_payment qrcode_error qrcode_lineSpacing11");
@@ -2052,7 +2199,13 @@ var QRBill = class QRBill {
 					pDebAddText += qrcodeData.debtorAddress2;
 				}
 			}
-			paymentDebtorAddressParagraph.addText(pDebAddText, "qrcode_value_payment qrcode_lineSpacing11");
+			if (pDebAddText.indexOf("@error") < 0) { 
+				paymentDebtorAddressParagraph.addText(pDebAddText, "qrcode_value_payment qrcode_lineSpacing11");
+			} else if (pDebAddText.indexOf("@error") > -1) {
+				paymentDebtorAddressParagraph.addText(pDebAddText, "qrcode_value_payment qrcode_error qrcode_lineSpacing11");
+			}
+
+
 
 			// if (qrcodeData.debtorAddress2.indexOf("@error") > -1) {
 			// 	qrcodePaymentTextForm.addParagraph(qrcodeData.debtorAddress2, "qrcode_value_payment qrcode_error qrcode_lineSpacing11");
@@ -2638,7 +2791,7 @@ var QRBill = class QRBill {
 			var rectangleStyle = repStyleObj.addStyle(".qrcode_rectangle");
 			rectangleStyle.setAttribute("width","10px");
 			rectangleStyle.setAttribute("height","100mm");
-			rectangleStyle.setAttribute("background-color","white");
+			rectangleStyle.setAttribute("background-color","transparent");
 
 			var backgroundStyle = repStyleObj.addStyle(".qrcode_background");
 			backgroundStyle.setAttribute("position","absolute");

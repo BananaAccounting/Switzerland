@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2023-09-22 */
+/* Texts update: 2023-11-13 */
 
 
 
@@ -110,12 +110,32 @@ function getPrintPreferences_en() {
           {
             "id":"qrcode_slip",
             "text": "QR slip"
+          },
+          //{
+          //  "id":"invoice_with_payments",
+          //  "text": "Invoice with payments"
+          //},
+          {
+            "id":"receipt",
+            "text": "Receipt"
           }
         ],
         "default": "automatic"
       }
     ]
   }
+
+  // Adds the invoice_with_payments only for integrated invoice and for the Banana version 10.1.14.23306 (Dev Channel 02.11.2023) or higher
+  // Application Estimates-Invoices and previous Banana versions don't have payments
+  let isIntegrated = getDocumentType();
+  if (isIntegrated && Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.14.23306") >= 0) {
+    let invoiceWithPayments = {
+      "id":"invoice_with_payments",
+      "text": "Invoice with payments"
+    };
+    printOptions_en.base_options[0].print_as.push(invoiceWithPayments);
+  }
+
   return printOptions_en;
 }
 
@@ -169,12 +189,32 @@ function getPrintPreferences_it() {
           {
             "id":"qrcode_slip",
             "text": "Bollettino QR"
+          },
+          //{
+          //  "id":"invoice_with_payments",
+          //  "text": "Fattura con pagamenti"
+          //},
+          {
+            "id":"receipt",
+            "text": "Ricevuta"
           }
         ],
         "default": "automatic"
       }
     ]
   }
+
+  // Adds the invoice_with_payments only for integrated invoice and for the Banana version 10.1.14.23306 (Dev Channel 02.11.2023) or higher
+  // Application Estimates-Invoices and previous Banana versions don't have payments
+  let isIntegrated = getDocumentType();
+  if (isIntegrated && Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.14.23306") >= 0) {
+    let invoiceWithPayments = {
+      "id":"invoice_with_payments",
+      "text": "Fattura con pagamenti"
+    };
+    printOptions_it.base_options[0].print_as.push(invoiceWithPayments);
+  }
+
   return printOptions_it;
 }
 
@@ -228,12 +268,32 @@ function getPrintPreferences_fr() {
           {
             "id":"qrcode_slip",
             "text": "Bulletin QR"
+          },
+          //{
+          //  "id":"invoice_with_payments",
+          //  "text": "Facture avec paiements"
+          //},
+          {
+            "id":"receipt",
+            "text": "Reçu"
           }
         ],
         "default": "automatic"
       }
     ]
   }
+
+  // Adds the invoice_with_payments only for integrated invoice and for the Banana version 10.1.14.23306 (Dev Channel 02.11.2023) or higher
+  // Application Estimates-Invoices and previous Banana versions don't have payments
+  let isIntegrated = getDocumentType();
+  if (isIntegrated && Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.14.23306") >= 0) {
+    let invoiceWithPayments = {
+      "id":"invoice_with_payments",
+      "text": "Facture avec paiements"
+    };
+    printOptions_fr.base_options[0].print_as.push(invoiceWithPayments);
+  }
+
   return printOptions_fr;
 }
 
@@ -287,12 +347,32 @@ function getPrintPreferences_de() {
           {
             "id":"qrcode_slip",
             "text": "QR-Einzahlungsschein"
+          },
+          //{
+          //  "id":"invoice_with_payments",
+          //  "text": "Rechnung mit Zahlungen"
+          //},
+          {
+            "id":"receipt",
+            "text": "Quittung"
           }
         ],
         "default": "automatic"
       }
     ]
   }
+
+  // Adds the invoice_with_payments only for integrated invoice and for the Banana version 10.1.14.23306 (Dev Channel 02.11.2023) or higher
+  // Application Estimates-Invoices and previous Banana versions don't have payments
+  let isIntegrated = getDocumentType();
+  if (isIntegrated && Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.14.23306") >= 0) {
+    let invoiceWithPayments = {
+      "id":"invoice_with_payments",
+      "text": "Rechnung mit Zahlungen"
+    };
+    printOptions_de.base_options[0].print_as.push(invoiceWithPayments);
+  }
+
   return printOptions_de;
 }
 
@@ -318,5 +398,20 @@ function getPrintFormat(preferencesObj) {
   // Banana.console.log(printformat);
 
   return printformat;
+}
+
+function getDocumentType() {
+  /**
+   * Function that returns TRUE if the document is an integrated invoice type (not an Estimates-Invoice)
+   */
+  let isIntegrated = false;
+  if (Banana.document) {
+    let fileTypeGroup = Banana.document.info("Base", "FileTypeGroup");
+    let fileTypeNumber = Banana.document.info("Base", "FileTypeNumber");
+    if (fileTypeGroup !== "400" && fileTypeNumber !== "400") {
+      isIntegrated = true;
+    }
+  }
+  return isIntegrated;
 }
 

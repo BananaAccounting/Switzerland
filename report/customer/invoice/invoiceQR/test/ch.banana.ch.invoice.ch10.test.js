@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2023-02-21
+// @pubdate = 2023-11-13
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -292,7 +292,23 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   //Test Estimate (selected as print preference)
   this.add_test_invoice_20("501", "Invoice 501", "estimate"); //integrated invoice
   this.add_test_invoice_20("502", "Invoice 502", "estimate"); //integrated invoice
-  
+
+  //Test Receipt (selected as print preference)
+  this.add_test_invoice_20("501", "Invoice 501", "receipt"); //integrated invoice
+  this.add_test_invoice_20("502", "Invoice 502", "receipt"); //integrated invoice
+
+  //Test Invoice with payments (selected as print preference)
+  this.add_test_invoice_20("501", "Invoice 501", "invoice_with_payments"); //integrated invoice, without payments
+  this.add_test_invoice_20("505", "Invoice 505", "invoice_with_payments"); //integrated invoice, with payments
+
+  //Test Reminder with payments (selected as print preference)
+  this.add_test_invoice_20("505", "Invoice 505", "reminder_3"); //integrated invoice, 3rd reminder with payments
+
+  //Test Invoice normal using json with payments (selected as print preference)
+  this.add_test_invoice_20("505", "Invoice 505", "automatic"); //integrated invoice
+  this.add_test_invoice_20("505", "Invoice 505", "invoice"); //integrated invoice
+  this.add_test_invoice_20("505", "Invoice 505", "proforma_invoice"); //integrated invoice
+
 }
 
 
@@ -1296,6 +1312,12 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
   userParam.qr_code_reference_type = 'SCOR'
   userParam.qr_code_billing_information = true;
+  
+  //Receipt
+  userParam.en_title_receipt = texts.receipt;
+  userParam.en_text_begin_receipt = 'This is the begin text of the receipt.';
+  userParam.en_text_final_receipt = 'This is the final text of the receipt.\nIt can be on multiple lines.';
+
 
   // Print preferences, set the print format
   var preferencesObj =
@@ -1314,7 +1336,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables, preferencesObj);
   Test.logger.addReport(reportName, reportTest);
   //QRCode text
-  if (!printFormat.startsWith("delivery_note") && printformat !== "proforma_invoice" && printformat !== "estimate") { //do not test QRCode text (for deliverynote, proformainvoice and estimates), it's never printed
+  if (!printFormat.startsWith("delivery_note") && printformat !== "proforma_invoice" && printformat !== "estimate" && printformat !== "receipt") { //do not test QRCode text for deliverynote, proformainvoice, estimate and receipt, it's never printed
     var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
     Test.logger.addText(text);
   }
@@ -1372,11 +1394,15 @@ function setUserParam(texts) {
   userParam.en_text_info_customer_fiscal_number = texts.fiscal_number;
   userParam.en_text_info_due_date = texts.payment_terms_label;
   userParam.en_text_info_page = texts.page;
+  userParam.en_text_info_invoice_date_reminder = texts.invoice_date;
+  userParam.en_text_info_date_reminder = texts.reminder_date;
+  userParam.en_text_info_due_date_reminder = texts.reminder_due_date;
   userParam.en_text_shipping_address = texts.shipping_address;
   userParam.en_title_doctype_10 = texts.invoice + " <DocInvoice>";
   userParam.en_title_doctype_12 = texts.credit_note + " <DocInvoice>";
   userParam.en_text_details_columns = texts.description+";"+texts.quantity+";"+texts.reference_unit+";"+texts.unit_price+";"+texts.amount;
   userParam.en_text_total = texts.total;
+  userParam.en_text_pending_balance = texts.pending;
   userParam.en_text_final = '';
   userParam.en_footer_left = texts.invoice;
   userParam.en_footer_center = '';
@@ -1623,6 +1649,12 @@ function getJsonInvoice(invoiceNumber) {
   }
   else if (invoiceNumber === "504") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_504.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "505") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_505.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);

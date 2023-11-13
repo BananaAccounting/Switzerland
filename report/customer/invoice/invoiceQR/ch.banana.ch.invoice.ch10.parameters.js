@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2023-06-16 */
+/* User parameters update: 2023-11-13 */
 
 
 
@@ -945,6 +945,20 @@ function convertParam(userParam) {
     convertedParam.data.push(currentParam);
 
     currentParam = {};
+    currentParam.name = langCode+'_text_pending_balance';
+    currentParam.parentObject = langCode;
+    currentParam.title = langTexts[langCodeTitle+'_param_text_pending_balance'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_pending_balance'] ? userParam[langCode+'_text_pending_balance'] : '';
+    currentParam.defaultvalue = langTexts.pending;
+    currentParam.tooltip = langTexts['param_tooltip_text_pending_balance'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_text_pending_balance'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
     currentParam.name = langCode+'_text_final';
     currentParam.parentObject = langCode;
     currentParam.title = langTexts[langCodeTitle+'_param_text_final'];
@@ -1269,6 +1283,54 @@ function convertParam(userParam) {
     }
     convertedParam.data.push(currentParam);
 
+    if (IS_INTEGRATED_INVOICE) {
+      // invoice date, reminder date, reminder due date
+      // are available only on integrated invoice
+      // on application estimates-invoices, reminders never have these dates
+
+      currentParam = {};
+      currentParam.name = langCode+'_text_info_invoice_date_reminder';
+      currentParam.parentObject = langCode+'_reminder';
+      currentParam.title = langTexts[langCodeTitle+'_param_text_info_invoice_date_reminder'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_info_invoice_date_reminder'] ? userParam[langCode+'_text_info_invoice_date_reminder'] : '';
+      currentParam.defaultvalue = langTexts.invoice_date;
+      currentParam.tooltip = langTexts['param_tooltip_text_info_invoice_date_reminder'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_info_invoice_date_reminder'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = langCode+'_text_info_date_reminder';
+      currentParam.parentObject = langCode+'_reminder';
+      currentParam.title = langTexts[langCodeTitle+'_param_text_info_date_reminder'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_info_date_reminder'] ? userParam[langCode+'_text_info_date_reminder'] : '';
+      currentParam.defaultvalue = langTexts.reminder_date;
+      currentParam.tooltip = langTexts['param_tooltip_text_info_date_reminder'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_info_date_reminder'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = langCode+'_text_info_due_date_reminder';
+      currentParam.parentObject = langCode+'_reminder';
+      currentParam.title = langTexts[langCodeTitle+'_param_text_info_due_date_reminder'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_info_due_date_reminder'] ? userParam[langCode+'_text_info_due_date_reminder'] : '';
+      currentParam.defaultvalue = langTexts.reminder_due_date;
+      currentParam.tooltip = langTexts['param_tooltip_text_info_due_date_reminder'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_info_due_date_reminder'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
+    }
+
     currentParam = {};
     currentParam.name = langCode+'_title_reminder';
     currentParam.parentObject = langCode+'_reminder';
@@ -1308,6 +1370,66 @@ function convertParam(userParam) {
     currentParam.language = langCode;
     currentParam.readValueLang = function(langCode) {
       userParam[langCode+'_text_final_reminder'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+
+
+    /*******************************************************************************************
+    * RECEIPT PARAMETERS
+    ********************************************************************************************/
+    var currentParam = {};
+    currentParam.name = langCode+'_receipt';
+    currentParam.parentObject = langCode;
+    currentParam.title = langTexts.receipt;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam.texts = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_title_receipt';
+    currentParam.parentObject = langCode+'_receipt';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_title_receipt'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_title_receipt'] ? userParam[langCode+'_title_receipt'] : '';
+    currentParam.defaultvalue = langTexts.receipt;
+    currentParam.tooltip = langTexts['param_tooltip_title_receipt'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_title_receipt'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_begin_receipt';
+    currentParam.parentObject = langCode+'_receipt';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_begin_receipt'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_begin_receipt'] ? userParam[langCode+'_text_begin_receipt'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_begin_receipt'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_begin_receipt'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_final_receipt';
+    currentParam.parentObject = langCode+'_receipt';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_final_receipt'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_final_receipt'] ? userParam[langCode+'_text_final_receipt'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_final_receipt'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_final_receipt'] = this.value;
     }
     convertedParam.data.push(currentParam);
 
@@ -1549,6 +1671,7 @@ function initParam() {
     userParam[langCodes[i]+'_text_begin'] = '';
     userParam[langCodes[i]+'_text_details_columns'] = langTexts.description+";"+langTexts.quantity+";"+langTexts.reference_unit+";"+langTexts.unit_price+";"+langTexts.amount;
     userParam[langCodes[i]+'_text_total'] = langTexts.total;
+    userParam[langCodes[i]+'_text_pending_balance'] = langTexts.pending;
     userParam[langCodes[i]+'_text_final'] = '';
     userParam[langCodes[i]+'_footer_left'] = langTexts.invoice;
     userParam[langCodes[i]+'_footer_center'] = '';
@@ -1570,6 +1693,9 @@ function initParam() {
     userParam[langCodes[i]+'_text_final_delivery_note'] = '';
 
     //Reminder
+    userParam[langCodes[i]+'_text_info_invoice_date_reminder'] = langTexts.invoice_date;
+    userParam[langCodes[i]+'_text_info_date_reminder'] = langTexts.reminder_date;
+    userParam[langCodes[i]+'_text_info_due_date_reminder'] = langTexts.reminder_due_date;
     userParam[langCodes[i]+'_title_reminder'] = '%1. ' + langTexts.reminder;
     userParam[langCodes[i]+'_text_begin_reminder'] = '';
     userParam[langCodes[i]+'_text_final_reminder'] = '';
@@ -1578,6 +1704,11 @@ function initParam() {
     userParam[langCodes[i]+'_title_proforma_invoice'] = langTexts.proforma_invoice + " <DocInvoice>";
     userParam[langCodes[i]+'_text_begin_proforma_invoice'] = '';
     userParam[langCodes[i]+'_text_final_proforma_invoice'] = '';
+
+    //Receipt
+    userParam[langCodes[i]+'_title_receipt'] = langTexts.receipt;
+    userParam[langCodes[i]+'_text_begin_receipt'] = '';
+    userParam[langCodes[i]+'_text_final_receipt'] = '';
 
   }
 
@@ -1774,6 +1905,9 @@ function verifyParam(userParam) {
     if (!userParam[langCodes[i]+'_text_total']) {
       userParam[langCodes[i]+'_text_total'] = langTexts.total;
     }
+    if (!userParam[langCodes[i]+'_text_pending_balance']) {
+      userParam[langCodes[i]+'_text_pending_balance'] = langTexts.pending;
+    }
     if (!userParam[langCodes[i]+'_text_final']) {
       userParam[langCodes[i]+'_text_final'] = "";
     }
@@ -1825,6 +1959,15 @@ function verifyParam(userParam) {
     }
 
     //Reminder
+    if (!userParam[langCodes[i]+'_text_info_invoice_date_reminder']) {
+      userParam[langCodes[i]+'_text_info_invoice_date_reminder'] = langTexts.invoice_date;
+    }    
+    if (!userParam[langCodes[i]+'_text_info_date_reminder']) {
+      userParam[langCodes[i]+'_text_info_date_reminder'] = langTexts.reminder_date;
+    }
+    if (!userParam[langCodes[i]+'_text_info_due_date_reminder']) {
+      userParam[langCodes[i]+'_text_info_due_date_reminder'] = langTexts.reminder_due_date;
+    }
     if (!userParam[langCodes[i]+'_title_reminder']) {
       userParam[langCodes[i]+'_title_reminder'] = '%1. ' + langTexts.reminder;
     }
@@ -1846,6 +1989,16 @@ function verifyParam(userParam) {
       userParam[langCodes[i]+'_text_final_proforma_invoice'] = "";
     }
 
+    //Receipt
+    if (!userParam[langCodes[i]+'_title_receipt']) {
+      userParam[langCodes[i]+'_title_receipt'] = langTexts.receipt;
+    }
+    if (!userParam[langCodes[i]+'_text_begin_receipt']) {
+      userParam[langCodes[i]+'_text_begin_receipt'] = "";
+    }
+    if (!userParam[langCodes[i]+'_text_final_receipt']) {
+      userParam[langCodes[i]+'_text_final_receipt'] = "";
+    }
 
   }
 
