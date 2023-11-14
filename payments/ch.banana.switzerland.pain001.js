@@ -289,7 +289,7 @@ Pain001Switzerland.prototype.convertParam = function (param) {
 
     currentParam = {};
     currentParam.name = 'syncTransactionDefault';
-    currentParam.title = 'Include payment data into transaction (Default value)';
+    currentParam.title = 'Synchronize the data with the transaction (Default value)';
     currentParam.type = 'bool';
     currentParam.value = param.syncTransactionDefault ? param.syncTransactionDefault : false;
     currentParam.readValue = function () {
@@ -299,7 +299,7 @@ Pain001Switzerland.prototype.convertParam = function (param) {
 
     currentParam = {};
     currentParam.name = 'storeMessageInNotesDefault';
-    currentParam.title = 'Use column \'Notes\' for payment messages (Default value)';
+    currentParam.title = 'Store the message in the \'Notes\' column (Default value)';
     currentParam.type = 'bool';
     currentParam.value = param.storeMessageInNotesDefault ? param.storeMessageInNotesDefault : false;
     currentParam.readValue = function () {
@@ -546,7 +546,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     var methodId = this.ID_PAYMENT_QRCODE;
     if (paymentObj.methodId.indexOf("SEPA") >= 0)
         methodId = this.ID_PAYMENT_SEPA;
-     if (methodId == this.ID_PAYMENT_QRCODE) {
+    if (methodId === this.ID_PAYMENT_QRCODE) {
         /*var refTypes = [];
         refTypes.push("QRR");
         refTypes.push("SCOR");
@@ -616,11 +616,23 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
         convertedParam.data.push(currentParam);
 
     }
+    else {
+        currentParam = {};
+        currentParam.name = 'unstructuredMessage';
+        currentParam.title = "Unstructured message";
+        currentParam.type = 'string';
+        currentParam.value = paymentObj.unstructuredMessage ? paymentObj.unstructuredMessage : '';
+        currentParam.defaultvalue = '';
+        currentParam.readValue = function () {
+            paymentObj.unstructuredMessage = this.value;
+        }
+        convertedParam.data.push(currentParam);
+    }
 
     /*******************************************************************************************
     * ULTIMATE DEBTOR
     *******************************************************************************************/
-    if (methodId == this.ID_PAYMENT_QRCODE) {
+    if (methodId === this.ID_PAYMENT_QRCODE) {
         currentParam = {};
         currentParam.name = 'ultimateDebtor';
         currentParam.title = 'Ultimate Debtor';
@@ -760,8 +772,9 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'syncTransaction';
-    currentParam.title = "Include payment data into transaction";
+    currentParam.title = "Synchronize the data with the transaction";
     currentParam.type = 'bool';
+    currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.syncTransaction ? true : false;
     currentParam.defaultvalue = true;
     currentParam.readValue = function () {
@@ -771,8 +784,9 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'storeMessageInNotes';
-    currentParam.title = 'Use column \'Notes\' for payment messages';
+    currentParam.title = 'Store the message in the \'Notes\' column';
     currentParam.type = 'bool';
+    currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.storeMessageInNotes ? true : false;
     currentParam.readValue = function () {
         paymentObj.storeMessageInNotes = this.value;
