@@ -442,6 +442,8 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     }
     convertedParam.data.push(currentParam);
 
+    //With Creditor Account ID IBAN no Creditor Agent required.
+    /*
     currentParam = {};
     currentParam.name = 'creditorBankName';
     currentParam.title = 'Bank name';
@@ -488,7 +490,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     currentParam.readValue = function () {
         paymentObj.creditorBankAccount = this.value;
     }
-    convertedParam.data.push(currentParam);
+    convertedParam.data.push(currentParam);*/
 
     currentParam = {};
     currentParam.name = 'creditorIban';
@@ -1980,12 +1982,14 @@ Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
     var version = Banana.application.version;
 
     var supportedVersion = true;
-    var requiredVersion = "10.1.0";
-    var requiredSerial = "230125";
+    var requiredVersion = "10.1.14";
+    var requiredSerial = "231102";
 
     if (Banana.compareVersion && Banana.compareVersion(version, requiredVersion) < 0) {
         supportedVersion = false;
     }
+//Banana.console.debug("serial number: " + serial.substr(serial.lastIndexOf('-') + 1));
+//Banana.console.debug("serial number complete: " + serial);
 
     if (serial.lastIndexOf('-') > 0) {
         serial = serial.substr(serial.lastIndexOf('-') + 1);
@@ -2703,10 +2707,14 @@ var JsAction = class JsAction {
             paymentObj.creditorPostalCode = creditor.postalCode;
             paymentObj.creditorCity = creditor.city;
             paymentObj.creditorCountry = creditor.country;
-            paymentObj.creditorBankAccount = creditor.bankAccount;
-            paymentObj.creditorBankName = creditor.bankName;
-            paymentObj.creditorBankAddress1 = creditor.bankAddress1;
-            paymentObj.creditorBankAddress2 = creditor.bankAddress2;
+            if (paymentObj.creditorBankAccount)
+                paymentObj.creditorBankAccount = creditor.bankAccount;
+            if (paymentObj.creditorBankName)
+                paymentObj.creditorBankName = creditor.bankName;
+            if (paymentObj.creditorBankAddress1)
+                paymentObj.creditorBankAddress1 = creditor.bankAddress1;
+            if (paymentObj.creditorBankAddress2)
+                paymentObj.creditorBankAddress2 = creditor.bankAddress2;
             paymentObj.creditorBic = creditor.bic;
             paymentObj.creditorIban = creditor.iban;
         }
