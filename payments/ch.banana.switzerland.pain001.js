@@ -2803,7 +2803,7 @@ var JsAction = class JsAction {
     //Read message from paymentObj and write it to the object row
     //if param.storeMessageInNotes == false doesn't synchronize data with the Notes field
     _rowSetUnstructuredMessage(paymentObj, row) {
-        if (!paymentObj || !paymentObj.storeMessageInNotes || !row )
+        if (!paymentObj || !paymentObj.unstructuredMessage || !paymentObj.storeMessageInNotes || !row )
             return;
 
         var message = paymentObj.unstructuredMessage;
