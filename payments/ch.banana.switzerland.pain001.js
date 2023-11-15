@@ -580,7 +580,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
         currentParam = {};
         currentParam.name = 'unstructuredMessage';
-        currentParam.title = "Unstructured message";
+        currentParam.title = "Additional Information";
         currentParam.type = 'string';
         currentParam.value = paymentObj.unstructuredMessage ? paymentObj.unstructuredMessage : '';
         currentParam.defaultvalue = '';
@@ -621,7 +621,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     else {
         currentParam = {};
         currentParam.name = 'unstructuredMessage';
-        currentParam.title = "Unstructured message";
+        currentParam.title = "Additional Information";
         currentParam.type = 'string';
         currentParam.value = paymentObj.unstructuredMessage ? paymentObj.unstructuredMessage : '';
         currentParam.defaultvalue = '';
