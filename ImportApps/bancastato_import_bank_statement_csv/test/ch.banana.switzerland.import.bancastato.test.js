@@ -63,6 +63,7 @@ TestImportBancaStato.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format3_20180531.csv");
    fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format4_20221012.csv");
    fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format5_20231117.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format5_20231123USD.csv");
 
 
    var parentLogger = this.testLogger;

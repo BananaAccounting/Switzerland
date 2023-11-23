@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.import.bancastato
 // @api = 1.0
-// @pubdate = 2023-11-17
+// @pubdate = 2023-11-23
 // @publisher = Banana.ch SA
 // @description = BancaStato - Import account statement .csv (Banana+ Advanced)
 // @description.it = BancaStato - Importa movimenti .csv (Banana+ Advanced)
@@ -124,7 +124,7 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
    constructor(banDocument) {
       super(banDocument);
 
-      this.decimalSeparator = ",";
+      this.decimalSeparator = ","; // used for CHF.
       this.dateFormat = "dd.mm.yyyy";
    }
 
@@ -164,10 +164,13 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
    convertCsvToIntermediaryData(transactions) {
       var transactionsToImport = [];
 
+      //set the decimal separator.
+      this.setDecimalSeparator(transactions);
       // Filter and map rows
-      for (let i = 0; i < transactions.length; i++) {
-         var transaction = transactions[i];
-         transactionsToImport.push(this.mapTransaction(transaction));
+      for (const tr of transactions) {
+         if (tr["Data"] && tr["Data valuta"] && tr["Tipo di ordine"]) {
+            transactionsToImport.push(this.mapTransaction(tr));
+         }
       }
 
 
@@ -181,16 +184,52 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
       return header.concat(transactionsToImport);
    }
 
+   setDecimalSeparator(transactions) {
+      /**
+       * CHF format: 1.000,0 (thousand)
+       * USD format: 1,000.0 (thousand)
+       * Add other formats if necessary
+       */
+      for (var tr in transactions) {
+         let transaction = {};
+         if (tr) {
+            transaction = transactions[tr];
+            for (var key in transaction) {
+               if (key.includes("(USD)")) {
+                  this.decimalSeparator = ".";
+                  return true; // just to interrupt the
+               }
+            }
+         }
+      }
+      return false;
+   }
+
    mapTransaction(transaction) {
       var mappedLine = [];
+      let creditFullKey = "";
+      let debitFullKey = "";
+
+      /**
+       * Gli accrediti e gli addebiti possono essere in valute differenti:
+       * Addebiti (USD) o Addebiti (CHF)
+       * Accrediti (USD) o Accrediti (CHF)
+       */
+      for (const key in transaction) {
+         if (key && (key.startsWith("Addebiti") || key.includes("Addebiti"))) {
+            debitFullKey = key;
+         } else if (key && (key.startsWith("Accrediti") || key.includes("Accrediti"))) {
+            creditFullKey = key;
+         }
+      }
 
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Data"], this.dateFormat));
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Data valuta"], this.dateFormat));
       let description = this.getDescription(transaction);
       mappedLine.push(description);
       mappedLine.push(transaction["Numero di ordine"]);
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Addebiti (CHF)"], this.decimalSeparator));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Accrediti (CHF)"], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[debitFullKey], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[creditFullKey], this.decimalSeparator));
       return mappedLine;
    }
 
