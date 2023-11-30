@@ -36,34 +36,36 @@ function TestImportBancaStato() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportBancaStato.prototype.initTestCase = function() {
+TestImportBancaStato.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportBancaStato.prototype.cleanupTestCase = function() {
+TestImportBancaStato.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportBancaStato.prototype.init = function() {
+TestImportBancaStato.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportBancaStato.prototype.cleanup = function() {
+TestImportBancaStato.prototype.cleanup = function () {
 
 }
 
-TestImportBancaStato.prototype.testImport = function() {
+TestImportBancaStato.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format1_20141209.csv");
    fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format3_20180531.csv");
    fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format4_20221012.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format5_20231117.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bancastato_example_format5_20231123USD.csv");
 
-   
+
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
 
@@ -75,9 +77,9 @@ TestImportBancaStato.prototype.testImport = function() {
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
-      var transactions = exec(fileContent,true); //takes the exec from the import script.
+      var transactions = exec(fileContent, true); //takes the exec from the import script.
       this.testLogger.addCsv('Format Data', transactions);
-      
+
       if (!this.progressBar.step())
          break;
    }
