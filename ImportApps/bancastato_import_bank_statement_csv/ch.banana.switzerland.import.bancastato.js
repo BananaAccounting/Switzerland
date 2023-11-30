@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.import.bancastato
 // @api = 1.0
-// @pubdate = 2023-11-23
+// @pubdate = 2023-11-30
 // @publisher = Banana.ch SA
 // @description = BancaStato - Import account statement .csv (Banana+ Advanced)
 // @description.it = BancaStato - Importa movimenti .csv (Banana+ Advanced)
@@ -124,7 +124,6 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
    constructor(banDocument) {
       super(banDocument);
 
-      this.decimalSeparator = ","; // used for CHF.
       this.dateFormat = "dd.mm.yyyy";
    }
 
@@ -164,8 +163,6 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
    convertCsvToIntermediaryData(transactions) {
       var transactionsToImport = [];
 
-      //set the decimal separator.
-      this.setDecimalSeparator(transactions);
       // Filter and map rows
       for (const tr of transactions) {
          if (tr["Data"] && tr["Data valuta"] && tr["Tipo di ordine"]) {
@@ -182,27 +179,6 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
          ["Date", "DateValue", "Description", "ExternalReference", "Expenses", "Income"]
       ];
       return header.concat(transactionsToImport);
-   }
-
-   setDecimalSeparator(transactions) {
-      /**
-       * CHF format: 1.000,0 (thousand)
-       * USD format: 1,000.0 (thousand)
-       * Add other formats if necessary
-       */
-      for (var tr in transactions) {
-         let transaction = {};
-         if (tr) {
-            transaction = transactions[tr];
-            for (var key in transaction) {
-               if (key.includes("(USD)")) {
-                  this.decimalSeparator = ".";
-                  return true; // just to interrupt the
-               }
-            }
-         }
-      }
-      return false;
    }
 
    mapTransaction(transaction) {
@@ -228,8 +204,11 @@ var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
       let description = this.getDescription(transaction);
       mappedLine.push(description);
       mappedLine.push(transaction["Numero di ordine"]);
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[debitFullKey], this.decimalSeparator));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[creditFullKey], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[debitFullKey],
+         getDecimalSeparator(transaction[debitFullKey])));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[creditFullKey],
+         getDecimalSeparator(transaction[creditFullKey])));
+
       return mappedLine;
    }
 
@@ -702,4 +681,20 @@ function getFormattedData(inData, convertionParam, importUtilities) {
    //Load the form with data taken from the array. Create objects
    importUtilities.loadForm(form, columns, rows);
    return form;
+}
+/**
+ * Returns the decimal separator.
+ * @param {*} amount 
+ * @returns 
+ */
+function getDecimalSeparator(amount) {
+   // Use regular expression to match non-digit characters
+   const nonDigits = amount.match(/\D/g);
+
+   // If non-digit characters are found, consider the last one as the decimal separator
+   if (nonDigits && nonDigits.length > 0) {
+      return nonDigits[nonDigits.length - 1];
+   } else {
+      return "."; // If no non-digit characters are found
+   }
 }
