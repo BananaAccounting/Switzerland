@@ -2029,9 +2029,9 @@ Pain001Switzerland.prototype.verifyParam = function () {
         this.param.messageSenderName = defaultParam.messageSenderName;
     if (!this.param.creditorGroups)
         this.param.creditorGroups = defaultParam.creditorGroups;
-    if (typeof this.param.syncTransactionDefault === 'undefined')
+    if (typeof (this.param.syncTransactionDefault) === 'undefined')
         this.param.syncTransactionDefault = true;
-    if (typeof this.param.storeMessageInNotesDefault === 'undefined')
+    if (typeof (this.param.storeMessageInNotesDefault) === 'undefined')
         this.param.storeMessageInNotesDefault = false;
 }
 
@@ -2635,7 +2635,7 @@ var JsAction = class JsAction {
                 var val = obj[k],
                     key = prefix ? prefix + '.' + k : k;
 
-                if (typeof val === 'object')
+                if (typeof (val) === 'object')
                     Object.assign(res, this._getInfoUnwrap(val, key)); // <-- recursion
                 else
                     res[key] = val;
