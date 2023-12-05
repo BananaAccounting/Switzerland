@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2023-01-18
+// @pubdate = 2023-12-04
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
