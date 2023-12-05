@@ -54,7 +54,7 @@ function onCurrentIndexChanged_creditorAccountId(index, value, params) {
 
     let keepData = false;
     if (existingData) {
-        var answer = Banana.Ui.showQuestion("Payments", "Clear existing data?");
+        var answer = Banana.Ui.showQuestion("Payments", "Would you like to replace current data with data stored in this account?");
         if (!answer)
             keepData = true;
     }
