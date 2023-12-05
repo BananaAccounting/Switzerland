@@ -54,7 +54,7 @@ function onCurrentIndexChanged_creditorAccountId(index, value, params) {
 
     let keepData = false;
     if (existingData) {
-        var answer = Banana.Ui.showQuestion("Payments", "Would you like to replace current data with data stored in this account?");
+        var answer = Banana.Ui.showQuestion("Payments", "Would you like to replace current data with the information from the newly selected account ID?");
         if (!answer)
             keepData = true;
     }
@@ -289,7 +289,7 @@ Pain001Switzerland.prototype.convertParam = function (param) {
 
     currentParam = {};
     currentParam.name = 'syncTransactionDefault';
-    currentParam.title = 'Synchronize the data with the transaction (Default value)';
+    currentParam.title = 'Synchronize payment data with the transaction (Default value)';
     currentParam.type = 'bool';
     currentParam.value = param.syncTransactionDefault ? param.syncTransactionDefault : false;
     currentParam.readValue = function () {
@@ -299,7 +299,7 @@ Pain001Switzerland.prototype.convertParam = function (param) {
 
     currentParam = {};
     currentParam.name = 'storeMessageInNotesDefault';
-    currentParam.title = 'Store the message in the \'Notes\' column (Default value)';
+    currentParam.title = 'Store Additional Information in the \'Notes\' column (Default value)';
     currentParam.type = 'bool';
     currentParam.value = param.storeMessageInNotesDefault ? param.storeMessageInNotesDefault : false;
     currentParam.readValue = function () {
@@ -774,7 +774,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'syncTransaction';
-    currentParam.title = "Synchronize the data with the transaction";
+    currentParam.title = "Synchronize payment data with the transaction";
     currentParam.type = 'bool';
     currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.syncTransaction ? true : false;
@@ -786,7 +786,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'storeMessageInNotes';
-    currentParam.title = 'Store the message in the \'Notes\' column';
+    currentParam.title = 'Store Additional Information in the \'Notes\' column';
     currentParam.type = 'bool';
     currentParam.parentObject = 'transaction';
     currentParam.value = paymentObj.storeMessageInNotes ? true : false;
