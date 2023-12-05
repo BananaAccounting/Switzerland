@@ -288,6 +288,18 @@ function setTexts_it(texts) {
 
   texts.param_color_title_total = "Colore titolo e totale";
   texts.param_tooltip_color_title_total = "Inserisci il colore";
+
+  texts.param_develop = "Sviluppo";
+  texts.param_dev_invoice_json = "Visualizza JSON fattura";
+  texts.param_tooltip_title_proforma_invoice = "Visualizza JSON fattura";
+  texts.param_dev_parameters_json = "Visualizza JSON parametri layout";
+  texts.param_tooltip_dev_parameters_json = "Visualizza JSON parametri layout";
+  texts.param_dev_printpreferences_json = "Visualizza JSON preferenze stampa";
+  texts.param_tooltip_dev_printpreferences_json = "Visualizza JSON preferenze stampa";
+  texts.dlg_invoice_json = "JSON fattura";
+  texts.dlg_parameters_json = "JSON parametri";
+  texts.dlg_printpreferences_json = "JSON preferenze stampa";
+
 }
 
 function setTexts_fr(texts) {
@@ -530,6 +542,17 @@ function setTexts_fr(texts) {
 
   texts.param_color_title_total = "Couleur titre et totale";
   texts.param_tooltip_color_title_total = "Insérer la couleur"; 
+
+  texts.param_develop = "FR Sviluppo";
+  texts.param_dev_invoice_json = "FR Visualizza JSON fattura";
+  texts.param_tooltip_title_proforma_invoice = "FR Visualizza JSON fattura";
+  texts.param_dev_parameters_json = "FR Visualizza JSON parametri layout";
+  texts.param_tooltip_dev_parameters_json = "FR Visualizza JSON parametri layout";
+  texts.param_dev_printpreferences_json = "FR Visualizza JSON preferenze stampa";
+  texts.param_tooltip_dev_printpreferences_json = "FR Visualizza JSON preferenze stampa";
+  texts.dlg_invoice_json = "FR Invoice JSON";
+  texts.dlg_parameters_json = "FR Layout Parameters JSON";
+  texts.dlg_printpreferences_json = "FR Print preferences JSON";
 }
 
 function setTexts_de(texts) {
@@ -772,6 +795,17 @@ function setTexts_de(texts) {
 
   texts.param_color_title_total = "Titel und Gesamtfarbe";
   texts.param_tooltip_color_title_total = "Farbe eingeben";
+
+  texts.param_develop = "DE Sviluppo";
+  texts.param_dev_invoice_json = "DE Visualizza JSON fattura";
+  texts.param_tooltip_title_proforma_invoice = "DE Visualizza JSON fattura";
+  texts.param_dev_parameters_json = "DE Visualizza JSON parametri layout";
+  texts.param_tooltip_dev_parameters_json = "DE Visualizza JSON parametri layout";
+  texts.param_dev_printpreferences_json = "DE Visualizza JSON preferenze stampa";
+  texts.param_tooltip_dev_printpreferences_json = "DE Visualizza JSON preferenze stampa";
+  texts.dlg_invoice_json = "DE Invoice JSON";
+  texts.dlg_parameters_json = "DE Layout Parameters JSON";
+  texts.dlg_printpreferences_json = "DE Print preferences JSON";
 }
 
 function setTexts_en(texts) {
@@ -1014,5 +1048,16 @@ function setTexts_en(texts) {
 
   texts.param_color_title_total = "Title and total color";
   texts.param_tooltip_color_title_total = "Enter the color";
+
+  texts.param_develop = "Develop";
+  texts.param_dev_invoice_json = "Show invoice JSON";
+  texts.param_tooltip_title_proforma_invoice = "Show invoice JSON";
+  texts.param_dev_parameters_json = "Show layout parameters JSON";
+  texts.param_tooltip_dev_parameters_json = "Show layout parameters JSON";
+  texts.param_dev_printpreferences_json = "Show print preferences JSON";
+  texts.param_tooltip_dev_printpreferences_json = "Show print preferences JSON";
+  texts.dlg_invoice_json = "Invoice JSON";
+  texts.dlg_parameters_json = "Layout Parameters JSON";
+  texts.dlg_printpreferences_json = "Print preferences JSON";
 }
 

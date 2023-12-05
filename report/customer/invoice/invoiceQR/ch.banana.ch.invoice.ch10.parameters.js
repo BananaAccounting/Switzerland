@@ -1581,6 +1581,72 @@ function convertParam(userParam) {
    userParam.embedded_css_filename = this.value;
   }
   convertedParam.data.push(currentParam);
+
+
+  /*******************************************************************************************
+  * DEVELOP
+  *******************************************************************************************/
+  currentParam = {};
+  currentParam.name = 'develop';
+  currentParam.title = texts.param_develop;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.develop = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Invoice JSON
+  currentParam = {};
+  currentParam.name = 'dev_invoice_json';
+  currentParam.parentObject = 'develop';
+  currentParam.title = texts.param_dev_invoice_json;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.dev_invoice_json ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.tooltip = texts.param_tooltip_dev_invoice_json;
+  if (!BAN_ADVANCED) {
+    currentParam.enabled = false;
+  }
+  currentParam.readValue = function() {
+   userParam.dev_invoice_json = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Layout parameters JSON
+  currentParam = {};
+  currentParam.name = 'dev_parameters_json';
+  currentParam.parentObject = 'develop';
+  currentParam.title = texts.param_dev_parameters_json;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.dev_parameters_json ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.tooltip = texts.param_tooltip_dev_parameters_json;
+  if (!BAN_ADVANCED) {
+    currentParam.enabled = false;
+  }
+  currentParam.readValue = function() {
+   userParam.dev_parameters_json = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //Print preferences JSON
+  currentParam = {};
+  currentParam.name = 'dev_printpreferences_json';
+  currentParam.parentObject = 'develop';
+  currentParam.title = texts.param_dev_printpreferences_json;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.dev_printpreferences_json ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.tooltip = texts.param_tooltip_dev_printpreferences_json;
+  if (!BAN_ADVANCED) {
+    currentParam.enabled = false;
+  }
+  currentParam.readValue = function() {
+   userParam.dev_printpreferences_json = this.value;
+  }
+  convertedParam.data.push(currentParam);
   
   return convertedParam;
 }
@@ -1724,6 +1790,11 @@ function initParam() {
   //Embedded JavaScript/css file
   userParam.embedded_javascript_filename = '';
   userParam.embedded_css_filename = '';
+
+  //Invoice JSON
+  userParam.dev_invoice_json = false;
+  userParam.dev_parameters_json = false;
+  userParam.dev_printpreferences_json = false;
 
   return userParam;
 }
@@ -2038,6 +2109,17 @@ function verifyParam(userParam) {
   }
   if (!userParam.embedded_css_filename) {
     userParam.embedded_css_filename = '';
+  }
+
+  //Develop
+  if (!userParam.dev_invoice_json) {
+    userParam.dev_invoice_json = false;
+  }
+  if (!userParam.dev_parameters_json) {
+    userParam.dev_parameters_json = false;
+  }
+  if (!userParam.dev_printpreferences_json) {
+    userParam.dev_printpreferences_json = false;
   }
 
   return userParam;

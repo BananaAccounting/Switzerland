@@ -390,6 +390,25 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     }
   }
 
+  /* DEVELOP */
+  if (BAN_ADVANCED) {
+    // Show the invoice JSON
+    if (userParam.dev_invoice_json) {
+      var jsonString = JSON.stringify(invoiceObj, null, 3);
+      Banana.Ui.showText(texts.dlg_invoice_json, jsonString);
+    }
+    // Show the invoice layout parameters
+    if (userParam.dev_parameters_json) {
+      var paramString = JSON.stringify(userParam, null, 3);
+      Banana.Ui.showText(texts.dlg_parameters_json, paramString);
+    }
+    // Show the layout print preferences
+    if (userParam.dev_printpreferences_json) {
+      var preferencesString = JSON.stringify(preferencesObj, null, 3);
+      Banana.Ui.showText(texts.dlg_printpreferences_json, preferencesString);
+    }
+  }
+  
   return repDocObj;
 }
 
