@@ -1,0 +1,1003 @@
+%%info_test_name{csv_bexio_example_format1_20231108}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{jsonvalue}{}
+{
+    "data": [
+        {
+            "creator": {
+                "name": "ch.banana.switzerland.import.bexio",
+                "version": "1.0"
+            },
+            "document": {
+                "dataUnits": [
+                    {
+                        "data": {
+                            "rowLists": [
+                                {
+                                    "rows": [
+                                        {
+                                            "fields": {
+                                                "Account": "1172",
+                                                "BClass": "1",
+                                                "Currency": "CHF",
+                                                "Description": "Vorsteuerausgleich Abrechnungsmethod"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "Account": "6945",
+                                                "BClass": "3",
+                                                "Currency": "CHF",
+                                                "Description": "Rundungsdifferenz Debitoren/Kreditore"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "nameXml": "Accounts"
+                    }
+                ],
+                "dataUnitsfileVersion": "1.0.0"
+            }
+        },
+        {
+            "creator": {
+                "name": "ch.banana.switzerland.import.bexio",
+                "version": "1.0"
+            },
+            "document": {
+                "dataUnits": [
+                    {
+                        "data": {
+                            "rowLists": [
+                                {
+                                    "rows": [
+                                        {
+                                            "fields": {
+                                                "VatCode": "VSF",
+                                                "VatRate": "0.00"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "VatCode": "VB81",
+                                                "VatRate": "8.10"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "nameXml": "VatCodes"
+                    }
+                ],
+                "dataUnitsfileVersion": "1.0.0"
+            }
+        },
+        {
+            "creator": {
+                "name": "ch.banana.switzerland.import.bexio",
+                "version": "1.0"
+            },
+            "document": {
+                "dataUnits": [
+                    {
+                        "data": {
+                            "rowLists": [
+                                {
+                                    "rows": [
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-02-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 77251",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60144",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-02-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 77251",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60145",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-02-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 78184",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59839",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "251.57",
+                                                "AmountCurrency": "251.57",
+                                                "Date": "2024-03-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 68017",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60146",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.38",
+                                                "AmountCurrency": "20.38",
+                                                "Date": "2024-03-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 68017",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60147",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6945",
+                                                "Amount": "7",
+                                                "AmountCurrency": "7",
+                                                "Date": "2024-03-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Luvicogniaridecta, Voctipueliunicepeta 68017",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60148",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-03-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 73276",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59841",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "251.57",
+                                                "AmountCurrency": "251.57",
+                                                "Date": "2024-04-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 54650",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60149",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.38",
+                                                "AmountCurrency": "20.38",
+                                                "Date": "2024-04-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 54650",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60150",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6945",
+                                                "Amount": "7",
+                                                "AmountCurrency": "7",
+                                                "Date": "2024-04-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Luvicogniaridecta, Voctipueliunicepeta 54650",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60151",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-04-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 72768",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59843",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-05-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 74200",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60152",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-05-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 74200",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60153",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-05-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 76800",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59845",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-06-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 88836",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60156",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-06-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 88836",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60157",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-06-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 88448",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59847",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-07-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 81028",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60154",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-07-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 81028",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60155",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-07-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 66520",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59849",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-08-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 87272",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60158",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-08-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 87272",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60159",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-08-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 15631",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59851",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-09-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 31213",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60160",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-09-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 31213",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60161",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-09-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 13400",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59853",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-09-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 47142",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59855",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-10-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 37730",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60162",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-10-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 37730",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60163",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-10-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 26121",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59857",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-11-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 73237",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60169",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-11-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 73237",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60170",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-11-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 45875",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59859",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2024-12-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 86240",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60167",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2024-12-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 86240",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60168",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2024-12-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 65438",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59861",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6260",
+                                                "Amount": "252.5",
+                                                "AmountCurrency": "252.5",
+                                                "Date": "2025-01-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 47145",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60171",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "1172",
+                                                "Amount": "20.45",
+                                                "AmountCurrency": "20.45",
+                                                "Date": "2025-01-01",
+                                                "Description": "(Voctipueliunicepeta ostenima) Culunde INTEM Soral 5 Inti J. Inum, Voctipueliunicepeta 47145",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "60172",
+                                                "VatCode": "VB81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-01-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 54150",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59863",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-02-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 66044",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59865",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-03-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 46683",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59867",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-04-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 70483",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59869",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-05-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 64861",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59871",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-06-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 41746",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59873",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-07-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 17774",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59875",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-08-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 37207",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59877",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-10-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 75825",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59879",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2000",
+                                                "AccountDebit": "6000",
+                                                "Amount": "11510",
+                                                "AmountCurrency": "11510",
+                                                "Date": "2025-11-02",
+                                                "Description": "(Voctipueliunicepeta ostenima) Quaerunt-Radeanix, Voctipueliunicepeta 84021",
+                                                "ExchangeCurrency": "CHF",
+                                                "ExchangeRate": "7",
+                                                "ExternalReference": "59881",
+                                                "VatCode": "VSF"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "nameXml": "Transactions"
+                    }
+                ],
+                "dataUnitsfileVersion": "1.0.0"
+            }
+        }
+    ],
+    "error": "",
+    "format": "documentChange"
+}
+\end{jsonvalue}
+\end{document}

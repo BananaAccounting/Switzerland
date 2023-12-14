@@ -1,6 +1,20 @@
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 // @id = ch.banana.switzerland.import.bancastato
 // @api = 1.0
-// @pubdate = 2020-06-30
+// @pubdate = 2023-11-30
 // @publisher = Banana.ch SA
 // @description = BancaStato - Import account statement .csv (Banana+ Advanced)
 // @description.it = BancaStato - Importa movimenti .csv (Banana+ Advanced)
@@ -29,8 +43,17 @@ function exec(string, isTest) {
    if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
       return "";
 
-   var fieldSeparator = findSeparator(string);
-   var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+   let convertionParam = defineConversionParam(string);
+   var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '');
+   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
+
+   // Format 5, uses the headers description and not positions as the others format.
+   // using header descriptions is better for the maintainance of the format during the time.
+   var format5 = new BancaStatoFormat5(Banana.document);
+   if (format5.match(transactionsData)) {
+      let convertedData = format5.convertCsvToIntermediaryData(transactionsData);
+      return Banana.Converter.arrayToTsv(convertedData);
+   }
 
    // Format 4
    var format4 = new BancaStatoFormat4();
@@ -92,6 +115,112 @@ function findSeparator(string) {
    }
 
    return ',';
+}
+
+/**
+ * Bancastato Format 5
+ */
+var BancaStatoFormat5 = class BancaStatoFormat5 extends ImportUtilities {
+   constructor(banDocument) {
+      super(banDocument);
+
+      this.dateFormat = "dd.mm.yyyy";
+   }
+
+   match(transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+
+         var formatMatched = false;
+
+         if (transaction["Data"] && transaction["Data"].length >= 10 &&
+            transaction["Data"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["Data valuta"] && transaction["Data valuta"].length >= 8 &&
+            transaction["Data valuta"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["Tipo di ordine"]
+            && transaction["Tipo di ordine"].length >= 0)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+      return false;
+   }
+
+   convertCsvToIntermediaryData(transactions) {
+      var transactionsToImport = [];
+
+      // Filter and map rows
+      for (const tr of transactions) {
+         if (tr["Data"] && tr["Data valuta"] && tr["Tipo di ordine"]) {
+            transactionsToImport.push(this.mapTransaction(tr));
+         }
+      }
+
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [
+         ["Date", "DateValue", "Description", "ExternalReference", "Expenses", "Income"]
+      ];
+      return header.concat(transactionsToImport);
+   }
+
+   mapTransaction(transaction) {
+      var mappedLine = [];
+      let creditFullKey = "";
+      let debitFullKey = "";
+
+      /**
+       * Gli accrediti e gli addebiti possono essere in valute differenti:
+       * Addebiti (USD) o Addebiti (CHF)
+       * Accrediti (USD) o Accrediti (CHF)
+       */
+      for (const key in transaction) {
+         if (key && (key.startsWith("Addebiti") || key.includes("Addebiti"))) {
+            debitFullKey = key;
+         } else if (key && (key.startsWith("Accrediti") || key.includes("Accrediti"))) {
+            creditFullKey = key;
+         }
+      }
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Data"], this.dateFormat));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Data valuta"], this.dateFormat));
+      let description = this.getDescription(transaction);
+      mappedLine.push(description);
+      mappedLine.push(transaction["Numero di ordine"]);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[debitFullKey],
+         getDecimalSeparator(transaction[debitFullKey])));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[creditFullKey],
+         getDecimalSeparator(transaction[creditFullKey])));
+
+      return mappedLine;
+   }
+
+   getDescription(transaction) {
+      let description = "";
+      if (transaction["Tipo di ordine"] && transaction["Tipo di ordine"].length >= 0) {
+         description = transaction["Tipo di ordine"] + ", " + transaction["Testo di contabilizzazione"];
+      } else {
+         description = transaction["Testo di contabilizzazione"]
+      }
+      return description;
+   }
 }
 
 /**
@@ -513,5 +642,59 @@ function BancaStatoFormat1() {
       }
 
       return mappedLine;
+   }
+}
+
+function defineConversionParam(inData) {
+
+   var csvData = Banana.Converter.csvToArray(inData);
+   var header = String(csvData[0]);
+   var convertionParam = {};
+   /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+   convertionParam.format = "csv"; // available formats are "csv", "html"
+   //get text delimiter
+   convertionParam.textDelim = '\"';
+   // get separator
+   if (header.indexOf(';') >= 0) {
+      convertionParam.separator = ';';
+   } else {
+      convertionParam.separator = ',';
+   }
+
+   /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
+   We suppose the data will always begin right away after the header line */
+   convertionParam.headerLineStart = 0;
+   convertionParam.dataLineStart = 1;
+
+   /** SPECIFY THE COLUMN TO USE FOR SORTING
+   If sortColums is empty the data are not sorted */
+   convertionParam.sortColums = ["Date", "Description"];
+   convertionParam.sortDescending = false;
+
+   return convertionParam;
+}
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+   let form = [];
+   //Load the form with data taken from the array. Create objects
+   importUtilities.loadForm(form, columns, rows);
+   return form;
+}
+/**
+ * Returns the decimal separator.
+ * @param {*} amount 
+ * @returns 
+ */
+function getDecimalSeparator(amount) {
+   // Use regular expression to match non-digit characters
+   const nonDigits = amount.match(/\D/g);
+
+   // If non-digit characters are found, consider the last one as the decimal separator
+   if (nonDigits && nonDigits.length > 0) {
+      return nonDigits[nonDigits.length - 1];
+   } else {
+      return "."; // If no non-digit characters are found
    }
 }
