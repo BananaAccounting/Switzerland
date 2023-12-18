@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2023-11-13 */
+/* User parameters update: 2023-12-18 */
 
 
 
@@ -1586,67 +1586,60 @@ function convertParam(userParam) {
   /*******************************************************************************************
   * DEVELOP
   *******************************************************************************************/
-  currentParam = {};
-  currentParam.name = 'develop';
-  currentParam.title = texts.param_develop;
-  currentParam.type = 'string';
-  currentParam.value = '';
-  currentParam.editable = false;
-  currentParam.readValue = function() {
-    userParam.develop = this.value;
-  }
-  convertedParam.data.push(currentParam);
+  if (BAN_ADVANCED) {
+    currentParam = {};
+    currentParam.name = 'develop';
+    currentParam.title = texts.param_develop;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.readValue = function() {
+      userParam.develop = this.value;
+    }
+    convertedParam.data.push(currentParam);
 
-  //Invoice JSON
-  currentParam = {};
-  currentParam.name = 'dev_invoice_json';
-  currentParam.parentObject = 'develop';
-  currentParam.title = texts.param_dev_invoice_json;
-  currentParam.type = 'bool';
-  currentParam.value = userParam.dev_invoice_json ? true : false;
-  currentParam.defaultvalue = false;
-  currentParam.tooltip = texts.param_tooltip_dev_invoice_json;
-  if (!BAN_ADVANCED) {
-    currentParam.enabled = false;
-  }
-  currentParam.readValue = function() {
-   userParam.dev_invoice_json = this.value;
-  }
-  convertedParam.data.push(currentParam);
+    //Invoice JSON
+    currentParam = {};
+    currentParam.name = 'dev_json_invoice';
+    currentParam.parentObject = 'develop';
+    currentParam.title = texts.param_dev_json_invoice;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.dev_json_invoice ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_dev_json_invoice;
+    currentParam.readValue = function() {
+     userParam.dev_json_invoice = this.value;
+    }
+    convertedParam.data.push(currentParam);
 
-  //Layout parameters JSON
-  currentParam = {};
-  currentParam.name = 'dev_parameters_json';
-  currentParam.parentObject = 'develop';
-  currentParam.title = texts.param_dev_parameters_json;
-  currentParam.type = 'bool';
-  currentParam.value = userParam.dev_parameters_json ? true : false;
-  currentParam.defaultvalue = false;
-  currentParam.tooltip = texts.param_tooltip_dev_parameters_json;
-  if (!BAN_ADVANCED) {
-    currentParam.enabled = false;
-  }
-  currentParam.readValue = function() {
-   userParam.dev_parameters_json = this.value;
-  }
-  convertedParam.data.push(currentParam);
+    //Layout parameters JSON
+    currentParam = {};
+    currentParam.name = 'dev_json_layoutparameters';
+    currentParam.parentObject = 'develop';
+    currentParam.title = texts.param_dev_json_layoutparameters;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.dev_json_layoutparameters ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_dev_json_layoutparameters;
+    currentParam.readValue = function() {
+     userParam.dev_json_layoutparameters = this.value;
+    }
+    convertedParam.data.push(currentParam);
 
-  //Print preferences JSON
-  currentParam = {};
-  currentParam.name = 'dev_printpreferences_json';
-  currentParam.parentObject = 'develop';
-  currentParam.title = texts.param_dev_printpreferences_json;
-  currentParam.type = 'bool';
-  currentParam.value = userParam.dev_printpreferences_json ? true : false;
-  currentParam.defaultvalue = false;
-  currentParam.tooltip = texts.param_tooltip_dev_printpreferences_json;
-  if (!BAN_ADVANCED) {
-    currentParam.enabled = false;
+    //Print preferences JSON
+    currentParam = {};
+    currentParam.name = 'dev_json_layoutpreferences';
+    currentParam.parentObject = 'develop';
+    currentParam.title = texts.param_dev_json_layoutpreferences;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.dev_json_layoutpreferences ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_dev_json_layoutpreferences;
+    currentParam.readValue = function() {
+     userParam.dev_json_layoutpreferences = this.value;
+    }
+    convertedParam.data.push(currentParam);
   }
-  currentParam.readValue = function() {
-   userParam.dev_printpreferences_json = this.value;
-  }
-  convertedParam.data.push(currentParam);
   
   return convertedParam;
 }
@@ -1792,9 +1785,9 @@ function initParam() {
   userParam.embedded_css_filename = '';
 
   //Invoice JSON
-  userParam.dev_invoice_json = false;
-  userParam.dev_parameters_json = false;
-  userParam.dev_printpreferences_json = false;
+  userParam.dev_json_invoice = false;
+  userParam.dev_json_layoutparameters = false;
+  userParam.dev_json_layoutpreferences = false;
 
   return userParam;
 }
@@ -2112,14 +2105,14 @@ function verifyParam(userParam) {
   }
 
   //Develop
-  if (!userParam.dev_invoice_json) {
-    userParam.dev_invoice_json = false;
+  if (!userParam.dev_json_invoice || !BAN_ADVANCED) {
+    userParam.dev_json_invoice = false;
   }
-  if (!userParam.dev_parameters_json) {
-    userParam.dev_parameters_json = false;
+  if (!userParam.dev_json_layoutparameters || !BAN_ADVANCED) {
+    userParam.dev_json_layoutparameters = false;
   }
-  if (!userParam.dev_printpreferences_json) {
-    userParam.dev_printpreferences_json = false;
+  if (!userParam.dev_json_layoutpreferences || !BAN_ADVANCED) {
+    userParam.dev_json_layoutpreferences = false;
   }
 
   return userParam;

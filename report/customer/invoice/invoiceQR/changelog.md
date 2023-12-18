@@ -70,3 +70,7 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Added reminder dates as information for integrated invoice when using the Print Reminders function.
 	* Deposit on Estimates-Invoices Application is now printed with negative sign.
 	* Discount on Estimates-Invoices Application is now printed with negative sign.  
+* 2023-12-18
+	* Added the option to view the JSON of the invoice (Advanced plan required).
+	* Added the option to view the JSON of the layout parameters (Advanced plan required).
+	* Added the option to view the JSON of the layout preferences (Advanced plan required).  

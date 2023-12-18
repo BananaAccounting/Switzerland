@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2023-11-13 */
+/* Script update: 2023-12-18 */
 
 
 
@@ -2386,12 +2386,20 @@ var QRBill = class QRBill {
 		if (invoiceObj.supplier_info.vat_number) {
 			vatNumber = invoiceObj.supplier_info.vat_number;	
 			vatNumber = vatNumber.replace(/\D+/g,''); //replace all non-number characters	
-			structuredMessage += "/30/" + vatNumber;
+			if (!INCLUDE_PAYMENTS) {
+				// When printing invoice with payments or reminders with payments, we do not include the VAT information/amounts.
+				// The VAT information/amounts refers to the invoice without any partial payment.
+				structuredMessage += "/30/" + vatNumber;
+			}
 		}
 
 		//VAT date
 		var vatDate = yy+mm+dd;
-		structuredMessage += "/31/" + vatDate;
+		if (!INCLUDE_PAYMENTS) {
+			// When printing invoice with payments or reminders with payments, we do not include the VAT information/amounts.
+			// The VAT information/amounts refers to the invoice without any partial payment.
+			structuredMessage += "/31/" + vatDate;
+		}
 
 		/*	
 			VAT details
@@ -2400,18 +2408,22 @@ var QRBill = class QRBill {
 			/32/7.7						=> viene utilizzata una sola aliquota d'imposta sull'importo totale
 			/32/8:1000;2.5:51.8;7.7:250 => diverse aliquote: 8% su 1000.00, 2.5% su 51.80, 7.7% su 250.00
 		*/
-		if (invoiceObj.billing_info.total_vat_rates.length > 0) {
-			structuredMessage += "/32/";
-			if (invoiceObj.billing_info.total_vat_rates.length == 1) {
-				structuredMessage += invoiceObj.billing_info.total_vat_rates[0].vat_rate*1;
-			}
-			else {
-				for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
-					if (invoiceObj.billing_info.total_vat_rates[i+1]) {
-						structuredMessage += invoiceObj.billing_info.total_vat_rates[i].vat_rate*1 +":"+ invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive*1+";"; 
-					}
-					else {
-						structuredMessage += invoiceObj.billing_info.total_vat_rates[i].vat_rate*1 +":"+ invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive*1;
+		if (!INCLUDE_PAYMENTS) {
+			// When printing invoice with payments or reminders with payments, we do not include the VAT information/amounts.
+			// The VAT information/amounts refers to the invoice without any partial payment.
+			if (invoiceObj.billing_info.total_vat_rates.length > 0) {
+				structuredMessage += "/32/";
+				if (invoiceObj.billing_info.total_vat_rates.length == 1) {
+					structuredMessage += invoiceObj.billing_info.total_vat_rates[0].vat_rate*1;
+				}
+				else {
+					for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
+						if (invoiceObj.billing_info.total_vat_rates[i+1]) {
+							structuredMessage += invoiceObj.billing_info.total_vat_rates[i].vat_rate*1 +":"+ invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive*1+";"; 
+						}
+						else {
+							structuredMessage += invoiceObj.billing_info.total_vat_rates[i].vat_rate*1 +":"+ invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive*1;
+						}
 					}
 				}
 			}

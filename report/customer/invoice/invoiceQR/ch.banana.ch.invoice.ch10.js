@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2023-11-13
+// @pubdate = 2023-12-18
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -161,7 +161,8 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     invoiceObj.document_info.doc_type = "17"; // 17=estimate
   }
   // Set flag to include payments on reminders and invoice with payments
-  if (printFormat === "invoice_with_payments" || printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") {
+  // Only for integrated invoice. For App. Estimates-Invoices there are not partial payments
+  if ( IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment && (printFormat === "invoice_with_payments" || printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") ) {
     INCLUDE_PAYMENTS = true;
   } else {
     INCLUDE_PAYMENTS = false;
@@ -392,20 +393,21 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* DEVELOP */
   if (BAN_ADVANCED) {
-    // Show the invoice JSON
-    if (userParam.dev_invoice_json) {
+    // JSON invoice
+    if (userParam.dev_json_invoice) {
       var jsonString = JSON.stringify(invoiceObj, null, 3);
-      Banana.Ui.showText(texts.dlg_invoice_json, jsonString);
+      var dlgTitle = texts.dlg_json_invoice.replace("%1", invoiceObj.document_info.number);
+      Banana.Ui.showText(dlgTitle, jsonString);
     }
-    // Show the invoice layout parameters
-    if (userParam.dev_parameters_json) {
+    // JSON layout parameters
+    if (userParam.dev_json_layoutparameters) {
       var paramString = JSON.stringify(userParam, null, 3);
-      Banana.Ui.showText(texts.dlg_parameters_json, paramString);
+      Banana.Ui.showText(texts.dlg_json_layoutparameters, paramString);
     }
-    // Show the layout print preferences
-    if (userParam.dev_printpreferences_json) {
+    // JSON layout preferences
+    if (userParam.dev_json_layoutpreferences) {
       var preferencesString = JSON.stringify(preferencesObj, null, 3);
-      Banana.Ui.showText(texts.dlg_printpreferences_json, preferencesString);
+      Banana.Ui.showText(texts.dlg_json_layoutpreferences, preferencesString);
     }
   }
   
@@ -1134,7 +1136,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
 
   //FINAL TOTAL
   tableRow = repTableObj.addRow();
-  if (IS_INTEGRATED_INVOICE && INCLUDE_PAYMENTS && invoiceObj.billing_info.total_advance_payment) {
+  if (INCLUDE_PAYMENTS) {
     // Integrated invoices with payments
     tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell total_cell_border right", 1);
@@ -1145,7 +1147,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   }
 
   // For Integrated invoice, prints the payments for reminders and also when the print preferences "invoice with payments" is selected
-  if (IS_INTEGRATED_INVOICE && INCLUDE_PAYMENTS && invoiceObj.billing_info.total_advance_payment) {
+  if (INCLUDE_PAYMENTS) {
     tableRow = repTableObj.addRow();
     tableRow.addCell("", "border-top", columnsNumber);
 
@@ -1410,7 +1412,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   //FINAL TOTAL
   tableRow = repTableObj.addRow();
-  if (IS_INTEGRATED_INVOICE && INCLUDE_PAYMENTS && invoiceObj.billing_info.total_advance_payment) {
+  if (INCLUDE_PAYMENTS) {
     //Integrated invoice with payments
     tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell total_cell_border right", 1);    
@@ -1421,7 +1423,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   }
 
   // For Integrated invoice, prints the payments for reminders and also when the print preferences "invoice with payments" is selected
-  if (IS_INTEGRATED_INVOICE && INCLUDE_PAYMENTS && invoiceObj.billing_info.total_advance_payment) {
+  if (INCLUDE_PAYMENTS) {
     tableRow = repTableObj.addRow();
     tableRow.addCell("", "border-top", columnsNumber);
 

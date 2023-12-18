@@ -11087,7 +11087,7 @@ Reference \\
 RF55 4110 0350 5 \\
   \\
 Additional information \\
-//S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30 \\
+//S1/10/505/11/230101/20/1100/40/0:30 \\
   \\
 Payable by \\
 Redford SA \\
@@ -11125,7 +11125,7 @@ ewline SCOR
 ewline RF55411003505
 ewline 
 ewline EPD
-ewline //S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.39;3.8:57.8/40/0:30}\\
+ewline //S1/10/505/11/230101/20/1100/40/0:30}\\
 \begin{jsonvalue}{JSON preferences}
 {
     "id": "invoice_available_layout_preferences",
@@ -11216,7 +11216,7 @@ Reference \\
 RF55 4110 0350 5 \\
   \\
 Additional information \\
-//S1/10/505/11/230305/20/1100/31/230305/32/7.7:501.39;3.8:57.8/40/0:5 \\
+//S1/10/505/11/230305/20/1100/40/0:5 \\
   \\
 Payable by \\
 Redford SA \\
@@ -11254,7 +11254,7 @@ ewline SCOR
 ewline RF55411003505
 ewline 
 ewline EPD
-ewline //S1/10/505/11/230305/20/1100/31/230305/32/7.7:501.39;3.8:57.8/40/0:5}\\
+ewline //S1/10/505/11/230305/20/1100/40/0:5}\\
 \begin{jsonvalue}{JSON preferences}
 {
     "id": "invoice_available_layout_preferences",
