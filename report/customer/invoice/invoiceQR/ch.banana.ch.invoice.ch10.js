@@ -1008,7 +1008,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   //DISCOUNT
   //used only for the "Application Invoice"
   //on normal invoices discounts are entered as items in transactions
-  if (invoiceObj.billing_info.total_discount_vat_exclusive) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_discount_vat_exclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ?
       invoiceObj.billing_info.discount.description : texts.discount;
@@ -1048,7 +1048,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
 
   //DEPOSIT
   //Only used for the Application Invoice
-  if (invoiceObj.billing_info.total_advance_payment) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1264,7 +1264,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   //SUBTOTAL
   //used only for the "Application Invoice"
   //Print subtotal if there is discount or rounding or deposit
-  if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
     || invoiceObj.billing_info.total_rounding_difference 
     || invoiceObj.billing_info.total_advance_payment)
@@ -1278,7 +1278,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   //DISCOUNT
   //used only for the "Application Invoice"
   //on normal invoices discounts are entered as items in transactions
-  if (invoiceObj.billing_info.total_discount_vat_inclusive) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_discount_vat_inclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ?
       invoiceObj.billing_info.discount.description : texts.discount;
@@ -1297,7 +1297,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   //DEPOSIT
   //Only used for the Application Invoice
-  if (invoiceObj.billing_info.total_advance_payment) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1311,7 +1311,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
     || invoiceObj.billing_info.total_rounding_difference 
-    || invoiceObj.billing_info.total_advance_payment)
+    || (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) )
   ) {
     tableRow.addCell("", "border-top", columnsNumber);
   } else {
