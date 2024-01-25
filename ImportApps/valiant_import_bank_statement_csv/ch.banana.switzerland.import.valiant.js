@@ -16,8 +16,11 @@
 // @api = 1.0
 // @pubdate = 2024-01-20
 // @publisher = Banana.ch SA
-// @description = Valiant - Import transactions (*.csv)
-// @description.en = Valiant - Import transactions (*.csv)
+// @description = Valiant - Import movements .csv (Banana+ Advanced)
+// @description.it = Valiant - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = Valiant - Import movements .csv (Banana+ Advanced)
+// @description.de = Valiant - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Valiant - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -25,6 +28,9 @@
 // @inputdatasource = openfiledialog
 // @inputencoding = latin1
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
+// @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
+// @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
+// @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
 // @timeout = -1
 // @includejs = import.utilities.js
 
