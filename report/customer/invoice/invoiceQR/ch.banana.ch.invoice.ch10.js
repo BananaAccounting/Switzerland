@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2023-12-18
+// @pubdate = 2024-01-19
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -90,6 +90,29 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
       invoiceObj = JSON.parse(jsonInvoice)
     }
 
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Temporaneamente, imposto i nuovi campi del JSON.
+    // Con la nuova versione di banana che include il nuovo JSON, questo sarà da cancellare
+
+
+    invoiceObj.billing_info.total_transactions = invoiceObj.billing_info.total_advance_payment;
+    invoiceObj.billing_info.total_transactions_description = "total_transactions_description";
+
+    // reimposto perché utilizzato solo in OFFERTE-FATTURE per l'acconto
+    // nell'INTEGRATA non viene mai utilizzato
+    if (IS_INTEGRATED_INVOICE) {
+      invoiceObj.billing_info.total_advance_payment = "";
+      invoiceObj.billing_info.total_advance_payment_description = "";
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
     //json for print preferences
     if (jsonPreferences) {
       var preferencesObj = null;
@@ -160,9 +183,10 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   if (printFormat === "estimate") {
     invoiceObj.document_info.doc_type = "17"; // 17=estimate
   }
+
   // Set flag to include payments on reminders and invoice with payments
   // Only for integrated invoice. For App. Estimates-Invoices there are not partial payments
-  if ( IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment && (printFormat === "invoice_with_payments" || printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") ) {
+  if ( invoiceObj.billing_info.total_transactions && (printFormat === "invoice_with_payments" || printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") ) {
     INCLUDE_PAYMENTS = true;
   } else {
     INCLUDE_PAYMENTS = false;
@@ -983,9 +1007,10 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
         if (IS_INTEGRATED_INVOICE) {
-          // If referenceUnit is empty we do not print the quantity.
-          // With this we can avoid to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
-          if (item.mesure_unit) {
+          // Always print quantity if entered in the Quantity column, even if "quantity,unit,unitprice" are not all entered.
+          // Transactions without quantity, in JSON are saved without decimals ("item.quantity":"1")
+          // Transactins with quantity, in JSON are saved with four decimals ("item.quantity":"1.0000")
+          if (item.quantity && item.quantity !== "1") {
             if (variables.decimals_quantity !== "") {
               decimals = variables.decimals_quantity;
             }
@@ -1075,8 +1100,8 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   tableRow.addCell("", "border-top", columnsNumber);
 
   //DISCOUNT
-  //used only for the "Application Invoice"
-  //on normal invoices discounts are entered as items in transactions
+  //Only used for the Application Estimates-Invoices
+  //On Integrated Invoice, discounts are entered as items in transactions
   if (invoiceObj.billing_info.total_discount_vat_exclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ? invoiceObj.billing_info.discount.description : texts.discount;
@@ -1116,8 +1141,8 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   }
 
   //DEPOSIT
-  //Only used for the Application Invoice
-  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
+  //Only used for the Application Estimates-Invoices
+  if (invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1153,7 +1178,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
 
     tableRow = repTableObj.addRow();
     tableRow.addCell(texts.paidamount, "padding-left padding-right", columnsNumber-1);
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_advance_payment, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_transactions, variables.decimals_amounts, true), "right padding-left padding-right", 1);
     
     tableRow = repTableObj.addRow();
     tableRow.addCell(userParam[lang+'_text_pending_balance'] + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
@@ -1264,9 +1289,10 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
         if (IS_INTEGRATED_INVOICE) {
-          // If referenceUnit is empty we do not print the quantity.
-          // With this we can avoit to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
-          if (item.mesure_unit) {
+          // Always print quantity if entered in the Quantity column, even if "quantity,unit,unitprice" are not all entered.
+          // Transactions without quantity, in JSON are saved without decimals ("item.quantity":"1")
+          // Transactins with quantity, in JSON are saved with four decimals ("item.quantity":"1.0000")
+          if (item.quantity && item.quantity !== "1") {
             if (variables.decimals_quantity !== "") {
               decimals = variables.decimals_quantity;
             }
@@ -1356,11 +1382,12 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   tableRow.addCell("", "border-top", columnsNumber);
 
   //SUBTOTAL
-  //used only for the "Application Invoice"
-  //Print subtotal if there is discount or rounding
+  //Only used for the Application Estimates-Invoices
+  //Print subtotal if there is discount, deposit or rounding
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
-    || invoiceObj.billing_info.total_rounding_difference)
+    || invoiceObj.billing_info.total_rounding_difference
+    || invoiceObj.billing_info.total_advance_payment)
   ) {
     
     tableRow = repTableObj.addRow();
@@ -1369,8 +1396,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   }
 
   //DISCOUNT
-  //used only for the "Application Invoice"
-  //on normal invoices discounts are entered as items in transactions
+  //Only used for the Application Estimates-Invoices
+  //On Integrated Invoice, discounts are entered as items in transactions
   if (invoiceObj.billing_info.total_discount_vat_inclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ? invoiceObj.billing_info.discount.description : texts.discount;
@@ -1389,8 +1416,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   }
 
   //DEPOSIT
-  //Only used for the Application Invoice
-  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
+  //Only used for the Application Estimates-Invoices
+  if (invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1403,7 +1430,8 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   tableRow = repTableObj.addRow();
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
-    || invoiceObj.billing_info.total_rounding_difference)
+    || invoiceObj.billing_info.total_rounding_difference
+    || invoiceObj.billing_info.total_advance_payment)
   ) {
     tableRow.addCell("", "border-top", columnsNumber);
   } else {
@@ -1429,7 +1457,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
     tableRow = repTableObj.addRow();
     tableRow.addCell(texts.paidamount, "padding-left padding-right", columnsNumber-1);
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_advance_payment, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_transactions, variables.decimals_amounts, true), "right padding-left padding-right", 1);
     
     tableRow = repTableObj.addRow();
     tableRow.addCell(userParam[lang+'_text_pending_balance'] + " " + invoiceObj.document_info.currency, "total_cell total_cell_border", columnsNumber-1);
