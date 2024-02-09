@@ -6811,7 +6811,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Te e tisane \newline \newline  & 4.00  &  & 5.30  & 21.20 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{295}{l}{}\\
-\multicolumn{294}{l}{Discount } & 2.20 \\
+\multicolumn{294}{l}{Discount } & -2.20 \\
 \multicolumn{295}{l}{}\\
 \multicolumn{294}{l}{TOTAL CHF } & 25.00 \\
 \end{longtable}
@@ -6917,7 +6917,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Tisane e te \newline \newline  & 5.00  &  & 4.92  & 24.61 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{300}{l}{}\\
-\multicolumn{299}{l}{Discount } & 2.35 \\
+\multicolumn{299}{l}{Discount } & -2.35 \\
 \multicolumn{299}{l}{Total net } & 28.26 \\
 \multicolumn{299}{l}{VAT 7.70\% (22.72) } & 1.74 \\
 \multicolumn{300}{l}{}\\
@@ -7025,7 +7025,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 Te e tisane \newline \newline  & 4.00  &  & 5.00  & 20.00 \\
 Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{305}{l}{}\\
-\multicolumn{304}{l}{Discount } & 2.40 \\
+\multicolumn{304}{l}{Discount } & -2.40 \\
 \multicolumn{304}{l}{Total net } & 23.60 \\
 \multicolumn{304}{l}{VAT 7.70\% (18.16) } & 1.40 \\
 \multicolumn{305}{l}{}\\
@@ -7135,7 +7135,7 @@ Te e tisane \newline \newline  & 4.00  &  & 5.30  & 21.20 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{310}{l}{}\\
 \multicolumn{309}{l}{Subtotal } & 27.20 \\
-\multicolumn{309}{l}{Discount } & 2.20 \\
+\multicolumn{309}{l}{Discount } & -2.20 \\
 \multicolumn{310}{l}{}\\
 \multicolumn{309}{l}{TOTAL CHF } & 25.00 \\
 \multicolumn{310}{l}{}\\
@@ -7244,7 +7244,7 @@ Tisane e te \newline \newline  & 5.00  &  & 5.30  & 26.50 \\
 Spese di spedizione \newline \newline  & 1.00  &  & 6.00  & 6.00 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{Subtotal } & 32.50 \\
-\multicolumn{314}{l}{Discount } & 2.50 \\
+\multicolumn{314}{l}{Discount } & -2.50 \\
 \multicolumn{315}{l}{}\\
 \multicolumn{314}{l}{TOTAL CHF } & 30.00 \\
 \multicolumn{315}{l}{}\\
@@ -7353,7 +7353,7 @@ Te e tisane \newline \newline  & 4.00  &  & 5.39  & 21.54 \\
 Spese di spedizione \newline \newline  & 1.00  &  &  & 6.00 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{Subtotal } & 27.54 \\
-\multicolumn{319}{l}{Discount } & 2.54 \\
+\multicolumn{319}{l}{Discount } & -2.54 \\
 \multicolumn{320}{l}{}\\
 \multicolumn{319}{l}{TOTAL CHF } & 25.00 \\
 \multicolumn{320}{l}{}\\
@@ -7570,7 +7570,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{Subtotal } & 26.00 \\
-\multicolumn{329}{l}{testo sconto 5\% } & 1.30 \\
+\multicolumn{329}{l}{testo sconto 5\% } & -1.30 \\
 \multicolumn{330}{l}{}\\
 \multicolumn{329}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{330}{l}{}\\
@@ -7679,7 +7679,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{334}{l}{Subtotal } & 42.00 \\
-\multicolumn{334}{l}{testo acconto } & 20.00 \\
+\multicolumn{334}{l}{testo acconto } & -20.00 \\
 \multicolumn{335}{l}{}\\
 \multicolumn{334}{l}{TOTAL CHF } & 22.00 \\
 \multicolumn{335}{l}{}\\
@@ -7788,8 +7788,8 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{339}{l}{Subtotal } & 100.00 \\
-\multicolumn{339}{l}{testo sconto } & 10.00 \\
-\multicolumn{339}{l}{testo acconto } & 40.00 \\
+\multicolumn{339}{l}{testo sconto } & -10.00 \\
+\multicolumn{339}{l}{testo acconto } & -40.00 \\
 \multicolumn{340}{l}{}\\
 \multicolumn{339}{l}{TOTAL CHF } & 50.00 \\
 \multicolumn{340}{l}{}\\
@@ -8005,7 +8005,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 bbb \newline \newline  & 2  & pz  & 13.00  & 26.00 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{Subtotal } & 26.00 \\
-\multicolumn{349}{l}{testo sconto 5\% } & 1.30 \\
+\multicolumn{349}{l}{testo sconto 5\% } & -1.30 \\
 \multicolumn{350}{l}{}\\
 \multicolumn{349}{l}{TOTAL CHF } & 24.70 \\
 \multicolumn{350}{l}{}\\
@@ -8114,7 +8114,7 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ccc \newline \newline  & 3  & pz  & 14.00  & 42.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{Subtotal } & 42.00 \\
-\multicolumn{354}{l}{testo acconto } & 20.00 \\
+\multicolumn{354}{l}{testo acconto } & -20.00 \\
 \multicolumn{355}{l}{}\\
 \multicolumn{354}{l}{TOTAL CHF } & 22.00 \\
 \multicolumn{355}{l}{}\\
@@ -8223,8 +8223,8 @@ Description  & Quantity  & Unit  & Unit Price  & Amount \\
 ddd \newline \newline  & 1  & pz  & 100.00  & 100.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{Subtotal } & 100.00 \\
-\multicolumn{359}{l}{testo sconto } & 10.00 \\
-\multicolumn{359}{l}{testo acconto } & 40.00 \\
+\multicolumn{359}{l}{testo sconto } & -10.00 \\
+\multicolumn{359}{l}{testo acconto } & -40.00 \\
 \multicolumn{360}{l}{}\\
 \multicolumn{359}{l}{TOTAL CHF } & 50.00 \\
 \multicolumn{360}{l}{}\\
@@ -8562,7 +8562,7 @@ Item  & Date  & Description  & Quantity  & Unit  & Unit Price  & Discount  & Amo
 4000  &  & Spese di spedizione \newline \newline  & 1.00  &  & 6.00  &  & 6.00 \\
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{Subtotal } & 133.93 \\
-\multicolumn{377}{l}{Discount } & 2.37 \\
+\multicolumn{377}{l}{Discount } & -2.37 \\
 \multicolumn{378}{l}{}\\
 \multicolumn{377}{l}{TOTAL CHF } & 131.56 \\
 \multicolumn{378}{l}{}\\
@@ -9132,11 +9132,11 @@ Invoice 16 \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Product A \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
-Product B \newline \newline  & 1.00  & pc  & 67.50  & 67.50 \\
-Product C \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
-Product D \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
-Product E \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+Product A \newline \newline  & 1  & pc  & 92.85  & 92.85 \\
+Product B \newline \newline  & 1  & pc  & 67.50  & 67.50 \\
+Product C \newline \newline  & 1  & pc  & 50.00  & 50.00 \\
+Product D \newline \newline  & 1  & pc  & 92.85  & 92.85 \\
+Product E \newline \newline  & 1  & pc  & 50.00  & 50.00 \\
 \multicolumn{405}{l}{}\\
 \multicolumn{404}{l}{Total net } & 353.20 \\
 \multicolumn{404}{l}{VAT 0.00\% (100.00) } & 0.00 \\
@@ -9250,11 +9250,11 @@ SENZA IVA 0\% \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Product A \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
-Product B \newline \newline  & 1.00  & pc  & 67.50  & 67.50 \\
-Product C \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
-Product D \newline \newline  & 1.00  & pc  & 92.85  & 92.85 \\
-Product E \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+Product A \newline \newline  & 1  & pc  & 92.85  & 92.85 \\
+Product B \newline \newline  & 1  & pc  & 67.50  & 67.50 \\
+Product C \newline \newline  & 1  & pc  & 50.00  & 50.00 \\
+Product D \newline \newline  & 1  & pc  & 92.85  & 92.85 \\
+Product E \newline \newline  & 1  & pc  & 50.00  & 50.00 \\
 \multicolumn{410}{l}{}\\
 \multicolumn{409}{l}{Total net } & 353.20 \\
 \multicolumn{409}{l}{VAT 7.70\% (185.70) } & 14.30 \\
@@ -9367,11 +9367,11 @@ SENZA IVA \newline \\
 \end{longtable}
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
 Description  & Quantity  & Unit  & Unit Price  & Amount \\
-Product A \newline \newline  & 1.00  & pc  & 100.00  & 100.00 \\
-Product B \newline \newline  & 1.00  & pc  & 70.00  & 70.00 \\
-Product C \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
-Product D \newline \newline  & 1.00  & pc  & 100.00  & 100.00 \\
-Product E \newline \newline  & 1.00  & pc  & 50.00  & 50.00 \\
+Product A \newline \newline  & 1  & pc  & 100.00  & 100.00 \\
+Product B \newline \newline  & 1  & pc  & 70.00  & 70.00 \\
+Product C \newline \newline  & 1  & pc  & 50.00  & 50.00 \\
+Product D \newline \newline  & 1  & pc  & 100.00  & 100.00 \\
+Product E \newline \newline  & 1  & pc  & 50.00  & 50.00 \\
 \multicolumn{415}{l}{}\\
 \multicolumn{415}{l}{}\\
 \multicolumn{414}{l}{TOTAL CHF } & 370.00 \\
