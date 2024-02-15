@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -57,6 +57,15 @@ function exec(inData, isTest) {
       var fieldSeparator = findSeparator(inData);
       var transactions = Banana.Converter.csvToArray(inData, fieldSeparator);
 
+      // Format 6, works with translated column headers.
+      var format6 = new PFCSVFormat6();
+      // getFormattedData () works with specifics headers and to translate them. 
+      let transactionsData = format6.getFormattedData(transactions, importUtilities);
+      if (format6.match(transactionsData)) {
+         let convTransactions = format6.convert(transactionsData);
+         return Banana.Converter.arrayToTsv(convTransactions);
+      }
+
       // Format 5
       var format5 = new PFCSVFormat5();
       if (format5.match(transactions)) {
@@ -110,6 +119,152 @@ function exec(inData, isTest) {
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * PFCSV Format 6, since february 2024.
+ */
+function PFCSVFormat6() {
+
+   this.getFormattedData = function (transactions, importUtilities) {
+      let headerLineStart = 6;
+      let dataLineStart = 8;
+      // We do a copy as the getHeaderData modifies the content and we need to keep the original version clean.
+      var transactionsCopy = transactions.map(function (arr) {
+         return arr.slice();
+      });
+      if (transactionsCopy.length < dataLineStart)
+         return [];
+      let columns = importUtilities.getHeaderData(transactionsCopy, headerLineStart); //array
+      let rows = importUtilities.getRowData(transactionsCopy, dataLineStart); //array of array
+      let form = [];
+
+      /** We convert the original headers into a custom format to be able to work with the same
+       * format regardless of original's headers language or the position of the header column.
+       * We need to translate all the .csv fields as the loadForm() method expects the header and
+       * the rows to have the same length.
+       * */
+      let convertedColumns = [];
+      convertedColumns.concat(this.convertHeaderDe(columns, convertedColumns));
+      convertedColumns.concat(this.convertHeaderIt(columns, convertedColumns)); // Convert headers from italian. // Convert headers from german.
+      convertedColumns.concat(this.convertHeaderFr(columns, convertedColumns)); // Convert headers from french.
+      convertedColumns.concat(this.convertHeaderEn(columns, convertedColumns)); // Convert headers from english.
+      //Load the form with data taken from the array. Create objects
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
+   this.convertHeaderDe = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Datum":
+               convertedColumns[i] = "Date";
+               break;
+            case "Bewegungstyp":
+               convertedColumns[i] = "Type";
+               break;
+            case "Avisierungstext":
+               convertedColumns[i] = "Description";
+               break;
+            case "Gutschrift in CHF":
+               convertedColumns[i] = "Income";
+               break;
+            case "Lastschrift in CHF":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Label":
+               convertedColumns[i] = "Label";
+               break;
+            case "Kategorie":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               return [];
+         }
+      }
+
+      return convertedColumns;
+   }
+
+   this.convertHeaderIt = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         // Convert headers...
+      }
+
+      return [];
+   }
+
+   this.convertHeaderFr = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         // Convert headers...
+      }
+
+      return [];
+   }
+
+   this.convertHeaderEn = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         // Convert headers...
+      }
+
+      return [];
+   }
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      let trDescription = transaction["Description"] + ", " + transaction["Type"];
+      mappedLine.push(trDescription);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(Banana.SDecimal.abs(transaction["Expenses"]), '.'));
+
+      return mappedLine;
+   }
+
 }
 
 /**
@@ -271,7 +426,6 @@ function PFCSVFormat5() {
       amountDebit = element[this.colDebit].replace(/-/g, ''); //remove minus sign
       mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit));
 
-      Banana.console.debug(mappedLine);
       return mappedLine;
    }
 }
