@@ -145,16 +145,38 @@ function PFCSVFormat6() {
        * the rows to have the same length.
        * */
       let convertedColumns = [];
-      convertedColumns.concat(this.convertHeaderDe(columns, convertedColumns));
-      convertedColumns.concat(this.convertHeaderIt(columns, convertedColumns)); // Convert headers from italian. // Convert headers from german.
-      convertedColumns.concat(this.convertHeaderFr(columns, convertedColumns)); // Convert headers from french.
-      convertedColumns.concat(this.convertHeaderEn(columns, convertedColumns)); // Convert headers from english.
-      //Load the form with data taken from the array. Create objects
-      importUtilities.loadForm(form, convertedColumns, rows);
-      return form;
+
+      convertedColumns = this.convertHeaderDe(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from italian. 
+      convertedColumns = this.convertHeaderIt(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         Banana.console.debug(convertedColumns + " / " + convertedColumns.length);
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from french.
+      convertedColumns = this.convertHeaderFr(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from english.
+      convertedColumns = this.convertHeaderEn(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+
    }
 
-   this.convertHeaderDe = function (columns, convertedColumns) {
+   this.convertHeaderDe = function (columns) {
+      let convertedColumns = [];
       for (var i = 0; i < columns.length; i++) {
          switch (columns[i]) {
             case "Datum":
@@ -179,19 +201,50 @@ function PFCSVFormat6() {
                convertedColumns[i] = "Category";
                break;
             default:
-               return [];
+               break;
          }
       }
 
+      if (convertedColumns.length !== 7) {
+         return [];
+      }
       return convertedColumns;
    }
 
    this.convertHeaderIt = function (columns, convertedColumns) {
       for (var i = 0; i < columns.length; i++) {
-         // Convert headers...
+         switch (columns[i]) {
+            case "Data":
+               convertedColumns[i] = "Date";
+               break;
+            case "Tipo di movimento":
+               convertedColumns[i] = "Type";
+               break;
+            case "Testo di avviso":
+               convertedColumns[i] = "Description";
+               break;
+            case "Accredito in CHF":
+               convertedColumns[i] = "Income";
+               break;
+            case "Addebito in CHF":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Tag":
+               convertedColumns[i] = "Label";
+               break;
+            case "Categoria":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
       }
 
-      return [];
+      if (convertedColumns.length !== 7) {
+         return [];
+      }
+
+      return convertedColumns;
    }
 
    this.convertHeaderFr = function (columns, convertedColumns) {
