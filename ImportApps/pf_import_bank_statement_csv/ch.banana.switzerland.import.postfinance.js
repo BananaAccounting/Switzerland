@@ -249,10 +249,39 @@ function PFCSVFormat6() {
 
    this.convertHeaderFr = function (columns, convertedColumns) {
       for (var i = 0; i < columns.length; i++) {
-         // Convert headers...
+         switch (columns[i]) {
+            case "Date":
+               convertedColumns[i] = "Date";
+               break;
+            case "Type de transaction":
+               convertedColumns[i] = "Type";
+               break;
+            case "Texte de notification":
+               convertedColumns[i] = "Description";
+               break;
+            case "Crédit en CHF":
+               convertedColumns[i] = "Income";
+               break;
+            case "Débit en CHF":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Label":
+               convertedColumns[i] = "Label";
+               break;
+            case "Catégorie":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
       }
 
-      return [];
+      if (convertedColumns.length !== 7) {
+         return [];
+      }
+
+      Banana.console.debug(convertedColumns);
+      return convertedColumns;
    }
 
    this.convertHeaderEn = function (columns, convertedColumns) {
