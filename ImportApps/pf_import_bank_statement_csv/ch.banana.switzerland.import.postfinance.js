@@ -280,7 +280,6 @@ function PFCSVFormat6() {
          return [];
       }
 
-      Banana.console.debug(convertedColumns);
       return convertedColumns;
    }
 
