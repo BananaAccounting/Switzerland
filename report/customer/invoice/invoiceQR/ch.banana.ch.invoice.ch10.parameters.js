@@ -1565,6 +1565,20 @@ function convertParam(userParam) {
      userParam.dev_json_layoutpreferences = this.value;
     }
     convertedParam.data.push(currentParam);
+
+    //Print QRCode image text
+    currentParam = {};
+    currentParam.name = 'dev_text_qrcode';
+    currentParam.parentObject = 'develop';
+    currentParam.title = texts.param_dev_text_qrcode;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.dev_text_qrcode ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_dev_text_qrcode;
+    currentParam.readValue = function() {
+    userParam.dev_text_qrcode = this.value;
+    }
+    convertedParam.data.push(currentParam);
   }
   
   return convertedParam;
@@ -1708,6 +1722,7 @@ function initParam() {
   userParam.dev_json_invoice = false;
   userParam.dev_json_layoutparameters = false;
   userParam.dev_json_layoutpreferences = false;
+  userParam.dev_text_qrcode = false;
 
   return userParam;
 }
@@ -2020,6 +2035,9 @@ function verifyParam(userParam) {
   }
   if (!userParam.dev_json_layoutpreferences || !BAN_ADVANCED) {
     userParam.dev_json_layoutpreferences = false;
+  }
+  if (!userParam.dev_text_qrcode || !BAN_ADVANCED) {
+    userParam.dev_text_qrcode = false;
   }
 
   return userParam;

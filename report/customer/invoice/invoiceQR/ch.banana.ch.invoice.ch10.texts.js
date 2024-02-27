@@ -193,7 +193,7 @@ function setTexts_it(texts) {
   texts.param_tooltip_details_gross_amounts = "Vista per stampare i dettagli della fattura con gli importi al lordo e IVA inclusa";
   texts.param_tooltip_details_additional_descriptions = "Vista per stampare descrizioni supplementari";
   texts.param_tooltip_text_final = "Inserisci un testo per sostituire quello predefinito";
-  texts.param_tooltip_footer_add = "Vista stampare il piè di pagina";
+  texts.param_tooltip_footer_add = "Vista per stampare il piè di pagina quando il bollettino QR è escluso dalla stampa";
   texts.param_tooltip_footer = "Inserisci il testo piè di pagina";
   texts.param_tooltip_footer_horizontal_line = "Stampa bordo di separazione";
   texts.param_tooltip_font_family = "Inserisci il tipo di carattere (ad es. Arial, Helvetica, Times New Roman, ...)";
@@ -284,9 +284,12 @@ function setTexts_it(texts) {
   texts.param_tooltip_dev_json_layoutparameters = "Visualizza JSON parametri layout";
   texts.param_dev_json_layoutpreferences = "Visualizza JSON preferenze layout";
   texts.param_tooltip_dev_json_layoutpreferences = "Visualizza JSON preferenze layout";
+  texts.param_dev_text_qrcode = "Visualizza testo QRCode";
+  texts.param_tooltip_dev_text_qrcode = "Visualizza testo QRCode";
   texts.dlg_json_invoice = "JSON fattura %1";
   texts.dlg_json_layoutparameters = "JSON parametri layout";
   texts.dlg_json_layoutpreferences = "JSON preferenze layout";
+  texts.dlg_text_qrcode = "Testo QRCode";
 }
 
 function setTexts_fr(texts) {
@@ -434,7 +437,7 @@ function setTexts_fr(texts) {
   texts.param_tooltip_details_gross_amounts = "Activer pour imprimer les détails de la facture avec les montants bruts et la TVA incluse";
   texts.param_tooltip_details_additional_descriptions = "Activer pour imprimer des descriptions supplémentaires";
   texts.param_tooltip_text_final = "Insérez un texte pour remplacer le texte par défaut";
-  texts.param_tooltip_footer_add = "Activer pour imprimer le pied de page";
+  texts.param_tooltip_footer_add = "Activer pour imprimer le pied de page lorsque le bulletin QR est exclu de l'impression";
   texts.param_tooltip_footer = "Insérer le texte pour la pied de page";
   texts.param_tooltip_footer_horizontal_line = "Imprimer la bordure de séparation";
   texts.param_tooltip_font_family = "Insérer le type de caractère (p. ex. Arial, Helvetica, Times New Roman, ...)";
@@ -525,9 +528,13 @@ function setTexts_fr(texts) {
   texts.param_tooltip_dev_json_layoutparameters = "Afficher les paramètres de mise en page JSON";
   texts.param_dev_json_layoutpreferences = "Afficher les préférences de mise en page JSON";
   texts.param_tooltip_dev_json_layoutpreferences = "Afficher les préférences de mise en page JSON";
+  texts.param_dev_text_qrcode = "Afficher le texte QRCode";
+  texts.param_tooltip_dev_text_qrcode = "Afficher le texte QRCode";
   texts.dlg_json_invoice = "JSON de la facture %1";
   texts.dlg_json_layoutparameters = "Paramètres de mise en page JSON";
   texts.dlg_json_layoutpreferences = "Préférences de mise en page JSON";
+  texts.dlg_text_qrcode = "Texte QRCode";
+
 }
 
 function setTexts_de(texts) {
@@ -675,7 +682,7 @@ function setTexts_de(texts) {
   texts.param_tooltip_details_gross_amounts = "Aktivieren, um Rechnungsdetails mit Bruttobeträgen und enthaltener MWST/USt zu drucken";
   texts.param_tooltip_details_additional_descriptions = "Aktivieren, um Zusätzliche Beschreibungen zu drucken";
   texts.param_tooltip_text_final = "Text eingeben, um Standardtext zu ersetzen";
-  texts.param_tooltip_footer_add = "Aktivieren, um Fusszeile unten auf der Seite zu drucken";
+  texts.param_tooltip_footer_add = "Aktivieren, um Fusszeile unten auf der Seite zu drucken wenn der QR-Einzahlungsschein vom Druck ausgeschlossen ist";
   texts.param_tooltip_footer = "Fusszeilentext eingeben";
   texts.param_tooltip_footer_horizontal_line = "Trennlinie drucken";
   texts.param_tooltip_font_family = "Schriftart eingeben (z.B. Arial, Helvetica, Times New Roman, usw.)";
@@ -766,9 +773,12 @@ function setTexts_de(texts) {
   texts.param_tooltip_dev_json_layoutparameters = "Zeige JSON-Layoutparameter";
   texts.param_dev_json_layoutpreferences = "Zeige JSON-Layouteinstellungen";
   texts.param_tooltip_dev_json_layoutpreferences = "Zeige JSON-Layouteinstellungen";
+  texts.param_dev_text_qrcode = "Zeige QRCode-Text";
+  texts.param_tooltip_dev_text_qrcode = "Zeige QRCode-Text";
   texts.dlg_json_invoice = "JSON-Rechnung %1";
   texts.dlg_json_layoutparameters = "JSON-Layoutparameter";
   texts.dlg_json_layoutpreferences = "JSON-Layouteinstellungen";
+  texts.dlg_text_qrcode = "QRCode-Text";
 }
 
 function setTexts_en(texts) {
@@ -916,7 +926,7 @@ function setTexts_en(texts) {
   texts.param_tooltip_details_gross_amounts = "Check to print invoice details with gross amounts and VAT included";
   texts.param_tooltip_details_additional_descriptions = "Check to print additional descriptions";
   texts.param_tooltip_text_final = "Enter text to replace the default";
-  texts.param_tooltip_footer_add = "Check to print the footer";
+  texts.param_tooltip_footer_add = "Check to print the footer when the QR bulletin is excluded from printing";
   texts.param_tooltip_footer = "Enter footer text";
   texts.param_tooltip_footer_horizontal_line = "Print separating border";
   texts.param_tooltip_font_family = "Enter font type (e.g. Arial, Helvetica, Times New Roman, ...)";
@@ -1007,8 +1017,11 @@ function setTexts_en(texts) {
   texts.param_tooltip_dev_json_layoutparameters = "View JSON layout parameters";
   texts.param_dev_json_layoutpreferences = "View JSON layout preferences";
   texts.param_tooltip_dev_json_layoutpreferences = "View JSON layout preferences";
+  texts.param_dev_text_qrcode = "View QRCode text";
+  texts.param_tooltip_dev_text_qrcode = "View QRCode text";
   texts.dlg_json_invoice = "JSON invoice %1";
   texts.dlg_json_layoutparameters = "JSON layout parameters";
   texts.dlg_json_layoutpreferences = "JSON layout preferences";
+  texts.dlg_text_qrcode = "QRCode text";
 }
 

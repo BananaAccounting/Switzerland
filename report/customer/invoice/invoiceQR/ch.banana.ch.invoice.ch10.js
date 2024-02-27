@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2024-02-07
+// @pubdate = 2024-02-16
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -223,7 +223,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT CUSTOMER ADDRESS */
-  if (IS_INTEGRATED_INVOICE && invoiceObj.shipping_info && invoiceObj.shipping_info.different_shipping_address && (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts")) { //for delivery note use shipping address when available
+  if (invoiceObj.shipping_info && invoiceObj.shipping_info.different_shipping_address && (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts")) { //for delivery note use shipping address when available
     if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
       hook_print_address_delivery_note(repDocObj, invoiceObj, userParam);
     } else {
@@ -239,7 +239,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT SHIPPING ADDRESS */
-  if (IS_INTEGRATED_INVOICE && userParam.shipping_address && printFormat !== "delivery_note" && printFormat !== "delivery_note_without_amounts") {
+  if (invoiceObj.shipping_info && userParam.shipping_address && printFormat !== "delivery_note" && printFormat !== "delivery_note_without_amounts") {
     if (BAN_ADVANCED && typeof(hook_print_shipping_address) === typeof(Function)) {
       hook_print_shipping_address(repDocObj, invoiceObj, texts, userParam);
     } else {
@@ -386,6 +386,12 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     if (userParam.dev_json_layoutpreferences) {
       var preferencesString = JSON.stringify(preferencesObj, null, 3);
       Banana.Ui.showText(texts.dlg_json_layoutpreferences, preferencesString);
+    }
+    // QRCode image text
+    if (qrBill && userParam.dev_text_qrcode) {
+      var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
+      var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
+      Banana.Ui.showText(texts.dlg_text_qrcode, qrcodeText);
     }
   }
 
@@ -562,7 +568,8 @@ function print_info_first_page(repDocObj, invoiceObj, texts, userParam) {
 
   //Adds custom fields
   //Works only with the estimates and invoices application
-  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+  //userParam.info_custom_fields is always set to false for integrated invoices, is never used
+  if (userParam.info_custom_fields) {
     if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
       for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
         var customField = invoiceObj.document_info.custom_fields[i];
@@ -674,7 +681,8 @@ function print_info_other_pages(repDocObj, invoiceObj, texts, userParam) {
   }
   //Adds custom fields
   //Works only with the estimates and invoices application
-  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+  //userParam.info_custom_fields is always set to false for integrated invoices, is never used
+  if (userParam.info_custom_fields) {
     if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
       for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
         var customField = invoiceObj.document_info.custom_fields[i];
@@ -1699,35 +1707,32 @@ function addMultipleLinesDescriptions(banDoc, descriptionCell, originRow, userPa
    * Works only for integrated invoices.
    */
 
-  if (userParam.details_additional_descriptions) {
+  if (IS_INTEGRATED_INVOICE && userParam.details_additional_descriptions) {
 
-    if (IS_INTEGRATED_INVOICE) {
+    //Return all xml column names
+    let table = banDoc.table('Transactions');
+    let tColumnNames = table.columnNames;
+    let descriptionsColumns = [];
 
-      //Return all xml column names
-      let table = banDoc.table('Transactions');
-      let tColumnNames = table.columnNames;
-      let descriptionsColumns = [];
-
-      //Get only "DescriptionXX" columns
-      for (let i = 0; i < tColumnNames.length; i++) {
-        if (tColumnNames[i].match(/^Description\d+$/)) {
-          descriptionsColumns.push(tColumnNames[i]);
-        }
+    //Get only "DescriptionXX" columns
+    for (let i = 0; i < tColumnNames.length; i++) {
+      if (tColumnNames[i].match(/^Description\d+$/)) {
+        descriptionsColumns.push(tColumnNames[i]);
       }
+    }
 
-      //Sort the array
-      descriptionsColumns.sort();
+    //Sort the array
+    descriptionsColumns.sort();
 
-      //Add each additional description as new paragraph in the description cell of the invoice details table
-      if (descriptionsColumns.length > 0) {
-        for (let i = 0; i < table.rowCount; i++) {
-          let tRow = table.row(i);
-          if (tRow.rowNr.toString() === originRow.toString()) {
-            for (let j = 0; j < descriptionsColumns.length; j++) {
-              let desc = tRow.value(descriptionsColumns[j]);
-              if (desc) {
-                addMdBoldText(descriptionCell, desc);
-              }
+    //Add each additional description as new paragraph in the description cell of the invoice details table
+    if (descriptionsColumns.length > 0) {
+      for (let i = 0; i < table.rowCount; i++) {
+        let tRow = table.row(i);
+        if (tRow.rowNr.toString() === originRow.toString()) {
+          for (let j = 0; j < descriptionsColumns.length; j++) {
+            let desc = tRow.value(descriptionsColumns[j]);
+            if (desc) {
+              addMdBoldText(descriptionCell, desc);
             }
           }
         }
@@ -2701,7 +2706,8 @@ function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userP
 
   //Adds custom fields
   //Works only with the estimates and invoices application
-  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+  //userParam.info_custom_fields is always set to false for integrated invoices, is never used
+  if (userParam.info_custom_fields) {
     if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
       for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
         var customField = invoiceObj.document_info.custom_fields[i];
@@ -2782,7 +2788,8 @@ function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, user
   }
   //Adds custom fields
   //Works only with the estimates and invoices application
-  if (userParam.info_custom_fields && !IS_INTEGRATED_INVOICE) {
+  //userParam.info_custom_fields is always set to false for integrated invoices, is never used
+  if (userParam.info_custom_fields) {
     if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
       for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
         var customField = invoiceObj.document_info.custom_fields[i];
@@ -3061,9 +3068,10 @@ function print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceO
       }
       else if (columnsNames[j].trim().toLowerCase() === "quantity") {
         if (IS_INTEGRATED_INVOICE) {
-          // If referenceUnit is empty we do not print the quantity.
-          // With this we can avoid to print the quantity "1.00" for transactions that do not have  quantity,unit,unitprice.
-          if (item.mesure_unit) {
+          // Always print quantity if entered in the Quantity column, even if "quantity,unit,unitprice" are not all entered.
+          // Transactions without quantity, in JSON are saved without decimals ("item.quantity":"1")
+          // Transactins with quantity, in JSON are saved with four decimals ("item.quantity":"1.0000")
+          if (item.quantity && item.quantity !== "1") {
             if (variables.decimals_quantity !== "") {
               decimals = variables.decimals_quantity;
             }
