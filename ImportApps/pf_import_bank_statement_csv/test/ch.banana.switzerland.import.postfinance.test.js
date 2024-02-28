@@ -73,6 +73,8 @@ TestImportPostfinanceTrans.prototype.testImport = function () {
     fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format6_20240215-DE.csv");
     fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format6_20240222-IT.csv");
     fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format6_20240226-FR.csv");
+    fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format6_20240228-FR-B.csv");
+    fileNameList.push("file:script/../test/testcases/csv_postfinance_example_format6_20240228-EN.csv");
 
     var parentLogger = this.testLogger;
     this.progressBar.start(fileNameList.length);

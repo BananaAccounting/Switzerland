@@ -55,49 +55,13 @@ function exec(inData, isTest) {
 
    } else {
       var fieldSeparator = findSeparator(inData);
-      var transactions = Banana.Converter.csvToArray(inData, fieldSeparator);
-
-      // Format 6, works with translated column headers.
-      var format6 = new PFCSVFormat6();
-      // getFormattedData () works with specifics headers and to translate them. 
-      let transactionsData = format6.getFormattedData(transactions, importUtilities);
-      if (format6.match(transactionsData)) {
-         let convTransactions = format6.convert(transactionsData);
-         return Banana.Converter.arrayToTsv(convTransactions);
-      }
-
-      // Format 5
-      var format5 = new PFCSVFormat5();
-      if (format5.match(transactions)) {
-         transactions = format5.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
-
-      // Format 4
-      var format4 = new PFCSVFormat4();
-      if (format4.match(transactions)) {
-         transactions = format4.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
+      let inDataCleared = clearText(inData);
+      var transactions = Banana.Converter.csvToArray(inDataCleared, fieldSeparator);
 
       // Format SBU 1
       var formatSBU1 = new PFCSVFormatSBU1();
       if (formatSBU1.match(transactions)) {
          transactions = formatSBU1.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
-
-      // Format 3
-      var format3 = new PFCSVFormat3();
-      if (format3.match(transactions)) {
-         transactions = format3.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
-
-      // Format 2
-      var format2 = new PFCSVFormat2();
-      if (format2.match(transactions)) {
-         transactions = format2.convert(transactions);
          return Banana.Converter.arrayToTsv(transactions);
       }
 
@@ -114,11 +78,58 @@ function exec(inData, isTest) {
          transactions = format1.convert(transactions);
          return Banana.Converter.arrayToTsv(transactions);
       }
+
+      // Format 2
+      var format2 = new PFCSVFormat2();
+      if (format2.match(transactions)) {
+         transactions = format2.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 3
+      var format3 = new PFCSVFormat3();
+      if (format3.match(transactions)) {
+         transactions = format3.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 4
+      var format4 = new PFCSVFormat4();
+      if (format4.match(transactions)) {
+         transactions = format4.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 5
+      var format5 = new PFCSVFormat5();
+      if (format5.match(transactions)) {
+         transactions = format5.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 6, works with translated column headers.
+      var format6 = new PFCSVFormat6();
+      // getFormattedData () works with specifics headers and to translate them. 
+      let transactionsData = format6.getFormattedData(transactions, importUtilities);
+      if (format6.match(transactionsData)) {
+         let convTransactions = format6.convert(transactionsData);
+         return Banana.Converter.arrayToTsv(convTransactions);
+      }
    }
 
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * Pulisce il testo dai doppi a capo, con la versione 6 del formato csv, per qualche motivo quando il file .csv
+ * viene aperto su windows vengono aggiunti degli a capo aggiuntivi (uno o più).
+ * Ogni riga dovrebbe contenere un "\r\n" non di più, anche quelle vuote.
+ */
+function clearText(text) {
+   // Sostituisce tutte le occorrenze multiple di "\r\r\n" con un singolo "\r\n"
+   return text.replace(/\r\r\n/g, "\r\n");
 }
 
 /**
@@ -154,7 +165,6 @@ function PFCSVFormat6() {
       // Convert headers from italian. 
       convertedColumns = this.convertHeaderIt(columns, convertedColumns);
       if (convertedColumns.length > 0) {
-         Banana.console.debug(convertedColumns + " / " + convertedColumns.length);
          importUtilities.loadForm(form, convertedColumns, rows);
          return form;
       }
@@ -205,7 +215,10 @@ function PFCSVFormat6() {
          }
       }
 
-      if (convertedColumns.length !== 7) {
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
       return convertedColumns;
@@ -240,7 +253,10 @@ function PFCSVFormat6() {
          }
       }
 
-      if (convertedColumns.length !== 7) {
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
 
@@ -248,6 +264,7 @@ function PFCSVFormat6() {
    }
 
    this.convertHeaderFr = function (columns, convertedColumns) {
+      Banana.console.debug(columns);
       for (var i = 0; i < columns.length; i++) {
          switch (columns[i]) {
             case "Date":
@@ -276,7 +293,11 @@ function PFCSVFormat6() {
          }
       }
 
-      if (convertedColumns.length !== 7) {
+      Banana.console.debug(convertedColumns);
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
 
@@ -285,10 +306,41 @@ function PFCSVFormat6() {
 
    this.convertHeaderEn = function (columns, convertedColumns) {
       for (var i = 0; i < columns.length; i++) {
-         // Convert headers...
+         switch (columns[i]) {
+            case "Date":
+               convertedColumns[i] = "Date";
+               break;
+            case "Type of transaction":
+               convertedColumns[i] = "Type";
+               break;
+            case "Notification text":
+               convertedColumns[i] = "Description";
+               break;
+            case "Credit in CHF":
+               convertedColumns[i] = "Income";
+               break;
+            case "Debit in CHF":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Tag":
+               convertedColumns[i] = "Label";
+               break;
+            case "Category":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
       }
 
-      return [];
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+
+      return convertedColumns;
    }
 
    /** Return true if the transactions match this format */
