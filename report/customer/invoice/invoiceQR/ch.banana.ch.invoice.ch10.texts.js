@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2024-02-07 */
+/* Texts update: 2024-03-05 */
 
 
 
@@ -278,18 +278,12 @@ function setTexts_it(texts) {
   texts.param_tooltip_color_title_total = "Inserisci il colore";
 
   texts.param_develop = "Sviluppo";
-  texts.param_dev_json_invoice = "Visualizza JSON fattura";
-  texts.param_tooltip_dev_json_invoice = "Visualizza JSON fattura";
-  texts.param_dev_json_layoutparameters = "Visualizza JSON parametri layout";
-  texts.param_tooltip_dev_json_layoutparameters = "Visualizza JSON parametri layout";
-  texts.param_dev_json_layoutpreferences = "Visualizza JSON preferenze layout";
-  texts.param_tooltip_dev_json_layoutpreferences = "Visualizza JSON preferenze layout";
-  texts.param_dev_text_qrcode = "Visualizza testo QRCode";
-  texts.param_tooltip_dev_text_qrcode = "Visualizza testo QRCode";
-  texts.dlg_json_invoice = "JSON fattura %1";
-  texts.dlg_json_layoutparameters = "JSON parametri layout";
-  texts.dlg_json_layoutpreferences = "JSON preferenze layout";
-  texts.dlg_text_qrcode = "Testo QRCode";
+  texts.param_dev_show_json = "Visualizza JSON fattura";
+  texts.param_tooltip_dev_show_json = "Visualizza JSON fattura, parametri layout, preferenze layout, testo QRCode";
+  texts.json_invoice = "JSON fattura";
+  texts.json_layoutparameters = "JSON parametri layout";
+  texts.json_layoutpreferences = "JSON preferenze layout";
+  texts.text_qrcode = "Testo QRCode";
 }
 
 function setTexts_fr(texts) {
@@ -522,19 +516,12 @@ function setTexts_fr(texts) {
   texts.param_tooltip_color_title_total = "Insérer la couleur";
 
   texts.param_develop = "Développement";
-  texts.param_dev_json_invoice = "Afficher la facture JSON";
-  texts.param_tooltip_dev_json_invoice = "Afficher la facture JSON";
-  texts.param_dev_json_layoutparameters = "Afficher les paramètres de mise en page JSON";
-  texts.param_tooltip_dev_json_layoutparameters = "Afficher les paramètres de mise en page JSON";
-  texts.param_dev_json_layoutpreferences = "Afficher les préférences de mise en page JSON";
-  texts.param_tooltip_dev_json_layoutpreferences = "Afficher les préférences de mise en page JSON";
-  texts.param_dev_text_qrcode = "Afficher le texte QRCode";
-  texts.param_tooltip_dev_text_qrcode = "Afficher le texte QRCode";
-  texts.dlg_json_invoice = "JSON de la facture %1";
-  texts.dlg_json_layoutparameters = "Paramètres de mise en page JSON";
-  texts.dlg_json_layoutpreferences = "Préférences de mise en page JSON";
-  texts.dlg_text_qrcode = "Texte QRCode";
-
+  texts.param_dev_show_json = "Afficher le JSON de la facture";
+  texts.param_tooltip_dev_show_json = "Afficher le JSON de la facture, des paramètres de mise en page, des préférences de mise en page, le texte du QRCode";
+  texts.json_invoice = "JSON de la facture";
+  texts.json_layoutparameters = "JSON des paramètres de mise en page";
+  texts.json_layoutpreferences = "JSON des préférences de mise en page";
+  texts.text_qrcode = "Texte du QRCode";
 }
 
 function setTexts_de(texts) {
@@ -767,18 +754,12 @@ function setTexts_de(texts) {
   texts.param_tooltip_color_title_total = "Farbe eingeben";
 
   texts.param_develop = "Entwicklung";
-  texts.param_dev_json_invoice = "Zeige JSON-Rechnung";
-  texts.param_tooltip_dev_json_invoice = "Zeige JSON-Rechnung";
-  texts.param_dev_json_layoutparameters = "Zeige JSON-Layoutparameter";
-  texts.param_tooltip_dev_json_layoutparameters = "Zeige JSON-Layoutparameter";
-  texts.param_dev_json_layoutpreferences = "Zeige JSON-Layouteinstellungen";
-  texts.param_tooltip_dev_json_layoutpreferences = "Zeige JSON-Layouteinstellungen";
-  texts.param_dev_text_qrcode = "Zeige QRCode-Text";
-  texts.param_tooltip_dev_text_qrcode = "Zeige QRCode-Text";
-  texts.dlg_json_invoice = "JSON-Rechnung %1";
-  texts.dlg_json_layoutparameters = "JSON-Layoutparameter";
-  texts.dlg_json_layoutpreferences = "JSON-Layouteinstellungen";
-  texts.dlg_text_qrcode = "QRCode-Text";
+  texts.param_dev_show_json = "Zeige JSON-Rechnung";
+  texts.param_tooltip_dev_show_json = "Zeige JSON-Rechnung, JSON-Layoutparameter, JSON-Layouteinstellungen und QRCode-Text";
+  texts.json_invoice = "JSON-Rechnung";
+  texts.json_layoutparameters = "JSON-Layoutparameter";
+  texts.json_layoutpreferences = "JSON-Layouteinstellungen";
+  texts.text_qrcode = "QRCode-Text";
 }
 
 function setTexts_en(texts) {
@@ -1011,17 +992,11 @@ function setTexts_en(texts) {
   texts.param_tooltip_color_title_total = "Enter the color";
 
   texts.param_develop = "Development";
-  texts.param_dev_json_invoice = "View JSON invoice";
-  texts.param_tooltip_dev_json_invoice = "View JSON invoice";
-  texts.param_dev_json_layoutparameters = "View JSON layout parameters";
-  texts.param_tooltip_dev_json_layoutparameters = "View JSON layout parameters";
-  texts.param_dev_json_layoutpreferences = "View JSON layout preferences";
-  texts.param_tooltip_dev_json_layoutpreferences = "View JSON layout preferences";
-  texts.param_dev_text_qrcode = "View QRCode text";
-  texts.param_tooltip_dev_text_qrcode = "View QRCode text";
-  texts.dlg_json_invoice = "JSON invoice %1";
-  texts.dlg_json_layoutparameters = "JSON layout parameters";
-  texts.dlg_json_layoutpreferences = "JSON layout preferences";
-  texts.dlg_text_qrcode = "QRCode text";
+  texts.param_dev_show_json = "View JSON invoice";
+  texts.param_tooltip_dev_show_json = "View JSON invoice, layout parameters, layout preferences, QRCode text";
+  texts.json_invoice = "JSON invoice";
+  texts.json_layoutparameters = "JSON layout parameters";
+  texts.json_layoutpreferences = "JSON layout preferences";
+  texts.text_qrcode = "QRCode text";
 }
 

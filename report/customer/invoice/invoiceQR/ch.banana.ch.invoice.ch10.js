@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2024-02-16
+// @pubdate = 2024-03-05
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -370,29 +370,8 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* DEVELOP */
-  if (BAN_ADVANCED) {
-    // JSON invoice
-    if (userParam.dev_json_invoice) {
-      var jsonString = JSON.stringify(invoiceObj, null, 3);
-      var dlgTitle = texts.dlg_json_invoice.replace("%1", invoiceObj.document_info.number);
-      Banana.Ui.showText(dlgTitle, jsonString);
-    }
-    // JSON layout parameters
-    if (userParam.dev_json_layoutparameters) {
-      var paramString = JSON.stringify(userParam, null, 3);
-      Banana.Ui.showText(texts.dlg_json_layoutparameters, paramString);
-    }
-    // JSON layout preferences
-    if (userParam.dev_json_layoutpreferences) {
-      var preferencesString = JSON.stringify(preferencesObj, null, 3);
-      Banana.Ui.showText(texts.dlg_json_layoutpreferences, preferencesString);
-    }
-    // QRCode image text
-    if (qrBill && userParam.dev_text_qrcode) {
-      var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
-      var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
-      Banana.Ui.showText(texts.dlg_text_qrcode, qrcodeText);
-    }
+  if (BAN_ADVANCED && userParam.dev_show_json) {
+    showInvoiceJsons(banDoc, invoiceObj, preferencesObj, qrBill, userParam, texts);
   }
 
   return repDocObj;
@@ -2426,6 +2405,34 @@ function replaceVariables(cssText, variables) {
   }
   return result;
 }
+
+function showInvoiceJsons(banDoc, invoiceObj, preferencesObj, qrBill, userParam, texts) {
+
+    var string = "";
+
+    // JSON invoice
+    var jsonString = JSON.stringify(invoiceObj, null, 3);
+    // JSON layout parameters
+    var paramString = JSON.stringify(userParam, null, 3);
+    // JSON layout preferences
+    var preferencesString = JSON.stringify(preferencesObj, null, 3);
+    // QRCode image text
+    var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
+    var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
+
+    string += "****************************************************************************** " + texts.json_invoice + " ******************************************************************************\n";
+    string += jsonString + "\n";
+    string += "\n****************************************************************************** " + texts.json_layoutparameters + " ******************************************************************************\n";
+    string += paramString + "\n";
+    string += "\n****************************************************************************** " + texts.json_layoutpreferences + " ******************************************************************************\n";
+    string += preferencesString + "\n";
+    string += "\n****************************************************************************** " + texts.text_qrcode + " ******************************************************************************\n";
+    string += qrcodeText;
+
+    var dlgTitle = texts.json_invoice + " " + invoiceObj.document_info.number;
+    Banana.Ui.showText(dlgTitle, string);
+}
+
 
 
 //====================================================================//

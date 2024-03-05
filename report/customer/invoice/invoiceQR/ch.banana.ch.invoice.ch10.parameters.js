@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2024-02-07 */
+/* User parameters update: 2024-03-05 */
 
 
 
@@ -1524,59 +1524,17 @@ function convertParam(userParam) {
     }
     convertedParam.data.push(currentParam);
 
-    //Invoice JSON
+    //JSON of invoice, parameters, preferences and QRCode text
     currentParam = {};
-    currentParam.name = 'dev_json_invoice';
+    currentParam.name = 'dev_show_json';
     currentParam.parentObject = 'develop';
-    currentParam.title = texts.param_dev_json_invoice;
+    currentParam.title = texts.param_dev_show_json;
     currentParam.type = 'bool';
-    currentParam.value = userParam.dev_json_invoice ? true : false;
+    currentParam.value = userParam.dev_show_json ? true : false;
     currentParam.defaultvalue = false;
-    currentParam.tooltip = texts.param_tooltip_dev_json_invoice;
+    currentParam.tooltip = texts.param_tooltip_dev_show_json;
     currentParam.readValue = function() {
-     userParam.dev_json_invoice = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
-    //Layout parameters JSON
-    currentParam = {};
-    currentParam.name = 'dev_json_layoutparameters';
-    currentParam.parentObject = 'develop';
-    currentParam.title = texts.param_dev_json_layoutparameters;
-    currentParam.type = 'bool';
-    currentParam.value = userParam.dev_json_layoutparameters ? true : false;
-    currentParam.defaultvalue = false;
-    currentParam.tooltip = texts.param_tooltip_dev_json_layoutparameters;
-    currentParam.readValue = function() {
-     userParam.dev_json_layoutparameters = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
-    //Print preferences JSON
-    currentParam = {};
-    currentParam.name = 'dev_json_layoutpreferences';
-    currentParam.parentObject = 'develop';
-    currentParam.title = texts.param_dev_json_layoutpreferences;
-    currentParam.type = 'bool';
-    currentParam.value = userParam.dev_json_layoutpreferences ? true : false;
-    currentParam.defaultvalue = false;
-    currentParam.tooltip = texts.param_tooltip_dev_json_layoutpreferences;
-    currentParam.readValue = function() {
-     userParam.dev_json_layoutpreferences = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
-    //Print QRCode image text
-    currentParam = {};
-    currentParam.name = 'dev_text_qrcode';
-    currentParam.parentObject = 'develop';
-    currentParam.title = texts.param_dev_text_qrcode;
-    currentParam.type = 'bool';
-    currentParam.value = userParam.dev_text_qrcode ? true : false;
-    currentParam.defaultvalue = false;
-    currentParam.tooltip = texts.param_tooltip_dev_text_qrcode;
-    currentParam.readValue = function() {
-    userParam.dev_text_qrcode = this.value;
+     userParam.dev_show_json = this.value;
     }
     convertedParam.data.push(currentParam);
   }
@@ -1719,10 +1677,7 @@ function initParam() {
   userParam.embedded_css_filename = '';
 
   //Invoice JSON
-  userParam.dev_json_invoice = false;
-  userParam.dev_json_layoutparameters = false;
-  userParam.dev_json_layoutpreferences = false;
-  userParam.dev_text_qrcode = false;
+  userParam.dev_show_json = false;
 
   return userParam;
 }
@@ -2027,17 +1982,8 @@ function verifyParam(userParam) {
   }
 
   //Develop
-  if (!userParam.dev_json_invoice || !BAN_ADVANCED) {
-    userParam.dev_json_invoice = false;
-  }
-  if (!userParam.dev_json_layoutparameters || !BAN_ADVANCED) {
-    userParam.dev_json_layoutparameters = false;
-  }
-  if (!userParam.dev_json_layoutpreferences || !BAN_ADVANCED) {
-    userParam.dev_json_layoutpreferences = false;
-  }
-  if (!userParam.dev_text_qrcode || !BAN_ADVANCED) {
-    userParam.dev_text_qrcode = false;
+  if (!userParam.dev_show_json || !BAN_ADVANCED) {
+    userParam.dev_show_json = false;
   }
 
   return userParam;
