@@ -898,7 +898,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
     }
   }
 
-  var decimals = getQuantityDecimals(invoiceObj);
+  var decimals = getQuantityDecimals(invoiceObj, banDoc);
   var columnsAlignment = userParam.details_columns_alignment.split(";");
 
   //ITEMS
@@ -1155,7 +1155,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
     }
   }
 
-  var decimals = getQuantityDecimals(invoiceObj);
+  var decimals = getQuantityDecimals(invoiceObj, banDoc);
   var columnsAlignment = userParam.details_columns_alignment.split(";");
 
   //ITEMS
@@ -1840,42 +1840,65 @@ function columnNamesToValues(invoiceObj, text) {
   return text;
 }
 
-function getQuantityDecimals(invoiceObj) {
+function getQuantityDecimals(invoiceObj, banDoc) {
   /*
     For the given invoice check the decimal used for the quantity.
     Decimals can be 2 or 4.
     Returns the greater value.
+
+    For integrated invoices checks the format of Quantity column of Transactions table.
+    When the format is without decimals ("0.") the quantity decimals is set to 0.
+    When the format is with 1 decimal ("0.0") the quantity decimals is set to 1.
+    When the format is with 3 decimals ("0.000") the quantity decimals is set to 3.
+    When the format is with 4 decimals ("0.0000") the quantity decimals is set to 4.
+    Otherwise is set to 2 or 4.
   */
-  var arr = [];
-  var decimals = "";
-  for (var i = 0; i < invoiceObj.items.length; i++) { //check the qty of each item of the invoice
-    var item = invoiceObj.items[i];
-    if (item.quantity) {
-      var qty = item.quantity;
-      var res = qty.split(".");
-      if (res[1] && res[1].length == 4 && res[1] !== "0000" && res[1].substring(1,4) !== "000" && res[1].substring(2,4) !== "00") {
-        decimals = 4;
-      } else {
-        decimals = 2;
-      }
-    }
-    else {
-      decimals = 2;
-    }
-    arr.push(decimals);
+  var format = "";
+  format = getColumnQuantityFormat(banDoc);
+  if (format && format === "0.") {
+    return 0;
   }
-  //Remove duplicates
-  for (var i = 0; i < arr.length; i++) {
-    for (var x = i+1; x < arr.length; x++) {
-      if (arr[x] === arr[i]) {
-        arr.splice(x,1);
-        --x;
-      }
-    }
+  else if (format && format === "0.0") {
+    return 1;
   }
-  arr.sort();
-  arr.reverse();
-  return arr[0]; //first element is the bigger
+  else if (format && format === "0.000") {
+    return 3;
+  }
+  else if (format && format === "0.0000") {
+    return 4;
+  }
+  else {
+      var arr = [];
+      var decimals = "";
+      for (var i = 0; i < invoiceObj.items.length; i++) { //check the qty of each item of the invoice
+        var item = invoiceObj.items[i];
+        if (item.quantity) {
+          var qty = item.quantity;
+          var res = qty.split(".");
+          if (res[1] && res[1].length == 4 && res[1] !== "0000" && res[1].substring(1,4) !== "000" && res[1].substring(2,4) !== "00") {
+            decimals = 4;
+          } else {
+            decimals = 2;
+          }
+        }
+        else {
+          decimals = 2;
+        }
+        arr.push(decimals);
+      }
+      //Remove duplicates
+      for (var i = 0; i < arr.length; i++) {
+        for (var x = i+1; x < arr.length; x++) {
+          if (arr[x] === arr[i]) {
+            arr.splice(x,1);
+            --x;
+          }
+        }
+      }
+      arr.sort();
+      arr.reverse();
+      return arr[0]; //first element is the bigger
+  }
 }
 
 function getDecimalsCount(value) {
@@ -2412,27 +2435,46 @@ function showInvoiceJsons(banDoc, invoiceObj, preferencesObj, qrBill, userParam,
 
     // JSON invoice
     var jsonString = JSON.stringify(invoiceObj, null, 3);
-    // JSON layout parameters
-    var paramString = JSON.stringify(userParam, null, 3);
-    // JSON layout preferences
-    var preferencesString = JSON.stringify(preferencesObj, null, 3);
-    // QRCode image text
-    var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
-    var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
-
     string += "****************************************************************************** " + texts.json_invoice + " ******************************************************************************\n";
     string += jsonString + "\n";
+
+    // JSON layout parameters
+    var paramString = JSON.stringify(userParam, null, 3);
     string += "\n****************************************************************************** " + texts.json_layoutparameters + " ******************************************************************************\n";
     string += paramString + "\n";
+
+    // JSON layout preferences
+    var preferencesString = JSON.stringify(preferencesObj, null, 3);
     string += "\n****************************************************************************** " + texts.json_layoutpreferences + " ******************************************************************************\n";
     string += preferencesString + "\n";
-    string += "\n****************************************************************************** " + texts.text_qrcode + " ******************************************************************************\n";
-    string += qrcodeText;
+
+    // QRCode image text
+    if (userParam.qr_code_add && invoiceObj.document_info.doc_type !== "17") {
+        var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
+        var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
+        string += "\n****************************************************************************** " + texts.text_qrcode + " ******************************************************************************\n";
+        string += qrcodeText;
+    }
 
     var dlgTitle = texts.json_invoice + " " + invoiceObj.document_info.number;
     Banana.Ui.showText(dlgTitle, string);
 }
 
+function getColumnQuantityFormat(banDoc) {
+    /**
+     * Get the number format of the Quantity column from the Transactions table.
+     * It is used to overwrite the quantity decimals of invoice items when the format is with 0,1,3 or 4 decimals.
+     * Integrated invoice only.
+     */
+    if (IS_INTEGRATED_INVOICE) {
+        var transactionsTable = banDoc.table("Transactions");
+        if (transactionsTable) {
+            var tColumn = banDoc.table("Transactions").column("Quantity");
+            return tColumn.format; // return "0.", "0.000"
+        }
+    }
+    return;
+}
 
 
 //====================================================================//
@@ -3024,7 +3066,7 @@ function print_details_delivery_note_without_amounts(banDoc, repDocObj, invoiceO
     }
   }
 
-  var decimals = getQuantityDecimals(invoiceObj);
+  var decimals = getQuantityDecimals(invoiceObj, banDoc);
 
   
   //Remove all total items rows from the items array of the json invoiceObj
