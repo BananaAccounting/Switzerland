@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2024-03-05
+// @pubdate = 2024-03-08
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -1300,7 +1300,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   //SUBTOTAL
   //Only used for the Application Estimates-Invoices
   //Print subtotal if there is discount, deposit or rounding
-  if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
     || invoiceObj.billing_info.total_rounding_difference
     || invoiceObj.billing_info.total_advance_payment)
@@ -1333,7 +1333,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   //DEPOSIT
   //Only used for the Application Estimates-Invoices
-  if (invoiceObj.billing_info.total_advance_payment) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1347,7 +1347,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
     || invoiceObj.billing_info.total_rounding_difference
-    || invoiceObj.billing_info.total_advance_payment)
+    || (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) )
   ) {
     tableRow.addCell("", "border-top", columnsNumber);
   } else {
@@ -2431,49 +2431,51 @@ function replaceVariables(cssText, variables) {
 
 function showInvoiceJsons(banDoc, invoiceObj, preferencesObj, qrBill, userParam, texts) {
 
-    var string = "";
+  var string = "";
 
-    // JSON invoice
-    var jsonString = JSON.stringify(invoiceObj, null, 3);
-    string += "****************************************************************************** " + texts.json_invoice + " ******************************************************************************\n";
-    string += jsonString + "\n";
+  // JSON invoice
+  var jsonString = JSON.stringify(invoiceObj, null, 3);
+  string += "****************************************************************************** " + texts.json_invoice + " ******************************************************************************\n";
+  string += jsonString + "\n";
 
-    // JSON layout parameters
-    var paramString = JSON.stringify(userParam, null, 3);
-    string += "\n****************************************************************************** " + texts.json_layoutparameters + " ******************************************************************************\n";
-    string += paramString + "\n";
+  // JSON layout parameters
+  var paramString = JSON.stringify(userParam, null, 3);
+  string += "\n****************************************************************************** " + texts.json_layoutparameters + " ******************************************************************************\n";
+  string += paramString + "\n";
 
-    // JSON layout preferences
-    var preferencesString = JSON.stringify(preferencesObj, null, 3);
-    string += "\n****************************************************************************** " + texts.json_layoutpreferences + " ******************************************************************************\n";
-    string += preferencesString + "\n";
+  // JSON layout preferences
+  var preferencesString = JSON.stringify(preferencesObj, null, 3);
+  string += "\n****************************************************************************** " + texts.json_layoutpreferences + " ******************************************************************************\n";
+  string += preferencesString + "\n";
 
-    // QRCode image text
-    if (userParam.qr_code_add && invoiceObj.document_info.doc_type !== "17") {
-        var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
-        var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
-        string += "\n****************************************************************************** " + texts.text_qrcode + " ******************************************************************************\n";
-        string += qrcodeText;
-    }
+  // QRCode image text
+  if (userParam.qr_code_add && invoiceObj.document_info.doc_type !== "17") {
+    var qrcodeData = qrBill.getQrCodeData(invoiceObj, userParam, texts, lang);
+    var qrcodeText = qrBill.createTextQrImage(qrcodeData, texts);
+    string += "\n****************************************************************************** " + texts.text_qrcode + " ******************************************************************************\n";
+    string += qrcodeText;
+  }
 
-    var dlgTitle = texts.json_invoice + " " + invoiceObj.document_info.number;
-    Banana.Ui.showText(dlgTitle, string);
+  var dlgTitle = texts.json_invoice + " " + invoiceObj.document_info.number;
+  Banana.Ui.showText(dlgTitle, string);
 }
 
 function getColumnQuantityFormat(banDoc) {
-    /**
-     * Get the number format of the Quantity column from the Transactions table.
-     * It is used to overwrite the quantity decimals of invoice items when the format is with 0,1,3 or 4 decimals.
-     * Integrated invoice only.
-     */
+  /**
+  * Get the number format of the Quantity column from the Transactions table.
+  * It is used to overwrite the quantity decimals of invoice items when the format is with 0,1,3 or 4 decimals.
+  * Integrated invoice only.
+  */
+  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.1.23095") >= 0) {
     if (IS_INTEGRATED_INVOICE) {
-        var transactionsTable = banDoc.table("Transactions");
-        if (transactionsTable) {
-            var tColumn = banDoc.table("Transactions").column("Quantity");
-            return tColumn.format; // return "0.", "0.000"
-        }
+      var transactionsTable = banDoc.table("Transactions");
+      if (transactionsTable) {
+        var tColumn = banDoc.table("Transactions").column("Quantity");
+        return tColumn.format; // return "0.", "0.00", "0.000", ...
+      }
     }
-    return;
+  }
+  return;
 }
 
 
