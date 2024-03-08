@@ -1,0 +1,256 @@
+{
+   "billing_info": {
+      "payment_term": "",
+      "total_advance_payment": "-550.00",
+      "total_advance_payment_description": "Amount paid",
+      "total_amount_vat_exclusive": "559.30",
+      "total_amount_vat_exclusive_before_discount": "559.30",
+      "total_amount_vat_inclusive": "600.12",
+      "total_amount_vat_inclusive_before_discount": "600.12",
+      "total_categories": [],
+      "total_discount_percent": "",
+      "total_discount_vat_exclusive": "",
+      "total_discount_vat_inclusive": "",
+      "total_outstanding": "50.10",
+      "total_outstanding_description": "Outstanding balance",
+      "total_rounding_difference": "-0.02",
+      "total_to_pay": "600.10",
+      "total_vat_amount": "40.82",
+      "total_vat_amount_before_discount": "40.82",
+      "total_vat_codes": [
+         {
+            "total_amount_vat_exclusive": "501.50",
+            "total_amount_vat_inclusive": "540.12",
+            "total_vat_amount": "38.62",
+            "vat_code": "V77"
+         },
+         {
+            "total_amount_vat_exclusive": "57.80",
+            "total_amount_vat_inclusive": "60.00",
+            "total_vat_amount": "2.20",
+            "vat_code": "V38"
+         }
+      ],
+      "total_vat_rates": [
+         {
+            "total_amount_vat_exclusive": "501.50",
+            "total_amount_vat_inclusive": "540.12",
+            "total_vat_amount": "38.62",
+            "vat_rate": "7.70"
+         },
+         {
+            "total_amount_vat_exclusive": "57.80",
+            "total_amount_vat_inclusive": "60.00",
+            "total_vat_amount": "2.20",
+            "vat_rate": "3.80"
+         }
+      ]
+   },
+   "customer_info": {
+      "address1": "Viale Stazione 11",
+      "balance": "140.12",
+      "balance_base_currency": "140.12",
+      "business_name": "Redford SA",
+      "city": "Bellinzona",
+      "country_code": "CH",
+      "email": "andrew@redfordsa.com",
+      "first_name": "Andrew",
+      "lang": "en",
+      "last_name": "Redford",
+      "member_fee": "10.00",
+      "number": "1100",
+      "origin_row": "27",
+      "origin_table": "Accounts",
+      "postal_code": "6500"
+   },
+   "document_info": {
+      "currency": "CHF",
+      "date": "2023-01-01",
+      "decimals_amounts": 2,
+      "description": "",
+      "doc_type": "10",
+      "locale": "en",
+      "number": "505",
+      "origin_row": "1",
+      "origin_table": "Transactions",
+      "printed": "1",
+      "rounding_total": "0.05",
+      "type": "invoice"
+   },
+   "items": [
+      {
+         "account_assignment": "1100",
+         "description": "Product A",
+         "details": "",
+         "index": "0",
+         "item_type": "item",
+         "mesure_unit": "",
+         "number": "",
+         "origin_row": "1",
+         "origin_table": "Transactions",
+         "quantity": "1",
+         "total_amount_vat_exclusive": "501.50",
+         "total_amount_vat_inclusive": "540.12",
+         "total_vat_amount": "38.62",
+         "unit_price": {
+            "amount_vat_inclusive": "540.12",
+            "calculated_amount_vat_exclusive": "501.50",
+            "calculated_amount_vat_inclusive": "540.12",
+            "calculated_vat_amount": "38.62",
+            "currency": "CHF",
+            "vat_code": "V77",
+            "vat_rate": "7.70"
+         }
+      },
+      {
+         "account_assignment": "1100",
+         "description": "Product B",
+         "details": "",
+         "index": "1",
+         "item_type": "item",
+         "mesure_unit": "",
+         "number": "",
+         "origin_row": "2",
+         "origin_table": "Transactions",
+         "quantity": "1",
+         "total_amount_vat_exclusive": "57.80",
+         "total_amount_vat_inclusive": "60.00",
+         "total_vat_amount": "2.20",
+         "unit_price": {
+            "amount_vat_inclusive": "60.00",
+            "calculated_amount_vat_exclusive": "57.80",
+            "calculated_amount_vat_inclusive": "60.00",
+            "calculated_vat_amount": "2.20",
+            "currency": "CHF",
+            "vat_code": "V38",
+            "vat_rate": "3.80"
+         }
+      }
+   ],
+   "note": [],
+   "parameters": {},
+   "payment_info": {
+      "date_expected": "2023-01-31",
+      "due_date": "2023-01-31",
+      "due_days": "402",
+      "due_period": "0_>90",
+      "last_reminder": "3",
+      "last_reminder_date": "2023-03-05",
+      "last_reminder_due_date": "2023-03-10",
+      "payment_date": "2023-03-01"
+   },
+   "shipping_info": {
+      "different_shipping_address": false
+   },
+   "supplier_info": {
+      "address1": "Address1",
+      "business_name": "Company",
+      "city": "City",
+      "country": "Country",
+      "country_code": "CH",
+      "email": "info@myweb",
+      "first_name": "Firstname",
+      "iban_number": "CH5204835012345671000",
+      "last_name": "Lastname",
+      "postal_code": "Zip",
+      "web": "http://www.myweb"
+   },
+   "template_parameters": {
+      "footer_texts": [
+         {
+            "lang": "(default)",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "de",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "en",
+            "text": [
+               "bla bla bla"
+            ]
+         },
+         {
+            "lang": "fr",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "it",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "nl",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "zh",
+            "text": [
+               ""
+            ]
+         }
+      ]
+   },
+   "transactions": [
+      {
+         "amount": "-200.00",
+         "currency": "CHF",
+         "date": "2023-01-25",
+         "description": "Partial payment 1",
+         "origin_row": "3",
+         "origin_table": "Transactions"
+      },
+      {
+         "amount": "",
+         "currency": "CHF",
+         "date": "2023-02-15",
+         "description": "1. reminder",
+         "origin_row": "4",
+         "origin_table": "Transactions"
+      },
+      {
+         "amount": "-100.00",
+         "currency": "CHF",
+         "date": "2023-02-20",
+         "description": "Partial payment 2",
+         "origin_row": "5",
+         "origin_table": "Transactions"
+      },
+      {
+         "amount": "",
+         "currency": "CHF",
+         "date": "2023-02-26",
+         "description": "2. reminder",
+         "origin_row": "6",
+         "origin_table": "Transactions"
+      },
+      {
+         "amount": "-250.00",
+         "currency": "CHF",
+         "date": "2023-03-01",
+         "description": "Partial payment 3",
+         "origin_row": "7",
+         "origin_table": "Transactions"
+      },
+      {
+         "amount": "",
+         "currency": "CHF",
+         "date": "2023-03-05",
+         "description": "3. reminder",
+         "origin_row": "8",
+         "origin_table": "Transactions"
+      }
+   ],
+   "type": "invoice",
+   "version": "1.0"
+}

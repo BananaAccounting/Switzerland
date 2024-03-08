@@ -10760,6 +10760,129 @@ Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
 This is the final text of the estimate. \\
 It can be on multiple lines. \\
 \end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": ""
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: }
+\begin{reportvalue}{Invoice 505}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 505 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2023 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 505 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 540.12  & 540.12 \\
+Product B \newline \newline  &  &  & 60.00  & 60.00 \\
+\multicolumn{489}{l}{}\\
+\multicolumn{488}{l}{Rounding } & -0.02 \\
+\multicolumn{489}{l}{}\\
+\multicolumn{488}{l}{TOTAL CHF } & 600.10 \\
+\multicolumn{489}{l}{}\\
+\multicolumn{489}{l}{540.12 CHF (gross) // 501.50 CHF (net) VAT 7.70\% = 38.62 CHF \newline 60.00 CHF (gross) // 57.80 CHF (net) VAT 3.80\% = 2.20 CHF \newline }\\
+\end{longtable}
+bla bla bla \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+600.10 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+600.10 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address1 \\
+Zip City \\
+  \\
+Reference \\
+RF55 4110 0350 5 \\
+  \\
+Additional information \\
+//S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.5;3.8:57.8/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline K
+ewline Company
+ewline Address1
+ewline Zip City
+ewline 
+ewline 
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 600.10
+ewline CHF
+ewline K
+ewline Redford SA
+ewline Viale Stazione 11
+ewline 6500 Bellinzona
+ewline 
+ewline 
+ewline CH
+ewline SCOR
+ewline RF55411003505
+ewline 
+ewline EPD
+ewline //S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.5;3.8:57.8/40/0:30}\\
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
