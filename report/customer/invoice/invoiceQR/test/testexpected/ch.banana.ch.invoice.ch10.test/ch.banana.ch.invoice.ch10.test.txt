@@ -9469,7 +9469,6 @@ Delivery note date:  & 01.01.2023 \\
 Customer No:  & 1100 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 31.01.2023 \\
 Page:  & \#page-nr \\
 \end{longtable}
 Company \\
@@ -9482,8 +9481,8 @@ Delivery note date:  & 01.01.2023 \\
 Customer No:  & 1100 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 31.01.2023 \\
 Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
 \end{longtable}
 \begin{longtable}[l]{ l }
 Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
@@ -9525,7 +9524,6 @@ Delivery note date:  & 03.01.2023 \\
 Customer No:  & 1100 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 02.02.2023 \\
 Page:  & \#page-nr \\
 \end{longtable}
 Company \\
@@ -9538,8 +9536,8 @@ Delivery note date:  & 03.01.2023 \\
 Customer No:  & 1100 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 02.02.2023 \\
 Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
 \end{longtable}
 \begin{longtable}[l]{ l }
 Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
@@ -9577,7 +9575,6 @@ Delivery note date:  & 10.07.2023 \\
 Customer No:  & 1101 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 09.08.2023 \\
 Page:  & \#page-nr \\
 \end{longtable}
 Company \\
@@ -9590,8 +9587,8 @@ Delivery note date:  & 10.07.2023 \\
 Customer No:  & 1101 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 09.08.2023 \\
 Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
 \end{longtable}
 \begin{longtable}[l]{ l }
 Banana.ch SA - Via alla Santa 7 - 6962 Viganello James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
@@ -9633,7 +9630,6 @@ Delivery note date:  & 05.01.2023 \\
 Customer No:  & 1101 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 04.02.2023 \\
 Page:  & \#page-nr \\
 \end{longtable}
 Company \\
@@ -9646,8 +9642,8 @@ Delivery note date:  & 05.01.2023 \\
 Customer No:  & 1101 \\
 VAT No:  & \\
 Fiscal No:  & \\
-Due date:  & 04.02.2023 \\
 Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
 \end{longtable}
 \begin{longtable}[l]{ l }
 Banana.ch SA - Via alla Santa 7 - 6962 Viganello Mario Rossi \newline Via ai Boschi \newline 6850 Mendrisio \newline \\

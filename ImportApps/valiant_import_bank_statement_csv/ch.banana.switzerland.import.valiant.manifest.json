@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Valiant - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Valiant - Import movements .csv (Banana+ Advanced)",
+    "description.it": "Valiant - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Valiant - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Valiant - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.valiant",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Valiant - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Valiant - Import movements .csv (Banana+ Advanced)",
+    "title.it": "Valiant - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Valiant - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Valiant - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

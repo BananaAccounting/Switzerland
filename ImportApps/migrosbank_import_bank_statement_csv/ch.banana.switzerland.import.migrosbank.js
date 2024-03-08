@@ -177,6 +177,9 @@ var MBFormat1 = class MBFormat1 {
       mappedLine.push(transaction[this.colDescr]);
       var amount = transaction[this.colAmount];
       if (amount.length > 0) {
+         //check decimal separator, if is comma, we replace it.
+         if (amount.indexOf(",") >= 0)
+            amount = amount.replace(',', '.');
          if (amount[0] === "-") {
             amount = amount.replace(/-/g, ''); //remove minus sign
             mappedLine.push("");
