@@ -63,3 +63,10 @@ All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana
 	* Added Proforma Invoice and Estimate as print options (Advanced plan required).  
 * 2023-09-22
 	* Added the QR Slip as print options (Advanced plan required).  
+* 2024-03-08
+	* Integrated invoice: Added reminders date and remiders due date on invoice and QR, when dates are set via the Report > Customers > Print reminders function.
+	* Integrated invoice: Added for proforma invoice the possibility to set the title and final notes/greetings using the column DocType of Transactions table.
+	* Integrated invoice: The content of the column Quantity is always printed, even if not all three columns quantity, unit, unit price are used.
+	* Integrated invoice: The format number of Quantity column can be modified in order to print the desired decimals on the invoice (0., 0.0, 0.000, 0.0000).
+	* Estimates and Invoices Application: discount and deposit now appear with negative sings on the invoice.
+	* Added new parameters in layout options to view the invoice JSONs (useful for development, Advanced plan required).  

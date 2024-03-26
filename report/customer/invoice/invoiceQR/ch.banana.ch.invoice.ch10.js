@@ -2466,12 +2466,14 @@ function getColumnQuantityFormat(banDoc) {
   * It is used to overwrite the quantity decimals of invoice items when the format is with 0,1,3 or 4 decimals.
   * Integrated invoice only.
   */
-  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.1.23095") >= 0) {
+  if (Banana.compareVersion && Banana.compareVersion(Banana.application.version, "10.1.7.23164") >= 0) {
     if (IS_INTEGRATED_INVOICE) {
       var transactionsTable = banDoc.table("Transactions");
       if (transactionsTable) {
         var tColumn = banDoc.table("Transactions").column("Quantity");
-        return tColumn.format; // return "0.", "0.00", "0.000", ...
+        if (tColumn) {
+          return tColumn.format; // return "0.", "0.00", "0.000", ...
+        }
       }
     }
   }
