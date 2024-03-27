@@ -199,9 +199,13 @@ function PFCSVFormat6() {
                convertedColumns[i] = "Description";
                break;
             case "Gutschrift in CHF":
+            case "Gutschrift in EUR":
+            case "Gutschrift in USD":
                convertedColumns[i] = "Income";
                break;
             case "Lastschrift in CHF":
+            case "Lastschrift in EUR":
+            case "Lastschrift in USD":
                convertedColumns[i] = "Expenses";
                break;
             case "Label":
@@ -237,9 +241,13 @@ function PFCSVFormat6() {
                convertedColumns[i] = "Description";
                break;
             case "Accredito in CHF":
+            case "Accredito in EUR":
+            case "Accredito in USD":
                convertedColumns[i] = "Income";
                break;
             case "Addebito in CHF":
+            case "Addebito in EUR":
+            case "Addebito in USD":
                convertedColumns[i] = "Expenses";
                break;
             case "Tag":
@@ -264,7 +272,6 @@ function PFCSVFormat6() {
    }
 
    this.convertHeaderFr = function (columns, convertedColumns) {
-      Banana.console.debug(columns);
       for (var i = 0; i < columns.length; i++) {
          switch (columns[i]) {
             case "Date":
@@ -277,9 +284,13 @@ function PFCSVFormat6() {
                convertedColumns[i] = "Description";
                break;
             case "Crédit en CHF":
+            case "Crédit en EUR":
+            case "Crédit en USD":
                convertedColumns[i] = "Income";
                break;
             case "Débit en CHF":
+            case "Débit en EUR":
+            case "Débit en USD":
                convertedColumns[i] = "Expenses";
                break;
             case "Label":
@@ -293,7 +304,6 @@ function PFCSVFormat6() {
          }
       }
 
-      Banana.console.debug(convertedColumns);
       if (convertedColumns.indexOf("Date") < 0
          || convertedColumns.indexOf("Description") < 0
          || convertedColumns.indexOf("Income") < 0
@@ -317,9 +327,13 @@ function PFCSVFormat6() {
                convertedColumns[i] = "Description";
                break;
             case "Credit in CHF":
+            case "Credit in EUR":
+            case "Credit in USD":
                convertedColumns[i] = "Income";
                break;
             case "Debit in CHF":
+            case "Debit in EUR":
+            case "Debit in USD":
                convertedColumns[i] = "Expenses";
                break;
             case "Tag":
