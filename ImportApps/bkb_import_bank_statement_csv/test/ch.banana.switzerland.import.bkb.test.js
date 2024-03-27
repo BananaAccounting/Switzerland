@@ -62,6 +62,7 @@ TestImportBkb.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_bkb_example_format1A_20163006.csv");
    fileNameList.push("file:script/../test/testcases/csv_bkb_example_format1B_20230122.csv");
    fileNameList.push("file:script/../test/testcases/csv_bkb_example_format2_20240326.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bkb_example_format2_20240327.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);

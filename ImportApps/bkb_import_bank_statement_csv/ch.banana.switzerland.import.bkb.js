@@ -103,6 +103,7 @@ function BKBFormat2() {
                convertedColumns[i] = "DateValue";
                break;
             case "Text":
+            case "Buchungstext":
                convertedColumns[i] = "Description";
                break;
             case "Gutschriftsbetrag (CHF)":
@@ -150,12 +151,6 @@ function BKBFormat2() {
          else
             formatMatched = false;
 
-         if (formatMatched && transaction["DateValue"] && transaction["DateValue"].length >= 8 &&
-            transaction["DateValue"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
-            formatMatched = true;
-         else
-            formatMatched = false;
-
          if (formatMatched)
             return true;
       }
@@ -190,7 +185,7 @@ function BKBFormat2() {
          mappedLine.push(Banana.Converter.toInternalDateFormat(element['DateValue'], "mm/dd/yyyy"));
       }
       mappedLine.push(""); // Doc is empty for now
-      var tidyDescr = element['Description'].replace(/ {2,}/g, ' '); //remove white spaces
+      var tidyDescr = element['Description'].replace(/\n/g, " "); //remove white spaces
       mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
       mappedLine.push(Banana.Converter.toInternalNumberFormat(element['Income'], this.decimalSeparator));
       mappedLine.push(Banana.Converter.toInternalNumberFormat(element['Expenses'], this.decimalSeparator));
