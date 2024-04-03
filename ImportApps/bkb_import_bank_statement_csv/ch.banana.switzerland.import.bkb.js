@@ -162,7 +162,9 @@ function BKBFormat2() {
       var transactionsToImport = [];
 
       for (var i = 0; i < rows.length; i++) {
-         transactionsToImport.push(this.mapTransaction(rows[i]));
+         if (rows[i]["Date"] && rows[i]["Date"].length >= 10 &&
+            rows[i]["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transactionsToImport.push(this.mapTransaction(rows[i]));
       }
 
       transactionsToImport = transactionsToImport.reverse();
@@ -174,6 +176,7 @@ function BKBFormat2() {
 
    /** Return the transaction converted in the import format */
    this.mapTransaction = function (element) {
+      Banana.console.debug(JSON.stringify(element));
       var mappedLine = [];
       let date = element['Date'].substring(0, 10);
 
@@ -185,7 +188,7 @@ function BKBFormat2() {
          mappedLine.push(Banana.Converter.toInternalDateFormat(element['DateValue'], "mm/dd/yyyy"));
       }
       mappedLine.push(""); // Doc is empty for now
-      var tidyDescr = element['Description'].replace(/\n/g, " "); //remove white spaces
+      var tidyDescr = element['Description'].replace(/\r\n/g, " "); //remove new line && new row characters
       mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
       mappedLine.push(Banana.Converter.toInternalNumberFormat(element['Income'], this.decimalSeparator));
       mappedLine.push(Banana.Converter.toInternalNumberFormat(element['Expenses'], this.decimalSeparator));
