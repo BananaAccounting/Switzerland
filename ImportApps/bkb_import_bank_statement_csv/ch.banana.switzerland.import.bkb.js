@@ -176,7 +176,6 @@ function BKBFormat2() {
 
    /** Return the transaction converted in the import format */
    this.mapTransaction = function (element) {
-      Banana.console.debug(JSON.stringify(element));
       var mappedLine = [];
       let date = element['Date'].substring(0, 10);
 
