@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2024-02-07 */
+/* Script update: 2024-04-02 */
 
 
 
@@ -78,6 +78,9 @@ var QRBill = class QRBill {
 		this.ID_ERR_LENGTH_ADDRESS_POSTALCODE = "ID_ERR_LENGTH_ADDRESS_POSTALCODE";
 		this.ID_ERR_LENGTH_ADDRESS_CITY = "ID_ERR_LENGTH_ADDRESS_CITY";
 		this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY = "ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY";
+		this.ID_ERR_EBILL_LENGTH_BILLRECIPIENTID = "ID_ERR_EBILL_LENGTH_BILLRECIPIENTID";
+		this.ID_ERR_EBILL_BILLRECIPIENTID = "ID_ERR_EBILL_BILLRECIPIENTID";
+		this.ID_ERR_EBILL_LENGTH_ENTERPRISEIDENTIFICATIONNUMBER = "ID_ERR_EBILL_LENGTH_ENTERPRISEIDENTIFICATIONNUMBER";
 
 		//swiss cross image
 		this.swiss_cross = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxOS44IDE5LjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE5LjggMTkuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGRkZGRkY7fQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuNDM1NztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cjwvc3R5bGU+Cjxwb2x5Z29uIHBvaW50cz0iMTguMywwLjcgMS42LDAuNyAwLjcsMC43IDAuNywxLjYgMC43LDE4LjMgMC43LDE5LjEgMS42LDE5LjEgMTguMywxOS4xIDE5LjEsMTkuMSAxOS4xLDE4LjMgMTkuMSwxLjYgMTkuMSwwLjcgIi8+CjxyZWN0IHg9IjguMyIgeT0iNCIgY2xhc3M9InN0MCIgd2lkdGg9IjMuMyIgaGVpZ2h0PSIxMSIvPgo8cmVjdCB4PSI0LjQiIHk9IjcuOSIgY2xhc3M9InN0MCIgd2lkdGg9IjExIiBoZWlnaHQ9IjMuMyIvPgo8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjAuNywxLjYgMC43LDE4LjMgMC43LDE5LjEgMS42LDE5LjEgMTguMywxOS4xIDE5LjEsMTkuMSAxOS4xLDE4LjMgMTkuMSwxLjYgMTkuMSwwLjcgMTguMywwLjcgCgkxLjYsMC43IDAuNywwLjcgIi8+Cjwvc3ZnPgo=";
@@ -363,6 +366,36 @@ var QRBill = class QRBill {
 					return "Postleitzahl+Ort zu lang, max. 70 Zeichen: " + value;
 				} else {
 					return "Postal code+Locality too long, max 70 characters: " + value;
+				}
+			case this.ID_ERR_EBILL_LENGTH_BILLRECIPIENTID:
+				if (lang === 'it') {
+					return "Numero cliente troppo lungo, max 17 cifre: " + value;
+				} else if (lang === 'fr') {
+					return "Numéro client trop long, 17 chiffres maximum: " + value;
+				} else if (lang === 'de') {
+					return "Kundennummer zu lang, max. 17 Ziffern: " + value;
+				} else {
+					return "Customer number too long, max 17 digits: " + value;
+				}
+			case this.ID_ERR_EBILL_BILLRECIPIENTID:
+				if (lang === 'it') {
+					return "Numero cliente, sono ammessi solo numeri: " + value;
+				} else if (lang === 'fr') {
+					return "Numéro client, seuls les numéros sont autorisés: " + value;
+				} else if (lang === 'de') {
+					return "Kundennummer, nur Nummern erlaubt: " + value;
+				} else {
+					return "Customer number, only numbers allowed: " + value;
+				}
+			case this.ID_ERR_EBILL_LENGTH_ENTERPRISEIDENTIFICATIONNUMBER:
+				if (lang === 'it') {
+					return "Codice IVA troppo lungo, max 12 caratteri: " + value;
+				} else if (lang === 'fr') {
+					return "Code TVA trop long, 12 caractères maximum: " + value;
+				} else if (lang === 'de') {
+					return "MWST-Code zu lang, max. 12 Zeichen: " + value;
+				} else {
+					return "VAT Code too long, max 12 characters: " + value;
 				}
 		}
 		return "";
@@ -710,6 +743,22 @@ var QRBill = class QRBill {
 			userParam.qr_code_position_dY = this.value;
 		}
 		convertedParam.data.push(currentParam);
+
+		//eBill
+		currentParam = {};
+		currentParam.name = 'qr_code_ebill_recipient_id';
+		currentParam.parentObject = 'qr_code';
+		currentParam.title = texts.param_qr_code_ebill_recipient_id;
+		currentParam.type = 'combobox';
+		currentParam.items = ["-","emailAddress","billRecipientID","enterpriseIdentificationNumber"];
+		//currentParam.items = ["-", texts.param_qr_code_ebill_recipient_id_email, texts.param_qr_code_ebill_recipient_id_number, texts.param_qr_code_ebill_recipient_id_vat];
+		currentParam.value = userParam.qr_code_ebill_recipient_id ? userParam.qr_code_ebill_recipient_id : '';
+		currentParam.defaultvalue = "-";
+		currentParam.tooltip = texts.param_tooltip_qr_code_ebill_recipient_id;
+		currentParam.readValue = function () {
+			userParam.qr_code_ebill_recipient_id = this.value;
+		}
+		convertedParam.data.push(currentParam);
 	}
 	
 
@@ -741,6 +790,7 @@ var QRBill = class QRBill {
 		userParam.qr_code_new_page = false;
 		userParam.qr_code_position_dX = '0';
 		userParam.qr_code_position_dY = '0';
+		userParam.qr_code_ebill_recipient_id = "-";
 	}
 
 
@@ -821,6 +871,9 @@ var QRBill = class QRBill {
 		if (!userParam.qr_code_position_dY) {
 			userParam.qr_code_position_dY = '0';
 		}
+		if (!userParam.qr_code_ebill_recipient_id) {
+			userParam.qr_code_ebill_recipient_id = "-";
+		}
 	}
 
 
@@ -873,6 +926,12 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_add_border_separator = "Vista per stampare il bordo di separazione";
 			texts.param_tooltip_qr_code_add_symbol_scissors = "Vista per stampare il simbolo forbici";
 			texts.param_tooltip_qr_code_new_page = "Vista per stampare il QR su una pagina separata";
+			texts.param_qr_code_ebill_recipient_id = "eBill - Identificazione del destinatario della fattura";
+			texts.param_tooltip_qr_code_ebill_recipient_id = "eBill";
+			texts.param_qr_code_ebill_recipient_id_email = "Email cliente";
+			texts.param_qr_code_ebill_recipient_id_number = "Numero cliente";
+			texts.param_qr_code_ebill_recipient_id_vat = "Numero IVA cliente";
+
 		}
 		else if (lang === 'de') {
 			texts.param_qr_code = "QR-Code";
@@ -918,6 +977,11 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_add_border_separator = "Option anklicken, zum Drucken der Trennlinie";
 			texts.param_tooltip_qr_code_add_symbol_scissors = "Option anklicken, zum Drucken des Scherensymbols";
 			texts.param_tooltip_qr_code_new_page = "Option anklicken, zum Drucken des QR-Codes auf separater Seite";
+			texts.param_qr_code_ebill_recipient_id = "eBill - Identifikation des Rechnungsempfängers";
+			texts.param_tooltip_qr_code_ebill_recipient_id = "eBill";
+			texts.param_qr_code_ebill_recipient_id_email = "Email des Kunden";
+			texts.param_qr_code_ebill_recipient_id_number = "Kundennummer";
+			texts.param_qr_code_ebill_recipient_id_vat = "Kunden-Mehrwertsteuernummer";
 		}
 		else if (lang === 'fr') {
 			texts.param_qr_code = "QR Code";
@@ -963,6 +1027,11 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_add_border_separator = "Cocher pour imprimer la bordure de séparation";
 			texts.param_tooltip_qr_code_add_symbol_scissors = "Cocher pour imprimer le symbole des ciseaux au-dessus de la bordure de séparation";
 			texts.param_tooltip_qr_code_new_page = "Cocher pour imprimer le bulletin de versement QR Code sur une nouvelle page";
+			texts.param_qr_code_ebill_recipient_id = "eBill - Identification du destinataire des factures";
+			texts.param_tooltip_qr_code_ebill_recipient_id = "eBill";
+			texts.param_qr_code_ebill_recipient_id_email = "E-mail du client";
+			texts.param_qr_code_ebill_recipient_id_number = "Numéro du client";
+			texts.param_qr_code_ebill_recipient_id_vat = "Numéro de TVA du client";
 		}
 		else {
 			texts.param_qr_code = "QR Code";
@@ -1008,6 +1077,11 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_add_border_separator = "Check to print the separating border";
 			texts.param_tooltip_qr_code_add_symbol_scissors = "Check to print the scissors symbol over the separating border";
 			texts.param_tooltip_qr_code_new_page = "Check to print the QR Code payment slip on a new page";
+			texts.param_qr_code_ebill_recipient_id = "eBill - Identification of the invoice recipient";
+			texts.param_tooltip_qr_code_ebill_recipient_id = "eBill";
+			texts.param_qr_code_ebill_recipient_id_email = "Customer Email";
+			texts.param_qr_code_ebill_recipient_id_number = "Customer Number";
+			texts.param_qr_code_ebill_recipient_id_vat = "Customer VAT Number";
 		}
 	}
 
@@ -1032,8 +1106,8 @@ var QRBill = class QRBill {
 				text.currency = "Currency";
 				text.amount = "Amount";
 				text.acceptancePoint = "Acceptance point";
-				text.nameAV1 = "Name AV1";
-				text.nameAV2 = "Name AV2";
+				text.nameAV1 = "";
+				text.nameAV2 = "";
 				text.separateBeforePaying = "Separate before paying in";
 				text.inFavourOf = "In favour of";
 				text.notUseForPayment = "DO NOT USE FOR PAYMENT";
@@ -1051,8 +1125,8 @@ var QRBill = class QRBill {
 				text.currency = "Valuta";
 				text.amount = "Importo";
 				text.acceptancePoint = "Punto di accettazione";
-				text.nameAV1 = "Nome AV1";
-				text.nameAV2 = "Nome AV2";
+				text.nameAV1 = "";
+				text.nameAV2 = "";
 				text.separateBeforePaying = "Da staccare prima del versamento";
 				text.inFavourOf = "A favore di";
 				text.notUseForPayment = "NON UTILIZZARE PER IL PAGAMENTO";
@@ -1070,8 +1144,8 @@ var QRBill = class QRBill {
 				text.currency = "Monnaie";
 				text.amount = "Montant";
 				text.acceptancePoint = "Point de dépôt";
-				text.nameAV1 = "Nom AV1";
-				text.nameAV2 = "Nom AV2";
+				text.nameAV1 = "";
+				text.nameAV2 = "";
 				text.separateBeforePaying = "A détacher avant le versement";
 				text.inFavourOf = "En faveur de";
 				text.notUseForPayment = "NE PAS UTILISER POUR LE PAIEMENT";
@@ -1089,8 +1163,8 @@ var QRBill = class QRBill {
 				text.currency = "Währung";
 				text.amount = "Betrag";
 				text.acceptancePoint = "Annahmestelle";
-				text.nameAV1 = "Name AV1";
-				text.nameAV2 = "Name AV2";
+				text.nameAV1 = "";
+				text.nameAV2 = "";
 				text.separateBeforePaying = "Vor der Einzahlung abzutrennen";
 				text.inFavourOf = "Zugunsten";
 				text.notUseForPayment = "NICHT ZUR ZAHLUNG VERWENDEN";
@@ -1108,8 +1182,8 @@ var QRBill = class QRBill {
 				text.currency = "Currency";
 				text.amount = "Amount";
 				text.acceptancePoint = "Acceptance point";
-				text.nameAV1 = "Name AV1";
-				text.nameAV2 = "Name AV2";
+				text.nameAV1 = "";
+				text.nameAV2 = "";
 				text.separateBeforePaying = "Separate before paying in";
 				text.inFavourOf = "In favour of";
 				text.notUseForPayment = "DO NOT USE FOR PAYMENT";
@@ -1626,7 +1700,7 @@ var QRBill = class QRBill {
 		}
 
 		/* Further information */
-		qrcodeData.furtherInformation1 = "";//"UV;UltraPay005;12345";
+		qrcodeData.furtherInformation1 = this.createEBillAlternativeProcedure(invoiceObj, userParam, langDoc); //"UV;UltraPay005;12345";
 		qrcodeData.furtherInformation2 = "";//"XY;XYService;54321";
 
 		
@@ -1651,6 +1725,84 @@ var QRBill = class QRBill {
 
 		return qrcodeData;
 	}
+
+	/**
+	 * Create the eBill alternative procedure string
+	 */
+	 createEBillAlternativeProcedure(invoiceObj, userParam, langDoc) {
+
+	 	// Examples:
+	 	// eBill/B/peter@sample.ch/10201409
+	 	// eBill/B/41010560425610173/10201409
+	 	// eBill/B/CHE123456789/10201409
+
+	 	var eBillString = "";
+
+		if (userParam.qr_code_ebill_recipient_id === "emailAddress" || 
+			userParam.qr_code_ebill_recipient_id === "billRecipientID" || 
+			userParam.qr_code_ebill_recipient_id === "enterpriseIdentificationNumber") {
+
+			/**
+			 * 1. The identifier of the business case type
+			 * - B = invoices and rolled over invoices
+			 * - R = reminder
+			 */
+			var businessCaseType = "B";
+			if (invoiceObj.document_info.type === "reminder") {
+				businessCaseType = "R";
+			}
+
+			/**
+			 * 2. Identification of the invoice recipient
+			 * 
+			 * Can be:
+			 * - emailAddress: the customer email 
+			 * - billRecipientID: the customer number (maxLength: 17, pattern: ([0-9])*)
+			 * - enterpriseIdentificationNumber: the customer VAT number (maxLength: 12, pattern: CHE[0-9]{9})
+			 */
+			var recipientIdentification = "";
+			if (userParam.qr_code_ebill_recipient_id === "emailAddress") {
+				var emailAddress = invoiceObj.customer_info.email;
+				if (emailAddress) {
+					recipientIdentification = emailAddress;
+				}
+			}
+			else if (userParam.qr_code_ebill_recipient_id === "billRecipientID") {
+				var customerNumber = invoiceObj.customer_info.number;
+				if (customerNumber && /^\d{1,17}$/.test(customerNumber)) { // Checks contains only digits and has a length between 1 and 17 characters
+					recipientIdentification = customerNumber;
+				}
+				else {
+					if (customerNumber.length > 17) {
+						recipientIdentification = "@error " + this.getErrorMessage(this.ID_ERR_EBILL_LENGTH_BILLRECIPIENTID, langDoc);
+					}
+					if (!/^[0-9]+$/.test(customerNumber)) {
+						recipientIdentification += "@error " + this.getErrorMessage(this.ID_ERR_EBILL_BILLRECIPIENTID, langDoc);
+					}
+				}
+			}
+			else if (userParam.qr_code_ebill_recipient_id === "enterpriseIdentificationNumber") {
+				var vatNumber = invoiceObj.customer_info.vat_number;
+				var result = vatNumber.replace(/\D/g, ""); // Removes all non-digit characters
+				var vatNumberString = "CHE" + result;
+				if (vatNumberString.length <= 12) {
+					recipientIdentification = vatNumberString;
+				}
+			}
+
+			/**
+			 * 3. Referenced Bill (invoice number of the referenced business case)
+			 * This element is optional.
+			 * It only has to be filled for reminders and rolled over invoices in order to identify the original invoice
+			 */
+			var invoiceNumber = invoiceObj.document_info.number;
+
+
+			eBillString = "eBill/"+businessCaseType+"/"+recipientIdentification+"/"+invoiceNumber;
+		}
+
+		return eBillString;
+	 }
 
 
 	/**
@@ -1770,7 +1922,7 @@ var QRBill = class QRBill {
 		}
 
 		if (qrcodeData.amount !== "0.00" && qrcodeData.furtherInformation1) {
-			qrImageText.av1parameters = texts.nameAV1+": "+qrcodeData.furtherInformation1;
+			qrImageText.av1parameters = qrcodeData.furtherInformation1; //eBill
 		}
 		if (qrcodeData.amount !== "0.00" && qrcodeData.furtherInformation2) {
 			qrImageText.av2parameters = texts.nameAV2+": "+qrcodeData.furtherInformation2;	
@@ -2230,15 +2382,17 @@ var QRBill = class QRBill {
 
 		/**
 		*	PAYMENT FURTHER INFO
+		* 	- nameAVI used for eBill
 		*/
 		if (qrcodeData.amount !== "0.00" && qrcodeData.furtherInformation1) {
 			var p1 = qrcodePaymentFurtherInfoForm.addParagraph();
-			p1.addText(texts.nameAV1 + ": ", "qrcode_further_info_payment bold qrcode_lineSpacing8");
-			p1.addText(qrcodeData.furtherInformation1, "qrcode_further_info_payment qrcode_lineSpacing8");
+			//p1.addText(texts.nameAV1, "qrcode_further_info_payment bold qrcode_lineSpacing8");
+			p1.addText(qrcodeData.furtherInformation1.substr(0, 5), "bold qrcode_further_info_payment qrcode_lineSpacing8");
+			p1.addText(qrcodeData.furtherInformation1.substr(5), "qrcode_further_info_payment qrcode_lineSpacing8");
 		}
 		if (qrcodeData.amount !== "0.00" && qrcodeData.furtherInformation2) {
 			var p2 = qrcodePaymentFurtherInfoForm.addParagraph();
-			p2.addText(texts.nameAV2 + ": ", "qrcode_further_info_payment bold qrcode_lineSpacing8");
+			//p2.addText(texts.nameAV2 + ": ", "qrcode_further_info_payment bold qrcode_lineSpacing8");
 			p2.addText(qrcodeData.furtherInformation2, "qrcode_further_info_payment qrcode_lineSpacing8");
 		}
 	}

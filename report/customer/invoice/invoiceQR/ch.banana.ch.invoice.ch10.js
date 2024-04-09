@@ -159,6 +159,10 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   if (printFormat === "estimate") {
     invoiceObj.document_info.doc_type = "17"; // 17=estimate
   }
+  // Set the type "reminder", used for the eBill reference
+  if (printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3") {
+    invoiceObj.document_info.type = "reminder";
+  }
 
   /* PRINT QR SLIP ONLY */
   if (printFormat === "qrcode_slip") {
