@@ -134,12 +134,25 @@ function clearText(text) {
 
 /**
  * PFCSV Format 6, since february 2024.
+ * Date de début:;26.02.2022;;;;;
+ * Date de fin:;26.02.2024;;;;;
+ * Catégorie:;Tous;;;;;
+ * Compte:;CH00000000000000000000;;;;;
+ * Monnaie:;CHF;;;;;
+ * ;;;;;;
+ * Date;Type de transaction;Texte de notification;Crédit en CHF;Débit en CHF;Label;Catégorie
+ * ;;;;;;
+ * 26.02.2024;Enregistrement comptable;Descr;;-100;;Dépenses autres
+ * 26.02.2024;Enregistrement comptable;Descr;;-15;;Dépenses autres
+ * ;;;;;;
+ * Disclaimer:;;;;;;
+ * Le contenu du document a été généré à partir des paramètres de filtrage des clientes et des clients. PostFinance n’est pas responsable du contenu et de son exhaustivité.;;;;;;
  */
 function PFCSVFormat6() {
 
    this.getFormattedData = function (transactions, importUtilities) {
-      let headerLineStart = 6;
-      let dataLineStart = 8;
+      let headerLineStart = this.getHeaderLineStart(transactions);
+      let dataLineStart = headerLineStart == 6 ? 8 : 7;
       // We do a copy as the getHeaderData modifies the content and we need to keep the original version clean.
       var transactionsCopy = transactions.map(function (arr) {
          return arr.slice();
@@ -183,6 +196,19 @@ function PFCSVFormat6() {
 
       return [];
 
+   }
+
+   /**
+    * With this format, if user does not explicitly set the End Date of the movements
+    * when is exporting, then the header and data start at a different row, then we have
+    * to figure out if the end date is present or not.
+    */
+   this.getHeaderLineStart = function (transactions) {
+      let endDate = transactions[1][1];
+      if (endDate.match(/^\d{2}.\d{2}.\d{4}$/))
+         return 6; // the Header is on row 6.
+      else
+         return 5; // the Header is on row 5.
    }
 
    this.convertHeaderDe = function (columns) {
