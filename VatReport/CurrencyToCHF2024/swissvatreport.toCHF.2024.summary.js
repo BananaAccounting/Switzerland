@@ -70,7 +70,7 @@ function loadDescriptions(banDoc) {
         param.description12 = "Ridotta";
         param.description13 = "Speciale per l'alloggio";
         param.description14 = "Imposta sull'acquisto";
-        param.description15 = "Totale dell'imposta dovuta (cifre 303-383)";
+        param.description15 = "Totale dell'imposta dovuta (cifre 302-383)";
         param.description16 = "Imposta precedente su costi del materiale e prestazioni di servizi";
         param.description17 = "Imposta precedente su investimenti e altri costi d'esercizio";
         param.description18 = "Sgravio fiscale successivo (art. 32; vogliate p.f. allegare una distinta dettagliata)";
@@ -98,7 +98,7 @@ function loadDescriptions(banDoc) {
         param.description12 = "Réduit";
         param.description13 = "Spécial pour l'hébergement";
         param.description14 = "Impôt sur les acquisitions";
-        param.description15 = "Total de l'impôt dû (ch. 303 à 383)";
+        param.description15 = "Total de l'impôt dû (ch. 302 à 383)";
         param.description16 = "Impôt préalable grevant les coûts en matériel et en prestations de services";
         param.description17 = "Impôt préalable grevant les investissements et autres charges d’exploitation";
         param.description18 = "Dégrèvement ultérieur de l’impôt préalable (art. 32, veuillez, s.v.p., joindre un relevé détaillé)";
@@ -126,7 +126,7 @@ function loadDescriptions(banDoc) {
         param.description12 = "Reduziert";
         param.description13 = "Beherbergung";
         param.description14 = "Bezugsteuer";
-        param.description15 = "Total geschuldete Steuer (Ziff. 303 bis 383)";
+        param.description15 = "Total geschuldete Steuer (Ziff. 302 bis 383)";
         param.description16 = "Vorsteuer auf Material- und Dienstleistungsaufwand";
         param.description17 = "Vorsteuer auf Investitionen und übrigem Betriebsaufwand";
         param.description18 = "Einlageentsteuerung (Art. 32, bitte detaillierte Aufstellung beilegen)";
@@ -323,6 +323,42 @@ function createVatReport(banDoc, startDate, endDate) {
     taxable = getGr1VatBalance(banDoc, transactions, "383", 2, startDate, endDate);
     tableRow.addCell(formatNumber(taxable, true), "right right", 1);
     posted = getGr1VatBalance(banDoc, transactions, "383", 4, startDate, endDate);
+    tot399posted = Banana.SDecimal.add(tot399posted, posted);
+    tableRow.addCell(formatNumber(posted, true), "right right", 1);
+
+    tableRow = table.addRow();
+    tableRow.addCell("302", "", 1);
+    tableRow.addCell(param.description11 + " (2023)", "", 1);
+    taxable = getGr1VatBalance(banDoc, transactions, "302", 2, startDate, endDate);
+    tableRow.addCell(formatNumber(taxable, true), "right right", 1);
+    posted = getGr1VatBalance(banDoc, transactions, "302", 4, startDate, endDate);
+    tot399posted = Banana.SDecimal.add(tot399posted, posted);
+    tableRow.addCell(formatNumber(posted, true), "right right", 1);
+
+    tableRow = table.addRow();
+    tableRow.addCell("312", "", 1);
+    tableRow.addCell(param.description12 + " (2023)", "", 1);
+    taxable = getGr1VatBalance(banDoc, transactions, "312", 2, startDate, endDate);
+    tableRow.addCell(formatNumber(taxable, true), "right right", 1);
+    posted = getGr1VatBalance(banDoc, transactions, "312", 4, startDate, endDate);
+    tot399posted = Banana.SDecimal.add(tot399posted, posted);
+    tableRow.addCell(formatNumber(posted, true), "right right", 1);
+
+    tableRow = table.addRow();
+    tableRow.addCell("342", "", 1);
+    tableRow.addCell(param.description13 + " (2023)", "", 1);
+    taxable = getGr1VatBalance(banDoc, transactions, "342", 2, startDate, endDate);
+    tableRow.addCell(formatNumber(taxable, true), "right right", 1);
+    posted = getGr1VatBalance(banDoc, transactions, "342", 4, startDate, endDate);
+    tot399posted = Banana.SDecimal.add(tot399posted, posted);
+    tableRow.addCell(formatNumber(posted, true), "right right", 1);
+
+    tableRow = table.addRow();
+    tableRow.addCell("382", "", 1);
+    tableRow.addCell(param.description14 + " (2023)", "", 1);
+    taxable = getGr1VatBalance(banDoc, transactions, "382", 2, startDate, endDate);
+    tableRow.addCell(formatNumber(taxable, true), "right right", 1);
+    posted = getGr1VatBalance(banDoc, transactions, "382", 4, startDate, endDate);
     tot399posted = Banana.SDecimal.add(tot399posted, posted);
     tableRow.addCell(formatNumber(posted, true), "right right", 1);
 
