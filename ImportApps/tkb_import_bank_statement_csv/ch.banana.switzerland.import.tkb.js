@@ -76,6 +76,7 @@ function exec(string,isTest) {
 /**
  * Example
  * Buchungsdatum;Valutadatum;Buchungsnummer;Buchungstext;Belastung;Gutschrift;Saldo in CHF
+ * In questo formato, una registrazione viene stranamente divisa su 5 righe o 7 (2 spazi vuoti in mezzo)
 */
 function TKBFormat4() {
    this.colDate = 0;
@@ -94,21 +95,21 @@ function TKBFormat4() {
          return false;
 
       for (i = 0; i < transactions.length; i++) {
+
         var transaction = transactions[i];
+        //let nextTransaction = transactions[i + 1]; //Due to the non-linear structure, I have to check the format on several rows (first and second).
         var formatMatched = false;
+
+        Banana.console.debug(transaction.length);
+
         /* array should have all columns */
         if (transaction.length === this.colCount)
             formatMatched = true;
          else 
             formatMatched = false;
-
-         if (transaction[this.colCount-1].length > 0) //other formats finish with a empty column (lines end with ';' separator)
-            formatMatched = true;
-         else 
-            formatMatched = false;
   
          if (formatMatched && transaction[this.colDate] &&
-          transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
          else 
             formatMatched = false;
