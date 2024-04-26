@@ -767,7 +767,7 @@ var QRBill = class QRBill {
 			texts.param_qr_code = "Codice QR";
 			texts.param_qr_code_add = "Stampa codice QR";
 			texts.param_qr_code_reference_type = "Tipo riferimento QR";
-			texts.param_qr_code_qriban = "QR-IBAN";
+			texts.param_qr_code_qriban = "Conto speciale QR-IBAN";
 			texts.param_qr_code_iban = "IBAN";
 			texts.param_qr_code_iban_eur = "IBAN EUR";
 			texts.param_qr_code_isr_id = "Numero adesione (solo con conto bancario, con conto postale lasciare vuoto)";
@@ -812,7 +812,7 @@ var QRBill = class QRBill {
 			texts.param_qr_code = "QR-Code";
 			texts.param_qr_code_add = "QR-Code drucken";
 			texts.param_qr_code_reference_type = "QR-Referenztyp";
-			texts.param_qr_code_qriban = "QR-IBAN";
+			texts.param_qr_code_qriban = "Sonderkonto QR-IBAN";
 			texts.param_qr_code_iban = "IBAN";
 			texts.param_qr_code_iban_eur = "IBAN EUR";
 			texts.param_qr_code_isr_id = "Teilnehmernummer (nur Bankkonto, mit Postkonto leer lassen)";
@@ -857,7 +857,7 @@ var QRBill = class QRBill {
 			texts.param_qr_code = "QR Code";
 			texts.param_qr_code_add = "Imprimer QR Code";
 			texts.param_qr_code_reference_type = "Type de référence QR";
-			texts.param_qr_code_qriban = "QR-IBAN";
+			texts.param_qr_code_qriban = "Compte spécial QR-IBAN";
 			texts.param_qr_code_iban = "IBAN";
 			texts.param_qr_code_iban_eur = "IBAN EUR";
 			texts.param_qr_code_isr_id = "Numéro d'adhésion (seulement avec compte bancaire, avec compte postal laisser vide)";
@@ -902,7 +902,7 @@ var QRBill = class QRBill {
 			texts.param_qr_code = "QR Code";
 			texts.param_qr_code_add = "Print QR Code";
 			texts.param_qr_code_reference_type = "QR reference type";
-			texts.param_qr_code_qriban = "QR-IBAN";
+			texts.param_qr_code_qriban = "Special account QR-IBAN";
 			texts.param_qr_code_iban = "IBAN";
 			texts.param_qr_code_iban_eur = "IBAN EUR";
 			texts.param_qr_code_isr_id = "ISR subscriber number (only with bank account, with postal account leave blank)";
@@ -1182,7 +1182,7 @@ var QRBill = class QRBill {
 
 		/* Currency and amount */
 		qrcodeData.currency = invoiceObj.document_info.currency.toUpperCase();
-		qrcodeData.amount = invoiceObj.billing_info.total_to_pay;
+		qrcodeData.amount = Banana.Converter.toInternalNumberFormat(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay,2));
 		if (!qrcodeData.amount || Banana.SDecimal.sign(qrcodeData.amount) < 0) {
 			qrcodeData.amount = "0.00";
 		}
@@ -1317,14 +1317,14 @@ var QRBill = class QRBill {
 			}
 			qrcodeData.billingInformation = "";
 		} 
-		else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor, add only billing information
-			qrcodeData.additionalInformation = "";
-			if (userParam.qr_code_billing_information) {
-				qrcodeData.billingInformation = this.qrBillingInformation(invoiceObj);
-			} else {
-				qrcodeData.billingInformation = "";
-			}
-		}
+		// else if (this.ID_QRBILL_WITHOUT_DEBTOR) { //when no debtor, add only billing information
+		// 	qrcodeData.additionalInformation = "";
+		// 	if (userParam.qr_code_billing_information) {
+		// 		qrcodeData.billingInformation = this.qrBillingInformation(invoiceObj);
+		// 	} else {
+		// 		qrcodeData.billingInformation = "";
+		// 	}
+		// }
 		else { //add both additional and billing information
 			qrcodeData.additionalInformation = this.qrAdditionalInformation(invoiceObj, userParam.qr_code_additional_information);
 			if (userParam.qr_code_billing_information) {
@@ -1338,10 +1338,15 @@ var QRBill = class QRBill {
 		// We cut the unstructured Additional information with "..." at the end
 		var str = qrcodeData.additionalInformation + qrcodeData.billingInformation;
 		if (str.length > 140) {
-			str = str.split("//");
-			var addInfo = str[0];
-			var billInfo = "//"+str[1];
-			qrcodeData.additionalInformation = addInfo.substring(0, (137-(billInfo.length)))+ "...";
+			if (str.indexOf("//") > -1) { // additional and billing information
+				str = str.split("//");
+				var addInfo = str[0];
+				var billInfo = "//"+str[1];
+				qrcodeData.additionalInformation = addInfo.substring(0, (137-(billInfo.length)))+ "...";
+			}
+			else { // additional information only
+				qrcodeData.additionalInformation = str.substring(0, 137)+ "...";
+			}
 		}
 
 		/* Debtor (Payable by) */
@@ -2797,7 +2802,7 @@ var QRBill = class QRBill {
 			style.setAttribute("font-family", fontFamily);
 			style.setAttribute("font-size", fontSizePayment);
 			style.setAttribute("width","87mm");
-			style.setAttribute("height","88mm");
+			style.setAttribute("height","90mm");
 			//style.setAttribute("border","thin solid red");
 			if (userParam.qr_code_add_border_separator) {
 				style.setAttribute("border-top","thin dashed black");
@@ -2807,11 +2812,11 @@ var QRBill = class QRBill {
 			style = repStyleObj.addStyle(".qrcode_payment_further_info_Form");
 			style.setAttribute("position", "absolute");
 			style.setAttribute("left", "67mm");
-			style.setAttribute("top", "280mm");
+			style.setAttribute("top", "282mm");
 			style.setAttribute("color", "black");
 			style.setAttribute("font-family", fontFamily);
 			style.setAttribute("font-size", fontSizePayment);
-			style.setAttribute("width","137mm");
+			style.setAttribute("width","138mm");
 			style.setAttribute("height","10mm");
 			//style.setAttribute("border","thin solid red");
 
@@ -3011,7 +3016,7 @@ var QRBill = class QRBill {
 
 
 		/* Creditor (Payable to) */
-		qrcodeData.creditorAddressType = "K";
+		qrcodeData.creditorAddressType = "S";
 		qrcodeData.creditorName = "";
 		qrcodeData.creditorAddress1 = "";
 		qrcodeData.creditorAddress2 = "";
@@ -3053,7 +3058,6 @@ var QRBill = class QRBill {
 		}
 
 		//Replace the default values using the "Payable to" address parameters
-		//If "Payable to" address is selected we use structured type address, otherwise combined address.
 		if (userParam.qr_code_payable_to) {
 
 			//Reset all values before using parameters to avoid default values are used
@@ -3152,7 +3156,7 @@ var QRBill = class QRBill {
 		}
 
 		/* Debtor (Payable by) */
-		qrcodeData.debtorAddressType = "K";
+		qrcodeData.debtorAddressType = "S";
 		qrcodeData.debtorName = "";
 		qrcodeData.debtorAddress1 = "";
 		qrcodeData.debtorAddress2 = "";
@@ -3160,24 +3164,30 @@ var QRBill = class QRBill {
 		qrcodeData.debtorCity = "";
 		qrcodeData.debtorCountry = "";
 
-		if (userParam.qr_code_debtor_address_type) {
-			qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
-		}
+		// if (userParam.qr_code_debtor_address_type) {
+		// 	qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
+		// }
 
+		// Assign name/familyname to debtorName field
 		if (userParam.customer_address_name) {
-			qrcodeData.debtorName += userParam.customer_address_name;
+			qrcodeData.debtorName = userParam.customer_address_name.trim();
 		}
+		// When organisation name exists, always replace name/familyname with organisation name
+		if (userParam.customer_address_organisation) {
+        	qrcodeData.debtorName = userParam.customer_address_organisation.trim();
+      	}
+
 		if (userParam.customer_address_address) {
-			qrcodeData.debtorAddress1 = userParam.customer_address_address;
+			qrcodeData.debtorAddress1 = userParam.customer_address_address.trim();
 		}
 		if (userParam.customer_address_house_number) {
-			qrcodeData.debtorAddress2 = userParam.customer_address_house_number;
+			qrcodeData.debtorAddress2 = userParam.customer_address_house_number.trim();
 		}
 		if (userParam.customer_address_postal_code) {
-			qrcodeData.debtorPostalcode = userParam.customer_address_postal_code;
+			qrcodeData.debtorPostalcode = userParam.customer_address_postal_code.trim();
 		}
 		if (userParam.customer_address_locality) {
-			qrcodeData.debtorCity = userParam.customer_address_locality;
+			qrcodeData.debtorCity = userParam.customer_address_locality.trim();
 		}
 		if (userParam.customer_address_country_code) {
 			qrcodeData.debtorCountry = userParam.customer_address_country_code.toUpperCase().trim(); 

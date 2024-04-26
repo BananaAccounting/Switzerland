@@ -6,3 +6,6 @@
 **/build-*/
 VatEU
 *.user
+**/build/
+~$*
+**/.vscode/

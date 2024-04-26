@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2022-12-27
+// @pubdate = 2024-01-09
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -152,6 +152,22 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   // Get the print format that is used to print the document.
   let printFormat = getPrintFormat(preferencesObj);
 
+  // Set the document type
+  if (printFormat === "invoice" || printFormat === "proforma_invoice") {
+    invoiceObj.document_info.doc_type = "10"; // 10=invoice
+  }
+  if (printFormat === "estimate") {
+    invoiceObj.document_info.doc_type = "17"; // 17=estimate
+  }
+
+  /* PRINT QR SLIP ONLY */
+  if (printFormat === "qrcode_slip") {
+    userParam.qr_code_add = true;
+    var qrBill = new QRBill(banDoc, userParam);
+    qrBill.printQRCode(invoiceObj, repDocObj, repStyleObj, userParam);
+    return repDocObj;
+  }
+
 
   /* PRINT HEADER */
   if (BAN_ADVANCED && typeof(hook_print_header) === typeof(Function)) {
@@ -233,6 +249,13 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
       print_text_begin_reminder(sectionClassBegin, invoiceObj, texts, userParam, printFormat);
     }
   }
+  else if (printFormat === "proforma_invoice") {
+    if (BAN_ADVANCED && typeof(hook_print_text_begin_proforma_invoice) === typeof(Function)) {
+      hook_print_text_begin_proforma_invoice(sectionClassBegin, invoiceObj, texts, userParam);
+    } else {
+      print_text_begin_proforma_invoice(sectionClassBegin, invoiceObj, texts, userParam);
+    }
+  }
   else {
     if (BAN_ADVANCED && typeof(hook_print_text_begin) === typeof(Function)) {
       hook_print_text_begin(sectionClassBegin, invoiceObj, texts, userParam);
@@ -286,6 +309,13 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
       print_final_texts_reminder(sectionClassFinalTexts, invoiceObj, userParam);
     }
   }
+  else if (printFormat === "proforma_invoice") {
+    if (BAN_ADVANCED && typeof(hook_print_final_texts_proforma_invoice) === typeof(Function)) {
+      hook_print_final_texts_proforma_invoice(sectionClassFinalTexts, invoiceObj, userParam);
+    } else {
+      print_final_texts_proforma_invoice(sectionClassFinalTexts, invoiceObj, userParam);
+    }
+  }
   else {
     if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
       hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
@@ -295,7 +325,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts") {
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice") {
     userParam.qr_code_add = false; //delivery notes printed without QRCode
   }
   if (userParam.qr_code_add && invoiceObj.document_info.doc_type !== "17") { // 17=offerta 
@@ -978,7 +1008,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
   //DISCOUNT
   //used only for the "Application Invoice"
   //on normal invoices discounts are entered as items in transactions
-  if (invoiceObj.billing_info.total_discount_vat_exclusive) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_discount_vat_exclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ?
       invoiceObj.billing_info.discount.description : texts.discount;
@@ -1018,7 +1048,7 @@ function print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userPar
 
   //DEPOSIT
   //Only used for the Application Invoice
-  if (invoiceObj.billing_info.total_advance_payment) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1234,7 +1264,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   //SUBTOTAL
   //used only for the "Application Invoice"
   //Print subtotal if there is discount or rounding or deposit
-  if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
     || invoiceObj.billing_info.total_rounding_difference 
     || invoiceObj.billing_info.total_advance_payment)
@@ -1248,7 +1278,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   //DISCOUNT
   //used only for the "Application Invoice"
   //on normal invoices discounts are entered as items in transactions
-  if (invoiceObj.billing_info.total_discount_vat_inclusive) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_discount_vat_inclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ?
       invoiceObj.billing_info.discount.description : texts.discount;
@@ -1267,7 +1297,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
 
   //DEPOSIT
   //Only used for the Application Invoice
-  if (invoiceObj.billing_info.total_advance_payment) {
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) {
     tableRow = repTableObj.addRow();
     if (invoiceObj.billing_info.total_advance_payment_description) {
       tableRow.addCell(invoiceObj.billing_info.total_advance_payment_description, "padding-left padding-right", columnsNumber-1);
@@ -1281,7 +1311,7 @@ function print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userP
   if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
     && (invoiceObj.billing_info.total_discount_vat_inclusive 
     || invoiceObj.billing_info.total_rounding_difference 
-    || invoiceObj.billing_info.total_advance_payment)
+    || (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) )
   ) {
     tableRow.addCell("", "border-top", columnsNumber);
   } else {
@@ -1593,7 +1623,11 @@ function formatItemsValue(value, variables, columnName, className, item) {
     itemFormatted.className = className;
   }
   else if (columnName === "vatrate" || columnName === "vat_rate") {
-    itemFormatted.value = Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(value));
+    if (className === "item_cell") { //print vat rate only for items rows
+      itemFormatted.value = Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.abs(value));
+    } else {
+      itemFormatted.value = "";
+    }
     itemFormatted.className = className;
   }
   else if (columnName) {
@@ -2561,9 +2595,11 @@ function isIntegratedInvoice() {
 function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userParam) {
   /*
     Prints the delivery note information
+
+    Invoice due date is never printed on delivery note
   */
   var infoTable = "";
-  var rows = 0;
+  var rows = 1; //start from 1 because due date is not printed, we count it.
 
   if (userParam.address_left) {
     infoTable = repDocObj.addTable("info_table_right");
@@ -2584,7 +2620,7 @@ function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userP
   if (userParam.info_date) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_date_delivery_note'] + ":","",1);
-    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);    
+    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);
   } else {
     rows++;
   }
@@ -2605,7 +2641,7 @@ function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userP
   if (userParam.info_customer) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_customer'] + ":","",1);
-    tableRow.addCell(invoiceObj.customer_info.number,"",1);    
+    tableRow.addCell(invoiceObj.customer_info.number,"",1);
   } else {
     rows++;
   }
@@ -2623,37 +2659,10 @@ function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userP
   } else {
     rows++;
   }
-  if (userParam.info_due_date) {
-    //Payment Terms
-    var payment_terms_label = texts.payment_terms_label;
-    var payment_terms = '';
-    if (invoiceObj.billing_info.payment_term) { //10:ter
-      payment_terms = invoiceObj.billing_info.payment_term;
-    }
-    else if (invoiceObj.payment_info.due_date) { //automatic
-      payment_terms_label = texts.payment_due_date_label
-      payment_terms = Banana.Converter.toLocaleDateFormat(invoiceObj.payment_info.due_date);
-    }
-
-    tableRow = infoTable.addRow();
-    if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
-      tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
-    } else {
-      tableRow.addCell(userParam[lang+'_text_info_validity_date_offer'] + ":","",1);
-    }
-    if (invoiceObj.billing_info.payment_term) { //bold markdown when 10:ter
-      var paymentCell = tableRow.addCell("","",1);
-      addMdBoldText(paymentCell, payment_terms);
-    } else {
-      tableRow.addCell(payment_terms,"",1);
-    }
-  } else {
-    rows++;
-  }
   if (userParam.info_page) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
-    tableRow.addCell("","",1).addFieldPageNr();    
+    tableRow.addCell("","",1).addFieldPageNr();
   } else {
     rows++;
   }
@@ -2681,6 +2690,8 @@ function print_info_first_page_delivery_note(repDocObj, invoiceObj, texts, userP
 function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, userParam) {
   /*
     Prints the delivery note information
+
+    Invoice due date is never printed on delivery note
   */
   var infoTable = "";
 
@@ -2701,7 +2712,7 @@ function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, user
   if (userParam.info_date) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_date_delivery_note'] + ":","",1);
-    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);    
+    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);
   }
   if (userParam.info_order_number) {
     tableRow = infoTable.addRow();
@@ -2720,7 +2731,7 @@ function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, user
   if (userParam.info_customer) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_customer'] + ":","",1);
-    tableRow.addCell(invoiceObj.customer_info.number,"",1);    
+    tableRow.addCell(invoiceObj.customer_info.number,"",1);
   }
   if (userParam.info_customer_vat_number) {
     tableRow = infoTable.addRow();
@@ -2732,35 +2743,10 @@ function print_info_other_pages_delivery_note(repDocObj, invoiceObj, texts, user
     tableRow.addCell(userParam[lang+'_text_info_customer_fiscal_number'] + ":","",1);
     tableRow.addCell(invoiceObj.customer_info.fiscal_number);
   }
-  if (userParam.info_due_date) {
-    //Payment Terms
-    var payment_terms_label = texts.payment_terms_label;
-    var payment_terms = '';
-    if (invoiceObj.billing_info.payment_term) {
-      payment_terms = invoiceObj.billing_info.payment_term;
-    }
-    else if (invoiceObj.payment_info.due_date) {
-      payment_terms_label = texts.payment_due_date_label
-      payment_terms = Banana.Converter.toLocaleDateFormat(invoiceObj.payment_info.due_date);
-    }
-
-    tableRow = infoTable.addRow();
-    if (invoiceObj.document_info.doc_type !== "17") {
-      tableRow.addCell(userParam[lang+'_text_info_due_date'] + ":","",1);
-    } else {
-      tableRow.addCell(userParam[lang+'_text_info_validity_date_offer'] + ":","",1);
-    }
-    if (invoiceObj.billing_info.payment_term) { //bold markdown when 10:ter
-      var paymentCell = tableRow.addCell("","",1);
-      addMdBoldText(paymentCell, payment_terms);
-    } else {
-      tableRow.addCell(payment_terms,"",1);
-    }    
-  }
   if (userParam.info_page) {
     tableRow = infoTable.addRow();
     tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
-    tableRow.addCell("","",1).addFieldPageNr();    
+    tableRow.addCell("","",1).addFieldPageNr();
   }
   //Adds custom fields
   //Works only with the estimates and invoices application
@@ -3207,6 +3193,128 @@ function print_final_texts_reminder(repDocObj, invoiceObj, userParam) {
         addMdBoldText(paragraph, text[i]);
       } else {
         addMdBoldText(paragraph, " "); //empty lines
+      }
+    }
+  }
+}
+
+
+
+//====================================================================//
+// FUNCTIONS THAT PRINT THE PROFORMA INVOICE.
+// USER CAN REPLACE THEM WITH 'HOOK' FUNCTIONS DEFINED USING EMBEDDED 
+// JAVASCRIPT FILES ON DOCUMENTS TABLE
+//====================================================================//
+function print_text_begin_proforma_invoice(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the text before the proforma invoice details
+  */
+  var textTitle = "";
+  var textBegin = invoiceObj.document_info.text_begin;
+  var textBeginSettings = userParam[lang+'_text_begin_proforma_invoice'];
+  var table = repDocObj.addTable("begin_text_table");
+  var tableRow;
+  
+  // print the title  
+  textTitle = texts.proforma_invoice;
+  if (userParam[lang+'_title_proforma_invoice'] && userParam[lang+'_title_proforma_invoice'] !== "<none>") {
+    textTitle = userParam[lang+'_title_proforma_invoice'];
+  } else {
+    textTitle = "";
+  }
+
+  if (textTitle) {
+    textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
+    textTitle = columnNamesToValues(invoiceObj, textTitle);
+    tableRow = table.addRow();
+    var titleCell = tableRow.addCell("","",1);
+    titleCell.addParagraph(textTitle, "title_text");
+  }
+
+  if (textBegin) {
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    var textBeginLines = textBegin.split('\n');
+    for (var i = 0; i < textBeginLines.length; i++) {
+      if (textBeginLines[i]) {
+        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
+        addMdBoldText(textCell, textBeginLines[i]);
+      }
+      else {
+        addMdBoldText(textCell, " "); //empty lines
+      }
+    }
+  }
+  else if (!textBegin && textBeginSettings) {
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    var textBeginLines = textBeginSettings.split('\n');
+    for (var i = 0; i < textBeginLines.length; i++) {
+      if (textBeginLines[i]) {
+        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
+        addMdBoldText(textCell, textBeginLines[i]);
+      }
+      else {
+        addMdBoldText(textCell, " "); //empty lines
+      }
+    }
+  }
+}
+
+function print_final_texts_proforma_invoice(repDocObj, invoiceObj, userParam) {
+  /*
+    Prints final texts for the proforma invoice after the details table.
+    - Default text is taken from the Print invoices -> Template options.
+    - If user let empty the parameter on Settings dialog -> Final text, it is used the default
+    - If user enter a text as parameter on Settings dialog -> Final text, it is used this instead.
+  */
+
+  //Text taken from the Settings dialog's parameter "Final text"
+  if (invoiceObj.document_info.doc_type !== "17") { //invoices and credit notes
+    if (userParam[lang+'_text_final_proforma_invoice'] && userParam[lang+'_text_final_proforma_invoice'] !== "<none>") {
+      var text = userParam[lang+'_text_final_proforma_invoice'];
+      text = text.split('\n');
+      // if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+      //   repDocObj.addParagraph(" ", "");
+      // }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
+      }
+    }
+
+    // Template params, default text starts with "(" and ends with ")" (default), (Vorderfiniert)
+    else if (invoiceObj.template_parameters && invoiceObj.template_parameters.footer_texts && !userParam[lang+'_text_final_proforma_invoice']) {
+      var textDefault = [];
+      var text = [];
+      for (var i = 0; i < invoiceObj.template_parameters.footer_texts.length; i++) {
+        var textLang = invoiceObj.template_parameters.footer_texts[i].lang;
+        if (textLang.indexOf('(') === 0 && textLang.indexOf(')') === textLang.length-1) {
+          textDefault = invoiceObj.template_parameters.footer_texts[i].text;
+        }
+        else if (textLang == lang) {
+          text = invoiceObj.template_parameters.footer_texts[i].text;
+        }
+      }
+      if (text.join().length <= 0) {
+        text = textDefault;
+      }
+      // if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+      //   repDocObj.addParagraph(" ", "");
+      // }
+      for (var i = 0; i < text.length; i++) {
+        var paragraph = repDocObj.addParagraph("","final_texts");
+        if (text[i]) {
+          text[i] = columnNamesToValues(invoiceObj, text[i]);
+          addMdBoldText(paragraph, text[i]);
+        } else {
+          addMdBoldText(paragraph, " "); //empty lines
+        }
       }
     }
   }

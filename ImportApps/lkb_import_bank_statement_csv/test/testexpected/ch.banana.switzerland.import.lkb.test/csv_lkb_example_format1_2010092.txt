@@ -1,0 +1,43 @@
+%%info_test_name{csv_lkb_example_format1_2010092}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2012-09-03 & 2012-09-03 &  & Disu�dion Homili / 173736657�.�GENTAS SERE A/V PUERE�VOLUDICALIA 3�3656 SPERAT�- - Hete - -�ALINISU FAC PROLUS� &  & 1500.00\\
+2012-09-03 & 2012-09-03 &  & Prorbilium / 702264620�.�Milit Samor�Voludicalia 8�3656 Sperat�- - Hete - -�GAUDICELLE ACIDISTIA/PROLUS� & 700.00 & \\
+2012-09-03 & 2012-09-03 &  & Prorbilium / 562242743�.�Tribem Octiant Sus VI�Per Aede�5667 Adducitius� & 2082.00 & \\
+2012-09-03 & 2012-09-03 &  & Prorbilium AuffIcautus / 153387587�.�Elino VI�Prituotatudirundo 36�7855 Acto�- - Hete - -�TUMENTERAESCIDIT OS. T63726� & 85.15 & \\
+2012-09-07 & 2012-09-07 &  & Deannetam Ascustas OS / 321815143�.�Sperat 2 30.33.5677 28:86�Ictuod-Os.: 14507117� &  & 400.00\\
+2012-09-10 & 2012-09-10 &  & Prorbilium / 654080572�.�TUM ANTABEM (SINCIPE) VI�VI. TANENT-TATESTO 760�EX-2176 PERNA�- - Hete - -�661152678388� & 52.40 & \\
+2012-09-11 & 2012-09-11 &  & Prorbilium / 705505528�.�Milit Samor�Voludicalia 8�3656 Sperat�- - Hete - -�5677-11� & 131.85 & \\
+2012-09-11 & 2012-09-08 &  & Causpelibo/Offinqualiondi / 850855712�.�Reprolore: REPER SECULI ET�Pelogineribullary: 11.33.54 / 67:67:11�Ictuod-Os.: 14507117�Mincte: ETE 67.77� &  & 24.00\\
+2012-09-11 & 2012-09-09 &  & Causpelibo/Offinqualiondi / 258814430�.�Reprolore: AGRO ELLAMIURA.�Pelogineribullary: 33.33.54 / 33:10:57�Ictuod-Os.: 14507117�Mincte: ETE 10.36� &  & 11.35\\
+2012-09-12 & 2012-09-10 &  & Causpelibo/Offinqualiondi / 567188336�.�Reprolore: SI APPATTIUVA�Pelogineribullary: 45.33.54 / 42:33:18�Ictuod-Os.: 14507117�Mincte: ETE 28.85� &  & 14.25\\
+2012-09-18 & 2012-09-17 &  & Causpelibo/Offinqualiondi / 652662347�.�Reprolore: REDERE PUTUBIT�Pelogineribullary: 45.33.54 / 72:62:54�Ictuod-Os.: 14507117�Mincte: ETE 85.77� &  & 25.00\\
+2012-09-25 & 2012-09-24 &  & Causpelibo/Offinqualiondi / 524887845�.�Reprolore: AGRO FRALBULI.�Pelogineribullary: 67.33.54 / 54:13:57�Ictuod-Os.: 14507117�Mincte: ETE 86.54� &  & 56.60\\
+2012-09-26 & 2012-09-25 &  & Causpelibo/Offinqualiondi / 136552354�.�Reprolore: AN MAGNIGATINGIT MOR�Pelogineribullary: 85.33.54 / 42:36:45�Ictuod-Os.: 14507117�Mincte: ETE 4.45� &  & 7.50\\
+2012-09-27 & 2012-09-27 &  & Disu�dion Homili / 415312762�.�TRI FINITIMERE�1516 2781 5225 7573� &  & 638.95\\
+2012-09-27 & 2012-09-27 &  & Disu�dion Homili / 777287783�QUINVERIMORTUNT�GERURA�3074 GERURA 42 GERURA 42� &  & 306.40\\
+2012-09-27 & 2012-09-27 &  & Disu�dion Homili / 257041483�VOCULUS MOVISTUINGUSTO VI�QUIRIAMITQUITINTI 785�2385 VICTINO� &  & 104.75\\
+2012-09-27 & 2012-09-27 &  & Disu�dion Homili / 444150422�XXX-REDIVITIUVIGENDO�MARTIONSUBIEREX 8�6150 CALETE� &  & 126.25\\
+2012-09-27 & 2012-09-27 &  & Disu�dion Homili / 286378144�SPERAT FORIMUNDA�LANTRIPUPA 1�3656 SPERAT�- - Hete - -�OS. 54-337� &  & 180.00\\
+\\
+\end{tablevalue}
+\end{document}

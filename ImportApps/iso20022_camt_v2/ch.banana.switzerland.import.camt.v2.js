@@ -131,6 +131,17 @@ function settingsDialog() {
         }
         convertedParam.data.push(currentParam);
 
+        var currentParam = {};
+        currentParam.name = 'import_credits';
+        currentParam.title = isoCamtReader.tr('import_credits', lang);
+        currentParam.type = 'bool';
+        currentParam.defaultvalue = false;
+        currentParam.value = params.import_credits ? true : false;
+        currentParam.readValue = function() {
+            params.import_credits = this.value;
+        }
+        convertedParam.data.push(currentParam);
+
         currentParam = {};
         currentParam.name = 'invoice_no_extract';
         currentParam.title = isoCamtReader.tr('invoice_no_extract', lang);
@@ -296,6 +307,12 @@ function settingsDialog() {
         if (typeof(value) === 'undefined')
             return;
         params.add_counterpart_transaction = value === '1' ? true : false;
+
+        var value = params.import_credits ? '1' : '0';
+        value = Banana.Ui.getText(dialogTitle, isoCamtReader.tr('legacy_import_credits', lang), value);
+        if (typeof(value) === 'undefined')
+            return;
+        params.import_credits = value === '1' ? true : false;
 
         value = params.invoice_no.extract ? '1' : '0';
         value = Banana.Ui.getText(dialogTitle, isoCamtReader.tr('legacy_invoice_no_extract', lang), value);

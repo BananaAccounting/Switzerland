@@ -690,6 +690,12 @@ var DomBuilder = class DomBuilder {
         var reference = creditorReferenceInformation.addElement('Ref');
         reference.addTextNode(creditorReference);
 
+        //additional remittance information
+        if (transactionInformation.getRemittanceInformation().length > 0) {
+            var additionalRemitInfo = structured.addElement('AddtlRmtInf');
+            additionalRemitInfo.addTextNode(transactionInformation.getRemittanceInformation());
+        }
+
         return remittanceInformation;
     }
 

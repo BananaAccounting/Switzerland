@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2022-04-15
+// @pubdate = 2023-05-19
 // @publisher = Banana.ch SA
 // @description = Letter-Invoice with Swiss QR
 // @description.it = Lettera-Fattura con QR Svizzera
@@ -116,33 +116,71 @@ function exec(string) {
 function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
 
   // Set sections of the report
-  var sectionSenderAddress = report.addSection("sender-address");
+  if (reportParam.print_header_logo) {
+    var sectionSenderAddress = report.getHeader().addSection();
+  } else {
+    var sectionSenderAddress = report.addSection("sender-address");
+  }
   
   var sectionDate;
-  if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
-    sectionDate = report.addSection("date-without-addresses");
+  if (reportParam.print_header_logo) {
+    if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
+      sectionDate = report.addSection("date-with-logo-without-addresses");
+    }
+    else {
+      sectionDate = report.addSection("date");
+    }
   }
   else {
-    sectionDate = report.addSection("date");
+    if (!reportParam.print_sender_address && !reportParam.print_customer_address) {
+      sectionDate = report.addSection("date-without-addresses");
+    }
+    else {
+      sectionDate = report.addSection("date");
+    }
   }
 
   var sectionCustomerAddress = report.addSection("customer-address");
   
   var sectionLetter;
-  if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date) {
-    sectionLetter = report.addSection("letter-without-addresses-and-date");
-  }
-  else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date) {
-    sectionLetter = report.addSection("letter-without-addresses");
+  if (reportParam.print_header_logo) {
+    if (!reportParam.print_customer_address && !reportParam.print_date) {
+      sectionLetter = report.addSection("letter-with-logo-without-addresses-and-date");
+    }
+    else if (!reportParam.print_customer_address && reportParam.print_date) {
+      sectionLetter = report.addSection("letter-with-logo-without-addresses");
+    }
+    else {
+      sectionLetter = report.addSection("letter");
+    }
   }
   else {
-    sectionLetter = report.addSection("letter");
+    if (!reportParam.print_sender_address && !reportParam.print_customer_address && !reportParam.print_date) {
+      sectionLetter = report.addSection("letter-without-addresses-and-date");
+    }
+    else if (!reportParam.print_sender_address && !reportParam.print_customer_address && reportParam.print_date) {
+      sectionLetter = report.addSection("letter-without-addresses");
+    }
+    else {
+      sectionLetter = report.addSection("letter");
+    }
   }
 
 
 
   //******************************************************************************************
 
+  // Print logo
+  if (reportParam.print_header_logo) {
+    sectionSenderAddress = report.addSection();
+    var logoFormat = Banana.Report.logoFormat(reportParam.header_logo_name); //Logo
+    if (logoFormat) {
+      var logoElement = logoFormat.createDocNode(sectionSenderAddress, stylesheet, "logo");
+      report.getHeader().addChild(logoElement);
+    } else {
+      sectionSenderAddress.addClass("sender-address");
+    }
+  }
 
   // Print sender address
   if (reportParam.print_sender_address) {
@@ -206,8 +244,7 @@ function convertFields(text, reportParam) {
 function setSenderAddress(banDoc, userParam, qrSettings) {
 
   /**
-   * With extension parameter settins we use the 'Structured' address type (S)
-   * With address from accounting we use 'Combined' address type (K)
+   * We always use the 'Structured' address type (S)
    */
 
   if (userParam.sender_address_from_accounting) { //from File->Properties
@@ -230,7 +267,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
     userParam.supplier_info_first_name = banDoc.info("AccountingDataBase","Name");
     userParam.supplier_info_last_name = banDoc.info("AccountingDataBase","FamilyName");
     userParam.supplier_info_address1 = banDoc.info("AccountingDataBase","Address1");
-    userParam.supplier_info_address2 = banDoc.info("AccountingDataBase","Address2");
+    userParam.supplier_info_address2 = ''; //banDoc.info("AccountingDataBase","Address2");
     userParam.supplier_info_postal_code = banDoc.info("AccountingDataBase","Zip");
     userParam.supplier_info_city = banDoc.info("AccountingDataBase","City");
     userParam.supplier_info_country_code = banDoc.info("AccountingDataBase","CountryCode");
@@ -252,7 +289,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
 function setCustomerAddress(userParam, qrSettings) {
 
   /**
-   * With the address defined in extension parameter we use the 'Structured' address type (S)
+   * With the address defined in extension parameter we always use the 'Structured' address type (S)
    * 
    * All the address data are already on userParam object
    */
@@ -325,6 +362,30 @@ function convertParam(userParam) {
   currentParam.editable = false;
   currentParam.readValue = function() {
     userParam.include_letter = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'print_header_logo';
+  currentParam.parentObject = 'include_letter';
+  currentParam.title = texts.print_header_logo;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.print_header_logo ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function() {
+    userParam.print_header_logo = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'header_logo_name';
+  currentParam.parentObject = 'include_letter'
+  currentParam.title = texts.header_logo_name;
+  currentParam.type = 'string';
+  currentParam.value = userParam.header_logo_name ? userParam.header_logo_name : 'Logo';
+  currentParam.defaultvalue = 'Logo';
+  currentParam.readValue = function() {
+      userParam.header_logo_name = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -833,6 +894,8 @@ function initUserParam() {
   var userParam = {};
 
   //
+  userParam.print_header_logo = false;
+  userParam.header_logo_name = 'Logo';
   userParam.print_sender_address = false;
   userParam.print_customer_address = false;
   userParam.print_date = false;
@@ -986,6 +1049,8 @@ function setTexts(language) {
   var texts = {};
 
   if (language === 'it') {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Nome logo";
     texts.text = 'Testo lettera';
     texts.print_text = 'Testo libero';
     texts.print_msg_text = 'Testo libero';
@@ -1026,6 +1091,8 @@ function setTexts(language) {
     texts.include_letter = 'Includi nella lettera';
   }
   else if (language === 'fr') {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Logo nom";
     texts.text = 'Texte';
     texts.print_text = 'Texte libre';
     texts.print_msg_text = 'Texte libre';
@@ -1066,6 +1133,8 @@ function setTexts(language) {
     texts.include_letter = 'Inclure dans la lettre';
   }
   else if (language === 'de') {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Logo-Name";
     texts.text = 'Text';
     texts.print_text = 'Freier Text';
     texts.print_msg_text = 'Freier Text';
@@ -1106,6 +1175,8 @@ function setTexts(language) {
     texts.include_letter = 'In den Brief einfügen';
   }
   else {
+    texts.print_header_logo = "Logo";
+    texts.header_logo_name = "Logo name";
     texts.text = 'Text';
     texts.print_text = 'Free text';
     texts.print_msg_text = 'Free text';

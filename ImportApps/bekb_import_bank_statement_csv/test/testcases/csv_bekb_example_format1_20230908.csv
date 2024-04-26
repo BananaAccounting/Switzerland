@@ -1,0 +1,10 @@
+Gutschrift / Belastung;Datum;Valuta;Buchungstext;Zusatzinfos Buchung;Name Auftraggeber / Beg�nstigter;Adresse Auftraggeber / Beg�nstigter;Konto / Bank;Mitteilung / Referenz;Zusatzinfos Transaktion;Betrag;Saldo
+Gutschrift per {date};27.06.2022;27.06.2022;Zahlungseingang;;Company SA;Via Delle scuole 24 Lugano;CH1234;TR1234567890 -123;;629.74;11176.55
+Gutschrift per {date};24.06.2022;24.06.2022;Zahlungseingang;;Company SA;Via Delle scuole 24 Lugano;CH1234;TR9472983819 -123;;202.41;10546.81
+Belastung per {date};24.06.2022;23.06.2022;Verkaufspunkt/Debitkarte;;SAG Schweiz AG;Salita Viarno 10b;;;;-53.30;10344.40
+Belastung per {date};24.06.2022;24.06.2022;Ihr E-Banking-Auftrag;;Supplier Sagl;Via Cantonale 11;;TR3849025638 - AAA;;-929.18;10397.70
+Belastung per {date};23.06.2022;23.06.2022;Ihr E-Banking-Auftrag;;Supplier Sagl;Via Cantonale 11;;TR1973650294 -BBB;;-465.45;11326.88
+Belastung per {date};23.06.2022;23.06.2022;Ihr E-Banking-Auftrag;;Supplier Sagl;Via Cantonale 11;;TR4573827563 -CCC;;-510.00;11792.33
+Gutschrift per {date};23.06.2022;23.06.2022;Bancomat/Debitkarte;;;;;;;12000.00;12302.33
+Gutschrift per {date};22.06.2022;22.06.2022;Zahlungseingang;;Company SA;Via Delle scuole 24 Lugano;CH1234;TR9472929819 -123;;175.33;302.33
+Belastung per {date};22.06.2022;22.06.2022;Ihr E-Banking-Auftrag;;Supplier Sagl;Via Cantonale 11;;TR1234563913 -DDD;;-152.30;127.00

@@ -1,0 +1,66 @@
+%%info_test_name{csv_bancastato_example_format5_20231123USD}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{Format Data}{ l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income\\
+2023-06-02 & 2023-06-02 & Sontunt, Foraliunt os supedio: TENTIARE AN & 123456789 &  & 10837.30\\
+2023-06-16 & 2023-06-19 & Foraliunt, COLO & 123456789 & 6358.40 & \\
+2023-06-23 & 2023-06-23 & Foraliunt (sentho quadectera), Vaterneri & 123456789 & 1562.22 & \\
+2023-06-23 & 2023-06-23 & Foraliunt (sentho quadectera), Ficuba cartus & 123456789 & 839.46 & \\
+2023-06-23 & 2023-06-23 & Foraliunt (sentho quadectera), cartus  FECULUNNEM & 123456789 & 455.46 & \\
+2023-06-23 & 2023-06-23 & Foraliunt (sentho quadectera), Offig cartus & 123456789 & 883.46 & \\
+2023-06-23 & 2023-06-23 & Foraliunt (sentho quadectera), Cartus Tangun & 123456789 & 573.46 & \\
+2023-06-23 & 2023-06-23 & Foraliunt (sentho quadectera), Quingi cartus & 123456789 & 455.46 & \\
+2023-07-07 & 2023-07-07 & Sontunt, Foraliunt os supedio: TENTIARE AN  & 123456789 &  & 7156.74\\
+2023-07-19 & 2023-07-20 & Foraliunt, COLO ut 20.32.8205 & 123456789 & 1524.15 & \\
+2023-07-25 & 2023-07-25 & Foraliunt (sentho quadectera), Vaterneri & 123456789 & 1748.70 & \\
+2023-07-25 & 2023-07-25 & Foraliunt (sentho quadectera), Ficuba cartus & 123456789 & 940.62 & \\
+2023-07-25 & 2023-07-25 & Foraliunt (sentho quadectera), cartus  FECULUNNEM & 123456789 & 634.62 & \\
+2023-07-25 & 2023-07-25 & Foraliunt (sentho quadectera), Offig cartus & 123456789 & 984.62 & \\
+2023-07-25 & 2023-07-25 & Foraliunt (sentho quadectera), Cartus Tangun & 123456789 & 684.62 & \\
+2023-07-25 & 2023-07-25 & Foraliunt (sentho quadectera), Quingi cartus & 123456789 & 634.62 & \\
+2023-08-04 & 2023-08-04 & Sontunt, Foraliunt os supedio: TENTIARE AN  & 123456789 &  & 10366.10\\
+2023-08-24 & 2023-08-25 & Foraliunt, Lava vi dica DEM.6'358 & 123456789 & 6467.15 & \\
+2023-08-25 & 2023-08-25 & Foraliunt (sentho quadectera), Vaterneri & 123456789 & 1748.40 & \\
+2023-08-25 & 2023-08-25 & Foraliunt (sentho quadectera), Ficuba cartus & 123456789 & 940.00 & \\
+2023-08-25 & 2023-08-25 & Foraliunt (sentho quadectera), cartus  FECULUNNEM & 123456789 & 634.00 & \\
+2023-08-25 & 2023-08-25 & Foraliunt (sentho quadectera), Offig cartus & 123456789 & 984.00 & \\
+2023-08-25 & 2023-08-25 & Foraliunt (sentho quadectera), Cartus Tangun & 123456789 & 684.00 & \\
+2023-08-25 & 2023-08-25 & Foraliunt (sentho quadectera), Quingi cartus & 123456789 & 634.00 & \\
+2023-09-01 & 2023-09-05 & Foraliunt, os stimila & 123456789 & 1358.40 & \\
+2023-09-14 & 2023-09-14 & Sontunt, Foraliunt os supedio: TENTIARE AN  & 123456789 &  & 10366.10\\
+2023-09-25 & 2023-09-25 & Foraliunt (sentho quadectera), Vaterneri & 123456789 & 1333.68 & \\
+2023-09-25 & 2023-09-25 & Foraliunt (sentho quadectera), Ficuba cartus & 123456789 & 939.10 & \\
+2023-09-25 & 2023-09-25 & Foraliunt (sentho quadectera), cartus  FECULUNNEM & 123456789 & 633.10 & \\
+2023-09-25 & 2023-09-25 & Foraliunt (sentho quadectera), Offig cartus & 123456789 & 983.10 & \\
+2023-09-25 & 2023-09-25 & Foraliunt (sentho quadectera), Cartus Tangun & 123456789 & 683.10 & \\
+2023-09-25 & 2023-09-25 & Foraliunt (sentho quadectera), Quingi cartus & 123456789 & 633.10 & \\
+2023-10-18 & 2023-10-18 & Sontunt, Foraliunt os supedio: SECUTE DISCERE DIMINAM & 123456789 &  & 20.00\\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), Vaterneri & 123456789 & 1333.85 & \\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), Ficuba cartus & 123456789 & 939.54 & \\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), cartus  FECULUNNEM & 123456789 & 633.54 & \\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), Offig cartus & 123456789 & 983.54 & \\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), Cartus Tangun & 123456789 & 683.54 & \\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), Quingi cartus & 123456789 & 633.54 & \\
+2023-10-25 & 2023-10-25 & Foraliunt (sentho quadectera), cartus & 123456789 & 473.54 & \\
+2023-11-08 & 2023-11-08 & Sontunt, Foraliunt os supedio: Tentiare AN & 123456789 &  & 0140.72\\
+\\
+\end{tablevalue}
+\end{document}

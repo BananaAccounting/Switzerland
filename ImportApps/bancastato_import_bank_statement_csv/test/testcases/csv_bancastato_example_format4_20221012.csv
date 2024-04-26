@@ -1,5 +1,4 @@
-﻿Data;Data valuta;Numero di ordine;"Tipo di ordine
-Testo di contabilizzazione";Addebiti (CHF);Accrediti (CHF);Saldo (CHF)
+﻿Data;Data valuta;Numero di ordine;"Tipo di ordine Testo di contabilizzazione";Addebiti (CHF);Accrediti (CHF);Saldo (CHF)
 
 11.10.2022;11.10.2022;123456789;"Descrizione Pagamento in entrata";;208.85;60’908.02
 10.10.2022;10.10.2022;123456789;"Descrizione Pagamento";1’710.30;;60’699.17

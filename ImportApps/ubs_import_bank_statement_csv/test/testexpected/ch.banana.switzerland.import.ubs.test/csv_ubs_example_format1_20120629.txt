@@ -18,45 +18,45 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l  l }
-Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
-2012-06-04 & 2012-06-04 &  & "Seressim, File Divino L'Divition Segavisu, Mangro Vi An Pary 8, 7225 Chium, Pus 5224." & 1819.80 &  & \\
-2012-06-04 & 2012-06-04 &  & "Spote B-Horpere, Dis Expem, Icunta Dipe, At 73026     Currescum, B-Horpere �poteral" &  & 200.00 & \\
-2012-06-04 & 2012-06-04 &  & "Spote B-Horpere, Que Orapto, Que, 5704 Rere, Que Orapto" &  & 1660.00 & \\
-2012-06-04 & 2012-06-04 &  & "Spote B-Horpere, Dis Expem, Censedra Panica Ex Solonsi, An Ple 6116 Ex. Ædisuro, /QUE/77/E60557/N8424 Nitque Dipe" &  & 3348.58 & \\
-2012-06-05 & 2012-06-05 &  & "Seressim, EXU74, Fœnumen Gereguniusugnieripe, Pasusceratem At, FTOC230743323205KLPI, Patine: BRSO3371260" & 17923.30 &  & \\
-2012-06-05 & 2012-06-05 &  & "Spote B-Horpere, Pass Offico, Ferope Simusqua, Eo 44215 Saepror" &  & 899.55 & \\
-2012-06-05 & 2012-06-05 &  & "Spote B-Horpere, Tro Muludiustro, Minende Parunis, 73026 Currescum, Cerries 8851" &  & 2400.00 & \\
-2012-06-05 & 2012-06-05 &  & "Spote B-Horpere, Staliblia At, Staliblia Addus Stus, At 73026 Currescum, Striptum Pedratia 5224, B-Horpere �poteral" &  & 11000.00 & \\
-2012-06-06 & 2012-06-06 &  & "Seressim, Divition Os Sima Os, Xxx Vi An Ponsa 7, 6116 Puelegis, 8260/7363" & 17955.00 &  & \\
-2012-06-06 & 2012-06-06 &  & "Spote B-Horpere, Cus 1.5224 Prate, Cus, 5544 Ignerret" &  & 8000.00 & \\
-2012-06-07 & 2012-06-07 &  & "Spote B-Horpere, O 77 322037 O, Colo Vi Astium, 2334 Astium 2" &  & 218.00 & \\
-2012-06-07 & 2012-06-07 &  & "Spote B-Horpere, Dis Expem Seni, Icunta Dipe, Vi-3803 Fœnumen, Seni Icunta Dipe" &  & 1000.00 & \\
-2012-06-07 & 2012-06-07 &  & "Spote B-Horpere, Seni Por 7.5224, Por At, G/w Por Prit Stogis, Alutandivignis 84, 6624 Tudabilies, 44 66372 58840 58436 62162 65858, AN:631686261" &  & 4924.15 & \\
-2012-06-08 & 2012-06-08 &  & "Spote Menterige, Fac Me, Fac Reptunico, Pere Vi Milineni 615813" &  & 1900.00 & \\
-2012-06-11 & 2012-06-11 &  & "Spote B-Horpere, Dis Expem Xxx, Niffig Dipe, 7035 Stquentuunt" &  & 1874.20 & \\
-2012-06-19 & 2012-06-19 &  & "Seressim, Divition Os Sima Os, Xxx Vi An Ponsa 7, 6116 Puelegis, 8315/7363" & 3240.00 &  & \\
-2012-06-19 & 2012-06-19 &  & "Spote B-Horpere, Dis Expem Cite, Icunta Dipe, At 73026     Currescum, B-Horpere �poteral" &  & 3000.00 & \\
-2012-06-20 & 2012-06-20 &  & "Seressim Dupary, Adus, Viturateserurba, 7800 Relino, Si.4601/1635/8.8.5224/" & 2284.20 &  & \\
-2012-06-20 & 2012-06-20 &  & "Spote B-Horpere, Staliblia Et, Staliblia Hat, Et Omulastali, Tae Staliblia Et Olo, B-Horpere �poteral, Seriens dam�8'412.74" &  & 1921.53 & \\
-2012-06-22 & 2012-06-22 &  & "Seressim, Munifig At, Altimpliavadem 233, VI/7882 Potusa, Cerries In.7040/4217" & 11008.85 &  & \\
-2012-06-22 & 2012-06-22 &  & "Spote B-Horpere, Staliblia Et, Staliblia Hat, Et Omulastali, Tae Staliblia Et Olo, B-Horpere �poteral, Seriens dam�7'412.74" &  & 4864.21 & \\
-2012-06-22 & 2012-06-22 &  & "Spote B-Horpere, Staliblia At, Staliblia Addus Stus, At 73026 Currescum, Striptum Pedratia 5224, B-Horpere �poteral" &  & 6000.00 & \\
-2012-06-25 & 2012-06-25 &  & "Spote B-Horpere, Dis Expem Cite, Icunta Dipe, At 73026     Currescum, B-Horpere �poteral" &  & 1000.00 & \\
-2012-06-29 & 2012-06-30 &  & "Aeriunis L'Mineiunt" &  & 1.00 & S\\
-2012-06-29 & 2012-06-30 &  & "Hoc�c�m Et�aupent 2.28\%  V�t 56.12.5224" & 0.480000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Hoc�c�m V�movere 4\%  V�t 56.12.5224" & -1.490000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Prate Mall Ferisicupra" &  & 55.00 & S\\
-2012-06-29 & 2012-06-30 &  & "Cones Vi Clac" & -20.000000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Cabo�i Milineni Ius" & -0.800000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 0.800000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "B-Horpere Fun Hoc�schoc" & -2.400000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 2.400000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "B-Horpere �poteral" & -35.000000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Cabo�i Milineni Trigniunico" & -0.200000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 0.200000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "B-Horpere Caut" & -0.600000000 &  & D\\
-2012-06-29 & 2012-06-30 &  & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 0.600000000 &  & D\\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & IsDetail\\
+2012-06-04 & 2012-06-04 &  & 2612422UQ7767612 & "Seressim, File Divino L'Divition Segavisu, Mangro Vi An Pary 8, 7225 Chium, Pus 5224." & 1819.80 &  & \\
+2012-06-04 & 2012-06-04 &  & FP44017JY4274545 & "Spote B-Horpere, Dis Expem, Icunta Dipe, At 73026     Currescum, B-Horpere �poteral" &  & 200.00 & \\
+2012-06-04 & 2012-06-04 &  & 3540673UW7716151 & "Spote B-Horpere, Que Orapto, Que, 5704 Rere, Que Orapto" &  & 1660.00 & \\
+2012-06-04 & 2012-06-04 &  & QD83388TO8737447 & "Spote B-Horpere, Dis Expem, Censedra Panica Ex Solonsi, An Ple 6116 Ex. Ædisuro, /QUE/77/E60557/N8424 Nitque Dipe" &  & 3348.58 & \\
+2012-06-05 & 2012-06-05 &  & 5848212N18066146 & "Seressim, EXU74, Fœnumen Gereguniusugnieripe, Pasusceratem At, FTOC230743323205KLPI, Patine: BRSO3371260" & 17923.30 &  & \\
+2012-06-05 & 2012-06-05 &  & GM02871KM4803746 & "Spote B-Horpere, Pass Offico, Ferope Simusqua, Eo 44215 Saepror" &  & 899.55 & \\
+2012-06-05 & 2012-06-05 &  & 4053546KW8074782 & "Spote B-Horpere, Tro Muludiustro, Minende Parunis, 73026 Currescum, Cerries 8851" &  & 2400.00 & \\
+2012-06-05 & 2012-06-05 &  & XA53254HB7672742 & "Spote B-Horpere, Staliblia At, Staliblia Addus Stus, At 73026 Currescum, Striptum Pedratia 5224, B-Horpere �poteral" &  & 11000.00 & \\
+2012-06-06 & 2012-06-06 &  & 6428615TV5807327 & "Seressim, Divition Os Sima Os, Xxx Vi An Ponsa 7, 6116 Puelegis, 8260/7363" & 17955.00 &  & \\
+2012-06-06 & 2012-06-06 &  & 7755570HO8387843 & "Spote B-Horpere, Cus 1.5224 Prate, Cus, 5544 Ignerret" &  & 8000.00 & \\
+2012-06-07 & 2012-06-07 &  & 2687013NH0317288 & "Spote B-Horpere, O 77 322037 O, Colo Vi Astium, 2334 Astium 2" &  & 218.00 & \\
+2012-06-07 & 2012-06-07 &  & 5141006GG3138352 & "Spote B-Horpere, Dis Expem Seni, Icunta Dipe, Vi-3803 Fœnumen, Seni Icunta Dipe" &  & 1000.00 & \\
+2012-06-07 & 2012-06-07 &  & 1800781UV7301053 & "Spote B-Horpere, Seni Por 7.5224, Por At, G/w Por Prit Stogis, Alutandivignis 84, 6624 Tudabilies, 44 66372 58840 58436 62162 65858, AN:631686261" &  & 4924.15 & \\
+2012-06-08 & 2012-06-08 &  & 8724684IM6527477 & "Spote Menterige, Fac Me, Fac Reptunico, Pere Vi Milineni 615813" &  & 1900.00 & \\
+2012-06-11 & 2012-06-11 &  & 7357208OS4213148 & "Spote B-Horpere, Dis Expem Xxx, Niffig Dipe, 7035 Stquentuunt" &  & 1874.20 & \\
+2012-06-19 & 2012-06-19 &  & 7148803XV2743216 & "Seressim, Divition Os Sima Os, Xxx Vi An Ponsa 7, 6116 Puelegis, 8315/7363" & 3240.00 &  & \\
+2012-06-19 & 2012-06-19 &  & TD43276OE5672801 & "Spote B-Horpere, Dis Expem Cite, Icunta Dipe, At 73026     Currescum, B-Horpere �poteral" &  & 3000.00 & \\
+2012-06-20 & 2012-06-20 &  & 1500308KG0513151 & "Seressim Dupary, Adus, Viturateserurba, 7800 Relino, Si.4601/1635/8.8.5224/" & 2284.20 &  & \\
+2012-06-20 & 2012-06-20 &  & QK26507WA5415871 & "Spote B-Horpere, Staliblia Et, Staliblia Hat, Et Omulastali, Tae Staliblia Et Olo, B-Horpere �poteral, Seriens dam�8'412.74" &  & 1921.53 & \\
+2012-06-22 & 2012-06-22 &  & 5801445KH6632354 & "Seressim, Munifig At, Altimpliavadem 233, VI/7882 Potusa, Cerries In.7040/4217" & 11008.85 &  & \\
+2012-06-22 & 2012-06-22 &  & MA81674HN2234285 & "Spote B-Horpere, Staliblia Et, Staliblia Hat, Et Omulastali, Tae Staliblia Et Olo, B-Horpere �poteral, Seriens dam�7'412.74" &  & 4864.21 & \\
+2012-06-22 & 2012-06-22 &  & VN06221RP5206256 & "Spote B-Horpere, Staliblia At, Staliblia Addus Stus, At 73026 Currescum, Striptum Pedratia 5224, B-Horpere �poteral" &  & 6000.00 & \\
+2012-06-25 & 2012-06-25 &  & AI57631TI4277403 & "Spote B-Horpere, Dis Expem Cite, Icunta Dipe, At 73026     Currescum, B-Horpere �poteral" &  & 1000.00 & \\
+2012-06-29 & 2012-06-30 &  & 5448741JG4211557 & "Aeriunis L'Mineiunt" &  & 1.00 & S\\
+2012-06-29 & 2012-06-30 &  & 5448741JG4211557 & "Hoc�c�m Et�aupent 2.28\%  V�t 56.12.5224" & 0.480000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & 5448741JG4211557 & "Hoc�c�m V�movere 4\%  V�t 56.12.5224" & -1.490000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Prate Mall Ferisicupra" &  & 55.00 & S\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Cones Vi Clac" & -20.000000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Cabo�i Milineni Ius" & -0.800000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 0.800000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "B-Horpere Fun Hoc�schoc" & -2.400000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 2.400000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "B-Horpere �poteral" & -35.000000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Cabo�i Milineni Trigniunico" & -0.200000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 0.200000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "B-Horpere Caut" & -0.600000000 &  & D\\
+2012-06-29 & 2012-06-30 &  & TY03035MB4412024 & "Experiartime Fietrunc Natio In Exper Vi Cebrent" & 0.600000000 &  & D\\
 \\
 \end{tablevalue}
 \end{document}

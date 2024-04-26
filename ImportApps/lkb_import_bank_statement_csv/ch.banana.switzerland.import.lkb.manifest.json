@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Luzerner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Luzerner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.de": "Luzerner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Luzerner Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it": "Luzerner Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.lkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Luzerner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Luzerner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.de": "Luzerner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Luzerner Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it": "Luzerner Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

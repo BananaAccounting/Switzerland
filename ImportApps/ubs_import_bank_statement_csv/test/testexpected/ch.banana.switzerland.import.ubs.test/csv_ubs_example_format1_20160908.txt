@@ -18,100 +18,100 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l  l }
-Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
-2016-08-10 & 2016-08-10 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.84.48.57, Sex      Novem        271,55, Xxx        1,21  Ale       3, Xxx       1,55" & 173.09 & \\
-2016-08-10 & 2016-08-10 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.64053521, Xxx 6 Si. 51,55, Etti/pra 1,43" & 64.68 &  & \\
-2016-08-11 & 2016-08-11 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.11.48.57, Sex      Novem        612,55, Xxx        1,27  Ale       3, Xxx       1,55" & 131.19 &  & \\
-2016-08-12 & 2016-08-12 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.71487880, Xxx 6 Si. 457,55, Etti/pra 0,70" & 363.55 &  & \\
-2016-08-12 & 2016-08-12 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.84.48.57, Sex      Novem         31,55, Xxx        1,17  Ale       1, Xxx       1,55" & 67.69 &  & \\
-2016-08-12 & 2016-08-12 &  & "Ibi (Hyactum) In, Boneinecuiunnest 86, 1510 Assus" & -102.000 &  & D\\
-2016-08-12 & 2016-08-12 &  & "Ibi (Hyactum) In, Boneinecuiunnest 86, 1510 Assus" & -71.700 &  & D\\
-2016-08-12 & 2016-08-12 &  & "Iptint Perest. V-Tegione" &  & 173.70 & S\\
-2016-08-12 & 2016-08-12 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas eqmpiacbxry260.55" &  & 662.80 & \\
-2016-08-15 & 2016-08-15 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.80.48.57, Sex      Novem        768,55, Xxx        1,18  Ale       0, Xxx       1,55" & 916.67 &  & \\
-2016-08-15 & 2016-08-15 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.65873110, Xxx 4 Si. 686,55, Etti/pra 8,70" & 548.37 &  & \\
-2016-08-15 & 2016-08-15 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/75, Repere                273.55, Iputumiusa             80.34" & 518.80 &  & \\
-2016-08-16 & 2016-08-16 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.80.48.57, Sex      Novem       7268,55, Xxx       50,34  Ale       0, Xxx       1,55" & 2230.98 &  & \\
-2016-08-16 & 2016-08-16 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.80.48.57, Sex      Novem       5342,55, Xxx       76,81  Ale       8, Xxx       1,55" & 1541.60 &  & \\
-2016-08-16 & 2016-08-16 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/55, Repere                 41.55, Iputumiusa              8.60" & 96.20 &  & \\
-2016-08-17 & 2016-08-17 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.35841837, Xxx 6 Si. 407,55, Etti/pra 0,82" & 263.27 &  & \\
-2016-08-18 & 2016-08-18 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.56.48.57, Sex      Novem        412,55, Xxx        1,60  Ale       3, Xxx       1,55" & 415.05 &  & \\
-2016-08-18 & 2016-08-18 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 660.00 & \\
-2016-08-19 & 2016-08-19 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 61.48.57 55:80:56 Ut: 37402157" & 12880.00 &  & \\
-2016-08-19 & 2016-08-19 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.61.48.57, Sex      Novem        853,55, Xxx        1,86  Ale       0, Xxx       1,55" & 395.59 &  & \\
-2016-08-19 & 2016-08-19 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 6600.00 & \\
-2016-08-22 & 2016-08-22 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.13.48.57, Sex      Novem       6447,55, Xxx        1,36  Ale       7, Xxx       1,55" & 1056.35 &  & \\
-2016-08-22 & 2016-08-22 &  & "Iptint V-Tegione, Porturra + Funt Winsteral In, 5054 Tiustino, Hortuum An. 14232354" &  & 132.34 & \\
-2016-08-22 & 2016-08-22 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas mmejvfmfpuj850.55" &  & 751.11 & \\
-2016-08-23 & 2016-08-23 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.13.48.57, Sex      Novem       1061,55, Xxx       87,22  Ale       0, Xxx       1,55" & 1047.62 &  & \\
-2016-08-23 & 2016-08-23 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.13.48.57, Sex      Novem        542,55, Xxx       31,17  Ale       8, Xxx       1,55" & 928.69 &  & \\
-2016-08-23 & 2016-08-23 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 800.00 & \\
-2016-08-23 & 2016-08-23 &  & "Pam Riantimulum In, M/t Pam Suit Rentum, Cerectulegrano 11, 3024 Patiptudit" & -1.008 &  & D\\
-2016-08-23 & 2016-08-23 &  & "Vicuro Templatia In, 5514 Gatuunt" & -89.500 &  & D\\
-2016-08-23 & 2016-08-23 &  & "Vicuro Templatia In, 5514 Gatuunt" & -207.700 &  & D\\
-2016-08-23 & 2016-08-23 &  & "Iptint Perest. V-Tegione" &  & 1305.75 & S\\
-2016-08-24 & 2016-08-24 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 20.48.57 55:76:70 Ut: 37402157" & 2850.00 &  & \\
-2016-08-24 & 2016-08-24 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.20.48.57, Sex      Novem         52,55, Xxx        1,17  Ale       1, Xxx       1,55" & 89.69 &  & \\
-2016-08-26 & 2016-08-26 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.85.48.57, Sex      Novem        481,55, Xxx        1,70  Ale       8, Xxx       1,55" & 279.37 &  & \\
-2016-08-26 & 2016-08-26 &  & "Plantionerate, BMX3R Eiungentatube O, Pam Divit 57 Piraph, Pam (Apotes, Hyactum,, Riantimulum) Eo, Eo-Os-57-65175 - 80.48.2622, Meracire Eo" &  & 79.90 & \\
-2016-08-29 & 2016-08-29 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.76.48.57, Sex      Novem        126,55, Xxx        1,18  Ale       0, Xxx       1,55" & 889.67 &  & \\
-2016-08-29 & 2016-08-29 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.82070388, Xxx 6 Si. 723,55, Etti/pra 3,57" & 171.84 &  & \\
-2016-08-30 & 2016-08-30 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.76.48.57, Sex      Novem       3041,55, Xxx       23,58  Ale      84, Xxx       1,55" & 3804.08 &  & \\
-2016-08-30 & 2016-08-30 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 57.48.57 84:75:17 Ut: 37402157" & 3100.00 &  & \\
-2016-08-30 & 2016-08-30 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.76.48.57, Sex      Novem       3181,55, Xxx       43,21  Ale       7, Xxx       1,55" & 1592.63 &  & \\
-2016-08-30 & 2016-08-30 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.57.48.57, Sex      Novem         73,55, Xxx        1,57  Ale       1, Xxx       1,55" & 35.70 &  & \\
-2016-08-31 & 2016-08-31 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.17.48.57, Sex      Novem        776,55, Xxx        1,23  Ale       0, Xxx       1,55" & 302.77 &  & \\
-2016-08-31 & 2016-08-31 &  & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 0.300000000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Cus Dultimus Tae" & -0.300000000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 7.800 &  & D\\
-2016-08-31 & 2016-08-31 &  & "K-Tegione Tae Insuitas" & -7.800 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 7.200 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Segrass Collanter Xxx" & -7.200 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Novum Frigat Platiungent" &  & 0.00 & S\\
-2016-08-31 & 2016-08-31 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas wtgjnvcwokj2'260.55" &  & 1113.78 & \\
-2016-08-31 & 2016-08-31 &  & "Iptint V-Tegione, Ellaut Valam In, 3634 Cabae" &  & 11900.00 & \\
-2016-08-31 & 2016-08-31 &  & "Insura De Cura-Orerva, All Ædiptet 8, 6116 Chentur" & -1.797 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Natabile Libet" & -696.900 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Eventus Valique, All Hiuregi Clate 88, V-10133 Mittia Diolunum" & -2.982 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Modiximea Famur, Nubile Toter Petis 11, 6132 Cartuote" & -3.056 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Cura De Menteror, All Albulae 6, 1711 Facita" & -3.937 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Cogilate Arvo Susiet In, Et-Os. 738235" & -500.000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Fore Fors, Rellunga" & -210.600 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Canuis Culutint In, 8874 Antincrimento" & -500.000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Vitument Pavit, All Peregratum 80, 6132 Amunde" & -3.945 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Obtiatuntumn Fendabit Sto Eo, 5813 Rellunga" & -500.000 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Pieraph \& An, Oraedra" & -618.450 &  & D\\
-2016-08-31 & 2016-08-31 &  & "Iptint Perest. V-Tegione" &  & 18746.30 & S\\
-2016-09-01 & 2016-09-01 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.22.55.57, Sex      Novem        418,55, Xxx        8,60  Ale       3, Xxx       1,55" & 267.07 &  & \\
-2016-09-01 & 2016-09-01 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.64541856, Xxx 6 Si. 52,55, Etti/pra 1,72" & 88.28 &  & \\
-2016-09-01 & 2016-09-01 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/28, Repere                 72.55, Iputumiusa              8.55" & 86.45 &  & \\
-2016-09-02 & 2016-09-02 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 34.55.57 55:84:22 Ut: 37402157" & 1500.00 &  & \\
-2016-09-02 & 2016-09-02 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.34.55.57, Sex      Novem        815,55, Xxx        1,65  Ale       8, Xxx       1,55" & 647.31 &  & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Melignis Requam In, Clamagna Widuceni. Ubis" &  & 219.70 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Porturra + Funt Winsteral In, 5054 Tiustino, Hortuum An. 11342734" &  & 233.50 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, 02.09.2016, Pam In,Rea -Vi Pontum De, Etsi Deande Eo, Condie, 55 12232 12232 12232 26628 76418, VI:348544752" &  & 286.00 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Tudam Dita.Ut Hunt. Res, 6288 Paturseris" &  & 450.00 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Num Eo, 6664 Amunde" &  & 482.00 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Consto In, 1827 Patunt" &  & 642.90 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Captunit In, Crestae, 5324 Crestae" &  & 907.35 & \\
-2016-09-02 & 2016-09-02 &  & "Iptint V-Tegione, Captunit In, Crestae, 5324 Crestae" &  & 942.25 & \\
-2016-09-05 & 2016-09-05 &  & "Cessicusto Tunnensa Pam, 6664 Amunde 568, Vinit 34445481-1 8671, Ade 11.55.57 55:87:72 Ut: 40328756" & 5130.00 &  & \\
-2016-09-05 & 2016-09-05 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.11.55.57, Sex      Novem        145,55, Xxx        1,52  Ale       0, Xxx       1,55" & 872.10 &  & \\
-2016-09-05 & 2016-09-05 &  & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/80, Repere                888.55, Iputumiusa              0.70" & 151.55 &  & \\
-2016-09-05 & 2016-09-05 &  & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.35375788, Xxx 6 Si. 810,55, Etti/pra 8,22" & 104.99 &  & \\
-2016-09-06 & 2016-09-06 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.11.55.57, Sex      Novem       5632,55, Xxx       81,71  Ale       8, Xxx       1,55" & 2447.54 &  & \\
-2016-09-06 & 2016-09-06 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.11.55.57, Sex      Novem        107,55, Xxx       31,13  Ale       4, Xxx       1,55" & 857.50 &  & \\
-2016-09-06 & 2016-09-06 &  & "Iderrura, Osus Subibi-Nubila, Venstenduer 50, 6554 Haec, 7 Ficidea Claph Volo..0 Ficidea Off, Vi Quite..Dulus" & 176.00 &  & \\
-2016-09-07 & 2016-09-07 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.75.55.57, Sex      Novem        158,55, Xxx        1,28  Ale       0, Xxx       1,55" & 402.75 &  & \\
-2016-09-07 & 2016-09-07 &  & "Octanesto V-Tegione, Mircum Neiusto + Novent, Molabo Tudico + Pluvidum, Lertus Ombus M. Rantum" & 390.00 &  & \\
-2016-09-07 & 2016-09-07 &  & "Meluva. Tunnensa Pam, 6664 Amunde 568, Vinit 34445481-1 8671, Ade 75.55.57 11:61:11 Ut: 40328756" &  & 1000.00 & \\
-2016-09-07 & 2016-09-07 &  & "Iptint V-Tegione, Ellaut Valam In, Cabae" &  & 3720.50 & \\
-2016-09-08 & 2016-09-08 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.48.55.57, Sex      Novem        558,55, Xxx        1,60  Ale       3, Xxx       1,55" & 311.07 &  & \\
-2016-09-09 & 2016-09-09 &  & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.55.55.57, Sex      Novem        271,55, Xxx        1,67  Ale       8, Xxx       1,55" & 173.38 &  & \\
-2016-09-09 & 2016-09-09 &  & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 1050.00 & \\
-2016-09-12 & 2016-09-12 &  & "Iderrura, 5050133VX1558315" & 108.92 &  & \\
-2016-09-12 & 2016-09-12 &  & "Iderrura, 8528008BD7162772" & 1567.50 &  & \\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & IsDetail\\
+2016-08-10 & 2016-08-10 &  & 2666268QW0701225 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.84.48.57, Sex      Novem        271,55, Xxx        1,21  Ale       3, Xxx       1,55" & 173.09 & \\
+2016-08-10 & 2016-08-10 &  & 7565485DS8650077 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.64053521, Xxx 6 Si. 51,55, Etti/pra 1,43" & 64.68 &  & \\
+2016-08-11 & 2016-08-11 &  & 5708710AB7044403 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.11.48.57, Sex      Novem        612,55, Xxx        1,27  Ale       3, Xxx       1,55" & 131.19 &  & \\
+2016-08-12 & 2016-08-12 &  & 8073683EL4521687 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.71487880, Xxx 6 Si. 457,55, Etti/pra 0,70" & 363.55 &  & \\
+2016-08-12 & 2016-08-12 &  & 6566356QB8302137 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.84.48.57, Sex      Novem         31,55, Xxx        1,17  Ale       1, Xxx       1,55" & 67.69 &  & \\
+2016-08-12 & 2016-08-12 &  & 6308145FV2225133 & "Ibi (Hyactum) In, Boneinecuiunnest 86, 1510 Assus" & -102.000 &  & D\\
+2016-08-12 & 2016-08-12 &  & 6308145FV2225133 & "Ibi (Hyactum) In, Boneinecuiunnest 86, 1510 Assus" & -71.700 &  & D\\
+2016-08-12 & 2016-08-12 &  & 6308145FV2225133 & "Iptint Perest. V-Tegione" &  & 173.70 & S\\
+2016-08-12 & 2016-08-12 &  & 1782330EU0061852 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas eqmpiacbxry260.55" &  & 662.80 & \\
+2016-08-15 & 2016-08-15 &  & 5502486GT8135586 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.80.48.57, Sex      Novem        768,55, Xxx        1,18  Ale       0, Xxx       1,55" & 916.67 &  & \\
+2016-08-15 & 2016-08-15 &  & 1208333BN4664545 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.65873110, Xxx 4 Si. 686,55, Etti/pra 8,70" & 548.37 &  & \\
+2016-08-15 & 2016-08-15 &  & 5147835WV4257657 & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/75, Repere                273.55, Iputumiusa             80.34" & 518.80 &  & \\
+2016-08-16 & 2016-08-16 &  & 7135880XX5164356 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.80.48.57, Sex      Novem       7268,55, Xxx       50,34  Ale       0, Xxx       1,55" & 2230.98 &  & \\
+2016-08-16 & 2016-08-16 &  & 3106828LB1648053 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.80.48.57, Sex      Novem       5342,55, Xxx       76,81  Ale       8, Xxx       1,55" & 1541.60 &  & \\
+2016-08-16 & 2016-08-16 &  & 5756630CX1731303 & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/55, Repere                 41.55, Iputumiusa              8.60" & 96.20 &  & \\
+2016-08-17 & 2016-08-17 &  & 3226886OR3720678 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.35841837, Xxx 6 Si. 407,55, Etti/pra 0,82" & 263.27 &  & \\
+2016-08-18 & 2016-08-18 &  & 5452388GJ3554456 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.56.48.57, Sex      Novem        412,55, Xxx        1,60  Ale       3, Xxx       1,55" & 415.05 &  & \\
+2016-08-18 & 2016-08-18 &  & 6526764XP4630312 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 660.00 & \\
+2016-08-19 & 2016-08-19 &  & PU65422IP6220501 & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 61.48.57 55:80:56 Ut: 37402157" & 12880.00 &  & \\
+2016-08-19 & 2016-08-19 &  & 2115335TS8853501 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.61.48.57, Sex      Novem        853,55, Xxx        1,86  Ale       0, Xxx       1,55" & 395.59 &  & \\
+2016-08-19 & 2016-08-19 &  & 4386016VV0670174 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 6600.00 & \\
+2016-08-22 & 2016-08-22 &  & 5445533CU1767070 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.13.48.57, Sex      Novem       6447,55, Xxx        1,36  Ale       7, Xxx       1,55" & 1056.35 &  & \\
+2016-08-22 & 2016-08-22 &  & 8721633XK2075545 & "Iptint V-Tegione, Porturra + Funt Winsteral In, 5054 Tiustino, Hortuum An. 14232354" &  & 132.34 & \\
+2016-08-22 & 2016-08-22 &  & 7832138CN2376438 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas mmejvfmfpuj850.55" &  & 751.11 & \\
+2016-08-23 & 2016-08-23 &  & 3262835SK6427767 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.13.48.57, Sex      Novem       1061,55, Xxx       87,22  Ale       0, Xxx       1,55" & 1047.62 &  & \\
+2016-08-23 & 2016-08-23 &  & 1487243RG5877631 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.13.48.57, Sex      Novem        542,55, Xxx       31,17  Ale       8, Xxx       1,55" & 928.69 &  & \\
+2016-08-23 & 2016-08-23 &  & 8338826XE5465124 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 800.00 & \\
+2016-08-23 & 2016-08-23 &  & 8404720ED3762207 & "Pam Riantimulum In, M/t Pam Suit Rentum, Cerectulegrano 11, 3024 Patiptudit" & -1.008 &  & D\\
+2016-08-23 & 2016-08-23 &  & 8404720ED3762207 & "Vicuro Templatia In, 5514 Gatuunt" & -89.500 &  & D\\
+2016-08-23 & 2016-08-23 &  & 8404720ED3762207 & "Vicuro Templatia In, 5514 Gatuunt" & -207.700 &  & D\\
+2016-08-23 & 2016-08-23 &  & 8404720ED3762207 & "Iptint Perest. V-Tegione" &  & 1305.75 & S\\
+2016-08-24 & 2016-08-24 &  & KT16851GS3515267 & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 20.48.57 55:76:70 Ut: 37402157" & 2850.00 &  & \\
+2016-08-24 & 2016-08-24 &  & 1637247IJ4383567 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.20.48.57, Sex      Novem         52,55, Xxx        1,17  Ale       1, Xxx       1,55" & 89.69 &  & \\
+2016-08-26 & 2016-08-26 &  & 8147476HS5747415 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.85.48.57, Sex      Novem        481,55, Xxx        1,70  Ale       8, Xxx       1,55" & 279.37 &  & \\
+2016-08-26 & 2016-08-26 &  & 1264148HB2006404 & "Plantionerate, BMX3R Eiungentatube O, Pam Divit 57 Piraph, Pam (Apotes, Hyactum,, Riantimulum) Eo, Eo-Os-57-65175 - 80.48.2622, Meracire Eo" &  & 79.90 & \\
+2016-08-29 & 2016-08-29 &  & 3253012PD2456341 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.76.48.57, Sex      Novem        126,55, Xxx        1,18  Ale       0, Xxx       1,55" & 889.67 &  & \\
+2016-08-29 & 2016-08-29 &  & 6700236XF4486186 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.82070388, Xxx 6 Si. 723,55, Etti/pra 3,57" & 171.84 &  & \\
+2016-08-30 & 2016-08-30 &  & 8228455XE4022806 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.76.48.57, Sex      Novem       3041,55, Xxx       23,58  Ale      84, Xxx       1,55" & 3804.08 &  & \\
+2016-08-30 & 2016-08-30 &  & SL40027NU1716235 & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 57.48.57 84:75:17 Ut: 37402157" & 3100.00 &  & \\
+2016-08-30 & 2016-08-30 &  & 3647268UA2857210 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.76.48.57, Sex      Novem       3181,55, Xxx       43,21  Ale       7, Xxx       1,55" & 1592.63 &  & \\
+2016-08-30 & 2016-08-30 &  & 5112557QC7267106 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.57.48.57, Sex      Novem         73,55, Xxx        1,57  Ale       1, Xxx       1,55" & 35.70 &  & \\
+2016-08-31 & 2016-08-31 &  & 6438340GK2380240 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.17.48.57, Sex      Novem        776,55, Xxx        1,23  Ale       0, Xxx       1,55" & 302.77 &  & \\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 0.300000000 &  & D\\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "Cus Dultimus Tae" & -0.300000000 &  & D\\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 7.800 &  & D\\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "K-Tegione Tae Insuitas" & -7.800 &  & D\\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "Arabeanga Me Cest Ade Utuune K'Untunginfors" & 7.200 &  & D\\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "Segrass Collanter Xxx" & -7.200 &  & D\\
+2016-08-31 & 2016-08-31 &  & FW64444VL2230853 & "Novum Frigat Platiungent" &  & 0.00 & S\\
+2016-08-31 & 2016-08-31 &  & 1333087ND1201087 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde, Constas wtgjnvcwokj2'260.55" &  & 1113.78 & \\
+2016-08-31 & 2016-08-31 &  & 6646742HR4020405 & "Iptint V-Tegione, Ellaut Valam In, 3634 Cabae" &  & 11900.00 & \\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Insura De Cura-Orerva, All Ædiptet 8, 6116 Chentur" & -1.797 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Natabile Libet" & -696.900 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Eventus Valique, All Hiuregi Clate 88, V-10133 Mittia Diolunum" & -2.982 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Modiximea Famur, Nubile Toter Petis 11, 6132 Cartuote" & -3.056 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Cura De Menteror, All Albulae 6, 1711 Facita" & -3.937 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Cogilate Arvo Susiet In, Et-Os. 738235" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Fore Fors, Rellunga" & -210.600 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Canuis Culutint In, 8874 Antincrimento" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Vitument Pavit, All Peregratum 80, 6132 Amunde" & -3.945 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Obtiatuntumn Fendabit Sto Eo, 5813 Rellunga" & -500.000 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Pieraph \& An, Oraedra" & -618.450 &  & D\\
+2016-08-31 & 2016-08-31 &  & 2738617UM4454858 & "Iptint Perest. V-Tegione" &  & 18746.30 & S\\
+2016-09-01 & 2016-09-01 &  & 7221045JT8472875 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.22.55.57, Sex      Novem        418,55, Xxx        8,60  Ale       3, Xxx       1,55" & 267.07 &  & \\
+2016-09-01 & 2016-09-01 &  & 1530275JF0481581 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.64541856, Xxx 6 Si. 52,55, Etti/pra 1,72" & 88.28 &  & \\
+2016-09-01 & 2016-09-01 &  & 2407423QN7217327 & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/28, Repere                 72.55, Iputumiusa              8.55" & 86.45 &  & \\
+2016-09-02 & 2016-09-02 &  & AA73547VJ5580082 & "Cessicusto Tunnensa Pam, 6664 Amunde 175, Vinit 34445481-1 8671, Ade 34.55.57 55:84:22 Ut: 37402157" & 1500.00 &  & \\
+2016-09-02 & 2016-09-02 &  & 1042804NI7438864 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.34.55.57, Sex      Novem        815,55, Xxx        1,65  Ale       8, Xxx       1,55" & 647.31 &  & \\
+2016-09-02 & 2016-09-02 &  & 8465740UF5341358 & "Iptint V-Tegione, Melignis Requam In, Clamagna Widuceni. Ubis" &  & 219.70 & \\
+2016-09-02 & 2016-09-02 &  & 3054127WH5387662 & "Iptint V-Tegione, Porturra + Funt Winsteral In, 5054 Tiustino, Hortuum An. 11342734" &  & 233.50 & \\
+2016-09-02 & 2016-09-02 &  & 5773835BF6515632 & "Iptint V-Tegione, 02.09.2016, Pam In,Rea -Vi Pontum De, Etsi Deande Eo, Condie, 55 12232 12232 12232 26628 76418, VI:348544752" &  & 286.00 & \\
+2016-09-02 & 2016-09-02 &  & 2377813AB4247742 & "Iptint V-Tegione, Tudam Dita.Ut Hunt. Res, 6288 Paturseris" &  & 450.00 & \\
+2016-09-02 & 2016-09-02 &  & 3883814HB4445734 & "Iptint V-Tegione, Num Eo, 6664 Amunde" &  & 482.00 & \\
+2016-09-02 & 2016-09-02 &  & 6106260DP3640617 & "Iptint V-Tegione, Consto In, 1827 Patunt" &  & 642.90 & \\
+2016-09-02 & 2016-09-02 &  & 8378223DG6035733 & "Iptint V-Tegione, Captunit In, Crestae, 5324 Crestae" &  & 907.35 & \\
+2016-09-02 & 2016-09-02 &  & 6241707GP0251242 & "Iptint V-Tegione, Captunit In, Crestae, 5324 Crestae" &  & 942.25 & \\
+2016-09-05 & 2016-09-05 &  & WQ14376VE2670253 & "Cessicusto Tunnensa Pam, 6664 Amunde 568, Vinit 34445481-1 8671, Ade 11.55.57 55:87:72 Ut: 40328756" & 5130.00 &  & \\
+2016-09-05 & 2016-09-05 &  & 8106886CA6467164 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.11.55.57, Sex      Novem        145,55, Xxx        1,52  Ale       0, Xxx       1,55" & 872.10 &  & \\
+2016-09-05 & 2016-09-05 &  & 2112756QN4533146 & "Iderrura, Incelluva Main Tium, Valignus 56, ET/2322 Fuisit, Ut-Os.            2728441762, Xxx.Nos. 7837717    57/48/80, Repere                888.55, Iputumiusa              0.70" & 151.55 &  & \\
+2016-09-05 & 2016-09-05 &  & 1406120TQ2206783 & "Iderrura, Ineri Eo, All Putura 7, 8156 Voluva, Oludicura Offest Xxx.35375788, Xxx 6 Si. 810,55, Etti/pra 8,22" & 104.99 &  & \\
+2016-09-06 & 2016-09-06 &  & 4051277EJ8250137 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 657872330 Et-Ges.11.55.57, Sex      Novem       5632,55, Xxx       81,71  Ale       8, Xxx       1,55" & 2447.54 &  & \\
+2016-09-06 & 2016-09-06 &  & 3821505VO6330641 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 243824600 Eo-Ges.11.55.57, Sex      Novem        107,55, Xxx       31,13  Ale       4, Xxx       1,55" & 857.50 &  & \\
+2016-09-06 & 2016-09-06 &  & 1005132CT6052725 & "Iderrura, Osus Subibi-Nubila, Venstenduer 50, 6554 Haec, 7 Ficidea Claph Volo..0 Ficidea Off, Vi Quite..Dulus" & 176.00 &  & \\
+2016-09-07 & 2016-09-07 &  & 7253883RM0550735 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.75.55.57, Sex      Novem        158,55, Xxx        1,28  Ale       0, Xxx       1,55" & 402.75 &  & \\
+2016-09-07 & 2016-09-07 &  & 7602340IV8400320 & "Octanesto V-Tegione, Mircum Neiusto + Novent, Molabo Tudico + Pluvidum, Lertus Ombus M. Rantum" & 390.00 &  & \\
+2016-09-07 & 2016-09-07 &  & QG38316JC0880002 & "Meluva. Tunnensa Pam, 6664 Amunde 568, Vinit 34445481-1 8671, Ade 75.55.57 11:61:11 Ut: 40328756" &  & 1000.00 & \\
+2016-09-07 & 2016-09-07 &  & 8624612EN8807741 & "Iptint V-Tegione, Ellaut Valam In, Cabae" &  & 3720.50 & \\
+2016-09-08 & 2016-09-08 &  & 8778024QO4475530 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.48.55.57, Sex      Novem        558,55, Xxx        1,60  Ale       3, Xxx       1,55" & 311.07 &  & \\
+2016-09-09 & 2016-09-09 &  & 5102135PO0762730 & "Iderrura, Contipulo Tium, Deratere-Rest 4, O 82103 Imulideo, Ut 766753323 De-Ges.55.55.57, Sex      Novem        271,55, Xxx        1,67  Ale       8, Xxx       1,55" & 173.38 &  & \\
+2016-09-09 & 2016-09-09 &  & 3786660PN6726161 & "Iptint V-Tegione, Colventi, HL544112201717863485E, Meracire Eo, 6132 Amunde" &  & 1050.00 & \\
+2016-09-12 & 2016-09-12 &  & 5050133VX1558315 & "Iderrura, 5050133VX1558315" & 108.92 &  & \\
+2016-09-12 & 2016-09-12 &  & 8528008BD7162772 & "Iderrura, 8528008BD7162772" & 1567.50 &  & \\
 \\
 \end{tablevalue}
 \end{document}

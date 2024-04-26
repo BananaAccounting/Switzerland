@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+	<qresource>
+		<file alias="manifest.json">swissvatreport.toCHF.2024.manifest.json</file>
+		<file>swissvatreport.toCHF.2024.summary.js</file>
+		<file>swissvatreport.toCHF.2024.transactions.js</file>
+	</qresource>
+</RCC>

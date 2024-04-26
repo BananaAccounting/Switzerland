@@ -1,0 +1,62 @@
+%%info_test_name{csv_postfinance_example_format5_20230901}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l }
+Date & Doc & Description & Income & Expenses\\
+2023-08-23 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 72.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 69 & \\
+2023-08-23 &  & Suaecintesec Ico Colenti Natuliber Sange Scem Rehendo Pra Varateripsit Si 26.55.7664 By Vimulo 18070 &  & 1000000\\
+2023-08-23 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/727.47/IN.4071555617/POR.24.54/XXX.58.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 451407870412733 5018828K46581227 683273UH1IUY5LPW  & 767.04 & \\
+2023-08-23 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 73351467TRATE: 2471.10 Inas: -44.72 Dupitabille: MWJOI45143440-843-Manertus-L4 & 1239.03 & \\
+2023-08-23 &  & Nattinava Forolanens Pam Supigna: FB3232268676005028564 Peddunnentem Ico 26.55.7664 Aperactis By: 182760WD57215631 & 138 & \\
+2023-08-24 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 26.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 563 & \\
+2023-08-24 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/855.33/IN.7446562768/POR.43.73/XXX.72.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 514313671617348 1287816I17624555 830760GJ7YVPU8VM  & 847.85 & \\
+2023-08-24 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 75488682TRATE: 4836.33 Inas: -58.51 Dupitabille: XPCNW57781364-843-Manertus-L4 & 1649.22 & \\
+2023-08-24 &  & Nattinava Tentater: Covigaucima Os Zuctumiram 3 Ex 5251 Coegi Ellittiptudit: Obuluci Vi Coegine 645100 Panarte Parte Cirat 7.33 Pra Lia Dupitabille: JC7208/63 3800316V08608030 700850YP3TMKJ7XL  & 96.1 & \\
+2023-08-25 &  & Cometrum Scitulchat Idediatircieius 4688 Eo. Sufect VW2776012632144872388 Nerideat Alia 2333 Ocunch Peditatured Ico Tentater: Sunitque Actelli 173334 Si 437455 61166866618644777530274  &  & 236.1\\
+2023-08-25 &  & Cometrum NH6502766407517725526 Fices-Talever Iniunt Nungurunium 4555 Aucet Peditatured Ico Tentater: Sunitque Conterm 535742 56288585246034727210321  &  & 69\\
+2023-08-25 &  & Cometrum Statro Bigita (Funtens) Os Adduonsando 7 5256 Oüsemo PB7611280461866370744 Cerunicilli 6233 Latuer Peditatured Ico Tentater: Conterm Cerunicilli 7664 82215612243028537843376  &  & 69.3\\
+2023-08-25 &  & Vimulo Forolanens Pleg Sta 63885 Chorto K-Patesse 620443425 Partusa-By 63866 Vimulo-By 63866-2 &  & 84467.25\\
+2023-08-25 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 87.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 734 & \\
+2023-08-25 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/6256.10/IN.2265423145/POR.32.74/XXX.26.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 158588285704780 1612381X74830661 133345KP7LESYIDR  & 1610.61 & \\
+2023-08-25 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 61335867TRATE: 5844.47 Inas: -87.64 Dupitabille: ALKMQ14086884-843-Manertus-L4 & 1293.41 & \\
+2023-08-26 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 32.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 207 & \\
+2023-08-27 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 56.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 287 & \\
+2023-08-27 &  & Matimata/patundit Ico 56.55.7664 Ocale K° QPOS8825 Inima *Viuntere Metra Exaciray Eiundico  &  & 59\\
+2023-08-28 &  & Cometrum Lamum Numea Cente Ico Bangura Dorsed Molor N. Obtipe 1 7434 Faccitabit MU26164002257082O283X Tubier Si 3666 Ostore Ustatudit Peditatured Ico Tentater: 7664-11-65WKRYFF 18666563 57381081226062026477234  &  & 129.25\\
+2023-08-28 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 57.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 358.2 & \\
+2023-08-28 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/3032.47/IN.2866718224/POR.71.26/XXX.87.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 733372805515817 3668783W38442253 145271AI0EY3SHCP  & 1896.27 & \\
+2023-08-28 &  & Cometrum WH5538877251164118381 Malonem Coginumetiuro Si 1143 Fœnumeni Peditatured Ico Tentater: 7664-55-22 Sunt In. Vicula 78040175753405384766746  &  & 269.8\\
+2023-08-28 &  & Cometrum Lamum Numea Cente Ico Bangura Dorsed Molor N. Obtipe 1 7434 Faccitabit MU26164002257082O283X Tubier Si 3666 Ostore Ustatudit Peditatured Ico Tentater: 7664-11-76 Tubier 46131667 51201025134383168375634  &  & 1136.25\\
+2023-08-28 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 40522147TRATE: 6043.33 Inas: -44.71 Dupitabille: QUOLU01460081-843-Manertus-L4 & 1236.66 & \\
+2023-08-29 &  & Cometrum JM7312346783703281431 Scat Sit Vere 8323 Mentia Peditatured Ico Tentater: 7664-55-67 Sunitque Mire. 571676 47440304647448787085840  &  & 69\\
+2023-08-29 &  & Cometrum UI4802421580220302406 Pres. Locanditiunabulo 3741 Ligna Peditatured Ico Tentater: 7664-55-67 Xxx Et Stemperis 48878465253230611608141  &  & 41624.8\\
+2023-08-29 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 67.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 345 & \\
+2023-08-29 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/8266.33/IN.3183080785/POR.46.83/XXX.32.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 853316664617302 8743307K01534257 530640OG3APHS0OV  & 2312.37 & \\
+2023-08-29 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/1631.33/IN.8118547628/POR.72.38/XXX.56.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 687566245741322 4336067O27181370 276512OV3YSSXCWE  & 1370.44 & \\
+2023-08-29 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/5162.67/IN.7003760450/POR.32.11/XXX.57.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 702057513064317 6678366M23200461 278552XS8ACJOYQJ  & 1340.75 & \\
+2023-08-29 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 11513777TRATE: 2471.33 Inas: -44.30 Dupitabille: MSUKH31081351-843-Manertus-L4 & 1238.64 & \\
+2023-08-29 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 23043774TRATE: 828.33 Inas: -6.42 Dupitabille: QIKQY27636651-843-Manertus-L4 & 749.1 & \\
+2023-08-29 &  & Nattinava KQ2742102628803643364 Tentater: Fuiem Ponasugna Os Legrunginetubentis 46 6213 Oüsemo Ellittiptudit: 482177 Fuiem 1A43522V-IJX6-2025-M1J T-2V7402X137C8 Costas 54102830TRATE: 1770.33 Inas: -53.22 Dupitabille: NVPGS71610545-843-Manertus-L4 & 1451.82 & \\
+2023-08-29 &  & Nattinava Forolanens Pam Supigna: FB3232268676005028564 Peddunnentem Ico 46.55.7664 Aperactis By: 766238FP2600387W & 149 & \\
+2023-08-30 &  & Nattinava Novitabilia K-Obuluci Graneculuci Plum Nateritas Ico 46.55.7664 Ceange.Ex Si AFYI63OD1424023 Cepra://diam.Ceange.Ex  & 207 & \\
+2023-08-30 &  & Nattinava Tentater: Tatabsect Funtens Os Malitimanategas 785 Ex 6852 Redenti Ellittiptudit: SEC/4522.33/IN.5535042417/POR.26.64/XXX.67.55.7664/INO.Ceange .Ex/aspignuba Panarte Parte Cirat 7.33 Pra Lia Dupitabille: 343221702006240 8513041J48235742 623637PF1HQV5KM6  & 1300.86 & \\
+\\
+\end{tablevalue}
+\end{document}

@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2022-12-27 */
+/* Texts update: 2023-06-16 */
 
 
 
@@ -228,9 +228,10 @@ function setTexts_it(texts) {
   texts.predefined_columns_3 = "Articolo,Descrizione,Importo";
   texts.predefined_columns_4 = "Articolo,Descrizione,Quantità,Unità,Prezzo Unità,Importo";
   texts.predefined_columns_5 = "Immagine articolo,Articolo,Descrizione,Quantità,Unità,Prezzo Unità,Importo (ADVANCED)";
-  texts.predefined_columns_6 = "Descrizione,Sconto,Importo (ADVANCED)";
-  texts.predefined_columns_7 = "Descrizione,Quantità,Unità,Prezzo Unità,Sconto,Importo (ADVANCED)";
-  texts.predefined_columns_8 = "Articolo,Data,Descrizione,Quantità,Unit,Unit Price,Sconto,Importo (ADVANCED)";
+  texts.predefined_columns_6 = "Descrizione,Quantità,Unità,Prezzo Unità,%IVA,Importo";
+  texts.predefined_columns_7 = "Descrizione,Sconto,Importo (ADVANCED)";
+  texts.predefined_columns_8 = "Descrizione,Quantità,Unità,Prezzo Unità,Sconto,Importo (ADVANCED)";
+  texts.predefined_columns_9 = "Articolo,Data,Descrizione,Quantità,Unità,Prezzo Unità,Sconto,Importo (ADVANCED)";
   texts.style_change_confirm_title = "Colonne predefinite";
   texts.style_change_confirm_msg = "Applicare le colonne '%1'?\nLe attuali impostazioni delle colonne saranno sostituite.";
 
@@ -255,6 +256,14 @@ function setTexts_it(texts) {
   texts.param_tooltip_text_begin_reminder = "Inserisci un testo per sostituire quello predefinito";
   texts.it_param_text_final_reminder = "Testo finale";
   texts.param_tooltip_text_final_reminder = "Inserisci un testo per sostituire quello predefinito";
+
+  texts.proforma_invoice = "Fattura Proforma";
+  texts.it_param_text_title_proforma_invoice = "Titolo";
+  texts.param_tooltip_title_proforma_invoice = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_begin_proforma_invoice = "Testo iniziale";
+  texts.param_tooltip_text_begin_proforma_invoice = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_final_proforma_invoice = "Testo finale";
+  texts.param_tooltip_text_final_proforma_invoice = "Inserisci un testo per sostituire quello predefinito";
 
   texts.param_color_title_total = "Colore titolo e totale";
   texts.param_tooltip_color_title_total = "Inserisci il colore";
@@ -440,9 +449,10 @@ function setTexts_fr(texts) {
   texts.predefined_columns_3 = "Article,Libellé,Montant";
   texts.predefined_columns_4 = "Article,Libellé,Quantité,Unité,Prix Unitaire,Montant";
   texts.predefined_columns_5 = "Image article,Article,Libellé,Quantité,Unité,Prix Unitaire,Montant (ADVANCED)";
-  texts.predefined_columns_6 = "Libellé,Rabais,Montant (ADVANCED)";
-  texts.predefined_columns_7 = "Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
-  texts.predefined_columns_8 = "Article,Date,Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
+  texts.predefined_columns_6 = "Libellé,Quantité,Unité,Prix Unitaire,%TVA,Montant";
+  texts.predefined_columns_7 = "Libellé,Rabais,Montant (ADVANCED)";
+  texts.predefined_columns_8 = "Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
+  texts.predefined_columns_9 = "Article,Date,Libellé,Quantité,Unité,Prix Unitaire,Rabais,Montant (ADVANCED)";
   texts.style_change_confirm_title = "Colonnes prédéfinies";
   texts.style_change_confirm_msg = "Appliquer les colonnes '%1'?\nLes paramètres actuels des colonnes seront remplacés.";
 
@@ -468,6 +478,14 @@ function setTexts_fr(texts) {
   texts.fr_param_text_final_reminder = "Texte final";
   texts.param_tooltip_text_final_reminder = "Insérez un texte pour remplacer le texte par défaut";
 
+  texts.proforma_invoice = "Facture Proforma";
+  texts.fr_param_text_title_proforma_invoice = "Titre";
+  texts.param_tooltip_title_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_begin_proforma_invoice = "Texte de début";
+  texts.param_tooltip_text_begin_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_final_proforma_invoice = "Texte final";
+  texts.param_tooltip_text_final_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
+
   texts.param_color_title_total = "Couleur titre et totale";
   texts.param_tooltip_color_title_total = "Insérer la couleur"; 
 }
@@ -481,7 +499,7 @@ function setTexts_de(texts) {
   texts.order_number = "Bestellnummer";
   texts.order_date = "Bestelldatum";
   texts.customer = "Kundennummer";
-  texts.vat_number = "MwSt/USt-Nummer";
+  texts.vat_number = "MWST/USt-Nummer";
   texts.fiscal_number = "Steuernummer";
   texts.payment_due_date_label = "Fälligkeitsdatum";
   texts.payment_terms_label = "Fälligkeitsdatum";
@@ -496,7 +514,7 @@ function setTexts_de(texts) {
   texts.deposit = "Anzahlung";
   texts.totalnet = "Netto-Betrag";
   texts.subtotal = "Zwischentotal";
-  texts.vat = "MwSt";
+  texts.vat = "MWST";
   texts.rounding = "Rundung";
   texts.total = "Gesamtbetrag";
   texts.gross = "Brutto";
@@ -524,7 +542,7 @@ function setTexts_de(texts) {
   texts.param_info_order_number = "Bestellnummer";
   texts.param_info_order_date = "Bestelldatum";
   texts.param_info_customer = "Kundennummer";
-  texts.param_info_customer_vat_number = "Kunden-MwSt/USt-Nummer";
+  texts.param_info_customer_vat_number = "Kunden-MWST/USt-Nummer";
   texts.param_info_customer_fiscal_number = "Kunden-Steuernummer";
   texts.param_info_due_date = "Fälligkeitsdatum";
   texts.param_info_page = "Seitenzahlen";
@@ -534,7 +552,7 @@ function setTexts_de(texts) {
   texts.param_details_columns_widths = "Spaltenbreite";
   texts.param_details_columns_titles_alignment = "Titelausrichtung";
   texts.param_details_columns_alignment = "Textausrichtung";
-  texts.param_details_gross_amounts = "Bruttobeträge (inklusive MwSt/USt)";
+  texts.param_details_gross_amounts = "Bruttobeträge (inklusive MWST/USt)";
   texts.param_details_additional_descriptions = "Zusätzliche Beschreibungen drucken";
   texts.param_footer_include = "Fusszeile";
   texts.param_footer_add = "Fusszeile drucken";
@@ -547,7 +565,7 @@ function setTexts_de(texts) {
   texts.de_param_text_info_order_number = "Bestellnummer";
   texts.de_param_text_info_order_date = "Bestelldatum";
   texts.de_param_text_info_customer = "Kundennummer";
-  texts.de_param_text_info_customer_vat_number = "Kunden-MwSt/USt-Nummer";
+  texts.de_param_text_info_customer_vat_number = "Kunden-MWST/USt-Nummer";
   texts.de_param_text_info_customer_fiscal_number = "Kunden-Steuernummer";
   texts.de_param_text_info_due_date = "Fälligkeitsdatum";
   texts.de_param_text_info_page = "Seitennummer";
@@ -580,7 +598,7 @@ function setTexts_de(texts) {
   texts.param_tooltip_info_order_number = "Aktivieren, um Bestellnummer einzuschliessen";
   texts.param_tooltip_info_order_date = "Aktivieren, um Bestelldatum einzuschliessen";
   texts.param_tooltip_info_customer = "Aktivieren, um Kundennummer einzuschliessen";
-  texts.param_tooltip_info_customer_vat_number = "Aktivieren, um Kunden-MwSt/USt-Nummer einzuschliessen";
+  texts.param_tooltip_info_customer_vat_number = "Aktivieren, um Kunden-MWST/USt-Nummer einzuschliessen";
   texts.param_tooltip_info_customer_fiscal_number = "Aktivieren, um Kunden-Steuernummer einzuschliessen";
   texts.param_tooltip_info_due_date = "Aktivieren, um Fälligkeitsdatum der Rechnung einzuschliessen";
   texts.param_tooltip_info_page = "Aktivieren, um Seitennummer einzuschliessen";
@@ -614,7 +632,7 @@ function setTexts_de(texts) {
   texts.param_tooltip_shipping_address = "Aktivieren, um Lieferadresse zu drucken";
   texts.param_tooltip_address_left = "Aktivieren, um Kundenadresse auf der linken Seite zu drucken";
   texts.param_tooltip_text_begin = "Text eingeben, um Standardtext zu ersetzen";
-  texts.param_tooltip_details_gross_amounts = "Aktivieren, um Rechnungsdetails mit Bruttobeträgen und enthaltener MwSt/USt zu drucken";
+  texts.param_tooltip_details_gross_amounts = "Aktivieren, um Rechnungsdetails mit Bruttobeträgen und enthaltener MWST/USt zu drucken";
   texts.param_tooltip_details_additional_descriptions = "Aktivieren, um Zusätzliche Beschreibungen zu drucken";
   texts.param_tooltip_text_final = "Text eingeben, um Standardtext zu ersetzen";
   texts.param_tooltip_footer_add = "Aktivieren, um Fusszeile unten auf der Seite zu drucken";
@@ -652,9 +670,10 @@ function setTexts_de(texts) {
   texts.predefined_columns_3 = "Artikel,Beschreibung,Betrag";
   texts.predefined_columns_4 = "Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag";
   texts.predefined_columns_5 = "Produktbild,Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag (ADVANCED)";
-  texts.predefined_columns_6 = "Beschreibung,Rabatt,Betrag (ADVANCED)";
-  texts.predefined_columns_7 = "Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
-  texts.predefined_columns_8 = "Artikel,Datum,Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
+  texts.predefined_columns_6 = "Beschreibung,Menge,Einheit,Preiseinheit,MWST%,Betrag";
+  texts.predefined_columns_7 = "Beschreibung,Rabatt,Betrag (ADVANCED)";
+  texts.predefined_columns_8 = "Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
+  texts.predefined_columns_9 = "Artikel,Datum,Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
   texts.style_change_confirm_title = "Vordefinierte Spalten";
   texts.style_change_confirm_msg = "'%1' Spalten anwenden?\nDie aktuellen Spalteneinstellungen werden ersetzt.";
 
@@ -679,6 +698,14 @@ function setTexts_de(texts) {
   texts.param_tooltip_text_begin_reminder = "Text eingeben, um Standardtext zu ersetzen";
   texts.de_param_text_final_reminder = "Schlusstext";
   texts.param_tooltip_text_final_reminder = "Text eingeben, um Standardtext zu ersetzen";
+
+  texts.proforma_invoice = "Proforma-Rechnung";
+  texts.de_param_text_title_proforma_invoice = "Titel";
+  texts.param_tooltip_title_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_begin_proforma_invoice = "Anfangstext";
+  texts.param_tooltip_text_begin_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_final_proforma_invoice = "Schlusstext";
+  texts.param_tooltip_text_final_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen";
 
   texts.param_color_title_total = "Titel und Gesamtfarbe";
   texts.param_tooltip_color_title_total = "Farbe eingeben";
@@ -864,9 +891,10 @@ function setTexts_en(texts) {
   texts.predefined_columns_3 = "Item,Description,Amount";
   texts.predefined_columns_4 = "Item,Description,Quantity,Unit,Unit Price,Amount";
   texts.predefined_columns_5 = "Item Image,Item,Description,Quantity,Unit,Unit Price,Amount (ADVANCED)";
-  texts.predefined_columns_6 = "Description,Discount,Amount (ADVANCED)";
-  texts.predefined_columns_7 = "Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
-  texts.predefined_columns_8 = "Item,Date,Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
+  texts.predefined_columns_6 = "Description,Quantity,Unit,Unit Price,%VAT,Amount";
+  texts.predefined_columns_7 = "Description,Discount,Amount (ADVANCED)";
+  texts.predefined_columns_8 = "Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
+  texts.predefined_columns_9 = "Item,Date,Description,Quantity,Unit,Unit Price,Discount,Amount (ADVANCED)";
   texts.style_change_confirm_title = "Predefined columns";
   texts.style_change_confirm_msg = "Apply '%1' columns?\nCurrent column settings will be replaced.";
 
@@ -891,6 +919,14 @@ function setTexts_en(texts) {
   texts.param_tooltip_text_begin_reminder = "Enter text to replace the default";
   texts.en_param_text_final_reminder = "Final text";
   texts.param_tooltip_text_final_reminder = "Enter text to replace the default";
+
+  texts.proforma_invoice = "Proforma Invoice";
+  texts.en_param_text_title_proforma_invoice = "Title";
+  texts.param_tooltip_title_proforma_invoice = "Enter text to replace the default";
+  texts.en_param_text_begin_proforma_invoice = "Begin text";
+  texts.param_tooltip_text_begin_proforma_invoice = "Enter text to replace the default";
+  texts.en_param_text_final_proforma_invoice = "Final text";
+  texts.param_tooltip_text_final_proforma_invoice = "Enter text to replace the default";
 
   texts.param_color_title_total = "Title and total color";
   texts.param_tooltip_color_title_total = "Enter the color";

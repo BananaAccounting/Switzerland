@@ -1,0 +1,36 @@
+%%info_test_name{csv_lkb_example_format1_20080718}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2008-07-14 & 2008-07-14 &  & Dabiensilocular PAM / Xxx.-By. 10765084�461740506078382874234038163� & 1.00 & \\
+2008-07-14 & 2008-07-14 &  & Dabiensilocular PAM / Xxx.-By. 74600630�118351104875646600260021162� & 51.50 & \\
+2008-07-14 & 2008-07-14 &  & Dabiensilocular, PAM / Xxx.-By. 11808762�426082083755613225637318643� & 52.50 & \\
+2008-07-14 & 2008-07-14 &  & Dabiensilocular PAM / Xxx.-By. 27622338�367732752523313388381526071� & 53.50 & \\
+2008-07-16 & 2008-07-16 &  & �terurae pro 1211.5010.6317 Deangruna Pullariungit / Xxx.-By.�58540751� &  & 157.50\\
+2008-07-17 & 2008-07-17 &  & Diciti Grantis u-condica / Xxx.-By. 22881730�DEANGRUNA PULLARIUNGIT�4710 EIUNGUREST� &  & 4.55\\
+2008-07-17 & 2008-07-17 &  & Obirincria / Xxx.-By. 31244633�DEANGRUNA PULLARIUNGIT T-CONDICA�Stiontetio: TYPE ANUIBULUCET�NOVERERINSIM LOGITUNIAM�ILLITIANDIFIG MERE AGINDUS� & 4.55 & \\
+2008-07-18 & 2008-07-18 &  & Diciti Grantis u-condica / Xxx.-By. 64487542�DEANGRUNA PULLARIUNGIT�EFFIENTUSCERO INCH� &  & 41.25\\
+2008-07-18 & 2008-07-18 &  & Obirincria / Xxx.-By. 70821217�DEANGRUNA PULLARIUNGIT T-CONDICA�Stiontetio: SONE SAER VIANASTABIBO UNCEM�MUNDULTIAVIT CIS CLAVA INGUN�USIMINTUDUONCRIDE� & 41.25 & \\
+2008-07-18 & 2008-07-18 &  & Dabiensilocular PAM / Xxx.-By. 44241526�461740506078382874234038163� & 1.00 & \\
+2008-07-18 & 2008-07-18 &  & INUM-Secteritursectifig,�Mere Agindus / Xxx.-By. 14788742 & 10.00 & \\
+\\
+\end{tablevalue}
+\end{document}

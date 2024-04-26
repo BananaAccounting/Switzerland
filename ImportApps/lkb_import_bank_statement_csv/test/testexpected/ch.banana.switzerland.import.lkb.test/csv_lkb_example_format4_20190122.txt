@@ -1,0 +1,736 @@
+%%info_test_name{csv_lkb_example_format4_20190122}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & ExternalReference & Doc & Description & Income & Expenses\\
+2018-01-02 & 2018-01-03 & 737273120 &  & Pleruci Regratuibum & 174.07 & \\
+2018-01-04 & 2018-01-04 & 612760153 &  & Pleruci Regratuibum & 250.67 & \\
+2018-01-04 & 2018-01-04 & 605600477 &  & Pleruci Regratuibum & 199.37 & \\
+2018-01-05 & 2018-01-05 & 134514628 &  & Pleruci Regratuibum & 192.68 & \\
+2018-01-05 & 2018-01-08 & 400028047 &  & Pleruci Regratuibum & 359.65 & \\
+2018-01-08 & 2018-01-09 & 367535334 &  & Pleruci Regratuibum & 585.82 & \\
+2018-01-09 & 2018-01-10 & 513247768 &  & Pleruci Regratuibum & 274.44 & \\
+2018-01-10 & 2018-01-11 & 556218280 &  & Pleruci Regratuibum & 58.71 & \\
+2018-01-11 & 2018-01-11 & 273865405 &  & Pleruci Regratuibum &  & 2000.00\\
+2018-01-11 & 2018-01-12 & 114083317 &  & Pleruci Regratuibum & 177.68 & \\
+2018-01-12 & 2018-01-15 & 756453000 &  & Pleruci Regratuibum & 165.07 & \\
+2018-01-16 & 2018-01-16 & 880607767 &  & Pleruci Regratuibum & 411.59 & \\
+2018-01-16 & 2018-01-16 & 224654703 &  & Pleruci Regratuibum & 308.38 & \\
+2018-01-16 & 2018-01-16 & 784256011 &  & Pleruci Regratuibum & 5500.00 & \\
+2018-01-16 & 2018-01-16 & 705617053 &  & Pleruci Regratuibum &  & 6000.00\\
+2018-01-16 & 2018-01-17 & 176612644 &  & Pleruci Regratuibum & 174.40 & \\
+2018-01-17 & 2018-01-17 & 710884666 &  & Pleruci Regratuibum &  & 6.30\\
+2018-01-17 & 2018-01-17 & 766300081 &  & Pleruci Regratuibum &  & 66.10\\
+2018-01-17 & 2018-01-17 & 320168761 &  & Pleruci Regratuibum &  & 173.95\\
+2018-01-18 & 2018-01-18 & 717776418 &  & Pleruci Regratuibum &  & 140.00\\
+2018-01-18 & 2018-01-18 & 366662565 &  & Pleruci Regratuibum &  & 72.90\\
+2018-01-18 & 2018-01-19 & 402113004 &  & Pleruci Regratuibum & 69.01 & \\
+2018-01-19 & 2018-01-22 & 236786086 &  & Pleruci Regratuibum & 53.71 & \\
+2018-01-22 & 2018-01-21 & 504551525 &  & Pleruci Regratuibum &  & 440.00\\
+2018-01-22 & 2018-01-22 & 308868332 &  & Pleruci Regratuibum & 1000.00 & \\
+2018-01-23 & 2018-01-23 & 125884454 &  & Pleruci Regratuibum &  & 29.20\\
+2018-01-23 & 2018-01-23 & 542544576 &  & Pleruci Regratuibum &  & 69.45\\
+2018-01-23 & 2018-01-23 & 641618203 &  & Pleruci Regratuibum &  & 895.40\\
+2018-01-24 & 2018-01-25 & 478186516 &  & Pleruci Regratuibum & 31.71 & \\
+2018-01-26 & 2018-01-29 & 370023147 &  & Pleruci Regratuibum & 121.46 & \\
+2018-01-29 & 2018-01-30 & 160487001 &  & Pleruci Regratuibum & 255.81 & \\
+2018-01-29 & 2018-01-30 & 515451667 &  & Pleruci Regratuibum & 665.69 & \\
+2018-01-30 & 2018-01-31 & 210085543 &  & Pleruci Regratuibum & 188.06 & \\
+2018-02-01 & 2018-02-01 & 720616127 &  & Pleruci Regratuibum &  & 505.00\\
+2018-02-01 & 2018-02-01 & 882033212 &  & Pleruci Regratuibum &  & 750.00\\
+2018-02-01 & 2018-02-02 & 375412256 &  & Pleruci Regratuibum & 81.37 & \\
+2018-02-02 & 2018-02-05 & 315481844 &  & Pleruci Regratuibum & 279.66 & \\
+2018-02-05 & 2018-02-03 & 833880456 &  & Pleruci Regratuibum & 6600.00 & \\
+2018-02-05 & 2018-02-05 & 372328678 &  & Pleruci Regratuibum &  & 6900.00\\
+2018-02-05 & 2018-02-06 & 817725265 &  & Pleruci Regratuibum & 532.34 & \\
+2018-02-07 & 2018-02-07 & 280782801 &  & Pleruci Regratuibum & 85.00 & \\
+2018-02-07 & 2018-02-07 & 126215128 &  & Pleruci Regratuibum & 210.00 & \\
+2018-02-07 & 2018-02-08 & 284632814 &  & Pleruci Regratuibum & 19.72 & \\
+2018-02-08 & 2018-02-08 & 718746046 &  & Pleruci Regratuibum & 200.00 & \\
+2018-02-08 & 2018-02-09 & 204112832 &  & Pleruci Regratuibum & 370.64 & \\
+2018-02-09 & 2018-02-09 & 367611227 &  & Pleruci Regratuibum &  & 376.95\\
+2018-02-12 & 2018-02-12 & 628754062 &  & Pleruci Regratuibum &  & 657.00\\
+2018-02-12 & 2018-02-12 & 264447143 &  & Pleruci Regratuibum &  & 53.85\\
+2018-02-12 & 2018-02-12 & 610631042 &  & Pleruci Regratuibum & 90.25 & \\
+2018-02-12 & 2018-02-12 & 765613188 &  & Pleruci Regratuibum & 2600.00 & \\
+2018-02-12 & 2018-02-12 & 253380103 &  & Pleruci Regratuibum &  & 500.00\\
+2018-02-12 & 2018-02-12 & 322125424 &  & Pleruci Regratuibum &  & 811.00\\
+2018-02-12 & 2018-02-13 & 536766143 &  & Pleruci Regratuibum & 53.08 & \\
+2018-02-13 & 2018-02-12 & 647161407 &  & Pleruci Regratuibum & 2700.00 & \\
+2018-02-13 & 2018-02-13 & 832577510 &  & Pleruci Regratuibum &  & 7.10\\
+2018-02-13 & 2018-02-13 & 236503527 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-02-14 & 2018-02-13 & 838421765 &  & Pleruci Regratuibum & 20.00 & \\
+2018-02-14 & 2018-02-14 & 358624017 &  & Pleruci Regratuibum &  & 1237.20\\
+2018-02-14 & 2018-02-14 & 283653084 &  & Pleruci Regratuibum & 160.00 & \\
+2018-02-19 & 2018-02-20 & 243458570 &  & Pleruci Regratuibum & 123.00 & \\
+2018-02-20 & 2018-02-20 & 852140460 &  & Pleruci Regratuibum & 150.00 & \\
+2018-02-23 & 2018-02-26 & 683057787 &  & Pleruci Regratuibum & 328.32 & \\
+2018-02-26 & 2018-02-27 & 881856005 &  & Pleruci Regratuibum & 219.67 & \\
+2018-02-27 & 2018-02-27 & 365501167 &  & Pleruci Regratuibum &  & 215.40\\
+2018-02-27 & 2018-02-27 & 876486782 &  & Pleruci Regratuibum &  & 500.00\\
+2018-02-27 & 2018-02-27 & 260253113 &  & Pleruci Regratuibum &  & 180.00\\
+2018-03-01 & 2018-03-01 & 358436456 &  & Pleruci Regratuibum & 60.00 & \\
+2018-03-01 & 2018-03-01 & 713538543 &  & Pleruci Regratuibum &  & 107.70\\
+2018-03-02 & 2018-03-05 & 273672180 &  & Pleruci Regratuibum & 29.71 & \\
+2018-03-05 & 2018-03-03 & 114646604 &  & Pleruci Regratuibum & 8500.00 & \\
+2018-03-05 & 2018-03-05 & 640207302 &  & Pleruci Regratuibum &  & 8000.00\\
+2018-03-06 & 2018-03-06 & 202336857 &  & Pleruci Regratuibum &  & 44.20\\
+2018-03-06 & 2018-03-06 & 107626680 &  & Pleruci Regratuibum &  & 453.60\\
+2018-03-07 & 2018-03-06 & 555848212 &  & Pleruci Regratuibum & 2900.00 & \\
+2018-03-07 & 2018-03-07 & 266271017 &  & Pleruci Regratuibum &  & 853.20\\
+2018-03-07 & 2018-03-07 & 356823120 &  & Pleruci Regratuibum &  & 811.00\\
+2018-03-07 & 2018-03-07 & 310650012 &  & Pleruci Regratuibum &  & 708.50\\
+2018-03-07 & 2018-03-07 & 161625475 &  & Pleruci Regratuibum &  & 25.00\\
+2018-03-07 & 2018-03-07 & 264612361 &  & Homistruci BabuLerunti & 158.00 & \\
+2018-03-07 & 2018-03-08 & 278084503 &  & Pleruci Regratuibum & 44.37 & \\
+2018-03-08 & 2018-03-08 & 676816361 &  & Pleruci Regratuibum &  & 376.50\\
+2018-03-08 & 2018-03-08 & 132057444 &  & Pleruci Regratuibum & 143.00 & \\
+2018-03-09 & 2018-03-09 & 573118345 &  & Pleruci Regratuibum & 150.00 & \\
+2018-03-12 & 2018-03-10 & 503518615 &  & Pleruci Regratuibum & 12000.00 & \\
+2018-03-12 & 2018-03-11 & 306500047 &  & Pleruci Regratuibum & 5000.00 & \\
+2018-03-12 & 2018-03-12 & 228245202 &  & Pleruci Regratuibum & 12.00 & \\
+2018-03-12 & 2018-03-12 & 135414863 &  & Pleruci Regratuibum & 48.00 & \\
+2018-03-12 & 2018-03-12 & 644625423 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-03-12 & 2018-03-12 & 527102363 &  & Pleruci Regratuibum &  & 14000.00\\
+2018-03-12 & 2018-03-13 & 102372735 &  & Pleruci Regratuibum & 146.07 & \\
+2018-03-12 & 2018-03-13 & 673410801 &  & Pleruci Regratuibum & 41.71 & \\
+2018-03-14 & 2018-03-14 & 214452771 &  & Pleruci Regratuibum &  & 196.75\\
+2018-03-14 & 2018-03-14 & 305684600 &  & Pleruci Regratuibum &  & 160.20\\
+2018-03-14 & 2018-03-14 & XXX &  & Pleruci Regratuibum &  & 56.75\\
+2018-03-14 & 2018-03-15 & 336531677 &  & Pleruci Regratuibum & 72.73 & \\
+2018-03-15 & 2018-03-15 & 306243162 &  & Pleruci Regratuibum &  & 300.00\\
+2018-03-15 & 2018-03-16 & 815563832 &  & Pleruci Regratuibum & 37.37 & \\
+2018-03-19 & 2018-03-20 & 387828570 &  & Pleruci Regratuibum & 271.08 & \\
+2018-03-19 & 2018-03-20 & 145830745 &  & Pleruci Regratuibum & 1227.51 & \\
+2018-03-20 & 2018-03-20 & 656210500 &  & Pleruci Regratuibum & 174.10 & \\
+2018-03-20 & 2018-03-20 & 347141284 &  & Pleruci Regratuibum &  & 1508.35\\
+2018-03-20 & 2018-03-20 & 444138832 &  & Pleruci Regratuibum & 134.00 & \\
+2018-03-20 & 2018-03-21 & 131143246 &  & Pleruci Regratuibum & 411.84 & \\
+2018-03-21 & 2018-03-22 & 271864616 &  & Pleruci Regratuibum & 843.78 & \\
+2018-03-22 & 2018-03-22 & 285120382 &  & Pleruci Regratuibum & 60.00 & \\
+2018-03-22 & 2018-03-23 & 124041342 &  & Pleruci Regratuibum & 412.07 & \\
+2018-03-23 & 2018-03-23 & 738804408 &  & Pleruci Regratuibum &  & 1311.95\\
+2018-03-23 & 2018-03-23 & 368884408 &  & Pleruci Regratuibum &  & 107.70\\
+2018-03-23 & 2018-03-23 & 327618050 &  & Pleruci Regratuibum & 107.70 & \\
+2018-03-23 & 2018-03-23 & 787026537 &  & Pleruci Regratuibum &  & 760.00\\
+2018-03-23 & 2018-03-26 & 152877020 &  & Pleruci Regratuibum & 396.64 & \\
+2018-03-26 & 2018-03-23 & 107416841 &  & Pleruci Regratuibum &  & 400.00\\
+2018-03-26 & 2018-03-26 & 222002284 &  & Pleruci Regratuibum & 285.00 & \\
+2018-03-26 & 2018-03-26 & 232514246 &  & Pleruci Regratuibum &  & 107.70\\
+2018-03-26 & 2018-03-26 & 341256584 &  & Pleruci Regratuibum & 8000.00 & \\
+2018-03-26 & 2018-03-26 & 580653438 &  & Pleruci Regratuibum &  & 8015.00\\
+2018-03-26 & 2018-03-27 & 258308435 &  & Pleruci Regratuibum & 267.66 & \\
+2018-03-26 & 2018-03-27 & 672626111 &  & Pleruci Regratuibum & 669.92 & \\
+2018-03-28 & 2018-03-28 & 613176140 &  & Pleruci Regratuibum &  & 270.00\\
+2018-03-28 & 2018-03-28 & 816865627 &  & Pleruci Regratuibum & 100.00 & \\
+2018-03-28 & 2018-03-28 & 861135524 &  & Pleruci Regratuibum & 164.00 & \\
+2018-03-29 & 2018-03-29 & 843652570 &  & Pleruci Regratuibum & 150.00 & \\
+2018-03-29 & 2018-03-29 & 587522806 &  & Pleruci Regratuibum & 100.00 & \\
+2018-03-29 & 2018-04-03 & 717071047 &  & Pleruci Regratuibum & 99.70 & \\
+2018-04-02 & 2018-03-31 & 574783717 &  & Pleruci Regratuibum &  & 1300.00\\
+2018-04-03 & 2018-03-31 & 368212801 &  & Pleruci Regratuibum & 108.20 & \\
+2018-04-03 & 2018-03-31 & 176662017 &  & Pleruci Regratuibum & 120.00 & \\
+2018-04-03 & 2018-04-03 & 111135781 &  & Pleruci Regratuibum & 17000.00 & \\
+2018-04-03 & 2018-04-03 & 483823687 &  & Pleruci Regratuibum &  & 17015.00\\
+2018-04-03 & 2018-04-04 & 412523664 &  & Pleruci Regratuibum & 98.70 & \\
+2018-04-03 & 2018-04-04 & 105454057 &  & Pleruci Regratuibum & 1430.66 & \\
+2018-04-04 & 2018-04-04 & 700312242 &  & Pleruci Regratuibum & 36.00 & \\
+2018-04-04 & 2018-04-04 & 381405604 &  & Pleruci Regratuibum & 38.00 & \\
+2018-04-04 & 2018-04-04 & 506113481 &  & Pleruci Regratuibum & 100.00 & \\
+2018-04-04 & 2018-04-04 & 855161846 &  & Pleruci Regratuibum &  & 2050.00\\
+2018-04-05 & 2018-04-04 & 840382315 &  & Pleruci Regratuibum &  & 2.00\\
+2018-04-05 & 2018-04-05 & 403576717 &  & Pleruci Regratuibum & 114.08 & \\
+2018-04-05 & 2018-04-05 & 404565741 &  & Pleruci Regratuibum & 420.00 & \\
+2018-04-05 & 2018-04-05 & 160377384 &  & Pleruci Regratuibum & 200.00 & \\
+2018-04-05 & 2018-04-05 & 168387750 &  & Pleruci Regratuibum & 100.00 & \\
+2018-04-05 & 2018-04-05 & 440687625 &  & Pleruci Regratuibum &  & 500.00\\
+2018-04-05 & 2018-04-06 & 148838706 &  & Pleruci Regratuibum & 76.42 & \\
+2018-04-06 & 2018-04-05 & 212854704 &  & Pleruci Regratuibum &  & 41.83\\
+2018-04-06 & 2018-04-06 & 174682036 &  & Pleruci Regratuibum & 2000.00 & \\
+2018-04-06 & 2018-04-06 & 513151557 &  & Pleruci Regratuibum &  & 410.40\\
+2018-04-06 & 2018-04-06 & 561050237 &  & Pleruci Regratuibum &  & 107.70\\
+2018-04-06 & 2018-04-09 & 877850678 &  & Pleruci Regratuibum & 349.09 & \\
+2018-04-09 & 2018-04-09 & 445601105 &  & Pleruci Regratuibum & 11650.00 & \\
+2018-04-09 & 2018-04-07 & 375000303 &  & Pleruci Regratuibum &  & 1300.00\\
+2018-04-09 & 2018-04-09 & 642332613 &  & Pleruci Regratuibum & 5455.10 & \\
+2018-04-09 & 2018-04-09 & 415828571 &  & Pleruci Regratuibum &  & 17997.00\\
+2018-04-09 & 2018-04-10 & 404831747 &  & Pleruci Regratuibum & 615.42 & \\
+2018-04-10 & 2018-04-10 & 658700537 &  & Pleruci Regratuibum &  & 60.00\\
+2018-04-10 & 2018-04-10 & 147117767 &  & Pleruci Regratuibum &  & 160.00\\
+2018-04-10 & 2018-04-07 & 605225787 &  & Pleruci Regratuibum &  & 1.00\\
+2018-04-10 & 2018-04-10 & 246221535 &  & Pleruci Regratuibum & 907.00 & \\
+2018-04-10 & 2018-04-10 & 705386110 &  & Pleruci Regratuibum &  & 809.90\\
+2018-04-10 & 2018-04-10 & 361628272 &  & Pleruci Regratuibum & 5300.00 & \\
+2018-04-10 & 2018-04-10 & 437022742 &  & Pleruci Regratuibum &  & 811.00\\
+2018-04-10 & 2018-04-10 & 484514813 &  & Pleruci Regratuibum &  & 1433.85\\
+2018-04-10 & 2018-04-10 & 641275228 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-04-10 & 2018-04-11 & 841042485 &  & Pleruci Regratuibum & 991.47 & \\
+2018-04-11 & 2018-04-11 & 837537387 &  & Pleruci Regratuibum & 1450.00 & \\
+2018-04-11 & 2018-04-11 & 600710655 &  & Pleruci Regratuibum & 180.00 & \\
+2018-04-11 & 2018-04-11 & 803812177 &  & Pleruci Regratuibum & 150.00 & \\
+2018-04-11 & 2018-04-11 & 201663427 &  & Pleruci Regratuibum &  & 2000.00\\
+2018-04-11 & 2018-04-12 & 701554865 &  & Pleruci Regratuibum & 109.70 & \\
+2018-04-12 & 2018-04-13 & 272610506 &  & Pleruci Regratuibum & 294.37 & \\
+2018-04-13 & 2018-04-16 & 633270650 &  & Pleruci Regratuibum & 307.65 & \\
+2018-04-16 & 2018-04-13 & 643152363 &  & Pleruci Regratuibum & 6500.00 & \\
+2018-04-16 & 2018-04-13 & 564600203 &  & Pleruci Regratuibum &  & 77.85\\
+2018-04-16 & 2018-04-16 & 222415664 &  & Pleruci Regratuibum & 130.00 & \\
+2018-04-16 & 2018-04-16 & 105811811 &  & Pleruci Regratuibum & 70.00 & \\
+2018-04-16 & 2018-04-16 & 147637616 &  & Pleruci Regratuibum & 134.00 & \\
+2018-04-16 & 2018-04-16 & 102616626 &  & Pleruci Regratuibum & 10747.30 & \\
+2018-04-16 & 2018-04-16 & 861143737 &  & Pleruci Regratuibum &  & 19015.00\\
+2018-04-16 & 2018-04-17 & 504753053 &  & Pleruci Regratuibum & 536.58 & \\
+2018-04-16 & 2018-04-17 & 111285471 &  & Pleruci Regratuibum & 749.28 & \\
+2018-04-16 & 2018-04-17 & 705603807 &  & Pleruci Regratuibum & 262.11 & \\
+2018-04-18 & 2018-04-18 & 644576357 &  & Pleruci Regratuibum &  & 200.00\\
+2018-04-18 & 2018-04-19 & 765375377 &  & Pleruci Regratuibum & 223.12 & \\
+2018-04-19 & 2018-04-18 & 531025143 &  & Pleruci Regratuibum &  & 1500.00\\
+2018-04-19 & 2018-04-19 & 155740803 &  & Pleruci Regratuibum & 80.00 & \\
+2018-04-19 & 2018-04-20 & 318552862 &  & Pleruci Regratuibum & 854.46 & \\
+2018-04-20 & 2018-04-20 & 284103864 &  & Pleruci Regratuibum &  & 1200.00\\
+2018-04-20 & 2018-04-23 & 610008233 &  & Pleruci Regratuibum & 72.70 & \\
+2018-04-23 & 2018-04-24 & 662841148 &  & Pleruci Regratuibum & 157.74 & \\
+2018-04-23 & 2018-04-24 & 566653437 &  & Pleruci Regratuibum & 147.44 & \\
+2018-04-24 & 2018-04-24 & 132006176 &  & Pleruci Regratuibum &  & 400.00\\
+2018-04-26 & 2018-04-26 & 514658818 &  & Pleruci Regratuibum & 800.00 & \\
+2018-04-26 & 2018-04-27 & 108826334 &  & Pleruci Regratuibum & 256.46 & \\
+2018-04-27 & 2018-04-27 & 466705576 &  & Pleruci Regratuibum &  & 841.60\\
+2018-04-27 & 2018-04-27 & 588350232 &  & Pleruci Regratuibum & 200.00 & \\
+2018-04-27 & 2018-04-30 & 260018266 &  & Pleruci Regratuibum & 203.39 & \\
+2018-04-30 & 2018-04-27 & 521302631 &  & Pleruci Regratuibum &  & 630.00\\
+2018-04-30 & 2018-04-30 & 107474640 &  & Pleruci Regratuibum & 150.00 & \\
+2018-04-30 & 2018-04-30 & 147482317 &  & Pleruci Regratuibum & 223.00 & \\
+2018-04-30 & 2018-04-30 & 480244014 &  & Pleruci Regratuibum & 130.00 & \\
+2018-04-30 & 2018-04-30 & 687715437 &  & Pleruci Regratuibum &  & 435.00\\
+2018-05-01 & 2018-05-02 & 250087386 &  & Pleruci Regratuibum & 352.36 & \\
+2018-05-01 & 2018-05-02 & 147402064 &  & Pleruci Regratuibum & 194.68 & \\
+2018-05-01 & 2018-05-01 & 613147058 &  & Pleruci Regratuibum & 450.00 & \\
+2018-05-01 & 2018-05-01 & 616058167 &  & Pleruci Regratuibum & 850.00 & \\
+2018-05-01 & 2018-05-02 & 666137421 &  & Pleruci Regratuibum &  & 1897.65\\
+2018-05-02 & 2018-05-01 & 675807837 &  & Pleruci Regratuibum & 2500.00 & \\
+2018-05-02 & 2018-05-02 & 464060375 &  & Pleruci Regratuibum &  & 232.60\\
+2018-05-02 & 2018-05-02 & 286135878 &  & Pleruci Regratuibum &  & 2213.75\\
+2018-05-02 & 2018-05-02 & 564638116 &  & Pleruci Regratuibum & 200.00 & \\
+2018-05-02 & 2018-05-02 & 316600245 &  & Pleruci Regratuibum & 120.00 & \\
+2018-05-02 & 2018-05-02 & 444738417 &  & Pleruci Regratuibum & 215.00 & \\
+2018-05-02 & 2018-05-03 & 418830422 &  & Pleruci Regratuibum & 560.21 & \\
+2018-05-02 & 2018-05-03 & 460368563 &  & Pleruci Regratuibum & 473.15 & \\
+2018-05-03 & 2018-05-04 & 238551048 &  & Pleruci Regratuibum & 423.59 & \\
+2018-05-07 & 2018-05-05 & 285405040 &  & Pleruci Regratuibum & 13300.00 & \\
+2018-05-07 & 2018-05-07 & 542343556 &  & Pleruci Regratuibum &  & 495.50\\
+2018-05-07 & 2018-05-07 & 725728118 &  & Pleruci Regratuibum &  & 4579.35\\
+2018-05-07 & 2018-05-07 & 470625647 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-05-07 & 2018-05-07 & 503113601 &  & Pleruci Regratuibum &  & 811.00\\
+2018-05-07 & 2018-05-07 & 738434461 &  & Pleruci Regratuibum &  & 430.00\\
+2018-05-07 & 2018-05-07 & 784607012 &  & Pleruci Regratuibum & 100.00 & \\
+2018-05-07 & 2018-05-07 & 566715866 &  & Pleruci Regratuibum & 5870.00 & \\
+2018-05-07 & 2018-05-08 & 140178474 &  & Pleruci Regratuibum & 1556.33 & \\
+2018-05-07 & 2018-05-08 & 404822438 &  & Pleruci Regratuibum & 2010.24 & \\
+2018-05-07 & 2018-05-08 & 281472521 &  & Pleruci Regratuibum & 1335.64 & \\
+2018-05-08 & 2018-05-07 & 445724113 &  & Pleruci Regratuibum &  & 400.00\\
+2018-05-08 & 2018-05-07 & 486806325 &  & Pleruci Regratuibum &  & 11515.00\\
+2018-05-08 & 2018-05-09 & 311188445 &  & Pleruci Regratuibum & 74.70 & \\
+2018-05-09 & 2018-05-08 & 532143074 &  & Pleruci Regratuibum & 17150.00 & \\
+2018-05-09 & 2018-05-09 & 158430465 &  & Pleruci Regratuibum & 3500.00 & \\
+2018-05-09 & 2018-05-09 & 355450230 &  & Pleruci Regratuibum &  & 12015.00\\
+2018-05-09 & 2018-05-09 & 875858343 &  & Pleruci Regratuibum &  & 13409.00\\
+2018-05-11 & 2018-05-11 & 512248514 &  & Pleruci Regratuibum & 75.00 & \\
+2018-05-11 & 2018-05-11 & 456441513 &  & Pleruci Regratuibum & 50.00 & \\
+2018-05-11 & 2018-05-14 & 863244237 &  & Pleruci Regratuibum & 11.72 & \\
+2018-05-14 & 2018-05-14 & 672438208 &  & Pleruci Regratuibum & 155.30 & \\
+2018-05-14 & 2018-05-14 & 237623278 &  & Pleruci Regratuibum & 371.55 & \\
+2018-05-14 & 2018-05-15 & 607577426 &  & Pleruci Regratuibum & 143.86 & \\
+2018-05-15 & 2018-05-15 & 438647664 &  & Pleruci Regratuibum &  & 800.00\\
+2018-05-16 & 2018-05-16 & 420563760 &  & Pleruci Regratuibum & 40.00 & \\
+2018-05-16 & 2018-05-16 & 560550846 &  & Pleruci Regratuibum & 20000.00 & \\
+2018-05-16 & 2018-05-16 & 337604560 &  & Pleruci Regratuibum &  & 20000.00\\
+2018-05-16 & 2018-05-17 & 700458888 &  & Pleruci Regratuibum & 149.07 & \\
+2018-05-17 & 2018-05-17 & 424260044 &  & Pleruci Regratuibum & 200.00 & \\
+2018-05-17 & 2018-05-18 & 312533106 &  & Pleruci Regratuibum & 436.07 & \\
+2018-05-18 & 2018-05-18 & 785440574 &  & Pleruci Regratuibum & 320.00 & \\
+2018-05-18 & 2018-05-22 & 750648344 &  & Pleruci Regratuibum & 537.80 & \\
+2018-05-21 & 2018-05-20 & 334248076 &  & Pleruci Regratuibum &  & 600.00\\
+2018-05-21 & 2018-05-18 & 673018080 &  & Pleruci Regratuibum &  & 1100.00\\
+2018-05-22 & 2018-05-22 & 826542678 &  & Pleruci Regratuibum & 2040.00 & \\
+2018-05-22 & 2018-05-22 & 661726810 &  & Pleruci Regratuibum &  & 2004.00\\
+2018-05-22 & 2018-05-23 & 431475534 &  & Pleruci Regratuibum & 325.09 & \\
+2018-05-22 & 2018-05-23 & 418722104 &  & Pleruci Regratuibum & 304.71 & \\
+2018-05-23 & 2018-05-23 & 307670181 &  & Pleruci Regratuibum & 270.00 & \\
+2018-05-23 & 2018-05-23 & 556412883 &  & Pleruci Regratuibum &  & 900.00\\
+2018-05-24 & 2018-05-24 & 620240031 &  & Pleruci Regratuibum & 18.72 & \\
+2018-05-25 & 2018-05-28 & 162641221 &  & Pleruci Regratuibum & 692.74 & \\
+2018-05-28 & 2018-05-25 & 756576552 &  & Pleruci Regratuibum &  & 740.00\\
+2018-05-28 & 2018-05-28 & 868428732 &  & Pleruci Regratuibum & 15030.00 & \\
+2018-05-28 & 2018-05-28 & 730000670 &  & Pleruci Regratuibum &  & 15015.00\\
+2018-05-28 & 2018-05-29 & 226886377 &  & Pleruci Regratuibum & 882.53 & \\
+2018-05-28 & 2018-05-29 & 704375600 &  & Pleruci Regratuibum & 277.97 & \\
+2018-05-29 & 2018-05-29 & 545178872 &  & Pleruci Regratuibum & 70.00 & \\
+2018-05-29 & 2018-05-29 & 281766016 &  & Pleruci Regratuibum & 150.00 & \\
+2018-05-29 & 2018-05-30 & 414180716 &  & Pleruci Regratuibum & 223.78 & \\
+2018-05-30 & 2018-05-30 & 546116015 &  & Pleruci Regratuibum & 144.25 & \\
+2018-05-30 & 2018-05-31 & 436262488 &  & Pleruci Regratuibum & 372.12 & \\
+2018-05-31 & 2018-05-31 & 411428771 &  & Pleruci Regratuibum & 220.00 & \\
+2018-05-31 & 2018-05-31 & 327327485 &  & Pleruci Regratuibum & 328.00 & \\
+2018-06-01 & 2018-06-01 & 414806874 &  & Pleruci Regratuibum & 469.34 & \\
+2018-06-01 & 2018-06-01 & 280051505 &  & Pleruci Regratuibum & 164.00 & \\
+2018-06-01 & 2018-06-01 & 163776748 &  & Pleruci Regratuibum & 206.00 & \\
+2018-06-01 & 2018-06-01 & 420828758 &  & Pleruci Regratuibum & 190.00 & \\
+2018-06-01 & 2018-06-04 & 153464803 &  & Pleruci Regratuibum & 811.99 & \\
+2018-06-04 & 2018-06-02 & 437326502 &  & Pleruci Regratuibum &  & 3000.00\\
+2018-06-04 & 2018-06-02 & 235336507 &  & Pleruci Regratuibum &  & 1530.00\\
+2018-06-04 & 2018-06-05 & 315480765 &  & Pleruci Regratuibum & 234.08 & \\
+2018-06-04 & 2018-06-05 & 883874788 &  & Pleruci Regratuibum & 1843.15 & \\
+2018-06-04 & 2018-06-05 & 351205260 &  & Pleruci Regratuibum & 2455.75 & \\
+2018-06-04 & 2018-06-04 & 600755811 &  & Pleruci Regratuibum & 4700.00 & \\
+2018-06-05 & 2018-06-05 & 264276884 &  & Pleruci Regratuibum &  & 4068.60\\
+2018-06-05 & 2018-06-05 & 518336632 &  & Pleruci Regratuibum &  & 573.00\\
+2018-06-05 & 2018-06-05 & 603122576 &  & Pleruci Regratuibum &  & 60.00\\
+2018-06-05 & 2018-06-05 & 557223168 &  & Pleruci Regratuibum &  & 435.00\\
+2018-06-05 & 2018-06-05 & 841243773 &  & Pleruci Regratuibum &  & 811.00\\
+2018-06-05 & 2018-06-05 & 387614741 &  & Pleruci Regratuibum &  & 500.00\\
+2018-06-05 & 2018-06-05 & 471600823 &  & Pleruci Regratuibum &  & 120.00\\
+2018-06-05 & 2018-06-05 & 475020644 &  & Pleruci Regratuibum &  & 1204.00\\
+2018-06-05 & 2018-06-05 & 504825366 &  & Pleruci Regratuibum & 270.00 & \\
+2018-06-05 & 2018-06-06 & 525360424 &  & Pleruci Regratuibum & 139.69 & \\
+2018-06-06 & 2018-06-06 & 556483256 &  & Pleruci Regratuibum &  & 142.00\\
+2018-06-06 & 2018-06-06 & 862122842 &  & Pleruci Regratuibum &  & 123.20\\
+2018-06-06 & 2018-06-05 & 163766070 &  & Pleruci Regratuibum &  & 420.00\\
+2018-06-06 & 2018-06-06 & 320468120 &  & Pleruci Regratuibum & 360.00 & \\
+2018-06-06 & 2018-06-07 & 713742854 &  & Pleruci Regratuibum & 753.44 & \\
+2018-06-08 & 2018-06-08 & 523521754 &  & Pleruci Regratuibum &  & 1040.00\\
+2018-06-08 & 2018-06-08 & 412358618 &  & Pleruci Regratuibum & 100.00 & \\
+2018-06-08 & 2018-06-11 & 742381460 &  & Pleruci Regratuibum & 615.17 & \\
+2018-06-11 & 2018-06-11 & 286835231 &  & Pleruci Regratuibum & 107.92 & \\
+2018-06-11 & 2018-06-11 & 453277563 &  & Pleruci Regratuibum & 100.00 & \\
+2018-06-11 & 2018-06-09 & 781450241 &  & Pleruci Regratuibum &  & 1930.00\\
+2018-06-11 & 2018-06-08 & 316407746 &  & Pleruci Regratuibum &  & 148.00\\
+2018-06-11 & 2018-06-11 & 212460505 &  & Pleruci Regratuibum & 180.00 & \\
+2018-06-11 & 2018-06-12 & 420618087 &  & Pleruci Regratuibum & 187.02 & \\
+2018-06-11 & 2018-06-12 & 676402524 &  & Pleruci Regratuibum & 1682.48 & \\
+2018-06-12 & 2018-06-12 & 455125146 &  & Pleruci Regratuibum & 1338.16 & \\
+2018-06-12 & 2018-06-12 & 816822360 &  & Pleruci Regratuibum & 100.00 & \\
+2018-06-12 & 2018-06-12 & 373763804 &  & Pleruci Regratuibum & 300.00 & \\
+2018-06-12 & 2018-06-12 & 404350167 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-06-12 & 2018-06-12 & 747021574 &  & Pleruci Regratuibum &  & 500.00\\
+2018-06-13 & 2018-06-14 & 753736054 &  & Pleruci Regratuibum &  & 430.99\\
+2018-06-15 & 2018-06-18 & 664221654 &  & Pleruci Regratuibum & 194.67 & \\
+2018-06-18 & 2018-06-19 & 303354562 &  & Pleruci Regratuibum & 1832.99 & \\
+2018-06-18 & 2018-06-19 & 700860412 &  & Pleruci Regratuibum & 636.93 & \\
+2018-06-19 & 2018-06-18 & 467870022 &  & Pleruci Regratuibum & 150.00 & \\
+2018-06-19 & 2018-06-19 & 741217421 &  & Pleruci Regratuibum &  & 2400.00\\
+2018-06-19 & 2018-06-20 & 147622417 &  & Pleruci Regratuibum & 299.66 & \\
+2018-06-20 & 2018-06-20 & 756651704 &  & Pleruci Regratuibum & 210.00 & \\
+2018-06-20 & 2018-06-20 & 656350646 &  & Pleruci Regratuibum &  & 500.00\\
+2018-06-20 & 2018-06-20 & **PERUNT** &  & Pleruci Regratuibum & 500.00 & \\
+2018-06-20 & 2018-06-20 & 366556021 &  & Pleruci Regratuibum &  & 150.00\\
+2018-06-20 & 2018-06-20 & 236832304 &  & Pleruci Regratuibum &  & 350.00\\
+2018-06-21 & 2018-06-22 & 166555512 &  & Pleruci Regratuibum & 139.69 & \\
+2018-06-22 & 2018-06-25 & 382267520 &  & Pleruci Regratuibum & 245.72 & \\
+2018-06-25 & 2018-06-23 & 512120503 &  & Pleruci Regratuibum &  & 450.00\\
+2018-06-25 & 2018-06-26 & 213140704 &  & Pleruci Regratuibum & 136.69 & \\
+2018-06-25 & 2018-06-26 & 605857627 &  & Pleruci Regratuibum & 448.07 & \\
+2018-06-28 & 2018-06-28 & 585688047 &  & Pleruci Regratuibum & 250.00 & \\
+2018-06-28 & 2018-06-28 & 671584360 &  & Pleruci Regratuibum & 20.00 & \\
+2018-06-28 & 2018-06-29 & 716567271 &  & Pleruci Regratuibum & 579.57 & \\
+2018-06-29 & 2018-06-29 & 473727224 &  & Pleruci Regratuibum & 165.00 & \\
+2018-06-29 & 2018-06-29 & 786232113 &  & Pleruci Regratuibum & 540.00 & \\
+2018-06-29 & 2018-06-29 & 747067257 &  & Pleruci Regratuibum & 9000.00 & \\
+2018-06-29 & 2018-06-29 & 802072852 &  & Pleruci Regratuibum &  & 11015.00\\
+2018-06-30 & 2018-06-30 & 585464118 &  & Pleruci Regratuibum &  & 333.25\\
+2018-06-30 & 2018-06-30 & 215183531 &  & Pleruci Regratuibum &  & 2.74\\
+2018-07-02 & 2018-07-02 & 715061168 &  & Pleruci Regratuibum & 89.70 & \\
+2018-07-02 & 2018-07-03 & 458076802 &  & Pleruci Regratuibum & 75.74 & \\
+2018-07-02 & 2018-07-03 & 702718034 &  & Pleruci Regratuibum & 480.80 & \\
+2018-07-03 & 2018-07-03 & 607102604 &  & Pleruci Regratuibum & 75.00 & \\
+2018-07-04 & 2018-07-04 & 432670172 &  & Pleruci Regratuibum & 1262.53 & \\
+2018-07-04 & 2018-07-04 & 482473746 &  & Pleruci Regratuibum & 75.00 & \\
+2018-07-04 & 2018-07-04 & 176305608 &  & Pleruci Regratuibum & 130.00 & \\
+2018-07-04 & 2018-07-05 & 850628343 &  & Pleruci Regratuibum & 140.09 & \\
+2018-07-05 & 2018-07-05 & 220306100 &  & Pleruci Regratuibum & 150.00 & \\
+2018-07-05 & 2018-07-05 & 105638628 &  & Pleruci Regratuibum & 220.00 & \\
+2018-07-05 & 2018-07-05 & 745467175 &  & Pleruci Regratuibum & 3100.00 & \\
+2018-07-06 & 2018-07-05 & 813026373 &  & Pleruci Regratuibum & 3300.00 & \\
+2018-07-06 & 2018-07-06 & 575457121 &  & Pleruci Regratuibum &  & 50.00\\
+2018-07-06 & 2018-07-06 & 272201410 &  & Pleruci Regratuibum &  & 811.00\\
+2018-07-06 & 2018-07-06 & 312141724 &  & Pleruci Regratuibum &  & 435.00\\
+2018-07-06 & 2018-07-06 & 781208634 &  & Pleruci Regratuibum &  & 2829.60\\
+2018-07-06 & 2018-07-06 & 176282075 &  & Pleruci Regratuibum &  & 1433.85\\
+2018-07-06 & 2018-07-06 & 831482153 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-07-06 & 2018-07-06 & 677867431 &  & Pleruci Regratuibum & 150.00 & \\
+2018-07-09 & 2018-07-07 & 686615555 &  & Pleruci Regratuibum & 250.00 & \\
+2018-07-09 & 2018-07-09 & 766010648 &  & Pleruci Regratuibum &  & 432.00\\
+2018-07-09 & 2018-07-09 & 526160364 &  & Pleruci Regratuibum &  & 5.85\\
+2018-07-09 & 2018-07-09 & 805665050 &  & Pleruci Regratuibum & 432.00 & \\
+2018-07-09 & 2018-07-09 & 884542315 &  & Pleruci Regratuibum &  & 432.00\\
+2018-07-09 & 2018-07-09 & 758457666 &  & Pleruci Regratuibum & 432.00 & \\
+2018-07-09 & 2018-07-10 & 637064774 &  & Pleruci Regratuibum & 139.02 & \\
+2018-07-10 & 2018-07-10 & 468406818 &  & Pleruci Regratuibum & 551.58 & \\
+2018-07-10 & 2018-07-10 & 715847735 &  & Pleruci Regratuibum & 110.00 & \\
+2018-07-10 & 2018-07-10 & 612738173 &  & Pleruci Regratuibum & 200.00 & \\
+2018-07-10 & 2018-07-10 & 287524214 &  & Pleruci Regratuibum & 102.00 & \\
+2018-07-10 & 2018-07-10 & 120442370 &  & Pleruci Regratuibum &  & 1500.00\\
+2018-07-11 & 2018-07-11 & 856256268 &  & Pleruci Regratuibum & 98.77 & \\
+2018-07-11 & 2018-07-11 & 428008234 &  & Pleruci Regratuibum & 55.00 & \\
+2018-07-11 & 2018-07-11 & 364712363 &  & Pleruci Regratuibum & 40.00 & \\
+2018-07-11 & 2018-07-11 & 464245213 &  & Pleruci Regratuibum & 300.00 & \\
+2018-07-12 & 2018-07-12 & 527412520 &  & Pleruci Regratuibum & 100.00 & \\
+2018-07-12 & 2018-07-12 & 604737451 &  & Pleruci Regratuibum & 369.64 & \\
+2018-07-13 & 2018-07-13 & 241308108 &  & Pleruci Regratuibum & 39.51 & \\
+2018-07-16 & 2018-07-16 & 257743186 &  & Pleruci Regratuibum & 251.39 & \\
+2018-07-17 & 2018-07-17 & 544041140 &  & Pleruci Regratuibum & 29.49 & \\
+2018-07-17 & 2018-07-17 & 702848664 &  & Pleruci Regratuibum & 150.00 & \\
+2018-07-17 & 2018-07-17 & 661171412 &  & Pleruci Regratuibum &  & 1450.00\\
+2018-07-19 & 2018-07-19 & 421721623 &  & Pleruci Regratuibum & 113.03 & \\
+2018-07-20 & 2018-07-20 & 310835334 &  & Pleruci Regratuibum & 28.71 & \\
+2018-07-23 & 2018-07-21 & 254170107 &  & Pleruci Regratuibum &  & 170.00\\
+2018-07-23 & 2018-07-23 & 268746468 &  & Pleruci Regratuibum & 49.37 & \\
+2018-07-24 & 2018-07-24 & 152053275 &  & Pleruci Regratuibum & 589.31 & \\
+2018-07-24 & 2018-07-24 & 451346008 &  & Pleruci Regratuibum & 194.74 & \\
+2018-07-25 & 2018-07-25 & 103337336 &  & Pleruci Regratuibum & 339.65 & \\
+2018-07-25 & 2018-07-25 & 446777033 &  & Pleruci Regratuibum &  & 1000.00\\
+2018-07-26 & 2018-07-26 & 215204032 &  & Pleruci Regratuibum & 44.37 & \\
+2018-07-27 & 2018-07-27 & 666251567 &  & Pleruci Regratuibum & 239.46 & \\
+2018-07-27 & 2018-07-27 & 421668211 &  & Pleruci Regratuibum & 110.00 & \\
+2018-07-27 & 2018-07-27 & 718706148 &  & Pleruci Regratuibum &  & 570.00\\
+2018-07-30 & 2018-07-30 & 751771443 &  & Pleruci Regratuibum & 83.70 & \\
+2018-07-30 & 2018-07-30 & 405020242 &  & Pleruci Regratuibum &  & 80.00\\
+2018-07-31 & 2018-07-31 & 761755437 &  & Pleruci Regratuibum & 500.34 & \\
+2018-07-31 & 2018-07-31 & 843234808 &  & Pleruci Regratuibum & 133.37 & \\
+2018-08-01 & 2018-07-31 & 458460652 &  & Pleruci Regratuibum &  & 600.00\\
+2018-08-02 & 2018-08-02 & 457518256 &  & Pleruci Regratuibum & 189.37 & \\
+2018-08-02 & 2018-08-02 & 322782148 &  & Pleruci Regratuibum & 90.00 & \\
+2018-08-06 & 2018-08-06 & 875428546 &  & Pleruci Regratuibum & 104.20 & \\
+2018-08-06 & 2018-08-03 & 586154582 &  & Pleruci Regratuibum &  & 300.00\\
+2018-08-06 & 2018-08-06 & 603538385 &  & Pleruci Regratuibum & 200.00 & \\
+2018-08-06 & 2018-08-06 & 231401351 &  & Pleruci Regratuibum & 135.00 & \\
+2018-08-06 & 2018-08-06 & 730777743 &  & Pleruci Regratuibum & 5850.00 & \\
+2018-08-06 & 2018-08-06 & 778665121 &  & Pleruci Regratuibum &  & 6015.00\\
+2018-08-07 & 2018-08-07 & 523541544 &  & Pleruci Regratuibum &  & 130.00\\
+2018-08-07 & 2018-08-07 & 503763665 &  & Pleruci Regratuibum &  & 44.55\\
+2018-08-07 & 2018-08-07 & 114133387 &  & Pleruci Regratuibum &  & 103.50\\
+2018-08-07 & 2018-08-07 & 821070864 &  & Pleruci Regratuibum & 255.95 & \\
+2018-08-07 & 2018-08-07 & 384151135 &  & Pleruci Regratuibum & 735.72 & \\
+2018-08-07 & 2018-08-07 & 854302046 &  & Pleruci Regratuibum & 330.00 & \\
+2018-08-08 & 2018-08-08 & 718021523 &  & Pleruci Regratuibum & 335.91 & \\
+2018-08-08 & 2018-08-08 & 428316513 &  & Pleruci Regratuibum & 200.00 & \\
+2018-08-08 & 2018-08-08 & 640771180 &  & Pleruci Regratuibum & 168.00 & \\
+2018-08-08 & 2018-08-08 & 133530083 &  & Pleruci Regratuibum & 300.00 & \\
+2018-08-08 & 2018-08-08 & 535447711 &  & Pleruci Regratuibum &  & 811.00\\
+2018-08-09 & 2018-08-09 & 273446687 &  & Pleruci Regratuibum & 77.00 & \\
+2018-08-09 & 2018-08-09 & 838117584 &  & Pleruci Regratuibum & 208.00 & \\
+2018-08-10 & 2018-08-10 & 172762275 &  & Pleruci Regratuibum & 163.74 & \\
+2018-08-13 & 2018-08-10 & 363515520 &  & Pleruci Regratuibum &  & 1970.00\\
+2018-08-13 & 2018-08-13 & 504381586 &  & Pleruci Regratuibum & 225.96 & \\
+2018-08-13 & 2018-08-13 & 522213638 &  & Pleruci Regratuibum & 300.00 & \\
+2018-08-13 & 2018-08-13 & 716632054 &  & Pleruci Regratuibum & 200.00 & \\
+2018-08-13 & 2018-08-13 & 121461186 &  & Pleruci Regratuibum & 17350.00 & \\
+2018-08-13 & 2018-08-13 & 240788313 &  & Pleruci Regratuibum &  & 17956.00\\
+2018-08-14 & 2018-08-14 & 552700740 &  & Pleruci Regratuibum &  & 111.50\\
+2018-08-14 & 2018-08-14 & 487161311 &  & Pleruci Regratuibum & 644.79 & \\
+2018-08-14 & 2018-08-14 & 648834185 &  & Pleruci Regratuibum & 570.76 & \\
+2018-08-15 & 2018-08-15 & 385615273 &  & Pleruci Regratuibum & 130.00 & \\
+2018-08-15 & 2018-08-15 & 534655753 &  & Pleruci Regratuibum &  & 1350.00\\
+2018-08-16 & 2018-08-16 & 213313507 &  & Pleruci Regratuibum & 151.41 & \\
+2018-08-16 & 2018-08-16 & 654100365 &  & Pleruci Regratuibum & 3400.00 & \\
+2018-08-17 & 2018-08-17 & 162680724 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-08-17 & 2018-08-17 & 771241777 &  & Pleruci Regratuibum & 9800.00 & \\
+2018-08-17 & 2018-08-17 & 113453113 &  & Pleruci Regratuibum &  & 10015.00\\
+2018-08-20 & 2018-08-20 & 605301137 &  & Pleruci Regratuibum & 112.70 & \\
+2018-08-21 & 2018-08-21 & 440103707 &  & Pleruci Regratuibum & 483.56 & \\
+2018-08-21 & 2018-08-21 & 534313587 &  & Pleruci Regratuibum & 300.96 & \\
+2018-08-22 & 2018-08-22 & 360638126 &  & Pleruci Regratuibum &  & 122.00\\
+2018-08-22 & 2018-08-22 & 111426100 &  & Pleruci Regratuibum &  & 274.90\\
+2018-08-22 & 2018-08-22 & 338432865 &  & Pleruci Regratuibum &  & 453.50\\
+2018-08-22 & 2018-08-22 & 176634472 &  & Pleruci Regratuibum & 1009.93 & \\
+2018-08-22 & 2018-08-22 & 835736060 &  & Pleruci Regratuibum &  & 1015.40\\
+2018-08-22 & 2018-08-22 & 634751817 &  & Pleruci Regratuibum & 2370.00 & \\
+2018-08-22 & 2018-08-22 & 643710200 &  & Pleruci Regratuibum &  & 670.20\\
+2018-08-23 & 2018-08-23 & 517733072 &  & Pleruci Regratuibum & 304.70 & \\
+2018-08-23 & 2018-08-23 & 834445412 &  & Pleruci Regratuibum & 1350.00 & \\
+2018-08-23 & 2018-08-23 & 277488623 &  & Pleruci Regratuibum & 110.85 & \\
+2018-08-23 & 2018-08-23 & 512552805 &  & Pleruci Regratuibum &  & 3490.95\\
+2018-08-24 & 2018-08-24 & 766056146 &  & Pleruci Regratuibum & 179.38 & \\
+2018-08-27 & 2018-08-27 & 646681803 &  & Pleruci Regratuibum & 34.40 & \\
+2018-08-27 & 2018-08-27 & 354870078 &  & Pleruci Regratuibum & 260.00 & \\
+2018-08-27 & 2018-08-27 & 512612457 &  & Pleruci Regratuibum & 15600.00 & \\
+2018-08-27 & 2018-08-27 & 251871124 &  & Pleruci Regratuibum &  & 2000.00\\
+2018-08-28 & 2018-08-26 & 460140478 &  & Pleruci Regratuibum &  & 240.00\\
+2018-08-28 & 2018-08-28 & 185370430 &  & Pleruci Regratuibum & 157.37 & \\
+2018-08-28 & 2018-08-28 & 874481833 &  & Pleruci Regratuibum & 517.79 & \\
+2018-08-28 & 2018-08-28 & 815880113 &  & Pleruci Regratuibum &  & 14070.00\\
+2018-08-29 & 2018-08-29 & 824325266 &  & Pleruci Regratuibum & 1347.67 & \\
+2018-08-29 & 2018-08-29 & 487852488 &  & Pleruci Regratuibum &  & 1850.00\\
+2018-08-31 & 2018-08-31 & 830652222 &  & Pleruci Regratuibum & 2628.03 & \\
+2018-08-31 & 2018-08-31 & 370765771 &  & Pleruci Regratuibum &  & 2600.00\\
+2018-09-04 & 2018-09-04 & 131337180 &  & Pleruci Regratuibum & 768.82 & \\
+2018-09-04 & 2018-09-04 & 224604265 &  & Pleruci Regratuibum & 4412.56 & \\
+2018-09-05 & 2018-09-05 & 777036351 &  & Pleruci Regratuibum & 115.37 & \\
+2018-09-05 & 2018-09-05 & 555455651 &  & Pleruci Regratuibum & 125.00 & \\
+2018-09-05 & 2018-09-05 & 442014602 &  & Pleruci Regratuibum &  & 2200.00\\
+2018-09-05 & 2018-09-05 & 426187803 &  & Pleruci Regratuibum &  & 3000.00\\
+2018-09-06 & 2018-09-06 & 362142142 &  & Pleruci Regratuibum & 230.06 & \\
+2018-09-06 & 2018-09-06 & 807310537 &  & Pleruci Regratuibum & 101.00 & \\
+2018-09-07 & 2018-09-07 & 883822028 &  & Pleruci Regratuibum & 445.80 & \\
+2018-09-07 & 2018-09-06 & 858640123 &  & Pleruci Regratuibum & 100.00 & \\
+2018-09-10 & 2018-09-07 & 363230863 &  & Pleruci Regratuibum &  & 1100.00\\
+2018-09-10 & 2018-09-10 & 412373382 &  & Pleruci Regratuibum & 333.04 & \\
+2018-09-10 & 2018-09-10 & 840388411 &  & Pleruci Regratuibum & 15950.00 & \\
+2018-09-10 & 2018-09-10 & 583507111 &  & Pleruci Regratuibum &  & 2000.00\\
+2018-09-10 & 2018-09-10 & 735142376 &  & Pleruci Regratuibum &  & 10004.00\\
+2018-09-10 & 2018-09-10 & 816846212 &  & Pleruci Regratuibum &  & 811.00\\
+2018-09-10 & 2018-09-10 & 775042074 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-09-11 & 2018-09-11 & 443285207 &  & Pleruci Regratuibum & 68.80 & \\
+2018-09-11 & 2018-09-11 & 685340572 &  & Pleruci Regratuibum & 308.07 & \\
+2018-09-11 & 2018-09-11 & 142428205 &  & Pleruci Regratuibum & 300.00 & \\
+2018-09-12 & 2018-09-12 & 812231660 &  & Pleruci Regratuibum &  & 261.70\\
+2018-09-12 & 2018-09-12 & 883365317 &  & Pleruci Regratuibum & 479.34 & \\
+2018-09-12 & 2018-09-12 & 387356333 &  & Pleruci Regratuibum &  & 1000.00\\
+2018-09-13 & 2018-09-13 & 783844121 &  & Pleruci Regratuibum & 756.84 & \\
+2018-09-14 & 2018-09-14 & 668446033 &  & Pleruci Regratuibum & 179.68 & \\
+2018-09-14 & 2018-09-14 & 188634337 &  & Pleruci Regratuibum &  & 1000.00\\
+2018-09-18 & 2018-09-18 & 503266841 &  & Pleruci Regratuibum & 939.13 & \\
+2018-09-19 & 2018-09-19 & 875472225 &  & Pleruci Regratuibum &  & 870.00\\
+2018-09-19 & 2018-09-19 & 330462663 &  & Pleruci Regratuibum & 1111.30 & \\
+2018-09-20 & 2018-09-20 & 141610158 &  & Pleruci Regratuibum & 232.00 & \\
+2018-09-21 & 2018-09-21 & 661218823 &  & Pleruci Regratuibum & 78.74 & \\
+2018-09-24 & 2018-09-21 & 827514880 &  & Pleruci Regratuibum &  & 1500.00\\
+2018-09-24 & 2018-09-24 & 427826807 &  & Pleruci Regratuibum & 259.67 & \\
+2018-09-24 & 2018-09-24 & 362681462 &  & Pleruci Regratuibum &  & 270.00\\
+2018-09-25 & 2018-09-25 & 704882404 &  & Pleruci Regratuibum & 113.03 & \\
+2018-09-26 & 2018-09-26 & 726275151 &  & Pleruci Regratuibum & 98.37 & \\
+2018-09-26 & 2018-09-26 & 347168468 &  & Pleruci Regratuibum & 200.00 & \\
+2018-09-27 & 2018-09-27 & 341417656 &  & Pleruci Regratuibum & 39.71 & \\
+2018-09-27 & 2018-09-27 & 758220754 &  & Pleruci Regratuibum & 9900.00 & \\
+2018-09-27 & 2018-09-27 & 120818578 &  & Pleruci Regratuibum &  & 10004.00\\
+2018-09-28 & 2018-09-28 & 740733372 &  & Pleruci Regratuibum & 147.44 & \\
+2018-09-28 & 2018-09-28 & 664036726 &  & Pleruci Regratuibum & 170.00 & \\
+2018-09-28 & 2018-09-28 & 427245737 &  & Pleruci Regratuibum & 259.00 & \\
+2018-10-01 & 2018-09-29 & 546804334 &  & Pleruci Regratuibum &  & 900.00\\
+2018-10-01 & 2018-10-01 & 483130646 &  & Pleruci Regratuibum & 260.00 & \\
+2018-10-02 & 2018-10-02 & 842203853 &  & Pleruci Regratuibum & 112.54 & \\
+2018-10-02 & 2018-10-02 & 772384802 &  & Pleruci Regratuibum & 1068.13 & \\
+2018-10-02 & 2018-10-02 & Seriderarevens &  & Pleruci Regratuibum &  & 1000.00\\
+2018-10-03 & 2018-10-03 & 483471647 &  & Pleruci Regratuibum & 213.40 & \\
+2018-10-03 & 2018-10-03 & 814483210 &  & Pleruci Regratuibum & 400.00 & \\
+2018-10-04 & 2018-10-04 & 514774873 &  & Pleruci Regratuibum & 230.00 & \\
+2018-10-05 & 2018-10-05 & 321448832 &  & Pleruci Regratuibum &  & 60.00\\
+2018-10-05 & 2018-10-05 & 637318426 &  & Pleruci Regratuibum &  & 119.90\\
+2018-10-05 & 2018-10-05 & 712552446 &  & Pleruci Regratuibum &  & 811.00\\
+2018-10-05 & 2018-10-05 & 753831275 &  & Pleruci Regratuibum &  & 201.00\\
+2018-10-05 & 2018-10-05 & 363234113 &  & Pleruci Regratuibum & 1425.61 & \\
+2018-10-05 & 2018-10-05 & 342131324 &  & Pleruci Regratuibum &  & 1533.60\\
+2018-10-05 & 2018-10-05 & 618801745 &  & Pleruci Regratuibum & 40.00 & \\
+2018-10-08 & 2018-10-08 & 456386714 &  & Pleruci Regratuibum & 292.14 & \\
+2018-10-08 & 2018-10-08 & 488077048 &  & Pleruci Regratuibum & 300.00 & \\
+2018-10-09 & 2018-10-09 & 253224758 &  & Pleruci Regratuibum & 1165.67 & \\
+2018-10-09 & 2018-10-09 & 305671264 &  & Pleruci Regratuibum & 337.04 & \\
+2018-10-09 & 2018-10-09 & 323582323 &  & Pleruci Regratuibum & 1921.14 & \\
+2018-10-09 & 2018-10-09 & 831275850 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-10-10 & 2018-10-10 & 728613563 &  & Pleruci Regratuibum & 1548.37 & \\
+2018-10-11 & 2018-10-11 & 575217032 &  & Pleruci Regratuibum &  & 1433.85\\
+2018-10-11 & 2018-10-11 & 777263206 &  & Pleruci Regratuibum &  & 800.00\\
+2018-10-12 & 2018-10-12 & 522210755 &  & Pleruci Regratuibum & 509.61 & \\
+2018-10-12 & 2018-10-12 & 348077372 &  & Pleruci Regratuibum & 75.00 & \\
+2018-10-12 & 2018-10-12 & 610040412 &  & Pleruci Regratuibum &  & 600.00\\
+2018-10-15 & 2018-10-15 & 337725076 &  & Pleruci Regratuibum & 365.65 & \\
+2018-10-15 & 2018-10-15 & 712284413 &  & Pleruci Regratuibum & 200.00 & \\
+2018-10-15 & 2018-10-15 & 226585272 &  & Pleruci Regratuibum &  & 600.00\\
+2018-10-16 & 2018-10-16 & 405137071 &  & Pleruci Regratuibum & 528.43 & \\
+2018-10-16 & 2018-10-16 & 583013343 &  & Pleruci Regratuibum & 1012.77 & \\
+2018-10-16 & 2018-10-16 & 863273020 &  & Pleruci Regratuibum &  & 1040.00\\
+2018-10-17 & 2018-10-17 & 775067543 &  & Pleruci Regratuibum &  & 500.00\\
+2018-10-17 & 2018-10-17 & 462516535 &  & Pleruci Regratuibum & 136.63 & \\
+2018-10-17 & 2018-10-17 & 206531620 &  & Pleruci Regratuibum &  & 75.40\\
+2018-10-18 & 2018-10-18 & 455832351 &  & Pleruci Regratuibum & 94.77 & \\
+2018-10-19 & 2018-10-19 & 216856844 &  & Pleruci Regratuibum & 39.32 & \\
+2018-10-19 & 2018-10-19 & 380686863 &  & Pleruci Regratuibum & 208.00 & \\
+2018-10-22 & 2018-10-20 & 544071755 &  & Pleruci Regratuibum &  & 400.00\\
+2018-10-22 & 2018-10-22 & 313665857 &  & Pleruci Regratuibum & 24.71 & \\
+2018-10-23 & 2018-10-23 & 367175406 &  & Pleruci Regratuibum & 63.89 & \\
+2018-10-23 & 2018-10-23 & 623701810 &  & Pleruci Regratuibum & 239.37 & \\
+2018-10-23 & 2018-10-23 & 171233861 &  & Pleruci Regratuibum & 150.00 & \\
+2018-10-23 & 2018-10-23 & 186084534 &  & Pleruci Regratuibum & 2100.00 & \\
+2018-10-24 & 2018-10-24 & 286480486 &  & Pleruci Regratuibum &  & 1907.10\\
+2018-10-24 & 2018-10-24 & 506881012 &  & Pleruci Regratuibum &  & 598.25\\
+2018-10-24 & 2018-10-24 & 548153378 &  & Pleruci Regratuibum & 114.70 & \\
+2018-10-25 & 2018-10-25 & 600001267 &  & Pleruci Regratuibum & 86.08 & \\
+2018-10-26 & 2018-10-26 & 878116303 &  & Pleruci Regratuibum & 139.00 & \\
+2018-10-29 & 2018-10-29 & 553636878 &  & Pleruci Regratuibum & 279.37 & \\
+2018-10-29 & 2018-10-26 & 488428654 &  & Pleruci Regratuibum &  & 450.00\\
+2018-10-30 & 2018-10-30 & 856147432 &  & Pleruci Regratuibum &  & 121.70\\
+2018-10-30 & 2018-10-30 & 408123667 &  & Pleruci Regratuibum & 182.67 & \\
+2018-10-30 & 2018-10-30 & 150013175 &  & Pleruci Regratuibum & 167.72 & \\
+2018-10-30 & 2018-10-30 & 305741874 &  & Pleruci Regratuibum & 438.43 & \\
+2018-10-30 & 2018-10-30 & 886812703 &  & Artesum�xxx 80:53 & 10600.00 & \\
+2018-10-30 & 2018-10-30 & 843787535 &  & Homistruci Mant & 219.00 & \\
+2018-10-30 & 2018-10-30 & 313411884 &  & SEMIRUNICIDICE PROROXIME &  & 1352.25\\
+2018-10-30 & 2018-10-30 & 844153764 &  & Pleruci Regratuibum &  & 10004.00\\
+2018-10-31 & 2018-10-31 & 357221565 &  & Pleruci Regratuibum & 219.67 & \\
+2018-10-31 & 2018-10-31 & 160675462 &  & Pleruci Regratuibum & 219.67 & \\
+2018-11-01 & 2018-11-01 & 332261541 &  & Pleruci Regratuibum & 129.69 & \\
+2018-11-01 & 2018-10-31 & 760536135 &  & Pleruci Regratuibum &  & 63.75\\
+2018-11-02 & 2018-10-31 & 874722304 &  & Pleruci Regratuibum &  & 750.00\\
+2018-11-02 & 2018-11-02 & 461660310 &  & Pleruci Regratuibum & 149.07 & \\
+2018-11-02 & 2018-11-02 & 876678047 &  & Homistruci Mant & 143.00 & \\
+2018-11-05 & 2018-11-02 & 344014010 &  & Pleruci Regratuibum &  & 160.00\\
+2018-11-05 & 2018-11-05 & 370131308 &  & Homistruci Mant & 200.00 & \\
+2018-11-05 & 2018-11-03 & 514724458 &  & Pleruci Regratuibum &  & 290.00\\
+2018-11-06 & 2018-11-05 & 112251078 &  & Pleruci Regratuibum & 14000.00 & \\
+2018-11-06 & 2018-11-06 & 232818518 &  & Pleruci Regratuibum &  & 1792.80\\
+2018-11-06 & 2018-11-06 & 437804506 &  & Pleruci Regratuibum &  & 491.25\\
+2018-11-06 & 2018-11-06 & Seriderarevens &  & Pleruci Regratuibum &  & 1000.00\\
+2018-11-06 & 2018-11-06 & 416085035 &  & Pleruci Regratuibum & 309.66 & \\
+2018-11-06 & 2018-11-06 & 865647333 &  & Homistruci Mant & 140.00 & \\
+2018-11-06 & 2018-11-06 & 373575828 &  & Homistruci Mant & 100.00 & \\
+2018-11-06 & 2018-11-06 & 860020544 &  & Homistruci Mant & 200.00 & \\
+2018-11-06 & 2018-11-06 & 808501371 &  & Pleruci Regratuibum & 1426.65 & \\
+2018-11-06 & 2018-11-06 & 147537438 &  & Pleruci Regratuibum & 1326.54 & \\
+2018-11-07 & 2018-11-07 & 688142163 &  & Pleruci Regratuibum & 2049.90 & \\
+2018-11-07 & 2018-11-07 & 146042274 &  & Homistruci Mant & 175.00 & \\
+2018-11-07 & 2018-11-07 & 401236747 &  & Artesum�xxx 88:74 &  & 15000.00\\
+2018-11-07 & 2018-10-31 & 504487255 &  & Pleruci Regratuibum &  & 219.67\\
+2018-11-08 & 2018-11-08 & 150525563 &  & Pleruci Regratuibum &  & 811.00\\
+2018-11-08 & 2018-11-08 & 550127885 &  & Pleruci Regratuibum & 989.95 & \\
+2018-11-08 & 2018-11-08 & 144224013 &  & Artesum�xxx 16:30 &  & 1600.00\\
+2018-11-09 & 2018-11-09 & 268172544 &  & Pleruci Regratuibum & 32.03 & \\
+2018-11-12 & 2018-11-12 & 131263364 &  & Pleruci Regratuibum & 149.37 & \\
+2018-11-13 & 2018-11-13 & 783442650 &  & Pleruci Regratuibum & 1363.45 & \\
+2018-11-13 & 2018-11-13 & 625552580 &  & Pleruci Regratuibum & 1566.71 & \\
+2018-11-13 & 2018-11-13 & 612345702 &  & Pleruci Regratuibum &  & 3000.00\\
+2018-11-14 & 2018-11-14 & 770431057 &  & Pleruci Regratuibum & 157.37 & \\
+2018-11-15 & 2018-11-15 & 643383343 &  & Homistruci Mant & 266.00 & \\
+2018-11-15 & 2018-11-15 & 323835054 &  & Artesum�xxx 36:78 & 2780.00 & \\
+2018-11-16 & 2018-11-16 & 255237342 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-11-16 & 2018-11-16 & 413817537 &  & Homistruci Mant & 300.00 & \\
+2018-11-20 & 2018-11-20 & 763214406 &  & Artesum�xxx 27:41 & 550.00 & \\
+2018-11-21 & 2018-11-21 & 822512338 &  & Pleruci Regratuibum &  & 874.50\\
+2018-11-21 & 2018-11-21 & 206441250 &  & Pleruci Regratuibum & 127.78 & \\
+2018-11-22 & 2018-11-22 & 576870575 &  & Pleruci Regratuibum & 334.27 & \\
+2018-11-23 & 2018-11-23 & 127425342 &  & Pleruci Regratuibum & 64.71 & \\
+2018-11-26 & 2018-11-26 & 241327048 &  & Pleruci Regratuibum & 556.98 & \\
+2018-11-26 & 2018-11-26 & 613383518 &  & Pleruci Regratuibum & 1500.00 & \\
+2018-11-27 & 2018-11-27 & 485434010 &  & Pleruci Regratuibum &  & 2338.00\\
+2018-11-27 & 2018-11-27 & 303521656 &  & Pleruci Regratuibum & 116.70 & \\
+2018-11-28 & 2018-11-28 & 776342400 &  & Pleruci Regratuibum & 408.74 & \\
+2018-11-28 & 2018-11-28 & 467420220 &  & Homistruci Mant & 220.00 & \\
+2018-11-28 & 2018-11-28 & 884010188 &  & Artesum�xxx 36:36 & 11700.00 & \\
+2018-11-29 & 2018-11-29 & 448385430 &  & Pleruci Regratuibum &  & 12554.00\\
+2018-11-29 & 2018-11-29 & 175361633 &  & Homistruci Mant & 200.00 & \\
+2018-11-29 & 2018-11-29 & 636074475 &  & Homistruci Mant & 100.00 & \\
+2018-11-30 & 2018-11-30 & 808611252 &  & Pleruci Regratuibum & 251.79 & \\
+2018-12-03 & 2018-12-03 & 882451324 &  & Pleruci Regratuibum & 325.69 & \\
+2018-12-04 & 2018-12-02 & 482742121 &  & Pleruci Regratuibum &  & 51.02\\
+2018-12-04 & 2018-12-02 & 346650755 &  & Pleruci Regratuibum &  & 105.13\\
+2018-12-04 & 2018-12-04 & 165180878 &  & Pleruci Regratuibum & 82.37 & \\
+2018-12-04 & 2018-12-04 & 151451772 &  & Pleruci Regratuibum & 429.63 & \\
+2018-12-04 & 2018-12-04 & 664240628 &  & Pleruci Regratuibum & 1387.61 & \\
+2018-12-04 & 2018-12-04 & Seriderarevens &  & Pleruci Regratuibum &  & 1000.00\\
+2018-12-04 & 2018-12-04 & 504282606 &  & Pleruci Regratuibum &  & 1352.25\\
+2018-12-04 & 2018-12-04 & 423686142 &  & Homistruci Mant & 150.00 & \\
+2018-12-04 & 2018-12-04 & 428502472 &  & Homistruci Mant & 240.00 & \\
+2018-12-04 & 2018-12-04 & 812447756 &  & IMETE SUM &  & 646.20\\
+2018-12-05 & 2018-12-05 & 837375374 &  & Homistruci Mant & 143.00 & \\
+2018-12-06 & 2018-12-06 & 583407482 &  & Pleruci Regratuibum & 1072.37 & \\
+2018-12-06 & 2018-12-06 & 657857306 &  & Pleruci Regratuibum &  & 811.00\\
+2018-12-06 & 2018-12-06 & 316430783 &  & Homistruci Mant & 250.00 & \\
+2018-12-06 & 2018-12-06 & 884628205 &  & Artesum�xxx 80:77 & 2000.00 & \\
+2018-12-06 & 2018-12-06 & 825553757 &  & Pleruci Regratuibum &  & 2791.80\\
+2018-12-07 & 2018-12-07 & 474341187 &  & Pleruci Regratuibum & 109.70 & \\
+2018-12-07 & 2018-12-07 & 322451672 &  & Homistruci Mant & 140.00 & \\
+2018-12-10 & 2018-12-10 & 588570375 &  & Pleruci Regratuibum & 99.70 & \\
+2018-12-10 & 2018-12-10 & 648587137 &  & Artesum�xxx 73:82 & 9250.00 & \\
+2018-12-10 & 2018-12-10 & 822273176 &  & Artesum�xxx 73:77 &  & 9500.00\\
+2018-12-11 & 2018-12-11 & 361314010 &  & Homistruci Mant & 200.00 & \\
+2018-12-11 & 2018-12-11 & 122338102 &  & Homistruci Mant & 130.00 & \\
+2018-12-11 & 2018-12-11 & 486547674 &  & Pleruci Regratuibum & 39.71 & \\
+2018-12-11 & 2018-12-11 & 376010244 &  & Pleruci Regratuibum & 1663.72 & \\
+2018-12-11 & 2018-12-11 & 405304185 &  & Pleruci Regratuibum & 1370.18 & \\
+2018-12-11 & 2018-12-11 & 605740263 &  & Pleruci Regratuibum &  & 3300.00\\
+2018-12-12 & 2018-12-12 & 410370212 &  & Pleruci Regratuibum & 29.37 & \\
+2018-12-12 & 2018-12-12 & 852822850 &  & Homistruci Mant & 75.00 & \\
+2018-12-12 & 2018-12-12 & 432545637 &  & Homistruci Mant & 590.00 & \\
+2018-12-12 & 2018-12-12 & 270267412 &  & Pleruci Regratuibum &  & 900.00\\
+2018-12-14 & 2018-12-14 & 130082242 &  & Pleruci Regratuibum & 360.00 & \\
+2018-12-14 & 2018-12-14 & 801575500 &  & Pleruci Regratuibum & 206.40 & \\
+2018-12-18 & 2018-12-18 & 670465366 &  & Pleruci Regratuibum & 369.07 & \\
+2018-12-18 & 2018-12-18 & 725747085 &  & Pleruci Regratuibum & 339.37 & \\
+2018-12-20 & 2018-12-20 & 784341622 &  & Pleruci Regratuibum & 239.05 & \\
+2018-12-21 & 2018-12-21 & 736806887 &  & Pleruci Regratuibum &  & 284.80\\
+2018-12-21 & 2018-12-21 & 310430053 &  & Pleruci Regratuibum & 285.04 & \\
+2018-12-24 & 2018-12-22 & 477202564 &  & Pleruci Regratuibum &  & 1000.00\\
+2018-12-24 & 2018-12-24 & 706143116 &  & Pleruci Regratuibum &  & 120.00\\
+2018-12-24 & 2018-12-24 & 821040526 &  & Pleruci Regratuibum & 1325.23 & \\
+2018-12-27 & 2018-12-27 & 580571375 &  & Pleruci Regratuibum &  & 683.00\\
+2018-12-27 & 2018-12-27 & 754372021 &  & Pleruci Regratuibum & 244.08 & \\
+2018-12-27 & 2018-12-27 & 308242568 &  & Pleruci Regratuibum & 1107.89 & \\
+2018-12-27 & 2018-12-27 & 573370033 &  & Pleruci Regratuibum & 1349.82 & \\
+2018-12-28 & 2018-12-28 & 747686882 &  & Pleruci Regratuibum & 640.40 & \\
+2018-12-28 & 2018-12-28 & 555467885 &  & Homistruci Mant & 200.00 & \\
+2018-12-31 & 2018-12-28 & 155534444 &  & Pleruci Regratuibum &  & 4500.00\\
+2018-12-31 & 2018-12-31 & 877834548 &  & Pleruci Regratuibum & 458.13 & \\
+2018-12-31 & 2018-12-31 & 711650255 &  & Homistruci Mant & 280.00 & \\
+2018-12-31 & 2018-12-31 & 205523315 &  & Homistruci Mant & 208.00 & \\
+2018-12-31 & 2018-12-31 & 663607233 &  & Pleruci Regratuibum &  & 811.00\\
+2018-12-31 & 2018-12-31 & 306117845 &  & Cellucentubsectini: 17.43.5830 - 30.73.5830 &  & 397.80\\
+2018-12-31 & 2018-12-31 & 216874340 &  & Pleruci Regratuibum &  & 0.30\\
+2019-01-03 & 2019-01-03 & 147432341 &  & Pleruci Regratuibum & 2017.14 & \\
+2019-01-03 & 2019-01-03 & 530715048 &  & Pleruci Regratuibum & 1745.20 & \\
+2019-01-03 & 2019-01-03 & Seriderarevens &  & Pleruci Regratuibum &  & 1000.00\\
+2019-01-03 & 2019-01-03 & 307065482 &  & Homistruci Mant & 250.00 & \\
+2019-01-03 & 2019-01-03 & 813548573 &  & Homistruci Mant & 50.00 & \\
+2019-01-04 & 2019-01-04 & 148674876 &  & Pleruci Regratuibum &  & 1252.80\\
+2019-01-04 & 2019-01-04 & 624103587 &  &  IMETE SUM &  & 215.40\\
+2019-01-04 & 2019-01-04 & 185374111 &  & Pleruci Regratuibum & 106.75 & \\
+2019-01-04 & 2019-01-04 & 220443076 &  & Pleruci Regratuibum & 1241.90 & \\
+2019-01-04 & 2019-01-04 & 133432580 &  & Pleruci Regratuibum & 59.71 & \\
+2019-01-07 & 2019-01-04 & 207355013 &  & Pleruci Regratuibum &  & 2800.00\\
+2019-01-07 & 2019-01-07 & 332841368 &  & Pleruci Regratuibum & 159.73 & \\
+2019-01-07 & 2019-01-07 & 643547864 &  & Homistruci Mant & 150.00 & \\
+2019-01-07 & 2019-01-07 & 147732183 &  & Homistruci Mant & 100.00 & \\
+2019-01-08 & 2019-01-08 & 713333785 &  & Pleruci Regratuibum & 349.04 & \\
+2019-01-08 & 2019-01-08 & 513840120 &  & Homistruci Mant & 200.00 & \\
+2019-01-08 & 2019-01-08 & 736411627 &  & Homistruci Mant & 208.00 & \\
+2019-01-08 & 2019-01-08 & 866742354 &  & Homistruci Mant & 250.00 & \\
+2019-01-09 & 2019-01-09 & 430642150 &  & Pleruci Regratuibum & 293.66 & \\
+2019-01-09 & 2019-01-09 & 687720866 &  & IMETE SUM &  & 430.80\\
+2019-01-10 & 2019-01-10 & 151830783 &  & Pleruci Regratuibum &  & 678.65\\
+2019-01-10 & 2019-01-10 & 874135443 &  & Homistruci Mant & 140.00 & \\
+2019-01-10 & 2019-01-10 & 537155148 &  & Homistruci Mant & 256.00 & \\
+2019-01-10 & 2019-01-10 & 612261521 &  & Pleruci Regratuibum & 3800.00 & \\
+2019-01-11 & 2019-01-11 & 743643546 &  & Pleruci Regratuibum &  & 1435.45\\
+2019-01-11 & 2019-01-11 & 380766506 &  & Pleruci Regratuibum &  & 3300.00\\
+2019-01-14 & 2019-01-12 & 706183742 &  & Pleruci Regratuibum &  & 0.30\\
+2019-01-14 & 2019-01-12 & 715584715 &  & Pleruci Regratuibum &  & 19.05\\
+2019-01-14 & 2019-01-14 & 242550114 &  & Pleruci Regratuibum & 139.69 & \\
+2019-01-15 & 2019-01-15 & 447687408 &  & Pleruci Regratuibum & 832.92 & \\
+2019-01-15 & 2019-01-15 & 746003845 &  & Pleruci Regratuibum & 2380.36 & \\
+2019-01-15 & 2019-01-15 & 873743732 &  & Homistruci Mant & 150.00 & \\
+2019-01-16 & 2019-01-16 & 503528446 &  & Pleruci Regratuibum &  & 201.95\\
+2019-01-17 & 2019-01-16 & 622335878 &  & Pleruci Regratuibum &  & 3300.00\\
+2019-01-17 & 2019-01-17 & 841385602 &  & Pleruci Regratuibum & 29.37 & \\
+2019-01-17 & 2019-01-17 & 183628207 &  & Homistruci Mant & 470.00 & \\
+2019-01-18 & 2019-01-18 & 524760080 &  & Pleruci Regratuibum &  & 52.75\\
+2019-01-18 & 2019-01-18 & 111253714 &  & Pleruci Regratuibum & 50.00 & \\
+2019-01-18 & 2019-01-18 & 443171122 &  & Pleruci Regratuibum & 384.36 & \\
+2019-01-21 & 2019-01-21 & 117806682 &  & Pleruci Regratuibum & 39.71 & \\
+2019-01-22 & 2019-01-22 & 231455780 &  & Homistruci Mant & 340.00 & \\
+\\
+\end{tablevalue}
+\end{document}

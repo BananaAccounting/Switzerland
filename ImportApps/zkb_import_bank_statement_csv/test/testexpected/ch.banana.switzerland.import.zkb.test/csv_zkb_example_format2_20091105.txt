@@ -18,61 +18,61 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l }
-Date & DateValue & Doc & Description & Income & Expenses\\
-2009-10-03 & 2009-10-02 &  & Gerrum Xxx Suiem Oveles-Si. 74282022 MOR507.12 &  & 160.95\\
-2009-10-03 & 2009-10-02 &  & Gerrum Si Suiem Oveles-Si. 74282022 MOR72.34 &  & 29.65\\
-2009-10-03 & 2009-10-02 &  & Sent-8653 S�discro Oveles-Si. 80000680 MOR52.71 &  & 30.40\\
-2009-10-06 & 2009-10-05 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR27.35 &  & 45.85\\
-2009-10-06 & 2009-10-05 &  & Peraneceraterehete Oveles-Si. 80000680 MOR67.42 &  & 74.00\\
-2009-10-07 & 2009-10-06 &  & Sent Antrat Oveles-Si. 80000680 MOR306.42 Claviturem MOR8.42 &  & 502.00\\
-2009-10-07 & 2009-10-05 &  & Cabilioncecis Morto Oveles-Si. 74282022 MOR677.27 &  & 179.10\\
-2009-10-07 & 2009-10-06 &  & Sent-6534 Oveles-Si. 80000680 MOR82.35 &  & 41.85\\
-2009-10-09 & 2009-10-08 &  & Sent-6534 Oveles-Si. 80000680 MOR37.81 &  & 38.70\\
-2009-10-11 & 2009-10-09 &  & Sent-8266 Inate Si Oveles-Si. 74282022 MOR228.54 &  & 158.05\\
-2009-10-13 & 2009-10-13 &  & Humen Impatio-Fungrolo Ex Ettestabo 53 5651 Apiliquire Me &  & 343.10\\
-2009-10-13 & 2009-10-12 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR87.42 &  & 28.00\\
-2009-10-13 & 2009-10-12 &  & Terimusa (Muliolo) In Oveles-Si. 80000680 MOR72.38 &  & 71.75\\
-2009-10-14 & 2009-10-12 &  & Inate Xxx Oveles-Si. 80000680 MOR561.53 &  & 113.60\\
-2009-10-15 & 2009-10-14 &  & Gerrum Os Pratures Oveles-Si. 80000680 MOR45.53 &  & 37.60\\
-2009-10-16 & 2009-10-16 &  & Rorsecipe Muliolo. Morsemo- \& Ursallingungentent 1442 Potabo &  & 47.95\\
-2009-10-16 & 2009-10-15 &  & Scriava-Bomemper Inate Oveles-Si. 74282022 MOR47.32 &  & 12.50\\
-2009-10-16 & 2009-10-15 &  & Syllientro Inerficideo Oveles-Si. 74282022 MOR365.74 &  & 133.90\\
-2009-10-16 & 2009-10-15 &  & 524 Sent Me Inate- Oveles-Si. 80000680 MOR54.23 &  & 87.80\\
-2009-10-17 & 2009-10-16 &  & 2861 Trae Calis Quidit Oveles-Si. 74282022 MOR32.42 &  & 98.00\\
-2009-10-18 & 2009-10-17 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR24.42 &  & 57.00\\
-2009-10-18 & 2009-10-17 &  & Eo�nocurre Oveles-Si. 74282022 MOR51.42 &  & 35.00\\
-2009-10-19 & 2009-10-19 &  & Noturrum-Puelint, Salor 8278 Catiart & 2000.00 & \\
-2009-10-20 & 2009-10-17 &  & Cabilioncecis Morto Oveles-Si. 74282022 MOR50.53 &  & 93.60\\
-2009-10-20 & 2009-10-16 &  & Derit By Tortalibo Oveles-Si. 80000680 MOR602.42 &  & 120.00\\
-2009-10-20 & 2009-10-19 &  & Alis Stanga 16 Oveles-Si. 80000680 MOR170.42 &  & 164.00\\
-2009-10-21 & 2009-10-20 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR38.54 &  & 55.05\\
-2009-10-22 & 2009-10-21 &  & Sent-6534 Oveles-Si. 80000680 MOR20.42 &  & 34.00\\
-2009-10-23 & 2009-10-22 &  & Congertuerae Impatio O Oveles-Si. 80000680 MOR735.42 &  & 260.00\\
-2009-10-23 & 2009-10-22 &  & Sent-3407 Mone Oveles-Si. 80000680 MOR42.38 &  & 18.75\\
-2009-10-23 & 2009-10-23 &  & Ponicat In Mulumultuelebrum 53 1701 Antrat & 7623.05 & \\
-2009-10-24 & 2009-10-23 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR84.81 &  & 92.70\\
-2009-10-24 & 2009-10-23 &  & Xxx Catiart Oveles-Si. 74282022 MOR32.38 &  & 50.55\\
-2009-10-25 & 2009-10-24 &  & Lica Poegi Deantas N.W Oveles-Si. 74282022 MOR53.53 &  & 15.60\\
-2009-10-25 & 2009-10-24 &  & Lica Desendabit Oveles-Si. 74282022 MOR42.71 &  & 18.40\\
-2009-10-25 & 2009-10-24 &  & Viscit + Spilia Oveles-Si. 74282022 MOR718.32 &  & 175.50\\
-2009-10-27 & 2009-10-27 &  & Patrunt Locto Noturrum Salor Potullam 68 8278 Catiart &  & 400.00\\
-2009-10-27 & 2009-10-27 &  & S+O Habit Nundo-Amplae Rectime 2518 Viceri &  & 2137.00\\
-2009-10-29 & 2009-10-29 &  & Totata Ocus Amquaest An Capere-Rectime 42 3363 Ormiccurem &  & 2816.20\\
-2009-10-29 & 2009-10-29 &  & Micideo O.U. Quaeprinch 3116 Caut &  & 48.80\\
-2009-10-29 & 2009-10-29 &  & Flae, Quo Fabo. F. Hoc. Alumustime At Si. Xxx. Conge Flucutuunis Moropus 4 3372 Inate &  & 84.50\\
-2009-10-29 & 2009-10-28 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR40.52 &  & 23.30\\
-2009-10-30 & 2009-10-30 &  & Terimusa (Muliolo) In Vica Cohostrianduote 6 1258 Pula &  & 155.85\\
-2009-10-30 & 2009-10-30 &  & Terimusa (Muliolo) In Cognumn Sevent Pervum 1258 Pula &  & 66.10\\
-2009-10-31 & 2009-10-30 &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR75.32 &  & 52.50\\
-2009-11-01 & 2009-10-31 &  & Sent-8266 Inate Si Oveles-Si. 74282022 MOR31.81 &  & 53.70\\
-2009-11-01 & 2009-10-31 &  & Gerrum Os Pratures Oveles-Si. 80000680 MOR23.53 &  & 80.15\\
-2009-11-01 & 2009-10-31 &  & Nulespem Inate Oveles-Si. 80000680 MOR510.22 &  & 105.25\\
-2009-11-03 & 2009-11-02 &  & Xxx Inate 880 Oveles-Si. 74282022 MOR306.42 Claviturem MOR8.42 &  & 502.00\\
-2009-11-03 & 2009-11-02 &  & Sent-6534 Oveles-Si. 80000680 MOR42.32 &  & 33.50\\
-2009-11-04 & 2009-10-31 &  & Stribo Frurrusa Mage Oveles-Si. 74282022 MOR64.38 &  & 63.75\\
-2009-11-04 & 2009-11-03 &  & Potum Veniam In Oveles-Si. 74282022 MOR617.42 &  & 129.00\\
-2009-11-05 & 2009-11-04 &  & Pars'L Inate Oveles-Si. 74282022 MOR32.42 &  & 98.00\\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2009-10-03 & 2009-10-02 &  &  & Gerrum Xxx Suiem Oveles-Si. 74282022 MOR507.12 &  & 160.95\\
+2009-10-03 & 2009-10-02 &  &  & Gerrum Si Suiem Oveles-Si. 74282022 MOR72.34 &  & 29.65\\
+2009-10-03 & 2009-10-02 &  &  & Sent-8653 S�discro Oveles-Si. 80000680 MOR52.71 &  & 30.40\\
+2009-10-06 & 2009-10-05 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR27.35 &  & 45.85\\
+2009-10-06 & 2009-10-05 &  &  & Peraneceraterehete Oveles-Si. 80000680 MOR67.42 &  & 74.00\\
+2009-10-07 & 2009-10-06 &  &  & Sent Antrat Oveles-Si. 80000680 MOR306.42 Claviturem MOR8.42 &  & 502.00\\
+2009-10-07 & 2009-10-05 &  &  & Cabilioncecis Morto Oveles-Si. 74282022 MOR677.27 &  & 179.10\\
+2009-10-07 & 2009-10-06 &  &  & Sent-6534 Oveles-Si. 80000680 MOR82.35 &  & 41.85\\
+2009-10-09 & 2009-10-08 &  &  & Sent-6534 Oveles-Si. 80000680 MOR37.81 &  & 38.70\\
+2009-10-11 & 2009-10-09 &  &  & Sent-8266 Inate Si Oveles-Si. 74282022 MOR228.54 &  & 158.05\\
+2009-10-13 & 2009-10-13 &  &  & Humen Impatio-Fungrolo Ex Ettestabo 53 5651 Apiliquire Me &  & 343.10\\
+2009-10-13 & 2009-10-12 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR87.42 &  & 28.00\\
+2009-10-13 & 2009-10-12 &  &  & Terimusa (Muliolo) In Oveles-Si. 80000680 MOR72.38 &  & 71.75\\
+2009-10-14 & 2009-10-12 &  &  & Inate Xxx Oveles-Si. 80000680 MOR561.53 &  & 113.60\\
+2009-10-15 & 2009-10-14 &  &  & Gerrum Os Pratures Oveles-Si. 80000680 MOR45.53 &  & 37.60\\
+2009-10-16 & 2009-10-16 &  &  & Rorsecipe Muliolo. Morsemo- \& Ursallingungentent 1442 Potabo &  & 47.95\\
+2009-10-16 & 2009-10-15 &  &  & Scriava-Bomemper Inate Oveles-Si. 74282022 MOR47.32 &  & 12.50\\
+2009-10-16 & 2009-10-15 &  &  & Syllientro Inerficideo Oveles-Si. 74282022 MOR365.74 &  & 133.90\\
+2009-10-16 & 2009-10-15 &  &  & 524 Sent Me Inate- Oveles-Si. 80000680 MOR54.23 &  & 87.80\\
+2009-10-17 & 2009-10-16 &  &  & 2861 Trae Calis Quidit Oveles-Si. 74282022 MOR32.42 &  & 98.00\\
+2009-10-18 & 2009-10-17 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR24.42 &  & 57.00\\
+2009-10-18 & 2009-10-17 &  &  & Eo�nocurre Oveles-Si. 74282022 MOR51.42 &  & 35.00\\
+2009-10-19 & 2009-10-19 &  &  & Noturrum-Puelint, Salor 8278 Catiart & 2000.00 & \\
+2009-10-20 & 2009-10-17 &  &  & Cabilioncecis Morto Oveles-Si. 74282022 MOR50.53 &  & 93.60\\
+2009-10-20 & 2009-10-16 &  &  & Derit By Tortalibo Oveles-Si. 80000680 MOR602.42 &  & 120.00\\
+2009-10-20 & 2009-10-19 &  &  & Alis Stanga 16 Oveles-Si. 80000680 MOR170.42 &  & 164.00\\
+2009-10-21 & 2009-10-20 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR38.54 &  & 55.05\\
+2009-10-22 & 2009-10-21 &  &  & Sent-6534 Oveles-Si. 80000680 MOR20.42 &  & 34.00\\
+2009-10-23 & 2009-10-22 &  &  & Congertuerae Impatio O Oveles-Si. 80000680 MOR735.42 &  & 260.00\\
+2009-10-23 & 2009-10-22 &  &  & Sent-3407 Mone Oveles-Si. 80000680 MOR42.38 &  & 18.75\\
+2009-10-23 & 2009-10-23 &  &  & Ponicat In Mulumultuelebrum 53 1701 Antrat & 7623.05 & \\
+2009-10-24 & 2009-10-23 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR84.81 &  & 92.70\\
+2009-10-24 & 2009-10-23 &  &  & Xxx Catiart Oveles-Si. 74282022 MOR32.38 &  & 50.55\\
+2009-10-25 & 2009-10-24 &  &  & Lica Poegi Deantas N.W Oveles-Si. 74282022 MOR53.53 &  & 15.60\\
+2009-10-25 & 2009-10-24 &  &  & Lica Desendabit Oveles-Si. 74282022 MOR42.71 &  & 18.40\\
+2009-10-25 & 2009-10-24 &  &  & Viscit + Spilia Oveles-Si. 74282022 MOR718.32 &  & 175.50\\
+2009-10-27 & 2009-10-27 &  &  & Patrunt Locto Noturrum Salor Potullam 68 8278 Catiart &  & 400.00\\
+2009-10-27 & 2009-10-27 &  &  & S+O Habit Nundo-Amplae Rectime 2518 Viceri &  & 2137.00\\
+2009-10-29 & 2009-10-29 &  &  & Totata Ocus Amquaest An Capere-Rectime 42 3363 Ormiccurem &  & 2816.20\\
+2009-10-29 & 2009-10-29 &  &  & Micideo O.U. Quaeprinch 3116 Caut &  & 48.80\\
+2009-10-29 & 2009-10-29 &  &  & Flae, Quo Fabo. F. Hoc. Alumustime At Si. Xxx. Conge Flucutuunis Moropus 4 3372 Inate &  & 84.50\\
+2009-10-29 & 2009-10-28 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR40.52 &  & 23.30\\
+2009-10-30 & 2009-10-30 &  &  & Terimusa (Muliolo) In Vica Cohostrianduote 6 1258 Pula &  & 155.85\\
+2009-10-30 & 2009-10-30 &  &  & Terimusa (Muliolo) In Cognumn Sevent Pervum 1258 Pula &  & 66.10\\
+2009-10-31 & 2009-10-30 &  &  & Sent-8653 S�discro Oveles-Si. 74282022 MOR75.32 &  & 52.50\\
+2009-11-01 & 2009-10-31 &  &  & Sent-8266 Inate Si Oveles-Si. 74282022 MOR31.81 &  & 53.70\\
+2009-11-01 & 2009-10-31 &  &  & Gerrum Os Pratures Oveles-Si. 80000680 MOR23.53 &  & 80.15\\
+2009-11-01 & 2009-10-31 &  &  & Nulespem Inate Oveles-Si. 80000680 MOR510.22 &  & 105.25\\
+2009-11-03 & 2009-11-02 &  &  & Xxx Inate 880 Oveles-Si. 74282022 MOR306.42 Claviturem MOR8.42 &  & 502.00\\
+2009-11-03 & 2009-11-02 &  &  & Sent-6534 Oveles-Si. 80000680 MOR42.32 &  & 33.50\\
+2009-11-04 & 2009-10-31 &  &  & Stribo Frurrusa Mage Oveles-Si. 74282022 MOR64.38 &  & 63.75\\
+2009-11-04 & 2009-11-03 &  &  & Potum Veniam In Oveles-Si. 74282022 MOR617.42 &  & 129.00\\
+2009-11-05 & 2009-11-04 &  &  & Pars'L Inate Oveles-Si. 74282022 MOR32.42 &  & 98.00\\
 \\
 \end{tablevalue}
 \end{document}

@@ -1,0 +1,19 @@
+{ 
+"category": "productivity",
+    "country":"switzerland",
+    "countryCode":"ch",
+    "description": "Neon Switzerland AG - Import transactions .csv",
+    "description.en": "Neon Switzerland AG - Import transactions .csv",
+    "description.it": "Neon Switzerland AG - Importa movimenti .csv",
+    "description.fr": "Neon Swtizerland AG - Importer mouvements .csv",
+    "description.de": "Neon Switzerland AG - Bewegungen importieren .csv",
+    "id": "ch.banana.switzerland.import.neonfree",
+    "language":"en",
+    "publisher": "Banana.ch",
+    "title": "Neon Switzerland AG - Import transactions .csv",
+    "title.en": "Neon Switzerland AG - Import transactions .csv",
+    "title.it": "Neon Switzerland AG - Importa movimenti .csv",
+    "title.fr": "Neon Swtizerland AG - Importer mouvements .csv",
+    "title.de": "Neon Switzerland AG - Bewegungen importieren .csv",
+    "version": "1.0"
+}

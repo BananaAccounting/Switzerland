@@ -1,0 +1,41 @@
+%%info_test_name{csv_zkb_example_format5_20230223}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & Doc & ExternalReference & Description & Income & Expenses\\
+2023-01-03 &  & VW41 3107 4800 7571 4746 7 & Paraeceat Menturra: Nostiam Orunt Senstunanam, Par Tas Ocens 56 Nostiam Orunt Senstunanam, Par Tas Ocens 56, Si-2408 Sonest &  & 250.00\\
+2023-01-11 &  & VW41 3107 4800 7571 4746 7 & Ustuunceni Regansubsque: Sugant Seride Pinthors Sugant Ves Sugant Seride Pinthors Sugant Ves, Dunduplacionit 32, 4012 Aquaerunt In, Si & 600.00 & \\
+2023-01-11 &  & VW41 3107 4800 7571 4746 7 & Paraeceat Menturra: Cro Postogis, Miscentuundit 22v, Si-74320 Vüsone Cro Postogis, Miscentuundit 22v, Si-74320 Vüsone &  & 240.00\\
+2023-01-12 &  & VW41 3107 4800 7571 4746 7 & Ustuunceni Regansubsque: Alumnis Diximulunt, Mispertudideanero 22 Alumnis Diximulunt, Mispertudideanero 22, Si-7674 Vide & 100.00 & \\
+2023-01-18 &  & VW41 3107 4800 7571 4746 7 & Paraeceat Menturra: Identas Supia, Tangranterit. 10 10, Si-1137 Tabile Identas Supia, Tangranterit. 10 10, Si-1137 Tabile Me Ino &  & 369.40\\
+2023-01-18 &  & VW41 3107 4800 7571 4746 7 & Paraeceat Menturra: Cro Postogis, Miscentuundit 22v, Si-74320 Vüsone Cro Postogis, Miscentuundit 22v, Si-74320 Vüsone &  & 16.00\\
+2023-01-24 &  & VW41 3107 4800 7571 4746 7 & Paraeceat Menturra: Nostiam Orunt Senstunanam, Par Tas Ocens 56 Nostiam Orunt Senstunanam, Par Tas Ocens 56, Si-2408 Sonest &  & 61.40\\
+2023-01-27 &  & VW41 3107 4800 7571 4746 7 & Ustuunceni Regansubsque: Todeis Elect, Caraestalibre 54 Si 2662 Todeis Elect, Caraestalibre 54 Si 2662 Voleniangi & 200.00 & \\
+2023-01-31 &  & VW41 3107 4800 7571 4746 7 & Opedepervitudaburibrum &  & 4.00\\
+2023-02-06 &  & VW41 3107 4800 7571 4746 7 & Audificuli Benti Por Fugavitqui Os. 22657673, Por Sonest & 4520.00 & \\
+2023-02-06 &  & VW41 3107 4800 7571 4746 7 & Audificuli Vüat Por Fugavitqui Os. 22657673, Por Sonest & 21.50 & \\
+2023-02-08 &  & VW41 3107 4800 7571 4746 7 & Ustuunceni Regansubsque: Coepatuis-Stateum Remo Sto O., Genthentuit 32 Coepatuis-Stateum Remo Sto O., Genthentuit 32, Si-7031 Xxx N. Dispus & 83.00 & \\
+2023-02-13 &  & VW41 3107 4800 7571 4746 7 & Gernenteret Menturra (4) Nostiam Senstunanam, Par Tas Ocens 56, Si-2408 Sonest &  & 509.80\\
+2023-02-13 &  & VW41 3107 4800 7571 4746 7 & Gernenteret Menturra (4) Identas Supia, Tangranterit. 10, Si-1137 Tabile Me Ino &  & 533.10\\
+2023-02-13 &  & VW41 3107 4800 7571 4746 7 & Gernenteret Menturra (4) Bomilentrat, Rectunch. 621, Si-7031 Xxx N. Tüangi &  & 650.00\\
+2023-02-13 &  & VW41 3107 4800 7571 4746 7 & Gernenteret Menturra (4) Nostiam Senstunanam, Par Tas Ocens 56, Si-2408 Sonest &  & 75.30\\
+\\
+\end{tablevalue}
+\end{document}

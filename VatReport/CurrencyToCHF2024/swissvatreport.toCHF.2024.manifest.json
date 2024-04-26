@@ -1,0 +1,11 @@
+{
+    "category": "productivity",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Swiss VAT Report Base Currency not CHF (Banana+)",
+    "id": "ch.banana.ch.app.swissvatreport.toCHF.2024",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Swiss VAT Report Base Currency not CHF (Banana+)",
+    "version": "1.0"
+}

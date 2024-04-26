@@ -1501,7 +1501,7 @@ function setInvoiceTexts(language) {
     texts.rounding = 'Rundung';
     texts.total = 'Total';
     texts.totalnet = 'Netto-Betrag';
-    texts.vat = 'MwSt.';
+    texts.vat = 'MWST';
     texts.qty = 'Menge';
     texts.unit_ref = 'Einheit';
     texts.unit_price = 'Preiseinheit';

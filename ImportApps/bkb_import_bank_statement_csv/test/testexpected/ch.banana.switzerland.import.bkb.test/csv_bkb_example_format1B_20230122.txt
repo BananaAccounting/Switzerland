@@ -1,0 +1,32 @@
+%%info_test_name{csv_bkb_example_format1B_20230122}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2023-01-03 & 2023-01-03 &  & Subsim Flumquobandione De Lansonius 2 & 4992.95 & \\
+2023-01-10 & 2023-01-10 &  & Fer Hyactaburgensi De 1811 Ocuscierem &  & 683.25\\
+2023-01-26 & 2023-01-20 &  & Brumentate Nix Somnibullituungi Ferumenem: Nunch De Exemultis &  & 80.8\\
+2023-02-01 & 2023-02-01 &  & Fer Hyactaburgensi De 1811 Ocuscierem &  & 1341.80\\
+2023-02-03 & 2023-02-03 &  & Diculis Stesendiniusto 1811 Ocuscierem &  & 758.9\\
+2023-02-06 & 2023-02-06 &  & Fer-Lano Compluductur De 8255 Perbent &  & 915.1\\
+2023-02-10 & 2023-02-10 &  & Subsim Flumquobandione De Lansonius 2 & 3295.62 & \\
+\\
+\end{tablevalue}
+\end{document}

@@ -39,57 +39,58 @@ function TestImportBexioTrans() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportBexioTrans.prototype.initTestCase = function() {
-    this.testLogger = Test.logger;
-    this.progressBar = Banana.application.progressBar;
+TestImportBexioTrans.prototype.initTestCase = function () {
+   this.testLogger = Test.logger;
+   this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportBexioTrans.prototype.cleanupTestCase = function() {
+TestImportBexioTrans.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportBexioTrans.prototype.init = function() {
+TestImportBexioTrans.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportBexioTrans.prototype.cleanup = function() {
+TestImportBexioTrans.prototype.cleanup = function () {
 
 }
 // This method will be called after every test method is executed
-TestImportBexioTrans.prototype.testJsonInvoiceStructure = function() {
+TestImportBexioTrans.prototype.testJsonInvoiceStructure = function () {
 
-  this.testLogger.addKeyValue("ImportFormBexio", "testReport");
+   this.testLogger.addKeyValue("ImportFormBexio", "testReport");
 
-  let fileNameList = [];
-  fileNameList.push("file:script/../test/testcases/csv_bexio_example_format1_20221223.csv");
+   let fileNameList = [];
+   fileNameList.push("file:script/../test/testcases/csv_bexio_example_format1_20221223.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bexio_example_format1_20231108.csv");
 
-  let fileAc2 = "file:script/../test/testcases/Double_entry_with_foreign_currencies_and_VAT_Sales_tax_1.ac2"; //type 100.130
-  let banDoc = Banana.application.openDocument(fileAc2);
+   let fileAc2 = "file:script/../test/testcases/Double_entry_with_foreign_currencies_and_VAT_Sales_tax_1.ac2"; //type 100.130
+   let banDoc = Banana.application.openDocument(fileAc2);
 
-  let parentLogger = this.testLogger;
-  this.progressBar.start(fileNameList.length);
+   let parentLogger = this.testLogger;
+   this.progressBar.start(fileNameList.length);
 
-  if(banDoc){
+   if (banDoc) {
       for (let i = 0; i < fileNameList.length; i++) {
          let fileName = fileNameList[i];
-         if(fileName){
+         if (fileName) {
             this.testLogger = parentLogger.newLogger(Banana.IO.fileCompleteBaseName(fileName));
             let file = Banana.IO.getLocalFile(fileName);
             Test.assert(file);
             let fileContent = file.read();
             Test.assert(fileContent);
-            let docChangeObj = exec(fileContent,banDoc,true); //takes the exec from the import script.
+            let docChangeObj = exec(fileContent, banDoc, true); //takes the exec from the import script.
             this.testLogger.addJson('', JSON.stringify(docChangeObj));
-         }else{
+         } else {
             this.testLogger.addFatalError("File not found: " + fileName);
          }
          if (!this.progressBar.step())
             break;
       }
-   }else{
+   } else {
       this.testLogger.addFatalError("File not found: " + fileAc2);
    }
    this.progressBar.finish();

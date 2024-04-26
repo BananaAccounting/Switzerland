@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Migros Bank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Migros Bank - Import account statement .csv (Banana+ Advanced)",
+    "description.de": "Migros Bank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Migros Bank - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it": "Migros Bank - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.migrosbank",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Migros Bank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Migros Bank - Import account statement .csv (Banana+ Advanced)",
+    "title.de": "Migros Bank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Migros Bank - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it": "Migros Bank - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

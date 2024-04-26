@@ -1,0 +1,12 @@
+﻿Data dal:;="01.01.2024"
+Tipo di registrazione:;="Tutti"
+Conto:;="CHXXXXXXXXXXXXXXXXXXX"
+Valuta:;="CHF"
+
+Data;Tipo di movimento;Testo di avviso;Accredito in CHF;Addebito in CHF;Tag;Categoria
+
+07.04.2024;Contabilizzazione;"Descrizione";;-2500;;
+07.04.2024;Contabilizzazione;"Descrizione";;-40;;
+
+Disclaimer:
+Il contenuto del documento è stato generato sulla base di filtri impostati della clientela. PostFinance non è responsabile del contenuto e della sua completezza.

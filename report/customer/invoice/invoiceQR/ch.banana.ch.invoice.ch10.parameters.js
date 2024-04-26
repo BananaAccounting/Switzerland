@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2022-12-27 */
+/* User parameters update: 2023-06-16 */
 
 
 
@@ -473,10 +473,11 @@ function convertParam(userParam) {
         3. Number;Description;Amount
         4. Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount
         5. I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount (ADVANCED)
+        6. Description;Quantity;ReferenceUnit;UnitPrice;VatRate;Amount
       Estimates-Invoices only:
-        6. Description;Discount;Amount (ADVANCED)
-        7. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
-        8. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+        7. Description;Discount;Amount (ADVANCED)
+        8. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+        9. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
      */
     var predefinedColumns = [];
     predefinedColumns.push(texts.predefined_columns_0);
@@ -485,11 +486,12 @@ function convertParam(userParam) {
     predefinedColumns.push(texts.predefined_columns_3);
     predefinedColumns.push(texts.predefined_columns_4);
     predefinedColumns.push(texts.predefined_columns_5);
+    predefinedColumns.push(texts.predefined_columns_6);
 
     var predefinedColumnsEstInv = [];
-    predefinedColumnsEstInv.push(texts.predefined_columns_6);
     predefinedColumnsEstInv.push(texts.predefined_columns_7);
     predefinedColumnsEstInv.push(texts.predefined_columns_8);
+    predefinedColumnsEstInv.push(texts.predefined_columns_9);
 
     var currentParam = {};
     currentParam.name = 'details_columns_predefined';
@@ -997,110 +999,170 @@ function convertParam(userParam) {
      userParam[langCode+'_footer_right'] = this.value;
     }
     convertedParam.data.push(currentParam);
+
+
+
+    /*******************************************************************************************
+    * PROFORMA INVOICE PARAMETERS
+    ********************************************************************************************/
+    var currentParam = {};
+    currentParam.name = langCode+'_proforma_invoice';
+    currentParam.parentObject = langCode;
+    currentParam.title = langTexts.proforma_invoice;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam.texts = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_title_proforma_invoice';
+    currentParam.parentObject = langCode+'_proforma_invoice';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_title_proforma_invoice'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_title_proforma_invoice'] ? userParam[langCode+'_title_proforma_invoice'] : '';
+    currentParam.defaultvalue = langTexts.proforma_invoice + " <DocInvoice>";
+    currentParam.tooltip = langTexts['param_tooltip_title_proforma_invoice'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_title_proforma_invoice'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_begin_proforma_invoice';
+    currentParam.parentObject = langCode+'_proforma_invoice';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_begin_proforma_invoice'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_begin_proforma_invoice'] ? userParam[langCode+'_text_begin_proforma_invoice'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_begin_proforma_invoice'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_begin_proforma_invoice'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_final_proforma_invoice';
+    currentParam.parentObject = langCode+'_proforma_invoice';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_final_proforma_invoice'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_final_proforma_invoice'] ? userParam[langCode+'_text_final_proforma_invoice'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_final_proforma_invoice'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_final_proforma_invoice'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+
   
 
     /*******************************************************************************************
     * ESTIMATE PARAMETERS
-    * Only for Estimates and Invoices Application
     ********************************************************************************************/
-    if (!IS_INTEGRATED_INVOICE) {
-      var currentParam = {};
-      currentParam.name = langCode+'_offer';
-      currentParam.parentObject = langCode;
-      currentParam.title = langTexts.offer;
-      currentParam.type = 'string';
-      currentParam.value = '';
-      currentParam.editable = false;
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam.texts = this.value;
-      }
-      convertedParam.data.push(currentParam);
-
-      currentParam = {};
-      currentParam.name = langCode+'_text_info_offer_number';
-      currentParam.parentObject = langCode+'_offer';
-      currentParam.title = langTexts[langCodeTitle+'_param_text_info_offer_number'];
-      currentParam.type = 'string';
-      currentParam.value = userParam[langCode+'_text_info_offer_number'] ? userParam[langCode+'_text_info_offer_number'] : '';
-      currentParam.defaultvalue = langTexts.offer;
-      currentParam.tooltip = langTexts['param_tooltip_text_info_offer_number'];
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_info_offer_number'] = this.value;
-      }
-      convertedParam.data.push(currentParam);
-
-      currentParam = {};
-      currentParam.name = langCode+'_text_info_date_offer';
-      currentParam.parentObject = langCode+'_offer';
-      currentParam.title = langTexts[langCodeTitle+'_param_text_info_date_offer'];
-      currentParam.type = 'string';
-      currentParam.value = userParam[langCode+'_text_info_date_offer'] ? userParam[langCode+'_text_info_date_offer'] : '';
-      currentParam.defaultvalue = langTexts.date;
-      currentParam.tooltip = langTexts['param_tooltip_text_info_date_offer'];
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_info_date_offer'] = this.value;
-      }
-      convertedParam.data.push(currentParam);
-
-      currentParam = {};
-      currentParam.name = langCode+'_text_info_validity_date_offer';
-      currentParam.parentObject = langCode+'_offer';
-      currentParam.title = langTexts[langCodeTitle+'_param_text_info_validity_date_offer'];
-      currentParam.type = 'string';
-      currentParam.value = userParam[langCode+'_text_info_validity_date_offer'] ? userParam[langCode+'_text_info_validity_date_offer'] : '';
-      currentParam.defaultvalue = langTexts.validity_terms_label;
-      currentParam.tooltip = langTexts['param_tooltip_text_info_validity_date_offer'];
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_info_validity_date_offer'] = this.value;
-      }
-      convertedParam.data.push(currentParam);
-
-      currentParam = {};
-      currentParam.name = langCode+'_title_doctype_17';
-      currentParam.parentObject = langCode+'_offer';
-      currentParam.title = langTexts[langCodeTitle+'_param_text_title_doctype_17'];
-      currentParam.type = 'string';
-      currentParam.value = userParam[langCode+'_title_doctype_17'] ? userParam[langCode+'_title_doctype_17'] : '';
-      currentParam.defaultvalue = langTexts.offer  + " <DocInvoice>";
-      currentParam.tooltip = langTexts['param_tooltip_title_doctype_17'];
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_title_doctype_17'] = this.value;
-      }
-      convertedParam.data.push(currentParam);
-
-      currentParam = {};
-      currentParam.name = langCode+'_text_begin_offer';
-      currentParam.parentObject = langCode+'_offer';
-      currentParam.title = langTexts[langCodeTitle+'_param_text_begin_offer'];
-      currentParam.type = 'multilinestring';
-      currentParam.value = userParam[langCode+'_text_begin_offer'] ? userParam[langCode+'_text_begin_offer'] : '';
-      currentParam.defaultvalue = '';
-      currentParam.tooltip = langTexts['param_tooltip_text_begin_offer'];
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_begin_offer'] = this.value;
-      }
-      convertedParam.data.push(currentParam);
-
-      currentParam = {};
-      currentParam.name = langCode+'_text_final_offer';
-      currentParam.parentObject = langCode+'_offer';
-      currentParam.title = langTexts[langCodeTitle+'_param_text_final_offer'];
-      currentParam.type = 'multilinestring';
-      currentParam.value = userParam[langCode+'_text_final_offer'] ? userParam[langCode+'_text_final_offer'] : '';
-      currentParam.defaultvalue = '';
-      currentParam.tooltip = langTexts['param_tooltip_text_final_offer'];
-      currentParam.language = langCode;
-      currentParam.readValueLang = function(langCode) {
-      userParam[langCode+'_text_final_offer'] = this.value;
-      }
-      convertedParam.data.push(currentParam);
+    var currentParam = {};
+    currentParam.name = langCode+'_offer';
+    currentParam.parentObject = langCode;
+    currentParam.title = langTexts.offer;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam.texts = this.value;
     }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_offer_number';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_offer_number'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_offer_number'] ? userParam[langCode+'_text_info_offer_number'] : '';
+    currentParam.defaultvalue = langTexts.offer;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_offer_number'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_info_offer_number'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_date_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_date_offer'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_date_offer'] ? userParam[langCode+'_text_info_date_offer'] : '';
+    currentParam.defaultvalue = langTexts.date;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_date_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_info_date_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_validity_date_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_validity_date_offer'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_validity_date_offer'] ? userParam[langCode+'_text_info_validity_date_offer'] : '';
+    currentParam.defaultvalue = langTexts.validity_terms_label;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_validity_date_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_info_validity_date_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_title_doctype_17';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_title_doctype_17'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_title_doctype_17'] ? userParam[langCode+'_title_doctype_17'] : '';
+    currentParam.defaultvalue = langTexts.offer  + " <DocInvoice>";
+    currentParam.tooltip = langTexts['param_tooltip_title_doctype_17'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_title_doctype_17'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_begin_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_begin_offer'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_begin_offer'] ? userParam[langCode+'_text_begin_offer'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_begin_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_begin_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_final_offer';
+    currentParam.parentObject = langCode+'_offer';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_final_offer'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_final_offer'] ? userParam[langCode+'_text_final_offer'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_final_offer'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+    userParam[langCode+'_text_final_offer'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
 
     
     /*******************************************************************************************
@@ -1512,6 +1574,11 @@ function initParam() {
     userParam[langCodes[i]+'_text_begin_reminder'] = '';
     userParam[langCodes[i]+'_text_final_reminder'] = '';
 
+    //Proforma Invoice
+    userParam[langCodes[i]+'_title_proforma_invoice'] = langTexts.proforma_invoice + " <DocInvoice>";
+    userParam[langCodes[i]+'_text_begin_proforma_invoice'] = '';
+    userParam[langCodes[i]+'_text_final_proforma_invoice'] = '';
+
   }
 
   //Styles
@@ -1768,6 +1835,18 @@ function verifyParam(userParam) {
       userParam[langCodes[i]+'_text_final_reminder'] = "";
     }
 
+    //Proforma Invoice
+    if (!userParam[langCodes[i]+'_title_proforma_invoice']) {
+      userParam[langCodes[i]+'_title_proforma_invoice'] = langTexts.proforma_invoice + " <DocInvoice>";
+    }
+    if (!userParam[langCodes[i]+'_text_begin_proforma_invoice']) {
+      userParam[langCodes[i]+'_text_begin_proforma_invoice'] = "";
+    }
+    if (!userParam[langCodes[i]+'_text_final_proforma_invoice']) {
+      userParam[langCodes[i]+'_text_final_proforma_invoice'] = "";
+    }
+
+
   }
 
 
@@ -1826,9 +1905,10 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
   // 3. Number;Description;Amount
   // 4. Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount
   // 5. I.Links;Number;Description;Quantity;ReferenceUnit;UnitPrice;Amount (ADVANCED)
-  // 6. Description;Discount;Amount (ADVANCED)
-  // 7. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
-  // 8. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+  // 6. Description;Quantity;ReferenceUnit;UnitPrice;VatRate;Amount
+  // 7. Description;Discount;Amount (ADVANCED)
+  // 8. Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
+  // 9. Number;Date;Description;Quantity;ReferenceUnit;UnitPrice;Discount;Amount (ADVANCED)
 
   var texts = setInvoiceTexts(lang);
 
@@ -2017,8 +2097,45 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
       }
     }
   }
-  else if (parseInt(index) == 6 && !IS_INTEGRATED_INVOICE) {
-    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_6).replace(" (ADVANCED)",""));
+  else if (parseInt(index) == 6) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_6));
+    if (!answer) {
+      for (var i = 0; i < userParam.data.length; i++) {
+        if (userParam.data[i].name === 'details_columns_predefined') {
+          userParam.data[i].value = userParam.data[i].items[0];
+        }
+      }
+      return userParam;
+    }
+    for (var i = 0; i < userParam.data.length; i++) {
+      if (userParam.data[i].name === 'details_columns') {
+        userParam.data[i].value = 'Description;Quantity;ReferenceUnit;UnitPrice;VatRate;Amount';
+      }
+      else if (userParam.data[i].name === 'details_columns_widths') {
+        userParam.data[i].value = '40%;10%;10%;20%;10%;10%';
+      }
+      else if (userParam.data[i].name === 'details_columns_titles_alignment') {
+        userParam.data[i].value = 'left;center;center;right;center;right';
+      }
+      else if (userParam.data[i].name === 'details_columns_alignment') {
+        userParam.data[i].value = 'left;center;center;right;center;right';
+      }
+      else if (userParam.data[i].name === 'en_text_details_columns') {
+        userParam.data[i].value = 'Description;Quantity;Unit;UnitPrice;%VAT;Amount';
+      }
+      else if (userParam.data[i].name === 'it_text_details_columns') {
+        userParam.data[i].value = 'Descrizione;Quantità;Unità;Prezzo Unità;%IVA;Importo';
+      }
+      else if (userParam.data[i].name === 'de_text_details_columns') {
+        userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;MWST%;Betrag';
+      }
+      else if (userParam.data[i].name === 'fr_text_details_columns') {
+        userParam.data[i].value = 'Libellé;Quantité;Unité;Prix Unitaire;%TVA;Montant';
+      }
+    }
+  }
+  else if (parseInt(index) == 7 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_7).replace(" (ADVANCED)",""));
     if (!answer) {
       for (var i = 0; i < userParam.data.length; i++) {
         if (userParam.data[i].name === 'details_columns_predefined') {
@@ -2054,8 +2171,8 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
       }
     }
   }
-  else if (parseInt(index) == 7 && !IS_INTEGRATED_INVOICE) {
-    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_7).replace(" (ADVANCED)",""));
+  else if (parseInt(index) == 8 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_8).replace(" (ADVANCED)",""));
     if (!answer) {
       for (var i = 0; i < userParam.data.length; i++) {
         if (userParam.data[i].name === 'details_columns_predefined') {
@@ -2091,8 +2208,8 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
       }
     }
   }
-  else if (parseInt(index) == 8 && !IS_INTEGRATED_INVOICE) {
-    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_8).replace(" (ADVANCED)",""));
+  else if (parseInt(index) == 9 && !IS_INTEGRATED_INVOICE) {
+    var answer = Banana.Ui.showQuestion(texts.style_change_confirm_title, texts.style_change_confirm_msg.replace("%1",texts.predefined_columns_9).replace(" (ADVANCED)",""));
     if (!answer) {
       for (var i = 0; i < userParam.data.length; i++) {
         if (userParam.data[i].name === 'details_columns_predefined') {

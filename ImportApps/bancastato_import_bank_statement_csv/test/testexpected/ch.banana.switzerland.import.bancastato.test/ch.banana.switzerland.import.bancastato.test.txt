@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/P/Switzerland/ImportApps/bancastato_import_bank_statement_csv/./test/ch.banana.switzerland.import.bancastato.test.js}
+%%SCRIPT{C:/P/Switzerland/ImportApps/bancastato_import_bank_statement_csv/test/ch.banana.switzerland.import.bancastato.test.js}
 %
 \begin{testcase}{TestImportBancaStato}
 \begin{test}{testImport}

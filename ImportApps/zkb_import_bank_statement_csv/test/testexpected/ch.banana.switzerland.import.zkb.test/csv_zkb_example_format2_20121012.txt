@@ -18,26 +18,26 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l }
-Date & DateValue & Doc & Description & Income & Expenses\\
-2012-05-31 & 2012-05-30 &  & Italei-At. 171132850084462668 &  & 20.00\\
-2012-05-31 & 2012-05-31 &  & Prow Uxerevos In, Mantiavigentesto 76, 1652 Ocutini & 1876.04 & \\
-2012-06-01 & 2012-06-08 &  & Box Habura Xxx &  & 79.00\\
-2012-06-01 & 2012-06-08 &  & Box Habura Xxx &  & 79.00\\
-2012-06-07 & 2012-06-06 &  & Inunt- + Prow�turetunt, Italei-At. 28527638, COR68.27 &  & 41.20\\
-2012-06-08 & 2012-06-07 &  & Xxx Ocutini In-Ter 548, Italei-At. 28527638, COR127.64, Cescalebis COR0.64 &  & 302.00\\
-2012-06-29 & 2012-06-30 &  & Restinethede & 0.05 & \\
-2012-06-29 & 2012-06-30 &  & Xxx�by Humela�cat &  & 8.00\\
-2012-06-29 & 2012-06-30 &  & Chiuncent Tentudo &  & 0.85\\
-2012-07-13 & 2012-07-13 &  & Italei-At. 28527638 &  & 500.00\\
-2012-07-19 & 2012-07-19 &  & Prow Uxerevos In, Operuniurges. 76, 1652 Ocutini & 158.00 & \\
-2012-08-28 & 2012-08-26 &  & Xxx Ocutini In-Ter 548, Italei-At. 28527638, COR3668.64, Cescalebis COR0.64 &  & 1002.00\\
-2012-09-28 & 2012-09-30 &  & Restinethede & 0.10 & \\
-2012-09-28 & 2012-09-30 &  & Aviundisqualureat &  & 0.05\\
-2012-09-28 & 2012-09-30 &  & Xxx�by Humela�cat &  & 12.00\\
-2012-09-28 & 2012-09-30 &  & Chiuncent Tentudo &  & 2.55\\
-2012-10-12 & 2012-10-12 &  & Prow Uxerevos In, Operuniurges. 76, 1652 Ocutini & 1500.00 & \\
-2012-10-12 & 2012-10-12 &  & Artipila-Cula Brundivit In, Flavitifica. 706, 4366 Opillieri &  & 1354.95\\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2012-05-31 & 2012-05-30 &  &  & Italei-At. 171132850084462668 &  & 20.00\\
+2012-05-31 & 2012-05-31 &  &  & Prow Uxerevos In, Mantiavigentesto 76, 1652 Ocutini & 1876.04 & \\
+2012-06-01 & 2012-06-08 &  & N743818025714464 & Box Habura Xxx &  & 79.00\\
+2012-06-01 & 2012-06-08 &  & N182342447856186 & Box Habura Xxx &  & 79.00\\
+2012-06-07 & 2012-06-06 &  &  & Inunt- + Prow�turetunt, Italei-At. 28527638, COR68.27 &  & 41.20\\
+2012-06-08 & 2012-06-07 &  &  & Xxx Ocutini In-Ter 548, Italei-At. 28527638, COR127.64, Cescalebis COR0.64 &  & 302.00\\
+2012-06-29 & 2012-06-30 &  & OVL5782724784064 & Restinethede & 0.05 & \\
+2012-06-29 & 2012-06-30 &  & ALP5244326673460 & Xxx�by Humela�cat &  & 8.00\\
+2012-06-29 & 2012-06-30 &  & DFI3531585682743 & Chiuncent Tentudo &  & 0.85\\
+2012-07-13 & 2012-07-13 &  &  & Italei-At. 28527638 &  & 500.00\\
+2012-07-19 & 2012-07-19 &  &  & Prow Uxerevos In, Operuniurges. 76, 1652 Ocutini & 158.00 & \\
+2012-08-28 & 2012-08-26 &  &  & Xxx Ocutini In-Ter 548, Italei-At. 28527638, COR3668.64, Cescalebis COR0.64 &  & 1002.00\\
+2012-09-28 & 2012-09-30 &  & WI32025244101225 & Restinethede & 0.10 & \\
+2012-09-28 & 2012-09-30 &  & QI11020282625265 & Aviundisqualureat &  & 0.05\\
+2012-09-28 & 2012-09-30 &  & GX66646381030755 & Xxx�by Humela�cat &  & 12.00\\
+2012-09-28 & 2012-09-30 &  & JY07458286143457 & Chiuncent Tentudo &  & 2.55\\
+2012-10-12 & 2012-10-12 &  &  & Prow Uxerevos In, Operuniurges. 76, 1652 Ocutini & 1500.00 & \\
+2012-10-12 & 2012-10-12 &  &  & Artipila-Cula Brundivit In, Flavitifica. 706, 4366 Opillieri &  & 1354.95\\
 \\
 \end{tablevalue}
 \end{document}
