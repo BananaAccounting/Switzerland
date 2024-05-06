@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Twint - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Twint - Import movements .csv (Banana+ Advanced)",
+    "description.it": "Twint - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Twint - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Twint - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.twint",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Twint - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Twint - Import movements .csv (Banana+ Advanced)",
+    "title.it": "Twint - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Twint - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Twint - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
