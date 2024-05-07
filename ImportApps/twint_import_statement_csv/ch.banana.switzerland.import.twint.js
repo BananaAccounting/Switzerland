@@ -10,21 +10,38 @@
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
-// @outputformat = transactions.simple
+// @outputformat = tablewithheaders
 // @inputdatasource = openfiledialog
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
 // @includejs = import.utilities.js
+// @timeout = -1
+
+//Accounting type.
+const DOUBLE_ENTRY_TYPE = "100";
+const INCOME_EXPENSES_TYPE = "110";
+// AccountsNames
+const TWINT_ACCOUNT = "twintaccount"
+const TWINT_IN = "twintIn"
+const TWINT_FEE = "twintfee"
+// Tables
+const ACCOUNTS_TABLE = "Accounts"
+const CATEGORIES_TABLE = "Categories"
+//Columns
+const CATEGORY_COLUMN = "Category"
+const ACCOUNT_COLUMN = "Account"
+//Others
+const CONTRA_ACCOUNT = "[CA]"
 
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
 function exec(inData, isTest) {
 
-
-    var importUtilities = new ImportUtilities(Banana.document);
+    let banDoc = Banana.document;
+    var importUtilities = new ImportUtilities(banDoc);
 
     if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
         return "";
@@ -36,8 +53,11 @@ function exec(inData, isTest) {
     let tFormat1 = new TwintFormat1();
     let transactionsData = tFormat1.getFormattedData(transactions, importUtilities);
     if (tFormat1.match(transactionsData)) {
-        let convTransactions = tFormat1.convert(transactionsData);
-        return Banana.Converter.arrayToTsv(convTransactions);
+        userParam = settingsDialog();
+        if (!userParam) {
+            return "";
+        }
+        return tFormat1.processTransactions(transactionsData, userParam, banDoc);
     }
 
     importUtilities.getUnknownFormatError();
@@ -46,8 +66,8 @@ function exec(inData, isTest) {
 }
 
 /**
- * Example Twint format 1.
- * Csv files are available only for those who use the Business portal.
+ * Example Twint format 1. [BETA]
+ * Csv files are available only for those who use the Merchant portal (https://portal.twint.ch/partner/gui/?login)
  * "Mongrant in:";"2023.11.20";;;;;;;;;;;;;;;;;;
  * ;;;;;;;;;;;;;;;;;;;
  * "Vitte tae:";"2023.11.01 (00:00)";"Motusa tae:";"";"sit:";"";;;;;;;;;;;;;;
@@ -63,7 +83,15 @@ function exec(inData, isTest) {
  * "Datum";"Zeit";"Typ";"Status";"Betrag Transaktion (CHF)";"Rabatt (CHF)";"Transaktionskosten (CHF)";"Niederlassung";"TWINT Terminal ID";"TWINT Order ID";"Referenz Transaktion Händler";"Händlertransaktionsreferenz";"Bezeichnung in der Abrechnung";"Vorname";"Nachname";"Strasse & Nr.";"PLZ";"Ort";"E-Mail-Adresse";"Zahlungszweck"
  * "2023.11.01";"11:45";"Syllide";"Timpentitti";"49.35";;"0.65";"GROPE";"g132ldy0-8623-7c7a-2p68-p68j5i7pyq22";"2r0vrh8j-6o52-6063-w56s-6t8j6y7rr51e";"l068";"2r0vrh8j-6o52-6063-w56s-6t8j6y7rr51e";"GROPE";"Centis";"Claminnes";"Monenetumenerrius 143";"3063";"Rietube";"vumiflfypss32@winte.rem";
  * 
-*/
+ * 
+ * We divide each Twint transaction into 3 rows as shown in the example below:
+ * Donation TWINT Müller             3100        100.00 (gross income)
+ * Donation TWINT Müller             1032        98.40 (amount cashed)
+ * Donation TWINT Müller             6941        1.60 (fee)
+ * 
+ * Currently, with the test cases and examples we have, we have no way of knowing whether there are any cases where the amount is negative (any adjustments or outgoing payments).
+ * The extension is currently a BETA version, further improvements will be implemented as soon as we have the opportunity to work with files providing specific cases.
+ * */
 function TwintFormat1() {
 
     this.getFormattedData = function (transactions, importUtilities) {
@@ -207,55 +235,412 @@ function TwintFormat1() {
         return false;
     }
 
-    /** Convert the transaction to the format to be imported */
-    this.convert = function (transactionsData) {
-        var transactionsToImport = [];
+    this.processTransactions = function (transactionsData, userParam, banDoc) {
+        let accoutingType = banDoc.info("Base", "FileTypeGroup");
+        let headers = [];
+        let objectArrayToCsv = [];
+        let processedTrans = {};
 
-        for (var i = 0; i < transactionsData.length; i++) {
-            if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
-                transactionsData[i]["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
-                transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+        if (accoutingType == INCOME_EXPENSES_TYPE) {
+            processedTrans = this.processTransactions_IncomeExpenses(transactionsData, userParam);
+            headers = ["Date", "ExternalReference", "Description", "Income", "Expenses", "Account", "Category", "Notes"];
+        } else if (accoutingType == DOUBLE_ENTRY_TYPE) {
+            processedTrans = this.processTransactions_DoubleEntry(transactionsData, userParam);
+            headers = ["Date", "ExternalReference", "Description", "AccountDebit", "AccountCredit", "Amount", "Notes"];
         }
 
-        transactionsToImport = transactionsToImport.reverse();
+        objectArrayToCsv = Banana.Converter.objectArrayToCsv(headers, processedTrans, ";");
 
-        // Add header and return
-        var header = [["Date", "Doc", "ExternalReference", "Description", "Income", "Expenses", "Notes"]];
-        return header.concat(transactionsToImport);
+        return objectArrayToCsv;
     }
 
-    /** Return true if the transaction is a transaction row */
-    this.mapTransaction = function (element) {
-        var mappedLine = [];
-        mappedLine.push(Banana.Converter.toInternalDateFormat(element['Date'], "yyyy.mm.dd"));
-        mappedLine.push("");
-        mappedLine.push(element["Transaction id"]);
-        let description = this.getDescription(element);
-        mappedLine.push(Banana.Converter.stringToCamelCase(description));
-        let amount = element['Amount'];
-        let trFee = element['Transaction Fee'];
-        let netIncome = Banana.SDecimal.subtract(amount, trFee);
+    this.processTransactions_DoubleEntry = function (transactionsData, userParam) {
+        let transactionsObjs = [];
+        for (let i = 0; i < transactionsData.length; i++) {
+            let trObj = {};
+            let transaction = transactionsData[i];
+            trObj = this.processTransactions_DoubleEntry_grossIncome(transaction, userParam);
+            transactionsObjs.push(trObj);
+            trObj = this.processTransactions_DoubleEntry_netCashed(transaction, userParam);
+            transactionsObjs.push(trObj);
+            trObj = this.processTransactions_DoubleEntry_fee(transaction, userParam);
+            transactionsObjs.push(trObj);
+
+        }
+        return transactionsObjs;
+    }
+
+    this.processTransactions_DoubleEntry_grossIncome = function (transaction, userParam) {
+        let trRowbaseObj = initTrRowObjectStructure_DoubleEntry();
+
+        trRowbaseObj.Date = Banana.Converter.toInternalDateFormat(transaction['Date'], userParam.dateFormat);
+        trRowbaseObj.ExternalReference = transaction["Transaction id"];
+        trRowbaseObj.Description = this.getDescription(transaction);
+
+        let amount = transaction['Amount'];
+        let trFee = transaction['Transaction Fee'];
+        let grossIncome = Banana.SDecimal.add(amount, trFee);
+        trRowbaseObj.AccountDebit = "";
+        trRowbaseObj.AccountCredit = userParam.twintIn;
+        trRowbaseObj.Amount = grossIncome;
+        trRowbaseObj.Notes = "";
+
+        return trRowbaseObj;
+    }
+
+    this.processTransactions_DoubleEntry_netCashed = function (transaction, userParam) {
+        let trRowbaseObj = initTrRowObjectStructure_DoubleEntry();
+
+        trRowbaseObj.Date = Banana.Converter.toInternalDateFormat(transaction['Date'], userParam.dateFormat);
+        trRowbaseObj.ExternalReference = transaction["Transaction id"];
+        trRowbaseObj.Description = this.getDescription(transaction);
+
+        let amount = transaction['Amount'];
+        trRowbaseObj.AccountDebit = userParam.twintAccount;
+        trRowbaseObj.AccountCredit = "";
+        trRowbaseObj.Amount = amount;
+        trRowbaseObj.Notes = "";
+
+        return trRowbaseObj;
+    }
+
+    this.processTransactions_DoubleEntry_fee = function (transaction, userParam) {
+        let trRowbaseObj = initTrRowObjectStructure_DoubleEntry();
+
+        trRowbaseObj.Date = Banana.Converter.toInternalDateFormat(transaction['Date'], userParam.dateFormat);
+        trRowbaseObj.ExternalReference = transaction["Transaction id"];
+        trRowbaseObj.Description = this.getDescription(transaction);
+
+        let trFee = transaction['Transaction Fee'];
+        trRowbaseObj.AccountDebit = userParam.twintFee;
+        trRowbaseObj.AccountCredit = "";
+        trRowbaseObj.Amount = trFee;
+        trRowbaseObj.Notes = "";
+
+        return trRowbaseObj;
+    }
+
+    this.processTransactions_IncomeExpenses = function (transactionsData, userParam) {
+        let transactionsObjs = [];
+        for (let i = 0; i < transactionsData.length; i++) {
+            let trObj = {};
+            let transaction = transactionsData[i];
+            trObj = this.processTransactions_IncomeExpenses_grossIncome(transaction, userParam);
+            transactionsObjs.push(trObj);
+            trObj = this.processTransactions_IncomeExpenses_netCashed(transaction, userParam);
+            transactionsObjs.push(trObj);
+            trObj = this.processTransactions_IncomeExpenses_fee(transaction, userParam);
+            transactionsObjs.push(trObj);
+
+        }
+
+        return transactionsObjs;
+    }
+
+    this.processTransactions_IncomeExpenses_grossIncome = function (transaction, userParam) {
+        let trRowbaseObj = initTrRowObjectStructure_IncomeExpenses();
+
+        trRowbaseObj.Date = Banana.Converter.toInternalDateFormat(transaction['Date'], userParam.dateFormat);
+        trRowbaseObj.ExternalReference = transaction["Transaction id"];
+        trRowbaseObj.Description = this.getDescription(transaction);
+
+        let amount = transaction['Amount'];
+        let trFee = transaction['Transaction Fee'];
+        let grossIncome = Banana.SDecimal.add(amount, trFee);
+
         if (amount.indexOf('-') > -1) {
-            mappedLine.push("");
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(netIncome, this.decimalSeparator));
+            trRowbaseObj.Income = "";
+            trRowbaseObj.Expenses = Banana.Converter.toInternalNumberFormat(grossIncome, this.decimalSeparator);
         } else {
-            mappedLine.push(Banana.Converter.toInternalNumberFormat(netIncome, this.decimalSeparator));
-            mappedLine.push("");
+            trRowbaseObj.Income = Banana.Converter.toInternalNumberFormat(grossIncome, this.decimalSeparator);
+            trRowbaseObj.Expenses = "";
         }
-        mappedLine.push(trFee);
-        return mappedLine;
+        trRowbaseObj.Account = "";
+        trRowbaseObj.Category = userParam.twintIn;
+        trRowbaseObj.Notes = "";
+
+        return trRowbaseObj;
     }
 
-    this.getDescription = function (element) {
-        let description = "";
-        let type = element['Description'];
-        let status = element['Status'];
-        let branch = element['Branch'];
+    this.processTransactions_IncomeExpenses_netCashed = function (transaction, userParam) {
+        let trRowbaseObj = initTrRowObjectStructure_IncomeExpenses();
 
-        description = type + ", " + status + ", " + branch;
+        trRowbaseObj.Date = Banana.Converter.toInternalDateFormat(transaction['Date'], userParam.dateFormat);
+        trRowbaseObj.ExternalReference = transaction["Transaction id"];
+        trRowbaseObj.Description = this.getDescription(transaction);
+
+        let amount = transaction['Amount'];
+
+        if (amount.indexOf('-') > -1) {
+            trRowbaseObj.Income = "";
+            trRowbaseObj.Expenses = Banana.Converter.toInternalNumberFormat(amount, this.decimalSeparator);
+        } else {
+            trRowbaseObj.Income = Banana.Converter.toInternalNumberFormat(amount, this.decimalSeparator);
+            trRowbaseObj.Expenses = "";
+        }
+        trRowbaseObj.Account = userParam.twintAccount;
+        trRowbaseObj.Category = "";
+        trRowbaseObj.Notes = "";
+
+        return trRowbaseObj;
+    }
+    this.processTransactions_IncomeExpenses_fee = function (transaction, userParam) {
+        let trRowbaseObj = initTrRowObjectStructure_IncomeExpenses();
+
+        trRowbaseObj.Date = Banana.Converter.toInternalDateFormat(transaction['Date'], userParam.dateFormat);
+        trRowbaseObj.ExternalReference = transaction["Transaction id"];
+        trRowbaseObj.Description = this.getDescription(transaction);
+
+        let trFee = transaction['Transaction Fee'];
+        trRowbaseObj.Income = "";
+        trRowbaseObj.Expenses = Banana.Converter.toInternalNumberFormat(trFee, this.decimalSeparator);
+        trRowbaseObj.Account = "";
+        trRowbaseObj.Category = userParam.twintFee;
+        trRowbaseObj.Notes = "";
+
+        return trRowbaseObj;
+    }
+
+    this.getDescription = function (transaction) {
+        let description = "";
+        let type = transaction['Description'];
+        let branch = transaction['Branch'];
+        let firstName = transaction['First Name'];
+        let lastName = transaction['Surname'];
+
+        description = type + " " + " " + branch + " " + firstName + " " + lastName;
 
         return description;
     }
+}
+
+function settingsDialog() {
+
+    let dialogParam = {};
+    let savedDlgParam = Banana.document.getScriptSettings("TwintImportDlgParams");
+    if (savedDlgParam.length > 0) {
+        let parsedParam = JSON.parse(savedDlgParam);
+        if (parsedParam) {
+            dialogParam = parsedParam;
+        }
+    }
+
+    //Verify Params.
+    verifyParam(dialogParam);
+    //Settings dialog
+    var dialogTitle = 'Settings';
+    var pageAnchor = 'twintImportDlgParams';
+    var convertedParam = {};
+
+    convertedParam = convertParam(dialogParam);
+    if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor))
+        return false;
+    for (var i = 0; i < convertedParam.data.length; i++) {
+        // Read values to dialogparam (through the readValue function)
+        if (typeof (convertedParam.data[i].readValue) == "function")
+            convertedParam.data[i].readValue();
+    }
+    //set the parameters
+    let paramToString = JSON.stringify(dialogParam);
+    Banana.document.setScriptSettings("TwintImportDlgParams", paramToString);
+    return dialogParam;
+}
+
+function initParam() {
+    var params = {};
+
+    params.dateFormat = "yyyy.mm.dd";
+    params.twintAccount = ""; // Bank account
+    params.twintIn = ""; // Revenues account.
+    params.twintFee = ""; // Costs account.
+
+    return params;
+
+}
+
+function convertParam(userParam) {
+    var paramList = {};
+    let texts = getTexts(Banana.document);
+    var defaultParam = initParam();
+    paramList.version = '1.0';
+    paramList.data = [];
+
+    var param = {};
+    param.name = 'dateformat';
+    param.title = texts.dateFormat;
+    param.type = 'string';
+    param.value = userParam.dateFormat ? userParam.dateFormat : '';
+    param.defaultvalue = defaultParam.dateFormat;
+    param.readValue = function () {
+        userParam.dateFormat = this.value;
+    }
+    paramList.data.push(param);
+
+    var param = {};
+    param.name = TWINT_ACCOUNT;
+    param.title = texts.twintAccount;
+    param.type = 'string';
+    param.value = userParam.twintAccount ? userParam.twintAccount : '';
+    param.defaultvalue = defaultParam.twintAccount;
+    param.readValue = function () {
+        userParam.twintAccount = this.value;
+    }
+    paramList.data.push(param);
+
+    var param = {};
+    param.name = TWINT_IN;
+    param.title = texts.twintIn;
+    param.type = 'string';
+    param.value = userParam.twintIn ? userParam.twintIn : '';
+    param.defaultvalue = defaultParam.twintIn;
+    param.readValue = function () {
+        userParam.twintIn = this.value;
+    }
+    paramList.data.push(param);
+
+    var param = {};
+    param.name = TWINT_FEE;
+    param.title = texts.twintFee;
+    param.type = 'string';
+    param.value = userParam.twintFee ? userParam.twintFee : '';
+    param.defaultvalue = defaultParam.twintFee;
+    param.readValue = function () {
+        userParam.twintFee = this.value;
+    }
+    paramList.data.push(param);
+
+    return paramList;
+}
+
+function verifyParam(dialogParam) {
+
+    let defaultParam = initParam();
+
+    if (!dialogParam.dateFormat) {
+        dialogParam.dateFormat = defaultParam.dateFormat;
+    }
+    if (!dialogParam.twintAccount) {
+        dialogParam.twintAccount = defaultParam.twintAccount;
+    }
+    if (!dialogParam.twintIn) {
+        dialogParam.twintIn = defaultParam.twintIn;
+    }
+    if (!dialogParam.twintFee) {
+        dialogParam.twintFee = defaultParam.twintFee;
+    }
+}
+
+function getTexts(banDocument) {
+
+    let lang = getLang(banDocument);
+
+    if (lang == "")
+        return lang;
+
+    switch (lang) {
+        case 'de':
+            return getTextsDe();
+        case 'it':
+            return getTextsIt();
+        case 'fr':
+            return getTextsFr();
+        case 'en':
+        default:
+            return getTextsEn();
+    }
+}
+
+function getLang(banDocument) {
+    let lang = 'en';
+    if (banDocument)
+        lang = banDocument.locale;
+    else if (Banana.application.locale)
+        lang = Banana.application.locale;
+    if (lang.length > 2)
+        lang = lang.substr(0, 2);
+    return lang;
+}
+
+function getTextsDe() {
+    let texts = {};
+
+    texts.dateFormat = "Datum Format";
+    texts.twintAccount = "Twint Account";
+    texts.twintIn = "Twint In";
+    texts.twintFee = "Twint Fee";
+    texts.accountMissing = "Fehlendes Konto";
+    texts.accountErrorMsg = "Dieses Konto existiert nicht in Ihrem Kontenplan";
+
+    return texts;
+}
+
+function getTextsIt() {
+    let texts = {};
+
+    texts.dateFormat = "Formato Data";
+    texts.twintAccount = "Twint Account";
+    texts.twintIn = "Twint In";
+    texts.twintFee = "Twint Fee";
+    texts.accountMissing = "Conto mancante";
+    texts.accountErrorMsg = "Questo conto non esiste nel piano dei conti";
+
+    return texts;
+}
+
+function getTextsFr() {
+    let texts = {};
+
+    texts.dateFormat = "Format de date";
+    texts.twintAccount = "Twint Account";
+    texts.twintIn = "Twint In";
+    texts.twintFee = "Twint Fee";
+    texts.accountMissing = "Compte manquant";
+    texts.accountErrorMsg = "Ce compte n'existe pas dans le plan comptable";
+
+
+    return texts;
+}
+
+function getTextsEn() {
+    let texts = {};
+
+    texts.dateFormat = "Date Format";
+    texts.twintAccount = "Twint Account";
+    texts.twintIn = "Twint In";
+    texts.twintFee = "Twint Fee";
+    texts.accountMissing = "Missing account";
+    texts.accountErrorMsg = "This account does not exists in your chart of accounts";
+
+    return texts;
+}
+
+function initTrRowObjectStructure_DoubleEntry() {
+    let trRow = {};
+
+    trRow.Date = "";
+    trRow.ExternalReference = "";
+    trRow.Description = "";
+    trRow.AccountDebit = "";
+    trRow.AccountCredit = "";
+    trRow.Amount = "";
+    trRow.Notes = "";
+
+    return trRow;
+}
+
+function initTrRowObjectStructure_IncomeExpenses() {
+    let trRow = {};
+
+    trRow.Date = "";
+    trRow.ExternalReference = "";
+    trRow.Description = "";
+    trRow.Income = "";
+    trRow.Expenses = "";
+    trRow.Account = "";
+    trRow.Category = "";
+    trRow.Notes = "";
+
+    return trRow;
 }
 
 /**
@@ -284,4 +669,66 @@ function findSeparator(string) {
     }
 
     return ',';
+}
+
+function validateParams(params) {
+    const accountNames = [TWINT_ACCOUNT, TWINT_IN, TWINT_FEE];
+    const accountsList = [];
+    let texts = getTexts();
+    params.data.forEach(item => {
+        if (accountNames.includes(item.name)) {
+            accountsList.push({ name: item.name, value: item.value });
+        }
+    });
+    if (accountsList.length > 0) {
+        for (var i = 0; i < params.data.length; i++) {
+            let account = params.data[i].value;
+            const isValueInArray = accountsList.some(obj => obj.value === account);
+            if (isValueInArray) {
+                if (account == "") {
+                    params.data[i].errorMsg = texts.accountMissing;
+                    return false;
+                } else if (!AccountExists(account)) {
+                    params.data[i].errorMsg = texts.accountErrorMsg;
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+function AccountExists(account) {
+    let banDoc = Banana.document;
+    let accoutingType = banDoc.info("Base", "FileTypeGroup");
+
+    if (banDoc && account) {
+        let accountsTable = banDoc.table(ACCOUNTS_TABLE);
+        if (!accountsTable)
+            return false;
+        //check in the chart of accounts.
+        for (var i = 0; i < accountsTable.rowCount; i++) {
+            var tRow = accountsTable.row(i);
+            // Check if the account is present in the chart of accounts.
+            if (account == tRow.value(ACCOUNT_COLUMN)) {
+                Banana.console.debug(account + " / " + tRow.value(ACCOUNT_COLUMN));
+                return true;
+            }
+        }
+        //check also in the category table
+        if (accoutingType == INCOME_EXPENSES_TYPE) {
+            let categoriesTable = banDoc.table(CATEGORIES_TABLE);
+            for (var i = 0; i < categoriesTable.rowCount; i++) {
+                var tRow = categoriesTable.row(i);
+                // Check if the account is present in the chart of accounts.
+                if (account == tRow.value(CATEGORY_COLUMN)) {
+                    Banana.console.debug("prova2");
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+
 }
