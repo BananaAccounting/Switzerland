@@ -76,9 +76,9 @@ TestImportTwint.prototype.testImportDoubleEntry = function () {
       this.testLogger = parentLogger.newLogger(loggerName);
 
       let file = Banana.IO.getLocalFile(fileName);
-      Test.assert(file);
+      Test.assert(file, "file not valid");
       let fileContent = file.read();
-      Test.assert(fileContent);
+      Test.assert(fileContent, "file content not readable");
       let userParam = getUserParam_DoubleEntry();
       let transactions = processTwintTransactions(fileContent, userParam, banDocument, importUtilities);
       this.testLogger.addCsv('', transactions);

@@ -7,7 +7,7 @@
 // @description.en = Twint - Import movements .csv (Banana+ Advanced)
 // @description.fr = Twint - Importer mouvements .csv (Banana+ Advanced)
 // @description.it = Twint - Importa movimenti .csv (Banana+ Advanced)
-// @doctype = *
+// @doctype =  100.*; 110.*; 130.*
 // @docproperties =
 // @task = import.transactions
 // @outputformat = tablewithheaders
