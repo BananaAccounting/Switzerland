@@ -7,7 +7,7 @@
 // @description.en = Twint - Import movements .csv (Banana+ Advanced)
 // @description.fr = Twint - Importer mouvements .csv (Banana+ Advanced)
 // @description.it = Twint - Importa movimenti .csv (Banana+ Advanced)
-// @doctype = *
+// @doctype =  100.*; 110.*; 130.*
 // @docproperties =
 // @task = import.transactions
 // @outputformat = tablewithheaders
@@ -38,31 +38,41 @@ const CONTRA_ACCOUNT = "[CA]"
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(inData, isTest) {
+function exec(inData) {
 
     let banDoc = Banana.document;
-    var importUtilities = new ImportUtilities(banDoc);
+    let importUtilities = new ImportUtilities(banDoc);
+    let transactions = [];
 
-    if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+    if (!importUtilities.verifyBananaAdvancedVersion())
         return "";
 
-    let fieldSeparator = findSeparator(inData);
-    var transactions = Banana.Converter.csvToArray(inData, fieldSeparator);
+    userParam = settingsDialog();
+    if (!userParam) {
+        return "";
+    }
 
-    // Format 1, vedi codice creato per postfinance
+    transactions = processTwintTransactions(inData, userParam, banDoc, importUtilities);
+    if (!transactions)
+        importUtilities.getUnknownFormatError();
+
+    return transactions;
+
+
+}
+
+/** Function created to be able to access the data in a more simpler way trough the tests */
+function processTwintTransactions(transactions, userParam, banDoc, importUtilities) {
+
+    let fieldSeparator = findSeparator(transactions);
+    transactions = Banana.Converter.csvToArray(transactions, fieldSeparator);
+
+    // Format 1
     let tFormat1 = new TwintFormat1();
     let transactionsData = tFormat1.getFormattedData(transactions, importUtilities);
     if (tFormat1.match(transactionsData)) {
-        userParam = settingsDialog();
-        if (!userParam) {
-            return "";
-        }
         return tFormat1.processTransactions(transactionsData, userParam, banDoc);
     }
-
-    importUtilities.getUnknownFormatError();
-
-    return "";
 }
 
 /**
@@ -712,7 +722,6 @@ function AccountExists(account) {
             var tRow = accountsTable.row(i);
             // Check if the account is present in the chart of accounts.
             if (account == tRow.value(ACCOUNT_COLUMN)) {
-                Banana.console.debug(account + " / " + tRow.value(ACCOUNT_COLUMN));
                 return true;
             }
         }
@@ -723,7 +732,6 @@ function AccountExists(account) {
                 var tRow = categoriesTable.row(i);
                 // Check if the account is present in the chart of accounts.
                 if (account == tRow.value(CATEGORY_COLUMN)) {
-                    Banana.console.debug("prova2");
                     return true;
                 }
             }

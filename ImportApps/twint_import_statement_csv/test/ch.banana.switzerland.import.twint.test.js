@@ -56,23 +56,31 @@ TestImportTwint.prototype.cleanup = function () {
 
 }
 
-TestImportTwint.prototype.testImport = function () {
-   var fileNameList = [];
+TestImportTwint.prototype.testImportDoubleEntry = function () {
+   let fileNameList = [];
+   let ac2File = "file:script/../test/testcases/Double-entry test Twint.ac2";
 
    fileNameList.push("file:script/../test/testcases/csv_twint_example_format1_business_20231120.csv");
 
-   var parentLogger = this.testLogger;
+   let parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
+   let banDocument = Banana.application.openDocument(ac2File);
+   let importUtilities = new ImportUtilities(banDocument);
 
-   for (var i = 0; i < fileNameList.length; i++) {
-      var fileName = fileNameList[i];
-      this.testLogger = parentLogger.newLogger(Banana.IO.fileCompleteBaseName(fileName));
+   if (!banDocument)
+      parentLogger.addFatalError("File not found: " + ac2File);
 
-      var file = Banana.IO.getLocalFile(fileName);
-      Test.assert(file);
-      var fileContent = file.read();
-      Test.assert(fileContent);
-      var transactions = exec(fileContent, true); //takes the exec from the import script.
+   for (let i = 0; i < fileNameList.length; i++) {
+      let fileName = fileNameList[i];
+      let loggerName = Banana.IO.fileCompleteBaseName(ac2File) + ";" + Banana.IO.fileCompleteBaseName(fileName);
+      this.testLogger = parentLogger.newLogger(loggerName);
+
+      let file = Banana.IO.getLocalFile(fileName);
+      Test.assert(file, "file not valid");
+      let fileContent = file.read();
+      Test.assert(fileContent, "file content not readable");
+      let userParam = getUserParam_DoubleEntry();
+      let transactions = processTwintTransactions(fileContent, userParam, banDocument, importUtilities);
       this.testLogger.addCsv('', transactions);
 
       if (!this.progressBar.step())
@@ -80,4 +88,63 @@ TestImportTwint.prototype.testImport = function () {
    }
 
    this.progressBar.finish();
+}
+
+TestImportTwint.prototype.testImportIncomeExpenses = function () {
+   let fileNameList = [];
+   let ac2File = "file:script/../test/testcases/Income & Expenses test Twint.ac2";
+
+   fileNameList.push("file:script/../test/testcases/csv_twint_example_format1_business_20231120.csv");
+
+   let parentLogger = this.testLogger;
+   this.progressBar.start(fileNameList.length);
+   let banDocument = Banana.application.openDocument(ac2File);
+   let importUtilities = new ImportUtilities(banDocument);
+
+   if (!banDocument)
+      parentLogger.addFatalError("File not found: " + ac2File);
+
+   for (let i = 0; i < fileNameList.length; i++) {
+
+      let fileName = fileNameList[i];
+      let loggerName = Banana.IO.fileCompleteBaseName(ac2File) + ";" + Banana.IO.fileCompleteBaseName(fileName);
+      this.testLogger = parentLogger.newLogger(loggerName);
+
+      let file = Banana.IO.getLocalFile(fileName);
+      Test.assert(file);
+      let fileContent = file.read();
+      Test.assert(fileContent);
+      let userParam = getUserParam_IncomeExpenses();
+      let transactions = processTwintTransactions(fileContent, userParam, banDocument, importUtilities);
+      this.testLogger.addCsv('', transactions);
+
+      if (!this.progressBar.step())
+         break;
+   }
+
+   this.progressBar.finish();
+}
+
+function getUserParam_DoubleEntry() {
+   var params = {};
+
+   params.dateFormat = "yyyy.mm.dd";
+   params.twintAccount = "1000"; // Bank account
+   params.twintIn = "3600"; // Revenues account.
+   params.twintFee = "6940"; // Costs account.
+
+   return params;
+
+}
+
+function getUserParam_IncomeExpenses() {
+   var params = {};
+
+   params.dateFormat = "yyyy.mm.dd";
+   params.twintAccount = "1000"; // Bank account
+   params.twintIn = "3000"; // Revenues account.
+   params.twintFee = "6900"; // Costs account.
+
+   return params;
+
 }
