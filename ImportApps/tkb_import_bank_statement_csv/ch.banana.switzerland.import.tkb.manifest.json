@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Thurgauer Kantonalbank - Import bank account statement (*.csv)",
+    "description.en": "Thurgauer Kantonalbank - Import bank account statement (*.csv)",
+    "description.de":"Thurgauer Kantonalbank - Kontoauszug importieren (*.csv)",
+    "description.fr":"Thurgauer Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "description.it":"Thurgauer Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
+    "id": "ch.banana.switzerland.import.tkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Thurgauer Kantonalbank - Import bank account statement (*.csv)",
+    "title.en": "Thurgauer Kantonalbank - Import bank account statement (*.csv)",
+    "title.de":"Thurgauer Kantonalbank - Kontoauszug importieren (*.csv)",
+    "title.fr":"Thurgauer Kantonalbank - Importer un relevé de compte bancaire (*.csv)",
+    "title.it":"Thurgauer Kantonalbank - Importa movimenti estratto conto bancario (*.csv)",
+    "version": "1.0"
+}
