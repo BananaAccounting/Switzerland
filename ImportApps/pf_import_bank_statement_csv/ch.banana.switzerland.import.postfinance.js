@@ -433,7 +433,8 @@ function PFCSVFormat6() {
       let trDescription = transaction["Description"] + ", " + transaction["Type"];
       mappedLine.push(trDescription);
       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(Banana.SDecimal.abs(transaction["Expenses"]), '.'));
+      let expAmount = transaction["Expenses"].replace(/-/g, ''); //remove minus sign
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(expAmount, '.'));
 
       return mappedLine;
    }
@@ -595,9 +596,9 @@ function PFCSVFormat5() {
       mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
       mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit]));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
       amountDebit = element[this.colDebit].replace(/-/g, ''); //remove minus sign
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit, '.'));
 
       return mappedLine;
    }

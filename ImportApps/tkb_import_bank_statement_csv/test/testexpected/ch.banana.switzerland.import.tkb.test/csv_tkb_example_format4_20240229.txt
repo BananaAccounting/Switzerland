@@ -1,0 +1,34 @@
+%%info_test_name{csv_tkb_example_format4_20240229}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2024-02-21 &  &  &  & Celliurre AleI Navicturruntubis 57 8952 Schlieren Nuidivo &  & 354\\
+2024-02-21 &  &  &  & Celliurre AleI Navicturruntubis 57 8952 Schlieren Nuidivo &  & 354\\
+2024-02-21 &  &  &  & Estentinvendunt k-linenis (Ficant Semittris: 2 / Xxx.-Eo. 2385702244) &  & 5286.32\\
+2024-02-26 &  &  &  & Sevolucela / Xxx.-Eo.  3768600087 ELLA M.O. IPTERIBEANATIURBO 465 1076HR AMSTERDAM Suganatubit Muliunnata: CRO FENIMULUM GENT 27180084-62 837385 XXX & 35.22 & \\
+2024-02-27 &  &  &  & Sevolucela / Xxx.-Eo.  3822466617 QUAEC Natemerae IN Flureprianiburbent 66 8004 Z�rich Nuidivo Muliunnata: 388713 QUAEC 4t660037-612f-1f86-3fi k-h8e21lg387n0 Grades 24383477 Latti: 16.32 Sego: -7.43;;;24.62;8345.43 &  & \\
+2024-02-27 &  &  &  & Sevolucela / Xxx.-Eo.  4622422428 QUAEC Natemerae IN Flureprianiburbent 66 8004 Z�rich Nuidivo Muliunnata: 388713 QUAEC 5r5bu2we-1b24-3u4c-g26 0-5y1v8f8o3h63 Grades 24383477 Latti: 602.32 Sego: -5.15 & 550.28 & \\
+2024-02-27 &  &  &  & Sevolucela / Xxx.-Eo.  8703755868 LINO DITQUAM ALEI SOLAMQUA-WEEK 3 72010 HEDESUBA Subserunter Muliunnata: /XXX/842-710836420-683558765-711561///UBI/OS:RKB82.87.61:QUAT-EO. 000052:BRUTTO181,00:KOM2,05:VP157228737:FIL:TRX9 RIURANE-44761868503-711561 & 835.62 & \\
+2024-02-27 &  &  &  & Sevolucela / Xxx.-Eo.  2363577442 LINO DITQUAM ALEI SOLAMQUA-WEEK 3 72010 HEDESUBA Subserunter Muliunnata: /XXX/842-710836420-367242487-711561///UBI/ET:RKB82.87.61:QUAT-EO. 000053:BRUTTO165,20:KOM2,10:VP157228737:FIL:TRX9 RIURANE-44761868503-711561 & 741.51 & \\
+2024-02-28 &  &  &  & Sevolucela / Xxx.-Eo.  5413226066 hat.me AleI Emovimindiunno 75 8045 Z�rich Nuidivo Muliunnata: OCCIUSIVIT BY-84030035864 32-87-4048 PAUT HAT & 2676.24 & \\
+\\
+\end{tablevalue}
+\end{document}

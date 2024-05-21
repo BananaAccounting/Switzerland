@@ -92,8 +92,15 @@ function settingsDialog() {
     if (savedParam.length > 0) {
         try {
             params = JSON.parse(savedParam);
-            if (!params.customer_no)
+            if (!params.customer_no) {
                 params.customer_no = {};
+            }
+
+            if (params.import_credits) { // Convert old "import_credits" param to the new combobox parameter
+                delete params.import_credits; //remove old parameter
+                params.import_transactions = isoCamtReader.tr('import_transactions_credits', lang); //set new parameter
+            }
+            
         } catch(err) {
             Banana.console.log(err.toString());
         }
@@ -131,14 +138,41 @@ function settingsDialog() {
         }
         convertedParam.data.push(currentParam);
 
-        var currentParam = {};
-        currentParam.name = 'import_credits';
-        currentParam.title = isoCamtReader.tr('import_credits', lang);
-        currentParam.type = 'bool';
-        currentParam.defaultvalue = false;
-        currentParam.value = params.import_credits ? true : false;
+        // var currentParam = {};
+        // currentParam.name = 'import_credits';
+        // currentParam.title = isoCamtReader.tr('import_credits', lang);
+        // currentParam.type = 'bool';
+        // currentParam.defaultvalue = false;
+        // currentParam.value = params.import_credits ? true : false;
+        // currentParam.readValue = function() {
+        //     params.import_credits = this.value;
+        // }
+        // convertedParam.data.push(currentParam);
+
+        var trCombobox = [];
+        trCombobox.push(isoCamtReader.tr('import_transactions_all', lang));
+        trCombobox.push(isoCamtReader.tr('import_transactions_credits', lang));
+        trCombobox.push(isoCamtReader.tr('import_transactions_debits', lang));
+
+        currentParam = {};
+        currentParam.name = 'import_transactions';
+        currentParam.title = isoCamtReader.tr('import_transactions', lang);
+        currentParam.type = 'combobox';
+        currentParam.items = trCombobox;
+        currentParam.defaultvalue = isoCamtReader.tr('import_transactions_all', lang);
+       
+        if (!params.import_transactions || params.import_transactions === 'All' || params.import_transactions === 'Tutti' || params.import_transactions === 'Alle' || params.import_transactions === 'Toutes') {
+            currentParam.value = isoCamtReader.tr('import_transactions_all', lang);
+        }
+        else if (params.import_transactions === 'Credits' || params.import_transactions === 'Accrediti' || params.import_transactions === 'Einnahmen' || params.import_transactions === 'Crédits') {
+            currentParam.value = isoCamtReader.tr('import_transactions_credits', lang);
+        }
+        else if (params.import_transactions === 'Debits' || params.import_transactions === 'Addebiti' || params.import_transactions === 'Ausgaben' || params.import_transactions === 'Débits') {
+            currentParam.value = isoCamtReader.tr('import_transactions_debits', lang);
+        }
+        
         currentParam.readValue = function() {
-            params.import_credits = this.value;
+            params.import_transactions = this.value;
         }
         convertedParam.data.push(currentParam);
 
@@ -308,11 +342,17 @@ function settingsDialog() {
             return;
         params.add_counterpart_transaction = value === '1' ? true : false;
 
-        var value = params.import_credits ? '1' : '0';
-        value = Banana.Ui.getText(dialogTitle, isoCamtReader.tr('legacy_import_credits', lang), value);
+        // var value = params.import_credits ? '1' : '0';
+        // value = Banana.Ui.getText(dialogTitle, isoCamtReader.tr('legacy_import_credits', lang), value);
+        // if (typeof(value) === 'undefined')
+        //     return;
+        // params.import_credits = value === '1' ? true : false;
+
+        var value = params.import_transactions ? params.import_transactions : isoCamtReader.tr('import_transactions_all', lang);
+        value = Banana.Ui.getItem(dialogTitle, isoCamtReader.tr('import_transactions', lang), value);
         if (typeof(value) === 'undefined')
             return;
-        params.import_credits = value === '1' ? true : false;
+        params.import_transactions = value;
 
         value = params.invoice_no.extract ? '1' : '0';
         value = Banana.Ui.getText(dialogTitle, isoCamtReader.tr('legacy_invoice_no_extract', lang), value);

@@ -23,27 +23,27 @@ Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
 2023-10-13 &  &  &  & Perieria a Cerit/Mulans Decta, Sunti &  & 48\\
 2023-10-13 &  &  &  & Perieria a Inicentis flam litatum, Sunti &  & 2662\\
 2023-10-31 &  &  &  & Iustio nem quaelunis cesciunt Docar, Sunti &  & 5\\
-2023-11-03 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1916 & 0\\
+2023-11-03 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1916 & \\
 2023-11-06 &  &  &  & AT-BY Ferpulo Eiuspicurentas UT, Sunti &  & 174.4\\
 2023-11-14 &  &  &  & Perieria a Inicentis flam litatum, Sunti &  & 2576.9\\
 2023-11-14 &  &  &  & Perieria a Orputum Paufer Regater, Sunti &  & 65\\
 2023-11-30 &  &  &  & Iustio nem quaelunis cesciunt Docar, Sunti &  & 5\\
 2023-12-04 &  &  &  & AT-BY Ferpulo Eiuspicurentas UT, Sunti &  & 174.4\\
-2023-12-04 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1916 & 0\\
+2023-12-04 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1916 & \\
 2023-12-12 &  &  &  & Perieria a Inicentis flam litatum, Sunti &  & 2656\\
 2023-12-12 &  &  &  & Perieria a Cerit/Mulans Decta, Sunti &  & 48\\
 2023-12-31 &  &  &  & Iustio nem quaelunis cesciunt Docar, Sunti &  & 5\\
 2024-01-03 &  &  &  & AT-BY Ferpulo Eiuspicurentas UT, Sunti &  & 809.55\\
-2024-01-03 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1916 & 0\\
+2024-01-03 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1916 & \\
 2024-01-05 &  &  &  & Perieria a Cerit/Mulans Decta, Sunti &  & 48\\
-2024-01-31 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 980 & 0\\
+2024-01-31 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 980 & \\
 2024-01-31 &  &  &  & Iustio nem quaelunis cesciunt Docar, Sunti &  & 5\\
 2024-02-01 &  &  &  & Perieria a Inicentis flam litatum, Sunti &  & 2665.9\\
-2024-02-02 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1671 & 0\\
+2024-02-02 &  &  &  & Putudacum in Subis Ustestrit MOR ET ETE, Sunti & 1671 & \\
 2024-02-05 &  &  &  & AT-BY Ferpulo Eiuspicurentas UT, Sunti &  & 809.55\\
 2024-02-12 &  &  &  & Perieria a Inicentis flam litatum, Sunti &  & 2514\\
 2024-02-14 &  &  &  & Perieria a Subis ustestrit in medraccibenti AT, Sunti &  & 4117\\
-2024-02-23 &  &  &  & Postangite gro paracto iruci, Sunti & 10000 & 0\\
+2024-02-23 &  &  &  & Postangite gro paracto iruci, Sunti & 10000 & \\
 2024-02-26 &  &  &  & AT-BY Ferpulo Eiuspicurentas UT, Sunti &  & 6.9\\
 \\
 \end{tablevalue}
