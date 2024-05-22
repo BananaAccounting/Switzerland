@@ -18,6 +18,8 @@
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
 // @includejs = import.utilities.js
 
+var applicationSupportIsDetail = Banana.compareVersion &&
+   (Banana.compareVersion(Banana.application.version, "10.0.12") >= 0);
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
@@ -104,34 +106,60 @@ function TKBFormat4() {
 
       return false;
    }
-
+   
    this.convert = function (transactionsData) {
       var transactionsToImport = [];
 
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
+      var lastCompleteTransactionPrinted = false;
 
       for (var i = 0; i < transactionsData.length; i++) {
-     
-         if (transactionsData[i]["Buchungsdatum"] && transactionsData[i]["Buchungsdatum"].length >= 10 &&
-         transactionsData[i]["Buchungsdatum"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/)) {
-            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
-            lastCompleteTransaction = transactionsData[i];
-            isPreviousCompleteTransaction = true;
-         } else if (isPreviousCompleteTransaction && this.isDetailRow(transactionsData[i])) {
-            var detailRow = transactionsData[i];
-            this.fillDetailRow(detailRow, lastCompleteTransaction);
-            transactionsToImport.push(this.mapTransaction(detailRow));
-         } else {
-            isPreviousCompleteTransaction = false;
+         var transaction = transactionsData[i];
+
+         if (transaction.length === 0) {
+            // Righe vuote
+            continue;
          }
+
+         if (!this.isDetailRow(transaction)) {
+            lastCompleteTransactionPrinted = false;
+            if (isPreviousCompleteTransaction) {
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+            }
+            lastCompleteTransaction = transaction;
+            isPreviousCompleteTransaction = true;
+         } else {
+            if (transaction['Betrag Einzelzahlung (CHF)'].length > 0) {
+               if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+                  lastCompleteTransaction['IsDetail'] = 'S';
+                  transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                  lastCompleteTransactionPrinted = true;
+               }
+
+               this.fillDetailRow(transaction, lastCompleteTransaction);
+               if (applicationSupportIsDetail) {
+                  transaction['IsDetail'] = 'D';
+               }
+               transactionsToImport.push(this.mapTransaction(transaction));
+               isPreviousCompleteTransaction = false;
+            } else {
+               this.fillDetailRow(transaction, lastCompleteTransaction);
+               transactionsToImport.push(this.mapTransaction(transaction));
+               isPreviousCompleteTransaction = false;
+            }
+         }
+      }
+
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Sort rows by date
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses", "IsDetail"]];
       return header.concat(transactionsToImport);
    }
 
@@ -162,12 +190,13 @@ function TKBFormat4() {
       let mappedLine = [];
 
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Buchungsdatum"], "dd.mm.yyyy"));
-      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Valutadatum"], "dd.mm.yyyy"));
       mappedLine.push("");
       mappedLine.push("");
       mappedLine.push(transaction["Buchungstext"]);
       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Gutschrift (CHF)"], '.'));
       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Belastung (CHF)"], '.'));
+      mappedLine.push(transaction["IsDetail"]);
 
       return mappedLine;
    }
