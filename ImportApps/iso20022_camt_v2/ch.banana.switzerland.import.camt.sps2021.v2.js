@@ -20,12 +20,31 @@ var ISO20022CamtFile = class ISO20022CamtFile {
     constructor() {
         this.document = null;
         this.lang = 'en';
+        this.applicationLanguage = this.getApplicationLanguage();
         this.params = this.defaultParameters();
         if (Banana.document) {
             var savedParam = Banana.document.getScriptSettings();
             if (savedParam.length > 0) {
                 try {
                     this.params = JSON.parse(savedParam);
+                    
+                    // Convert old parameters to new parameters
+                    if (this.params.import_credits) {
+                        delete this.params.import_credits; //remove old parameter
+                        this.params.import_transactions = this.tr('import_transactions_credits', this.applicationLanguage); //set new parameter
+                    }
+
+                    // Get the content of the combobox parameters and translate it in case the language of the application is changed (parameters were saved in different language)
+                    if (!this.params.import_transactions || this.params.import_transactions === 'All' || this.params.import_transactions === 'Tutti' || this.params.import_transactions === 'Alle' || this.params.import_transactions === 'Toutes') {
+                        this.params.import_transactions = this.tr('import_transactions_all', this.applicationLanguage);
+                    }
+                    else if (this.params.import_transactions === 'Credits' || this.params.import_transactions === 'Accrediti' || this.params.import_transactions === 'Einnahmen' || this.params.import_transactions === 'Crédits') {
+                        this.params.import_transactions = this.tr('import_transactions_credits', this.applicationLanguage);
+                    }
+                    else if (this.params.import_transactions === 'Debits' || this.params.import_transactions === 'Addebiti' || this.params.import_transactions === 'Ausgaben' || this.params.import_transactions === 'Débits') {
+                        this.params.import_transactions = this.tr('import_transactions_debits', this.applicationLanguage);
+                    }
+
                 } catch(err) {
                     Banana.console.log(err.toString());
                 }
@@ -39,14 +58,24 @@ var ISO20022CamtFile = class ISO20022CamtFile {
         }
     }
 
+    getApplicationLanguage() {
+        var lang = 'en';
+        if (Banana.application.locale)
+            lang = Banana.application.locale;
+        if (lang.length > 2)
+            lang = lang.substr(0, 2);
+        return lang;
+    }
+
     defaultParameters() {
+
         var params = {};
 
         /** If add_counterpart_transaction is set to true, in case of composed transactions a couterpart transaction
      is inserted in the list of the transactions. If set to false only the details transactions are added. */
         params.add_counterpart_transaction = true;
-        params.import_credits = false;
-
+        // params.import_credits = false; // parameter replaced with the new "import_transactions"
+        params.import_transactions = this.tr('import_transactions_all', this.applicationLanguage);
         params.invoice_no = {};
         params.invoice_no.extract = true;
         params.invoice_no.banana_format = true;
@@ -363,10 +392,16 @@ var ISO20022CamtFile = class ISO20022CamtFile {
                         'IsDetail': 'S'
                     };
 
-                    if (this.params.import_credits && entryIsCredit) { // use the transaction only if user selected import_credits parameter and the current transaction amount is credit
+                    if (this.params.import_transactions === this.tr('import_transactions_credits', this.applicationLanguage) && entryIsCredit) {
+                        // use the transaction only if user selected CREDITS parameter and the current transaction amount is credit
                         transactions.push(transaction);
                     }
-                    else if (!this.params.import_credits) { // always use the transaction if user doesn't select the import_credits parameter
+                    else if (this.params.import_transactions === this.tr('import_transactions_debits', this.applicationLanguage) && !entryIsCredit) {
+                        // use the transaction only if user selected DEBITS parameter and the current transaction amount is not credit
+                        transactions.push(transaction);
+                    }
+                    else if (!this.params.import_transactions || this.params.import_transactions === this.tr('import_transactions_all', this.applicationLanguage)) {
+                        // use all the transaction if user selected ALL parameter
                         transactions.push(transaction);
                     }
                 }
@@ -429,12 +464,20 @@ var ISO20022CamtFile = class ISO20022CamtFile {
                             }
                         }
                         
-                        if (this.params.import_credits && entryIsCredit) { // use the transaction only if user selected import_credits parameter and the current transaction amount is credit
+
+                        if (this.params.import_transactions === this.tr('import_transactions_credits', this.applicationLanguage) && entryIsCredit) {
+                            // use the transaction only if user selected CREDITS parameter and the current transaction amount is credit
                             transactions.push(transaction);
                         }
-                        else if (!this.params.import_credits) { // always use the transaction if user doesn't select the import_credits parameter
+                        else if (this.params.import_transactions === this.tr('import_transactions_debits', this.applicationLanguage) && !entryIsCredit) {
+                            // use the transaction only if user selected DEBITS parameter and the current transaction amount is not credit
                             transactions.push(transaction);
                         }
+                        else if (!this.params.import_transactions || this.params.import_transactions === this.tr('import_transactions_all', this.applicationLanguage)) {
+                            // use all the transaction if user selected ALL parameter
+                            transactions.push(transaction);
+                        }
+
                         txDtlsCount++;
 
                         textDetailsNode = textDetailsNode.nextSiblingElement('TxDtls'); // next movement detail
@@ -835,7 +878,11 @@ var ISO20022CamtFile = class ISO20022CamtFile {
         texts.isr = 'Isr: ';
 
         texts.add_counterpart_transaction = 'Add counterpart transaction';
-        texts.import_credits = 'Import credits only';
+        // texts.import_credits = 'Import credits only';
+        texts.import_transactions = 'Import transactions';
+        texts.import_transactions_all = 'All';
+        texts.import_transactions_credits = 'Credits';
+        texts.import_transactions_debits = 'Debits';
         texts.invoice_no_extract = 'Extract invoice number from reference';
         texts.invoice_no_start = 'Start position';
         texts.invoice_no_length = 'Number of characters (-1 = all)';
@@ -851,7 +898,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
         texts.customer_no_method_tooltip = 'Function to extract the customer account, ex.: "(function(text) {return text.substr(18,7);})"';
         texts.customer_no_keep_initial_zeros = 'Keep initial zeros';
         texts.legacy_add_counterpart_transaction = 'Add counterpart transactions (0 or empty = No; 1 = Yes)';
-        texts.legacy_import_credits = 'Import credits only (0 or empty = No; 1 = Yes)';
+        // texts.legacy_import_credits = 'Import credits only (0 or empty = No; 1 = Yes)';
         texts.legacy_invoice_no_extract = 'Extract invoice number from Isr reference (0 or empty = No; 1 = Yes)';
         texts.legacy_invoice_no_start = 'Extract invoice number from Isr reference: Start position';
         texts.legacy_invoice_no_length = 'Extract invoice number from Isr reference: Number of characters (-1 = all)';
@@ -866,7 +913,11 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.isr = 'Pvr: ';
 
             texts.add_counterpart_transaction = 'Aggiungi registrazione di contropartita';
-            texts.import_credits = 'Importa solo accrediti';
+            // texts.import_credits = 'Importa solo accrediti';
+            texts.import_transactions = 'Importa movimenti';
+            texts.import_transactions_all = 'Tutti';
+            texts.import_transactions_credits = 'Accrediti';
+            texts.import_transactions_debits = 'Addebiti';
             texts.invoice_no_extract = 'Estrai numero fattura dal numero di riferimento';
             texts.invoice_no_start = 'Posizione di inizio';
             texts.invoice_no_length = 'Numero di caratteri (-1 = tutti)';
@@ -882,7 +933,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.customer_no_method_tooltip = 'Funzione per estrarre l\'account del cliente, es .: "(function(text) {return text.substr(18,7);})"';
             texts.customer_no_keep_initial_zeros = 'Mantieni zeri iniziali';
             texts.legacy_add_counterpart_transaction = 'Aggiungi registrazione di contropartita (0 o vuoto = No; 1 = Si)';
-            texts.legacy_import_credits = 'Importa solo accrediti (0 o vuoto = No; 1 = Si)';
+            // texts.legacy_import_credits = 'Importa solo accrediti (0 o vuoto = No; 1 = Si)';
             texts.legacy_invoice_no_extract = 'Estrai numero fattura dal numero di riferimento PVR (0 o vuoto = No; 1 = Si)';
             texts.legacy_invoice_no_start = 'Estrai numero fattura dal numero di riferimento PVR: Posizione di inizio';
             texts.legacy_invoice_no_length = 'Estrai numero fattura dal numero di riferimento PVR: Numero di caratteri (-1 = tutti)';
@@ -895,7 +946,11 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.isr = 'ESR: ';
 
             texts.add_counterpart_transaction = 'Gegenbuchung hinzufügen';
-            texts.import_credits = 'Nur Kredite importieren';
+            // texts.import_credits = 'Nur Kredite importieren';
+            texts.import_transactions = 'Bewegungen importieren';
+            texts.import_transactions_all = 'Alle';
+            texts.import_transactions_credits = 'Einnahmen';
+            texts.import_transactions_debits = 'Ausgaben';
             texts.invoice_no_extract = 'Rechnungsnummer aus Referenznummer extrahieren';
             texts.invoice_no_start = 'Anfangsposition';
             texts.invoice_no_length = 'Anzahl Zeichen (-1 = Alle)';
@@ -911,7 +966,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.customer_no_method_tooltip = 'Funktion zum Extrahieren des Kundenkontos, zB: "(function(text) {return text.substr(18,7);})"';
             texts.customer_no_keep_initial_zeros = 'Die Nullen am Anfang beibehalten';
             texts.legacy_add_counterpart_transaction = 'Gegenbuchung hinzufügen (0 oder leer = Nein; 1 = Ja)';
-            texts.legacy_import_credits = 'Nur Kredite importieren (0 oder leer = Nein; 1 = Ja)';
+            // texts.legacy_import_credits = 'Nur Kredite importieren (0 oder leer = Nein; 1 = Ja)';
             texts.legacy_invoice_no_extract = 'Rechnungsnummer aus ESR-Referenznummer extrahieren (0 oder leer = Nein; 1 = Ja)';
             texts.legacy_invoice_no_start = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Anfangsposition';
             texts.legacy_invoice_no_length = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Anzahl Zeichen (-1 = Alle)';
@@ -925,7 +980,11 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.isr = 'Bvr: ';
 
             texts.add_counterpart_transaction = 'Ajouter écriture de contrepartie';
-            texts.import_credits = "Importe uniquement les crédits";
+            // texts.import_credits = "Importe uniquement les crédits";
+            texts.import_transactions = 'Importer les transactions' ;
+            texts.import_transactions_all = 'Toutes' ;
+            texts.import_transactions_credits = 'Crédits' ;
+            texts.import_transactions_debits = 'Débits' ;
             texts.invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence';
             texts.invoice_no_start = 'Position de départ';
             texts.invoice_no_length = 'Nombre de caractères (-1 = tous)';
@@ -941,7 +1000,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.customer_no_method_tooltip = 'Fonction pour extraire le compte client, ex .: "(function(text) {return text.substr(18,7);})"';
             texts.customer_no_keep_initial_zeros = 'Maintenir les zéros initial';
             texts.legacy_add_counterpart_transaction = 'Ajouter écriture de contrepartie (0 ou vide = Non; 1 = Oui)';
-            texts.legacy_import_credits = "Importe uniquement les crédits (0 ou vide = Non; 1 = Oui)";
+            // texts.legacy_import_credits = "Importe uniquement les crédits (0 ou vide = Non; 1 = Oui)";
             texts.legacy_invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence BVR (0 ou vide = Non; 1 = Oui)';
             texts.legacy_invoice_no_start = 'Extraire le numéro de facture depuis le numéro de référence BVR: Position de départ';
             texts.legacy_invoice_no_length = 'Extraire le numéro de facture depuis le numéro de référence BVR: Nombre de caractères (-1 = tous)';
