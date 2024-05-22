@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.tkb
 // @api = 1.0
-// @pubdate = 2023-02-10
+// @pubdate = 2024-05-22
 // @publisher = Banana.ch SA
 // @description = Thurgauer Kantonalbank - Import bank account statement  (*.csv)
 // @description.de = Thurgauer Kantonalbank -  Kontoauszug importieren (*.csv)
@@ -26,48 +26,39 @@ var applicationSupportIsDetail = Banana.compareVersion &&
 function exec(string, isTest) {
 
 
-	var importUtilities = new ImportUtilities(Banana.document);
-  
-	if (isTest!==true && !importUtilities.verifyBananaAdvancedVersion())
-		return "";
+   var importUtilities = new ImportUtilities(Banana.document);
 
-   var fieldSeparator = findSeparator(string);
+   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+      return "";
+
    let convertionParam = defineConversionParam(string);
    var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
    // Format 4
    var format4 = new TKBFormat4();
-   if (format4.match(transactionsData))
-   {
-      Banana.console.debug("format4");
+   if (format4.match(transactionsData)) {
       transactions = format4.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 3
    var format3 = new TKBFormat3();
-   if ( format3.match( transactions))
-   {
-      Banana.console.debug("format3");
+   if (format3.match(transactions)) {
       transactions = format3.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 2
    var format2 = new TKBFormat2();
-   if ( format2.match( transactions))
-   {
-      Banana.console.debug("format2");
+   if (format2.match(transactions)) {
       transactions = format2.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 1
    var format1 = new TKBFormat1();
-   if ( format1.match( transactions))
-   {
-      Banana.console.debug("format1");
+   if (format1.match(transactions)) {
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -80,12 +71,22 @@ function exec(string, isTest) {
 /**
  * Example
  * Buchungsdatum;Valutadatum;Auftragsart;Buchungstext;Betrag Einzelzahlung (CHF);Belastung (CHF);Gutschrift (CHF);Saldo in (CHF)
- * 28.02.2024;28.02.2024;Pulo�cent;"Sevolucela / Xxx.-Eo.  5413226066 hat.me AleI Emovimindiunno 75 8045 Z�rich Nuidivo Muliunnata: OCCIUSIVIT BY-84030035864 32-87-4048 PAUT HAT";;;2676.24;3020.50
- * 27.02.2024;27.02.2024;Pulo�cent;"Sevolucela / Xxx.-Eo.  2363577442 LINO DITQUAM ALEI SOLAMQUA-WEEK 3 72010 HEDESUBA Subserunter Muliunnata: /XXX/842-710836420-367242487-711561///UBI/ET:RKB82.87.61:QUAT-EO. 000053:BRUTTO165,20:KOM2,10:VP157228737:FIL:TRX9 RIURANE-44761868503-711561";;;741.51;2607.84
- * In questo formato, una registrazione viene stranamente divisa su 5 righe o 7 (2 spazi vuoti in mezzo)
+ * 28.02.2024;28.02.2024;Pulo�cent;"Sevolucela / Xxx.-Eo.  5413226066
+ * hat.me AleI
+ * Emovimindiunno 75
+ * 8045 Z�rich
+ * Nuidivo
+ * Muliunnata: OCCIUSIVIT BY-84030035864 32-87-4048 PAUT HAT";;;2676.24;3020.50
+ * 27.02.2024;27.02.2024;Pulo�cent;"Sevolucela / Xxx.-Eo.  2363577442
+ * LINO DITQUAM ALEI
+ * SOLAMQUA-WEEK 3 72010 HEDESUBA
+ * Subserunter
+ * Muliunnata:
+ * /XXX/842-710836420-367242487-711561///UBI/ET:RKB82.87.61:QUAT-EO.
+ * 000053:BRUTTO165,20:KOM2,10:VP157228737:FIL:TRX9
+ * RIURANE-44761868503-711561";;;741.51;2607.84
 */
 function TKBFormat4() {
-   /** Return true if the transactions match this format */
    this.match = function (transactionsData) {
       if (transactionsData.length === 0)
          return false;
@@ -106,7 +107,7 @@ function TKBFormat4() {
 
       return false;
    }
-   
+
    this.convert = function (transactionsData) {
       var transactionsToImport = [];
 
@@ -118,18 +119,18 @@ function TKBFormat4() {
          var transaction = transactionsData[i];
 
          if (transaction.length === 0) {
-            // Righe vuote
+            // Emtpy row
             continue;
          }
 
-         if (!this.isDetailRow(transaction)) {
+         if (!this.isDetailRow(transaction)) { // Normal row
             lastCompleteTransactionPrinted = false;
             if (isPreviousCompleteTransaction) {
                transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             }
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
-         } else {
+         } else { // Detail row
             if (transaction['Betrag Einzelzahlung (CHF)'].length > 0) {
                if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
                   lastCompleteTransaction['IsDetail'] = 'S';
@@ -223,89 +224,89 @@ function TKBFormat3() {
    this.colCount = 5;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if (transactions.length === 0) 
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
       for (i = 0; i < transactions.length; i++) {
-        var transaction = transactions[i];
-        var formatMatched = false;
-        /* array should have all columns */
-         if (transaction.length === this.colCount || 
-            (transaction.length === this.colCount+1 && transaction[this.colCount].length === 0)) 
+         var transaction = transactions[i];
+         var formatMatched = false;
+         /* array should have all columns */
+         if (transaction.length === this.colCount ||
+            (transaction.length === this.colCount + 1 && transaction[this.colCount].length === 0))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-  
+
          if (formatMatched && transaction[this.colDate] &&
-          transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-            
+
          if (formatMatched && transaction[this.colDescr] && transaction[this.colDescr].match(/[a-zA-Z]/))
             formatMatched = true;
          else
             formatMatched = false;
-  
-        if (formatMatched) 
+
+         if (formatMatched)
             return true;
       }
-  
+
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       /** Complete, filter and map rows */
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } else if ( !this.isDetailRow(transaction)) {
-            if ( isPreviousCompleteTransaction === true)
-               transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+         } else if (!this.isDetailRow(transaction)) {
+            if (isPreviousCompleteTransaction === true)
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
          } else {
-            this.fillDetailRow( transaction, lastCompleteTransaction);
-            transactionsToImport.push( this.mapTransaction(transaction));
+            this.fillDetailRow(transaction, lastCompleteTransaction);
+            transactionsToImport.push(this.mapTransaction(transaction));
             isPreviousCompleteTransaction = false;
          }
       }
-      if ( isPreviousCompleteTransaction === true) {
-         transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction[this.colDate].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction[this.colDate].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow[this.colDate] = totalRow[this.colDate];
       detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
       // Copy amount from complete row to detail row
-      if ( detailRow[this.colDetail].length > 0) {
-         if ( totalRow[this.colDebit].length > 0) {
+      if (detailRow[this.colDetail].length > 0) {
+         if (totalRow[this.colDebit].length > 0) {
             detailRow[this.colDebit] = detailRow[this.colDetail];
          } else if (totalRow[this.colCredit].length > 0) {
             detailRow[this.colCredit] = detailRow[this.colDetail];
@@ -317,16 +318,16 @@ function TKBFormat3() {
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( "");
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push("");
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
@@ -350,98 +351,98 @@ function TKBFormat2() {
    this.colCount = 6;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if (transactions.length === 0) 
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
       for (i = 0; i < transactions.length; i++) {
-        var transaction = transactions[i];
-        var formatMatched = false;
-        /* array should have all columns */
-        if (transaction.length === this.colCount ||
-           (transaction.length === this.colCount+1 && transaction[this.colCount].length === 0)) 
+         var transaction = transactions[i];
+         var formatMatched = false;
+         /* array should have all columns */
+         if (transaction.length === this.colCount ||
+            (transaction.length === this.colCount + 1 && transaction[this.colCount].length === 0))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-  
+
          if (formatMatched && transaction[this.colDate] &&
-          transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
 
          if (formatMatched && transaction[this.colDateValuta] &&
             transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
 
          if (formatMatched && transaction[this.colDescr] && transaction[this.colDescr].match(/[a-zA-Z]/))
             formatMatched = true;
          else
             formatMatched = false;
-  
-        if (formatMatched) 
+
+         if (formatMatched)
             return true;
       }
-  
+
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       /** Complete, filter and map rows */
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } else if ( !this.isDetailRow(transaction)) {
-            if ( isPreviousCompleteTransaction === true)
-               transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+         } else if (!this.isDetailRow(transaction)) {
+            if (isPreviousCompleteTransaction === true)
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
          } else {
-            this.fillDetailRow( transaction, lastCompleteTransaction);
-            transactionsToImport.push( this.mapTransaction(transaction));
+            this.fillDetailRow(transaction, lastCompleteTransaction);
+            transactionsToImport.push(this.mapTransaction(transaction));
             isPreviousCompleteTransaction = false;
          }
       }
-      if ( isPreviousCompleteTransaction === true) {
-         transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Sort rows by date (just invert)
       transactionsToImport = transactionsToImport.reverse();
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction[this.colDate].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction[this.colDate].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow[this.colDate] = totalRow[this.colDate];
       detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
       // Copy amount from complete row to detail row
-      if ( detailRow[this.colDetail].length > 0) {
-         if ( totalRow[this.colDebit].length > 0) {
+      if (detailRow[this.colDetail].length > 0) {
+         if (totalRow[this.colDebit].length > 0) {
             detailRow[this.colDebit] = detailRow[this.colDetail];
          } else if (totalRow[this.colCredit].length > 0) {
             detailRow[this.colCredit] = detailRow[this.colDetail];
@@ -453,16 +454,16 @@ function TKBFormat2() {
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
@@ -493,95 +494,95 @@ function TKBFormat1() {
    this.colCount = 7;
 
    /** Return true if the transactions match this format */
-   this.match = function(transactions) {
-      if (transactions.length === 0) 
+   this.match = function (transactions) {
+      if (transactions.length === 0)
          return false;
 
       for (i = 0; i < transactions.length; i++) {
-        var transaction = transactions[i];
-        var formatMatched = false;
-        /* array should have all columns */
-         if (transaction.length >= this.colCount) 
+         var transaction = transactions[i];
+         var formatMatched = false;
+         /* array should have all columns */
+         if (transaction.length >= this.colCount)
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-  
+
          if (formatMatched && transaction[this.colDate] &&
-          transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transaction[this.colDate].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
 
          if (formatMatched && transaction[this.colDateValuta] &&
             transaction[this.colDateValuta].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
             formatMatched = true;
-         else 
+         else
             formatMatched = false;
-  
-        if (formatMatched) 
+
+         if (formatMatched)
             return true;
       }
-  
+
       return false;
    }
 
    /** Convert the transaction to the format to be imported */
-   this.convert = function(transactions) {
+   this.convert = function (transactions) {
       var transactionsToImport = [];
 
       /** Complete, filter and map rows */
       var lastCompleteTransaction = null;
       var isPreviousCompleteTransaction = false;
 
-      for (i=1;i<transactions.length;i++) // First row contains the header
+      for (i = 1; i < transactions.length; i++) // First row contains the header
       {
          var transaction = transactions[i];
 
-         if ( transaction.length === 0) {
+         if (transaction.length === 0) {
             // Righe vuote
             continue;
-         } else if ( !this.isDetailRow(transaction)) {
-            if ( isPreviousCompleteTransaction === true)
-               transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+         } else if (!this.isDetailRow(transaction)) {
+            if (isPreviousCompleteTransaction === true)
+               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
             lastCompleteTransaction = transaction;
             isPreviousCompleteTransaction = true;
          } else {
-            this.fillDetailRow( transaction, lastCompleteTransaction);
-            transactionsToImport.push( this.mapTransaction(transaction));
+            this.fillDetailRow(transaction, lastCompleteTransaction);
+            transactionsToImport.push(this.mapTransaction(transaction));
             isPreviousCompleteTransaction = false;
          }
       }
-      if ( isPreviousCompleteTransaction === true) {
-         transactionsToImport.push( this.mapTransaction(lastCompleteTransaction));
+      if (isPreviousCompleteTransaction === true) {
+         transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
       }
 
       // Sort rows by date (just invert)
       if (transactionsToImport.length > 1 &&
-            transactionsToImport[0][0] > transactionsToImport[transactionsToImport.length-1][0]) {
+         transactionsToImport[0][0] > transactionsToImport[transactionsToImport.length - 1][0]) {
          transactionsToImport = transactionsToImport.reverse();
       }
 
       // Add header and return
-      var header = [["Date","DateValue","Doc","Description","Income","Expenses"]];
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
    }
 
    /** Return true if the transaction is a transaction row */
-   this.isDetailRow = function(transaction) {
-      if ( transaction[this.colDate].length === 0) // Date (first field) is empty
+   this.isDetailRow = function (transaction) {
+      if (transaction[this.colDate].length === 0) // Date (first field) is empty
          return true;
       return false;
    }
 
    /** Fill the detail rows with the missing values. The value are copied from the preceding total row */
-   this.fillDetailRow = function(detailRow, totalRow) {
+   this.fillDetailRow = function (detailRow, totalRow) {
       // Copy dates
       detailRow[this.colDate] = totalRow[this.colDate];
       detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
       // Copy amount from complete row to detail row
-      if ( detailRow[this.colDetail].length > 0) {
-         if ( totalRow[this.colDebit].length > 0) {
+      if (detailRow[this.colDetail].length > 0) {
+         if (totalRow[this.colDebit].length > 0) {
             detailRow[this.colDebit] = detailRow[this.colDetail];
          } else if (totalRow[this.colCredit].length > 0) {
             detailRow[this.colCredit] = detailRow[this.colDetail];
@@ -593,23 +594,23 @@ function TKBFormat1() {
    }
 
    /** Return true if the transaction is a transaction row */
-   this.mapTransaction = function(element) {
+   this.mapTransaction = function (element) {
       var mappedLine = [];
 
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDate]));
-      mappedLine.push( Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
-      mappedLine.push( ""); // Doc is empty for now
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
+      mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
-      mappedLine.push( Banana.Converter.stringToCamelCase( tidyDescr));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colCredit], '.'));
-      mappedLine.push( Banana.Converter.toInternalNumberFormat( element[this.colDebit], '.'));
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colDebit], '.'));
 
       return mappedLine;
    }
 }
 
 function defineConversionParam(inData) {
- 
+
    var inData = Banana.Converter.csvToArray(inData);
    var header = String(inData[0]);
    var convertionParam = {};
@@ -649,13 +650,13 @@ function getFormattedData(inData, convertionParam, importUtilities) {
 /**
  * The function findSeparator is used to find the field separator.
  */
-function findSeparator( string) {
+function findSeparator(string) {
 
-   var commaCount=0;
-   var semicolonCount=0;
-   var tabCount=0;
+   var commaCount = 0;
+   var semicolonCount = 0;
+   var tabCount = 0;
 
-   for(var i = 0; i < 1000 && i < string.length; i++) {
+   for (var i = 0; i < 1000 && i < string.length; i++) {
       var c = string[i];
       if (c === ',')
          commaCount++;
@@ -667,7 +668,7 @@ function findSeparator( string) {
 
    if (tabCount > commaCount && tabCount > semicolonCount) {
       return '\t';
-   } else if (semicolonCount > commaCount)	{
+   } else if (semicolonCount > commaCount) {
       return ';';
    }
 
