@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -55,40 +55,13 @@ function exec(inData, isTest) {
 
    } else {
       var fieldSeparator = findSeparator(inData);
-      var transactions = Banana.Converter.csvToArray(inData, fieldSeparator);
-
-      // Format 5
-      var format5 = new PFCSVFormat5();
-      if (format5.match(transactions)) {
-         transactions = format5.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
-
-      // Format 4
-      var format4 = new PFCSVFormat4();
-      if (format4.match(transactions)) {
-         transactions = format4.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
+      let inDataCleared = clearText(inData);
+      var transactions = Banana.Converter.csvToArray(inDataCleared, fieldSeparator);
 
       // Format SBU 1
       var formatSBU1 = new PFCSVFormatSBU1();
       if (formatSBU1.match(transactions)) {
          transactions = formatSBU1.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
-
-      // Format 3
-      var format3 = new PFCSVFormat3();
-      if (format3.match(transactions)) {
-         transactions = format3.convert(transactions);
-         return Banana.Converter.arrayToTsv(transactions);
-      }
-
-      // Format 2
-      var format2 = new PFCSVFormat2();
-      if (format2.match(transactions)) {
-         transactions = format2.convert(transactions);
          return Banana.Converter.arrayToTsv(transactions);
       }
 
@@ -105,11 +78,367 @@ function exec(inData, isTest) {
          transactions = format1.convert(transactions);
          return Banana.Converter.arrayToTsv(transactions);
       }
+
+      // Format 2
+      var format2 = new PFCSVFormat2();
+      if (format2.match(transactions)) {
+         transactions = format2.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 3
+      var format3 = new PFCSVFormat3();
+      if (format3.match(transactions)) {
+         transactions = format3.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 4
+      var format4 = new PFCSVFormat4();
+      if (format4.match(transactions)) {
+         transactions = format4.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 5
+      var format5 = new PFCSVFormat5();
+      if (format5.match(transactions)) {
+         transactions = format5.convert(transactions);
+         return Banana.Converter.arrayToTsv(transactions);
+      }
+
+      // Format 6, works with translated column headers.
+      var format6 = new PFCSVFormat6();
+      // getFormattedData () works with specifics headers and to translate them. 
+      let transactionsData = format6.getFormattedData(transactions, importUtilities);
+      if (format6.match(transactionsData)) {
+         let convTransactions = format6.convert(transactionsData);
+         return Banana.Converter.arrayToTsv(convTransactions);
+      }
    }
 
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * Pulisce il testo dai doppi a capo, con la versione 6 del formato csv, per qualche motivo quando il file .csv
+ * viene aperto su windows vengono aggiunti degli a capo aggiuntivi (uno o più).
+ * Ogni riga dovrebbe contenere un "\r\n" non di più, anche quelle vuote.
+ */
+function clearText(text) {
+   // Sostituisce tutte le occorrenze multiple di "\r\r\n" con un singolo "\r\n"
+   return text.replace(/\r\r\n/g, "\r\n");
+}
+
+/**
+ * PFCSV Format 6, since february 2024.
+ * Date de début:;26.02.2022;;;;;
+ * Date de fin:;26.02.2024;;;;;
+ * Catégorie:;Tous;;;;;
+ * Compte:;CH00000000000000000000;;;;;
+ * Monnaie:;CHF;;;;;
+ * ;;;;;;
+ * Date;Type de transaction;Texte de notification;Crédit en CHF;Débit en CHF;Label;Catégorie
+ * ;;;;;;
+ * 26.02.2024;Enregistrement comptable;Descr;;-100;;Dépenses autres
+ * 26.02.2024;Enregistrement comptable;Descr;;-15;;Dépenses autres
+ * ;;;;;;
+ * Disclaimer:;;;;;;
+ * Le contenu du document a été généré à partir des paramètres de filtrage des clientes et des clients. PostFinance n’est pas responsable du contenu et de son exhaustivité.;;;;;;
+ */
+function PFCSVFormat6() {
+
+   this.getFormattedData = function (transactions, importUtilities) {
+      let headerLineStart = this.getHeaderLineStart(transactions);
+      let dataLineStart = headerLineStart == 6 ? 8 : 7;
+      // We do a copy as the getHeaderData modifies the content and we need to keep the original version clean.
+      var transactionsCopy = transactions.map(function (arr) {
+         return arr.slice();
+      });
+      if (transactionsCopy.length < dataLineStart)
+         return [];
+      let columns = importUtilities.getHeaderData(transactionsCopy, headerLineStart); //array
+      let rows = importUtilities.getRowData(transactionsCopy, dataLineStart); //array of array
+      let form = [];
+
+      /** We convert the original headers into a custom format to be able to work with the same
+       * format regardless of original's headers language or the position of the header column.
+       * We need to translate all the .csv fields as the loadForm() method expects the header and
+       * the rows to have the same length.
+       * */
+      let convertedColumns = [];
+
+      convertedColumns = this.convertHeaderDe(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from italian. 
+      convertedColumns = this.convertHeaderIt(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from french.
+      convertedColumns = this.convertHeaderFr(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from english.
+      convertedColumns = this.convertHeaderEn(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+
+   }
+
+   /**
+    * With this format, if user does not explicitly set the End Date of the movements
+    * when is exporting, then the header and data start at a different row, then we have
+    * to figure out if the end date is present or not.
+    */
+   this.getHeaderLineStart = function (transactions) {
+      let endDate = transactions[1][1];
+      if (endDate.match(/^\d{2}.\d{2}.\d{4}$/))
+         return 6; // the Header is on row 6.
+      else
+         return 5; // the Header is on row 5.
+   }
+
+   this.convertHeaderDe = function (columns) {
+      let convertedColumns = [];
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Datum":
+               convertedColumns[i] = "Date";
+               break;
+            case "Bewegungstyp":
+               convertedColumns[i] = "Type";
+               break;
+            case "Avisierungstext":
+               convertedColumns[i] = "Description";
+               break;
+            case "Gutschrift in CHF":
+            case "Gutschrift in EUR":
+            case "Gutschrift in USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Lastschrift in CHF":
+            case "Lastschrift in EUR":
+            case "Lastschrift in USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Label":
+               convertedColumns[i] = "Label";
+               break;
+            case "Kategorie":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+      return convertedColumns;
+   }
+
+   this.convertHeaderIt = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Data":
+               convertedColumns[i] = "Date";
+               break;
+            case "Tipo di movimento":
+               convertedColumns[i] = "Type";
+               break;
+            case "Testo di avviso":
+               convertedColumns[i] = "Description";
+               break;
+            case "Accredito in CHF":
+            case "Accredito in EUR":
+            case "Accredito in USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Addebito in CHF":
+            case "Addebito in EUR":
+            case "Addebito in USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Tag":
+               convertedColumns[i] = "Label";
+               break;
+            case "Categoria":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+
+      return convertedColumns;
+   }
+
+   this.convertHeaderFr = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Date":
+               convertedColumns[i] = "Date";
+               break;
+            case "Type de transaction":
+               convertedColumns[i] = "Type";
+               break;
+            case "Texte de notification":
+               convertedColumns[i] = "Description";
+               break;
+            case "Crédit en CHF":
+            case "Crédit en EUR":
+            case "Crédit en USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Débit en CHF":
+            case "Débit en EUR":
+            case "Débit en USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Label":
+               convertedColumns[i] = "Label";
+               break;
+            case "Catégorie":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+
+      return convertedColumns;
+   }
+
+   this.convertHeaderEn = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Date":
+               convertedColumns[i] = "Date";
+               break;
+            case "Type of transaction":
+               convertedColumns[i] = "Type";
+               break;
+            case "Notification text":
+               convertedColumns[i] = "Description";
+               break;
+            case "Credit in CHF":
+            case "Credit in EUR":
+            case "Credit in USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Debit in CHF":
+            case "Debit in EUR":
+            case "Debit in USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            case "Tag":
+               convertedColumns[i] = "Label";
+               break;
+            case "Category":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+
+      return convertedColumns;
+   }
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      let trDescription = transaction["Description"] + ", " + transaction["Type"];
+      mappedLine.push(trDescription);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
+      let expAmount = transaction["Expenses"].replace(/-/g, ''); //remove minus sign
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(expAmount, '.'));
+
+      return mappedLine;
+   }
+
 }
 
 /**
@@ -267,11 +596,10 @@ function PFCSVFormat5() {
       mappedLine.push(""); // Doc is empty for now
       var tidyDescr = element[this.colDescr].replace(/ {2,}/g, ''); //remove white spaces
       mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit]));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colCredit], '.'));
       amountDebit = element[this.colDebit].replace(/-/g, ''); //remove minus sign
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(amountDebit, '.'));
 
-      Banana.console.debug(mappedLine);
       return mappedLine;
    }
 }

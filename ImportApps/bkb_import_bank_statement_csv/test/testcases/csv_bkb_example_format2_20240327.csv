@@ -1,0 +1,7 @@
+Buchungsdatum;Auftragsart;Buchungstext;Belastungsbetrag (CHF);Gutschriftsbetrag (CHF);Saldo (CHF)
+31.12.2023;Ruckvergutung Gebuhren;Ruckvergutung Gebuhren;;14.00;273292.65
+31.12.2023;Dienstleistungsgebuhren;"Gebuhren sonst. Dienstleistungen
+Dienstleistungsgebuhren
+Dienstleistungsgebuhren";30.70;;273278.65
+31.12.2023;Paketgebuhr;Paketgebuhr;24.00;;273309.35
+31.12.2023;Zinszahlung;Zinsbelastung;1582.80;;273333.35
