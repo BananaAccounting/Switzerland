@@ -20,65 +20,65 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2023-01-06 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-56355613-AFL4-JER8,VI-28305521-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Rellium Susto  &  & 270.00\\
-2023-01-09 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-80045378-AFL4-JER8,VI-70672057-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Bilianno  &  & 670.00\\
-2023-01-24 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-56211746-AFL4-JER8,VI-11583254-8,Ortatem Aptus,4718 Lürada,Quatiunt  &  & 39.50\\
-2023-01-27 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-34337125-AFL4-JER8,VI-76463381-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 50.30\\
-2023-01-31 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-13064083-AFL4-JER8,VI-57311756-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Nülamniuntine Susto  &  & 233.00\\
-2023-01-31 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-81818654-AFL4-JER8,VI-72871823-8,Signuto TerE,- 6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 48.00\\
-2023-02-15 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-16540572-AFL4-JER8,VI-73053082-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Rellium Susto  &  & 780.00\\
-2023-02-23 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-71625221-AFL4-JER8,VI-27283412-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Nülamniuntine Susto  &  & 460.00\\
-2023-02-28 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-25131755-AFL4-JER8,VI-86417671-8,Signuto TerE,. 6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 45.00\\
-2023-02-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-31772102-AFL4-JER8,VI-24618846-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 24.95\\
-2023-03-13 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-80708830-AFL4-JER8,VI-55352142-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Rellium Susto  &  & 490.00\\
-2023-03-20 &  &  &  & Cabemüpargere ,AUT Cendius EO, Susto ,VI-83402180-8,AUT Cendius EO, Susto,AN,Pectanturrum,4500282478883413,ACIT-82374201-AFL4-JER8,PAR 70078.74/8.5186706500,57.17.3415 (74:74)  & 45460.03 & \\
-2023-03-20 &  &  &  & Nabulii EO-Nabulect ,Murbensalecteris Commum Aupemüsall ,ACIT-13367182-AFL4-JER8,VI-50652544-8,Murbensalecteris Commum Aupemüsall,Templentionavella 44,6618 Week,HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 33892.00\\
-2023-03-20 &  &  &  & Nabulii EO-Nabulect ,Murbensalecteris Commum Aupemüsall ,ACIT-13367182-AFL4-JER8,VI-56842647-8,Murbensalecteris Commum Aupemüsall,Templentionavella 44,6618 Week,HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 22839.50\\
-2023-03-31 &  &  &  & Plies per Chortianstiongro ,xxxävi pagnuitto Viscaph &  & 20.00\\
-2023-04-18 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-25606272-AFL4-JER8,VI-87837375-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 45.00\\
-2023-04-28 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-25606272-AFL4-JER8,VI-43276042-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 45.00\\
-2023-04-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-25606272-AFL4-JER8,VI-50614013-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 31.00\\
-2023-05-05 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-53041586-AFL4-JER8,VI-22317840-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Nubit Aöabo  &  & 880.00\\
-2023-05-17 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-82483775-AFL4-JER8,VI-32052746-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 29.95\\
-2023-05-31 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-58166404-AFL4-JER8,VI-14648761-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 45.00\\
-2023-06-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-73373638-AFL4-JER8,VI-17035160-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 29.95\\
-2023-06-30 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-61845510-AFL4-JER8,VI-77331807-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 45.00\\
-2023-06-30 &  &  &  & Plies per Chortianstiongro ,xxxävi pagnuitto Viscaph &  & 20.00\\
-2023-07-12 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-81124005-AFL4-JER8,VI-76742403-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Natubsensi, Susto  &  & 980.00\\
-2023-07-12 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-81124005-AFL4-JER8,VI-72754261-8,Ortatem Aptus,4718 Lürada,Stuloämanneret Susto, Aequaral,Labituba  &  & 380.00\\
-2023-08-08 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-67887281-AFL4-JER8,VI-28008540-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 46.80\\
-2023-08-21 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-10717072-AFL4-JER8,VI-62076224-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Avitävolo  &  & 1600.00\\
-2023-08-21 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-11464000-AFL4-JER8,VI-43780120-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 29.95\\
-2023-08-22 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-10717072-AFL4-JER8,VI-10142744-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Rellium Susto  &  & 280.00\\
-2023-08-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-11464000-AFL4-JER8,VI-60884258-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 32.95\\
-2023-08-31 &  &  &  & Nabulii EO-Nabulect ,Dissuam Liuva EO ,ACIT-34847518-AFL4-JER8,VI-67461751-8,Dissuam Liuva EO,Colonges 132,7700 Week,Aupemüridem Qualuundivem,Colonges 6618 Week DE  &  & 129.00\\
-2023-08-31 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-67887281-AFL4-JER8,VI-68862866-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 46.80\\
-2023-09-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-53558277-AFL4-JER8,VI-60364245-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 59.95\\
-2023-09-30 &  &  &  & Plies per Chortianstiongro ,xxxävi pagnuitto Viscaph &  & 20.00\\
-2023-10-16 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-17681478-AFL4-JER8,VI-77251386-8,Ortatem Aptus,4718 Lürada,hUntas 75 Fac  &  & 1128.00\\
-2023-10-16 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-17681478-AFL4-JER8,VI-74783263-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Miscem Susto  &  & 185.00\\
-2023-10-16 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-26768055-AFL4-JER8,VI-70266372-8,Ortatem Aptus,4718 Lürada,Stuloäaurberit Nülamniuntine Susto  &  & 150.00\\
-2023-10-16 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-26768055-AFL4-JER8,VI-57606300-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 46.80\\
-2023-10-27 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-10242584-AFL4-JER8,VI-21724565-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 31.95\\
-2023-11-03 &  &  &  & Nabulii EO-Nabulect ,Contudis Susto ,ACIT-55877423-AFL4-JER8,VI-38825261-8,Contudis Susto,Rateratelle 482,1523 Susto,Nabulect Ut. 8652778,HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 200.00\\
-2023-11-10 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-77370577-AFL4-JER8,VI-13317853-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 46.80\\
-2023-11-13 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-43424342-AFL4-JER8,VI-25555177-8,Ortatem Aptus,4718 Lürada,Asunimendi Natriptines  &  & 750.00\\
-2023-11-13 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-43424342-AFL4-JER8,VI-52558763-8,Ortatem Aptus,4718 Lürada,Asunimendi Nülamniuntine, Susto  &  & 182.60\\
-2023-11-13 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-43424342-AFL4-JER8,VI-47177612-8,Ortatem Aptus,4718 Lürada,Asunimendi Nösucumügas, Susto  &  & 170.00\\
-2023-11-20 &  &  &  & Initüsedrantesupa ,loccit mividentum TerE ,ACIT-55877423-AFL4-JER8,VI-81843722-8,loccit mividentum TerE,Stotempercitatro 566m,6122 Quatempartem,Nabulect SI-55146  &  & 1960.15\\
-2023-11-20 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-45688716-AFL4-JER8,VI-48617281-8,Ortatem Aptus,4718 Lürada,Iciduximunium Nülamniuntine, Susto  &  & 200.00\\
-2023-11-20 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-87727603-AFL4-JER8,VI-13250048-8,Ortatem Aptus,4718 Lürada,Asunimendi Nösucumügas, Susto  &  & 120.00\\
-2023-11-28 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-83485501-AFL4-JER8,VI-71127060-8,Ortatem Aptus,4718 Lürada,Stuloäfrelensi Asunimendi Numete  &  & 850.00\\
-2023-11-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-37158473-AFL4-JER8,VI-66057550-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 71.90\\
-2023-11-30 &  &  &  & Nabulii EO-Nabulect ,Signuto TerE ,ACIT-83616112-AFL4-JER8,VI-44314454-8,Signuto TerE,6852 Graerunte (Incular),HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 46.80\\
-2023-12-18 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-56878875-AFL4-JER8,VI-21430878-8,Ortatem Aptus,4718 Lürada,Stuloäfrelensi Asunimendi Utüex,Susto  &  & 230.00\\
-2023-12-21 &  &  &  & Mensides-Nabulii ,Vita Ortatem Aptus cor-lige Cali Por ,VI-32541432-8,Vita Ortatem Aptus cor-lige Cali,Induciuva Temittis xxx Redive Vit,Deümenterahentiam 32,4718 Lürada,Carticem DUM 81,713.-  & 50000.00 & \\
-2023-12-22 &  &  &  & Nabulii EO-Nabulect ,Murbensalecteris Commum Aupemüsall ,ACIT-56878875-AFL4-JER8,VI-24854783-8,Murbensalecteris Commum Aupemüsall,Templentionavella 44,6618 Week,HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 20051.50\\
-2023-12-22 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-77540230-AFL4-JER8,VI-41612006-8,Ortatem Aptus,4718 Lürada,Aliquaescescrem AUT Cendius EO,87Exm 3415  &  & 751.82\\
-2023-12-27 &  &  &  & Nabulii EO-Nabulect ,Murbensalecteris Commum Aupemüsall ,ACIT-60673120-AFL4-JER8,VI-54067263-8,Murbensalecteris Commum Aupemüsall,Templentionavella 44,6618 Week,HolvEresent EO,Dometiuntenta 57 2213 Evem DE  &  & 19958.00\\
-2023-12-28 &  &  &  & Nabulii EO-Nabulect ,Inta Siride ME ,ACIT-60484165-AFL4-JER8,VI-55840154-8,Inta Siride ME,Por et Facchoc 5,4004 Siduci,SEC Quaertiatem EO,Milegrehenenit 88 5778 Lürada DE  &  & 31.95\\
-2023-12-29 &  &  &  & Initüsedrantesupa ,Ortatem Aptus ,ACIT-16257660-AFL4-JER8,VI-11270742-8,Ortatem Aptus,4718 Lürada,Bomirattionerva AUT Cendius EO vi,Susto, 88Msk 3415  &  & 700.00\\
-2023-12-31 &  &  &  & Plies per Chortianstiongro ,xxxävi pagnuitto Viscaph &  & 20.00\\
+2023-01-06 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-56355613-AFL4-JER8 & VI-28305521-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Rellium Susto " &  & 270.00\\
+2023-01-09 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-80045378-AFL4-JER8 & VI-70672057-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Bilianno " &  & 670.00\\
+2023-01-24 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-56211746-AFL4-JER8 & VI-11583254-8 & Ortatem Aptus & 4718 Lürada & Quatiunt " &  & 39.50\\
+2023-01-27 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-34337125-AFL4-JER8 & VI-76463381-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 50.30\\
+2023-01-31 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-13064083-AFL4-JER8 & VI-57311756-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Nülamniuntine Susto " &  & 233.00\\
+2023-01-31 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-81818654-AFL4-JER8 & VI-72871823-8 & Signuto TerE & - 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 48.00\\
+2023-02-15 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-16540572-AFL4-JER8 & VI-73053082-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Rellium Susto " &  & 780.00\\
+2023-02-23 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-71625221-AFL4-JER8 & VI-27283412-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Nülamniuntine Susto " &  & 460.00\\
+2023-02-28 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-25131755-AFL4-JER8 & VI-86417671-8 & Signuto TerE & . 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 45.00\\
+2023-02-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-31772102-AFL4-JER8 & VI-24618846-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 24.95\\
+2023-03-13 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-80708830-AFL4-JER8 & VI-55352142-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Rellium Susto " &  & 490.00\\
+2023-03-20 &  &  &  & "Cabemüpargere  & AUT Cendius EO &  Susto  & VI-83402180-8 & AUT Cendius EO &  Susto & AN & Pectanturrum & 4500282478883413 & ACIT-82374201-AFL4-JER8 & PAR 70078.74/8.5186706500 & 57.17.3415 (74:74) " & 45460.03 & \\
+2023-03-20 &  &  &  & "Nabulii EO-Nabulect  & Murbensalecteris Commum Aupemüsall  & ACIT-13367182-AFL4-JER8 & VI-50652544-8 & Murbensalecteris Commum Aupemüsall & Templentionavella 44 & 6618 Week & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 33892.00\\
+2023-03-20 &  &  &  & "Nabulii EO-Nabulect  & Murbensalecteris Commum Aupemüsall  & ACIT-13367182-AFL4-JER8 & VI-56842647-8 & Murbensalecteris Commum Aupemüsall & Templentionavella 44 & 6618 Week & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 22839.50\\
+2023-03-31 &  &  &  & "Plies per Chortianstiongro  & xxxävi pagnuitto Viscaph" &  & 20.00\\
+2023-04-18 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-25606272-AFL4-JER8 & VI-87837375-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 45.00\\
+2023-04-28 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-25606272-AFL4-JER8 & VI-43276042-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 45.00\\
+2023-04-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-25606272-AFL4-JER8 & VI-50614013-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 31.00\\
+2023-05-05 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-53041586-AFL4-JER8 & VI-22317840-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Nubit Aöabo " &  & 880.00\\
+2023-05-17 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-82483775-AFL4-JER8 & VI-32052746-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 29.95\\
+2023-05-31 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-58166404-AFL4-JER8 & VI-14648761-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 45.00\\
+2023-06-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-73373638-AFL4-JER8 & VI-17035160-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 29.95\\
+2023-06-30 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-61845510-AFL4-JER8 & VI-77331807-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 45.00\\
+2023-06-30 &  &  &  & "Plies per Chortianstiongro  & xxxävi pagnuitto Viscaph" &  & 20.00\\
+2023-07-12 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-81124005-AFL4-JER8 & VI-76742403-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Natubsensi &  Susto " &  & 980.00\\
+2023-07-12 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-81124005-AFL4-JER8 & VI-72754261-8 & Ortatem Aptus & 4718 Lürada & Stuloämanneret Susto &  Aequaral & Labituba " &  & 380.00\\
+2023-08-08 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-67887281-AFL4-JER8 & VI-28008540-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 46.80\\
+2023-08-21 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-10717072-AFL4-JER8 & VI-62076224-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Avitävolo " &  & 1600.00\\
+2023-08-21 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-11464000-AFL4-JER8 & VI-43780120-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 29.95\\
+2023-08-22 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-10717072-AFL4-JER8 & VI-10142744-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Rellium Susto " &  & 280.00\\
+2023-08-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-11464000-AFL4-JER8 & VI-60884258-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 32.95\\
+2023-08-31 &  &  &  & "Nabulii EO-Nabulect  & Dissuam Liuva EO  & ACIT-34847518-AFL4-JER8 & VI-67461751-8 & Dissuam Liuva EO & Colonges 132 & 7700 Week & Aupemüridem Qualuundivem & Colonges 6618 Week DE " &  & 129.00\\
+2023-08-31 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-67887281-AFL4-JER8 & VI-68862866-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 46.80\\
+2023-09-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-53558277-AFL4-JER8 & VI-60364245-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 59.95\\
+2023-09-30 &  &  &  & "Plies per Chortianstiongro  & xxxävi pagnuitto Viscaph" &  & 20.00\\
+2023-10-16 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-17681478-AFL4-JER8 & VI-77251386-8 & Ortatem Aptus & 4718 Lürada & hUntas 75 Fac " &  & 1128.00\\
+2023-10-16 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-17681478-AFL4-JER8 & VI-74783263-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Miscem Susto " &  & 185.00\\
+2023-10-16 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-26768055-AFL4-JER8 & VI-70266372-8 & Ortatem Aptus & 4718 Lürada & Stuloäaurberit Nülamniuntine Susto " &  & 150.00\\
+2023-10-16 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-26768055-AFL4-JER8 & VI-57606300-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 46.80\\
+2023-10-27 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-10242584-AFL4-JER8 & VI-21724565-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 31.95\\
+2023-11-03 &  &  &  & "Nabulii EO-Nabulect  & Contudis Susto  & ACIT-55877423-AFL4-JER8 & VI-38825261-8 & Contudis Susto & Rateratelle 482 & 1523 Susto & Nabulect Ut. 8652778 & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 200.00\\
+2023-11-10 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-77370577-AFL4-JER8 & VI-13317853-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 46.80\\
+2023-11-13 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-43424342-AFL4-JER8 & VI-25555177-8 & Ortatem Aptus & 4718 Lürada & Asunimendi Natriptines " &  & 750.00\\
+2023-11-13 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-43424342-AFL4-JER8 & VI-52558763-8 & Ortatem Aptus & 4718 Lürada & Asunimendi Nülamniuntine &  Susto " &  & 182.60\\
+2023-11-13 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-43424342-AFL4-JER8 & VI-47177612-8 & Ortatem Aptus & 4718 Lürada & Asunimendi Nösucumügas &  Susto " &  & 170.00\\
+2023-11-20 &  &  &  & "Initüsedrantesupa  & loccit mividentum TerE  & ACIT-55877423-AFL4-JER8 & VI-81843722-8 & loccit mividentum TerE & Stotempercitatro 566m & 6122 Quatempartem & Nabulect SI-55146 " &  & 1960.15\\
+2023-11-20 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-45688716-AFL4-JER8 & VI-48617281-8 & Ortatem Aptus & 4718 Lürada & Iciduximunium Nülamniuntine &  Susto " &  & 200.00\\
+2023-11-20 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-87727603-AFL4-JER8 & VI-13250048-8 & Ortatem Aptus & 4718 Lürada & Asunimendi Nösucumügas &  Susto " &  & 120.00\\
+2023-11-28 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-83485501-AFL4-JER8 & VI-71127060-8 & Ortatem Aptus & 4718 Lürada & Stuloäfrelensi Asunimendi Numete " &  & 850.00\\
+2023-11-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-37158473-AFL4-JER8 & VI-66057550-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 71.90\\
+2023-11-30 &  &  &  & "Nabulii EO-Nabulect  & Signuto TerE  & ACIT-83616112-AFL4-JER8 & VI-44314454-8 & Signuto TerE & 6852 Graerunte (Incular) & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 46.80\\
+2023-12-18 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-56878875-AFL4-JER8 & VI-21430878-8 & Ortatem Aptus & 4718 Lürada & Stuloäfrelensi Asunimendi Utüex & Susto " &  & 230.00\\
+2023-12-21 &  &  &  & "Mensides-Nabulii  & Vita Ortatem Aptus cor-lige Cali Por  & VI-32541432-8 & Vita Ortatem Aptus cor-lige Cali & Induciuva Temittis xxx Redive Vit & Deümenterahentiam 32 & 4718 Lürada & Carticem DUM 81 & 713.- " & 50000.00 & \\
+2023-12-22 &  &  &  & "Nabulii EO-Nabulect  & Murbensalecteris Commum Aupemüsall  & ACIT-56878875-AFL4-JER8 & VI-24854783-8 & Murbensalecteris Commum Aupemüsall & Templentionavella 44 & 6618 Week & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 20051.50\\
+2023-12-22 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-77540230-AFL4-JER8 & VI-41612006-8 & Ortatem Aptus & 4718 Lürada & Aliquaescescrem AUT Cendius EO & 87Exm 3415 " &  & 751.82\\
+2023-12-27 &  &  &  & "Nabulii EO-Nabulect  & Murbensalecteris Commum Aupemüsall  & ACIT-60673120-AFL4-JER8 & VI-54067263-8 & Murbensalecteris Commum Aupemüsall & Templentionavella 44 & 6618 Week & HolvEresent EO & Dometiuntenta 57 2213 Evem DE " &  & 19958.00\\
+2023-12-28 &  &  &  & "Nabulii EO-Nabulect  & Inta Siride ME  & ACIT-60484165-AFL4-JER8 & VI-55840154-8 & Inta Siride ME & Por et Facchoc 5 & 4004 Siduci & SEC Quaertiatem EO & Milegrehenenit 88 5778 Lürada DE " &  & 31.95\\
+2023-12-29 &  &  &  & "Initüsedrantesupa  & Ortatem Aptus  & ACIT-16257660-AFL4-JER8 & VI-11270742-8 & Ortatem Aptus & 4718 Lürada & Bomirattionerva AUT Cendius EO vi & Susto &  88Msk 3415 " &  & 700.00\\
+2023-12-31 &  &  &  & "Plies per Chortianstiongro  & xxxävi pagnuitto Viscaph" &  & 20.00\\
 \\
 \end{tablevalue}
 \end{document}

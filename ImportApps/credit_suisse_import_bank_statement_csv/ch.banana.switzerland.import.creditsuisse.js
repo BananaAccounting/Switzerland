@@ -88,7 +88,7 @@ function exec(string, isTest) {
    var format5 = new CSFormat5();
    if (format5.match(transactionsData)) {
       transactions = format5.convert(transactionsData);
-      return Banana.Converter.arrayToTsv(transactions);
+      return Banana.Converter.arrayToCsv(transactions);
    }
 
    // Format is unknow, return an error
