@@ -102,8 +102,8 @@ function exec(string, isTest) {
           var transaction = transactionsData[i];
           var formatMatched = true;
  
-          if (formatMatched && transaction["Datum"] && transaction["Datum"].length >= 8 &&
-             transaction["Datum"].match(/^\d{2}.\d{2}.\d{2}$/))
+          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 8 &&
+             transaction["Date"].match(/^\d{2}.\d{2}.\d{2}$/))
              formatMatched = true;
           else
              formatMatched = false;
@@ -119,8 +119,8 @@ function exec(string, isTest) {
        var transactionsToImport = [];
  
        for (var i = 0; i < transactionsData.length; i++) {
-          if (transactionsData[i]["Datum"] && transactionsData[i]["Datum"].length >= 8 &&
-             transactionsData[i]["Datum"].match(/^\d{2}.\d{2}.\d{2}$/)) {
+          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
+             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{2}$/)) {
              transactionsToImport.push(this.mapTransaction(transactionsData[i]));
           }
        }
@@ -136,15 +136,15 @@ function exec(string, isTest) {
     this.mapTransaction = function (transaction) {
        let mappedLine = [];
  
-       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Datum"], "dd.mm.yyyy"));
+       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
        mappedLine.push("");
        mappedLine.push("");
-       mappedLine.push(transaction["Buchungstext"]);
-       if (transaction["Betrag"].match(/^[0-9]/))
-          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Betrag"], '.'));
+       mappedLine.push(transaction["Description"]);
+       if (transaction["Amount"].match(/^[0-9]/))
+          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
        else
-          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Betrag"], '.'));
+          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
  
        return mappedLine;
     }
@@ -183,7 +183,74 @@ function exec(string, isTest) {
     var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
     var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
     let form = [];
+
+    let convertedColumns = [];
+
+    convertedColumns = convertHeaderDe(columns);
+    
     //Load the form with data taken from the array. Create objects
-    importUtilities.loadForm(form, columns, rows);
-    return form;
+    if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+    }
+
+    convertedColumns = convertHeaderFr(columns);
+    if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+    }
+    
+    return [];
+ }
+
+function convertHeaderDe(columns) {
+   let convertedColumns = [];
+
+   for (var i=0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Datum":
+            convertedColumns[i] = "Date";
+            break;
+         case "Buchungstext":
+            convertedColumns[i] = "Description";
+            break;
+         case "Betrag":
+            convertedColumns[i] = "Amount";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+ }
+
+ function convertHeaderFr(columns) {
+   let convertedColumns = [];
+
+   for (var i=0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Date":
+            convertedColumns[i] = "Date";
+            break;
+         case "Description":
+            convertedColumns[i] = "Description";
+            break;
+         case "Montant":
+            convertedColumns[i] = "Amount";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
  }
