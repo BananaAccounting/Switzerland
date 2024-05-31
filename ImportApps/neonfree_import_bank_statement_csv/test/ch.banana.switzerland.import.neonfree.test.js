@@ -28,6 +28,7 @@
 // @includejs = ../ch.banana.switzerland.import.neonfree.sbaa/ch.banana.switzerland.import.neonfree.js
 // @timeout = -1
 
+
 // Register test case to be executed
 Test.registerTestCase(new TestImportNeon());
 
@@ -73,7 +74,7 @@ TestImportNeon.prototype.testImport = function() {
       var fileContent = file.read();
       Test.assert(fileContent);
       var transactions = exec(fileContent,true); //takes the exec from the import script.
-      this.testLogger.addCsv('', transactions);
+      this.testLogger.addCsv("", transactions);
       
       if (!this.progressBar.step())
          break;

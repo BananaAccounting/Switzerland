@@ -1,4 +1,4 @@
-﻿// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+﻿// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.creditsuisse
 // @api = 1.0
-// @pubdate = 2023-09-14
+// @pubdate = 2024-01-08
 // @publisher = Banana.ch SA
 // @description = Credit Suisse - Import account statement .csv (Banana+ Advanced)
 // @description.en = Credit Suisse - Import account statement .csv (Banana+ Advanced)
@@ -51,19 +51,15 @@ function exec(string, isTest) {
       cleanString = cleanString.replace(/""/g, "\"");
    }
 
-   var transactions = Banana.Converter.csvToArray(cleanString, ',', '"');
+   let convertionParam = defineConversionParam(string);
 
-   // Format 4
-   var format4 = new CSFormat4();
-   if (format4.match(transactions)) {
-      transactions = format4.convert(transactions);
-      return Banana.Converter.arrayToTsv(transactions);
-   }
+   var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
+   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
-   // Format 3
-   var format3 = new CSFormat3();
-   if (format3.match(transactions)) {
-      transactions = format3.convert(transactions);
+   // Format 1
+   var format1 = new CSFormat1();
+   if (format1.match(transactions)) {
+      transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
@@ -74,17 +70,95 @@ function exec(string, isTest) {
       return Banana.Converter.arrayToTsv(transactions);
    }
 
-   // Format 1
-   var format1 = new CSFormat1();
-   if (format1.match(transactions)) {
-      transactions = format1.convert(transactions);
+   // Format 3
+   var format3 = new CSFormat3();
+   if (format3.match(transactions)) {
+      transactions = format3.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
+   }
+
+   // Format 4
+   var format4 = new CSFormat4();
+   if (format4.match(transactions)) {
+      transactions = format4.convert(transactions);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
+   // Format 5, this format works with the header names.
+   var format5 = new CSFormat5();
+   if (format5.match(transactionsData)) {
+      transactions = format5.convert(transactionsData);
+      return Banana.Converter.arrayToCsv(transactions);
    }
 
    // Format is unknow, return an error
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * CS Format 5
+ *
+ * Valutadatum,Text,Belastung,Gutschrift
+ * 31.12.2023,"Zahlung QR-Rechnung",20.00,
+ * 31.12.2023,"Zahlung erhalten",,10.00
+*/
+function CSFormat5() {
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Valutadatum"] && transaction["Valutadatum"].length >= 10 &&
+            transaction["Valutadatum"].match(/^\d{2}.\d{2}.\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Valutadatum"] && transactionsData[i]["Valutadatum"].length >= 10 &&
+            transactionsData[i]["Valutadatum"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Valutadatum"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      mappedLine.push(transaction["Text"]);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Gutschrift"], '.'));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Belastung"], '.'));
+
+      return mappedLine;
+   }
 }
 
 /**
@@ -494,4 +568,42 @@ function CSFormat1() {
       descr = descr.replace(/"/g, '\\\"');
       return '"' + descr + '"';
    }
+}
+
+function defineConversionParam(inData) {
+
+   var inData = Banana.Converter.csvToArray(inData);
+   var header = String(inData[0]);
+   var convertionParam = {};
+   /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+   convertionParam.format = "csv"; // available formats are "csv", "html"
+   //get text delimiter
+   convertionParam.textDelim = '"';
+   // get separator
+   if (header.indexOf(';') >= 0) {
+      convertionParam.separator = ';';
+   } else {
+      convertionParam.separator = ',';
+   }
+
+   /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
+   We suppose the data will always begin right away after the header line */
+   convertionParam.headerLineStart = 5;
+   convertionParam.dataLineStart = 6;
+
+   /** SPECIFY THE COLUMN TO USE FOR SORTING
+   If sortColums is empty the data are not sorted */
+   convertionParam.sortColums = ["Date", "Doc"];
+   convertionParam.sortDescending = false;
+
+   return convertionParam;
+}
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+   let form = [];
+   //Load the form with data taken from the array. Create objects
+   importUtilities.loadForm(form, columns, rows);
+   return form;
 }

@@ -1,6 +1,6 @@
 ﻿// @id = ch.banana.switzerland.import.bkb
 // @api = 1.0
-// @pubdate = 2023-02-22
+// @pubdate = 2024-03-27
 // @publisher = Banana.ch SA
 // @description = Basler Kantonalbank - Import account statement .csv (Banana+ Advanced)
 // @description.en = Basler Kantonalbank - Import account statement .csv (Banana+ Advanced)
@@ -40,9 +40,161 @@ function exec(string, isTest) {
       return Banana.Converter.arrayToTsv(transactions);
    }
 
+   // Format 2, uses the headers description and not positions as the others format.
+   var format2 = new BKBFormat2();
+   let transactionsData = format2.getFormattedData(transactions, importUtilities);
+   if (format2.match(transactionsData)) {
+      transactions = format2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
    importUtilities.getUnknownFormatError();
 
    return "";
+}
+
+/**
+ * BKB Format 2
+ * Buchungsdatum;Valutadatum;Auftragsart;Text;Belastungsbetrag (CHF);Gutschriftsbetrag (CHF);Saldo (CHF)
+ * 11.03.2024;11.03.2024;Vernect de Occupa;"XXX Prorinciectusa AN"
+ * 8401 Winterthur
+ * "Finovential;6138.1;;35872.24"
+ * 07.03.2024;07.03.2024;Erventinga;"Agnumens Quaddunt"
+ * Rendidem 4
+ * EO-7868 Flocuidesse
+ * "2023110001;;22600;82619.07"
+ * 06.03.2024;06.03.2024;Vernect de Occupa;"PERE FUNGENUTO XXX"
+ * SHABILIQUAEPS 44
+ * 4142 MUENCHENSTEIN
+ * "Tagitrass Prit Spissit 2557;5534;;46582.80"
+ * 04.03.2024;04.03.2024;Vernect de Occupa;"Ovessignuludive Marte-Metum"
+ * Medentuundiuva 4
+ * 4001 Basel
+ * "Finovential;24208.1;;73646.80"
+ *
+ */
+function BKBFormat2() {
+   this.decimalSeparator = ".";
+
+   this.getFormattedData = function (inData, importUtilities) {
+      var columns = importUtilities.getHeaderData(inData, 0); //array
+      var rows = importUtilities.getRowData(inData, 1); //array of array
+      let form = [];
+
+      let convertedColumns = [];
+
+      convertedColumns = this.convertHeaderDe(columns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+   }
+
+   this.convertHeaderDe = function (columns) {
+      let convertedColumns = [];
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Buchungsdatum":
+               convertedColumns[i] = "Date";
+               break;
+            case "Valutadatum":
+               convertedColumns[i] = "DateValue";
+               break;
+            case "Text":
+            case "Buchungstext":
+               convertedColumns[i] = "Description";
+               break;
+            case "Gutschriftsbetrag (CHF)":
+            case "Gutschriftsbetrag (EUR)":
+            case "Gutschriftsbetrag (USD)":
+               convertedColumns[i] = "Income";
+               break;
+            case "Belastungsbetrag (CHF)":
+            case "Belastungsbetrag (EUR)":
+            case "Belastungsbetrag (USD)":
+               convertedColumns[i] = "Expenses";
+               break;
+               break;
+            case "Auftragsart":
+               convertedColumns[i] = "Category";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+      return convertedColumns;
+   }
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+
+         var formatMatched = false;
+
+         if (transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+      return false;
+   }
+
+   /** Convert the transaction to the format to be imported */
+   this.convert = function (rows) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < rows.length; i++) {
+         if (rows[i]["Date"] && rows[i]["Date"].length >= 10 &&
+            rows[i]["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            transactionsToImport.push(this.mapTransaction(rows[i]));
+      }
+
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   /** Return the transaction converted in the import format */
+   this.mapTransaction = function (element) {
+      var mappedLine = [];
+      let date = element['Date'].substring(0, 10);
+
+      if (date.indexOf(".") > -1) {
+         mappedLine.push(Banana.Converter.toInternalDateFormat(element['Date'], "dd.mm.yyyy"));
+         mappedLine.push(Banana.Converter.toInternalDateFormat(element['DateValue'], "dd.mm.yyyy"));
+      } else {
+         mappedLine.push(Banana.Converter.toInternalDateFormat(element['Date'], "mm/dd/yyyy"));
+         mappedLine.push(Banana.Converter.toInternalDateFormat(element['DateValue'], "mm/dd/yyyy"));
+      }
+      mappedLine.push(""); // Doc is empty for now
+      var tidyDescr = element['Description'].replace(/\r\n/g, " "); //remove new line && new row characters
+      mappedLine.push(Banana.Converter.stringToCamelCase(tidyDescr));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element['Income'], this.decimalSeparator));
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(element['Expenses'], this.decimalSeparator));
+
+      return mappedLine;
+   }
+
 }
 
 /**
@@ -73,6 +225,7 @@ function BKBFormat1() {
    this.decimalSeparator = ".";
 
    /** Return true if the transactions match this format */
+
    this.match = function (transactions) {
 
       if (transactions.length === 0)
@@ -83,7 +236,7 @@ function BKBFormat1() {
 
          var formatMatched = false;
          /* array should have all columns */
-         if (transaction.length >= this.colCount)
+         if (transaction.length == this.colCount)
             formatMatched = true;
          else
             formatMatched = false;

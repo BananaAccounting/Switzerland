@@ -499,7 +499,7 @@ function setTexts_de(texts) {
   texts.order_number = "Bestellnummer";
   texts.order_date = "Bestelldatum";
   texts.customer = "Kundennummer";
-  texts.vat_number = "MwSt/USt-Nummer";
+  texts.vat_number = "MWST/USt-Nummer";
   texts.fiscal_number = "Steuernummer";
   texts.payment_due_date_label = "Fälligkeitsdatum";
   texts.payment_terms_label = "Fälligkeitsdatum";
@@ -514,7 +514,7 @@ function setTexts_de(texts) {
   texts.deposit = "Anzahlung";
   texts.totalnet = "Netto-Betrag";
   texts.subtotal = "Zwischentotal";
-  texts.vat = "MwSt";
+  texts.vat = "MWST";
   texts.rounding = "Rundung";
   texts.total = "Gesamtbetrag";
   texts.gross = "Brutto";
@@ -542,7 +542,7 @@ function setTexts_de(texts) {
   texts.param_info_order_number = "Bestellnummer";
   texts.param_info_order_date = "Bestelldatum";
   texts.param_info_customer = "Kundennummer";
-  texts.param_info_customer_vat_number = "Kunden-MwSt/USt-Nummer";
+  texts.param_info_customer_vat_number = "Kunden-MWST/USt-Nummer";
   texts.param_info_customer_fiscal_number = "Kunden-Steuernummer";
   texts.param_info_due_date = "Fälligkeitsdatum";
   texts.param_info_page = "Seitenzahlen";
@@ -552,7 +552,7 @@ function setTexts_de(texts) {
   texts.param_details_columns_widths = "Spaltenbreite";
   texts.param_details_columns_titles_alignment = "Titelausrichtung";
   texts.param_details_columns_alignment = "Textausrichtung";
-  texts.param_details_gross_amounts = "Bruttobeträge (inklusive MwSt/USt)";
+  texts.param_details_gross_amounts = "Bruttobeträge (inklusive MWST/USt)";
   texts.param_details_additional_descriptions = "Zusätzliche Beschreibungen drucken";
   texts.param_footer_include = "Fusszeile";
   texts.param_footer_add = "Fusszeile drucken";
@@ -565,7 +565,7 @@ function setTexts_de(texts) {
   texts.de_param_text_info_order_number = "Bestellnummer";
   texts.de_param_text_info_order_date = "Bestelldatum";
   texts.de_param_text_info_customer = "Kundennummer";
-  texts.de_param_text_info_customer_vat_number = "Kunden-MwSt/USt-Nummer";
+  texts.de_param_text_info_customer_vat_number = "Kunden-MWST/USt-Nummer";
   texts.de_param_text_info_customer_fiscal_number = "Kunden-Steuernummer";
   texts.de_param_text_info_due_date = "Fälligkeitsdatum";
   texts.de_param_text_info_page = "Seitennummer";
@@ -598,7 +598,7 @@ function setTexts_de(texts) {
   texts.param_tooltip_info_order_number = "Aktivieren, um Bestellnummer einzuschliessen";
   texts.param_tooltip_info_order_date = "Aktivieren, um Bestelldatum einzuschliessen";
   texts.param_tooltip_info_customer = "Aktivieren, um Kundennummer einzuschliessen";
-  texts.param_tooltip_info_customer_vat_number = "Aktivieren, um Kunden-MwSt/USt-Nummer einzuschliessen";
+  texts.param_tooltip_info_customer_vat_number = "Aktivieren, um Kunden-MWST/USt-Nummer einzuschliessen";
   texts.param_tooltip_info_customer_fiscal_number = "Aktivieren, um Kunden-Steuernummer einzuschliessen";
   texts.param_tooltip_info_due_date = "Aktivieren, um Fälligkeitsdatum der Rechnung einzuschliessen";
   texts.param_tooltip_info_page = "Aktivieren, um Seitennummer einzuschliessen";
@@ -632,7 +632,7 @@ function setTexts_de(texts) {
   texts.param_tooltip_shipping_address = "Aktivieren, um Lieferadresse zu drucken";
   texts.param_tooltip_address_left = "Aktivieren, um Kundenadresse auf der linken Seite zu drucken";
   texts.param_tooltip_text_begin = "Text eingeben, um Standardtext zu ersetzen";
-  texts.param_tooltip_details_gross_amounts = "Aktivieren, um Rechnungsdetails mit Bruttobeträgen und enthaltener MwSt/USt zu drucken";
+  texts.param_tooltip_details_gross_amounts = "Aktivieren, um Rechnungsdetails mit Bruttobeträgen und enthaltener MWST/USt zu drucken";
   texts.param_tooltip_details_additional_descriptions = "Aktivieren, um Zusätzliche Beschreibungen zu drucken";
   texts.param_tooltip_text_final = "Text eingeben, um Standardtext zu ersetzen";
   texts.param_tooltip_footer_add = "Aktivieren, um Fusszeile unten auf der Seite zu drucken";
@@ -670,7 +670,7 @@ function setTexts_de(texts) {
   texts.predefined_columns_3 = "Artikel,Beschreibung,Betrag";
   texts.predefined_columns_4 = "Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag";
   texts.predefined_columns_5 = "Produktbild,Artikel,Beschreibung,Menge,Einheit,Preiseinheit,Betrag (ADVANCED)";
-  texts.predefined_columns_6 = "Beschreibung,Menge,Einheit,Preiseinheit,MwSt%,Betrag";
+  texts.predefined_columns_6 = "Beschreibung,Menge,Einheit,Preiseinheit,MWST%,Betrag";
   texts.predefined_columns_7 = "Beschreibung,Rabatt,Betrag (ADVANCED)";
   texts.predefined_columns_8 = "Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";
   texts.predefined_columns_9 = "Artikel,Datum,Beschreibung,Menge,Einheit,Preiseinheit,Rabatt,Betrag (ADVANCED)";

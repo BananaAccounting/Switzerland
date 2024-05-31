@@ -2127,7 +2127,7 @@ function onCurrentIndexChanged_details_columns_predefined(index, value, userPara
         userParam.data[i].value = 'Descrizione;Quantità;Unità;Prezzo Unità;%IVA;Importo';
       }
       else if (userParam.data[i].name === 'de_text_details_columns') {
-        userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;MwSt%;Betrag';
+        userParam.data[i].value = 'Beschreibung;Menge;Einheit;Preiseinheit;MWST%;Betrag';
       }
       else if (userParam.data[i].name === 'fr_text_details_columns') {
         userParam.data[i].value = 'Libellé;Quantité;Unité;Prix Unitaire;%TVA;Montant';

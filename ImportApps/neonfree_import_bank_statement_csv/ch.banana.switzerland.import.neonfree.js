@@ -26,44 +26,50 @@
 function csvToBanana(csvObj) {
 
   var bananatransaction = {};
-  bananatransaction['Date'] = csvObj['Date'];
-  bananatransaction['Description'] = `${csvObj['Description']} ${csvObj['Subject']}`;
+  bananatransaction["Date"] = csvObj["Date"];
+  bananatransaction["Description"] = csvObj["Description"] + " " + csvObj["Subject"];
 
-    if (Number(csvObj['Amount']) > 0) {
-      bananatransaction['Income'] = Math.abs(csvObj['Amount']);
-      bananatransaction['Expenses'] = '';
+    if (Number(csvObj["Amount"]) > 0) {
+      bananatransaction["Income"] = Math.abs(csvObj["Amount"]);
+      bananatransaction["Expenses"] = "";
     } else {
-      bananatransaction['Income'] = '';
-      bananatransaction['Expenses'] = Math.abs(csvObj['Amount']);
+      bananatransaction["Income"] = "";
+      bananatransaction["Expenses"] = Math.abs(csvObj["Amount"]);
     }
 
   return bananatransaction;
 }
 
 // Parse the data and return the data to be imported as a tab separated file.
-function exec(inText) {
 
-  var importutilities = new ImportUtilities(Banana.document);
-  if ( !importutilities.verifyBananaAdvancedVersion() ) {
-    return "";
-  }
+  function exec(inText, isTest) {
+ 
+    var importutilities = new ImportUtilities(Banana.document);
+    if (!importutilities.verifyBananaAdvancedVersion() && !isTest) {
+      return "";
+    }
 
   // Convert a csv file to an array of array.
   // Parameters are: text to convert, values separator, delimiter for text values
   var csvFile = Banana.Converter.csvToArray(inText, ';', '"');
   var headers = csvFile[0];
   csvFile.splice(0, 1);
-  Banana.console.log(`Found headers: ${headers}`);
+  Banana.console.debug(headers);
+  Banana.console.debug(csvFile);
 
   var arrayOfObjects = Banana.Converter.arrayToObject(headers, csvFile, true);
+  Banana.console.debug(JSON.stringify(arrayOfObjects));
   var bananaObjects = arrayOfObjects.map(csvToBanana);
+  Banana.console.debug(JSON.stringify(bananaObjects));
 
   var tsvFile = Banana.Converter.objectArrayToCsv([
-    'Date', 
-    'Description', 
-    'Income', 
-    'Expenses',
-    ], bananaObjects, '\t');
+      "Date",
+      "Description",
+      "Income",
+      "Expenses"
+    ], bananaObjects, ";");
+
+    Banana.console.debug(tsvFile);
 
   // Return the converted tsv file
   return tsvFile;
