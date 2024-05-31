@@ -60,6 +60,7 @@ TestImportValiantTrans.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/csv_example_valiant_transactions.csv");
+   fileNameList.push("file:script/../test/testcases/csv_example_valiant_transactions_FR.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
