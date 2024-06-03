@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2023-12-04
+// @pubdate = 2024-05-31
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -2480,9 +2480,9 @@ var JsAction = class JsAction {
             paymentObj = JSON.parse(rowObj.paymentdata_json);
         }
         catch (e) {
-            if (rowObj === undefined && tabPos.changeSource === "programm_add")
+            /*if (rowObj === undefined && tabPos.changeSource === "programm_add")
                 paymentObj = pain001CH.initPaymObject();
-            else
+            else*/
                 return null;
         }
 
@@ -2531,29 +2531,13 @@ var JsAction = class JsAction {
 
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
-        else if (tabPos.columnName === "PaymentData" || tabPos.columnName === "_AllRowDataChanged") {
+        else if (tabPos.columnName === "PaymentData") {
             //columnName === "PaymentData" by copying row
-            //columnName === "_AllRowDataChanged" by duplicating row
 
-            //Account
             this._rowSetAccount(paymentObj, changedRowFields);
-
-            //Amount
             this._rowSetAmount(paymentObj, changedRowFields);
-
-            //Unstructured message
-            this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
-
-            //Date
             this._rowSetDoc(paymentObj, changedRowFields);
-
-            //if data is deleted from row, the payment object is updated
-            if (tabPos.changeSource === "edit_delete") {
-                this._rowGetAccount(paymentObj, row);
-                this._rowGetUnstructuredMessage(paymentObj, row);
-                this._rowGetAmount(paymentObj, row);
-                this._rowGetDoc(paymentObj, row);
-            }
+            this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
 
             //verify all data
             paymentObj = pain001CH.verifyPaymObject(paymentObj);
@@ -2562,7 +2546,22 @@ var JsAction = class JsAction {
             paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
-        else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
+        else if (tabPos.columnName === "_AllRowDataChanged") {
+            //columnName === "_AllRowDataChanged" by duplicating row or selecting column and deleting content
+
+            this._rowGetAccount(paymentObj, row);
+            this._rowGetAmount(paymentObj, row);
+            this._rowGetDoc(paymentObj, row);
+            this._rowGetUnstructuredMessage(paymentObj, row);
+
+            //verify all data
+            paymentObj = pain001CH.verifyPaymObject(paymentObj);
+
+            //update Uuid according to row uuid
+            paymentObj['@uuid'] = uuid;
+            changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+        }
+        /*else if (tabPos.columnName === "_CompleteRowData" && tabPos.changeSource === "programm_add") {
             //banana adds payment data automatically collecting data from transaction
             //errors are displayed on the message window by function getInfo()
 
@@ -2581,9 +2580,9 @@ var JsAction = class JsAction {
             //update Uuid according to row uuid
             paymentObj['@uuid'] = uuid;
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
-        }
+        }*/
         else if (tabPos.columnName === "_CompleteRowData") {
-            //called by create(), edit(), scanCode() and after changeSource === "programm_add"
+            //called by create(), edit(), scanCode()
 
             //Account
             this._rowSetAccount(paymentObj, changedRowFields);
@@ -2698,25 +2697,40 @@ var JsAction = class JsAction {
         if (!accountId || creditors.indexOf(accountId) < 0)
             accountId = '';
 
-        if (accountId.length > 0 && paymentObj.creditorAccountId !== accountId) {
-            let creditor = pain001CH.getCreditor(accountId);
+        if (paymentObj.creditorAccountId !== accountId) {
             paymentObj.creditorAccountId = accountId;
-            paymentObj.creditorName = creditor.name;
-            paymentObj.creditorStreet1 = creditor.street1
-            paymentObj.creditorStreet2 = creditor.street2;
-            paymentObj.creditorPostalCode = creditor.postalCode;
-            paymentObj.creditorCity = creditor.city;
-            paymentObj.creditorCountry = creditor.country;
-            if (paymentObj.creditorBankAccount)
-                paymentObj.creditorBankAccount = creditor.bankAccount;
-            if (paymentObj.creditorBankName)
-                paymentObj.creditorBankName = creditor.bankName;
-            if (paymentObj.creditorBankAddress1)
-                paymentObj.creditorBankAddress1 = creditor.bankAddress1;
-            if (paymentObj.creditorBankAddress2)
-                paymentObj.creditorBankAddress2 = creditor.bankAddress2;
-            paymentObj.creditorBic = creditor.bic;
-            paymentObj.creditorIban = creditor.iban;
+            if (accountId.length > 0) {
+                //if something is already written doesn't reset address data
+                let existingData = false;
+                for (var key in paymentObj) {
+                    if (key.startsWith('creditor') && key !== 'creditorAccountId') {
+                        var value = paymentObj[key];
+                        if (value.length > 0) {
+                            existingData = true;
+                            break;
+                        }
+                    }
+                }
+                let creditor = pain001CH.getCreditor(accountId);
+                if (!existingData) {
+                    paymentObj.creditorName = creditor.name;
+                    paymentObj.creditorStreet1 = creditor.street1
+                    paymentObj.creditorStreet2 = creditor.street2;
+                    paymentObj.creditorPostalCode = creditor.postalCode;
+                    paymentObj.creditorCity = creditor.city;
+                    paymentObj.creditorCountry = creditor.country;
+                    if (paymentObj.creditorBankAccount)
+                        paymentObj.creditorBankAccount = creditor.bankAccount;
+                    if (paymentObj.creditorBankName)
+                        paymentObj.creditorBankName = creditor.bankName;
+                    if (paymentObj.creditorBankAddress1)
+                        paymentObj.creditorBankAddress1 = creditor.bankAddress1;
+                    if (paymentObj.creditorBankAddress2)
+                        paymentObj.creditorBankAddress2 = creditor.bankAddress2;
+                    paymentObj.creditorBic = creditor.bic;
+                    paymentObj.creditorIban = creditor.iban;
+                }
+            }
         }
     }
 
@@ -2785,17 +2799,32 @@ var JsAction = class JsAction {
         var accountId = "";
         if (paymentObj.creditorAccountId)
             accountId = paymentObj.creditorAccountId;
-        if (accountId.length <= 0)
-            return;
+
+        //check if cost centers' account
         var fieldName = "";
-        if (accountId.startsWith("."))
-            fieldName = "Cc1";
-        else if (accountId.startsWith(","))
-            fieldName = "Cc2";
-        else if (accountId.startsWith(";"))
-            fieldName = "Cc3";
+        if (accountId.length <= 0) {
+            var creditors = this.pain001CH.loadCreditors(false);
+            if (creditors.length>0) {
+                if (creditors[0].startsWith("."))
+                    fieldName = "Cc1";
+                else if (creditors[0].startsWith(","))
+                    fieldName = "Cc2";
+                else if (creditors[0].startsWith(";"))
+                    fieldName = "Cc3";
+                }
+        }
+        else {
+            if (accountId.startsWith("."))
+                fieldName = "Cc1";
+            else if (accountId.startsWith(","))
+                fieldName = "Cc2";
+            else if (accountId.startsWith(";"))
+                fieldName = "Cc3";
+        }
+
         if (fieldName.length > 0) {
-            accountId = accountId.substring(1);
+            if (accountId.length>0)
+                accountId = accountId.substring(1);
             row[fieldName] = accountId;
         }
         else {
