@@ -120,9 +120,20 @@ function convertParam(userParam) {
 
 
   var currentParam = {};
+  currentParam.name = 'print_multiple';
+  currentParam.title = 'Transactions table';
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.print_multiple = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
   currentParam.name = 'print_multiple_rows';
   currentParam.parentObject = 'print_multiple';
-  currentParam.title = 'Rows to add payment data ("*" all rows, "1,2,3" comma separated rows, "1-3" from-to selection)';
+  currentParam.title = 'Rows to process ("1-3" from row-to row, "1,3,7" single rows, "*" all rows)';
   currentParam.type = 'string';
   currentParam.value = userParam.print_multiple_rows ? '*' : '*';
   currentParam.defaultvalue = '*';
