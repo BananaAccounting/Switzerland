@@ -40,16 +40,18 @@ function exec(inData, isTest) {
   if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
     return "";
 
-  convertionParam = defineConversionParam();
+  let convertionParam = defineConversionParam();
   //Add the header if present 
   if (convertionParam.header) {
-    inData = convertionParam.header + inData;
+    // inData = convertionParam.header + inData;
   }
   let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
+  let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
   // Format 1
   var format1 = new ImportCornerBankFormat1();
   if (format1.match(transactions)) {
+    Banana.console.log("Format 1");
     transactions = format1.convert(transactions);
     return Banana.Converter.arrayToTsv(transactions);
   }
@@ -57,7 +59,16 @@ function exec(inData, isTest) {
   // Format 2
   var format2 = new ImportCornerBankFormat2();
   if (format2.match(transactions)) {
+    Banana.console.log("Format 2");
     transactions = format2.convert(transactions);
+    return Banana.Converter.arrayToTsv(transactions);
+  }
+
+  // Format 3
+  var format3 = new ImportCornerBankFormat3();
+  if (format3.match(transactionsData)) {
+    Banana.console.log("Format 3"); 
+    transactions = format3.convert(transactionsData);
     return Banana.Converter.arrayToTsv(transactions);
   }
 
@@ -142,8 +153,8 @@ var ImportCornerBankFormat1 = class ImportCornerBankFormat1 extends ImportUtilit
       var transaction = transactions[i];
       if (transaction.length < (this.currentLength))
         continue;
-      if ((transaction[this.colDate] && transaction[this.colDate].match(/[0-9\/]+/g)) &&
-        (transaction[this.colDateValuta] && transaction[this.colDateValuta].match(/[0-9\/]+/g))) {
+      if ((transaction[this.colDate] && transaction[this.colDate].length === 8) &&
+        (transaction[this.colDateValuta] && transaction[this.colDateValuta].length === 8)) {
         transactionsToImport.push(this.mapTransaction(transaction));
       }
     }
@@ -162,7 +173,7 @@ var ImportCornerBankFormat1 = class ImportCornerBankFormat1 extends ImportUtilit
     mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDate]));
     mappedLine.push(Banana.Converter.toInternalDateFormat(element[this.colDateValuta]));
     mappedLine.push(""); // Doc is empty for now
-    element[this.colDetail] == "" ? mappedLine.push(element[this.colDescr]) : mappedLine.push(lement[this.colDetail] + ", " + element[this.colDescr]);
+    element[this.colDetail] == "" ? mappedLine.push(element[this.colDescr]) : mappedLine.push(element[this.colDetail] + ", " + element[this.colDescr]);
     let amount = element[this.colAmount];
     if (amount.length > 0) {
       if (amount[0] === "-") {
@@ -302,19 +313,166 @@ var ImportCornerBankFormat2 = class ImportCornerBankFormat2 extends ImportUtilit
   }
 };
 
+/**
+ * CSV Format 3
+ * Conto No.;362635/01 CHF;;;;
+ * ;;;;;
+ * Elenco movimenti;;;;;
+ * ;;;;;
+ * Data registrazione;Descrizione;Dettaglio;Data valuta;Importo;Saldo
+ */ 
+var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilities {
+
+  match(transactionsData) {
+    if (transactionsData.length === 0)
+       return false;
+
+    for (var i = 0; i < transactionsData.length; i++) {
+       var transaction = transactionsData[i];
+       var formatMatched = true;
+
+       if (formatMatched && transaction["Date"] && transaction["Date"].length === 10 &&
+          transaction["Date"].match(/[0-9\/]+/g))
+          formatMatched = true;
+       else
+          formatMatched = false;
+
+       if (formatMatched)
+          return true;
+    }
+
+    return false;
+  }
+
+  convert(transactionsData) {
+    var transactionsToImport = [];
+
+    for (var i = 0; i < transactionsData.length; i++) {
+       if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length === 10 &&
+          transactionsData[i]["Date"].match(/[0-9\/]+/g)) {
+          transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+       }
+    }
+
+    // Sort rows by date
+    transactionsToImport = transactionsToImport.reverse();
+
+    // Add header and return
+    var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+    return header.concat(transactionsToImport);
+  }
+
+  mapTransaction(transaction) {
+    let mappedLine = [];
+
+    mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"]));
+    mappedLine.push(Banana.Converter.toInternalDateFormat(""));
+    mappedLine.push("");
+    mappedLine.push("");
+    mappedLine.push(transaction["Description"]);
+    if (transaction["Amount"][0] === "-")
+       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+    else
+       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+
+    return mappedLine;
+  }
+};
+
 function defineConversionParam() {
   var convertionParam = {};
   /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
   convertionParam.format = "csv"; // available formats are "csv", "html"
   //get text delimiter
-  convertionParam.textDelim = '\"';
+  convertionParam.textDelim = '"';
   // get separator
   convertionParam.separator = ';';
 
+  /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
+   We suppose the data will always begin right away after the header line */
+   convertionParam.headerLineStart = 4;
+   convertionParam.dataLineStart = 5;
+
   /** SPECIFY THE COLUMN TO USE FOR SORTING
   If sortColums is empty the data are not sorted */
-  convertionParam.sortColums = ["Date", "Description"];
+  convertionParam.sortColums = ["Date", "Doc"];
   convertionParam.sortDescending = false;
 
   return convertionParam;
 }
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+  var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+  var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+  let form = [];
+
+  let convertedColumns = [];
+
+  convertedColumns = convertHeaderDe(columns);
+  if (convertedColumns.length > 0) {
+    importUtilities.loadForm(form, convertedColumns, rows);
+    return form;
+  }
+
+  convertedColumns = convertHeaderIt(columns);
+  if (convertedColumns.length > 0) {
+    importUtilities.loadForm(form, convertedColumns, rows);
+    return form;
+  }
+
+  return [];
+}
+
+function convertHeaderDe(columns) {
+  let convertedColumns = [];
+
+  for (var i = 0; i < columns.length; i++) {
+     switch (columns[i]) {
+        case "Datum":
+           convertedColumns[i] = "Date";
+           break;
+        case "Buchungstext":
+           convertedColumns[i] = "Description";
+           break;
+        case "Betrag":
+           convertedColumns[i] = "Amount";
+           break;
+        default:
+           break;
+     }
+  }
+
+  if (convertedColumns.indexOf("Date") < 0) {
+     return [];
+  }
+
+  return convertedColumns;
+}
+
+function convertHeaderIt(columns) {
+  let convertedColumns = [];
+
+  for (var i = 0; i < columns.length; i++) {
+     switch (columns[i]) {
+        case "Data registrazione":
+           convertedColumns[i] = "Date";
+           break;
+        case "Descrizione":
+           convertedColumns[i] = "Description";
+           break;
+        case "Importo":
+           convertedColumns[i] = "Amount";
+           break;
+        default:
+           break;
+     }
+  }
+
+  if (convertedColumns.indexOf("Date") < 0) {
+     return [];
+  }
+
+  return convertedColumns;
+}
+
+
