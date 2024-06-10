@@ -1671,6 +1671,8 @@ Pain001Switzerland.prototype.setCreditorByName = function (paymentObj) {
                 row = tableAccounts.findRowByValue('FamilyName', name);
             if (!row)
                 row = tableAccounts.findRowByValue('FirstName', name);
+            if (!row)
+                row = tableAccounts.findRowByValue('Description', name);
             if (row) {
                 if (row.value("Account")) {
                     paymentObj.creditorAccountId = row.value("Account");
