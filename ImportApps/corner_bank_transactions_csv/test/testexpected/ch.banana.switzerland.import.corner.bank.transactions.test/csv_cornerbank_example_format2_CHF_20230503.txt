@@ -47,6 +47,7 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2023-03-27 & 2023-03-27 &  & I-silique  &  & 29.9\\
 2023-03-29 & 2023-03-31 &  & Samilondientanendirunc  &  & 53.85\\
 2023-03-29 & 2023-03-31 &  & Probiresto navivens que�aeps  &  & 43.08\\
+ &  &  & Latipsuceligant 3\\
 2023-03-31 & 2023-03-31 &  & Plapillumedducipse  &  & 1.1\\
 \\
 \end{tablevalue}

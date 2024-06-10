@@ -1,4 +1,4 @@
-%%info_test_name{csv_cornerbank_example_format3_CHF_20230607}
+%%info_test_name{csv_cornerbank_example_format3_CHF_20240610}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -20,17 +20,17 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2023-11-04 &  &  &  & Magiongentenate & 24634.0\\
-2023-12-04 &  &  &  & Magiongentenate & 23694.0\\
+2023-11-04 &  &  &  & Bonifico & 24713.0\\
+2023-12-04 &  &  &  & Bonifico & 24421.0\\
 2023-12-28 &  &  &  & Magiongentenate & -15.0\\
-2023-12-28 &  &  &  & Magiongentenate & -41.0\\
+2023-12-28 &  &  &  & Magiongentenate & -42.0\\
 2024-01-05 &  &  &  & I-silique & 24324.0\\
-2024-01-13 &  &  &  & I-silique & 2341.75\\
-2024-01-19 &  &  &  & Samilondientanendirunc & 88.0\\
-2024-02-02 &  &  &  & Samilondientanendirunc & 22428.0\\
+2024-01-12 &  &  &  & I-silique & 2341.75\\
+2024-01-19 &  &  &  & Samilondientanendirunc & 78.0\\
+2024-01-31 &  &  &  & Samilondientanendirunc & 22428.0\\
 2024-02-01 &  &  &  & Samilondientanendirunc & 24513.0\\
-2024-02-28 &  &  &  & I-silique & -12.0\\
-2024-03-02 &  &  &  & I-silique & 23782.0\\
+2024-02-28 &  &  &  & I-silique & -25.0\\
+2024-03-02 &  &  &  & I-silique & 24500.0\\
 2024-03-09 &  &  &  & Samilondientanendirunc & 2754.81\\
 2024-04-02 &  &  &  & Probiresto navivens & 25362.0\\
 2024-05-28 &  &  &  & Plapillumedducipse & 25362.0\\
