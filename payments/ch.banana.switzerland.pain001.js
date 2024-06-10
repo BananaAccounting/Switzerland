@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2024-05-31
+// @pubdate = 2024-06-10
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -2442,7 +2442,10 @@ var JsAction = class JsAction {
 
             var changedRowFields = {};
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+            this._rowSetAccount(paymentObj, changedRowFields);
             this._rowSetAmount(paymentObj, changedRowFields);
+            this._rowSetDoc(paymentObj, changedRowFields);
+            this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
 
             // Add to docChange
             // Only append rows because qr codes could be more than one and rows must be added to the table
@@ -2547,7 +2550,7 @@ var JsAction = class JsAction {
             changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
         }
         else if (tabPos.columnName === "_AllRowDataChanged") {
-            //columnName === "_AllRowDataChanged" by duplicating row or selecting column and deleting content
+            //columnName === "_AllRowDataChanged" by duplicating row, scanning qrcode or deleting content of a column
 
             this._rowGetAccount(paymentObj, row);
             this._rowGetAmount(paymentObj, row);
@@ -2823,8 +2826,12 @@ var JsAction = class JsAction {
         }
 
         if (fieldName.length > 0) {
-            if (accountId.length>0)
+            if (accountId.length>0) {
+                //remove dot comma or semicolon
                 accountId = accountId.substring(1);
+                //add minus sign
+                accountId = "-" + accountId;
+            }
             row[fieldName] = accountId;
         }
         else {
