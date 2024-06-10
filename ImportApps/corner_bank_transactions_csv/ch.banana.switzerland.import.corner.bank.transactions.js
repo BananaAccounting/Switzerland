@@ -51,7 +51,6 @@ function exec(inData, isTest) {
   // Format 1
   var format1 = new ImportCornerBankFormat1();
   if (format1.match(transactions)) {
-    Banana.console.log("Format 1");
     transactions = format1.convert(transactions);
     return Banana.Converter.arrayToTsv(transactions);
   }
@@ -59,7 +58,6 @@ function exec(inData, isTest) {
   // Format 2
   var format2 = new ImportCornerBankFormat2();
   if (format2.match(transactions)) {
-    Banana.console.log("Format 2");
     transactions = format2.convert(transactions);
     return Banana.Converter.arrayToTsv(transactions);
   }
@@ -67,7 +65,6 @@ function exec(inData, isTest) {
   // Format 3
   var format3 = new ImportCornerBankFormat3();
   if (format3.match(transactionsData)) {
-    Banana.console.log("Format 3");
     transactions = format3.convert(transactionsData);
     return Banana.Converter.arrayToTsv(transactions);
   }
