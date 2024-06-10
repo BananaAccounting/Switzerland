@@ -35,7 +35,6 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2023-03-13 & 2023-03-13 &  & I-olfacta  &  & 630.56\\
 2023-03-20 & 2023-03-20 &  & Gralis varenteque aervatuellit  & 700.0 & \\
 2023-03-31 & 2023-03-31 &  & Vervadusitiandacturam  &  & 5.15\\
- &  &  & Araescabibrevox 3\\
 2023-03-31 & 2023-03-31 &  & Exiliquiniuniurest  &  & 5.07\\
 \\
 \end{tablevalue}
