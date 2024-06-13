@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2024-06-10
+// @pubdate = 2024-06-13
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -2452,8 +2452,12 @@ var JsAction = class JsAction {
             // Add to docChange
             // Only append rows because qr codes could be more than one and rows must be added to the table
             docChange.addOperationRowAdd(tabPos.tableName, changedRowFields);
-        }
 
+            // Move to the last row
+            docChange.moveToRow(tabPos.tableName, "Description", -1);
+
+        }
+        // Banana.Ui.showText(JSON.stringify(docChange.getDocChange(), null, 3));
         return docChange.getDocChange();
     }
 
