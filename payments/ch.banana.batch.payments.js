@@ -18,7 +18,7 @@
 // @api = 1.0
 // @pubdate = 2024-06-04
 // @doctype = *.*
-// @description = Batch payments
+// @description = Add payment data to suppliers invoices [BETA]
 // @task = app.command
 // @timeout = -1
 // @includejs = ch.banana.switzerland.pain001.js
@@ -28,13 +28,13 @@
 *   Main function
 */
 function exec() {
-
   // Initialize user parameters
   var userParam = initUserParam();
   var savedParam = Banana.document.getScriptSettings();
   if (savedParam && savedParam.length > 0) {
     userParam = JSON.parse(savedParam);
   }
+  userParam = verifyUserParam(userParam);
   if (!options || !options.useLastSettings) {
     userParam = settingsDialog();
   }
@@ -81,11 +81,14 @@ function exec() {
   };*/
   var docChange = new DocumentChange();
 
+  //retrieves suppliers invoices
+  var openInvoicesList = getOpenInvoicesList(userParam);
+
   var rowsProcessed = [];
   if (rowsToProcess.length > 0) {
     for (var i = 0; i < rowsToProcess.length; i++) {
       tabPos.rowNr = rowsToProcess[i] - 1;
-      docChange = createPaymentObject(tabPos, docChange, rowsProcessed);
+      docChange = createPaymentObject(tabPos, docChange, openInvoicesList, rowsProcessed);
     }
   }
   else {
@@ -120,32 +123,44 @@ function convertParam(userParam) {
 
 
   var currentParam = {};
-  currentParam.name = 'print_multiple';
+  currentParam.name = 'process_table';
   currentParam.title = 'Transactions table';
   currentParam.type = 'string';
   currentParam.value = '';
   currentParam.editable = false;
-  currentParam.readValue = function() {
-    userParam.print_multiple = this.value;
+  currentParam.readValue = function () {
+    userParam.process_table = this.value;
   }
   convertedParam.data.push(currentParam);
 
   currentParam = {};
-  currentParam.name = 'print_multiple_rows';
-  currentParam.parentObject = 'print_multiple';
-  currentParam.title = 'Rows to process ("1-3" from row-to row, "1,3,7" single rows, "*" all rows)';
+  currentParam.name = 'process_rows';
+  currentParam.parentObject = 'process_table';
+  currentParam.title = 'Rows to process (* all rows, 1-3 or 1,2,3 range of rows)';
   currentParam.type = 'string';
-  currentParam.value = userParam.print_multiple_rows ? '*' : '*';
+  currentParam.value = userParam.process_rows ? '*' : '*';
   currentParam.defaultvalue = '*';
   currentParam.readValue = function () {
-    userParam.print_multiple_rows = this.value.trim();
+    userParam.process_rows = this.value.trim();
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'only_open_invoices';
+  currentParam.parentObject = 'process_table';
+  currentParam.title = 'Only open invoices';
+  currentParam.type = 'bool';
+  currentParam.value = userParam.only_open_invoices ? userParam.only_open_invoices : false;
+  currentParam.defaultvalue = false;
+  currentParam.readValue = function () {
+    userParam.only_open_invoices = this.value;
   }
   convertedParam.data.push(currentParam);
 
   return convertedParam;
 }
 
-function createPaymentObject(tabPos, docChange, rowProcessed) {
+function createPaymentObject(tabPos, docChange, openInvoicesList, rowProcessed) {
   var jsAction = new JsAction(Banana.document);
   var pain001CH = new Pain001Switzerland(Banana.document);
   if (!pain001CH.verifyBananaVersion())
@@ -164,12 +179,20 @@ function createPaymentObject(tabPos, docChange, rowProcessed) {
   if (row && row.isEmpty === false && paymentData.length <= 0) {
     //only payments with valid account Id
     jsAction._rowGetAccount(paymentObj, row);
-    if (paymentObj.creditorAccountId.length<=0)
+    if (paymentObj.creditorAccountId.length <= 0)
       return docChange;
 
-    jsAction._rowGetUnstructuredMessage(paymentObj, row);
-    jsAction._rowGetAmount(paymentObj, row);
+    //only open invoices
     jsAction._rowGetDoc(paymentObj, row);
+    var invoiceNo = paymentObj.invoiceNo;
+    if (openInvoicesList && invoiceNo.length > 0) {
+      if (openInvoicesList.indexOf(invoiceNo) < 0)
+        return docChange;
+    }
+
+    jsAction._rowGetAmount(paymentObj, row);
+    jsAction._rowGetUnstructuredMessage(paymentObj, row);
+
     if (!paymentObj["transactionDate"] || paymentObj["transactionDate"].length <= 0)
       paymentObj["transactionDate"] = pain001CH.currentDate();
     paymentObj["@uuid"] = row.uuid;
@@ -188,6 +211,28 @@ function createPaymentObject(tabPos, docChange, rowProcessed) {
   return docChange;
 }
 
+function getOpenInvoicesList(userParam) {
+
+  var openInvoicesList = [];
+  var journalInvoices = Banana.document.invoicesSuppliers();
+  if (!journalInvoices)
+    return;
+
+  for (var i = 0; i < journalInvoices.rowCount; i++) {
+    var tRow = journalInvoices.row(i);
+    if (tRow.value('ObjectType') === 'InvoiceTotal' && tRow.value('CounterpartyId').length > 0) {
+      var customerId = tRow.value('CounterpartyId').toString();
+      var invoiceId = tRow.value('Invoice').toString();
+      var balance = tRow.value('Balance').toString();
+      if (!Banana.SDecimal.isZero(balance) || userParam.only_open_invoices === false) {
+        openInvoicesList.push(invoiceId);
+      }
+    }
+  }
+  return openInvoicesList;
+
+}
+
 function getRowsToProcess(userParam) {
 
   /**
@@ -199,16 +244,16 @@ function getRowsToProcess(userParam) {
   var rows = [];
 
   //List or rows ("1,2,3")
-  if (userParam.print_multiple_rows.indexOf(",") > -1) {
-    var tmpRows = userParam.print_multiple_rows.split(",");
+  if (userParam.process_rows.indexOf(",") > -1) {
+    var tmpRows = userParam.process_rows.split(",");
     for (var i = 0; i < tmpRows.length; i++) {
       rows.push(Number(tmpRows[i]));
     }
   }
 
   //Range from .. to..  ("1-3")
-  else if (userParam.print_multiple_rows.indexOf("-") > -1) {
-    var tmpRows = userParam.print_multiple_rows.split("-");
+  else if (userParam.process_rows.indexOf("-") > -1) {
+    var tmpRows = userParam.process_rows.split("-");
     var from = tmpRows[0];
     var to = tmpRows[1];
     for (var i = from; i <= to; i++) {
@@ -217,12 +262,12 @@ function getRowsToProcess(userParam) {
   }
 
   //Single row ("1", "2", "3")
-  else if (userParam.print_multiple_rows.match(/^[0-9]+$/) !== null) {
-    rows.push(Number(userParam.print_multiple_rows));
+  else if (userParam.process_rows.match(/^[0-9]+$/) !== null) {
+    rows.push(Number(userParam.process_rows));
   }
 
   //All the rows ("*")
-  else if (!userParam.print_multiple_rows || userParam.print_multiple_rows === "*") {
+  else if (!userParam.process_rows || userParam.process_rows === "*") {
     var table = Banana.document.table('Transactions');
     for (var i = 0; i < table.rowCount; i++) {
       var tRow = table.row(i);
@@ -238,7 +283,9 @@ function getRowsToProcess(userParam) {
 
 function initUserParam() {
   var userParam = {};
-  userParam.print_multiple_rows = '*';
+  userParam.process_table = '';
+  userParam.process_rows = '*';
+  userParam.only_open_invoices = false;
 
   return userParam;
 }
@@ -256,8 +303,8 @@ function parametersDialog(userParam) {
     }
 
     //parameters
-    var dialogTitle = '';
-    if (lang === 'it') {
+    var dialogTitle = 'Add payment data to suppliers invoices';
+    /*if (lang === 'it') {
       dialogTitle = 'Impostazioni';
     } else if (lang === 'fr') {
       dialogTitle = 'Paramètres';
@@ -265,7 +312,7 @@ function parametersDialog(userParam) {
       dialogTitle = 'Einstellungen';
     } else {
       dialogTitle = 'Settings';
-    }
+    }*/
     var convertedParam = convertParam(userParam);
     var pageAnchor = 'dlgSettings';
     if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor)) {
@@ -290,7 +337,7 @@ function settingsDialog() {
   if (savedParam && savedParam.length > 0) {
     scriptform = JSON.parse(savedParam);
   }
-
+  scriptform = verifyUserParam(scriptform);
   scriptform = parametersDialog(scriptform); // From propertiess
   if (scriptform) {
     var paramToString = JSON.stringify(scriptform);
@@ -300,3 +347,16 @@ function settingsDialog() {
   return scriptform;
 }
 
+function verifyUserParam(userParam) {
+  if (!userParam)
+    userParam = initUserParam();
+
+  if (!userParam.process_table)
+    userParam.process_table = '';
+  if (!userParam.process_rows)
+    userParam.process_rows = '*';
+  if (!userParam.only_open_invoices)
+    userParam.only_open_invoices = false;
+
+  return userParam;
+}
