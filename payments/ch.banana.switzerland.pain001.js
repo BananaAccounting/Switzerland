@@ -2453,10 +2453,11 @@ var JsAction = class JsAction {
             // Only append rows because qr codes could be more than one and rows must be added to the table
             docChange.addOperationRowAdd(tabPos.tableName, changedRowFields);
 
-            // Move to the last row
-            docChange.moveToRow(tabPos.tableName, "Description", -1);
-
         }
+
+        // Move to the last row
+        docChange.moveToRow(tabPos.tableName, "Description", -1);
+        
         // Banana.Ui.showText(JSON.stringify(docChange.getDocChange(), null, 3));
         return docChange.getDocChange();
     }
