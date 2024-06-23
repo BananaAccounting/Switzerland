@@ -346,13 +346,22 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
 
   convert(transactionsData) {
     var transactionsToImport = [];
-
+    var row = 0;
     for (var i = 0; i < transactionsData.length; i++) {
        if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
           transactionsData[i]["Date"].match(/[0-9\/]+/g)) {
           transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+          Banana.console.log(`transactionsToImport${i}: ` + JSON.stringify(transactionsToImport));
+          row++;
+       } else {
+          if (row > 0) {
+             transactionsToImport[row - 1][4] += " " + transactionsData[i]["Description"];
+          }
        }
+      
     }
+
+    Banana.console.log("transactionsToImport: " + JSON.stringify(transactionsToImport));
 
     // Sort rows by date
     transactionsToImport = transactionsToImport.reverse();
