@@ -351,7 +351,6 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
        if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
           transactionsData[i]["Date"].match(/[0-9\/]+/g)) {
           transactionsToImport.push(this.mapTransaction(transactionsData[i]));
-          Banana.console.log(`transactionsToImport${i}: ` + JSON.stringify(transactionsToImport));
           row++;
        } else {
           if (row > 0) {
