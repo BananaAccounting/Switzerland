@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.ubs
 // @api = 1.0
-// @pubdate = 2024-06-21
+// @pubdate = 2024-06-24
 // @publisher = Banana.ch SA
 // @description = UBS - Import account statement .csv (Banana+ Advanced)
 // @description.en = UBS - Import account statement .csv (Banana+ Advanced)
