@@ -435,7 +435,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
                         transaction = {
                             'Date': entryBookingDate,
                             'DateValue': entryValutaDate,
-                            'DocInvoice': invoiceNumber,
+                            'DocInvoice': entryIsCredit ? invoiceNumber : '', //set invoice number only when entry is credit
                             'Description': detailDescription,
                             'Income': deatailsIsCredit ? deatailAmount : '',
                             'Expenses': deatailsIsCredit ? '' : deatailAmount,
@@ -447,20 +447,25 @@ var ISO20022CamtFile = class ISO20022CamtFile {
                             'IsDetail': this.params.add_counterpart_transaction && txDtlsCount > 1 ? 'D' : ''
                         };
 
-                        if (this.params.customer_no && this.params.customer_no.extract) { // Set customer number
+                        if (this.params.customer_no && this.params.customer_no.extract) { // Set customer number only when entry is credit
                             var customerNumber = this.extractCustomerNumber(detailEsrReference);
                             var ccPrefix = deatailsIsCredit ? '-' : '';
                             if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC1') {
-                                if (customerNumber)
-                                transaction.Cc1 = ccPrefix + customerNumber;
+                                if (entryIsCredit && customerNumber) {
+                                    transaction.Cc1 = ccPrefix + customerNumber;
+                                }
                             } else if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC2') {
-                                if (customerNumber)
-                                transaction.Cc2 = ccPrefix + customerNumber;
+                                if (entryIsCredit && customerNumber) {
+                                    transaction.Cc2 = ccPrefix + customerNumber;
+                                }
                             } else if (this.params.customer_no.use_cc && this.params.customer_no.use_cc.trim().toUpperCase() === 'CC3') {
-                                if (customerNumber)
-                                transaction.Cc3 = ccPrefix + customerNumber;
+                                if (entryIsCredit && customerNumber) {
+                                    transaction.Cc3 = ccPrefix + customerNumber;
+                                }
                             } else {
-                                transaction.ContraAccount = customerNumber;
+                                if (entryIsCredit) {
+                                    transaction.ContraAccount = customerNumber;
+                                }
                             }
                         }
                         
@@ -883,7 +888,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
         texts.import_transactions_all = 'All';
         texts.import_transactions_credits = 'Credits';
         texts.import_transactions_debits = 'Debits';
-        texts.invoice_no_extract = 'Extract invoice number from reference';
+        texts.invoice_no_extract = 'Extract customer invoice number from reference';
         texts.invoice_no_start = 'Start position';
         texts.invoice_no_length = 'Number of characters (-1 = all)';
         texts.invoice_no_method = 'Function (optional)';
@@ -899,7 +904,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
         texts.customer_no_keep_initial_zeros = 'Keep initial zeros';
         texts.legacy_add_counterpart_transaction = 'Add counterpart transactions (0 or empty = No; 1 = Yes)';
         // texts.legacy_import_credits = 'Import credits only (0 or empty = No; 1 = Yes)';
-        texts.legacy_invoice_no_extract = 'Extract invoice number from Isr reference (0 or empty = No; 1 = Yes)';
+        texts.legacy_invoice_no_extract = 'Extract customer invoice number from Isr reference (0 or empty = No; 1 = Yes)';
         texts.legacy_invoice_no_start = 'Extract invoice number from Isr reference: Start position';
         texts.legacy_invoice_no_length = 'Extract invoice number from Isr reference: Number of characters (-1 = all)';
         texts.legacy_invoice_no_method = 'Extract invoice number from Isr reference: Function (optional)';
@@ -918,7 +923,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.import_transactions_all = 'Tutti';
             texts.import_transactions_credits = 'Accrediti';
             texts.import_transactions_debits = 'Addebiti';
-            texts.invoice_no_extract = 'Estrai numero fattura dal numero di riferimento';
+            texts.invoice_no_extract = 'Estrai numero fattura cliente dal numero di riferimento';
             texts.invoice_no_start = 'Posizione di inizio';
             texts.invoice_no_length = 'Numero di caratteri (-1 = tutti)';
             texts.invoice_no_method = 'Funzione (opzionale)';
@@ -934,7 +939,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.customer_no_keep_initial_zeros = 'Mantieni zeri iniziali';
             texts.legacy_add_counterpart_transaction = 'Aggiungi registrazione di contropartita (0 o vuoto = No; 1 = Si)';
             // texts.legacy_import_credits = 'Importa solo accrediti (0 o vuoto = No; 1 = Si)';
-            texts.legacy_invoice_no_extract = 'Estrai numero fattura dal numero di riferimento PVR (0 o vuoto = No; 1 = Si)';
+            texts.legacy_invoice_no_extract = 'Estrai numero fattura cliente dal numero di riferimento PVR (0 o vuoto = No; 1 = Si)';
             texts.legacy_invoice_no_start = 'Estrai numero fattura dal numero di riferimento PVR: Posizione di inizio';
             texts.legacy_invoice_no_length = 'Estrai numero fattura dal numero di riferimento PVR: Numero di caratteri (-1 = tutti)';
             texts.legacy_invoice_no_method = 'Estrai numero fattura dal numero di riferimento PVR: Funzione (opzionale)';
@@ -951,7 +956,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.import_transactions_all = 'Alle';
             texts.import_transactions_credits = 'Einnahmen';
             texts.import_transactions_debits = 'Ausgaben';
-            texts.invoice_no_extract = 'Rechnungsnummer aus Referenznummer extrahieren';
+            texts.invoice_no_extract = 'Kundenrechnungsnummer aus Referenznummer extrahieren';
             texts.invoice_no_start = 'Anfangsposition';
             texts.invoice_no_length = 'Anzahl Zeichen (-1 = Alle)';
             texts.invoice_no_method = 'Funktion (optional)';
@@ -967,7 +972,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.customer_no_keep_initial_zeros = 'Die Nullen am Anfang beibehalten';
             texts.legacy_add_counterpart_transaction = 'Gegenbuchung hinzufügen (0 oder leer = Nein; 1 = Ja)';
             // texts.legacy_import_credits = 'Nur Kredite importieren (0 oder leer = Nein; 1 = Ja)';
-            texts.legacy_invoice_no_extract = 'Rechnungsnummer aus ESR-Referenznummer extrahieren (0 oder leer = Nein; 1 = Ja)';
+            texts.legacy_invoice_no_extract = 'Kundenrechnungsnummer aus ESR-Referenznummer extrahieren (0 oder leer = Nein; 1 = Ja)';
             texts.legacy_invoice_no_start = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Anfangsposition';
             texts.legacy_invoice_no_length = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Anzahl Zeichen (-1 = Alle)';
             texts.legacy_invoice_no_method = 'Rechnungsnummer aus ESR-Referenznummer extrahieren: Funktion (optional)';
@@ -985,7 +990,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.import_transactions_all = 'Toutes' ;
             texts.import_transactions_credits = 'Crédits' ;
             texts.import_transactions_debits = 'Débits' ;
-            texts.invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence';
+            texts.invoice_no_extract = 'Extraire le numéro de facture client depuis le numéro de référence';
             texts.invoice_no_start = 'Position de départ';
             texts.invoice_no_length = 'Nombre de caractères (-1 = tous)';
             texts.invoice_no_method = 'Fonction (optionnel)';
@@ -1001,7 +1006,7 @@ var ISO20022CamtFile = class ISO20022CamtFile {
             texts.customer_no_keep_initial_zeros = 'Maintenir les zéros initial';
             texts.legacy_add_counterpart_transaction = 'Ajouter écriture de contrepartie (0 ou vide = Non; 1 = Oui)';
             // texts.legacy_import_credits = "Importe uniquement les crédits (0 ou vide = Non; 1 = Oui)";
-            texts.legacy_invoice_no_extract = 'Extraire le numéro de facture depuis le numéro de référence BVR (0 ou vide = Non; 1 = Oui)';
+            texts.legacy_invoice_no_extract = 'Extraire le numéro de facture client depuis le numéro de référence BVR (0 ou vide = Non; 1 = Oui)';
             texts.legacy_invoice_no_start = 'Extraire le numéro de facture depuis le numéro de référence BVR: Position de départ';
             texts.legacy_invoice_no_length = 'Extraire le numéro de facture depuis le numéro de référence BVR: Nombre de caractères (-1 = tous)';
             texts.legacy_invoice_no_method = 'Extraire le numéro de facture depuis le numéro de référence BVR: Fonction (optionnel)';
