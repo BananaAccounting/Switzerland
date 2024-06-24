@@ -360,8 +360,6 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
       
     }
 
-    Banana.console.log("transactionsToImport: " + JSON.stringify(transactionsToImport));
-
     // Sort rows by date
     transactionsToImport = transactionsToImport.reverse();
 
