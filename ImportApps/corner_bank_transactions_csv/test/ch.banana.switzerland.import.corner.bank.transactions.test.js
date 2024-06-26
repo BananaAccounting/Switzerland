@@ -62,6 +62,7 @@ TestImportCornerBankTrans.prototype.testImport = function() {
    fileNameList.push("file:script/../test/testcases/transactions.csv");
    fileNameList.push("file:script/../test/testcases/csv_cornerbank_example_format2_CHF_20230503.csv");
    fileNameList.push("file:script/../test/testcases/csv_cornerbank_example_format2_EUR_20230503.csv");
+   fileNameList.push("file:script/../test/testcases/csv_cornerbank_example_format3_CHF_20240610.csv");
    
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);

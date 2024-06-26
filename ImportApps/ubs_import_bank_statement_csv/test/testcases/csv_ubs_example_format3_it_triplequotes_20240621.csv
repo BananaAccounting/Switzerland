@@ -1,0 +1,15 @@
+﻿Numero di conto:;0000 00000800.00;;;;;;;;;;;;;
+IBAN:;CH00 0000 0000 0000 0000 N;;;;;;;;;;;;;
+Dal:;;;;;;;;;;;;;;
+Al:;;;;;;;;;;;;;;
+Saldo iniziale:;1117.58;;;;;;;;;;;;;
+Saldo finale:;22.97;;;;;;;;;;;;;
+Valutazione in:;CHF;;;;;;;;;;;;;
+Numero di transazioni in questo periodo:;6;;;;;;;;;;;;;
+Data dell'operazione;Ora dell'operazione;Data di registrazione;Data di valuta;Moneta;Addebito;Accredito;Importo singolo;Saldo;N. di transazione;Descrizione1;Descrizione2;Descrizione3;Note a piè di pagina;
+2024-06-19;12:48:15;;2024-06-19;CHF;-20.00;;;22.97;11111111;"""FILIALE;VIGANELLO""";"""11111111-0 07/24; Prelevamento Bancomat""";No di transazioni: 111111;;
+2024-06-19;;2024-06-19;2024-06-19;CHF;-450.00;;;42.97;11111112;"""Descrizione1""";"""Descrizione2; Descrizione2""";"""Descrizione3""";;
+2024-06-17;17:19:57;2024-06-19;2024-06-17;CHF;-15.40;;;492.97;11111113;"""Descrizione1;6962 Viganello""";"""11111111-0 07/24; Pagamento carta di debito""";No di transazioni: 11111112334;;
+2024-06-17;17:31:13;2024-06-18;2024-06-17;CHF;-5.20;;;508.37;11111114;"""Descrizione1;6900 Lugano""";"""11111111-0 07/24; Pagamento carta di debito""";No di transazioni: 11234534553;;
+2024-06-18;;2024-06-18;2024-06-18;CHF;;200.00;;513.57;11111115;"""Descrizione1;6900 Lugano""";Accredito;No di transazioni: 12678345643;;
+2024-05-31;17:23:44;2024-06-03;2024-05-31;CHF;-20.00;;;1117.58;11111116;BR Lugano;"""111111111-0 07/24; Prelevamento Bancomat""";"""Spese: Prelevamento di contanti al Bancomat di banche terze/Postomat in Svizzera; No di transazioni: 1268923683""";;

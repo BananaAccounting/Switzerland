@@ -1,4 +1,4 @@
-%%info_test_name{ch.banana.switzerland.import.corner.bank.transactions.test}
+%%info_test_name{csv_ubs_example_format3_it_triplequotes_20240621}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -18,11 +18,14 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/Users/joemb/Banana/Switzerland/ImportApps/corner_bank_transactions_csv/test/ch.banana.switzerland.import.corner.bank.transactions.test.js}
-%
-\begin{testcase}{TestImportCornerBankTrans}
-\begin{test}{testImport}
-\keyvalue{Result}{Passed}
-\end{test}
-\end{testcase}
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income\\
+2024-05-31 & 2024-05-31 & BR Lugano 111111111-0 07/24; Prelevamento Bancomat & 11111116 & 20.00 & \\
+2024-06-17 & 2024-06-17 & Descrizione1;6900 Lugano 11111111-0 07/24; Pagamento carta di debito & 11111114 & 5.20 & \\
+2024-06-17 & 2024-06-17 & Descrizione1;6962 Viganello 11111111-0 07/24; Pagamento carta di debito & 11111113 & 15.40 & \\
+2024-06-18 & 2024-06-18 & Descrizione1;6900 Lugano Accredito & 11111115 &  & 200.00\\
+2024-06-19 & 2024-06-19 & Descrizione1 Descrizione2; Descrizione2 & 11111112 & 450.00 & \\
+2024-06-19 & 2024-06-19 & FILIALE;VIGANELLO 11111111-0 07/24; Prelevamento Bancomat & 11111111 & 20.00 & \\
+\\
+\end{tablevalue}
 \end{document}
