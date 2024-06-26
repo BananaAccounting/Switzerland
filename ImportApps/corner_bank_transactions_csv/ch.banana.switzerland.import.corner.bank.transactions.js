@@ -346,12 +346,18 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
 
   convert(transactionsData) {
     var transactionsToImport = [];
-
+    var row = 0;
     for (var i = 0; i < transactionsData.length; i++) {
        if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
           transactionsData[i]["Date"].match(/[0-9\/]+/g)) {
           transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+          row++;
+       } else {
+          if (row > 0) {
+             transactionsToImport[row - 1][4] += " " + transactionsData[i]["Description"];
+          }
        }
+      
     }
 
     // Sort rows by date
