@@ -150,8 +150,8 @@ var ImportCornerBankFormat1 = class ImportCornerBankFormat1 extends ImportUtilit
       var transaction = transactions[i];
       if (transaction.length < (this.currentLength))
         continue;
-      if ((transaction[this.colDate] && transaction[this.colDate].length === 8) &&
-        (transaction[this.colDateValuta] && transaction[this.colDateValuta].length === 8)) {
+      if ((transaction[this.colDate] && transaction[this.colDate].match(/[0-9\.]+/g)) &&
+        (transaction[this.colDateValuta] && transaction[this.colDate].match(/[0-9\.]+/g))) {
         transactionsToImport.push(this.mapTransaction(transaction));
       }
     }
@@ -273,8 +273,9 @@ var ImportCornerBankFormat2 = class ImportCornerBankFormat2 extends ImportUtilit
       var transaction = transactions[i];
       if (transaction.length < (this.colBalance + 1))
         continue;
-      if ((transaction[this.colDate] && transaction[this.colDate].match(/[0-9\.]+/g)) &&
-        (transaction[this.colDateValuta] && transaction[this.colDateValuta].match(/[0-9\.]+/g))) {
+      
+      if ((transaction[this.colDate] && transaction[this.colDate].length === 10) &&
+        (transaction[this.colDateValuta] && transaction[this.colDate].length === 10)) {
         transactionsToImport.push(this.mapTransaction(transaction));
       }
     }
@@ -312,23 +313,25 @@ var ImportCornerBankFormat2 = class ImportCornerBankFormat2 extends ImportUtilit
 
 /**
  * CSV Format 3
- * Conto No.;362635/01 CHF;;;;
- * ;;;;;
- * Elenco movimenti;;;;;
- * ;;;;;
- * Data registrazione;Descrizione;Dettaglio;Data valuta;Importo;Saldo
+ * ;;;;;;;;;;;;;;;;;;;;
+ * ;Conto No.;12345678/01 CHF;;;;;;;;;;;;;;;;;;;;
+ * ;;;;;;;;;;;;;;;;;;;;
+ * ;Elenco movimenti;;;;;;;;;;;;;;;;;;;;
+ * ;;;;;;;;;;;;;;;;;;;;
+ * ;Data registrazione;Descrizione;Dettaglio;Data valuta;Importo;Saldo;;;;;;;;;;;;
+ * ;28/05/24;Plapillumedducipse;;28/05/24;25362.0;364278.42;;;;;;;;;;;;
  */ 
 var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilities {
 
   match(transactionsData) {
     if (transactionsData.length === 0)
-       return false;
+      return false;
 
     for (var i = 0; i < transactionsData.length; i++) {
        var transaction = transactionsData[i];
        var formatMatched = true;
-
-       if (formatMatched && transaction["Date"] && transaction["Date"].length === 10 &&
+        
+       if (formatMatched && transaction["Date"] && transaction["Date"].length >= 8 &&
           transaction["Date"].match(/[0-9\/]+/g))
           formatMatched = true;
        else
@@ -343,12 +346,18 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
 
   convert(transactionsData) {
     var transactionsToImport = [];
-
+    var row = 0;
     for (var i = 0; i < transactionsData.length; i++) {
-       if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length === 10 &&
+       if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
           transactionsData[i]["Date"].match(/[0-9\/]+/g)) {
           transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+          row++;
+       } else {
+          if (row > 0) {
+             transactionsToImport[row - 1][4] += " " + transactionsData[i]["Description"];
+          }
        }
+      
     }
 
     // Sort rows by date
@@ -387,8 +396,8 @@ function defineConversionParam() {
 
   /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
    We suppose the data will always begin right away after the header line */
-   convertionParam.headerLineStart = 4;
-   convertionParam.dataLineStart = 5;
+   convertionParam.headerLineStart = 6;
+   convertionParam.dataLineStart = 7;
 
   /** SPECIFY THE COLUMN TO USE FOR SORTING
   If sortColums is empty the data are not sorted */
@@ -401,6 +410,7 @@ function defineConversionParam() {
 function getFormattedData(inData, convertionParam, importUtilities) {
   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+
   let form = [];
 
   let convertedColumns = [];
@@ -412,6 +422,7 @@ function getFormattedData(inData, convertionParam, importUtilities) {
   }
 
   convertedColumns = convertHeaderIt(columns);
+  
   if (convertedColumns.length > 0) {
     importUtilities.loadForm(form, convertedColumns, rows);
     return form;
@@ -471,5 +482,4 @@ function convertHeaderIt(columns) {
 
   return convertedColumns;
 }
-
 

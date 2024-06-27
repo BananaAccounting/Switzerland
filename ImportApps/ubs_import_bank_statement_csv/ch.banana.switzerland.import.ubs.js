@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.ubs
 // @api = 1.0
-// @pubdate = 2019-09-06
+// @pubdate = 2024-06-24
 // @publisher = Banana.ch SA
 // @description = UBS - Import account statement .csv (Banana+ Advanced)
 // @description.en = UBS - Import account statement .csv (Banana+ Advanced)
@@ -25,6 +25,14 @@
  */
 function exec(inData, isTest) {
     if (!inData) return "";
+
+    /** in the new version of format 3 (June 2024) we could have the situation where descriptions have
+     * trhee pairs of quotes: """description text""". This situation cause problems
+     * when the API Banana.Converter.csvToArray() read the content, the text is ignored. This happen
+     * when the text description contains a semicolon ';'.
+     * For the time being, we 'clean' the text of these quotes pairs by replacing them with normal quotes pairs.
+     *  */
+    inData = inData.replace(/"""/g, '"');
 
     var importUtilities = new ImportUtilities(Banana.document);
 

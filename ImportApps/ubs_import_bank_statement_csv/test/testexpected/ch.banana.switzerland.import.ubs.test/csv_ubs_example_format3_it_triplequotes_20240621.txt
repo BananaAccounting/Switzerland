@@ -1,4 +1,4 @@
-%%info_test_name{csv_cornerbank_example_format3_CHF_20230607}
+%%info_test_name{csv_ubs_example_format3_it_triplequotes_20240621}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -18,22 +18,14 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l  l }
-Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2023-11-04 &  &  &  & Magiongentenate & 24634.0\\
-2023-12-04 &  &  &  & Magiongentenate & 23694.0\\
-2023-12-28 &  &  &  & Magiongentenate & -15.0\\
-2023-12-28 &  &  &  & Magiongentenate & -41.0\\
-2024-01-05 &  &  &  & I-silique & 24324.0\\
-2024-01-13 &  &  &  & I-silique & 2341.75\\
-2024-01-19 &  &  &  & Samilondientanendirunc & 88.0\\
-2024-02-02 &  &  &  & Samilondientanendirunc & 22428.0\\
-2024-02-01 &  &  &  & Samilondientanendirunc & 24513.0\\
-2024-02-28 &  &  &  & I-silique & -12.0\\
-2024-03-02 &  &  &  & I-silique & 23782.0\\
-2024-03-09 &  &  &  & Samilondientanendirunc & 2754.81\\
-2024-04-02 &  &  &  & Probiresto navivens & 25362.0\\
-2024-05-28 &  &  &  & Plapillumedducipse & 25362.0\\
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income\\
+2024-05-31 & 2024-05-31 & BR Lugano 111111111-0 07/24; Prelevamento Bancomat & 11111116 & 20.00 & \\
+2024-06-17 & 2024-06-17 & Descrizione1;6900 Lugano 11111111-0 07/24; Pagamento carta di debito & 11111114 & 5.20 & \\
+2024-06-17 & 2024-06-17 & Descrizione1;6962 Viganello 11111111-0 07/24; Pagamento carta di debito & 11111113 & 15.40 & \\
+2024-06-18 & 2024-06-18 & Descrizione1;6900 Lugano Accredito & 11111115 &  & 200.00\\
+2024-06-19 & 2024-06-19 & Descrizione1 Descrizione2; Descrizione2 & 11111112 & 450.00 & \\
+2024-06-19 & 2024-06-19 & FILIALE;VIGANELLO 11111111-0 07/24; Prelevamento Bancomat & 11111111 & 20.00 & \\
 \\
 \end{tablevalue}
 \end{document}
