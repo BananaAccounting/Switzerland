@@ -1,0 +1,377 @@
+%%info_test_name{csv_cbaa_example_format1_20240708}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2024-01-03 &  &  &  & Fray�caph & 127.2\\
+2024-01-03 &  &  &  & Fray�caph & 165.75\\
+2024-01-03 &  &  &  & Fray�caph & 90.05\\
+2024-01-03 &  &  &  & Fray�caph & 1197.25\\
+2024-01-03 &  &  &  & Fray�caph & 270.1\\
+2024-01-03 &  &  &  & Fray�caph & 575\\
+2024-01-03 &  &  &  & Fray�caph & 20.05\\
+2024-01-04 &  &  &  & Fray�caph & 217.45\\
+2024-01-04 &  &  &  & Fray�caph & 39.4\\
+2024-01-05 &  &  &  & Fray�caph & 339.05\\
+2024-01-05 &  &  &  & Fray�caph & 254.3\\
+2024-01-05 &  &  &  & Fray�caph & 488.4\\
+2024-01-05 &  &  &  & Fray�caph & 77.95\\
+2024-01-05 &  &  &  & Fray�caph & 50.4\\
+2024-01-08 &  &  &  & Fray�caph & 1470.45\\
+2024-01-08 &  &  &  & Fray�caph & 93.5\\
+2024-01-09 &  &  &  & Fray�caph & 70.65\\
+2024-01-11 &  &  &  & Fray�caph & 1230.3\\
+2024-01-12 &  &  &  & Fray�caph & 123.75\\
+2024-01-12 &  &  &  & Fray�caph & 310.5\\
+2024-01-12 &  &  &  & Fray�caph & 53.4\\
+2024-01-12 &  &  &  & Fray�caph & 76.05\\
+2024-01-15 &  &  &  & Fray�caph & 880.45\\
+2024-01-15 &  &  &  & Fray�caph & 44.2\\
+2024-01-15 &  &  &  & Fray�caph & 448.2\\
+2024-01-15 &  &  &  & Fray�caph & 267.75\\
+2024-01-17 &  &  &  & Fray�caph & 917.05\\
+2024-01-17 &  &  &  & Fray�caph & 72.6\\
+2024-01-17 &  &  &  & Fray�caph & 120.6\\
+2024-01-18 &  &  &  & Fray�caph & 822.2\\
+2024-01-19 &  &  &  & Fray�caph & 1093.95\\
+2024-01-19 &  &  &  & Fray�caph & 187.25\\
+2024-01-22 &  &  &  & Fray�caph & 377.5\\
+2024-01-24 &  &  &  & Imantus r-Dabitia & -14713.25\\
+2024-01-25 &  &  &  & Fray�caph & 840.7\\
+2024-01-25 &  &  &  & Fray�caph & 456.85\\
+2024-01-26 &  &  &  & Fray�caph & 218.65\\
+2024-01-26 &  &  &  & Fray�caph & 63.15\\
+2024-01-26 &  &  &  & Fray�caph & 1039.5\\
+2024-01-26 &  &  &  & Fray�caph & 99.85\\
+2024-01-26 &  &  &  & Fray�caph & 577.05\\
+2024-01-26 &  &  &  & Fray�caph & 1056.8\\
+2024-01-26 &  &  &  & Simultinquod & -2525\\
+2024-01-29 &  &  &  & Fray�caph & 63.45\\
+2024-01-29 &  &  &  & Fray�caph & 85.2\\
+2024-01-29 &  &  &  & Fray�caph & 64.5\\
+2024-01-29 &  &  &  & Fray�caph & 108.35\\
+2024-01-29 &  &  &  & Fray�caph & 114.5\\
+2024-01-29 &  &  &  & Fray�caph & 366.6\\
+2024-01-30 &  &  &  & Fray�caph & 95.15\\
+2024-01-30 &  &  &  & Fray�caph & 121.05\\
+2024-01-30 &  &  &  & Fray�caph & 234.55\\
+2024-01-30 &  &  &  & Fray�caph & 135.45\\
+2024-01-30 &  &  &  & Fray�caph & 126.6\\
+2024-01-31 &  &  &  & Fray�caph & 70.95\\
+2024-01-31 &  &  &  & Simultinquod & -343.1\\
+2024-01-31 &  &  &  & Fray�caph & 190.65\\
+2024-01-31 &  &  &  & Fray�caph & 701.15\\
+2024-01-31 &  &  &  & Fray�caph & 5849.3\\
+2024-01-31 &  &  &  & Imantus r-Dabitia & -7551.9\\
+2024-02-01 &  &  &  & Fray�caph & 324.9\\
+2024-02-01 &  &  &  & Fray�caph & 373.6\\
+2024-02-05 &  &  &  & Fray�caph & 1584\\
+2024-02-05 &  &  &  & Fray�caph & 174.35\\
+2024-02-05 &  &  &  & Fray�caph & 216.95\\
+2024-02-05 &  &  &  & Imantus r-Dabitia Tudideo & -427.55\\
+2024-02-06 &  &  &  & Fray�caph & 91.55\\
+2024-02-06 &  &  &  & Fray�caph & 55.25\\
+2024-02-06 &  &  &  & Fray�caph & 79.8\\
+2024-02-07 &  &  &  & Fray�caph Porte-Wintustem Olendo & 1106.3\\
+2024-02-07 &  &  &  & Fray�caph & 329.15\\
+2024-02-09 &  &  &  & Fray�caph & 196.35\\
+2024-02-12 &  &  &  & Fray�caph & 95.15\\
+2024-02-12 &  &  &  & Fray�caph & 1758.35\\
+2024-02-12 &  &  &  & Fray�caph & 583.75\\
+2024-02-12 &  &  &  & Fray�caph & 20.1\\
+2024-02-13 &  &  &  & Fray�caph & 104.55\\
+2024-02-14 &  &  &  & Fray�caph & 172.95\\
+2024-02-14 &  &  &  & Fray�caph & 122.15\\
+2024-02-14 &  &  &  & Fray�caph & 451\\
+2024-02-14 &  &  &  & Fray�caph & 127.65\\
+2024-02-14 &  &  &  & Fray�caph & 154.25\\
+2024-02-14 &  &  &  & Fray�caph & 266.05\\
+2024-02-15 &  &  &  & Plervigray - Fluvitante 35:17 & 1137.85\\
+2024-02-16 &  &  &  & Fray�caph & 646\\
+2024-02-16 &  &  &  & Fray�caph & 293.8\\
+2024-02-16 &  &  &  & Fray�caph & 972\\
+2024-02-20 &  &  &  & Fray�caph & 943.05\\
+2024-02-22 &  &  &  & Fray�caph & 265.95\\
+2024-02-23 &  &  &  & Fray�caph & 104\\
+2024-02-23 &  &  &  & Fray�caph & 257.4\\
+2024-02-26 &  &  &  & Cangenterat-Winundo 35.55.1334 86:75 montetubsere Prope Cogiortathoc: 566455******5822 & -49.95\\
+2024-02-26 &  &  &  & Fray�caph & 178.7\\
+2024-02-26 &  &  &  & Fray�caph & 1307.5\\
+2024-02-26 &  &  &  & Fray�caph & 65.1\\
+2024-02-26 &  &  &  & Fray�caph & 162.9\\
+2024-02-26 &  &  &  & Fray�caph & 81.85\\
+2024-02-26 &  &  &  & Fray�caph & 644.4\\
+2024-02-26 &  &  &  & Fray�caph & 147\\
+2024-02-26 &  &  &  & Imantus r-Dabitia & -16405.15\\
+2024-02-27 &  &  &  & Fray�caph & 94.9\\
+2024-02-27 &  &  &  & Fray�caph & 1861.35\\
+2024-02-27 &  &  &  & Fray�caph & 553.8\\
+2024-02-27 &  &  &  & Fray�caph & 629.7\\
+2024-02-28 &  &  &  & Simultinquod & -2525\\
+2024-02-28 &  &  &  & Fray�caph & 12874.95\\
+2024-02-28 &  &  &  & Imantus r-Dabitia & -3946.9\\
+2024-02-29 &  &  &  & Fray�caph & 100\\
+2024-02-29 &  &  &  & Simultinquod & -343.1\\
+2024-02-29 &  &  &  & Fray�caph & 202.15\\
+2024-02-29 &  &  &  & Fray�caph & 87.55\\
+2024-02-29 &  &  &  & Fray�caph & 64.55\\
+2024-02-29 &  &  &  & Fray�caph & 96.2\\
+2024-02-29 &  &  &  & Fray�caph & 94.7\\
+2024-02-29 &  &  &  & Fray�caph & 292.95\\
+2024-02-29 &  &  &  & Fray�caph & 1138.6\\
+2024-03-01 &  &  &  & Fray�caph & 1220.25\\
+2024-03-01 &  &  &  & Fray�caph & 82.05\\
+2024-03-01 &  &  &  & Fray�caph & 383.3\\
+2024-03-01 &  &  &  & Fray�caph & 224.3\\
+2024-03-04 &  &  &  & Cangenterat-Winundo 67.83.1334 87:87 TURUNIUM PLIATTIO A Cogiortathoc: 566455******5822 & -109.55\\
+2024-03-04 &  &  &  & Fray�caph & 158.7\\
+2024-03-05 &  &  &  & Fray�caph & 50.6\\
+2024-03-06 &  &  &  & Fray�caph & 57.25\\
+2024-03-06 &  &  &  & Imantus r-Dabitia & -213.75\\
+2024-03-07 &  &  &  & Fray�caph & 71.9\\
+2024-03-07 &  &  &  & Fray�caph & 157.85\\
+2024-03-07 &  &  &  & Fray�caph & 57.75\\
+2024-03-08 &  &  &  & Cangenterat-Winundo 33.83.1334 17:35 Untro Divit Cogiortathoc: 566455******5822 & -113.95\\
+2024-03-08 &  &  &  & Fray�caph & 292.75\\
+2024-03-11 &  &  &  & Fray�caph & 1104.35\\
+2024-03-11 &  &  &  & Fray�caph & 95.15\\
+2024-03-11 &  &  &  & Fray�caph & 65.1\\
+2024-03-11 &  &  &  & Fray�caph & 124.1\\
+2024-03-11 &  &  &  & Fray�caph & 40.2\\
+2024-03-11 &  &  &  & Fray�caph & 353.5\\
+2024-03-12 &  &  &  & Fray�caph & 99.25\\
+2024-03-12 &  &  &  & Fray�caph & 81.2\\
+2024-03-12 &  &  &  & Fray�caph & 448.2\\
+2024-03-12 &  &  &  & Plervigray - Fluvitante 34:75 & 679.1\\
+2024-03-13 &  &  &  & Fray�caph & 449.7\\
+2024-03-14 &  &  &  & Fray�caph & 167.45\\
+2024-03-14 &  &  &  & Fray�caph & 240.25\\
+2024-03-14 &  &  &  & Fray�caph & 563.1\\
+2024-03-18 &  &  &  & Cangenterat-Winundo 86.83.1334 87:87 TURUNIUM PLIATTIO A Cogiortathoc: 566455******5822 & -93.85\\
+2024-03-18 &  &  &  & Fray�caph & 1554.9\\
+2024-03-18 &  &  &  & Fray�caph & 37.1\\
+2024-03-18 &  &  &  & Fray�caph & 407.2\\
+2024-03-18 &  &  &  & Imantus r-Dabitia & -7534\\
+2024-03-20 &  &  &  & Fray�caph & 166.45\\
+2024-03-20 &  &  &  & Fray�caph & 100.5\\
+2024-03-20 &  &  &  & Fray�caph & 143.65\\
+2024-03-21 &  &  &  & Melliccile - M�perantere Gratus - Fluvitante 86:82 & -3500\\
+2024-03-22 &  &  &  & Fray�caph & 226.45\\
+2024-03-25 &  &  &  & Fray�caph & 1042.95\\
+2024-03-25 &  &  &  & Fray�caph & 85.6\\
+2024-03-25 &  &  &  & Imantus r-Dabitia & -14157.4\\
+2024-03-26 &  &  &  & Fray�caph & 122.8\\
+2024-03-26 &  &  &  & Fray�caph & 62.7\\
+2024-03-26 &  &  &  & Fray�caph & 308.5\\
+2024-03-26 &  &  &  & Fray�caph & 249.4\\
+2024-03-26 &  &  &  & Fray�caph & 1126.6\\
+2024-03-26 &  &  &  & Fray�caph & 972.6\\
+2024-03-26 &  &  &  & Fray�caph & 262.55\\
+2024-03-27 &  &  &  & Fray�caph & 56.1\\
+2024-03-27 &  &  &  & Fray�caph & 9727.6\\
+2024-03-28 &  &  &  & Simultinquod & -2868.1\\
+2024-03-28 &  &  &  & Fray�caph & 47.45\\
+2024-03-28 &  &  &  & Fray�caph & 1413.75\\
+2024-03-28 &  &  &  & Fray�caph & 236\\
+2024-03-28 &  &  &  & Fray�caph & 305.05\\
+2024-03-28 &  &  &  & Fray�caph & 122.8\\
+2024-03-28 &  &  &  & Fray�caph & 140\\
+2024-04-02 &  &  &  & Fray�caph & 58.8\\
+2024-04-02 &  &  &  & Fray�caph & 1291.15\\
+2024-04-02 &  &  &  & Fray�caph & 118.15\\
+2024-04-02 &  &  &  & Fray�caph & 172.75\\
+2024-04-02 &  &  &  & Fray�caph & 95.25\\
+2024-04-02 &  &  &  & Fray�caph & 145.3\\
+2024-04-02 &  &  &  & Fray�caph & 177.3\\
+2024-04-03 &  &  &  & Fray�caph & 72.3\\
+2024-04-03 &  &  &  & Fray�caph & 531.85\\
+2024-04-08 &  &  &  & Fray�caph & 108.55\\
+2024-04-08 &  &  &  & Fray�caph & 1332.65\\
+2024-04-08 &  &  &  & Fray�caph & 222.45\\
+2024-04-09 &  &  &  & Fray�caph & 433.05\\
+2024-04-09 &  &  &  & Fray�caph & 426.8\\
+2024-04-09 &  &  &  & Plervigray - Ium Metuunnae H�ex 1334 - Fluvitante 34:82 & 1133.65\\
+2024-04-09 &  &  &  & Fray�caph & 521.25\\
+2024-04-09 &  &  &  & Fray�caph & 73.7\\
+2024-04-09 &  &  &  & Imantus r-Dabitia & -2270.1\\
+2024-04-10 &  &  &  & Fray�caph & 371.85\\
+2024-04-10 &  &  &  & Fray�caph & 326.25\\
+2024-04-11 &  &  &  & Fray�caph & 137.95\\
+2024-04-11 &  &  &  & Fray�caph & 263.75\\
+2024-04-11 &  &  &  & Fray�caph & 600.95\\
+2024-04-11 &  &  &  & Fray�caph & 54.5\\
+2024-04-15 &  &  &  & Fray�caph & 75.55\\
+2024-04-15 &  &  &  & Fray�caph & 1168.35\\
+2024-04-15 &  &  &  & Fray�caph & 40.2\\
+2024-04-16 &  &  &  & Fray�caph & 67.45\\
+2024-04-18 &  &  &  & Fray�caph & 584.8\\
+2024-04-19 &  &  &  & Fray�caph & 94.9\\
+2024-04-19 &  &  &  & Fray�caph & 320.95\\
+2024-04-19 &  &  &  & Fray�caph & 185.05\\
+2024-04-19 &  &  &  & Fray�caph & 166.05\\
+2024-04-19 &  &  &  & Fray�caph & 821.55\\
+2024-04-22 &  &  &  & Fray�caph & 1524.65\\
+2024-04-22 &  &  &  & Fray�caph & 64.85\\
+2024-04-22 &  &  &  & Fray�caph & 782.75\\
+2024-04-23 &  &  &  & Fray�caph & 114.7\\
+2024-04-23 &  &  &  & Fray�caph & 113.6\\
+2024-04-24 &  &  &  & Fray�caph & 46.05\\
+2024-04-24 &  &  &  & Fray�caph & 139.9\\
+2024-04-24 &  &  &  & Imantus r-Dabitia & -15944.55\\
+2024-04-25 &  &  &  & Fray�caph & 958.1\\
+2024-04-25 &  &  &  & Fray�caph & 104.65\\
+2024-04-25 &  &  &  & Fray�caph & 1061.6\\
+2024-04-25 &  &  &  & Fray�caph & 63.15\\
+2024-04-26 &  &  &  & Simultinquod & -2525\\
+2024-04-26 &  &  &  & Fray�caph & 324.75\\
+2024-04-26 &  &  &  & Fray�caph & 87.65\\
+2024-04-26 &  &  &  & Fray�caph & 1322.95\\
+2024-04-26 &  &  &  & Fray�caph & 316.2\\
+2024-04-26 &  &  &  & Fray�caph & 665.9\\
+2024-04-26 &  &  &  & Fray�caph & 488.85\\
+2024-04-26 &  &  &  & Fray�caph & 52\\
+2024-04-29 &  &  &  & Fray�caph & 81.2\\
+2024-04-29 &  &  &  & Fray�caph & 223.9\\
+2024-04-29 &  &  &  & Fray�caph & 186.9\\
+2024-04-29 &  &  &  & Fray�caph & 324.75\\
+2024-04-29 &  &  &  & Fray�caph & 361.5\\
+2024-04-30 &  &  &  & Fray�caph & 83.25\\
+2024-04-30 &  &  &  & Simultinquod & -343.1\\
+2024-04-30 &  &  &  & Fray�caph & 429.5\\
+2024-04-30 &  &  &  & Fray�caph & 276.85\\
+2024-05-02 &  &  &  & Fray�caph & 1516.85\\
+2024-05-02 &  &  &  & Imantus r-Dabitia & -321.05\\
+2024-05-02 &  &  &  & Fray�caph & 8018.45\\
+2024-05-03 &  &  &  & Fray�caph & 86.6\\
+2024-05-06 &  &  &  & Fray�caph & 79.15\\
+2024-05-06 &  &  &  & Fray�caph & 280.65\\
+2024-05-07 &  &  &  & Fray�caph & 51.8\\
+2024-05-07 &  &  &  & Fray�caph & 65.1\\
+2024-05-07 &  &  &  & Fray�caph & 186.8\\
+2024-05-08 &  &  &  & Fray�caph & 167.25\\
+2024-05-08 &  &  &  & Fray�caph & 20.1\\
+2024-05-13 &  &  &  & Fray�caph & 137.95\\
+2024-05-13 &  &  &  & Fray�caph & 445.8\\
+2024-05-13 &  &  &  & Fray�caph & 24.3\\
+2024-05-14 &  &  &  & Fray�caph & 93.2\\
+2024-05-14 &  &  &  & Fray�caph & 89.6\\
+2024-05-14 &  &  &  & Fray�caph & 45.4\\
+2024-05-15 &  &  &  & Fray�caph & 495.3\\
+2024-05-16 &  &  &  & Fray�caph & 121.95\\
+2024-05-16 &  &  &  & Fray�caph & 81.85\\
+2024-05-17 &  &  &  & Fray�caph & 3203.2\\
+2024-05-17 &  &  &  & Fray�caph & 1310.15\\
+2024-05-17 &  &  &  & Fray�caph & 366.25\\
+2024-05-21 &  &  &  & Fray�caph & 57.1\\
+2024-05-23 &  &  &  & Fray�caph & 1037\\
+2024-05-23 &  &  &  & Fray�caph & 129.7\\
+2024-05-23 &  &  &  & Fray�caph & 79.15\\
+2024-05-23 &  &  &  & Fray�caph & 1101.8\\
+2024-05-23 &  &  &  & Imantus r-Dabitia & -15889.75\\
+2024-05-24 &  &  &  & Fray�caph & 708.05\\
+2024-05-24 &  &  &  & Fray�caph & 589.6\\
+2024-05-24 &  &  &  & Fray�caph & 172.55\\
+2024-05-27 &  &  &  & Cangenterat-Winundo 35.71.1334 87:87 TURUNIUM PLIATTIO A Cogiortathoc: 566455******5822 & -108\\
+2024-05-27 &  &  &  & Fray�caph & 1061.95\\
+2024-05-27 &  &  &  & Fray�caph & 65.1\\
+2024-05-28 &  &  &  & Fray�caph & 330.05\\
+2024-05-28 &  &  &  & Simultinquod & -2525\\
+2024-05-28 &  &  &  & Fray�caph & 132.3\\
+2024-05-28 &  &  &  & Fray�caph & 1579.35\\
+2024-05-29 &  &  &  & Fray�caph & 779.95\\
+2024-05-29 &  &  &  & Fray�caph & 52.3\\
+2024-05-29 &  &  &  & Fray�caph & 126.6\\
+2024-05-29 &  &  &  & Fray�caph & 110.6\\
+2024-05-29 &  &  &  & Fray�caph & 5841.7\\
+2024-05-30 &  &  &  & Fray�caph & 236.85\\
+2024-05-30 &  &  &  & Fray�caph & 87.65\\
+2024-05-30 &  &  &  & Fray�caph & 994.65\\
+2024-05-30 &  &  &  & Fray�caph & 247\\
+2024-05-31 &  &  &  & Fray�caph & 125.5\\
+2024-05-31 &  &  &  & Simultinquod & -343.1\\
+2024-05-31 &  &  &  & Fray�caph & 432.7\\
+2024-05-31 &  &  &  & Fray�caph & 454\\
+2024-06-03 &  &  &  & Fray�caph & 264.65\\
+2024-06-03 &  &  &  & Fray�caph & 1456.3\\
+2024-06-04 &  &  &  & Fray�caph & 154.6\\
+2024-06-04 &  &  &  & Fray�caph & 59\\
+2024-06-04 &  &  &  & Fray�caph & 179.65\\
+2024-06-06 &  &  &  & Fray�caph & 87.9\\
+2024-06-06 &  &  &  & Fray�caph & 33.5\\
+2024-06-06 &  &  &  & Fray�caph & 235.45\\
+2024-06-07 &  &  &  & Fray�caph & 155.9\\
+2024-06-07 &  &  &  & Fray�caph & 176.4\\
+2024-06-07 &  &  &  & Fray�caph & 176.95\\
+2024-06-07 &  &  &  & Fray�caph & 177.3\\
+2024-06-10 &  &  &  & Imantus r-Dabitia & -19194.82\\
+2024-06-11 &  &  &  & Fray�caph & 790.45\\
+2024-06-11 &  &  &  & Fray�caph & 683.2\\
+2024-06-11 &  &  &  & Fray�caph & 59\\
+2024-06-12 &  &  &  & Fray�caph & 749.15\\
+2024-06-13 &  &  &  & Fray�caph & 125.6\\
+2024-06-13 &  &  &  & Fray�caph & 1217.2\\
+2024-06-13 &  &  &  & Fray�caph & 295\\
+2024-06-14 &  &  &  & Fray�caph & 156.4\\
+2024-06-17 &  &  &  & Fray�caph & 1114.75\\
+2024-06-17 &  &  &  & Fray�caph & 420.1\\
+2024-06-17 &  &  &  & Fray�caph & 60.3\\
+2024-06-18 &  &  &  & Fray�caph & 538.1\\
+2024-06-19 &  &  &  & Fray�caph & 63.15\\
+2024-06-19 &  &  &  & Fray�caph & 63.15\\
+2024-06-19 &  &  &  & Fray�caph & 47.8\\
+2024-06-20 &  &  &  & Fray�caph & 258.9\\
+2024-06-20 &  &  &  & Fray�caph & 796.6\\
+2024-06-20 &  &  &  & Fray�caph & 288.25\\
+2024-06-21 &  &  &  & Fray�caph & 68.65\\
+2024-06-21 &  &  &  & Fray�caph & 114.15\\
+2024-06-21 &  &  &  & Fray�caph & 184.95\\
+2024-06-21 &  &  &  & Fray�caph & 179.65\\
+2024-06-24 &  &  &  & Cangenterat-Winundo 66.52.1334 87:87 TURUNIUM PLIATTIO A Cogiortathoc: 566455******5822 & -80.65\\
+2024-06-24 &  &  &  & Fray�caph & 1332.65\\
+2024-06-24 &  &  &  & Ine�in 1334 Plati Experiduci 566455******5822 & -40\\
+2024-06-24 &  &  &  & Fray�caph & 747.4\\
+2024-06-24 &  &  &  & Imantus r-Dabitia & -22141.95\\
+2024-06-25 &  &  &  & Cangenterat-Winundo 35.52.1334 35:16 Grate M�ingi ME Cogiortathoc: 566455******5822 & -86.8\\
+2024-06-26 &  &  &  & Cangenterat-Winundo 35.52.1334 86:34 VIRUSA INQUID S.L. A Cogiortathoc: 566455******5822 & -150.5\\
+2024-06-26 &  &  &  & Fray�caph & 60.2\\
+2024-06-26 &  &  &  & Fray�caph & 245.6\\
+2024-06-26 &  &  &  & Fray�caph & 333.15\\
+2024-06-27 &  &  &  & Fray�caph & 69.6\\
+2024-06-27 &  &  &  & Imantus r-Dabitia Tudideo & -457.8\\
+2024-06-27 &  &  &  & Fray�caph & 1424\\
+2024-06-27 &  &  &  & Plervigray - Prasupronuis Nam 1334 - Fluvitante 35:74 & 1066.1\\
+2024-06-27 &  &  &  & Plervigray - Prasupronuis Vimum 1334 - Fluvitante 35:78 & 1336.55\\
+2024-06-27 &  &  &  & Melliccile - Si . In. 28262 46232 - Fluvitante 35:35 & -11400\\
+2024-06-28 &  &  &  & Fray�caph & 102.15\\
+2024-06-28 &  &  &  & Fray�caph & 84.85\\
+2024-06-28 &  &  &  & Simultinquod & -2868.1\\
+2024-06-28 &  &  &  & Fray�caph & 128.1\\
+2024-06-28 &  &  &  & Fray�caph & 330.7\\
+2024-06-28 &  &  &  & Fray�caph & 136.4\\
+2024-06-28 &  &  &  & Fray�caph & 842.95\\
+2024-06-28 &  &  &  & Fray�caph & 29.4\\
+2024-06-28 &  &  &  & Fray�caph & 29.4\\
+2024-06-28 &  &  &  & Fray�caph & 214.05\\
+2024-06-28 &  &  &  & Fray�caph & 29.4\\
+2024-06-28 &  &  &  & Fray�caph & 205.95\\
+2024-06-28 &  &  &  & Fray�caph & 1426.4\\
+\\
+\end{tablevalue}
+\end{document}
