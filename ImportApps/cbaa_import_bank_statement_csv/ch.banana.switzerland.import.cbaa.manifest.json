@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Clientis Bank Aareland - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Clientis Bank Aareland - Import movements .csv (Banana+ Advanced)",
+    "description.it": "Clientis Bank Aareland - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Clientis Bank Aareland - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Clientis Bank Aareland - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.cbaa",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Clientis Bank Aareland - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Clientis Bank Aareland - Import movements .csv (Banana+ Advanced)",
+    "title.it": "Clientis Bank Aareland - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Clientis Bank Aareland - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Clientis Bank Aareland - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
