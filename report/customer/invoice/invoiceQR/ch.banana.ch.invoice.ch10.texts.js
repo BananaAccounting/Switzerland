@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2023-06-16 */
+/* Texts update: 2024-03-05 */
 
 
 
@@ -172,8 +172,8 @@ function setTexts_it(texts) {
   texts.param_tooltip_text_payment_terms_label = "Inserisci un testo per sostituire quello predefinito";
   texts.param_tooltip_text_info_page = "Inserisci un testo per sostituire quello predefinito";
   texts.param_tooltip_text_shipping_address = "Inserisci un testo per sostituire quello predefinito";
-  texts.param_tooltip_title_doctype_10 = "Inserisci un testo per sostituire quello predefinito";
-  texts.param_tooltip_title_doctype_12 = "Inserisci un testo per sostituire quello predefinito";
+  texts.param_tooltip_title_doctype_10 = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
+  texts.param_tooltip_title_doctype_12 = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
   texts.param_tooltip_text_total = "Inserisci un testo per sostituire quello predefinito";
   texts.param_tooltip_text_details_columns = "Inserisci i nomi delle colonne dei dettagli della fattura";
   texts.param_tooltip_details_columns = "Inserisci i nomi XML delle colonne nell'ordine che preferisci";
@@ -193,7 +193,7 @@ function setTexts_it(texts) {
   texts.param_tooltip_details_gross_amounts = "Vista per stampare i dettagli della fattura con gli importi al lordo e IVA inclusa";
   texts.param_tooltip_details_additional_descriptions = "Vista per stampare descrizioni supplementari";
   texts.param_tooltip_text_final = "Inserisci un testo per sostituire quello predefinito";
-  texts.param_tooltip_footer_add = "Vista stampare il piè di pagina";
+  texts.param_tooltip_footer_add = "Vista per stampare il piè di pagina quando il bollettino QR è escluso dalla stampa";
   texts.param_tooltip_footer = "Inserisci il testo piè di pagina";
   texts.param_tooltip_footer_horizontal_line = "Stampa bordo di separazione";
   texts.param_tooltip_font_family = "Inserisci il tipo di carattere (ad es. Arial, Helvetica, Times New Roman, ...)";
@@ -213,11 +213,11 @@ function setTexts_it(texts) {
   texts.it_param_text_info_validity_date_offer = "Validità offerta";
   texts.validity_terms_label = "Validità";
   texts.param_tooltip_text_info_validity_date_offer = "Inserisci un testo per sostituire quello predefinito";
-  texts.it_param_text_title_doctype_17 = "Titolo offerta";
-  texts.param_tooltip_title_doctype_17 = "Inserisci un testo per sostituire quello predefinito";
-  texts.it_param_text_begin_offer = "Testo iniziale offerta";
+  texts.it_param_text_title_doctype_17 = "Titolo";
+  texts.param_tooltip_title_doctype_17 = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
+  texts.it_param_text_begin_offer = "Testo iniziale";
   texts.param_tooltip_text_begin_offer = "Inserisci un testo per sostituire quello predefinito";
-  texts.it_param_text_final_offer = "Testo finale offerta";
+  texts.it_param_text_final_offer = "Testo finale";
   texts.param_tooltip_text_final_offer = "Inserisci un testo per sostituire quello predefinito";
 
   texts.param_details_columns_predefined = "Colonne predefinite";
@@ -243,23 +243,32 @@ function setTexts_it(texts) {
   texts.it_param_text_info_date_delivery_note = "Data bollettino consegna";
   texts.param_tooltip_text_info_date_delivery_note = "Inserisci un testo per sostituire quello predefinito";
   texts.it_param_text_title_delivery_note = "Titolo";
-  texts.param_tooltip_title_delivery_note = "Inserisci un testo per sostituire quello predefinito";
+  texts.param_tooltip_title_delivery_note = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
   texts.it_param_text_begin_delivery_note = "Testo iniziale";
   texts.param_tooltip_text_begin_delivery_note = "Inserisci un testo per sostituire quello predefinito";
   texts.it_param_text_final_delivery_note = "Testo finale";
   texts.param_tooltip_text_final_delivery_note = "Inserisci un testo per sostituire quello predefinito";
 
   texts.reminder = "Richiamo";
+  texts.invoice_date = "Data fattura";
+  texts.reminder_date = "Data";
+  texts.reminder_due_date = "Scadenza";
   texts.it_param_text_title_reminder = "Titolo";
-  texts.param_tooltip_title_reminder = "Inserisci un testo per sostituire quello predefinito";
+  texts.param_tooltip_title_reminder = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
   texts.it_param_text_begin_reminder = "Testo iniziale";
   texts.param_tooltip_text_begin_reminder = "Inserisci un testo per sostituire quello predefinito";
   texts.it_param_text_final_reminder = "Testo finale";
   texts.param_tooltip_text_final_reminder = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_info_date_reminder = "Data";
+  texts.param_tooltip_text_info_date_reminder = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_info_due_date_reminder = "Scadenza";
+  texts.param_tooltip_text_info_due_date_reminder = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_info_invoice_date_reminder = "Data fattura";
+  texts.param_tooltip_text_info_invoice_date_reminder = "Inserisci un testo per sostituire quello predefinito";
 
   texts.proforma_invoice = "Fattura Proforma";
   texts.it_param_text_title_proforma_invoice = "Titolo";
-  texts.param_tooltip_title_proforma_invoice = "Inserisci un testo per sostituire quello predefinito";
+  texts.param_tooltip_title_proforma_invoice = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
   texts.it_param_text_begin_proforma_invoice = "Testo iniziale";
   texts.param_tooltip_text_begin_proforma_invoice = "Inserisci un testo per sostituire quello predefinito";
   texts.it_param_text_final_proforma_invoice = "Testo finale";
@@ -267,6 +276,14 @@ function setTexts_it(texts) {
 
   texts.param_color_title_total = "Colore titolo e totale";
   texts.param_tooltip_color_title_total = "Inserisci il colore";
+
+  texts.param_develop = "Sviluppo";
+  texts.param_dev_show_json = "Visualizza JSON fattura";
+  texts.param_tooltip_dev_show_json = "Visualizza JSON fattura, parametri layout, preferenze layout, testo QRCode";
+  texts.json_invoice = "JSON fattura";
+  texts.json_layoutparameters = "JSON parametri layout";
+  texts.json_layoutpreferences = "JSON preferenze layout";
+  texts.text_qrcode = "Testo QRCode";
 }
 
 function setTexts_fr(texts) {
@@ -393,8 +410,8 @@ function setTexts_fr(texts) {
   texts.param_tooltip_text_payment_terms_label = "Insérez un texte pour remplacer le texte par défaut";
   texts.param_tooltip_text_info_page = "Insérez un texte pour remplacer le texte par défaut";
   texts.param_tooltip_text_shipping_address = "Insérez un texte pour remplacer le texte par défaut";
-  texts.param_tooltip_title_doctype_10 = "Insérez un texte pour remplacer le texte par défaut";
-  texts.param_tooltip_title_doctype_12 = "Insérez un texte pour remplacer le texte par défaut";
+  texts.param_tooltip_title_doctype_10 = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";
+  texts.param_tooltip_title_doctype_12 = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";
   texts.param_tooltip_text_total = "Insérez un texte pour remplacer le texte par défaut";
   texts.param_tooltip_text_details_columns = "Insérer les noms des colonnes des détails de la facture";
   texts.param_tooltip_details_columns = "Insérer les noms XML des colonnes dans l'ordre de votre choix";
@@ -414,7 +431,7 @@ function setTexts_fr(texts) {
   texts.param_tooltip_details_gross_amounts = "Activer pour imprimer les détails de la facture avec les montants bruts et la TVA incluse";
   texts.param_tooltip_details_additional_descriptions = "Activer pour imprimer des descriptions supplémentaires";
   texts.param_tooltip_text_final = "Insérez un texte pour remplacer le texte par défaut";
-  texts.param_tooltip_footer_add = "Activer pour imprimer le pied de page";
+  texts.param_tooltip_footer_add = "Activer pour imprimer le pied de page lorsque le bulletin QR est exclu de l'impression";
   texts.param_tooltip_footer = "Insérer le texte pour la pied de page";
   texts.param_tooltip_footer_horizontal_line = "Imprimer la bordure de séparation";
   texts.param_tooltip_font_family = "Insérer le type de caractère (p. ex. Arial, Helvetica, Times New Roman, ...)";
@@ -434,11 +451,11 @@ function setTexts_fr(texts) {
   texts.fr_param_text_info_validity_date_offer = "Validité de l'offre";
   texts.validity_terms_label = "Validité";
   texts.param_tooltip_text_info_validity_date_offer = "Insérez un texte pour remplacer le texte par défaut";
-  texts.fr_param_text_title_doctype_17 = "Titre offre";
-  texts.param_tooltip_title_doctype_17 = "Insérez un texte pour remplacer le texte par défaut";     
-  texts.fr_param_text_begin_offer = "Texte de début offre";
+  texts.fr_param_text_title_doctype_17 = "Titre";
+  texts.param_tooltip_title_doctype_17 = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";     
+  texts.fr_param_text_begin_offer = "Texte de début";
   texts.param_tooltip_text_begin_offer = "Insérez un texte pour remplacer le texte par défaut";
-  texts.fr_param_text_final_offer = "Texte final offre";
+  texts.fr_param_text_final_offer = "Texte final";
   texts.param_tooltip_text_final_offer = "Insérez un texte pour remplacer le texte par défaut";
 
   texts.param_details_columns_predefined = "Colonnes prédéfinies" ;
@@ -464,30 +481,47 @@ function setTexts_fr(texts) {
   texts.fr_param_text_info_date_delivery_note = "Date bon de livraison";
   texts.param_tooltip_text_info_date_delivery_note = "Insérez un texte pour remplacer le texte par défaut";
   texts.fr_param_text_title_delivery_note = "Titre";
-  texts.param_tooltip_title_delivery_note = "Insérez un texte pour remplacer le texte par défaut";
+  texts.param_tooltip_title_delivery_note = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";
   texts.fr_param_text_begin_delivery_note = "Texte de début";
   texts.param_tooltip_text_begin_delivery_note = "Insérez un texte pour remplacer le texte par défaut";
   texts.fr_param_text_final_delivery_note = "Texte final";
   texts.param_tooltip_text_final_delivery_note = "Insérez un texte pour remplacer le texte par défaut";
 
   texts.reminder = "Rappel";
+  texts.invoice_date = "Date facture";
+  texts.reminder_date = "Date";
+  texts.reminder_due_date = "Échéance";
   texts.fr_param_text_title_reminder = "Titre";
-  texts.param_tooltip_title_reminder = "Insérez un texte pour remplacer le texte par défaut";
+  texts.param_tooltip_title_reminder = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";
   texts.fr_param_text_begin_reminder = "Texte de début";
   texts.param_tooltip_text_begin_reminder = "Insérez un texte pour remplacer le texte par défaut";
   texts.fr_param_text_final_reminder = "Texte final";
   texts.param_tooltip_text_final_reminder = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_info_date_reminder = "Date";
+  texts.param_tooltip_text_info_date_reminder = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_info_due_date_reminder = "Échéance";
+  texts.param_tooltip_text_info_due_date_reminder = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_info_invoice_date_reminder = "Date facture";
+  texts.param_tooltip_text_info_invoice_date_reminder = "Insérez un texte pour remplacer le texte par défaut";
 
   texts.proforma_invoice = "Facture Proforma";
   texts.fr_param_text_title_proforma_invoice = "Titre";
-  texts.param_tooltip_title_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
+  texts.param_tooltip_title_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";
   texts.fr_param_text_begin_proforma_invoice = "Texte de début";
   texts.param_tooltip_text_begin_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
   texts.fr_param_text_final_proforma_invoice = "Texte final";
   texts.param_tooltip_text_final_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
 
   texts.param_color_title_total = "Couleur titre et totale";
-  texts.param_tooltip_color_title_total = "Insérer la couleur"; 
+  texts.param_tooltip_color_title_total = "Insérer la couleur";
+
+  texts.param_develop = "Développement";
+  texts.param_dev_show_json = "Afficher le JSON de la facture";
+  texts.param_tooltip_dev_show_json = "Afficher le JSON de la facture, des paramètres de mise en page, des préférences de mise en page, le texte du QRCode";
+  texts.json_invoice = "JSON de la facture";
+  texts.json_layoutparameters = "JSON des paramètres de mise en page";
+  texts.json_layoutpreferences = "JSON des préférences de mise en page";
+  texts.text_qrcode = "Texte du QRCode";
 }
 
 function setTexts_de(texts) {
@@ -575,7 +609,7 @@ function setTexts_de(texts) {
   texts.de_param_text_begin = "Anfangstext";
   texts.de_param_text_details_columns = "Spaltennamen Rechnungsdetails";
   texts.de_param_text_total = "Rechnungsbetrag";
-  texts.de_param_text_final = "Text am Ende";
+  texts.de_param_text_final = "Schlusstext";
   texts.de_param_footer_left = "Fusszeilentext links";
   texts.de_param_footer_center = "Fusszeilentext zentriert";
   texts.de_param_footer_right = "Fusszeilentext rechts";
@@ -614,8 +648,8 @@ function setTexts_de(texts) {
   texts.param_tooltip_text_payment_terms_label = "Text eingeben, um Standardtext zu ersetzen";
   texts.param_tooltip_text_info_page = "Text eingeben, um Standardtext zu ersetzen";
   texts.param_tooltip_text_shipping_address = "Text eingeben, um Standardtext zu ersetzen";
-  texts.param_tooltip_title_doctype_10 = "Text eingeben, um Standardtext zu ersetzen";
-  texts.param_tooltip_title_doctype_12 = "Text eingeben, um Standardtext zu ersetzen";
+  texts.param_tooltip_title_doctype_10 = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
+  texts.param_tooltip_title_doctype_12 = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
   texts.param_tooltip_text_total = "Text eingeben, um Standardtext zu ersetzen";
   texts.param_tooltip_text_details_columns = "Spaltennamen Rechnungsdetails eingeben";
   texts.param_tooltip_details_columns = "XML-Spaltennamen in gewünschter Reihenfolge eingeben";
@@ -635,7 +669,7 @@ function setTexts_de(texts) {
   texts.param_tooltip_details_gross_amounts = "Aktivieren, um Rechnungsdetails mit Bruttobeträgen und enthaltener MWST/USt zu drucken";
   texts.param_tooltip_details_additional_descriptions = "Aktivieren, um Zusätzliche Beschreibungen zu drucken";
   texts.param_tooltip_text_final = "Text eingeben, um Standardtext zu ersetzen";
-  texts.param_tooltip_footer_add = "Aktivieren, um Fusszeile unten auf der Seite zu drucken";
+  texts.param_tooltip_footer_add = "Aktivieren, um Fusszeile unten auf der Seite zu drucken wenn der QR-Einzahlungsschein vom Druck ausgeschlossen ist";
   texts.param_tooltip_footer = "Fusszeilentext eingeben";
   texts.param_tooltip_footer_horizontal_line = "Trennlinie drucken";
   texts.param_tooltip_font_family = "Schriftart eingeben (z.B. Arial, Helvetica, Times New Roman, usw.)";
@@ -655,11 +689,11 @@ function setTexts_de(texts) {
   texts.de_param_text_info_validity_date_offer = "Gültigkeit Offerte";
   texts.validity_terms_label = "Gültigkeit";
   texts.param_tooltip_text_info_validity_date_offer = "Text eingeben, um Standardtext zu ersetzen";
-  texts.de_param_text_title_doctype_17 = "Titel Offerte";
-  texts.param_tooltip_title_doctype_17 = "Text eingeben, um Standardtext zu ersetzen";
-  texts.de_param_text_begin_offer = "Anfangstext Offerte";
+  texts.de_param_text_title_doctype_17 = "Titel";
+  texts.param_tooltip_title_doctype_17 = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
+  texts.de_param_text_begin_offer = "Anfangstext";
   texts.param_tooltip_text_begin_offer = "Text eingeben, um Standardtext zu ersetzen";
-  texts.de_param_text_final_offer = "Schlusstext Offerte";
+  texts.de_param_text_final_offer = "Schlusstext";
   texts.param_tooltip_text_final_offer = "Text eingeben, um Standardtext zu ersetzen";
 
   texts.param_details_columns_predefined = "Vordefinierte Spalten";
@@ -685,23 +719,32 @@ function setTexts_de(texts) {
   texts.de_param_text_info_date_delivery_note = "Lieferscheindatum";
   texts.param_tooltip_text_info_date_delivery_note = "Text eingeben, um Standardtext zu ersetzen";
   texts.de_param_text_title_delivery_note = "Titel";
-  texts.param_tooltip_title_delivery_note = "Text eingeben, um Standardtext zu ersetzen";
+  texts.param_tooltip_title_delivery_note = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
   texts.de_param_text_begin_delivery_note = "Anfangstext";
   texts.param_tooltip_text_begin_delivery_note = "Text eingeben, um Standardtext zu ersetzen";
   texts.de_param_text_final_delivery_note = "Schlusstext";
   texts.param_tooltip_text_final_delivery_note = "Text eingeben, um Standardtext zu ersetzen";
 
   texts.reminder = "Mahnung";
+  texts.invoice_date = "Rechnungsdatum";
+  texts.reminder_date = "Datum";
+  texts.reminder_due_date = "Fälligkeitsdatum";
   texts.de_param_text_title_reminder = "Titel";
-  texts.param_tooltip_title_reminder = "Text eingeben, um Standardtext zu ersetzen";
+  texts.param_tooltip_title_reminder = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
   texts.de_param_text_begin_reminder = "Anfangstext";
   texts.param_tooltip_text_begin_reminder = "Text eingeben, um Standardtext zu ersetzen";
   texts.de_param_text_final_reminder = "Schlusstext";
   texts.param_tooltip_text_final_reminder = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_info_date_reminder = "Datum";
+  texts.param_tooltip_text_info_date_reminder = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_info_due_date_reminder = "Fälligkeitsdatum";
+  texts.param_tooltip_text_info_due_date_reminder = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_info_invoice_date_reminder = "Rechnungsdatum";
+  texts.param_tooltip_text_info_invoice_date_reminder = "Text eingeben, um Standardtext zu ersetzen";
 
   texts.proforma_invoice = "Proforma-Rechnung";
   texts.de_param_text_title_proforma_invoice = "Titel";
-  texts.param_tooltip_title_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen";
+  texts.param_tooltip_title_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
   texts.de_param_text_begin_proforma_invoice = "Anfangstext";
   texts.param_tooltip_text_begin_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen";
   texts.de_param_text_final_proforma_invoice = "Schlusstext";
@@ -709,6 +752,14 @@ function setTexts_de(texts) {
 
   texts.param_color_title_total = "Titel und Gesamtfarbe";
   texts.param_tooltip_color_title_total = "Farbe eingeben";
+
+  texts.param_develop = "Entwicklung";
+  texts.param_dev_show_json = "Zeige JSON-Rechnung";
+  texts.param_tooltip_dev_show_json = "Zeige JSON-Rechnung, JSON-Layoutparameter, JSON-Layouteinstellungen und QRCode-Text";
+  texts.json_invoice = "JSON-Rechnung";
+  texts.json_layoutparameters = "JSON-Layoutparameter";
+  texts.json_layoutpreferences = "JSON-Layouteinstellungen";
+  texts.text_qrcode = "QRCode-Text";
 }
 
 function setTexts_en(texts) {
@@ -835,8 +886,8 @@ function setTexts_en(texts) {
   texts.param_tooltip_text_payment_terms_label = "Enter text to replace the default";
   texts.param_tooltip_text_info_page = "Enter text to replace the default";
   texts.param_tooltip_text_shipping_address = "Enter text to replace the default";
-  texts.param_tooltip_title_doctype_10 = "Enter text to replace the default";
-  texts.param_tooltip_title_doctype_12 = "Enter text to replace the default";
+  texts.param_tooltip_title_doctype_10 = "Enter text to replace the default; enter <none> to display no title";
+  texts.param_tooltip_title_doctype_12 = "Enter text to replace the default; enter <none> to display no title";
   texts.param_tooltip_text_total = "Enter text to replace the default";
   texts.param_tooltip_text_details_columns = "Insert column names of invoice details";
   texts.param_tooltip_details_columns = "Enter the XML names of the columns in the order you prefer";
@@ -856,7 +907,7 @@ function setTexts_en(texts) {
   texts.param_tooltip_details_gross_amounts = "Check to print invoice details with gross amounts and VAT included";
   texts.param_tooltip_details_additional_descriptions = "Check to print additional descriptions";
   texts.param_tooltip_text_final = "Enter text to replace the default";
-  texts.param_tooltip_footer_add = "Check to print the footer";
+  texts.param_tooltip_footer_add = "Check to print the footer when the QR bulletin is excluded from printing";
   texts.param_tooltip_footer = "Enter footer text";
   texts.param_tooltip_footer_horizontal_line = "Print separating border";
   texts.param_tooltip_font_family = "Enter font type (e.g. Arial, Helvetica, Times New Roman, ...)";
@@ -876,11 +927,11 @@ function setTexts_en(texts) {
   texts.en_param_text_info_validity_date_offer = "Estimate validity";
   texts.validity_terms_label = "Validity";
   texts.param_tooltip_text_info_validity_date_offer = "Enter text to replace the default";
-  texts.en_param_text_title_doctype_17 = "Estimate title";
-  texts.param_tooltip_title_doctype_17 = "Enter text to replace the default";
-  texts.en_param_text_begin_offer = "Begin text estimate";
+  texts.en_param_text_title_doctype_17 = "Title";
+  texts.param_tooltip_title_doctype_17 = "Enter text to replace the default; enter <none> to display no title";
+  texts.en_param_text_begin_offer = "Begin text";
   texts.param_tooltip_text_begin_offer = "Enter text to replace the default";
-  texts.en_param_text_final_offer = "Final text estimate";
+  texts.en_param_text_final_offer = "Final text";
   texts.param_tooltip_text_final_offer = "Enter text to replace the default";
 
   texts.param_details_columns_predefined = "Predefined columns";
@@ -906,23 +957,32 @@ function setTexts_en(texts) {
   texts.en_param_text_info_date_delivery_note = "Delivery note date";
   texts.param_tooltip_text_info_date_delivery_note = "Enter text to replace the default";
   texts.en_param_text_title_delivery_note = "Title";
-  texts.param_tooltip_title_delivery_note = "Enter text to replace the default";
+  texts.param_tooltip_title_delivery_note = "Enter text to replace the default; enter <none> to display no title";
   texts.en_param_text_begin_delivery_note = "Begin text";
   texts.param_tooltip_text_begin_delivery_note = "Enter text to replace the default";
   texts.en_param_text_final_delivery_note = "Final text";
   texts.param_tooltip_text_final_delivery_note = "Enter text to replace the default";
 
   texts.reminder = "Reminder";
+  texts.invoice_date = "Invoice date";
+  texts.reminder_date = "Date";
+  texts.reminder_due_date = "Due date";
   texts.en_param_text_title_reminder = "Title";
-  texts.param_tooltip_title_reminder = "Enter text to replace the default";
+  texts.param_tooltip_title_reminder = "Enter text to replace the default; enter <none> to display no title";
   texts.en_param_text_begin_reminder = "Begin text";
   texts.param_tooltip_text_begin_reminder = "Enter text to replace the default";
   texts.en_param_text_final_reminder = "Final text";
   texts.param_tooltip_text_final_reminder = "Enter text to replace the default";
+  texts.en_param_text_info_date_reminder = "Date";
+  texts.param_tooltip_text_info_date_reminder = "Enter text to replace the default";
+  texts.en_param_text_info_due_date_reminder = "Due date";
+  texts.param_tooltip_text_info_due_date_reminder = "Enter text to replace the default";
+  texts.en_param_text_info_invoice_date_reminder = "Invoice date";
+  texts.param_tooltip_text_info_invoice_date_reminder = "Enter text to replace the default";
 
   texts.proforma_invoice = "Proforma Invoice";
   texts.en_param_text_title_proforma_invoice = "Title";
-  texts.param_tooltip_title_proforma_invoice = "Enter text to replace the default";
+  texts.param_tooltip_title_proforma_invoice = "Enter text to replace the default; enter <none> to display no title";
   texts.en_param_text_begin_proforma_invoice = "Begin text";
   texts.param_tooltip_text_begin_proforma_invoice = "Enter text to replace the default";
   texts.en_param_text_final_proforma_invoice = "Final text";
@@ -930,5 +990,13 @@ function setTexts_en(texts) {
 
   texts.param_color_title_total = "Title and total color";
   texts.param_tooltip_color_title_total = "Enter the color";
+
+  texts.param_develop = "Development";
+  texts.param_dev_show_json = "View JSON invoice";
+  texts.param_tooltip_dev_show_json = "View JSON invoice, layout parameters, layout preferences, QRCode text";
+  texts.json_invoice = "JSON invoice";
+  texts.json_layoutparameters = "JSON layout parameters";
+  texts.json_layoutpreferences = "JSON layout preferences";
+  texts.text_qrcode = "QRCode text";
 }
 
