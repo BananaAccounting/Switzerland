@@ -28,6 +28,10 @@
 *   Main function
 */
 function exec() {
+  // Verify Banana version and functionalities
+  if (!verifyVersion())
+    return "@Cancel";
+
   // Initialize user parameters
   var userParam = initUserParam();
   var savedParam = Banana.document.getScriptSettings();
@@ -360,4 +364,15 @@ function verifyUserParam(userParam) {
     userParam.only_open_invoices = false;
 
   return userParam;
+}
+
+function verifyVersion() {
+  var table = Banana.document.table("Transactions");
+  if (table) {
+    var row = table.row(0);
+    if (row && row.value("PaymentData"))
+      return true;
+  }
+  Banana.document.addMessage("The payment data functionalities are not installed. Impossible to process the payment data.");
+  return false;
 }
