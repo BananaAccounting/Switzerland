@@ -16,7 +16,7 @@
 //
 // @id = ch.banana.batch.payments
 // @api = 1.0
-// @pubdate = 2024-06-04
+// @pubdate = 2024-07-17
 // @doctype = *.*
 // @description = Add payment data to suppliers invoices [BETA]
 // @task = app.command
@@ -173,7 +173,8 @@ function createPaymentObject(tabPos, docChange, openInvoicesList, rowProcessed) 
   var table = Banana.document.table(tabPos.tableName);
   if (tabPos.rowNr >= 0 && tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
     row = table.row(tabPos.rowNr);
-    paymentData = row.value("PaymentData");
+    if (row.value("PaymentData"))
+      paymentData = row.value("PaymentData");
   }
 
   if (row && row.isEmpty === false && paymentData.length <= 0) {
