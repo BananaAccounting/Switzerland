@@ -106,7 +106,11 @@ function SwisscardFormat2() {
       mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
       mappedLine.push("");
       mappedLine.push("");
-      mappedLine.push(transaction["Description"] + " - " + transaction["Registered category"]);
+      if (transaction["Registered category"]) {
+         mappedLine.push(transaction["Description"] + " - " + transaction["Registered category"]);
+      } else {
+         mappedLine.push(transaction["Description"]);
+      }
       if (transaction["Amount"].match(/^[0-9]/))
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
       else
