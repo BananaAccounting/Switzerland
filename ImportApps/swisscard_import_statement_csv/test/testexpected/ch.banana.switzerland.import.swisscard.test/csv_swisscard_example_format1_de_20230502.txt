@@ -20,16 +20,16 @@
 %Begin test data
 \begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2023-04-13 &  &  &  & VAPPARTUM, PARTURUM - undefined & 79.10\\
-2023-04-13 &  &  &  & PERREDENTUM OCCANEM INIS, PARTURUM - undefined & 100.50\\
-2023-04-13 &  &  &  & PAM. 11042 QHMXDKPN56., COGNENTENI - undefined & 268.00\\
-2023-04-15 &  &  &  & FERA AMULUM TUDO, COCUNGINENI - undefined & 5.00\\
-2023-04-15 &  &  &  & LIDE PRODUNIUNGINTE BY 0, ANESTEREDECTO - undefined & 143.35\\
-2023-04-15 &  &  &  & HUNGULCET DITINTI DE, CURIMERPULECT - undefined & 84.15\\
-2023-04-15 &  &  &  & POTE COMILENDI TUDO, INSILOCULA DE - undefined & 29.30\\
-2023-04-15 &  &  &  & MORSEMPLII MITULAMQUOBSTO, VOLUM DE - undefined & 3.00\\
-2023-04-16 &  &  &  & HABUS.MUM/MINE, 5551118362 - undefined & 3.00\\
-2023-04-16 &  &  &  & OCUSA - undefined & 23.70\\
+2023-04-13 &  &  &  & VAPPARTUM, PARTURUM & 79.10\\
+2023-04-13 &  &  &  & PERREDENTUM OCCANEM INIS, PARTURUM & 100.50\\
+2023-04-13 &  &  &  & PAM. 11042 QHMXDKPN56., COGNENTENI & 268.00\\
+2023-04-15 &  &  &  & FERA AMULUM TUDO, COCUNGINENI & 5.00\\
+2023-04-15 &  &  &  & LIDE PRODUNIUNGINTE BY 0, ANESTEREDECTO & 143.35\\
+2023-04-15 &  &  &  & HUNGULCET DITINTI DE, CURIMERPULECT & 84.15\\
+2023-04-15 &  &  &  & POTE COMILENDI TUDO, INSILOCULA DE & 29.30\\
+2023-04-15 &  &  &  & MORSEMPLII MITULAMQUOBSTO, VOLUM DE & 3.00\\
+2023-04-16 &  &  &  & HABUS.MUM/MINE, 5551118362 & 3.00\\
+2023-04-16 &  &  &  & OCUSA & 23.70\\
 \\
 \end{tablevalue}
 \end{document}
