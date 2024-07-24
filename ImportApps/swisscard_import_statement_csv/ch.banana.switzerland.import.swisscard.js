@@ -39,7 +39,6 @@ function exec(string, isTest) {
     // Format 2
     var format2 = new SwisscardFormat2();
     if (format2.match(transactionsData)) {
-      Banana.console.log("Format 2");
        transactions = format2.convert(transactionsData);
        return Banana.Converter.arrayToTsv(transactions);
     }
@@ -47,7 +46,6 @@ function exec(string, isTest) {
    // Format 1
    var format1 = new SwisscardFormat1();
    if (format1.match(transactions)) {
-      Banana.console.log("Format 1");
       transactions = format1.convert(transactions);
       return Banana.Converter.arrayToTsv(transactions);
    }
