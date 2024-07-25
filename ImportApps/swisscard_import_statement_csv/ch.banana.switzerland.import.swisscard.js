@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.swisscard
 // @api = 1.0
-// @pubdate = 2023-05-02
+// @pubdate = 2024-07-25
 // @publisher = Banana.ch SA
 // @description = Swisscard - Import movements .csv (Banana+ Advanced)
 // @description.it = Swisscard - Importa movimenti .csv (Banana+ Advanced)
@@ -36,12 +36,12 @@ function exec(string, isTest) {
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '');
    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
-    // Format 2
-    var format2 = new SwisscardFormat2();
-    if (format2.match(transactionsData)) {
-       transactions = format2.convert(transactionsData);
-       return Banana.Converter.arrayToTsv(transactions);
-    }
+   // Format 2
+   var format2 = new SwisscardFormat2();
+   if (format2.match(transactionsData)) {
+      transactions = format2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
 
    // Format 1
    var format1 = new SwisscardFormat1();
@@ -69,8 +69,8 @@ function SwisscardFormat2() {
          var formatMatched = true;
 
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
-            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/) && transaction["Registered category"]) 
-               formatMatched = true;   
+            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/) && transaction["Registered category"])
+            formatMatched = true;
          else
             formatMatched = false;
 
