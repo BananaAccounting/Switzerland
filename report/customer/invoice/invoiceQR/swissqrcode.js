@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2024-02-07 */
+/* Script update: 2024-07-26 */
 
 
 
@@ -583,20 +583,6 @@ var QRBill = class QRBill {
 		convertedParam.data.push(currentParam);
 
 		currentParam = {};
-		currentParam.name = 'qr_code_debtor_address_type';
-		currentParam.parentObject = 'qr_code';
-		currentParam.title = texts.param_qr_code_debtor_address_type;
-		currentParam.type = 'combobox';
-		currentParam.items = ["K","S"];
-		currentParam.value = userParam.qr_code_debtor_address_type ? userParam.qr_code_debtor_address_type : '';
-		currentParam.defaultvalue = "K";
-		currentParam.tooltip = texts.param_tooltip_qr_code_debtor_address_type;
-		currentParam.readValue = function () {
-			userParam.qr_code_debtor_address_type = this.value;
-		}
-		convertedParam.data.push(currentParam);
-
-		currentParam = {};
 		currentParam.name = 'qr_code_additional_information';
 		currentParam.parentObject = 'qr_code';
 		currentParam.title = texts.param_qr_code_additional_information;
@@ -731,7 +717,6 @@ var QRBill = class QRBill {
 		userParam.qr_code_creditor_postalcode = "";
 		userParam.qr_code_creditor_city = "";
 		userParam.qr_code_creditor_country = "";
-		userParam.qr_code_debtor_address_type = 'K';
 		userParam.qr_code_additional_information = '';
 		userParam.qr_code_billing_information = false;
 		userParam.qr_code_empty_address = false;
@@ -791,9 +776,6 @@ var QRBill = class QRBill {
 		if (!userParam.qr_code_creditor_name && !userParam.qr_code_creditor_postalcode && !userParam.qr_code_creditor_city && !userParam.qr_code_creditor_country) {
 			userParam.qr_code_payable_to = false;
 		}
-		if (!userParam.qr_code_debtor_address_type) {
-			userParam.qr_code_debtor_address_type = 'K';
-		}
 		if (!userParam.qr_code_additional_information) {
 			userParam.qr_code_additional_information = '';
 		}
@@ -846,7 +828,6 @@ var QRBill = class QRBill {
 			texts.param_qr_code_creditor_country = "Codice nazione";
 			texts.param_qr_code_add_border_separator = "Stampa bordo di separazione";
 			texts.param_qr_code_add_symbol_scissors = "Stampa simbolo forbici";
-			texts.param_qr_code_debtor_address_type = "Tipo indirizzo cliente (S=strutturato, K=combinato)";
 			texts.param_qr_code_additional_information = "Includi informazioni aggiuntive (nome colonna XML)";
 			texts.param_qr_code_billing_information = "Includi informazioni di fatturazione";
 			texts.param_qr_code_empty_address = "Escludi indirizzo fattura";
@@ -866,7 +847,6 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_creditor_postalcode = "Codice postale";
 			texts.param_tooltip_qr_code_creditor_city = "Località";
 			texts.param_tooltip_qr_code_creditor_country = "Codice nazione";
-			texts.param_tooltip_qr_code_debtor_address_type = "Seleziona il tipo di indirizzo da utilizzare (S=Indirizzo strutturato, K=Indirizzo combinato)";
 			texts.param_tooltip_qr_code_additional_information = "Inserisci il nome XML della colonna che contiene le informazioni aggiuntive";
 			texts.param_tooltip_qr_code_empty_address = "Vista per escludere l'indirizzo di fatturazione";
 			texts.param_tooltip_qr_code_empty_amount = "Vista per escludere l'importo della fattura";
@@ -891,7 +871,6 @@ var QRBill = class QRBill {
 			texts.param_qr_code_creditor_country = "Ländercode";
 			texts.param_qr_code_add_border_separator = "Trennlinie drucken";
 			texts.param_qr_code_add_symbol_scissors = "Scherensymbol drucken";
-			texts.param_qr_code_debtor_address_type = "Kunden-Adress-Typ (S=Strukturierte Adresse, K=Kombinierte Adresse)";
 			texts.param_qr_code_additional_information = "XML-Namen der Spalte mit zusätzlichen Informationen angeben";
 			texts.param_qr_code_billing_information = "Rechnungsinformationen einschliessen";
 			texts.param_qr_code_empty_address = "Rechnungsadresse ausschliessen";
@@ -911,7 +890,6 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_creditor_postalcode = "PLZ";
 			texts.param_tooltip_qr_code_creditor_city = "Ort";
 			texts.param_tooltip_qr_code_creditor_country = "Ländercode";
-			texts.param_tooltip_qr_code_debtor_address_type = "Address-Typ auswählen (S=Strukturierte Adresse, K=Kombinierte Adresse)";
 			texts.param_tooltip_qr_code_additional_information = "XML-Spaltennamen eingeben, der die zusätzlichen Informationen enthält";
 			texts.param_tooltip_qr_code_empty_address = "Option anklicken, zum Ausschliessen der Rechnungsadresse";
 			texts.param_tooltip_qr_code_empty_amount = "Option anklicken, zum Ausschliessen des Rechnungsbetrags";
@@ -936,7 +914,6 @@ var QRBill = class QRBill {
 			texts.param_qr_code_creditor_country = "Code du pays";
 			texts.param_qr_code_add_border_separator = "Impression de la bordure de séparation";
 			texts.param_qr_code_add_symbol_scissors = "Imprimer le symbole des ciseaux";
-			texts.param_qr_code_debtor_address_type = "Type d'adresse du client (S=structurée K=combinée)";
 			texts.param_qr_code_additional_information = "Inclure des informations supplémentaires (nom colonne XML)";
 			texts.param_qr_code_billing_information = "Inclure les informations de facturation";
 			texts.param_qr_code_empty_address = "Exclure l'adresse de facturation";
@@ -956,7 +933,6 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_creditor_postalcode = "Code postal NPA";
 			texts.param_tooltip_qr_code_creditor_city = "Localité";
 			texts.param_tooltip_qr_code_creditor_country = "Code du pays";
-			texts.param_tooltip_qr_code_debtor_address_type = "Sélectionner le type d'adresse à utiliser (S=Adresse structurée K=Adresse combinée)";
 			texts.param_tooltip_qr_code_additional_information = "Saisir le nom de la colonne XML qui contient les informations complémentaires";
 			texts.param_tooltip_qr_code_empty_address = "Cocher pour exclure l'adresse de la facture";
 			texts.param_tooltip_qr_code_empty_amount = "Cocher pour exclure le montant de la facture";
@@ -981,7 +957,6 @@ var QRBill = class QRBill {
 			texts.param_qr_code_creditor_country = "Country code";    
 			texts.param_qr_code_add_border_separator = "Print separating border";
 			texts.param_qr_code_add_symbol_scissors = "Print scissors symbol";
-			texts.param_qr_code_debtor_address_type = "Customer address type (S=Structured Address, K=Combined Address)";
 			texts.param_qr_code_additional_information = "Include additional information (XML column name)";
 			texts.param_qr_code_billing_information = "Include billing information";
 			texts.param_qr_code_empty_address = "Exclude invoice address";
@@ -1001,7 +976,6 @@ var QRBill = class QRBill {
 			texts.param_tooltip_qr_code_creditor_postalcode = "Postal code";
 			texts.param_tooltip_qr_code_creditor_city = "Locality";
 			texts.param_tooltip_qr_code_creditor_country = "Country code";
-			texts.param_tooltip_qr_code_debtor_address_type = "Select the address type to use (S=Structured Address, K=Combined Address)";
 			texts.param_tooltip_qr_code_additional_information = "Enter the XML column name which contains the additional information";
 			texts.param_tooltip_qr_code_empty_address = "Check to exclude the address of the invoice";
 			texts.param_tooltip_qr_code_empty_amount = "Check to exclude the amount of the invoice";
@@ -1255,7 +1229,7 @@ var QRBill = class QRBill {
 
 
 		/* Creditor (Payable to) */
-		qrcodeData.creditorAddressType = "K";
+		qrcodeData.creditorAddressType = "S";
 		qrcodeData.creditorName = "";
 		qrcodeData.creditorAddress1 = "";
 		qrcodeData.creditorAddress2 = "";
@@ -1306,7 +1280,6 @@ var QRBill = class QRBill {
 		}
 
 		//Replace the default values using the "Payable to" address parameters
-		//If "Payable to" address is selected we use structured type address, otherwise combined address.
 		if (userParam.qr_code_payable_to) {
 
 			//Reset all values before using parameters to avoid default values are used
@@ -1338,39 +1311,23 @@ var QRBill = class QRBill {
 			}
 		}
 
-		//Check the length of the data
-		if (qrcodeData.creditorAddressType === "S") {
-			if (qrcodeData.creditorName && qrcodeData.creditorName.length > 70) {
-				qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.creditorName);
-			}
-			if (qrcodeData.creditorAddress1 && qrcodeData.creditorAddress1.length > 70) {
-				qrcodeData.creditorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.creditorAddress1);
-			}
-			if (qrcodeData.creditorAddress2 && qrcodeData.creditorAddress2.length > 16) {
-				qrcodeData.creditorAddress2 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER, langDoc, qrcodeData.creditorAddress2);
-			}
-			if (qrcodeData.creditorPostalcode && qrcodeData.creditorPostalcode.length > 16) {
-				qrcodeData.creditorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE, langDoc, qrcodeData.creditorPostalcode);
-			}
-			if (qrcodeData.creditorCity && qrcodeData.creditorCity.length > 35) {
-				qrcodeData.creditorCity = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_CITY, langDoc, qrcodeData.creditorCity);
-			}
+		//Check the length of the address data (strucutred "S" type)
+		if (qrcodeData.creditorName && qrcodeData.creditorName.length > 70) {
+			qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.creditorName);
 		}
-		else {
-			if (qrcodeData.creditorName && qrcodeData.creditorName.length > 70) {
-				qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.creditorName);
-			}
-			if (qrcodeData.creditorAddress1 && qrcodeData.creditorAddress1.length > 70) {
-				qrcodeData.creditorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.creditorAddress1);
-			}
-			if (qrcodeData.creditorPostalcode && qrcodeData.creditorCity) {
-				var strCreditorPostalcodeCity = qrcodeData.creditorPostalcode + " " + qrcodeData.creditorCity;
-				if (strCreditorPostalcodeCity.length > 70) {
-					qrcodeData.creditorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY, langDoc, strCreditorPostalcodeCity);
-					qrcodeData.creditorCity = " "; //only print the error message one time. Empty space to avoid "missing locality error".
-				}
-			}
+		if (qrcodeData.creditorAddress1 && qrcodeData.creditorAddress1.length > 70) {
+			qrcodeData.creditorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.creditorAddress1);
 		}
+		if (qrcodeData.creditorAddress2 && qrcodeData.creditorAddress2.length > 16) {
+			qrcodeData.creditorAddress2 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER, langDoc, qrcodeData.creditorAddress2);
+		}
+		if (qrcodeData.creditorPostalcode && qrcodeData.creditorPostalcode.length > 16) {
+			qrcodeData.creditorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE, langDoc, qrcodeData.creditorPostalcode);
+		}
+		if (qrcodeData.creditorCity && qrcodeData.creditorCity.length > 35) {
+			qrcodeData.creditorCity = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_CITY, langDoc, qrcodeData.creditorCity);
+		}
+
 
 		if (!qrcodeData.creditorName) {
 			qrcodeData.creditorName = "@error " + this.getErrorMessage(this.ID_ERR_CREDITOR_NAME, langDoc);
@@ -1449,17 +1406,13 @@ var QRBill = class QRBill {
 		}
 
 		/* Debtor (Payable by) */
-		qrcodeData.debtorAddressType = "K";
+		qrcodeData.debtorAddressType = "S";
 		qrcodeData.debtorName = "";
 		qrcodeData.debtorAddress1 = "";
 		qrcodeData.debtorAddress2 = "";
 		qrcodeData.debtorPostalcode = "";
 		qrcodeData.debtorCity = "";
 		qrcodeData.debtorCountry = "";
-
-		if (userParam.qr_code_debtor_address_type) {
-			qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
-		}
 
 		if (invoiceObj.customer_info.business_name && invoiceObj.customer_info.business_name.trim().length > 0) {
 			qrcodeData.debtorName += invoiceObj.customer_info.business_name;
@@ -1498,38 +1451,21 @@ var QRBill = class QRBill {
 			qrcodeData.debtorCountry = invoiceObj.customer_info.country.toUpperCase().trim();
 		}
 
-		//Check the length of the data
-		if (qrcodeData.debtorAddressType === "S") {
-			if (qrcodeData.debtorName && qrcodeData.debtorName.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.debtorName);
-			}
-			if (qrcodeData.debtorAddress1 && qrcodeData.debtorAddress1.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.debtorAddress1);
-			}
-			if (qrcodeData.debtorAddress2 && qrcodeData.debtorAddress2.length > 16 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorAddress2 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER, langDoc, qrcodeData.debtorAddress2);
-			}
-			if (qrcodeData.debtorPostalcode && qrcodeData.debtorPostalcode.length > 16 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE, langDoc, qrcodeData.debtorPostalcode);
-			}
-			if (qrcodeData.debtorCity && qrcodeData.debtorCity.length > 35 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorCity = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_CITY, langDoc, qrcodeData.debtorCity);
-			}
+		//Check the length of the address data (structured "S" type)
+		if (qrcodeData.debtorName && qrcodeData.debtorName.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.debtorName);
 		}
-		else {
-			if (qrcodeData.debtorName && qrcodeData.debtorName.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorName = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_NAME, langDoc, qrcodeData.debtorName);
-			}
-			if (qrcodeData.debtorAddress1 && qrcodeData.debtorAddress1.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-				qrcodeData.debtorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.debtorAddress1);
-			}
-			if (qrcodeData.debtorPostalcode && qrcodeData.debtorCity) {
-				var strDebtorPostalcodeCity = qrcodeData.debtorPostalcode + " " + qrcodeData.debtorCity;
-				if (strDebtorPostalcodeCity.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
-					qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY, langDoc, strDebtorPostalcodeCity);
-					qrcodeData.debtorCity = " "; //only print the error message one time. Empty space to avoid "missing locality error".
-				}
-			}
+		if (qrcodeData.debtorAddress1 && qrcodeData.debtorAddress1.length > 70 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorAddress1 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_STREET, langDoc, qrcodeData.debtorAddress1);
+		}
+		if (qrcodeData.debtorAddress2 && qrcodeData.debtorAddress2.length > 16 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorAddress2 = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER, langDoc, qrcodeData.debtorAddress2);
+		}
+		if (qrcodeData.debtorPostalcode && qrcodeData.debtorPostalcode.length > 16 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorPostalcode = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_POSTALCODE, langDoc, qrcodeData.debtorPostalcode);
+		}
+		if (qrcodeData.debtorCity && qrcodeData.debtorCity.length > 35 && !this.ID_QRBILL_WITHOUT_DEBTOR) {
+			qrcodeData.debtorCity = "@error " + this.getErrorMessage(this.ID_ERR_LENGTH_ADDRESS_CITY, langDoc, qrcodeData.debtorCity);
 		}
 
 		Banana.application.showMessages(false); //disable dialog message notifications; only show in Messages panel
@@ -1703,21 +1639,12 @@ var QRBill = class QRBill {
 		if (qrcodeData.supplierIbanNumber) {
 			qrImageText.account = qrcodeData.supplierIbanNumber.replace(/ /g, ""); //Fixed length: 21 alphanumeric characters, only IBANs with CH or LI country code permitted
 		}
-		qrImageText.craddresstype = qrcodeData.creditorAddressType;
-		if (qrImageText.craddresstype === "S") { //S=structured address
-			qrImageText.crname = qrcodeData.creditorName;
-			qrImageText.craddress1 = qrcodeData.creditorAddress1;
-			qrImageText.craddress2 = qrcodeData.creditorAddress2;
-			qrImageText.crpostalcode = qrcodeData.creditorPostalcode;
-			qrImageText.crcity = qrcodeData.creditorCity;	
-		}
-		else { //K=combined address
-			qrImageText.crname = qrcodeData.creditorName;
-			qrImageText.craddress1 = qrcodeData.creditorAddress1;
-			qrImageText.craddress2 = qrcodeData.creditorPostalcode + " " + qrcodeData.creditorCity;
-			qrImageText.crpostalcode = "";
-			qrImageText.crcity = "";
-		}
+		qrImageText.craddresstype = qrcodeData.creditorAddressType; //S=structured address
+		qrImageText.crname = qrcodeData.creditorName;
+		qrImageText.craddress1 = qrcodeData.creditorAddress1;
+		qrImageText.craddress2 = qrcodeData.creditorAddress2;
+		qrImageText.crpostalcode = qrcodeData.creditorPostalcode;
+		qrImageText.crcity = qrcodeData.creditorCity;
 		qrImageText.crcountry = qrcodeData.creditorCountry; //Two-digit country code according to ISO 3166-1
 		qrImageText.trailer = "EPD";
 		
@@ -1744,21 +1671,12 @@ var QRBill = class QRBill {
 
 		// Debtor address if exists
 		if (!this.ID_QRBILL_WITHOUT_DEBTOR) {
-			qrImageText.udaddresstype = qrcodeData.debtorAddressType;
-			if (qrImageText.udaddresstype === "S") { //S=structured address
-				qrImageText.udname = qrcodeData.debtorName;
-				qrImageText.udaddress1 = qrcodeData.debtorAddress1;
-				qrImageText.udaddress2 = qrcodeData.debtorAddress2;
-				qrImageText.udpostalcode = qrcodeData.debtorPostalcode;
-				qrImageText.udcity = qrcodeData.debtorCity;
-			}
-			else if (qrImageText.udaddresstype === "K") { //K=combined address
-				qrImageText.udname = qrcodeData.debtorName;
-				qrImageText.udaddress1 = qrcodeData.debtorAddress1;
-				qrImageText.udaddress2 = qrcodeData.debtorPostalcode + " " + qrcodeData.debtorCity;
-				qrImageText.udpostalcode = "";
-				qrImageText.udcity = "";
-			}
+			qrImageText.udaddresstype = qrcodeData.debtorAddressType; //S=structured address
+			qrImageText.udname = qrcodeData.debtorName;
+			qrImageText.udaddress1 = qrcodeData.debtorAddress1;
+			qrImageText.udaddress2 = qrcodeData.debtorAddress2;
+			qrImageText.udpostalcode = qrcodeData.debtorPostalcode;
+			qrImageText.udcity = qrcodeData.debtorCity;
 			qrImageText.udcountry = qrcodeData.debtorCountry;
 		}
 
@@ -1909,22 +1827,17 @@ var QRBill = class QRBill {
 		
 		var receiptCreditorAddressParagraph = qrcodeReceiptForm.addParagraph();
 		var rCreAddText = "";
-		if (qrcodeData.creditorAddressType === "K") {
-			if (qrcodeData.creditorAddress1) {
-				rCreAddText += qrcodeData.creditorAddress1;
-			}
+		// Structured "S" address type
+		if (qrcodeData.creditorAddress1) {
+			rCreAddText += qrcodeData.creditorAddress1;
 		}
-		else if (qrcodeData.creditorAddressType === "S") {
+		if (qrcodeData.creditorAddress2) {
 			if (qrcodeData.creditorAddress1) {
-				rCreAddText += qrcodeData.creditorAddress1;
+				rCreAddText += " ";
 			}
-			if (qrcodeData.creditorAddress2) {
-				if (qrcodeData.creditorAddress1) {
-					rCreAddText += " ";
-				}
-				rCreAddText += qrcodeData.creditorAddress2;
-			}
+			rCreAddText += qrcodeData.creditorAddress2;
 		}
+		
 		if (rCreAddText.indexOf("@error") < 0) { 
 			receiptCreditorAddressParagraph.addText(rCreAddText, "qrcode_value_receipt qrcode_lineSpacing9");
 		} else if (rCreAddText.indexOf("@error") > -1) {
@@ -1981,22 +1894,17 @@ var QRBill = class QRBill {
 			
 			var receiptDebtorAddressParagraph = qrcodeReceiptForm.addParagraph();
 			var rDebAddText = "";
-			if (qrcodeData.debtorAddressType === "K") {
-				if (qrcodeData.debtorAddress1) {
-					rDebAddText += qrcodeData.debtorAddress1;
-				}
+			// Structured "S" address type
+			if (qrcodeData.debtorAddress1) {
+				rDebAddText += qrcodeData.debtorAddress1;
 			}
-			else if (qrcodeData.debtorAddressType === "S") {
+			if (qrcodeData.debtorAddress2) {
 				if (qrcodeData.debtorAddress1) {
-					rDebAddText += qrcodeData.debtorAddress1;
+					rDebAddText += " ";
 				}
-				if (qrcodeData.debtorAddress2) {
-					if (qrcodeData.debtorAddress1) {
-						rDebAddText += " ";
-					}
-					rDebAddText += qrcodeData.debtorAddress2;
-				}
+				rDebAddText += qrcodeData.debtorAddress2;
 			}
+			
 			if (rDebAddText.indexOf("@error") < 0) { 
 				receiptDebtorAddressParagraph.addText(rDebAddText, "qrcode_value_receipt qrcode_lineSpacing9");
 			} else if (rDebAddText.indexOf("@error") > -1) {
@@ -2094,22 +2002,17 @@ var QRBill = class QRBill {
 		
 		var paymentCreditorAddressParagraph = qrcodePaymentTextForm.addParagraph();
 		var pCreAddText = "";
-		if (qrcodeData.creditorAddressType === "K") {
-			if (qrcodeData.creditorAddress1) {
-				pCreAddText += qrcodeData.creditorAddress1;
-			}
+		//Structured "S" address type
+		if (qrcodeData.creditorAddress1) {
+			pCreAddText += qrcodeData.creditorAddress1;
 		}
-		else if (qrcodeData.creditorAddressType === "S") {
+		if (qrcodeData.creditorAddress2) {
 			if (qrcodeData.creditorAddress1) {
-				pCreAddText += qrcodeData.creditorAddress1;
+				pCreAddText += " ";
 			}
-			if (qrcodeData.creditorAddress2) {
-				if (qrcodeData.creditorAddress1) {
-					pCreAddText += " ";
-				}
-				pCreAddText += qrcodeData.creditorAddress2;
-			}
+			pCreAddText += qrcodeData.creditorAddress2;
 		}
+		
 		if (pCreAddText.indexOf("@error") < 0) {
 			paymentCreditorAddressParagraph.addText(pCreAddText, "qrcode_value_payment qrcode_lineSpacing11");
 		} else if (pCreAddText.indexOf("@error") > -1) {
@@ -2181,22 +2084,17 @@ var QRBill = class QRBill {
 			
 			var paymentDebtorAddressParagraph = qrcodePaymentTextForm.addParagraph();
 			var pDebAddText = "";
-			if (qrcodeData.debtorAddressType === "K") {
-				if (qrcodeData.debtorAddress1) {
-					pDebAddText += qrcodeData.debtorAddress1;
-				}
+			// Structured "S" address type
+			if (qrcodeData.debtorAddress1) {
+				pDebAddText += qrcodeData.debtorAddress1;
 			}
-			else if (qrcodeData.debtorAddressType === "S") {
+			if (qrcodeData.debtorAddress2) {
 				if (qrcodeData.debtorAddress1) {
-					pDebAddText += qrcodeData.debtorAddress1;
+					pDebAddText += " ";
 				}
-				if (qrcodeData.debtorAddress2) {
-					if (qrcodeData.debtorAddress1) {
-						pDebAddText += " ";
-					}
-					pDebAddText += qrcodeData.debtorAddress2;
-				}
+				pDebAddText += qrcodeData.debtorAddress2;
 			}
+			
 			if (pDebAddText.indexOf("@error") < 0) { 
 				paymentDebtorAddressParagraph.addText(pDebAddText, "qrcode_value_payment qrcode_lineSpacing11");
 			} else if (pDebAddText.indexOf("@error") > -1) {
@@ -3312,10 +3210,6 @@ var QRBill = class QRBill {
 		qrcodeData.debtorPostalcode = "";
 		qrcodeData.debtorCity = "";
 		qrcodeData.debtorCountry = "";
-
-		// if (userParam.qr_code_debtor_address_type) {
-		// 	qrcodeData.debtorAddressType = userParam.qr_code_debtor_address_type;
-		// }
 
 		// Assign name/familyname to debtorName field
 		if (userParam.customer_address_name) {
