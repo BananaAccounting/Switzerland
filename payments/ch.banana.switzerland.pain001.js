@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2024-06-13
+// @pubdate = 2024-07-30
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -2809,6 +2809,10 @@ var JsAction = class JsAction {
         var accountId = "";
         if (paymentObj.creditorAccountId)
             accountId = paymentObj.creditorAccountId;
+        //Write account only if it is not empty to prevent removing existing transaction data
+        //This method is called when recalculating accounting
+        if (accountId.length <= 0)
+            return;
 
         //check if cost centers' account
         var fieldName = "";
