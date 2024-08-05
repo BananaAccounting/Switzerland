@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Schwyzer KantonalBank - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Schwyzer KantonalBank - Import movements .csv (Banana+ Advanced)",
+    "description.it": "Schwyzer KantonalBank - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Schwyzer KantonalBank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Schwyzer KantonalBank - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.swkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Schwyzer KantonalBank - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Schwyzer KantonalBank - Import movements .csv (Banana+ Advanced)",
+    "title.it": "Schwyzer KantonalBank - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Schwyzer KantonalBank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Schwyzer KantonalBank - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
