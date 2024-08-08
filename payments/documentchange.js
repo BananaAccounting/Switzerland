@@ -82,6 +82,18 @@ var DocumentChange = class DocumentChange {
         return true;
     }
 
+    moveToRow(tableName, columnName, rowNr) {
+        var cursorPosition = {};
+        cursorPosition.operation = "move";
+        cursorPosition.tableName = tableName;
+        cursorPosition.columnName = columnName;
+        cursorPosition.rowNr = rowNr;
+
+        //document
+        var currentDoc = this.jsonDoc.data[this.jsonDoc.data.length-1].document;
+        currentDoc.cursorPosition = cursorPosition;
+    }
+
     /**
      * Set this DocumentChange for the currentRow (necesssary for ChangeNotifyAfter)
      */

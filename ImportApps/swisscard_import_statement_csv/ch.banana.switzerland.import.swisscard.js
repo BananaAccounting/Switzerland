@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.swisscard
 // @api = 1.0
-// @pubdate = 2023-05-02
+// @pubdate = 2024-07-25
 // @publisher = Banana.ch SA
 // @description = Swisscard - Import movements .csv (Banana+ Advanced)
 // @description.it = Swisscard - Importa movimenti .csv (Banana+ Advanced)
@@ -30,7 +30,18 @@ function exec(string, isTest) {
       return "";
 
    var fieldSeparator = findSeparator(string);
+
+   let convertionParam = defineConversionParam(string);
+
    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '');
+   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
+
+   // Format 2
+   var format2 = new SwisscardFormat2();
+   if (format2.match(transactionsData)) {
+      transactions = format2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
 
    // Format 1
    var format1 = new SwisscardFormat1();
@@ -45,32 +56,68 @@ function exec(string, isTest) {
 }
 
 /**
- * The function findSeparator is used to find the field separator.
+ * Swisscard Format 2
+ * Example:
  */
-function findSeparator(string) {
+function SwisscardFormat2() {
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
 
-   var commaCount = 0;
-   var semicolonCount = 0;
-   var tabCount = 0;
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
 
-   for (var i = 0; i < 1000 && i < string.length; i++) {
-      var c = string[i];
-      if (c === ',')
-         commaCount++;
-      else if (c === ';')
-         semicolonCount++;
-      else if (c === '\t')
-         tabCount++;
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/) && transaction["Registered category"])
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
    }
 
-   if (tabCount > commaCount && tabCount > semicolonCount) {
-      return '\t';
-   }
-   else if (semicolonCount > commaCount) {
-      return ';';
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
    }
 
-   return ',';
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      if (transaction["Registered category"]) {
+         mappedLine.push(transaction["Description"] + " - " + transaction["Registered category"]);
+      } else {
+         mappedLine.push(transaction["Description"]);
+      }
+      if (transaction["Amount"].match(/^[0-9]/))
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+      else
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+
+      return mappedLine;
+   }
 }
 
 /**
@@ -174,4 +221,108 @@ function SwisscardFormat1() {
 
       return mappedLine;
    }
+}
+
+function defineConversionParam(inData) {
+
+   var inData = Banana.Converter.csvToArray(inData);
+   var header = String(inData[0]);
+   var convertionParam = {};
+   /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+   convertionParam.format = "csv"; // available formats are "csv", "html"
+   //get text delimiter
+   convertionParam.textDelim = '"';
+   // get separator
+   if (header.indexOf(';') >= 0) {
+      convertionParam.separator = ';';
+   } else {
+      convertionParam.separator = ',';
+   }
+
+   /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
+   We suppose the data will always begin right away after the header line */
+   convertionParam.headerLineStart = 0;
+   convertionParam.dataLineStart = 1;
+
+   /** SPECIFY THE COLUMN TO USE FOR SORTING
+   If sortColums is empty the data are not sorted */
+   convertionParam.sortColums = ["Date", "Doc"];
+   convertionParam.sortDescending = false;
+
+   return convertionParam;
+}
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+   let form = [];
+
+   let convertedColumns = [];
+
+   convertedColumns = convertHeaderDe(columns);
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
+   return [];
+}
+
+function convertHeaderDe(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Transaktionsdatum":
+            convertedColumns[i] = "Date";
+            break;
+         case "Beschreibung":
+            convertedColumns[i] = "Description";
+            break;
+         case "Betrag":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Registrierte Kategorie":
+            convertedColumns[i] = "Registered category";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+/**
+ * The function findSeparator is used to find the field separator.
+ */
+function findSeparator(string) {
+
+   var commaCount = 0;
+   var semicolonCount = 0;
+   var tabCount = 0;
+
+   for (var i = 0; i < 1000 && i < string.length; i++) {
+      var c = string[i];
+      if (c === ',')
+         commaCount++;
+      else if (c === ';')
+         semicolonCount++;
+      else if (c === '\t')
+         tabCount++;
+   }
+
+   if (tabCount > commaCount && tabCount > semicolonCount) {
+      return '\t';
+   }
+   else if (semicolonCount > commaCount) {
+      return ';';
+   }
+
+   return ',';
 }

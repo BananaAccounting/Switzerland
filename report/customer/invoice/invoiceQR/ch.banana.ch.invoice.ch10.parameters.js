@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2023-06-16 */
+/* User parameters update: 2024-03-05 */
 
 
 
@@ -1269,6 +1269,54 @@ function convertParam(userParam) {
     }
     convertedParam.data.push(currentParam);
 
+    if (IS_INTEGRATED_INVOICE) {
+      // invoice date, reminder date, reminder due date
+      // are available only on integrated invoice
+      // on application estimates-invoices, reminders never have these dates
+
+      currentParam = {};
+      currentParam.name = langCode+'_text_info_invoice_date_reminder';
+      currentParam.parentObject = langCode+'_reminder';
+      currentParam.title = langTexts[langCodeTitle+'_param_text_info_invoice_date_reminder'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_info_invoice_date_reminder'] ? userParam[langCode+'_text_info_invoice_date_reminder'] : '';
+      currentParam.defaultvalue = langTexts.invoice_date;
+      currentParam.tooltip = langTexts['param_tooltip_text_info_invoice_date_reminder'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_info_invoice_date_reminder'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = langCode+'_text_info_date_reminder';
+      currentParam.parentObject = langCode+'_reminder';
+      currentParam.title = langTexts[langCodeTitle+'_param_text_info_date_reminder'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_info_date_reminder'] ? userParam[langCode+'_text_info_date_reminder'] : '';
+      currentParam.defaultvalue = langTexts.reminder_date;
+      currentParam.tooltip = langTexts['param_tooltip_text_info_date_reminder'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_info_date_reminder'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
+
+      currentParam = {};
+      currentParam.name = langCode+'_text_info_due_date_reminder';
+      currentParam.parentObject = langCode+'_reminder';
+      currentParam.title = langTexts[langCodeTitle+'_param_text_info_due_date_reminder'];
+      currentParam.type = 'string';
+      currentParam.value = userParam[langCode+'_text_info_due_date_reminder'] ? userParam[langCode+'_text_info_due_date_reminder'] : '';
+      currentParam.defaultvalue = langTexts.reminder_due_date;
+      currentParam.tooltip = langTexts['param_tooltip_text_info_due_date_reminder'];
+      currentParam.language = langCode;
+      currentParam.readValueLang = function(langCode) {
+        userParam[langCode+'_text_info_due_date_reminder'] = this.value;
+      }
+      convertedParam.data.push(currentParam);
+    }
+
     currentParam = {};
     currentParam.name = langCode+'_title_reminder';
     currentParam.parentObject = langCode+'_reminder';
@@ -1459,6 +1507,37 @@ function convertParam(userParam) {
    userParam.embedded_css_filename = this.value;
   }
   convertedParam.data.push(currentParam);
+
+
+  /*******************************************************************************************
+  * DEVELOP
+  *******************************************************************************************/
+  if (BAN_ADVANCED) {
+    currentParam = {};
+    currentParam.name = 'develop';
+    currentParam.title = texts.param_develop;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.readValue = function() {
+      userParam.develop = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    //JSON of invoice, parameters, preferences and QRCode text
+    currentParam = {};
+    currentParam.name = 'dev_show_json';
+    currentParam.parentObject = 'develop';
+    currentParam.title = texts.param_dev_show_json;
+    currentParam.type = 'bool';
+    currentParam.value = userParam.dev_show_json ? true : false;
+    currentParam.defaultvalue = false;
+    currentParam.tooltip = texts.param_tooltip_dev_show_json;
+    currentParam.readValue = function() {
+     userParam.dev_show_json = this.value;
+    }
+    convertedParam.data.push(currentParam);
+  }
   
   return convertedParam;
 }
@@ -1570,6 +1649,9 @@ function initParam() {
     userParam[langCodes[i]+'_text_final_delivery_note'] = '';
 
     //Reminder
+    userParam[langCodes[i]+'_text_info_invoice_date_reminder'] = langTexts.invoice_date;
+    userParam[langCodes[i]+'_text_info_date_reminder'] = langTexts.reminder_date;
+    userParam[langCodes[i]+'_text_info_due_date_reminder'] = langTexts.reminder_due_date;
     userParam[langCodes[i]+'_title_reminder'] = '%1. ' + langTexts.reminder;
     userParam[langCodes[i]+'_text_begin_reminder'] = '';
     userParam[langCodes[i]+'_text_final_reminder'] = '';
@@ -1593,6 +1675,9 @@ function initParam() {
   //Embedded JavaScript/css file
   userParam.embedded_javascript_filename = '';
   userParam.embedded_css_filename = '';
+
+  //Invoice JSON
+  userParam.dev_show_json = false;
 
   return userParam;
 }
@@ -1825,6 +1910,15 @@ function verifyParam(userParam) {
     }
 
     //Reminder
+    if (!userParam[langCodes[i]+'_text_info_invoice_date_reminder']) {
+      userParam[langCodes[i]+'_text_info_invoice_date_reminder'] = langTexts.invoice_date;
+    }    
+    if (!userParam[langCodes[i]+'_text_info_date_reminder']) {
+      userParam[langCodes[i]+'_text_info_date_reminder'] = langTexts.reminder_date;
+    }
+    if (!userParam[langCodes[i]+'_text_info_due_date_reminder']) {
+      userParam[langCodes[i]+'_text_info_due_date_reminder'] = langTexts.reminder_due_date;
+    }
     if (!userParam[langCodes[i]+'_title_reminder']) {
       userParam[langCodes[i]+'_title_reminder'] = '%1. ' + langTexts.reminder;
     }
@@ -1885,6 +1979,11 @@ function verifyParam(userParam) {
   }
   if (!userParam.embedded_css_filename) {
     userParam.embedded_css_filename = '';
+  }
+
+  //Develop
+  if (!userParam.dev_show_json || !BAN_ADVANCED) {
+    userParam.dev_show_json = false;
   }
 
   return userParam;

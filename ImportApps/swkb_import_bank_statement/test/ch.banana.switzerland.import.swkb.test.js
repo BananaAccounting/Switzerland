@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,56 +14,53 @@
 //
 
 
-// @id = ch.banana.switzerland.import.swisscard.test
+// @id = ch.banana.switzerland.import.swkb.test
 // @api = 1.0
-// @pubdate = 2023-05-02
+// @pubdate = 2024-08-03
 // @publisher = Banana.ch SA
-// @description = <TEST ch.banana.switzerland.import.swisscard.test>
+// @description = <TEST ch.banana.switzerland.import.swkb.test>
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.switzerland.import.swisscard.sbaa/import.utilities.js
-// @includejs = ../ch.banana.switzerland.import.swisscard.sbaa/ch.banana.switzerland.import.swisscard.js
+// @includejs = ../ch.banana.switzerland.import.swkb.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.swkb.sbaa/ch.banana.switzerland.import.swkb.js
 // @timeout = -1
 
 // Register test case to be executed
-Test.registerTestCase(new TestImportSwisscard());
+Test.registerTestCase(new TestImportSwKBTrans());
 
 // Here we define the class, the name of the class is not important
-function TestImportSwisscard() {
+function TestImportSwKBTrans() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportSwisscard.prototype.initTestCase = function() {
+TestImportSwKBTrans.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportSwisscard.prototype.cleanupTestCase = function() {
+TestImportSwKBTrans.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportSwisscard.prototype.init = function() {
+TestImportSwKBTrans.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportSwisscard.prototype.cleanup = function() {
+TestImportSwKBTrans.prototype.cleanup = function () {
 
 }
 
-TestImportSwisscard.prototype.testImport = function() {
+TestImportSwKBTrans.prototype.testImport = function () {
    var fileNameList = [];
 
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_de_20230502.csv");
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_it_20230502.csv");
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20240717.csv");
+   fileNameList.push("file:script/../test/testcases/csv_swkb_example_format1_20240729.csv");
 
-   
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
 
@@ -75,9 +72,9 @@ TestImportSwisscard.prototype.testImport = function() {
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
-      var transactions = exec(fileContent,true); //takes the exec from the import script.
-      this.testLogger.addCsv('Format Data', transactions);
-      
+      var transactions = exec(fileContent, true); //takes the exec from the import script.
+      this.testLogger.addCsv('', transactions);
+
       if (!this.progressBar.step())
          break;
    }
