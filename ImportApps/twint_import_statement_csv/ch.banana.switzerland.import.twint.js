@@ -99,7 +99,6 @@ function processTwintTransactions(transactions, userParam, banDoc, importUtiliti
  * Donation TWINT Müller             1032        98.40 (amount cashed)
  * Donation TWINT Müller             6941        1.60 (fee)
  * 
- * Currently, with the test cases and examples we have, we have no way of knowing whether there are any cases where the amount is negative (any adjustments or outgoing payments).
  * The extension is currently a BETA version, further improvements will be implemented as soon as we have the opportunity to work with files providing specific cases.
  * */
 function TwintFormat1() {
