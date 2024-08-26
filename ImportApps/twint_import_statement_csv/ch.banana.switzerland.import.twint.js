@@ -130,6 +130,12 @@ function TwintFormat1() {
             importUtilities.loadForm(form, convertedColumns, rows);
             return form;
         }
+        // Convert headers from german. 
+        convertedColumns = this.convertHeaderFr(columns, convertedColumns);
+        if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+        }
 
         return [];
     }
@@ -201,6 +207,67 @@ function TwintFormat1() {
                     convertedColumns[i] = "Payment Purpose";
                     break;
                 default:
+                    break;
+            }
+        }
+
+        if (convertedColumns.indexOf("Date") < 0
+            || convertedColumns.indexOf("Description") < 0
+            || convertedColumns.indexOf("Amount") < 0) {
+            return [];
+        }
+        return convertedColumns;
+    }
+
+    this.convertHeaderFr = function (columns) {
+        let convertedColumns = [];
+        for (var i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case "Date":
+                    convertedColumns[i] = "Date";
+                    break;
+                case "Heure":
+                    convertedColumns[i] = "Time";
+                    break;
+                case "Type":
+                    convertedColumns[i] = "Description";
+                    break;
+                case "Statut":
+                    convertedColumns[i] = "Status";
+                    break;
+                case "Montant de la transaction (CHF)":
+                case "Montant de la transaction (EUR)":
+                case "Montant de la transaction (USD)":
+                    convertedColumns[i] = "Amount";
+                    break;
+                case "Rabais":
+                case "Rabais (CHF)":
+                case "Rabais (EUR)":
+                case "Rabais (USD)":
+                    convertedColumns[i] = "Discount";
+                    break;
+                case "Coûts de transaction (CHF)":
+                case "Coûts de transaction (EUR)":
+                case "Coûts de transaction (USD)":
+                    convertedColumns[i] = "Transaction Fee";
+                    break;
+                case "Commerce":
+                    convertedColumns[i] = "Branch";
+                    break;
+                case "ID de terminal TWINT":
+                    convertedColumns[i] = "Terminal Id";
+                    break;
+                case "ID de commande TWINT":
+                    convertedColumns[i] = "Transaction id";
+                    break;
+                case "Référence de la transaction commerçant":
+                    convertedColumns[i] = "Transaction Reference";
+                    break;
+                case "référence de transaction du commerçant":
+                    convertedColumns[i] = "Retailer Transaction Reference";
+                    break;
+                case "Dénomination sur le décompte":
+                    convertedColumns[i] = "Designation in the invoice";
                     break;
             }
         }
@@ -413,10 +480,17 @@ function TwintFormat1() {
 
     this.getDescription = function (transaction) {
         let description = "";
-        let type = transaction['Description'];
-        let branch = transaction['Branch'];
-        let firstName = transaction['First Name'];
-        let lastName = transaction['Surname'];
+        let type = "";
+        let branch = "";
+        let firstName = "";
+        let lastName = "";
+
+        type = transaction['Description'];
+        branch = transaction['Branch'];
+        if (typeof (transaction['First Name']) != "undefined")
+            firstName = transaction['First Name'];
+        if (typeof (transaction['Surname']) != "undefined")
+            lastName = transaction['Surname'];
 
         description = type + " " + " " + branch + " " + firstName + " " + lastName;
 
