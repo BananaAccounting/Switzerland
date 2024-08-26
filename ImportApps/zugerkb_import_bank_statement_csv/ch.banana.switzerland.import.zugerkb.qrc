@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>ch.banana.switzerland.import.zugerkb.js</file>
+        <file>../import.utilities.js</file>
+        <file>ch.banana.switzerland.import.zugerkb.manifest.json</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Zuger Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Zuger Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.de": "Zuger Kantonalbank -  Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Zuger Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it": "Zuger Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.zugerkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Zuger Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Zuger Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.de": "Zuger Kantonalbank -  Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Zuger Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it": "Zuger Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

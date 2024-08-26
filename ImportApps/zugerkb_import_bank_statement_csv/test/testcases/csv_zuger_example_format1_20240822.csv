@@ -1,0 +1,48 @@
+Kontoauszug bis: 31.07.2024 ;;;
+
+;;;
+
+Kontonummer: 12345;;;
+
+Bezeichnung: Kontokorrent in CHF;;;
+
+Saldo: CHF 1234.56;;;
+
+;;;
+
+My Company SA;;;
+
+Via delle scuole 17;;;
+
+6900 Lugano;;;
+
+;;;
+
+;;;
+
+Datum;Buchungstext;Betrag;Valuta
+
+31.07.24;Verg�tung;980.00;31.07.24
+
+26.07.24;Verg�tung;-164.05;26.07.24
+
+22.07.24;Verg�tung;-140.00;22.07.24
+
+22.07.24;Verg�tung;-60.00;22.07.24
+
+19.07.24;Gutschrift;897.75;19.07.24
+
+12.07.24;Verg�tung;-395.20;12.07.24
+
+11.07.24;Verg�tung;-200.65;11.07.24
+
+11.07.24;Verg�tung;-94.00;11.07.24
+
+09.07.24;Gutschrift;527.55;09.07.24
+
+02.07.24;Dauerauftrag;-84.95;02.07.24
+
+01.07.24;Verg�tung;-2500.00;01.07.24
+
+01.07.24;Verg�tung;980.00;01.07.24
+
