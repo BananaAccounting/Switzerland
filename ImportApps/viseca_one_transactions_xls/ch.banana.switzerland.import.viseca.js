@@ -66,10 +66,16 @@ function exec(inData, isTest) {
 
 /**
  * Viseco (One) Format
- * Transaktionsliste
- * Erstellt am 14.07.2024
- * Trans.-Buchungsdatum zwischen 01.05.24 und 18.08.24
- * Trans.-CAC-Code ist leer auf Ebene 0
+ * Transaktionsliste,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * Erstellt am 14.07.24 12:55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * ,Trans.-Buchungsdatum zwischen 01.04.24 und 28.08.24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * ,Trans.-CAC-Code ist leer auf Ebene 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * POSITION J/N,POSITIONSFOLGE,TEILEN J/N,TEILUNGSREIHENFOLGE,TRANSAKTIONSDATUM,VORNAME,NACHNAME,KARTENNUMMER,H�NDLERNAME,TRANS. BESCHREIBUNG,POSITIONSBESCHR.,POSITIONSMENGE,KOSTEN PRO EINHEIT F�R POSITION,GET. BESCHR.,Teilung: Menge,Teilung: Kosten pro Einheit,ORIGINALW�HR.,ORIGINAL-BRUTTOBETRAG,BRUTTOBETRAG RECHNUNG,TRANS.-STATUS,STRITTIG J/N,BELEG-CODE BESCHREIBUNG,STEUER ABGESCHLOSSEN,ANMERK. ZU TRANS. J/N,TRANS.-ANMERKUNG,KARTENW�HRUNG,TRANSAKTIONSSW�HRUNG,TRANS.-BUCHUNGSDATUM,W�HRUNGSSATZ,TRANS.-ORIGINALNETTOBETR.,ORIGINAL-ERM�SSIGUNGSBETR.,TRANS.-STEUERBETRAG,TRANS.-STEUERSATZ,ST.-CD,AUFGEF. ZEICHENFOLGE,TRANS.-CAC-CODE 1,TRANS.-CAC-BESCHR. 1,TRANS.-CAC-CODE 2,TRANS.-CAC-BESCHR. 2,POSITION CAC-CODE 1,POSITION CAC-BESCHR. 1,POSITION CAC-CODE 2,POSITION CAC-BESCHR. 2,POSITION STEUERBETR.,POSITION STEUERSATZ,POSITION STEUER BESCHR.,POSITION NACHLASS,RECHNUNGSBRUTTOBETR. POSITION,GET. RECHNUNGSBRUTTOBETR.,GET. RECHNUNGSNETTOBETR.,GET. ORIGINALBRUTTOBETR.,GET. CAC-CODE 1,GET. CAC-BESCHR. 1,GET. CAC-CODE 2,GET. CAC-BESCHR. 2
+ * N,0,N,0,20.05.24,Gavin,Summers,************1234,Zurich Boutique,,,0.00,0.00,,0.00,0.00,CHF,14.00,14.00,Importiert,N,N,N,N,,CHF,CHF,22.07.24,1.00,4.00,0.00,0.00,0.00,0 Prozent,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
+ * N,0,N,0,16.06.24,Gavin,Summers,************1234,Matterhorn Market,,,0.00,0.00,,0.00,0.00,CHF,85.99,86.00,Importiert,N,N,N,N,,CHF,CHF,01.08.24,1.00,83.99,0.00,0.00,0.00,0 Prozent nicht ber�cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
+ * N,0,N,0,30.07.24,Gavin,Summers,************1234,Edelweiss Traders,,,0.00,0.00,,0.00,0.00,CHF,68.95,68.95,Importiert,N,N,N,N,,CHF,CHF,01.08.24,1.00,65.95,0.00,0.00,0.00,0 Prozent nicht ber�cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
+ * N,0,N,0,05.08.24,Gavin,Summers,************1234,Lucerne Luxuries,,,0.00,0.00,,0.00,0.00,CHF,62.95,62.95,Importiert,N,N,N,N,,CHF,CHF,05.08.24,1.00,65.95,0.00,0.00,0.00,0 Prozent nicht ber�cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
 */
 function VisecaFormat() {
 
@@ -99,6 +105,7 @@ function VisecaFormat() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
+         
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{2}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));

@@ -22,7 +22,6 @@
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
-// @inputencoding = latin1
 // @outputformat = none
 // @inputdataform = none
 // @includejs = ../ch.banana.switzerland.import.viseca.sbaa/import.utilities.js
@@ -70,6 +69,7 @@ TestImportVisecaTrans.prototype.testImport = function () {
       this.testLogger = parentLogger.newLogger(Banana.IO.fileCompleteBaseName(fileName));
 
       var file = Banana.IO.getLocalFile(fileName);
+      file.codecName = "latin1";
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);

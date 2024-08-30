@@ -20,15 +20,15 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2024-04-05 &  &  &  & Hannah Clarke - undefined & 15.45\\
-2024-04-04 &  &  &  & Hannah Clarke - undefined & 95.65\\
-2024-04-04 &  &  &  & Hannah Clarke - undefined & 0.60\\
-2024-08-06 &  &  &  & Gavin Summers - undefined & 5.85\\
-2024-08-06 &  &  &  & Gavin Summers - undefined & 53.05\\
-2024-08-05 &  &  &  & Gavin Summers - undefined & 62.95\\
-2024-07-30 &  &  &  & Gavin Summers - undefined & 68.95\\
-2024-06-16 &  &  &  & Gavin Summers - undefined & 86.00\\
-2024-05-20 &  &  &  & Gavin Summers - undefined & 14.00\\
+2024-04-05 &  &  &  & Hannah Clarke - Rhine River Retail & 15.45\\
+2024-04-04 &  &  &  & Hannah Clarke - St. Gallen Goods & 95.65\\
+2024-04-04 &  &  &  & Hannah Clarke - Montreux Merchants & 0.60\\
+2024-08-06 &  &  &  & Gavin Summers - SwissStyle Emporium & 5.85\\
+2024-08-06 &  &  &  & Gavin Summers - Geneva Gifts & 53.05\\
+2024-08-05 &  &  &  & Gavin Summers - Lucerne Luxuries & 62.95\\
+2024-07-30 &  &  &  & Gavin Summers - Edelweiss Traders & 68.95\\
+2024-06-16 &  &  &  & Gavin Summers - Matterhorn Market & 86.00\\
+2024-05-20 &  &  &  & Gavin Summers - Zurich Boutique & 14.00\\
 \\
 \end{tablevalue}
 \end{document}
