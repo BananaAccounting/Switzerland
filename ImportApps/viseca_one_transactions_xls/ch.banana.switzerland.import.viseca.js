@@ -35,30 +35,14 @@
 // @includejs = import.utilities.js
 
 /**
- * 
- * @param {*} inData transactionsData
- * @param {*} banDocument accounting file, is present only in tests
- * @param {*} isTest define if it is a test or not.
+ * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec(inData, banDocument, isTest) {
-
-   var progressBar = Banana.application.progressBar;
-   progressBar.start("Elaborating rows", 1);
-   progressBar.step();
-
-   let banDoc;
+function exec(inData, isTest) {
 
    if (!inData)
       return "";
 
-   if (isTest && !banDocument)
-      return "";
-   else if (isTest && banDocument)
-      banDoc = banDocument;
-   else
-      banDoc = Banana.document;
-
-   var importUtilities = new ImportUtilities(banDoc);
+   var importUtilities = new ImportUtilities(Banana.document);
 
    if (!isTest && !importUtilities.verifyBananaAdvancedVersion())
       return "";
