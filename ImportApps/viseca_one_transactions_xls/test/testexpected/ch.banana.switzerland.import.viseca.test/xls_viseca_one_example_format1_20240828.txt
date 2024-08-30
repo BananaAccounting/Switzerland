@@ -1,0 +1,34 @@
+%%info_test_name{xls_viseca_one_example_format1_20240828}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2024-04-05 &  &  &  & Hannah Clarke - undefined & 15.45\\
+2024-04-04 &  &  &  & Hannah Clarke - undefined & 95.65\\
+2024-04-04 &  &  &  & Hannah Clarke - undefined & 0.60\\
+2024-08-06 &  &  &  & Gavin Summers - undefined & 5.85\\
+2024-08-06 &  &  &  & Gavin Summers - undefined & 53.05\\
+2024-08-05 &  &  &  & Gavin Summers - undefined & 62.95\\
+2024-07-30 &  &  &  & Gavin Summers - undefined & 68.95\\
+2024-06-16 &  &  &  & Gavin Summers - undefined & 86.00\\
+2024-05-20 &  &  &  & Gavin Summers - undefined & 14.00\\
+\\
+\end{tablevalue}
+\end{document}

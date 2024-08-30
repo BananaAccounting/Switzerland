@@ -22,6 +22,7 @@
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
+// @inputencoding = latin1
 // @outputformat = none
 // @inputdataform = none
 // @includejs = ../ch.banana.switzerland.import.viseca.sbaa/import.utilities.js

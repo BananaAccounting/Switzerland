@@ -120,7 +120,7 @@ function VisecaFormat() {
       mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
       mappedLine.push("");
       mappedLine.push("");
-      mappedLine.push(transaction["Description"]);
+      mappedLine.push(transaction["First Name"] + " " + transaction["Last Name"] + " - " + transaction["Merchant Name"]);
       if (transaction["Amount"].match(/^[0-9]/))
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
       else
@@ -177,8 +177,14 @@ function convertHeaderDe(columns) {
          case "TRANSAKTIONSDATUM":
             convertedColumns[i] = "Date";
             break;
+         case "VORNAME":
+               convertedColumns[i] = "First Name";
+               break;
          case "NACHNAME":
-            convertedColumns[i] = "Description";
+            convertedColumns[i] = "Last Name";
+            break;
+         case "HÄNDLERNAME":
+            convertedColumns[i] = "Merchant Name";
             break;
          case "BRUTTOBETRAG RECHNUNG":
             convertedColumns[i] = "Amount";
