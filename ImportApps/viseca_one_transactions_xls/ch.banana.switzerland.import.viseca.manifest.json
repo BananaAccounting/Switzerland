@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Viseca - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Viseca - Import movements .csv (Banana+ Advanced)",
+    "description.it": "Viseca - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Viseca - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Viseca - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.viseca",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Viseca - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Viseca - Import movements .csv (Banana+ Advanced)",
+    "title.it": "Viseca - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Viseca - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Viseca - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
