@@ -36,34 +36,35 @@ function TestImportSwisscard() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportSwisscard.prototype.initTestCase = function() {
+TestImportSwisscard.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportSwisscard.prototype.cleanupTestCase = function() {
+TestImportSwisscard.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportSwisscard.prototype.init = function() {
+TestImportSwisscard.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportSwisscard.prototype.cleanup = function() {
+TestImportSwisscard.prototype.cleanup = function () {
 
 }
 
-TestImportSwisscard.prototype.testImport = function() {
+TestImportSwisscard.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_de_20230502.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_it_20230502.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20240717.csv");
+   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_it_20240916.csv");
 
-   
+
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
 
@@ -75,9 +76,9 @@ TestImportSwisscard.prototype.testImport = function() {
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
-      var transactions = exec(fileContent,true); //takes the exec from the import script.
+      var transactions = exec(fileContent, true); //takes the exec from the import script.
       this.testLogger.addCsv('Format Data', transactions);
-      
+
       if (!this.progressBar.step())
          break;
    }
