@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,56 +14,52 @@
 //
 
 
-// @id = ch.banana.switzerland.import.swisscard.test
+// @id = ch.banana.switzerland.import.viseca.test
 // @api = 1.0
-// @pubdate = 2023-05-02
+// @pubdate = 2024-08-30
 // @publisher = Banana.ch SA
-// @description = <TEST ch.banana.switzerland.import.swisscard.test>
+// @description = <TEST ch.banana.switzerland.import.viseca.test>
 // @task = app.command
 // @doctype = *.*
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.switzerland.import.swisscard.sbaa/import.utilities.js
-// @includejs = ../ch.banana.switzerland.import.swisscard.sbaa/ch.banana.switzerland.import.swisscard.js
+// @includejs = ../ch.banana.switzerland.import.viseca.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.viseca.sbaa/ch.banana.switzerland.import.viseca.js
 // @timeout = -1
 
 // Register test case to be executed
-Test.registerTestCase(new TestImportSwisscard());
+Test.registerTestCase(new TestImportVisecaTrans());
 
 // Here we define the class, the name of the class is not important
-function TestImportSwisscard() {
+function TestImportVisecaTrans() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportSwisscard.prototype.initTestCase = function () {
+TestImportVisecaTrans.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportSwisscard.prototype.cleanupTestCase = function () {
+TestImportVisecaTrans.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportSwisscard.prototype.init = function () {
+TestImportVisecaTrans.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportSwisscard.prototype.cleanup = function () {
+TestImportVisecaTrans.prototype.cleanup = function () {
 
 }
 
-TestImportSwisscard.prototype.testImport = function () {
+TestImportVisecaTrans.prototype.testImport = function () {
    var fileNameList = [];
 
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_de_20230502.csv");
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_it_20230502.csv");
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20240717.csv");
-   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_it_20240916.csv");
-
+   fileNameList.push("file:script/../test/testcases/xls_viseca_one_example_format1_20240828.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
@@ -73,11 +69,12 @@ TestImportSwisscard.prototype.testImport = function () {
       this.testLogger = parentLogger.newLogger(Banana.IO.fileCompleteBaseName(fileName));
 
       var file = Banana.IO.getLocalFile(fileName);
+      file.codecName = "latin1";
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
       var transactions = exec(fileContent, true); //takes the exec from the import script.
-      this.testLogger.addCsv('Format Data', transactions);
+      this.testLogger.addCsv('', transactions);
 
       if (!this.progressBar.step())
          break;

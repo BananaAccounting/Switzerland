@@ -1,0 +1,7 @@
+Data transazione,Descrizione,Commerciante,Numero di carta,Valuta,Importo,Valuta estera,Importo Estero,Debito/Credito,Stato,Categoria commerciante,Categoria Registrata
+12.09.2024,LUGANO,Nexum,11111111111111,,,EUR,54.89,Addebito,In sospeso,Servizi,COMPUTER SOFTWARE STORES
+12.09.2024,LUGANO,Nexum,11111111111111,CHF,20.85,,,Addebito,In sospeso,Shopping,DEPARTMENT STORES
+10.09.2024,LUGANO,Nexum,11111111111111,CHF,15.00,,,Addebito,Contabilizzata,,"EATING PLACES, RESTAURANTS"
+10.09.2024,LUGANO,Nexum,11111111111111,CHF,2.55,,,Addebito,Contabilizzata,,"GROCERY STORES, SUPERMARKETS"
+07.09.2024,LUGANO,Nexum,11111111111111,CHF,4.00,,,Addebito,Contabilizzata,,AUTOMOBILE PARKING LOTS AND GARAGES
+07.09.2024,LUGANO,Nexum,11111111111111,CHF,56.85,,,Addebito,Contabilizzata,,"GROCERY STORES, SUPERMARKETS"
