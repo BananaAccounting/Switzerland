@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.creditsuisse
 // @api = 1.0
-// @pubdate = 2024-01-08
+// @pubdate = 2024-09-19
 // @publisher = Banana.ch SA
 // @description = Credit Suisse - Import account statement .csv (Banana+ Advanced)
 // @description.en = Credit Suisse - Import account statement .csv (Banana+ Advanced)
@@ -680,4 +680,4 @@ function convertHeaderFr(columns) {
 }
 
 
-   
+
