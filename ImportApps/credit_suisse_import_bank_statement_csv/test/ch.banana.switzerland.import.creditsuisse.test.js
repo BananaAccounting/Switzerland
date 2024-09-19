@@ -67,6 +67,7 @@ TestImportCreditSuisse.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format4_20230901.csv");
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format4_20230905.csv");
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format5_20240108.csv");
+   fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format5_20240901.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
