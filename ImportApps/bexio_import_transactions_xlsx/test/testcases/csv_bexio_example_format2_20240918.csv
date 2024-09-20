@@ -1,0 +1,21 @@
+Kontonummer;Datum;Referenz;Kontakt;Beschreibung;GK;GK Beschreibung;Code;Prozentsatz;Ziffer;W�hrung;Soll;Haben;Saldo;Fremdw�hrung;Kurs;FW-Betrag
+1010;01.01.2022;MB 123;;Description;6210;Betriebsstoffe;VB77;7.70%;405;CHF;;36.91;-36.91;;;
+1010;01.01.2022;MB 123;;Description;1171;Vorsteuer Inv., �br. Betriebsaufwand Kl.1 5-8;VB77;7.70%;405;CHF;;2.84;-39.75;;;
+1010;01.01.2022;MB 441;;Description;1160;Kontokorrent Aktion�r CHF;;;;CHF;;102.9;-142.65;;;
+1010;06.01.2022;MB 441;;Description;6640;Reisespesen;;;;CHF;;1�000.00;-1�142.65;;;
+1010;06.01.2022;MB 231;;Description;6940;Bankspesen;;;;CHF;;2;-1�144.65;;;
+1010;06.01.2022;MB 231;;Description;6641;Kundenbetreuung;VB77;7.70%;405;CHF;;148.56;-1�293.21;;;
+1010;06.01.2022;MB 231;;Description;1171;Vorsteuer Inv., �br. Betriebsaufwand Kl.1 5-8;VB77;7.70%;405;CHF;;11.44;-1�304.65;;;
+1010;09.01.2022;MB 232;;Description;6641;Kundenbetreuung;VB25;2.50%;405;CHF;;47.17;-1�351.82;;;
+1010;09.01.2022;MB 232;;Description;1171;Vorsteuer Inv., �br. Betriebsaufwand Kl.1 5-8;VB25;2.50%;405;CHF;;1.18;-1�353.00;;;
+1010;09.01.2022;MB 233;;Description;6640;Reisespesen;VB25;2.50%;405;CHF;;45.85;-1�398.85;;;
+1010;09.01.2022;MB 234;;Description;1171;Vorsteuer Inv., �br. Betriebsaufwand Kl.1 5-8;VB25;2.50%;405;CHF;;1.15;-1�400.00;;;
+1010;09.01.2022;MB 234;;Description;6640;Reisespesen;VB25;2.50%;405;CHF;;28.05;-1�428.05;;;
+1010;09.01.2022;MB 234;;Description;1171;Vorsteuer Inv., �br. Betriebsaufwand Kl.1 5-8;VB25;2.50%;405;CHF;;0.7;-1�428.75;;;
+1010;11.01.2022;LR 099;Bober GmbH;Description;2000;Verbindlichkeiten Lieferungen- u. Leistungen CHF;;;;CHF;;4�367.25;-5�796.00;;;
+1010;11.01.2022;MB 06;;Description;2002;Kreditor Kreditkarte;;;;CHF;;3�300.00;-9�096.00;;;
+1010;12.01.2022;LR 045;Service;Description;2000;Verbindlichkeiten Lieferungen- u. Leistungen CHF;;;;CHF;;40;-9�136.00;;;
+1010;14.01.2022;LR 026;Manoir;Description;2000;Verbindlichkeiten Lieferungen- u. Leistungen CHF;;;;CHF;;155.5;-9�291.50;;;
+1010;14.01.2022;MB 236;;Description;6642;Kundengeschenke;;;;CHF;;3�100.00;-12�391.50;;;
+1010;14.01.2022;MB 236;;Description;6640;Reisespesen;;;;CHF;;24.8;-12�416.30;;;
+1010;17.01.2022;MB 238;;Transfer;1090;Transferkonto;;;;CHF;15�000.00;;2�583.70;;;

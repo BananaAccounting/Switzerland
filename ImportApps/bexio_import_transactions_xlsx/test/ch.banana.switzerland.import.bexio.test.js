@@ -66,9 +66,12 @@ TestImportBexioTrans.prototype.testJsonInvoiceStructure = function () {
    let fileNameList = [];
    fileNameList.push("file:script/../test/testcases/csv_bexio_example_format1_20221223.csv");
    fileNameList.push("file:script/../test/testcases/csv_bexio_example_format1_20231108.csv");
+   fileNameList.push("file:script/../test/testcases/csv_bexio_example_format2_20240918.csv");
 
    let fileAc2 = "file:script/../test/testcases/Double_entry_with_foreign_currencies_and_VAT_Sales_tax_1.ac2"; //type 100.130
    let banDoc = Banana.application.openDocument(fileAc2);
+   if (!banDoc)
+      this.testLogger.addFatalError("ac2 file not valid: " + fileAc2);
 
    let parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
