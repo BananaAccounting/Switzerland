@@ -41,10 +41,10 @@ var SPS2022CamtFile = class SPS2022CamtFile extends ISO20022CamtFile {
          return super.readStatementEntryDetailsAddress(detailsNode, isCredit);
       }
 
-      var rltdPtiesNode = detailsNode.firstChildElement('RltdPties');
+      var rltdPtiesNode = detailsNode.firstChildElement('RltdPties'); //Optional
       if (!rltdPtiesNode)
          return '';
-   
+
       var addressNode = null;
       if (isCredit) {
          if (rltdPtiesNode.hasChildElements('UltmtDbtr'))
@@ -55,6 +55,8 @@ var SPS2022CamtFile = class SPS2022CamtFile extends ISO20022CamtFile {
             addressNode = rltdPtiesNode.firstChildElement('UltmtCdtr')
          else if (rltdPtiesNode.hasChildElements('Cdtr'))
             addressNode = rltdPtiesNode.firstChildElement('Cdtr')
+         else
+            return ''; // No childs found
       } else {
          if (rltdPtiesNode.hasChildElements('UltmtCdtr'))
             addressNode = rltdPtiesNode.firstChildElement('UltmtCdtr')
@@ -64,13 +66,15 @@ var SPS2022CamtFile = class SPS2022CamtFile extends ISO20022CamtFile {
             addressNode = rltdPtiesNode.firstChildElement('UltmtDbtr')
          else if (rltdPtiesNode.hasChildElements('Dbtr'))
             addressNode = rltdPtiesNode.firstChildElement('Dbtr')
+         else
+            return ''; // No childs found
       }
-   
+
       // 'Pty' new element not present in the previous version SPS2021
       if (addressNode.hasChildElements('Pty')) {
          addressNode = addressNode.firstChildElement('Pty');
       }
-   
+
       var addressStrings = [];
       if (addressNode.firstChildElement('Nm'))
          addressStrings.push(addressNode.firstChildElement('Nm').text);
@@ -78,7 +82,7 @@ var SPS2022CamtFile = class SPS2022CamtFile extends ISO20022CamtFile {
       if (pstlAdrNode) {
          if (pstlAdrNode.hasChildElements('AdrLine')) {
             var adrLineNode = pstlAdrNode.firstChildElement('AdrLine');
-            while(adrLineNode) {
+            while (adrLineNode) {
                addressStrings.push(adrLineNode.text);
                adrLineNode = adrLineNode.nextSiblingElement('AdrLine');
             }
@@ -88,8 +92,8 @@ var SPS2022CamtFile = class SPS2022CamtFile extends ISO20022CamtFile {
          if (pstlAdrNode.hasChildElements('Ctry'))
             addressStrings.push(pstlAdrNode.firstChildElement('Ctry').text);
       }
-   
+
       return addressStrings.join(', ');
-   
+
    }
 }
