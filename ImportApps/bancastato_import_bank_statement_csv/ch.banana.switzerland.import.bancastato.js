@@ -688,8 +688,14 @@ function getFormattedData(inData, convertionParam, importUtilities) {
  * @returns 
  */
 function getDecimalSeparator(amount) {
+
+   // Clean the amount from useless spaces.
+   amount = amount.trim();
+
+   if (amount == "")
+      return "";
    // Use regular expression to match non-digit characters
-   const nonDigits = amount.match(/\D/g);
+   let nonDigits = amount.match(/\D/g);
 
    // If non-digit characters are found, consider the last one as the decimal separator
    if (nonDigits && nonDigits.length > 0) {
