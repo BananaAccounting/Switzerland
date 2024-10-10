@@ -52,12 +52,20 @@ function exec(inData, isTest) {
    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
    // Viseca Card Payments, this format works with the header names.
-   var visecaFormat = new VisecaFormat();
-   if (visecaFormat.match(transactionsData)) {
-      transactions = visecaFormat.convert(transactionsData);
+   // Format 1
+   var visecaFormat1 = new VisecaFormat1();
+   if (visecaFormat1.match(transactionsData)) {
+      transactions = visecaFormat1.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
-   
+
+   // Format 2
+   var visecaFormat2 = new VisecaFormat2();
+   if (visecaFormat2.match(transactionsData)) {
+      transactions = visecaFormat2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
    // Format is unknow, return an error
    importUtilities.getUnknownFormatError();
 
@@ -65,19 +73,19 @@ function exec(inData, isTest) {
 }
 
 /**
- * Viseco (One) Format
+ * Viseco (One) Format 1
  * Transaktionsliste,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
  * Erstellt am 14.07.24 12:55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
  * ,Trans.-Buchungsdatum zwischen 01.04.24 und 28.08.24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
  * ,Trans.-CAC-Code ist leer auf Ebene 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
  * ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
- * POSITION J/N,POSITIONSFOLGE,TEILEN J/N,TEILUNGSREIHENFOLGE,TRANSAKTIONSDATUM,VORNAME,NACHNAME,KARTENNUMMER,H�NDLERNAME,TRANS. BESCHREIBUNG,POSITIONSBESCHR.,POSITIONSMENGE,KOSTEN PRO EINHEIT F�R POSITION,GET. BESCHR.,Teilung: Menge,Teilung: Kosten pro Einheit,ORIGINALW�HR.,ORIGINAL-BRUTTOBETRAG,BRUTTOBETRAG RECHNUNG,TRANS.-STATUS,STRITTIG J/N,BELEG-CODE BESCHREIBUNG,STEUER ABGESCHLOSSEN,ANMERK. ZU TRANS. J/N,TRANS.-ANMERKUNG,KARTENW�HRUNG,TRANSAKTIONSSW�HRUNG,TRANS.-BUCHUNGSDATUM,W�HRUNGSSATZ,TRANS.-ORIGINALNETTOBETR.,ORIGINAL-ERM�SSIGUNGSBETR.,TRANS.-STEUERBETRAG,TRANS.-STEUERSATZ,ST.-CD,AUFGEF. ZEICHENFOLGE,TRANS.-CAC-CODE 1,TRANS.-CAC-BESCHR. 1,TRANS.-CAC-CODE 2,TRANS.-CAC-BESCHR. 2,POSITION CAC-CODE 1,POSITION CAC-BESCHR. 1,POSITION CAC-CODE 2,POSITION CAC-BESCHR. 2,POSITION STEUERBETR.,POSITION STEUERSATZ,POSITION STEUER BESCHR.,POSITION NACHLASS,RECHNUNGSBRUTTOBETR. POSITION,GET. RECHNUNGSBRUTTOBETR.,GET. RECHNUNGSNETTOBETR.,GET. ORIGINALBRUTTOBETR.,GET. CAC-CODE 1,GET. CAC-BESCHR. 1,GET. CAC-CODE 2,GET. CAC-BESCHR. 2
+ * POSITION J/N,POSITIONSFOLGE,TEILEN J/N,TEILUNGSREIHENFOLGE,TRANSAKTIONSDATUM,VORNAME,NACHNAME,KARTENNUMMER,H NDLERNAME,TRANS. BESCHREIBUNG,POSITIONSBESCHR.,POSITIONSMENGE,KOSTEN PRO EINHEIT F R POSITION,GET. BESCHR.,Teilung: Menge,Teilung: Kosten pro Einheit,ORIGINALW HR.,ORIGINAL-BRUTTOBETRAG,BRUTTOBETRAG RECHNUNG,TRANS.-STATUS,STRITTIG J/N,BELEG-CODE BESCHREIBUNG,STEUER ABGESCHLOSSEN,ANMERK. ZU TRANS. J/N,TRANS.-ANMERKUNG,KARTENW HRUNG,TRANSAKTIONSSW HRUNG,TRANS.-BUCHUNGSDATUM,W HRUNGSSATZ,TRANS.-ORIGINALNETTOBETR.,ORIGINAL-ERM SSIGUNGSBETR.,TRANS.-STEUERBETRAG,TRANS.-STEUERSATZ,ST.-CD,AUFGEF. ZEICHENFOLGE,TRANS.-CAC-CODE 1,TRANS.-CAC-BESCHR. 1,TRANS.-CAC-CODE 2,TRANS.-CAC-BESCHR. 2,POSITION CAC-CODE 1,POSITION CAC-BESCHR. 1,POSITION CAC-CODE 2,POSITION CAC-BESCHR. 2,POSITION STEUERBETR.,POSITION STEUERSATZ,POSITION STEUER BESCHR.,POSITION NACHLASS,RECHNUNGSBRUTTOBETR. POSITION,GET. RECHNUNGSBRUTTOBETR.,GET. RECHNUNGSNETTOBETR.,GET. ORIGINALBRUTTOBETR.,GET. CAC-CODE 1,GET. CAC-BESCHR. 1,GET. CAC-CODE 2,GET. CAC-BESCHR. 2
  * N,0,N,0,20.05.24,Gavin,Summers,************1234,Zurich Boutique,,,0.00,0.00,,0.00,0.00,CHF,14.00,14.00,Importiert,N,N,N,N,,CHF,CHF,22.07.24,1.00,4.00,0.00,0.00,0.00,0 Prozent,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
- * N,0,N,0,16.06.24,Gavin,Summers,************1234,Matterhorn Market,,,0.00,0.00,,0.00,0.00,CHF,85.99,86.00,Importiert,N,N,N,N,,CHF,CHF,01.08.24,1.00,83.99,0.00,0.00,0.00,0 Prozent nicht ber�cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
- * N,0,N,0,30.07.24,Gavin,Summers,************1234,Edelweiss Traders,,,0.00,0.00,,0.00,0.00,CHF,68.95,68.95,Importiert,N,N,N,N,,CHF,CHF,01.08.24,1.00,65.95,0.00,0.00,0.00,0 Prozent nicht ber�cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
- * N,0,N,0,05.08.24,Gavin,Summers,************1234,Lucerne Luxuries,,,0.00,0.00,,0.00,0.00,CHF,62.95,62.95,Importiert,N,N,N,N,,CHF,CHF,05.08.24,1.00,65.95,0.00,0.00,0.00,0 Prozent nicht ber�cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
+ * N,0,N,0,16.06.24,Gavin,Summers,************1234,Matterhorn Market,,,0.00,0.00,,0.00,0.00,CHF,85.99,86.00,Importiert,N,N,N,N,,CHF,CHF,01.08.24,1.00,83.99,0.00,0.00,0.00,0 Prozent nicht ber cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
+ * N,0,N,0,30.07.24,Gavin,Summers,************1234,Edelweiss Traders,,,0.00,0.00,,0.00,0.00,CHF,68.95,68.95,Importiert,N,N,N,N,,CHF,CHF,01.08.24,1.00,65.95,0.00,0.00,0.00,0 Prozent nicht ber cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
+ * N,0,N,0,05.08.24,Gavin,Summers,************1234,Lucerne Luxuries,,,0.00,0.00,,0.00,0.00,CHF,62.95,62.95,Importiert,N,N,N,N,,CHF,CHF,05.08.24,1.00,65.95,0.00,0.00,0.00,0 Prozent nicht ber cksichtigt,,,,,,,,,,0.00,0.00,,0,0,0,0,0,,,,
 */
-function VisecaFormat() {
+function VisecaFormat1() {
 
    /** Return true if the transactions match this format */
    this.match = function (transactionsData) {
@@ -137,6 +145,78 @@ function VisecaFormat() {
    }
 }
 
+/**
+ * Viseco (One) Format 2
+ * Transaktionsliste,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * 
+ * Erstellt am 01.10.24 10:45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * 
+ * TRANSAKTIONSDATUM,TRANS.-UST.-BESCHR.,ORIGINAL-BRUTTOBETRAG,ORIGINALWÄHR.,TRANS.-STATUS,TEILEN J/N,POSITION J/N,TRANS.-GESAMTWERT,TRANS REFERENZ,BRUTTOBETRAG RECHNUNG,AUFGEF. ZEICHENFOLGE,TRANS.-ANMERKUNG,STEUERFEHLERNR.,STEUERBELEG J/N,TRANS.-STEUERSATZ,TRANS.-STEUERBETRAG,TRANS.-BUCHUNGSDATUM,TRANS.-ORIGINALNETTOBETR.,ORIGINAL-ERMÄSSIGUNGSBETR.,STRITTIG J/N,ISO-CODE,TRANS STATUS,WÄHRUNGSSATZ,DCAL-TRANS.-CODE,ANZ. KILOMETER,ZIELLAND,UST./STEUER,INLANDSKAUF J/N,TRANS. PERSÖNLICH J/N,TRANS. FAKT. KUNDE J/N,BELEG-CODE BESCHREIBUNG,TRANS. RÜCKZAHLBAR J/N,TRANS. ERSTATTUNGSF. J/N,HÄNDLERNAME,Händler Umsatzsteuer-ID,MCC-CODE,VORNAME,NACHNAME,KARTENNUMMER,RECHNUNGSWÄHR.-CODE,TRANS.-CAC-CODE 1,TRANS.-CAC-BESCHR. 1,TRANS.-CAC-CODE 2,TRANS.-CAC-BESCHR. 2,TRANS.-CAC-CODE 3,TRANS.-CAC-BESCHR. 3,TRANS.-CAC-CODE 4,TRANS.-CAC-BESCHR. 4,TRANS.-CAC-CODE 5,TRANS.-CAC-BESCHR. 5,TRANS.-CAC-CODE 6,TRANS.-CAC-BESCHR. 6,TRANS.-CAC-CODE 7,TRANS.-CAC-BESCHR. 7,TRANS.-CAC-CODE 8,TRANS.-CAC-BESCHR. 8,TRANS.-CAC-CODE 9,TRANS.-CAC-BESCHR. 9,TRANS.-CAC-CODE 10,TRANS.-CAC-BESCHR. 10,TRANS.-CAC-CODE 11,TRANS.-CAC-BESCHR. 11,TRANS.-CAC-CODE 12,TRANS.-CAC-BESCHR. 12,POSITION CAC-CODE 1,POSITION CAC-BESCHR. 1,POSITION CAC-CODE 2,POSITION CAC-BESCHR. 2,POSITION CAC-CODE 3,POSITION CAC-BESCHR. 3,POSITION CAC-CODE 4,POSITION CAC-BESCHR. 4,POSITION CAC-CODE 5,POSITION CAC-BESCHR. 5,POSITION CAC-CODE 6,POSITION CAC-BESCHR. 6,POSITION CAC-CODE 7,POSITION CAC-BESCHR. 7,POSITION CAC-CODE 8,POSITION CAC-BESCHR. 8,POSITION CAC-CODE 9,POSITION CAC-BESCHR. 9,POSITION CAC-CODE 10,POSITION CAC-BESCHR. 10,POSITION CAC-CODE 11,POSITION CAC-BESCHR. 11,POSITION CAC-CODE 12,POSITION CAC-BESCHR. 12,POSITIONSFOLGE,POSITIONSBESCHR.,POSITIONSMENGE,RECHNUNGSBRUTTOBETR. POSITION,POSITION STEUER BESCHR.,POSITION STEUERSATZ,POSITION STEUERBETR.,WARENCODE POSITION,POSITIONSANMERKUNG,KOSTEN PRO EINHEIT FÜR POSITION,POSITION GESAMT,POSITION NACHLASS,TEILUNGSREIHENFOLGE,GET. RECHNUNGSBRUTTOBETR.,GET. ORIGINALBRUTTOBETR.,GET. STEUERBETRAG,GET. RECHNUNGSNETTOBETR.,GET. STEUERSATZ,GET. STEUERBESCHR.,GET. CAC-CODE 1,GET. CAC-BESCHR. 1,GET. CAC-CODE 2,GET. CAC-BESCHR. 2,GET. CAC-CODE 3,GET. CAC-BESCHR. 3,GET. CAC-CODE 4,GET. CAC-BESCHR. 4,GET. CAC-CODE 5,GET. CAC-BESCHR. 5,GET. CAC-CODE 6,GET. CAC-BESCHR. 6,GET. CAC-CODE 7,GET. CAC-BESCHR. 7,GET. CAC-CODE 8,GET. CAC-BESCHR. 8,GET. CAC-CODE 9,GET. CAC-BESCHR. 9,GET. CAC-CODE 10,GET. CAC-BESCHR. 10,GET. CAC-CODE 11,GET. CAC-BESCHR. 11,GET. CAC-CODE 12,GET. CAC-BESCHR. 12,
+ * 
+ * ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ * 
+ * 
+ * 
+ */
+function VisecaFormat2() {
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+         
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      mappedLine.push(transaction["First Name"] + " " + transaction["Last Name"] + " - " + transaction["Merchant Name"]);
+      if (transaction["Amount"].match(/^[0-9]/))
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+      else
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+
+      return mappedLine;
+   }
+}
+
 function defineConversionParam(inData) {
 
    var convertionParam = {};
@@ -146,9 +226,13 @@ function defineConversionParam(inData) {
    convertionParam.textDelim = '\"';
    // get separator
    convertionParam.separator = findSeparator(inData);
-
-   convertionParam.headerLineStart = 5;
-   convertionParam.dataLineStart = 6;
+   if (inData.split('\n')[5].match(/^POSITION/)) {
+      convertionParam.headerLineStart = 5;
+      convertionParam.dataLineStart = 6;
+   } else {
+      convertionParam.headerLineStart = 4;
+      convertionParam.dataLineStart = 5;
+   }
 
    /** SPECIFY THE COLUMN TO USE FOR SORTING
    If sortColums is empty the data are not sorted */
@@ -236,3 +320,4 @@ function findSeparator(inData) {
 
    return ',';
 }
+
