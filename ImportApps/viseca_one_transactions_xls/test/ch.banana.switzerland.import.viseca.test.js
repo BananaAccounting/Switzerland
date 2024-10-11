@@ -60,6 +60,7 @@ TestImportVisecaTrans.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/xls_viseca_one_example_format1_20240828.csv");
+   fileNameList.push("file:script/../test/testcases/xls_viseca_one_example_format2_20241001.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
@@ -69,7 +70,8 @@ TestImportVisecaTrans.prototype.testImport = function () {
       this.testLogger = parentLogger.newLogger(Banana.IO.fileCompleteBaseName(fileName));
 
       var file = Banana.IO.getLocalFile(fileName);
-      file.codecName = "latin1";
+      if (i == 0)
+         file.codecName = "latin1";
       Test.assert(file);
       var fileContent = file.read();
       Test.assert(fileContent);
