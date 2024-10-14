@@ -39,6 +39,8 @@
  */
 function exec(string, isTest) {
 
+   Banana.console.debug("ch.banana.switzerland.import.swkb"); // Test version.
+
    var importUtilities = new ImportUtilities(Banana.document);
 
    if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
