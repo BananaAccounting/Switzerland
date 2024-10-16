@@ -1,0 +1,5 @@
+Transaction date,Description,Merchant,Card number,Currency,Amount,Foreign Currency,Amount in foreign currency,Debit/Credit,Status,Merchant Category,Registered Category
+15.10.2024,"COMPUTERS-ABC, +18885551111",COMPUTERS-ABC,0000 12** **** 1234,,,USD,12.18,Debit,Pending,,COMPUTER SOFTWARE STORES
+15.10.2024,"MILO TECHNOLOGIES, ZURICH",Milo Technologies,0000 12** **** 1234,CHF,5.40,,,Debit,Pending,,"COMPUTER HARDWARE, STORES"
+11.10.2024,"VERTICO ACTRINI, PLABIT",An cutudio,0000 12** **** 1234,CHF,16.00,,,Debit,Posted,,"CAURREX SERIME, VISTATESTIAM"
+03.10.2024,"TESTANEM, DIMEN",TESTANEM,0000 12** **** 1234,CHF,25.70,USD,29.00,Debit,Posted,,"LIBREM EVOLOR, TATUDIMUTUR"

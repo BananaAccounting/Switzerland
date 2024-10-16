@@ -63,6 +63,7 @@ TestImportSwisscard.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format1_it_20230502.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20240717.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_it_20240916.csv");
+   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_en_20241015.csv");
 
 
    var parentLogger = this.testLogger;
