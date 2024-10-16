@@ -259,6 +259,13 @@ function getFormattedData(inData, convertionParam, importUtilities) {
 
    let convertedColumns = [];
 
+   convertedColumns = convertHeaderEn(columns);
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
    convertedColumns = convertHeaderDe(columns);
    //Load the form with data taken from the array. Create objects
    if (convertedColumns.length > 0) {
@@ -274,6 +281,38 @@ function getFormattedData(inData, convertionParam, importUtilities) {
    }
 
    return [];
+}
+
+function convertHeaderEn(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Transaction date":
+            convertedColumns[i] = "Date";
+            break;
+         case "Description":
+            convertedColumns[i] = "Description";
+            break;
+         case "Amount":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Registered Category":
+            convertedColumns[i] = "Registered category";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0
+      || convertedColumns.indexOf("Description") < 0
+      || convertedColumns.indexOf("Amount") < 0
+      || convertedColumns.indexOf("Registered category") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
 }
 
 function convertHeaderIt(columns) {
