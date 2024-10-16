@@ -20,12 +20,12 @@
 %Begin test data
 \begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2024-09-07 &  &  &  & LUGANO - GROCERY STORES, SUPERMARKETS & 56.85\\
-2024-09-07 &  &  &  & LUGANO - AUTOMOBILE PARKING LOTS AND GARAGES & 4.00\\
-2024-09-10 &  &  &  & LUGANO - GROCERY STORES, SUPERMARKETS & 2.55\\
-2024-09-10 &  &  &  & LUGANO - EATING PLACES, RESTAURANTS & 15.00\\
-2024-09-12 &  &  &  & LUGANO - DEPARTMENT STORES & 20.85\\
-2024-09-12 &  &  &  & LUGANO - COMPUTER SOFTWARE STORES & \\
+2024-09-07 &  &  &  & LUGANO - GROCERY STORES, SUPERMARKETS &  & 56.85\\
+2024-09-07 &  &  &  & LUGANO - AUTOMOBILE PARKING LOTS AND GARAGES &  & 4.00\\
+2024-09-10 &  &  &  & LUGANO - GROCERY STORES, SUPERMARKETS &  & 2.55\\
+2024-09-10 &  &  &  & LUGANO - EATING PLACES, RESTAURANTS &  & 15.00\\
+2024-09-12 &  &  &  & LUGANO - DEPARTMENT STORES &  & 20.85\\
+2024-09-12 &  &  &  & LUGANO - COMPUTER SOFTWARE STORES &  & \\
 \\
 \end{tablevalue}
 \end{document}

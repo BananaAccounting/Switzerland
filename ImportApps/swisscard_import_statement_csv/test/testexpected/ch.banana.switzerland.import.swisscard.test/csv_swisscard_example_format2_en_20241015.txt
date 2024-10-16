@@ -20,10 +20,10 @@
 %Begin test data
 \begin{tablevalue}{Format Data}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2024-10-03 &  &  &  & TESTANEM, DIMEN - LIBREM EVOLOR, TATUDIMUTUR & 25.70\\
-2024-10-11 &  &  &  & VERTICO ACTRINI, PLABIT - CAURREX SERIME, VISTATESTIAM & 16.00\\
-2024-10-15 &  &  &  & MILO TECHNOLOGIES, ZURICH - COMPUTER HARDWARE, STORES & 5.40\\
-2024-10-15 &  &  &  & COMPUTERS-ABC, +18885551111 - COMPUTER SOFTWARE STORES & \\
+2024-10-03 &  &  &  & TESTANEM, DIMEN - LIBREM EVOLOR, TATUDIMUTUR &  & 25.70\\
+2024-10-11 &  &  &  & VERTICO ACTRINI, PLABIT - CAURREX SERIME, VISTATESTIAM &  & 16.00\\
+2024-10-15 &  &  &  & MILO TECHNOLOGIES, ZURICH - COMPUTER HARDWARE, STORES &  & 5.40\\
+2024-10-15 &  &  &  & COMPUTERS-ABC, +18885551111 - COMPUTER SOFTWARE STORES &  & \\
 \\
 \end{tablevalue}
 \end{document}
