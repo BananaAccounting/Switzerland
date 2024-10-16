@@ -111,10 +111,14 @@ function SwisscardFormat2() {
       } else {
          mappedLine.push(transaction["Description"]);
       }
-      if (transaction["Amount"].match(/^[0-9]/))
+      if (!transaction["Amount"][0] === "-"){
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
-      else
+         mappedLine.push("");
+      }
+      else {
+         mappedLine.push("");
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+      }
 
       return mappedLine;
    }
