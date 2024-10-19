@@ -29,8 +29,16 @@ function exec(string, isTest) {
     if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
         return "";
 
-    var fieldSeparator = findSeparator(string);
-    var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+    convertionParam = defineConversionParam(string);
+    let transactions = Banana.Converter.csvToArray(string, convertionParam.separator, convertionParam.textDelim);
+    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
+
+    // Format 3
+    var format3 = new AKBFormat3();
+    if (format3.match(transactionsData)) {
+        transactions = format3.convert(transactionsData);
+        return Banana.Converter.arrayToTsv(transactions);
+    }
 
     // Format 2
     var format2 = new AKBFormat2();
@@ -78,6 +86,70 @@ function findSeparator(string) {
     }
 
     return ',';
+}
+
+/**
+* Example
+* Buchung;Buchungstext;Belastung;Gutschrift;Saldo CHF;
+* 11.10.2024;Tusidedescurunt / Sta.-An. 6140707721 VoloNerigem VI;;631.98;799.32;
+* 10.10.2024;Tusidedescurunt / Sta.-An. 4474586703 BONUM Secriduor VI;;52.51;167.34;
+* 09.10.2024;Orunarenti sus Morabibruntrarat MINVES *EMI6321070112 327-565-4814;16'000.00;;114.83;
+*/
+function AKBFormat3() {
+    /** Return true if the transactions match this format */
+    this.match = function (transactionsData) {
+        if (transactionsData.length === 0)
+            return false;
+
+        for (var i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            var formatMatched = true;
+            
+            if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+                transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched)
+                return true;
+        }
+
+        return false;
+    }
+
+    this.convert = function (transactionsData) {
+        var transactionsToImport = [];
+
+        for (var i = 0; i < transactionsData.length; i++) {
+        
+            if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+                    transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+                    transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+            }
+        }
+
+        // Sort rows by date
+        transactionsToImport = transactionsToImport.reverse();
+
+        // Add header and return
+        var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+        return header.concat(transactionsToImport);
+    }
+
+    this.mapTransaction = function (transaction) {
+        let mappedLine = [];
+
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+        mappedLine.push("");
+        mappedLine.push("");
+        mappedLine.push(transaction["Description"]);
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Expenses"], '.'));
+
+        return mappedLine;
+    }
 }
 
 /**
@@ -348,3 +420,73 @@ function AKBFormat1() {
         return mappedLine;
     }
 }
+
+function defineConversionParam(inData) {
+    var convertionParam = {};
+    /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+    convertionParam.format = "csv"; // available formats are "csv", "html"
+    //get text delimiter
+    convertionParam.textDelim = '\"';
+    // get separator
+    convertionParam.separator = findSeparator(inData);
+
+    convertionParam.headerLineStart = 0;
+    convertionParam.dataLineStart = 1;
+ 
+    /** SPECIFY THE COLUMN TO USE FOR SORTING
+    If sortColums is empty the data are not sorted */
+    convertionParam.sortColums = ["Date", "Description"];
+    convertionParam.sortDescending = false;
+ 
+    return convertionParam;
+}
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+    var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+    var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+    let form = [];
+ 
+    let convertedColumns = [];
+ 
+    convertedColumns = convertHeaderDe(columns);
+ 
+    //Load the form with data taken from the array. Create objects
+    if (convertedColumns.length > 0) {
+       importUtilities.loadForm(form, convertedColumns, rows);
+       return form;
+    }
+ 
+    return [];
+ }
+
+ function convertHeaderDe(columns) {
+    let convertedColumns = [];
+ 
+    for (var i = 0; i < columns.length; i++) {
+       switch (columns[i]) {
+          case "Buchung":
+             convertedColumns[i] = "Date";
+             break;
+          case "Buchungstext":
+                convertedColumns[i] = "Description";
+                break;
+          case "Belastung":
+             convertedColumns[i] = "Expenses";
+             break;
+          case "Gutschrift":
+             convertedColumns[i] = "Income";
+             break;
+          case "Saldo CHF":
+             convertedColumns[i] = "Balance";
+             break;
+          default:
+             break;
+       }
+    }
+ 
+    if (convertedColumns.indexOf("Date") < 0) {
+       return [];
+    }
+ 
+    return convertedColumns;
+ }
