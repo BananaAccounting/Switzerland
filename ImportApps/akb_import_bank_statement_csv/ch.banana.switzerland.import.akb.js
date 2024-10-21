@@ -142,10 +142,7 @@ function AKBFormat3() {
         let mappedLine = [];
 
         mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
-        if (transaction["DateValue"] && transaction["DateValue"].length >= 10)
-            mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
-        else
-            mappedLine.push("");
+        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
         mappedLine.push("");
         mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"]));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
