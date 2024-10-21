@@ -98,6 +98,7 @@ function findSeparator(string) {
 function AKBFormat3() {
     /** Return true if the transactions match this format */
     this.match = function (transactionsData) {
+        
         if (transactionsData.length === 0)
             return false;
 
@@ -106,7 +107,7 @@ function AKBFormat3() {
             var formatMatched = true;
             
             if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
-                transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+                transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/) && !("DateValue" in transaction))
                 formatMatched = true;
             else
                 formatMatched = false;
@@ -124,7 +125,7 @@ function AKBFormat3() {
         for (var i = 0; i < transactionsData.length; i++) {
         
             if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
-                    transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+                    transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/) && !("DateValue" in transactionsData[i])) {
                     transactionsToImport.push(this.mapTransaction(transactionsData[i]));
             }
         }
@@ -133,7 +134,7 @@ function AKBFormat3() {
         transactionsToImport = transactionsToImport.reverse();
 
         // Add header and return
-        var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+        var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
         return header.concat(transactionsToImport);
     }
 
@@ -141,10 +142,12 @@ function AKBFormat3() {
         let mappedLine = [];
 
         mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
-        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+        if (transaction["DateValue"] && transaction["DateValue"].length >= 10)
+            mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
+        else
+            mappedLine.push("");
         mappedLine.push("");
-        mappedLine.push("");
-        mappedLine.push(transaction["Description"]);
+        mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"]));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Expenses"], '.'));
 
@@ -181,6 +184,7 @@ function AKBFormat2() {
             var transaction = transactions[i];
 
             var formatMatched = false;
+            
             /* array should have all columns */
             if (transaction.length === this.colCount ||
                 (transaction.length === this.colCount + 1 && transaction[this.colCount].length === 0))
@@ -317,6 +321,7 @@ function AKBFormat1() {
             var transaction = transactions[i];
 
             var formatMatched = false;
+            
             /* array should have all columns */
             if (transaction.length >= this.colCount)
                 formatMatched = true;
@@ -464,23 +469,26 @@ function getFormattedData(inData, convertionParam, importUtilities) {
  
     for (var i = 0; i < columns.length; i++) {
        switch (columns[i]) {
-          case "Buchung":
-             convertedColumns[i] = "Date";
-             break;
-          case "Buchungstext":
-                convertedColumns[i] = "Description";
+            case "Buchung":
+                convertedColumns[i] = "Date";
                 break;
-          case "Belastung":
-             convertedColumns[i] = "Expenses";
-             break;
-          case "Gutschrift":
-             convertedColumns[i] = "Income";
-             break;
-          case "Saldo CHF":
-             convertedColumns[i] = "Balance";
-             break;
-          default:
-             break;
+            case "Valuta":
+                convertedColumns[i] = "DateValue";
+                break;
+            case "Buchungstext":
+                    convertedColumns[i] = "Description";
+                    break;
+            case "Belastung":
+                convertedColumns[i] = "Expenses";
+                break;
+            case "Gutschrift":
+                convertedColumns[i] = "Income";
+                break;
+            case "Saldo CHF":
+                convertedColumns[i] = "Balance";
+                break;
+            default:
+                break;
        }
     }
  
