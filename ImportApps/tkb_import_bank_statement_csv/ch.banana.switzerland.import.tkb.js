@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.tkb
 // @api = 1.0
-// @pubdate = 2024-05-22
+// @pubdate = 2024-10-31
 // @publisher = Banana.ch SA
 // @description = Thurgauer Kantonalbank - Import bank account statement  (*.csv)
 // @description.de = Thurgauer Kantonalbank -  Kontoauszug importieren (*.csv)
@@ -101,6 +101,12 @@ function TKBFormat4() {
          else
             formatMatched = false;
 
+         if (formatMatched && transaction["Valutadatum"] && transaction["Valutadatum"].length >= 10 &&
+            transaction["Valutadatum"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
          if (formatMatched)
             return true;
       }
@@ -115,39 +121,36 @@ function TKBFormat4() {
       var isPreviousCompleteTransaction = false;
       var lastCompleteTransactionPrinted = false;
 
+
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
-
-         if (transaction.length === 0) {
-            // Emtpy row
-            continue;
-         }
-
-         if (!this.isDetailRow(transaction)) { // Normal row
-            lastCompleteTransactionPrinted = false;
-            if (isPreviousCompleteTransaction) {
-               transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
-            }
-            lastCompleteTransaction = transaction;
-            isPreviousCompleteTransaction = true;
-         } else { // Detail row
-            if (transaction['Betrag Einzelzahlung (CHF)'].length > 0) {
-               if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
-                  lastCompleteTransaction['IsDetail'] = 'S';
+         if (transaction["Belastung (CHF)"] || transaction["Gutschrift (CHF)"] || transaction['Betrag Einzelzahlung (CHF)']) { // valid rows have transactions with amount.
+            if (!this.isDetailRow(transaction)) { // Normal row
+               lastCompleteTransactionPrinted = false;
+               if (isPreviousCompleteTransaction) {
                   transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
-                  lastCompleteTransactionPrinted = true;
                }
+               lastCompleteTransaction = transaction;
+               isPreviousCompleteTransaction = true;
+            } else { // Detail row
+               if (transaction['Betrag Einzelzahlung (CHF)'] && transaction['Betrag Einzelzahlung (CHF)'].length > 0) {
+                  if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+                     lastCompleteTransaction['IsDetail'] = 'S';
+                     transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                     lastCompleteTransactionPrinted = true;
+                  }
 
-               this.fillDetailRow(transaction, lastCompleteTransaction);
-               if (applicationSupportIsDetail) {
-                  transaction['IsDetail'] = 'D';
+                  this.fillDetailRow(transaction, lastCompleteTransaction);
+                  if (applicationSupportIsDetail) {
+                     transaction['IsDetail'] = 'D';
+                  }
+                  transactionsToImport.push(this.mapTransaction(transaction));
+                  isPreviousCompleteTransaction = false;
+               } else {
+                  this.fillDetailRow(transaction, lastCompleteTransaction);
+                  transactionsToImport.push(this.mapTransaction(transaction));
+                  isPreviousCompleteTransaction = false;
                }
-               transactionsToImport.push(this.mapTransaction(transaction));
-               isPreviousCompleteTransaction = false;
-            } else {
-               this.fillDetailRow(transaction, lastCompleteTransaction);
-               transactionsToImport.push(this.mapTransaction(transaction));
-               isPreviousCompleteTransaction = false;
             }
          }
       }
@@ -175,7 +178,7 @@ function TKBFormat4() {
       detailRow["Buchungsdatum"] = totalRow["Buchungsdatum"];
 
       // Copy amount from complete row to detail row
-      if (detailRow["Betrag Einzelzahlung (CHF)"].length > 0) {
+      if (detailRow["Betrag Einzelzahlung (CHF)"] && detailRow["Betrag Einzelzahlung (CHF)"].length > 0) {
          if (totalRow["Belastung (CHF)"].length > 0) {
             detailRow["Belastung (CHF)"] = detailRow["Betrag Einzelzahlung (CHF)"];
          } else if (totalRow["Gutschrift (CHF)"].length > 0) {
