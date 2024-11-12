@@ -18,203 +18,203 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l }
-Date & DateValue & Description & ExternalReference & Expenses & Income\\
-2022-07-28 & 2022-07-28 & Legit Cebrella,4147 Noventemox STA DES, Cepate in consolest tam g-possica & 9947208TO9191506 & 1350.00 & \\
-2022-07-28 & 2022-07-28 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 6770209TO6433234 & 89.30 & \\
-2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6670209TO6433219 & 20.20 & \\
-2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6570209TO6433206 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6470209TO6433185 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 6370209TO6433158 & 19.95 & \\
-2022-07-28 & 2022-07-28 & PUS SECTULIGNUNICA BY,EXEMPERIDE Cepate in consolest tam g-possica & 9947208TO9200212 & 108.35 & \\
-2022-07-28 & 2022-07-28 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 7070209TO6433290 & 331.75 & \\
-2022-07-28 & 2022-07-28 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 6270209TO6433141 & 163.80 & \\
-2022-07-28 & 2022-07-28 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 6170209TO6433023 & 381.40 & \\
-2022-07-29 & 2022-07-31 & Suisi eis agnumeturaà in r/a  & RX41771GH6358610 & 6.00 & \\
-2022-07-30 & 2022-07-30 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930714BN0918457 & 69.00 & \\
-2022-07-30 & 2022-07-30 & ET VEMPLIGERE IN N. EO,6884 CESERE 18264075-0 07/24, Pagamento carta di debito & 9930714BN0871952 & 32.20 & \\
-2022-07-30 & 2022-07-30 & Harum Scriniam,5667 Perbitti 18264075-0 07/24, Pagamento carta di debito & 9930712BN9356783 & 30.21 & \\
-2022-08-01 & 2022-08-01 & Beresceret, Quideium Plutubila PLE STELL & 9930213GK1654437 &  & 40.00\\
-2022-08-04 & 2022-08-04 & Anary Sent,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930717BN4446066 & 30.02 & \\
-2022-08-04 & 2022-08-04 & Uniunte \& Dorat Sengrope,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930718BN4509279 & 72.00 & \\
-2022-08-08 & 2022-08-08 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930722BN8193942 & 2.90 & \\
-2022-08-08 & 2022-08-08 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930722BN8193658 & 2.85 & \\
-2022-08-08 & 2022-08-08 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930721BN8092232 & 5.95 & \\
-2022-08-08 & 2022-08-08 & SalEs  *FORA.COLUMN VI,7423 Parate 18264075-0 07/24, Pagamento carta di debito & 9930722BN8230888 & 35.00 & \\
-2022-08-08 & 2022-08-08 & Senes BY,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930721BN7959401 & 4.60 & \\
-2022-08-09 & 2022-08-09 & Scum parescro meruncto,2201 Cringe 18264075-0 07/24, Pagamento carta di debito & 9930722BN8960731 & 30.00 & \\
-2022-08-11 & 2022-08-11 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947223TO6725066 & 17.00 & \\
-2022-08-14 & 2022-08-14 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930729BN4733646 & 37.00 & \\
-2022-08-14 & 2022-08-14 & Dea Tunch,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930727BN3622282 & 12.20 & \\
-2022-08-14 & 2022-08-14 & PAR,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930727BN3622307 & 132.06 & \\
-2022-08-15 & 2022-08-15 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930728BN4456031 & 40.70 & \\
-2022-08-16 & 2022-08-16 & Adunum Dem Et Pes,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930730BN5659363 & 69.30 & \\
-2022-08-16 & 2022-08-16 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930730BN5639008 & 2.85 & \\
-2022-08-16 & 2022-08-16 & POR Crire Mantumn Parate,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930729BN4799698 & 2.30 & \\
-2022-08-17 & 2022-08-17 & Quaer ET VI (1808) Novus,8876 Cassugat 18264075-0 07/24, Pagamento carta di debito & 9930730BN6321854 & 25.00 & \\
-2022-08-18 & 2022-08-18 & Culit Obsitas Recto,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930731BN7488945 & 3.20 & \\
-2022-08-19 & 2022-08-19 & AUXIMOX 18264075-0 07/24, Prelevamento Bancomat & 9930733BN8544416 & 20.00 & \\
-2022-08-19 & 2022-08-19 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930733BN8525578 & 2.20 & \\
-2022-08-20 & 2022-08-20 & Centemitas VI,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8964286 & 40.10 & \\
-2022-08-20 & 2022-08-20 & Imide-Catis VI 2857,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8976357 & 18.80 & \\
-2022-08-20 & 2022-08-20 & Ligita Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8938604 & 28.90 & \\
-2022-08-20 & 2022-08-20 & Solo'q VI 33, Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930733BN8963987 & 23.85 & \\
-2022-08-22 & 2022-08-22 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930735BN1056625 & 2.30 & \\
-2022-08-23 & 2022-08-23 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930737BN2050048 & 31.00 & \\
-2022-08-23 & 2022-08-23 & Par Pargem,8554 Pargem 18264075-0 07/24, Pagamento carta di debito & 9930736BN1807534 & 63.31 & \\
-2022-08-24 & 2022-08-24 & TERAT TARANT LOR IN AN,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930739BN3915438 & 61.99 & \\
-2022-08-25 & 2022-08-25 & Atubere Obandam,8172 Brestrum Quaddungine fortire & 9947737LK4529099 &  & 260.00\\
-2022-08-25 & 2022-08-25 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930740BN5276881 & 2.85 & \\
-2022-08-25 & 2022-08-25 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930738BN3748816 & 2.30 & \\
-2022-08-26 & 2022-08-26 & Cutine Triderimula Decet,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930739BN5100158 & 225.00 & \\
-2022-08-26 & 2022-08-26 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947238TO5107716 & 35.00 & \\
-2022-08-26 & 2022-08-26 & Prit-6810 Recto,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930739BN5134524 & 12.60 & \\
-2022-08-26 & 2022-08-26 & Quideium Beresceret,8876 Cassugat Quaddungine fortire & 9930738LK4923147 &  & 332.00\\
-2022-08-26 & 2022-08-26 & Reps Timediusa 71,7172 Timediusa 18264075-0 07/24, Pagamento carta di debito & 9930739BN4160378 & 21.30 & \\
-2022-08-26 & 2022-08-26 & Venum Obandam,8876 Cassugat cepate movengisse Pedde & 9947738MC4808665 & 350.00 & \\
-2022-08-26 & 2022-08-26 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 plutubila secendo & 9999238ZC6626377 &  & 4369.80\\
-2022-08-27 & 2022-08-27 & Venum Obandam,8876 Cassugat HARECTIA, Cepate in consolest tam g-possica & 9947241TO5598850 & 500.00 & \\
-2022-08-27 & 2022-08-27 & Vi Dissit VI,4774 Gratemisi 18264075-0 07/24, Pagamento carta di debito & 9930740BN5973689 & 21.00 & \\
-2022-08-28 & 2022-08-28 & Idere Vité in Nerit Disi,6108 Parsupar x'Molunt 18264075-0 07/24, Pagamento carta di debito & 9930741BN7023344 & 60.00 & \\
-2022-08-29 & 2022-08-29 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930743BN8228304 & 2.85 & \\
-2022-08-29 & 2022-08-29 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930743BN8228312 & 1.95 & \\
-2022-08-29 & 2022-08-29 & Legit Cebrella,4147 Noventemox STA XXX, Cepate in consolest tam g-possica & 9947239TO5585742 & 1350.00 & \\
-2022-08-29 & 2022-08-29 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 3170241TO5419043 & 78.75 & \\
-2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 2870241TO5418927 & 25.25 & \\
-2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3070241TO5418943 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 2970241TO5418935 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 2770241TO5418926 & 19.95 & \\
-2022-08-29 & 2022-08-29 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930742BN8113154 & 2.30 & \\
-2022-08-29 & 2022-08-29 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 3270241TO5419059 & 331.75 & \\
-2022-08-29 & 2022-08-29 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 2670241TO5418920 & 160.40 & \\
-2022-08-29 & 2022-08-29 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 2570241TO5418915 & 381.40 & \\
-2022-08-30 & 2022-08-30 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930744BN9296750 & 6.75 & \\
-2022-08-30 & 2022-08-30 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930743BN9177491 & 2.30 & \\
-2022-08-31 & 2022-08-31 & Suisi eis agnumeturaà in r/a  & LG67702JY8052342 & 6.00 & \\
-2022-08-31 & 2022-08-31 & Uniunte \& Dorat Sengrope,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930744BN0236943 & 67.00 & \\
-2022-09-02 & 2022-09-02 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930749BN4199057 & 38.00 & \\
-2022-09-03 & 2022-09-03 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930747BN3406650 & 15.15 & \\
-2022-09-03 & 2022-09-03 & Santarto si Cebrent,8172 Brestrum 18264075-0 07/24, Pagamento carta di debito & 9930747BN3429480 & 20.00 & \\
-2022-09-04 & 2022-09-04 & Harum Parate Xxx,6437 Peruripe 18264075-0 07/24, Pagamento carta di debito & 9930748BN4067830 & 35.01 & \\
-2022-09-05 & 2022-09-05 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930749BN5082020 & 2.30 & \\
-2022-09-05 & 2022-09-05 & SalEs  *Cariet Ple VI,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930750BN5294984 & 11.00 & \\
-2022-09-05 & 2022-09-05 & Tubento Lumendo BY,Versimulcenifictus 44w, 3687 Loneret Cepate in consolest tam g-possica & 3070248TO8648912 & 13.20 & \\
-2022-09-07 & 2022-09-07 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930752BN7301287 & 31.00 & \\
-2022-09-08 & 2022-09-08 & Senes BY,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930752BN8076216 & 135.00 & \\
-2022-09-09 & 2022-09-09 & Ventuuntus ment,8876 Cassugat 18264075-0 07/24, Pagamento carta di debito & 9930753BN9198874 & 3.20 & \\
-2022-09-10 & 2022-09-10 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930756BN1121023 & 59.00 & \\
-2022-09-10 & 2022-09-10 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947253TO4322099 & 6.00 & \\
-2022-09-10 & 2022-09-10 & Maximine Pautata,8876 Cassugat 18264075-0 07/24, Pagamento carta di debito & 9930754BN0210069 & 11.95 & \\
-2022-09-10 & 2022-09-10 & SalEs  *FORA.COLUMN VI,7423 Parate 18264075-0 07/24, Pagamento carta di debito & 9930755BN0443826 & 42.00 & \\
-2022-09-11 & 2022-09-11 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930755BN0679657 & 35.01 & \\
-2022-09-13 & 2022-09-13 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947256TO5744546 & 8.00 & \\
-2022-09-14 & 2022-09-14 & Adunum Dem Et Pes,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930759BN4004759 & 28.70 & \\
-2022-09-16 & 2022-09-16 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930761BN5941653 & 35.00 & \\
-2022-09-16 & 2022-09-16 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930763BN7577468 & 38.00 & \\
-2022-09-16 & 2022-09-16 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930761BN5992656 & 2.15 & \\
-2022-09-16 & 2022-09-16 & POR Crire Mantumn Parate,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930760BN5062004 & 2.30 & \\
-2022-09-16 & 2022-09-16 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930760BN5785125 & 2.30 & \\
-2022-09-18 & 2022-09-18 & O1 Pridervirem,342 Pridervirem 18264075-0 07/24, Pagamento carta di debito & 9930763BN7578137 & 7.48 & \\
-2022-09-19 & 2022-09-19 & Rethorbile pem.,684 BRUNGIT 18264075-0 07/24, Pagamento carta di debito & 9930764BN8516801 & 29.12 & \\
-2022-09-19 & 2022-09-19 & Semplum Probaneiunt In,825 Sciditto 18264075-0 07/24, Pagamento carta di debito & 9930764BN8530591 & 12.53 & \\
-2022-09-20 & 2022-09-20 & Flus Aquada Flus Funt,676 Aluvimone 18264075-0 07/24, Pagamento carta di debito & 9930766BN0383942 & 10.40 & \\
-2022-09-20 & 2022-09-20 & Rissusta,380 Eseceatum 18264075-0 07/24, Pagamento carta di debito & 9930765BN9469472 & 13.44 & \\
-2022-09-20 & 2022-09-20 & Stquaddus funt,380 Eseceatum 18264075-0 07/24, Pagamento carta di debito & 9930765BN9449440 & 22.69 & \\
-2022-09-21 & 2022-09-21 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947264TO9619515 & 30.00 & \\
-2022-09-21 & 2022-09-21 & Somnianest Lamplae pem,380 Eseceatum 18264075-0 07/24, Pagamento carta di debito & 9930766BN0433503 & 47.72 & \\
-2022-09-22 & 2022-09-22 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947265TO0479086 & 25.00 & \\
-2022-09-23 & 2022-09-23 & Aneisé Matumento VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930767BN2051973 & 43.20 & \\
-2022-09-23 & 2022-09-23 & Atubere Obandam,8172 Brestrum Quaddungine fortire & 9947766LK6325315 &  & 260.00\\
-2022-09-23 & 2022-09-23 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 plutubila secendo & 9999266ZC5522155 &  & 4369.80\\
-2022-09-24 & 2022-09-24 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930770BN4208682 & 31.00 & \\
-2022-09-24 & 2022-09-24 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947267TO1751525 & 102.00 & \\
-2022-09-24 & 2022-09-24 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947267TO1802267 & 50.00 & \\
-2022-09-25 & 2022-09-25 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930771BN5330378 & 76.00 & \\
-2022-09-25 & 2022-09-25 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930769BN3961844 & 9.45 & \\
-2022-09-26 & 2022-09-26 & Legit Cebrella,4147 Noventemox STA QUO, Cepate in consolest tam g-possica & 9947267TO1762930 & 1350.00 & \\
-2022-09-26 & 2022-09-26 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 3970269TO4404065 & 76.40 & \\
-2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3570269TO4403751 & 21.00 & \\
-2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3670269TO4403764 & 19.95 & \\
-2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3870269TO4403821 & 20.35 & \\
-2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 3770269TO4403788 & 19.95 & \\
-2022-09-26 & 2022-09-26 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930770BN5166064 & 2.30 & \\
-2022-09-26 & 2022-09-26 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 4070269TO4404083 & 331.75 & \\
-2022-09-26 & 2022-09-26 & Quideium Beresceret,8876 Cassugat Quaddungine fortire & 9930769LK6569030 &  & 332.00\\
-2022-09-26 & 2022-09-26 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 3470269TO4403730 & 158.60 & \\
-2022-09-26 & 2022-09-26 & Venum Obandam,8876 Cassugat cepate movengisse Pedde & 9947769MC6494849 & 350.00 & \\
-2022-09-26 & 2022-09-26 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 3370269TO4403559 & 381.40 & \\
-2022-09-27 & 2022-09-27 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930772BN6316543 & 5.35 & \\
-2022-09-27 & 2022-09-27 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930771BN6222323 & 2.30 & \\
-2022-09-28 & 2022-09-28 & AUXIMOX 18264075-0 07/24, Prelevamento Bancomat & 9930773BN7311676 & 20.00 & \\
-2022-09-30 & 2022-09-30 & MERE,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930775BN9644309 & 204.63 & \\
-2022-09-30 & 2022-09-30 & SalEs  *FORA.COLUMN VI,7423 Parate 18264075-0 07/24, Pagamento carta di debito & 9930775BN9537029 & 35.00 & \\
-2022-09-30 & 2022-09-30 & Senes BY,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930774BN9423682 & 2.95 & \\
-2022-09-30 & 2022-09-30 & Suisi eis agnumeturaà in r/a  & SY78633QU1002102 & 6.00 & \\
-2022-10-01 & 2022-10-01 & ET VEMPLIGERE IN N. EO,6884 CESERE 18264075-0 07/24, Pagamento carta di debito & 9930777BN1222452 & 36.00 & \\
-2022-10-02 & 2022-10-02 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947275TO7350252 & 40.00 & \\
-2022-10-03 & 2022-10-03 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930777BN2141170 & 2.30 & \\
-2022-10-03 & 2022-10-03 & SalEs  *Cariet Ple VI,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930778BN2320208 & 7.60 & \\
-2022-10-05 & 2022-10-05 & CAPOR LINO,7457 SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9930780BN4358849 & 16.00 & \\
-2022-10-07 & 2022-10-07 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930781BN6328071 & 2.30 & \\
-2022-10-07 & 2022-10-07 & SalEs  *Cariet Ple VI,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930782BN6498195 & 11.00 & \\
-2022-10-08 & 2022-10-08 & Eorow Catis Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930782BN6723476 & 69.95 & \\
-2022-10-08 & 2022-10-08 & MATUS SERUNT VI,1164 GRATUUNE 18264075-0 07/24, Pagamento carta di debito & 9930784BN8222251 & 47.50 & \\
-2022-10-08 & 2022-10-08 & Oöut Rentula BY,4081 Divicum Semo 18264075-0 07/24, Pagamento carta di debito & 9930782BN7302070 & 5.00 & \\
-2022-10-08 & 2022-10-08 & Plento parescro meruncto,6884 Cesere 18264075-0 07/24, Pagamento carta di debito & 9930782BN7284975 & 38.40 & \\
-2022-10-08 & 2022-10-08 & Quae Omnice 53,1164 Potartum 18264075-0 07/24, Pagamento carta di debito & 9930782BN7536057 & 39.95 & \\
-2022-10-08 & 2022-10-08 & Suus \& Zucum Requens,5846 Requens 18264075-0 07/24, Pagamento carta di debito & 9930782BN7026096 & 80.30 & \\
-2022-10-09 & 2022-10-09 & Reps Pervo VI,4506 Comerow-Putiuva 18264075-0 07/24, Pagamento carta di debito & 9930783BN7824537 & 15.00 & \\
-2022-10-10 & 2022-10-10 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930785BN9206042 & 2.85 & \\
-2022-10-10 & 2022-10-10 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930784BN9131068 & 2.30 & \\
-2022-10-11 & 2022-10-11 & UT Cassugat 18264075-0 07/24, Prelevamento Bancomat & 9930785BN0080964 & 300.00 & \\
-2022-10-12 & 2022-10-12 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930787BN1134072 & 14.75 & \\
-2022-10-12 & 2022-10-12 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930787BN1134997 & 2.85 & \\
-2022-10-12 & 2022-10-12 & POR Crire Mantumn Parate,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930786BN0249157 & 2.30 & \\
-2022-10-13 & 2022-10-13 & Venum Obandam,8876 Cassugat HARECTIA, Cepate in consolest tam g-possica & 9947286TO3626440 & 1000.00 & \\
-2022-10-14 & 2022-10-14 & MERE,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930789BN3242003 & 84.22 & \\
-2022-10-15 & 2022-10-15 & Quae Omnice 53,1164 Potartum 18264075-0 07/24, Pagamento carta di debito & 9930789BN4136552 & 17.05 & \\
-2022-10-18 & 2022-10-18 & AUSTONUM'F,6437 PERURIPE 18264075-0 07/24, Pagamento carta di debito & 9930794BN7683507 & 38.00 & \\
-2022-10-22 & 2022-10-22 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930796BN9829310 & 37.32 & \\
-2022-10-22 & 2022-10-22 & Prit-6810 Recto,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930796BN0533729 & 18.25 & \\
-2022-10-23 & 2022-10-23 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930797BN1061960 & 3.85 & \\
-2022-10-25 & 2022-10-25 & Atubere Obandam,8172 Brestrum Quaddungine fortire & 9947798LK8184196 &  & 260.00\\
-2022-10-25 & 2022-10-25 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 plutubila secendo & 9999298ZC5922046 &  & 4369.80\\
-2022-10-26 & 2022-10-26 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930801BN4320207 & 2.85 & \\
-2022-10-26 & 2022-10-26 & Quideium Beresceret,8876 Cassugat Quaddungine fortire & 9930799LK8392827 &  & 332.00\\
-2022-10-26 & 2022-10-26 & Venum Obandam,8876 Cassugat Plutubila & 9947299TO1473534 &  & 3000.00\\
-2022-10-26 & 2022-10-26 & Venum Obandam,8876 Cassugat cepate movengisse Pedde & 9947799MC8346528 & 350.00 & \\
-2022-10-27 & 2022-10-27 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930802BN5477196 & 0.65 & \\
-2022-10-27 & 2022-10-27 & LEGIT CEBRELLA,ET NOVENTEMOX 4147 STA CANESPIA, Cepate in consolest tam g-possica & 1170300TO6866715 & 1350.00 & \\
-2022-10-27 & 2022-10-27 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Cepate in consolest tam g-possica & 1970300TO6866933 & 114.90 & \\
-2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1470300TO6866807 & 23.80 & \\
-2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1670300TO6866836 & 19.95 & \\
-2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1570300TO6866821 & 21.65 & \\
-2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Cepate in consolest tam g-possica & 1770300TO6866860 & 19.95 & \\
-2022-10-27 & 2022-10-27 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Cepate in consolest tam g-possica & 2070300TO6866951 & 331.75 & \\
-2022-10-27 & 2022-10-27 & Reletræ XXX Itto,4423 Expediunt (Austate) Cepate in consolest tam g-possica & 1370300TO6866776 & 158.45 & \\
-2022-10-27 & 2022-10-27 & SEMONDI ADUSCURA B,FILONIS, 6275 SUPAUCIPIA CERM IN SECUM, Cepate in consolest tam g-possica & 2170300TO6866966 & 400.05 & \\
-2022-10-27 & 2022-10-27 & SEMONDI ADUSCURA B,FILONIS, 6275 SUPAUCIPIA Cepate in consolest tam g-possica & 2270300TO6866978 & 2644.50 & \\
-2022-10-27 & 2022-10-27 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Cepate in consolest tam g-possica & 1270300TO6866758 & 381.40 & \\
-2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia 18264075-0 07/24, Pagamento carta di debito & 9930803BN7080856 & 30.00 & \\
-2022-10-29 & 2022-10-29 & MATUS SERUNT VI,1164 GRATUUNE 18264075-0 07/24, Pagamento carta di debito & 9930805BN8594754 & 53.00 & \\
-2022-10-31 & 2022-10-31 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930806BN9643739 & 7.60 & \\
-2022-10-31 & 2022-10-31 & POR Sall. Sed. Mantumn C,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930805BN9558053 & 2.30 & \\
-2022-10-31 & 2022-10-31 & Suisi eis agnumeturaà in r/a  & TO88185VW1433444 & 6.00 & \\
-2022-11-01 & 2022-11-01 & Beresceret, Quideium Plutubila PLE STELL & 9930305GK5404335 &  & 159.00\\
-2022-11-02 & 2022-11-02 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930808BN1692390 & 0.65 & \\
-2022-11-02 & 2022-11-02 & Cera Septempto,7457 Septempto 18264075-0 07/24, Pagamento carta di debito & 9930808BN1699456 & 1.95 & \\
-2022-11-02 & 2022-11-02 & DEM ET PES,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930807BN1470349 & 10.00 & \\
-2022-11-02 & 2022-11-02 & ETIS ETIS ETIS 7635,VENUM OBANDAM Consolest a xxx pinti & 9947306TO6493694 & 69.90 & \\
-2022-11-04 & 2022-11-04 & MERE,24133 TORTUS AMIRE 18264075-0 07/24, Pagamento carta di debito & 9930810BN3897220 & 138.68 & \\
-2022-11-04 & 2022-11-04 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930809BN3754644 & 30.01 & \\
-2022-11-05 & 2022-11-05 & DEM ET PES,1164 Parate 18264075-0 07/24, Pagamento carta di debito & 9930810BN3872076 & 32.40 & \\
-2022-11-06 & 2022-11-06 & Oöut Rentula BY,4081 Divicum Semo 18264075-0 07/24, Pagamento carta di debito & 9930811BN5358212 & 5.00 & \\
-2022-11-06 & 2022-11-06 & Parescro Tratiantro VI,6010 Recto 18264075-0 07/24, Pagamento carta di debito & 9930811BN5353554 & 6.80 & \\
-2022-11-07 & 2022-11-07 & CERA SEPTEMPTO,SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9999311BN1710030 & 4.35 & \\
-2022-11-07 & 2022-11-07 & CERA SEPTEMPTO,SEPTEMPTO 18264075-0 07/24, Pagamento carta di debito & 9999311BN0755924 & 2.70 & \\
-2022-11-07 & 2022-11-07 & Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna Cepate in consolest tam g-possica & 1770311TO2672955 & 99.80 & \\
-2022-11-07 & 2022-11-07 & Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna Cepate in consolest tam g-possica & 1670311TO2672937 & 52.10 & \\
-2022-11-07 & 2022-11-07 & POR SALL. SED. MANTUMN PARATE,PARATE 18264075-0 07/24, Pagamento carta di debito & 9999311BN1721198 & 2.30 & \\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 44672 15300 14502, Experi in consolest: Duere Paribi, Innere 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 2067146XJ3173626 & 6570209TO6433206 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 78628 72750 78434, Experi in consolest: Duere Paribi, Innere 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 8455073FW6175574 & 6470209TO6433185 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 17455 32842 46032 24581, Experi in consolest: Duere Paribi, Innere 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 2818040YQ4076300 & 6370209TO6433158 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 46873 82728 77221, Experi in consolest: Duere Paribi, Innere 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 8804888TK2230013 & 6670209TO6433219 & 20.20 &  & undefined\\
+2022-07-28 & 2022-07-28 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Decilausa vi. NUS: 35 40021 40021 40021 10062 61273, Sologit vi. CAPH: DP41 6457 6403 7527 5866 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 1422125AB8667131 & 6770209TO6433234 & 89.30 &  & undefined\\
+2022-07-28 & 2022-07-28 & PUS SECTULIGNUNICA BY,EXEMPERIDE Decilausa vi. 54 70042 85071 87701 63456 13733, Sologit vi. 37-410613-2, Suisi: B-Possica TEM Suractae, Offereganga vi. 5388164LE3452627 & 9947208TO9200212 & 108.35 &  & undefined\\
+2022-07-28 & 2022-07-28 & Reletræ XXX Itto,4423 Expediunt (Austate) Decilausa vi. NUS: 35 30563 72033 16153 26188 58221, Sologit vi. CAPH: QH22 6457 3312 6758 2000 3, Suisi: B-Possica TEM Suractae, Offereganga vi. 3031280IQ2038064 & 6270209TO6433141 & 163.80 &  & undefined\\
+2022-07-28 & 2022-07-28 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Decilausa vi. NUS: 35 66033 24681 16016 80005 36358, Sologit vi. CAPH: KF64 6457 3522 8641 5583 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 4686137FO2680471 & 7070209TO6433290 & 331.75 &  & undefined\\
+2022-07-28 & 2022-07-28 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Decilausa vi. NUS: 22 81376 44021 48223 38451 27814, Experi in consolest: Varusta A Ponte, Sologit vi. CAPH: PS10 1031 3745 2367 8754 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 1873502MQ2036357 & 6170209TO6433023 & 381.40 &  & undefined\\
+2022-07-28 & 2022-07-28 & Legit Cebrella,4147 Noventemox Sologit vi. CAPH: TW21 3088 3402 3878 V883 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 5407000SC1785748 & 9947208TO9191506 & 1350.00 &  & undefined\\
+2022-07-29 & 2022-07-31 & Suisi eis agnumeturaà in r/a Offereganga vi. RX41771GH6358610 & RX41771GH6358610 & 6.00 &  & undefined\\
+2022-07-30 & 2022-07-30 & Harum Scriniam,5667 Perbitti Offereganga vi. 1077540QE1514683 & 9930712BN9356783 & 30.21 &  & undefined\\
+2022-07-30 & 2022-07-30 & ET VEMPLIGERE IN N. EO,6884 CESERE Offereganga vi. 4447430FY3100877 & 9930714BN0871952 & 32.20 &  & undefined\\
+2022-07-30 & 2022-07-30 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 2505016BW6027510 & 9930714BN0918457 & 69.00 &  & undefined\\
+2022-08-01 & 2022-08-01 & Beresceret, Quideium Experi in consolest: +78200426687, STELL-Xxx.:+81236626535, Offereganga vi. 1317523UA7127265 & 9930213GK1654437 &  & 40.00 & undefined\\
+2022-08-04 & 2022-08-04 & Anary Sent,1164 Parate Offereganga vi. 1023005EH8007510 & 9930717BN4446066 & 30.02 &  & undefined\\
+2022-08-04 & 2022-08-04 & Uniunte \& Dorat Sengrope,1164 Parate Offereganga vi. 8138874MP4001050 & 9930718BN4509279 & 72.00 &  & undefined\\
+2022-08-08 & 2022-08-08 & Cera Septempto,7457 Septempto Offereganga vi. 5221565FJ1422411 & 9930722BN8193658 & 2.85 &  & undefined\\
+2022-08-08 & 2022-08-08 & Cera Septempto,7457 Septempto Offereganga vi. 1655110ID4100440 & 9930722BN8193942 & 2.90 &  & undefined\\
+2022-08-08 & 2022-08-08 & Senes BY,1164 Parate Offereganga vi. 5500056JV4826356 & 9930721BN7959401 & 4.60 &  & undefined\\
+2022-08-08 & 2022-08-08 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 2411044IC3487066 & 9930721BN8092232 & 5.95 &  & undefined\\
+2022-08-08 & 2022-08-08 & SalEs  *FORA.COLUMN VI,7423 Parate Offereganga vi. 1688824JK0771042 & 9930722BN8230888 & 35.00 &  & undefined\\
+2022-08-09 & 2022-08-09 & Scum parescro meruncto,2201 Cringe Offereganga vi. 7561142YY1241631 & 9930722BN8960731 & 30.00 &  & undefined\\
+2022-08-11 & 2022-08-11 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 8253285GW2552604 & 9947223TO6725066 & 17.00 &  & undefined\\
+2022-08-14 & 2022-08-14 & Dea Tunch,7172 Timediusa Offereganga vi. 6162737DL5463508 & 9930727BN3622282 & 12.20 &  & undefined\\
+2022-08-14 & 2022-08-14 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 3702458MD0686601 & 9930729BN4733646 & 37.00 &  & undefined\\
+2022-08-14 & 2022-08-14 & PAR,7172 Timediusa Offereganga vi. 6547723IV5685704 & 9930727BN3622307 & 132.06 &  & undefined\\
+2022-08-15 & 2022-08-15 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 4768088TY5681465 & 9930728BN4456031 & 40.70 &  & undefined\\
+2022-08-16 & 2022-08-16 & POR Crire Mantumn Parate,1164 Parate Offereganga vi. 2711660QW4528254 & 9930729BN4799698 & 2.30 &  & undefined\\
+2022-08-16 & 2022-08-16 & Cera Septempto,7457 Septempto Offereganga vi. 1757441MH6088000 & 9930730BN5639008 & 2.85 &  & undefined\\
+2022-08-16 & 2022-08-16 & Adunum Dem Et Pes,1164 Parate Offereganga vi. 1718208YR4862566 & 9930730BN5659363 & 69.30 &  & undefined\\
+2022-08-17 & 2022-08-17 & Quaer ET VI (1808) Novus,8876 Cassugat Offereganga vi. 4866282FI5566388 & 9930730BN6321854 & 25.00 &  & undefined\\
+2022-08-18 & 2022-08-18 & Culit Obsitas Recto,6010 Recto Offereganga vi. 6305671KR6064212 & 9930731BN7488945 & 3.20 &  & undefined\\
+2022-08-19 & 2022-08-19 & Cera Septempto,7457 Septempto Offereganga vi. 3858630XU2728714 & 9930733BN8525578 & 2.20 &  & undefined\\
+2022-08-19 & 2022-08-19 & AUXIMOX Suisi: Petterasulat in navicies si Speripse in tudica eores/Nassupar et Suractae (*g), Offereganga vi. 8000406MS0885817 & 9930733BN8544416 & 20.00 &  & undefined\\
+2022-08-20 & 2022-08-20 & Imide-Catis VI 2857,5846 Requens Offereganga vi. 1712370KG0507358 & 9930733BN8976357 & 18.80 &  & undefined\\
+2022-08-20 & 2022-08-20 & Solo'q VI 33, Requens,5846 Requens Offereganga vi. 6328676QE4423047 & 9930733BN8963987 & 23.85 &  & undefined\\
+2022-08-20 & 2022-08-20 & Ligita Requens,5846 Requens Offereganga vi. 1038483UE1461065 & 9930733BN8938604 & 28.90 &  & undefined\\
+2022-08-20 & 2022-08-20 & Centemitas VI,5846 Requens Offereganga vi. 5114122JN6457538 & 9930733BN8964286 & 40.10 &  & undefined\\
+2022-08-22 & 2022-08-22 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 8667311DL4205185 & 9930735BN1056625 & 2.30 &  & undefined\\
+2022-08-23 & 2022-08-23 & CAPOR LINO,7457 SEPTEMPTO Offereganga vi. 8633538CG2120014 & 9930737BN2050048 & 31.00 &  & undefined\\
+2022-08-23 & 2022-08-23 & Par Pargem,8554 Pargem Offereganga vi. 2540488CS6668825 & 9930736BN1807534 & 63.31 &  & undefined\\
+2022-08-24 & 2022-08-24 & TERAT TARANT LOR IN AN,24133 TORTUS AMIRE Inguisi reguilliquo tum pinti: -34.35 MEN, Poegment fuis: 3.350518, Suisi: Consolest PLE Cocta Solo sus'ingite -7.84 TEM, Offereganga vi. 2831162HI1823533 & 9930739BN3915438 & 61.99 &  & undefined\\
+2022-08-25 & 2022-08-25 & Atubere Obandam,8172 Brestrum Experi in consolest: Miunitursit, Offereganga vi. 8183616DM5858205 & 9947737LK4529099 &  & 260.00 & undefined\\
+2022-08-25 & 2022-08-25 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 2844781QP0587412 & 9930738BN3748816 & 2.30 &  & undefined\\
+2022-08-25 & 2022-08-25 & Cera Septempto,7457 Septempto Offereganga vi. 6581886LB7654156 & 9930740BN5276881 & 2.85 &  & undefined\\
+2022-08-26 & 2022-08-26 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 Experi in consolest: DISSIT CENTEMO, Suisi: Cerbies consolest FER, Offereganga vi. 5886871VN5723558 & 9999238ZC6626377 &  & 4369.80 & undefined\\
+2022-08-26 & 2022-08-26 & Quideium Beresceret,8876 Cassugat Experi in consolest: Sceribultione, Offereganga vi. 3060365OV2622774 & 9930738LK4923147 &  & 332.00 & undefined\\
+2022-08-26 & 2022-08-26 & Prit-6810 Recto,6010 Recto Offereganga vi. 8411280IM2704120 & 9930739BN5134524 & 12.60 &  & undefined\\
+2022-08-26 & 2022-08-26 & Reps Timediusa 71,7172 Timediusa Offereganga vi. 4682100GG8088254 & 9930739BN4160378 & 21.30 &  & undefined\\
+2022-08-26 & 2022-08-26 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 2532635HA3271102 & 9947238TO5107716 & 35.00 &  & undefined\\
+2022-08-26 & 2022-08-26 & Cutine Triderimula Decet,7172 Timediusa Offereganga vi. 3656176FK7704632 & 9930739BN5100158 & 225.00 &  & undefined\\
+2022-08-26 & 2022-08-26 & Venum Obandam,8876 Cassugat Sologit vi. CAPH: AW07 3100 7414 2416 75G3 B, Suisi: Comnum in plutubila / in dividede, Offereganga vi. 1463522CD5473784 & 9947738MC4808665 & 350.00 &  & undefined\\
+2022-08-27 & 2022-08-27 & Vi Dissit VI,4774 Gratemisi Offereganga vi. 4715385JY5602837 & 9930740BN5973689 & 21.00 &  & undefined\\
+2022-08-27 & 2022-08-27 & Venum Obandam,8876 Cassugat Sologit vi. 30710341348573L47121, Offereganga vi. 3605780OG7843165 & 9947241TO5598850 & 500.00 &  & undefined\\
+2022-08-28 & 2022-08-28 & Idere Vité in Nerit Disi,6108 Parsupar x'Molunt Offereganga vi. 8673301PE0121453 & 9930741BN7023344 & 60.00 &  & undefined\\
+2022-08-29 & 2022-08-29 & Cera Septempto,7457 Septempto Offereganga vi. 7566511RQ8326657 & 9930743BN8228312 & 1.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 8588766IA2420541 & 9930742BN8113154 & 2.30 &  & undefined\\
+2022-08-29 & 2022-08-29 & Cera Septempto,7457 Septempto Offereganga vi. 7705346NS5660620 & 9930743BN8228304 & 2.85 &  & undefined\\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 17455 32842 85125 25803, Experi in consolest: Duere, Pongun 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 3668754WK6288855 & 2770241TO5418926 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 46873 26886 77521, Experi in consolest: Duere, Pongun 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 7145538LJ0148674 & 2970241TO5418935 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 44672 84072 67033, Experi in consolest: Duere, Pongun 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 6413302WI2542228 & 3070241TO5418943 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 78628 34148 82311, Experi in consolest: Duere, Pongun 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 8351413YM7145523 & 2870241TO5418927 & 25.25 &  & undefined\\
+2022-08-29 & 2022-08-29 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Decilausa vi. NUS: 35 40021 40021 40021 10062 61273, Sologit vi. CAPH: DP41 6457 6403 7527 5866 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 8547148YO1010582 & 3170241TO5419043 & 78.75 &  & undefined\\
+2022-08-29 & 2022-08-29 & Reletræ XXX Itto,4423 Expediunt (Austate) Decilausa vi. NUS: 35 30563 72033 16153 17070 56854, Sologit vi. CAPH: QH22 6457 3312 6758 2000 3, Suisi: B-Possica TEM Suractae, Offereganga vi. 7850106LN2235843 & 2670241TO5418920 & 160.40 &  & undefined\\
+2022-08-29 & 2022-08-29 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Decilausa vi. NUS: 35 66033 24681 16016 28232 44561, Sologit vi. CAPH: KF64 6457 3522 8641 5583 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 4020174LD1330883 & 3270241TO5419059 & 331.75 &  & undefined\\
+2022-08-29 & 2022-08-29 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Decilausa vi. NUS: 22 81376 44021 48223 38451 27814, Experi in consolest: Varusta A Ponte, Sologit vi. CAPH: PS10 1031 3745 2367 8754 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 1536811GK0758046 & 2570241TO5418915 & 381.40 &  & undefined\\
+2022-08-29 & 2022-08-29 & Legit Cebrella,4147 Noventemox Sologit vi. CAPH: TW21 3088 3402 3878 V883 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 4865727OH6145164 & 9947239TO5585742 & 1350.00 &  & undefined\\
+2022-08-30 & 2022-08-30 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 5553052KW7643601 & 9930743BN9177491 & 2.30 &  & undefined\\
+2022-08-30 & 2022-08-30 & Cera Septempto,7457 Septempto Offereganga vi. 6648774JN5304128 & 9930744BN9296750 & 6.75 &  & undefined\\
+2022-08-31 & 2022-08-31 & Suisi eis agnumeturaà in r/a Offereganga vi. LG67702JY8052342 & LG67702JY8052342 & 6.00 &  & undefined\\
+2022-08-31 & 2022-08-31 & Uniunte \& Dorat Sengrope,1164 Parate Offereganga vi. 6156472RG0535511 & 9930744BN0236943 & 67.00 &  & undefined\\
+2022-09-02 & 2022-09-02 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 2108543RU4371070 & 9930749BN4199057 & 38.00 &  & undefined\\
+2022-09-03 & 2022-09-03 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 1043111TK5618852 & 9930747BN3406650 & 15.15 &  & undefined\\
+2022-09-03 & 2022-09-03 & Santarto si Cebrent,8172 Brestrum Offereganga vi. 2480243JW0144226 & 9930747BN3429480 & 20.00 &  & undefined\\
+2022-09-04 & 2022-09-04 & Harum Parate Xxx,6437 Peruripe Offereganga vi. 5252880BU2653625 & 9930748BN4067830 & 35.01 &  & undefined\\
+2022-09-05 & 2022-09-05 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 8342138MY1072221 & 9930749BN5082020 & 2.30 &  & undefined\\
+2022-09-05 & 2022-09-05 & SalEs  *Cariet Ple VI,7457 Septempto Offereganga vi. 4238035HG7810347 & 9930750BN5294984 & 11.00 &  & undefined\\
+2022-09-05 & 2022-09-05 & Tubento Lumendo BY,Versimulcenifictus 44w, 3687 Loneret Decilausa vi. NUS: 48 71806 40665 24353 74476 10864, Experi in consolest: Diuva 6 dea adeo numn, Sologit vi. CAPH: PI05 8237 8443 8160 7201 3, Suisi: B-Possica TEM Suractae, Offereganga vi. 2304254RC3825655 & 3070248TO8648912 & 13.20 &  & undefined\\
+2022-09-07 & 2022-09-07 & CAPOR LINO,7457 SEPTEMPTO Offereganga vi. 2062886SQ2313871 & 9930752BN7301287 & 31.00 &  & undefined\\
+2022-09-08 & 2022-09-08 & Senes BY,1164 Parate Offereganga vi. 5066342EB0847752 & 9930752BN8076216 & 135.00 &  & undefined\\
+2022-09-09 & 2022-09-09 & Ventuuntus ment,8876 Cassugat Offereganga vi. 1005516JU6280070 & 9930753BN9198874 & 3.20 &  & undefined\\
+2022-09-10 & 2022-09-10 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 4041068GE6677863 & 9947253TO4322099 & 6.00 &  & undefined\\
+2022-09-10 & 2022-09-10 & Maximine Pautata,8876 Cassugat Offereganga vi. 4563406TQ7376406 & 9930754BN0210069 & 11.95 &  & undefined\\
+2022-09-10 & 2022-09-10 & SalEs  *FORA.COLUMN VI,7423 Parate Offereganga vi. 8348580RF5448761 & 9930755BN0443826 & 42.00 &  & undefined\\
+2022-09-10 & 2022-09-10 & CAPOR LINO,7457 SEPTEMPTO Offereganga vi. 6786804BA4718644 & 9930756BN1121023 & 59.00 &  & undefined\\
+2022-09-11 & 2022-09-11 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 5732014DP4318868 & 9930755BN0679657 & 35.01 &  & undefined\\
+2022-09-13 & 2022-09-13 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 7044085JJ0731760 & 9947256TO5744546 & 8.00 &  & undefined\\
+2022-09-14 & 2022-09-14 & Adunum Dem Et Pes,1164 Parate Offereganga vi. 2555844BT6417788 & 9930759BN4004759 & 28.70 &  & undefined\\
+2022-09-16 & 2022-09-16 & Cera Septempto,7457 Septempto Offereganga vi. 2486713HX3642331 & 9930761BN5992656 & 2.15 &  & undefined\\
+2022-09-16 & 2022-09-16 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 1355643KM1644784 & 9930760BN5785125 & 2.30 &  & undefined\\
+2022-09-16 & 2022-09-16 & POR Crire Mantumn Parate,1164 Parate Offereganga vi. 7425686HE7703538 & 9930760BN5062004 & 2.30 &  & undefined\\
+2022-09-16 & 2022-09-16 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 5181736FR3361100 & 9930761BN5941653 & 35.00 &  & undefined\\
+2022-09-16 & 2022-09-16 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 8730531RO0678367 & 9930763BN7577468 & 38.00 &  & undefined\\
+2022-09-18 & 2022-09-18 & O1 Pridervirem,342 Pridervirem Inguisi reguilliquo tum pinti: -224.35 XXX, Poegment fuis: 3.10125, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 8845534FR3428480 & 9930763BN7578137 & 7.48 &  & undefined\\
+2022-09-19 & 2022-09-19 & Semplum Probaneiunt In,825 Sciditto Inguisi reguilliquo tum pinti: -1612.35 XXX, Poegment fuis: 3.118026, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 1613434CS7455271 & 9930764BN8530591 & 12.53 &  & undefined\\
+2022-09-19 & 2022-09-19 & Rethorbile pem.,684 BRUNGIT Inguisi reguilliquo tum pinti: -7631.35 XXX, Poegment fuis: 3.284116, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 7568435HG0736231 & 9930764BN8516801 & 29.12 &  & undefined\\
+2022-09-20 & 2022-09-20 & Flus Aquada Flus Funt,676 Aluvimone Inguisi reguilliquo tum pinti: -3465.35 XXX, Poegment fuis: 3.228281, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 3543880HA5234023 & 9930766BN0383942 & 10.40 &  & undefined\\
+2022-09-20 & 2022-09-20 & Rissusta,380 Eseceatum Inguisi reguilliquo tum pinti: -5450.35 XXX, Poegment fuis: 3.521258, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 1075816PX0232683 & 9930765BN9469472 & 13.44 &  & undefined\\
+2022-09-20 & 2022-09-20 & Stquaddus funt,380 Eseceatum Inguisi reguilliquo tum pinti: -6457.35 XXX, Poegment fuis: 3.835742, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 5758672TE4060574 & 9930765BN9449440 & 22.69 &  & undefined\\
+2022-09-21 & 2022-09-21 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 4716704XB0485620 & 9947264TO9619515 & 30.00 &  & undefined\\
+2022-09-21 & 2022-09-21 & Somnianest Lamplae pem,380 Eseceatum Inguisi reguilliquo tum pinti: -3377.35 XXX, Poegment fuis: 3.756084, Suisi: Consolest PLE Cocta Solo sus'ingite -7.35 TEM, Offereganga vi. 4228464XY4201763 & 9930766BN0433503 & 47.72 &  & undefined\\
+2022-09-22 & 2022-09-22 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 2813383TP4518262 & 9947265TO0479086 & 25.00 &  & undefined\\
+2022-09-23 & 2022-09-23 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 Experi in consolest: DISSIT CENTEMO, Suisi: Cerbies consolest FER, Offereganga vi. 4770326TY3683670 & 9999266ZC5522155 &  & 4369.80 & undefined\\
+2022-09-23 & 2022-09-23 & Atubere Obandam,8172 Brestrum Experi in consolest: Miunitursit, Offereganga vi. 2282280SY4801845 & 9947766LK6325315 &  & 260.00 & undefined\\
+2022-09-23 & 2022-09-23 & Aneisé Matumento VI,6010 Recto Offereganga vi. 7215752CF5672484 & 9930767BN2051973 & 43.20 &  & undefined\\
+2022-09-24 & 2022-09-24 & CAPOR LINO,7457 SEPTEMPTO Offereganga vi. 6756624UB7651334 & 9930770BN4208682 & 31.00 &  & undefined\\
+2022-09-24 & 2022-09-24 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 4126542FG3175466 & 9947267TO1802267 & 50.00 &  & undefined\\
+2022-09-24 & 2022-09-24 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 1032217VY0510211 & 9947267TO1751525 & 102.00 &  & undefined\\
+2022-09-25 & 2022-09-25 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 7020300MO4804848 & 9930769BN3961844 & 9.45 &  & undefined\\
+2022-09-25 & 2022-09-25 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 7223343NN0261563 & 9930771BN5330378 & 76.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & Quideium Beresceret,8876 Cassugat Experi in consolest: Sceribultione, Offereganga vi. 7501200YV7156265 & 9930769LK6569030 &  & 332.00 & undefined\\
+2022-09-26 & 2022-09-26 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 7628235KC1217886 & 9930770BN5166064 & 2.30 &  & undefined\\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 46873 82336 13331, Experi in consolest: Duere, Humnis 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 3041062IQ3504537 & 3770269TO4403788 & 19.95 &  & undefined\\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 78628 56348 23238, Experi in consolest: Duere, Humnis 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 4463888RR5166508 & 3670269TO4403764 & 19.95 &  & undefined\\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 17455 32842 56771 76260, Experi in consolest: Duere, Humnis 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 8548145EL4553280 & 3870269TO4403821 & 20.35 &  & undefined\\
+2022-09-26 & 2022-09-26 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 44672 24144 42825, Experi in consolest: Duere, Humnis 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 2471828MM8007257 & 3570269TO4403751 & 21.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Decilausa vi. NUS: 35 40021 40021 40021 10062 61273, Sologit vi. CAPH: DP41 6457 6403 7527 5866 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 5476313QM3120623 & 3970269TO4404065 & 76.40 &  & undefined\\
+2022-09-26 & 2022-09-26 & Reletræ XXX Itto,4423 Expediunt (Austate) Decilausa vi. NUS: 35 30563 72033 16153 67483 56654, Sologit vi. CAPH: QH22 6457 3312 6758 2000 3, Suisi: B-Possica TEM Suractae, Offereganga vi. 7316082FV5045345 & 3470269TO4403730 & 158.60 &  & undefined\\
+2022-09-26 & 2022-09-26 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Decilausa vi. NUS: 35 66033 24681 17787 13882 46826, Sologit vi. CAPH: KF64 6457 3522 8641 5583 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 2081127NO8573018 & 4070269TO4404083 & 331.75 &  & undefined\\
+2022-09-26 & 2022-09-26 & Venum Obandam,8876 Cassugat Sologit vi. CAPH: AW07 3100 7414 2416 75G3 B, Suisi: Comnum in plutubila / in dividede, Offereganga vi. 1378750VX2041666 & 9947769MC6494849 & 350.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Decilausa vi. NUS: 22 81376 44021 48223 38451 27814, Experi in consolest: Varusta A Ponte, Sologit vi. CAPH: PS10 1031 3745 2367 8754 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 6828421JW6434886 & 3370269TO4403559 & 381.40 &  & undefined\\
+2022-09-26 & 2022-09-26 & Legit Cebrella,4147 Noventemox Sologit vi. CAPH: TW21 3088 3402 3878 V883 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 2360717RW6583408 & 9947267TO1762930 & 1350.00 &  & undefined\\
+2022-09-27 & 2022-09-27 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 2400353DU1812314 & 9930771BN6222323 & 2.30 &  & undefined\\
+2022-09-27 & 2022-09-27 & Cera Septempto,7457 Septempto Offereganga vi. 4100642VO1206106 & 9930772BN6316543 & 5.35 &  & undefined\\
+2022-09-28 & 2022-09-28 & AUXIMOX Suisi: Petterasulat in navicies si Speripse in tudica eores/Nassupar et Suractae (*g), Offereganga vi. 3143401RW7067257 & 9930773BN7311676 & 20.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & Senes BY,1164 Parate Offereganga vi. 4322438RD5778817 & 9930774BN9423682 & 2.95 &  & undefined\\
+2022-09-30 & 2022-09-30 & Suisi eis agnumeturaà in r/a Offereganga vi. SY78633QU1002102 & SY78633QU1002102 & 6.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & SalEs  *FORA.COLUMN VI,7423 Parate Offereganga vi. 5226047OE7326438 & 9930775BN9537029 & 35.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & MERE,24133 TORTUS AMIRE Inguisi reguilliquo tum pinti: -115.35 MEN, Poegment fuis: 3.378843, Suisi: Consolest PLE Cocta Solo sus'ingite -1.37 TEM, Offereganga vi. 7874124TN7523124 & 9930775BN9644309 & 204.63 &  & undefined\\
+2022-10-01 & 2022-10-01 & ET VEMPLIGERE IN N. EO,6884 CESERE Offereganga vi. 8706615JE4211761 & 9930777BN1222452 & 36.00 &  & undefined\\
+2022-10-02 & 2022-10-02 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 1577616QX8562055 & 9947275TO7350252 & 40.00 &  & undefined\\
+2022-10-03 & 2022-10-03 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 1475382NI3004700 & 9930777BN2141170 & 2.30 &  & undefined\\
+2022-10-03 & 2022-10-03 & SalEs  *Cariet Ple VI,7457 Septempto Offereganga vi. 6863381QV5863787 & 9930778BN2320208 & 7.60 &  & undefined\\
+2022-10-05 & 2022-10-05 & CAPOR LINO,7457 SEPTEMPTO Offereganga vi. 8500403VR2753422 & 9930780BN4358849 & 16.00 &  & undefined\\
+2022-10-07 & 2022-10-07 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 1133222CU8132366 & 9930781BN6328071 & 2.30 &  & undefined\\
+2022-10-07 & 2022-10-07 & SalEs  *Cariet Ple VI,7457 Septempto Offereganga vi. 8656025MA6266177 & 9930782BN6498195 & 11.00 &  & undefined\\
+2022-10-08 & 2022-10-08 & Oöut Rentula BY,4081 Divicum Semo Offereganga vi. 6365331TA0278621 & 9930782BN7302070 & 5.00 &  & undefined\\
+2022-10-08 & 2022-10-08 & Plento parescro meruncto,6884 Cesere Offereganga vi. 1352418XY8637761 & 9930782BN7284975 & 38.40 &  & undefined\\
+2022-10-08 & 2022-10-08 & Quae Omnice 53,1164 Potartum Offereganga vi. 7270143HK2572847 & 9930782BN7536057 & 39.95 &  & undefined\\
+2022-10-08 & 2022-10-08 & MATUS SERUNT VI,1164 GRATUUNE Offereganga vi. 7876683CG4484812 & 9930784BN8222251 & 47.50 &  & undefined\\
+2022-10-08 & 2022-10-08 & Eorow Catis Requens,5846 Requens Offereganga vi. 2760200XT8450524 & 9930782BN6723476 & 69.95 &  & undefined\\
+2022-10-08 & 2022-10-08 & Suus \& Zucum Requens,5846 Requens Offereganga vi. 6564156CG2718103 & 9930782BN7026096 & 80.30 &  & undefined\\
+2022-10-09 & 2022-10-09 & Reps Pervo VI,4506 Comerow-Putiuva Offereganga vi. 7541816GL5041363 & 9930783BN7824537 & 15.00 &  & undefined\\
+2022-10-10 & 2022-10-10 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 5062021QQ0604462 & 9930784BN9131068 & 2.30 &  & undefined\\
+2022-10-10 & 2022-10-10 & Cera Septempto,7457 Septempto Offereganga vi. 5112663FW8064857 & 9930785BN9206042 & 2.85 &  & undefined\\
+2022-10-11 & 2022-10-11 & UT Cassugat Suisi: Petterasulat in navicies si Speripse in tudica eores/Nassupar et Suractae (*g), Offereganga vi. 2317515VH0852165 & 9930785BN0080964 & 300.00 &  & undefined\\
+2022-10-12 & 2022-10-12 & POR Crire Mantumn Parate,1164 Parate Offereganga vi. 5744755RN1327501 & 9930786BN0249157 & 2.30 &  & undefined\\
+2022-10-12 & 2022-10-12 & Cera Septempto,7457 Septempto Offereganga vi. 4601023JO8508701 & 9930787BN1134997 & 2.85 &  & undefined\\
+2022-10-12 & 2022-10-12 & Cera Septempto,7457 Septempto Offereganga vi. 5255500YK4640516 & 9930787BN1134072 & 14.75 &  & undefined\\
+2022-10-13 & 2022-10-13 & Venum Obandam,8876 Cassugat Sologit vi. 30710341348573L47121, Offereganga vi. 3314064CG5530531 & 9947286TO3626440 & 1000.00 &  & undefined\\
+2022-10-14 & 2022-10-14 & MERE,24133 TORTUS AMIRE Inguisi reguilliquo tum pinti: -24.35 MEN, Poegment fuis: 3.830250, Suisi: Consolest PLE Cocta Solo sus'ingite -7.72 TEM, Offereganga vi. 7223418LW3400170 & 9930789BN3242003 & 84.22 &  & undefined\\
+2022-10-15 & 2022-10-15 & Quae Omnice 53,1164 Potartum Offereganga vi. 5503017TB2528716 & 9930789BN4136552 & 17.05 &  & undefined\\
+2022-10-18 & 2022-10-18 & AUSTONUM'F,6437 PERURIPE Offereganga vi. 1234366UJ2554731 & 9930794BN7683507 & 38.00 &  & undefined\\
+2022-10-22 & 2022-10-22 & Prit-6810 Recto,6010 Recto Offereganga vi. 3324856IB3871521 & 9930796BN0533729 & 18.25 &  & undefined\\
+2022-10-22 & 2022-10-22 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 6043567DG5135370 & 9930796BN9829310 & 37.32 &  & undefined\\
+2022-10-23 & 2022-10-23 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 1232441DH2748782 & 9930797BN1061960 & 3.85 &  & undefined\\
+2022-10-25 & 2022-10-25 & minate.et VI,Tam et Visit 2, ET/Septempto 7457 Experi in consolest: DISSIT CENTEMO, Suisi: Cerbies consolest FER, Offereganga vi. 3784231LS6618118 & 9999298ZC5922046 &  & 4369.80 & undefined\\
+2022-10-25 & 2022-10-25 & Atubere Obandam,8172 Brestrum Experi in consolest: Miunitursit, Offereganga vi. 1765858RK4660256 & 9947798LK8184196 &  & 260.00 & undefined\\
+2022-10-26 & 2022-10-26 & Venum Obandam,8876 Cassugat Offereganga vi. 2574724WQ4187725 & 9947299TO1473534 &  & 3000.00 & undefined\\
+2022-10-26 & 2022-10-26 & Quideium Beresceret,8876 Cassugat Experi in consolest: Sceribultione, Offereganga vi. 8487475LV4468705 & 9930799LK8392827 &  & 332.00 & undefined\\
+2022-10-26 & 2022-10-26 & Cera Septempto,7457 Septempto Offereganga vi. 4163412OS6300333 & 9930801BN4320207 & 2.85 &  & undefined\\
+2022-10-26 & 2022-10-26 & Venum Obandam,8876 Cassugat Sologit vi. CAPH: AW07 3100 7414 2416 75G3 B, Suisi: Comnum in plutubila / in dividede, Offereganga vi. 5817313CB1086008 & 9947799MC8346528 & 350.00 &  & undefined\\
+2022-10-27 & 2022-10-27 & Cera Septempto,7457 Septempto Offereganga vi. 8784882MH8043452 & 9930802BN5477196 & 0.65 &  & undefined\\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 17455 32842 68788 54270, Experi in consolest: Duere, Menstatem 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 5800765PH0573583 & 1670300TO6866836 & 19.95 &  & undefined\\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 46873 77702 51043, Experi in consolest: Duere, Menstatem 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 6054560RF7774750 & 1770300TO6866860 & 19.95 &  & undefined\\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 78628 66112 35500, Experi in consolest: Duere, Menstatem 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 3056524II6347052 & 1570300TO6866821 & 21.65 &  & undefined\\
+2022-10-27 & 2022-10-27 & Meniunis (Comnute) BY,3542 Atra, ET Decilausa vi. NUS: 35 35857 12764 44672 71748 82702, Experi in consolest: Duere, Menstatem 4848, Sologit vi. CAPH: MV08 6457 1456 6301 7357 7, Suisi: B-Possica TEM Suractae, Offereganga vi. 1763320DH2860865 & 1470300TO6866807 & 23.80 &  & undefined\\
+2022-10-27 & 2022-10-27 & Mali Paribi VI,Xxx ut Anthore 1, 1447 Adduci, ET Decilausa vi. NUS: 35 40021 40021 40021 10062 61273, Sologit vi. CAPH: DP41 6457 6403 7527 5866 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 4547550PP2186304 & 1970300TO6866933 & 114.90 &  & undefined\\
+2022-10-27 & 2022-10-27 & Reletræ XXX Itto,4423 Expediunt (Austate) Decilausa vi. NUS: 35 30563 72033 16153 26110 23238, Sologit vi. CAPH: QH22 6457 3312 6758 2000 3, Suisi: B-Possica TEM Suractae, Offereganga vi. 5608734OK8127673 & 1370300TO6866776 & 158.45 &  & undefined\\
+2022-10-27 & 2022-10-27 & Pulavide BY,Aurinterunticita 51, 3047 Ocaput, ET Decilausa vi. NUS: 35 66033 24681 16016 56478 14183, Sologit vi. CAPH: KF64 6457 3522 8641 5583 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 6627164UA3803067 & 2070300TO6866951 & 331.75 &  & undefined\\
+2022-10-27 & 2022-10-27 & XXX (Comnute) BY Plavivico Ceseper,Cabiliturunneine 45, 2337 Aespertis Decilausa vi. NUS: 22 81376 44021 48223 38451 27814, Experi in consolest: Varusta A Ponte, Sologit vi. CAPH: PS10 1031 3745 2367 8754 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 4660180MK5516331 & 1270300TO6866758 & 381.40 &  & undefined\\
+2022-10-27 & 2022-10-27 & SEMONDI ADUSCURA B,FILONIS, 6275 SUPAUCIPIA Decilausa vi. NUS: 35 40021 30563 38878 52001 30074, Experi in consolest: AUSTANT COMINIAM HAUXIMI 3827, Sologit vi. CAPH: GR48 6457 3522 8716 4384 3, Suisi: B-Possica TEM Suractae, Offereganga vi. 5540326MU0510100 & 2170300TO6866966 & 400.05 &  & undefined\\
+2022-10-27 & 2022-10-27 & LEGIT CEBRELLA,ET NOVENTEMOX 4147 Sologit vi. CAPH: TW21 3088 3402 3878 V883 I, Suisi: B-Possica TEM Suractae, Offereganga vi. 3451835FH1503571 & 1170300TO6866715 & 1350.00 &  & undefined\\
+2022-10-27 & 2022-10-27 & SEMONDI ADUSCURA B,FILONIS, 6275 SUPAUCIPIA Decilausa vi. NUS: 35 40021 30563 38878 52001 85301, Experi in consolest: ANEM. AUSTANT SHAESCIDE 3827, Sologit vi. CAPH: BN62 6457 3522 8716 3421 5, Suisi: B-Possica TEM Suractae, Offereganga vi. 6772184UV7824028 & 2270300TO6866978 & 2644.50 &  & undefined\\
+2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia Offereganga vi. 8684038XG2546405 & 9930803BN7080856 & 30.00 &  & undefined\\
+2022-10-29 & 2022-10-29 & MATUS SERUNT VI,1164 GRATUUNE Offereganga vi. 8051285RU3284272 & 9930805BN8594754 & 53.00 &  & undefined\\
+2022-10-31 & 2022-10-31 & POR Sall. Sed. Mantumn C,1164 Parate Offereganga vi. 6662650HG4505507 & 9930805BN9558053 & 2.30 &  & undefined\\
+2022-10-31 & 2022-10-31 & Suisi eis agnumeturaà in r/a Offereganga vi. TO88185VW1433444 & TO88185VW1433444 & 6.00 &  & undefined\\
+2022-10-31 & 2022-10-31 & Cera Septempto,7457 Septempto Offereganga vi. 3341643DT0626572 & 9930806BN9643739 & 7.60 &  & undefined\\
+2022-11-01 & 2022-11-01 & Beresceret, Quideium Experi in consolest: +78200426687, STELL-Xxx.:+81236626535, Offereganga vi. 3376451DV7770866 & 9930305GK5404335 &  & 159.00 & undefined\\
+2022-11-02 & 2022-11-02 & Cera Septempto,7457 Septempto Offereganga vi. 4588737HY1036576 & 9930808BN1692390 & 0.65 &  & undefined\\
+2022-11-02 & 2022-11-02 & Cera Septempto,7457 Septempto Offereganga vi. 2104316JE8455505 & 9930808BN1699456 & 1.95 &  & undefined\\
+2022-11-02 & 2022-11-02 & DEM ET PES,1164 Parate Offereganga vi. 1666773IL8766175 & 9930807BN1470349 & 10.00 &  & undefined\\
+2022-11-02 & 2022-11-02 & ETIS ETIS ETIS 7635,VENUM OBANDAM Sologit vi. 84050341547652502740, Suisi: B-Possica harectia fuino-fuino, Offereganga vi. 4631476GT8242240 & 9947306TO6493694 & 69.90 &  & undefined\\
+2022-11-04 & 2022-11-04 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 6013260XR0687618 & 9930809BN3754644 & 30.01 &  & undefined\\
+2022-11-04 & 2022-11-04 & MERE,24133 TORTUS AMIRE Inguisi reguilliquo tum pinti: -522.35 MEN, Poegment fuis: 7.750580, Suisi: Consolest PLE Cocta Solo sus'ingite -5.30 TEM, Offereganga vi. 4458026RY4362367 & 9930810BN3897220 & 138.68 &  & undefined\\
+2022-11-05 & 2022-11-05 & DEM ET PES,1164 Parate Offereganga vi. 4487251TM1584832 & 9930810BN3872076 & 32.40 &  & undefined\\
+2022-11-06 & 2022-11-06 & Oöut Rentula BY,4081 Divicum Semo Offereganga vi. 3778528RR3610380 & 9930811BN5358212 & 5.00 &  & undefined\\
+2022-11-06 & 2022-11-06 & Parescro Tratiantro VI,6010 Recto Offereganga vi. 8740610YF3026752 & 9930811BN5353554 & 6.80 &  & undefined\\
+2022-11-07 & 2022-11-07 & POR SALL. SED. MANTUMN PARATE,PARATE Offereganga vi. 7518748DV2785407 & 9999311BN1721198 & 2.30 &  & undefined\\
+2022-11-07 & 2022-11-07 & CERA SEPTEMPTO,SEPTEMPTO Offereganga vi. 3275420YO4320201 & 9999311BN0755924 & 2.70 &  & undefined\\
+2022-11-07 & 2022-11-07 & CERA SEPTEMPTO,SEPTEMPTO Offereganga vi. 7740420TJ8353344 & 9999311BN1710030 & 4.35 &  & undefined\\
+2022-11-07 & 2022-11-07 & Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna Decilausa vi. NUS: 35 47463 30382 27465 62135 38521, Experi in consolest: 2213 / Osit: 37.80.84 - 16.80.84 / Mendimus audio at: 81.57.4848, Sologit vi. CAPH: JA18 6457 3522 2051 7571 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 7510665VI0356053 & 1670311TO2672937 & 52.10 &  & undefined\\
+2022-11-07 & 2022-11-07 & Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna Decilausa vi. NUS: 35 47463 30382 81016 85544 75378, Experi in consolest: 2213 / Osit: 37.57.84 - 62.57.84 / Mendimus audio at: 75.64.4848, Sologit vi. CAPH: JA18 6457 3522 2051 7571 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 6068584LN1841647 & 1770311TO2672955 & 99.80 &  & undefined\\
 \\
 \end{tablevalue}
 \end{document}

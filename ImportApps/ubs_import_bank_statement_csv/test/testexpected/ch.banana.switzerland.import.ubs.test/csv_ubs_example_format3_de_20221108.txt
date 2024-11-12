@@ -18,203 +18,203 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l }
-Date & DateValue & Description & ExternalReference & Expenses & Income\\
-2022-07-28 & 2022-07-28 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 7070209TO6433290 & 331.75 & \\
-2022-07-28 & 2022-07-28 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 6170209TO6433023 & 381.40 & \\
-2022-07-28 & 2022-07-28 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 6770209TO6433234 & 89.30 & \\
-2022-07-28 & 2022-07-28 & Omple Malebite,8703 Bonflungit RES IMA, f-stimore-Curaüetiundeptula & 9947208TO9191506 & 1350.00 & \\
-2022-07-28 & 2022-07-28 & SUS ABURURRINTERUM ET,EFFINABERE f-stimore-Curaüetiundeptula & 9947208TO9200212 & 108.35 & \\
-2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6570209TO6433206 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6370209TO6433158 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6670209TO6433219 & 20.20 & \\
-2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 6470209TO6433185 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 6270209TO6433141 & 163.80 & \\
-2022-07-29 & 2022-07-31 & Vicem Tangulathosuiscriavadracibulo  & QC44163TI3555777 & 6.00 & \\
-2022-07-30 & 2022-07-30 & EX FUISSURATE UT R. ET,8180 SALION 18264075-0 07/24, Zahlung Debitkarte & 9930714BN0871952 & 32.20 & \\
-2022-07-30 & 2022-07-30 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930714BN0918457 & 69.00 & \\
-2022-07-30 & 2022-07-30 & Vissa Retianum,4012 Aquaepro 18264075-0 07/24, Zahlung Debitkarte & 9930712BN9356783 & 30.21 & \\
-2022-08-01 & 2022-08-01 & Cannertent, Potudisi Parangusus FER PLETA & 9930213GK1654437 &  & 40.00\\
-2022-08-04 & 2022-08-04 & Aptinsa \& Divis Hompriam,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930718BN4509279 & 72.00 & \\
-2022-08-04 & 2022-08-04 & Disum Inam,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930717BN4446066 & 30.02 & \\
-2022-08-08 & 2022-08-08 & Cocta ET,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930721BN7959401 & 4.60 & \\
-2022-08-08 & 2022-08-08 & DicAt  *NECT.AUSPEM AT,7362 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8230888 & 35.00 & \\
-2022-08-08 & 2022-08-08 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8193942 & 2.90 & \\
-2022-08-08 & 2022-08-08 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8193658 & 2.85 & \\
-2022-08-08 & 2022-08-08 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930721BN8092232 & 5.95 & \\
-2022-08-09 & 2022-08-09 & Ervo stquisit sterodis,4077 Coveta 18264075-0 07/24, Zahlung Debitkarte & 9930722BN8960731 & 30.00 & \\
-2022-08-11 & 2022-08-11 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947223TO6725066 & 17.00 & \\
-2022-08-14 & 2022-08-14 & IME,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930727BN3622307 & 132.06 & \\
-2022-08-14 & 2022-08-14 & Ope Crino,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930727BN3622282 & 12.20 & \\
-2022-08-14 & 2022-08-14 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930729BN4733646 & 37.00 & \\
-2022-08-15 & 2022-08-15 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930728BN4456031 & 40.70 & \\
-2022-08-16 & 2022-08-16 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930730BN5639008 & 2.85 & \\
-2022-08-16 & 2022-08-16 & RIS Ardum Dirorto Umiral,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930729BN4799698 & 2.30 & \\
-2022-08-16 & 2022-08-16 & Sporte Xxx Vi Fer,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930730BN5659363 & 69.30 & \\
-2022-08-17 & 2022-08-17 & Crico ET AT (3441) Auxit,7127 Sendicus 18264075-0 07/24, Zahlung Debitkarte & 9930730BN6321854 & 25.00 & \\
-2022-08-18 & 2022-08-18 & Domen Verundo Habis,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930731BN7488945 & 3.20 & \\
-2022-08-19 & 2022-08-19 & CONTENT 18264075-0 07/24, Bezug Bancomat & 9930733BN8544416 & 20.00 & \\
-2022-08-19 & 2022-08-19 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8525578 & 2.20 & \\
-2022-08-20 & 2022-08-20 & Emuligitum AT,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8964286 & 40.10 & \\
-2022-08-20 & 2022-08-20 & Noun'o AT 74, Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8963987 & 23.85 & \\
-2022-08-20 & 2022-08-20 & Screm-Pilis AT 6474,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8976357 & 18.80 & \\
-2022-08-20 & 2022-08-20 & Visimo Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930733BN8938604 & 28.90 & \\
-2022-08-22 & 2022-08-22 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930735BN1056625 & 2.30 & \\
-2022-08-23 & 2022-08-23 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930737BN2050048 & 31.00 & \\
-2022-08-23 & 2022-08-23 & Per Oppote,5410 Oppote 18264075-0 07/24, Zahlung Debitkarte & 9930736BN1807534 & 63.31 & \\
-2022-08-24 & 2022-08-24 & OCCEM SUGAUT STA UT OS,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930739BN3915438 & 61.99 & \\
-2022-08-25 & 2022-08-25 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930740BN5276881 & 2.85 & \\
-2022-08-25 & 2022-08-25 & Picitum Hombulo,4600 Faburall Parangusus & 9947737LK4529099 &  & 260.00\\
-2022-08-25 & 2022-08-25 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930738BN3748816 & 2.30 & \\
-2022-08-26 & 2022-08-26 & Auremo Maturamquis Pelii,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930739BN5100158 & 225.00 & \\
-2022-08-26 & 2022-08-26 & Cande Hombulo,7127 Sendicus Labientrunda Stula & 9947738MC4808665 & 350.00 & \\
-2022-08-26 & 2022-08-26 & Cant-1154 Habis,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930739BN5134524 & 12.60 & \\
-2022-08-26 & 2022-08-26 & Cone Atiniunch 51,8264 Atiniunch 18264075-0 07/24, Zahlung Debitkarte & 9930739BN4160378 & 21.30 & \\
-2022-08-26 & 2022-08-26 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947238TO5107716 & 35.00 & \\
-2022-08-26 & 2022-08-26 & Potudisi Cannertent,7127 Sendicus Parangusus & 9930738LK4923147 &  & 332.00\\
-2022-08-26 & 2022-08-26 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Pedivegenitti & 9999238ZC6626377 &  & 4369.80\\
-2022-08-27 & 2022-08-27 & Cande Hombulo,7127 Sendicus PRIMAGIT, f-stimore-Curaüetiundeptula & 9947241TO5598850 & 500.00 & \\
-2022-08-27 & 2022-08-27 & Si Perusa AT,2130 Veruratum 18264075-0 07/24, Zahlung Debitkarte & 9930740BN5973689 & 21.00 & \\
-2022-08-28 & 2022-08-28 & Occat Rité ut Senta Vest,3446 Carescia k'Salegi 18264075-0 07/24, Zahlung Debitkarte & 9930741BN7023344 & 60.00 & \\
-2022-08-29 & 2022-08-29 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 3270241TO5419059 & 331.75 & \\
-2022-08-29 & 2022-08-29 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 2570241TO5418915 & 381.40 & \\
-2022-08-29 & 2022-08-29 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930743BN8228312 & 1.95 & \\
-2022-08-29 & 2022-08-29 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930743BN8228304 & 2.85 & \\
-2022-08-29 & 2022-08-29 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 3170241TO5419043 & 78.75 & \\
-2022-08-29 & 2022-08-29 & Omple Malebite,8703 Bonflungit RES QUA, f-stimore-Curaüetiundeptula & 9947239TO5585742 & 1350.00 & \\
-2022-08-29 & 2022-08-29 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930742BN8113154 & 2.30 & \\
-2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3070241TO5418943 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 2870241TO5418927 & 25.25 & \\
-2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 2770241TO5418926 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 2970241TO5418935 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 2670241TO5418920 & 160.40 & \\
-2022-08-30 & 2022-08-30 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930744BN9296750 & 6.75 & \\
-2022-08-30 & 2022-08-30 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930743BN9177491 & 2.30 & \\
-2022-08-31 & 2022-08-31 & Aptinsa \& Divis Hompriam,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930744BN0236943 & 67.00 & \\
-2022-08-31 & 2022-08-31 & Vicem Tangulathosuiscriavadracibulo  & HI38536WT3434003 & 6.00 & \\
-2022-09-02 & 2022-09-02 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930749BN4199057 & 38.00 & \\
-2022-09-03 & 2022-09-03 & Mangusum me Agnubis,4600 Faburall 18264075-0 07/24, Zahlung Debitkarte & 9930747BN3429480 & 20.00 & \\
-2022-09-03 & 2022-09-03 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930747BN3406650 & 15.15 & \\
-2022-09-04 & 2022-09-04 & Vissa Umiral Sus,1767 Vicutico 18264075-0 07/24, Zahlung Debitkarte & 9930748BN4067830 & 35.01 & \\
-2022-09-05 & 2022-09-05 & DicAt  *Combis Xxx AT,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930750BN5294984 & 11.00 & \\
-2022-09-05 & 2022-09-05 & Obscuci Electam ET,Niunabietiontescro 62k, 1132 Ferisub f-stimore-Curaüetiundeptula & 3070248TO8648912 & 13.20 & \\
-2022-09-05 & 2022-09-05 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930749BN5082020 & 2.30 & \\
-2022-09-07 & 2022-09-07 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930752BN7301287 & 31.00 & \\
-2022-09-08 & 2022-09-08 & Cocta ET,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930752BN8076216 & 135.00 & \\
-2022-09-09 & 2022-09-09 & Vivirituli dupa,7127 Sendicus 18264075-0 07/24, Zahlung Debitkarte & 9930753BN9198874 & 3.20 & \\
-2022-09-10 & 2022-09-10 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947253TO4322099 & 6.00 & \\
-2022-09-10 & 2022-09-10 & DicAt  *NECT.AUSPEM AT,7362 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930755BN0443826 & 42.00 & \\
-2022-09-10 & 2022-09-10 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930756BN1121023 & 59.00 & \\
-2022-09-10 & 2022-09-10 & Parunter Aciburo,7127 Sendicus 18264075-0 07/24, Zahlung Debitkarte & 9930754BN0210069 & 11.95 & \\
-2022-09-11 & 2022-09-11 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930755BN0679657 & 35.01 & \\
-2022-09-13 & 2022-09-13 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947256TO5744546 & 8.00 & \\
-2022-09-14 & 2022-09-14 & Sporte Xxx Vi Fer,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930759BN4004759 & 28.70 & \\
-2022-09-16 & 2022-09-16 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930761BN5992656 & 2.15 & \\
-2022-09-16 & 2022-09-16 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930763BN7577468 & 38.00 & \\
-2022-09-16 & 2022-09-16 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930761BN5941653 & 35.00 & \\
-2022-09-16 & 2022-09-16 & RIS Ardum Dirorto Umiral,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930760BN5062004 & 2.30 & \\
-2022-09-16 & 2022-09-16 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930760BN5785125 & 2.30 & \\
-2022-09-18 & 2022-09-18 & B7 Viscessuunt,731 Viscessuunt 18264075-0 07/24, Zahlung Debitkarte & 9930763BN7578137 & 7.48 & \\
-2022-09-19 & 2022-09-19 & Opectatray ibi.,243 PRANTEM 18264075-0 07/24, Zahlung Debitkarte & 9930764BN8516801 & 29.12 & \\
-2022-09-19 & 2022-09-19 & Poegram Hyaciungunt Me,374 Fuibulli 18264075-0 07/24, Zahlung Debitkarte & 9930764BN8530591 & 12.53 & \\
-2022-09-20 & 2022-09-20 & Billiguit cone,871 Everinent 18264075-0 07/24, Zahlung Debitkarte & 9930765BN9449440 & 22.69 & \\
-2022-09-20 & 2022-09-20 & Call Expect Call Cone,765 Eximindum 18264075-0 07/24, Zahlung Debitkarte & 9930766BN0383942 & 10.40 & \\
-2022-09-20 & 2022-09-20 & Passivem,871 Everinent 18264075-0 07/24, Zahlung Debitkarte & 9930765BN9469472 & 13.44 & \\
-2022-09-21 & 2022-09-21 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947264TO9619515 & 30.00 & \\
-2022-09-21 & 2022-09-21 & Pertiunumn Rotatum ibi,871 Everinent 18264075-0 07/24, Zahlung Debitkarte & 9930766BN0433503 & 47.72 & \\
-2022-09-22 & 2022-09-22 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947265TO0479086 & 25.00 & \\
-2022-09-23 & 2022-09-23 & Certeé Seceripar AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930767BN2051973 & 43.20 & \\
-2022-09-23 & 2022-09-23 & Picitum Hombulo,4600 Faburall Parangusus & 9947766LK6325315 &  & 260.00\\
-2022-09-23 & 2022-09-23 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Pedivegenitti & 9999266ZC5522155 &  & 4369.80\\
-2022-09-24 & 2022-09-24 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947267TO1751525 & 102.00 & \\
-2022-09-24 & 2022-09-24 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947267TO1802267 & 50.00 & \\
-2022-09-24 & 2022-09-24 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930770BN4208682 & 31.00 & \\
-2022-09-25 & 2022-09-25 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930771BN5330378 & 76.00 & \\
-2022-09-25 & 2022-09-25 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930769BN3961844 & 9.45 & \\
-2022-09-26 & 2022-09-26 & Cande Hombulo,7127 Sendicus Labientrunda Stula & 9947769MC6494849 & 350.00 & \\
-2022-09-26 & 2022-09-26 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 4070269TO4404083 & 331.75 & \\
-2022-09-26 & 2022-09-26 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 3370269TO4403559 & 381.40 & \\
-2022-09-26 & 2022-09-26 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 3970269TO4404065 & 76.40 & \\
-2022-09-26 & 2022-09-26 & Omple Malebite,8703 Bonflungit RES DIS, f-stimore-Curaüetiundeptula & 9947267TO1762930 & 1350.00 & \\
-2022-09-26 & 2022-09-26 & Potudisi Cannertent,7127 Sendicus Parangusus & 9930769LK6569030 &  & 332.00\\
-2022-09-26 & 2022-09-26 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930770BN5166064 & 2.30 & \\
-2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3870269TO4403821 & 20.35 & \\
-2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3770269TO4403788 & 19.95 & \\
-2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3670269TO4403764 & 19.95 & \\
-2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 3570269TO4403751 & 21.00 & \\
-2022-09-26 & 2022-09-26 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 3470269TO4403730 & 158.60 & \\
-2022-09-27 & 2022-09-27 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930772BN6316543 & 5.35 & \\
-2022-09-27 & 2022-09-27 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930771BN6222323 & 2.30 & \\
-2022-09-28 & 2022-09-28 & CONTENT 18264075-0 07/24, Bezug Bancomat & 9930773BN7311676 & 20.00 & \\
-2022-09-30 & 2022-09-30 & Cocta ET,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930774BN9423682 & 2.95 & \\
-2022-09-30 & 2022-09-30 & DicAt  *NECT.AUSPEM AT,7362 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930775BN9537029 & 35.00 & \\
-2022-09-30 & 2022-09-30 & FABO,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930775BN9644309 & 204.63 & \\
-2022-09-30 & 2022-09-30 & Vicem Tangulathosuiscriavadracibulo  & SO33668KT3753521 & 6.00 & \\
-2022-10-01 & 2022-10-01 & EX FUISSURATE UT R. ET,8180 SALION 18264075-0 07/24, Zahlung Debitkarte & 9930777BN1222452 & 36.00 & \\
-2022-10-02 & 2022-10-02 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947275TO7350252 & 40.00 & \\
-2022-10-03 & 2022-10-03 & DicAt  *Combis Xxx AT,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930778BN2320208 & 7.60 & \\
-2022-10-03 & 2022-10-03 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930777BN2141170 & 2.30 & \\
-2022-10-05 & 2022-10-05 & MENDA LECT,1746 CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9930780BN4358849 & 16.00 & \\
-2022-10-07 & 2022-10-07 & DicAt  *Combis Xxx AT,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930782BN6498195 & 11.00 & \\
-2022-10-07 & 2022-10-07 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930781BN6328071 & 2.30 & \\
-2022-10-08 & 2022-10-08 & Aver \& Anumn Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7026096 & 80.30 & \\
-2022-10-08 & 2022-10-08 & INTUM TIATUS AT,6162 EVICULAC 18264075-0 07/24, Zahlung Debitkarte & 9930784BN8222251 & 47.50 & \\
-2022-10-08 & 2022-10-08 & Ingral stquisit sterodis,8180 Salion 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7284975 & 38.40 & \\
-2022-10-08 & 2022-10-08 & Mire Cogita 28,6162 Steranti 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7536057 & 39.95 & \\
-2022-10-08 & 2022-10-08 & Peria Pilis Navitto,6384 Navitto 18264075-0 07/24, Zahlung Debitkarte & 9930782BN6723476 & 69.95 & \\
-2022-10-08 & 2022-10-08 & Vöex Acietis ET,1088 Practis Seps 18264075-0 07/24, Zahlung Debitkarte & 9930782BN7302070 & 5.00 & \\
-2022-10-09 & 2022-10-09 & Cone Estop AT,1817 Postano-Terundi 18264075-0 07/24, Zahlung Debitkarte & 9930783BN7824537 & 15.00 & \\
-2022-10-10 & 2022-10-10 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930785BN9206042 & 2.85 & \\
-2022-10-10 & 2022-10-10 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930784BN9131068 & 2.30 & \\
-2022-10-11 & 2022-10-11 & OS Sendicus 18264075-0 07/24, Bezug Bancomat & 9930785BN0080964 & 300.00 & \\
-2022-10-12 & 2022-10-12 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930787BN1134072 & 14.75 & \\
-2022-10-12 & 2022-10-12 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930787BN1134997 & 2.85 & \\
-2022-10-12 & 2022-10-12 & RIS Ardum Dirorto Umiral,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930786BN0249157 & 2.30 & \\
-2022-10-13 & 2022-10-13 & Cande Hombulo,7127 Sendicus PRIMAGIT, f-stimore-Curaüetiundeptula & 9947286TO3626440 & 1000.00 & \\
-2022-10-14 & 2022-10-14 & FABO,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930789BN3242003 & 84.22 & \\
-2022-10-15 & 2022-10-15 & Mire Cogita 28,6162 Steranti 18264075-0 07/24, Zahlung Debitkarte & 9930789BN4136552 & 17.05 & \\
-2022-10-18 & 2022-10-18 & PERIERIT'B,1767 VICUTICO 18264075-0 07/24, Zahlung Debitkarte & 9930794BN7683507 & 38.00 & \\
-2022-10-22 & 2022-10-22 & Cant-1154 Habis,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930796BN0533729 & 18.25 & \\
-2022-10-22 & 2022-10-22 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930796BN9829310 & 37.32 & \\
-2022-10-23 & 2022-10-23 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930797BN1061960 & 3.85 & \\
-2022-10-25 & 2022-10-25 & Picitum Hombulo,4600 Faburall Parangusus & 9947798LK8184196 &  & 260.00\\
-2022-10-25 & 2022-10-25 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Pedivegenitti & 9999298ZC5922046 &  & 4369.80\\
-2022-10-26 & 2022-10-26 & Cande Hombulo,7127 Sendicus Labientrunda Stula & 9947799MC8346528 & 350.00 & \\
-2022-10-26 & 2022-10-26 & Cande Hombulo,7127 Sendicus f-stimore-Parangusus & 9947299TO1473534 &  & 3000.00\\
-2022-10-26 & 2022-10-26 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930801BN4320207 & 2.85 & \\
-2022-10-26 & 2022-10-26 & Potudisi Cannertent,7127 Sendicus Parangusus & 9930799LK8392827 &  & 332.00\\
-2022-10-27 & 2022-10-27 & AESTABO CUPATUOR V,VIVENTE, 1415 IPLENTQUAM CONE UT SORTE, f-stimore-Curaüetiundeptula & 2170300TO6866966 & 400.05 & \\
-2022-10-27 & 2022-10-27 & AESTABO CUPATUOR V,VIVENTE, 1415 IPLENTQUAM f-stimore-Curaüetiundeptula & 2270300TO6866978 & 2644.50 & \\
-2022-10-27 & 2022-10-27 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET f-stimore-Curaüetiundeptula & 2070300TO6866951 & 331.75 & \\
-2022-10-27 & 2022-10-27 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell f-stimore-Curaüetiundeptula & 1270300TO6866758 & 381.40 & \\
-2022-10-27 & 2022-10-27 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930802BN5477196 & 0.65 & \\
-2022-10-27 & 2022-10-27 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET f-stimore-Curaüetiundeptula & 1970300TO6866933 & 114.90 & \\
-2022-10-27 & 2022-10-27 & OMPLE MALEBITE,ET BONFLUNGIT 8703 RES PRADECTA, f-stimore-Curaüetiundeptula & 1170300TO6866715 & 1350.00 & \\
-2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1670300TO6866836 & 19.95 & \\
-2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1470300TO6866807 & 23.80 & \\
-2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1770300TO6866860 & 19.95 & \\
-2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET f-stimore-Curaüetiundeptula & 1570300TO6866821 & 21.65 & \\
-2022-10-27 & 2022-10-27 & Ventine QUE Quid,2646 Orducuple (Cunibus) f-stimore-Curaüetiundeptula & 1370300TO6866776 & 158.45 & \\
-2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia 18264075-0 07/24, Zahlung Debitkarte & 9930803BN7080856 & 30.00 & \\
-2022-10-29 & 2022-10-29 & INTUM TIATUS AT,6162 EVICULAC 18264075-0 07/24, Zahlung Debitkarte & 9930805BN8594754 & 53.00 & \\
-2022-10-31 & 2022-10-31 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930806BN9643739 & 7.60 & \\
-2022-10-31 & 2022-10-31 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930805BN9558053 & 2.30 & \\
-2022-10-31 & 2022-10-31 & Vicem Tangulathosuiscriavadracibulo  & VD03527OP3725703 & 6.00 & \\
-2022-11-01 & 2022-11-01 & Cannertent, Potudisi Parangusus FER PLETA & 9930305GK5404335 &  & 159.00\\
-2022-11-02 & 2022-11-02 & DUER DUER DUER 1207,CANDE HOMBULO Cuntube si Perat & 9947306TO6493694 & 69.90 & \\
-2022-11-02 & 2022-11-02 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930808BN1699456 & 1.95 & \\
-2022-11-02 & 2022-11-02 & Ment Cureparis,1746 Cureparis 18264075-0 07/24, Zahlung Debitkarte & 9930808BN1692390 & 0.65 & \\
-2022-11-02 & 2022-11-02 & XXX VI FER,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930807BN1470349 & 10.00 & \\
-2022-11-04 & 2022-11-04 & FABO,14423 CABILA INCEM 18264075-0 07/24, Zahlung Debitkarte & 9930810BN3897220 & 138.68 & \\
-2022-11-04 & 2022-11-04 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930809BN3754644 & 30.01 & \\
-2022-11-05 & 2022-11-05 & XXX VI FER,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930810BN3872076 & 32.40 & \\
-2022-11-06 & 2022-11-06 & Stquisit Ficidecire AT,2776 Habis 18264075-0 07/24, Zahlung Debitkarte & 9930811BN5353554 & 6.80 & \\
-2022-11-06 & 2022-11-06 & Vöex Acietis ET,1088 Practis Seps 18264075-0 07/24, Zahlung Debitkarte & 9930811BN5358212 & 5.00 & \\
-2022-11-07 & 2022-11-07 & MENT CUREPARIS,CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9999311BN1710030 & 4.35 & \\
-2022-11-07 & 2022-11-07 & MENT CUREPARIS,CUREPARIS 18264075-0 07/24, Zahlung Debitkarte & 9999311BN0755924 & 2.70 & \\
-2022-11-07 & 2022-11-07 & RIS Brea. Hoc. Dirorto F,6162 Umiral 18264075-0 07/24, Zahlung Debitkarte & 9930812BN6501995 & 2.30 & \\
-2022-11-07 & 2022-11-07 & Untiburo (Duntuunt) AT,Gray Venitiangention 8, 5055 Paral f-stimore-Curaüetiundeptula & 1670311TO2672937 & 52.10 & \\
-2022-11-07 & 2022-11-07 & Untiburo (Duntuunt) AT,Gray Venitiangention 8, 5055 Paral f-stimore-Curaüetiundeptula & 1770311TO2672955 & 99.80 & \\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 51850 57357 62577, Nabieintionch: Nuleg Fluvio, Inceps 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 8858236BG2612704 & 6570209TO6433206 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 88780 61023 80834, Nabieintionch: Nuleg Fluvio, Inceps 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3646415VD4730033 & 6470209TO6433185 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 83028 11520 81183 50063, Nabieintionch: Nuleg Fluvio, Inceps 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 7787344CW8132233 & 6370209TO6433158 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 31731 74642 50254, Nabieintionch: Nuleg Fluvio, Inceps 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6542334CM6258718 & 6670209TO6433219 & 20.20 &  & undefined\\
+2022-07-28 & 2022-07-28 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET Haucitas-Eo. PLE: 16 31136 31136 31136 75166 45780, Meris-Eo. REGI: BO24 2706 4310 6305 7157 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 8103627LH4503330 & 6770209TO6433234 & 89.30 &  & undefined\\
+2022-07-28 & 2022-07-28 & SUS ABURURRINTERUM ET,EFFINABERE Haucitas-Eo. 14 34038 28746 21561 23758 82118, Meris-Eo. 56-115260-3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3271213YU7254665 & 9947208TO9200212 & 108.35 &  & undefined\\
+2022-07-28 & 2022-07-28 & Ventine QUE Quid,2646 Orducuple (Cunibus) Haucitas-Eo. PLE: 16 77035 28187 45266 51514 27106, Meris-Eo. REGI: CL07 2706 8566 6324 1443 6, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 7713414PY8152763 & 6270209TO6433141 & 163.80 &  & undefined\\
+2022-07-28 & 2022-07-28 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET Haucitas-Eo. PLE: 16 68875 85181 37661 43881 22448, Meris-Eo. REGI: FT84 2706 8046 7403 5250 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3501323QS2624542 & 7070209TO6433290 & 331.75 &  & undefined\\
+2022-07-28 & 2022-07-28 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell Haucitas-Eo. PLE: 13 68515 78525 25637 10514 72270, Nabieintionch: Ampesed A Obabo, Meris-Eo. REGI: NA37 8863 1670 6521 7187 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6166538WR2286366 & 6170209TO6433023 & 381.40 &  & undefined\\
+2022-07-28 & 2022-07-28 & Omple Malebite,8703 Bonflungit Meris-Eo. REGI: MR18 8027 1714 3584 G010 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 1732475TR4803331 & 9947208TO9191506 & 1350.00 &  & undefined\\
+2022-07-29 & 2022-07-31 & Vicem Tangulathosuiscriavadracibulo Latendiximox-Eo. QC44163TI3555777 & QC44163TI3555777 & 6.00 &  & undefined\\
+2022-07-30 & 2022-07-30 & Vissa Retianum,4012 Aquaepro Latendiximox-Eo. 2107637VC8267044 & 9930712BN9356783 & 30.21 &  & undefined\\
+2022-07-30 & 2022-07-30 & EX FUISSURATE UT R. ET,8180 SALION Latendiximox-Eo. 1346106TS4703114 & 9930714BN0871952 & 32.20 &  & undefined\\
+2022-07-30 & 2022-07-30 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 2048851XX0403555 & 9930714BN0918457 & 69.00 &  & undefined\\
+2022-08-01 & 2022-08-01 & Cannertent, Potudisi Nabieintionch: +60361006328, PLETA-Tum.:+27666745258, Latendiximox-Eo. 3004487MB5131570 & 9930213GK1654437 &  & 40.00 & undefined\\
+2022-08-04 & 2022-08-04 & Disum Inam,6162 Umiral Latendiximox-Eo. 6365441IY1574438 & 9930717BN4446066 & 30.02 &  & undefined\\
+2022-08-04 & 2022-08-04 & Aptinsa \& Divis Hompriam,6162 Umiral Latendiximox-Eo. 1033118FR0520161 & 9930718BN4509279 & 72.00 &  & undefined\\
+2022-08-08 & 2022-08-08 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 8274244LR5023002 & 9930722BN8193658 & 2.85 &  & undefined\\
+2022-08-08 & 2022-08-08 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 3878458XC5321732 & 9930722BN8193942 & 2.90 &  & undefined\\
+2022-08-08 & 2022-08-08 & Cocta ET,6162 Umiral Latendiximox-Eo. 2301744XA3383302 & 9930721BN7959401 & 4.60 &  & undefined\\
+2022-08-08 & 2022-08-08 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 2415813WQ1874738 & 9930721BN8092232 & 5.95 &  & undefined\\
+2022-08-08 & 2022-08-08 & DicAt  *NECT.AUSPEM AT,7362 Umiral Latendiximox-Eo. 6242206MF6612846 & 9930722BN8230888 & 35.00 &  & undefined\\
+2022-08-09 & 2022-08-09 & Ervo stquisit sterodis,4077 Coveta Latendiximox-Eo. 3008343HT1830871 & 9930722BN8960731 & 30.00 &  & undefined\\
+2022-08-11 & 2022-08-11 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 8147110MS4562388 & 9947223TO6725066 & 17.00 &  & undefined\\
+2022-08-14 & 2022-08-14 & Ope Crino,8264 Atiniunch Latendiximox-Eo. 1685812OK6646841 & 9930727BN3622282 & 12.20 &  & undefined\\
+2022-08-14 & 2022-08-14 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 4864842NJ5405555 & 9930729BN4733646 & 37.00 &  & undefined\\
+2022-08-14 & 2022-08-14 & IME,8264 Atiniunch Latendiximox-Eo. 7116203YC8318685 & 9930727BN3622307 & 132.06 &  & undefined\\
+2022-08-15 & 2022-08-15 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 5027310KS6270087 & 9930728BN4456031 & 40.70 &  & undefined\\
+2022-08-16 & 2022-08-16 & RIS Ardum Dirorto Umiral,6162 Umiral Latendiximox-Eo. 7624210EA3074118 & 9930729BN4799698 & 2.30 &  & undefined\\
+2022-08-16 & 2022-08-16 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 3387444EK7181372 & 9930730BN5639008 & 2.85 &  & undefined\\
+2022-08-16 & 2022-08-16 & Sporte Xxx Vi Fer,6162 Umiral Latendiximox-Eo. 1156731HQ5111127 & 9930730BN5659363 & 69.30 &  & undefined\\
+2022-08-17 & 2022-08-17 & Crico ET AT (3441) Auxit,7127 Sendicus Latendiximox-Eo. 2558784OL8566043 & 9930730BN6321854 & 25.00 &  & undefined\\
+2022-08-18 & 2022-08-18 & Domen Verundo Habis,2776 Habis Latendiximox-Eo. 4053533OP6341515 & 9930731BN7488945 & 3.20 &  & undefined\\
+2022-08-19 & 2022-08-19 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 8106736QQ6806566 & 9930733BN8525578 & 2.20 &  & undefined\\
+2022-08-19 & 2022-08-19 & CONTENT Numeni: Trevoloccuit si Vetudive maximen Periti/Reguisum by aut Caution (*f), Latendiximox-Eo. 2222008OU0763345 & 9930733BN8544416 & 20.00 &  & undefined\\
+2022-08-20 & 2022-08-20 & Screm-Pilis AT 6474,6384 Navitto Latendiximox-Eo. 8350278HL8877418 & 9930733BN8976357 & 18.80 &  & undefined\\
+2022-08-20 & 2022-08-20 & Noun'o AT 74, Navitto,6384 Navitto Latendiximox-Eo. 2618047TP2075026 & 9930733BN8963987 & 23.85 &  & undefined\\
+2022-08-20 & 2022-08-20 & Visimo Navitto,6384 Navitto Latendiximox-Eo. 7318828DG6474232 & 9930733BN8938604 & 28.90 &  & undefined\\
+2022-08-20 & 2022-08-20 & Emuligitum AT,6384 Navitto Latendiximox-Eo. 5704660QT6750136 & 9930733BN8964286 & 40.10 &  & undefined\\
+2022-08-22 & 2022-08-22 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 8235115NM7062188 & 9930735BN1056625 & 2.30 &  & undefined\\
+2022-08-23 & 2022-08-23 & MENDA LECT,1746 CUREPARIS Latendiximox-Eo. 2456438IF8248405 & 9930737BN2050048 & 31.00 &  & undefined\\
+2022-08-23 & 2022-08-23 & Per Oppote,5410 Oppote Latendiximox-Eo. 4263175UL0204482 & 9930736BN1807534 & 63.31 &  & undefined\\
+2022-08-24 & 2022-08-24 & OCCEM SUGAUT STA UT OS,14423 CABILA INCEM Idunibregursempletiptium: -46.16 NOS, Postquibeni: 6.514017, Numeni: Cuntube FER Miles Stam an Liquale -1.53 PRO, Latendiximox-Eo. 2774158UM7251021 & 9930739BN3915438 & 61.99 &  & undefined\\
+2022-08-25 & 2022-08-25 & Picitum Hombulo,4600 Faburall Nabieintionch: Cascurigava, Latendiximox-Eo. 4242208JU7674780 & 9947737LK4529099 &  & 260.00 & undefined\\
+2022-08-25 & 2022-08-25 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 3632134XF4433185 & 9930738BN3748816 & 2.30 &  & undefined\\
+2022-08-25 & 2022-08-25 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 5676872AP5800877 & 9930740BN5276881 & 2.85 &  & undefined\\
+2022-08-26 & 2022-08-26 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Nabieintionch: PERUNC ASUSPIA, Numeni: Lutumeringentræ XXX, Latendiximox-Eo. 8252627UA8738568 & 9999238ZC6626377 &  & 4369.80 & undefined\\
+2022-08-26 & 2022-08-26 & Potudisi Cannertent,7127 Sendicus Nabieintionch: Cannesuliquit, Latendiximox-Eo. 3256238GK2314474 & 9930738LK4923147 &  & 332.00 & undefined\\
+2022-08-26 & 2022-08-26 & Cant-1154 Habis,2776 Habis Latendiximox-Eo. 8187433FC5052674 & 9930739BN5134524 & 12.60 &  & undefined\\
+2022-08-26 & 2022-08-26 & Cone Atiniunch 51,8264 Atiniunch Latendiximox-Eo. 7161116GQ4454853 & 9930739BN4160378 & 21.30 &  & undefined\\
+2022-08-26 & 2022-08-26 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 7330526RO4322187 & 9947238TO5107716 & 35.00 &  & undefined\\
+2022-08-26 & 2022-08-26 & Auremo Maturamquis Pelii,8264 Atiniunch Latendiximox-Eo. 7806577EG3635174 & 9930739BN5100158 & 225.00 &  & undefined\\
+2022-08-26 & 2022-08-26 & Cande Hombulo,7127 Sendicus Meris-Eo. REGI: SG11 3853 5284 4204 78D8 V, Numeni: Practudidum- ris Culaponessidusquam, Latendiximox-Eo. 5883144LM2681575 & 9947738MC4808665 & 350.00 &  & undefined\\
+2022-08-27 & 2022-08-27 & Si Perusa AT,2130 Veruratum Latendiximox-Eo. 1423608TR8141736 & 9930740BN5973689 & 21.00 &  & undefined\\
+2022-08-27 & 2022-08-27 & Cande Hombulo,7127 Sendicus Meris-Eo. 26022515257700G28334, Latendiximox-Eo. 2133086IB8053713 & 9947241TO5598850 & 500.00 &  & undefined\\
+2022-08-28 & 2022-08-28 & Occat Rité ut Senta Vest,3446 Carescia k'Salegi Latendiximox-Eo. 4436045TI0310615 & 9930741BN7023344 & 60.00 &  & undefined\\
+2022-08-29 & 2022-08-29 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 2353312GQ4877181 & 9930743BN8228312 & 1.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 4650456JJ5688262 & 9930742BN8113154 & 2.30 &  & undefined\\
+2022-08-29 & 2022-08-29 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 1144465VI2234285 & 9930743BN8228304 & 2.85 &  & undefined\\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 83028 11520 84001 25606, Nabieintionch: Nuleg, Nicuro 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 5026842SQ4051005 & 2770241TO5418926 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 31731 25282 83006, Nabieintionch: Nuleg, Nicuro 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6221434KV7053530 & 2970241TO5418935 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 51850 84368 38628, Nabieintionch: Nuleg, Nicuro 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 5172551IV8417855 & 3070241TO5418943 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 88780 46511 63534, Nabieintionch: Nuleg, Nicuro 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 1750360NI5628353 & 2870241TO5418927 & 25.25 &  & undefined\\
+2022-08-29 & 2022-08-29 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET Haucitas-Eo. PLE: 16 31136 31136 31136 75166 45780, Meris-Eo. REGI: BO24 2706 4310 6305 7157 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6587003EF2251326 & 3170241TO5419043 & 78.75 &  & undefined\\
+2022-08-29 & 2022-08-29 & Ventine QUE Quid,2646 Orducuple (Cunibus) Haucitas-Eo. PLE: 16 77035 28187 45266 82832 35132, Meris-Eo. REGI: CL07 2706 8566 6324 1443 6, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6564038HJ1834148 & 2670241TO5418920 & 160.40 &  & undefined\\
+2022-08-29 & 2022-08-29 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET Haucitas-Eo. PLE: 16 68875 85181 37661 50118 74227, Meris-Eo. REGI: FT84 2706 8046 7403 5250 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 7832034GK4056608 & 3270241TO5419059 & 331.75 &  & undefined\\
+2022-08-29 & 2022-08-29 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell Haucitas-Eo. PLE: 13 68515 78525 25637 10514 72270, Nabieintionch: Ampesed A Obabo, Meris-Eo. REGI: NA37 8863 1670 6521 7187 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3483046FA2618056 & 2570241TO5418915 & 381.40 &  & undefined\\
+2022-08-29 & 2022-08-29 & Omple Malebite,8703 Bonflungit Meris-Eo. REGI: MR18 8027 1714 3584 G010 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 8011726RV8043108 & 9947239TO5585742 & 1350.00 &  & undefined\\
+2022-08-30 & 2022-08-30 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 2881385XS7063642 & 9930743BN9177491 & 2.30 &  & undefined\\
+2022-08-30 & 2022-08-30 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 5440566BP3406500 & 9930744BN9296750 & 6.75 &  & undefined\\
+2022-08-31 & 2022-08-31 & Vicem Tangulathosuiscriavadracibulo Latendiximox-Eo. HI38536WT3434003 & HI38536WT3434003 & 6.00 &  & undefined\\
+2022-08-31 & 2022-08-31 & Aptinsa \& Divis Hompriam,6162 Umiral Latendiximox-Eo. 3057075UA5076702 & 9930744BN0236943 & 67.00 &  & undefined\\
+2022-09-02 & 2022-09-02 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 5758767YS1834725 & 9930749BN4199057 & 38.00 &  & undefined\\
+2022-09-03 & 2022-09-03 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 6850760PW8825832 & 9930747BN3406650 & 15.15 &  & undefined\\
+2022-09-03 & 2022-09-03 & Mangusum me Agnubis,4600 Faburall Latendiximox-Eo. 7644350XB0731233 & 9930747BN3429480 & 20.00 &  & undefined\\
+2022-09-04 & 2022-09-04 & Vissa Umiral Sus,1767 Vicutico Latendiximox-Eo. 8534888UA3337643 & 9930748BN4067830 & 35.01 &  & undefined\\
+2022-09-05 & 2022-09-05 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 4566022ES2636422 & 9930749BN5082020 & 2.30 &  & undefined\\
+2022-09-05 & 2022-09-05 & DicAt  *Combis Xxx AT,1746 Cureparis Latendiximox-Eo. 5083311JH6148035 & 9930750BN5294984 & 11.00 &  & undefined\\
+2022-09-05 & 2022-09-05 & Obscuci Electam ET,Niunabietiontescro 62k, 1132 Ferisub Haucitas-Eo. PLE: 22 73720 52040 61877 72108 18006, Nabieintionch: Tered 1 ope cast apto, Meris-Eo. REGI: OW78 3720 8778 7501 5858 6, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 7061325GW7726225 & 3070248TO8648912 & 13.20 &  & undefined\\
+2022-09-07 & 2022-09-07 & MENDA LECT,1746 CUREPARIS Latendiximox-Eo. 7557635VE3438532 & 9930752BN7301287 & 31.00 &  & undefined\\
+2022-09-08 & 2022-09-08 & Cocta ET,6162 Umiral Latendiximox-Eo. 5308436LC4720300 & 9930752BN8076216 & 135.00 &  & undefined\\
+2022-09-09 & 2022-09-09 & Vivirituli dupa,7127 Sendicus Latendiximox-Eo. 2114061YE7174117 & 9930753BN9198874 & 3.20 &  & undefined\\
+2022-09-10 & 2022-09-10 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 4520641NX7102402 & 9947253TO4322099 & 6.00 &  & undefined\\
+2022-09-10 & 2022-09-10 & Parunter Aciburo,7127 Sendicus Latendiximox-Eo. 1151355GD7450105 & 9930754BN0210069 & 11.95 &  & undefined\\
+2022-09-10 & 2022-09-10 & DicAt  *NECT.AUSPEM AT,7362 Umiral Latendiximox-Eo. 4681651MI2572034 & 9930755BN0443826 & 42.00 &  & undefined\\
+2022-09-10 & 2022-09-10 & MENDA LECT,1746 CUREPARIS Latendiximox-Eo. 1368142IU2783778 & 9930756BN1121023 & 59.00 &  & undefined\\
+2022-09-11 & 2022-09-11 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 7460417DQ3357177 & 9930755BN0679657 & 35.01 &  & undefined\\
+2022-09-13 & 2022-09-13 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 2638811PW6366561 & 9947256TO5744546 & 8.00 &  & undefined\\
+2022-09-14 & 2022-09-14 & Sporte Xxx Vi Fer,6162 Umiral Latendiximox-Eo. 5573513HY2051453 & 9930759BN4004759 & 28.70 &  & undefined\\
+2022-09-16 & 2022-09-16 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 1162784NA0807633 & 9930761BN5992656 & 2.15 &  & undefined\\
+2022-09-16 & 2022-09-16 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 1018424FB8872307 & 9930760BN5785125 & 2.30 &  & undefined\\
+2022-09-16 & 2022-09-16 & RIS Ardum Dirorto Umiral,6162 Umiral Latendiximox-Eo. 3131121UA7837167 & 9930760BN5062004 & 2.30 &  & undefined\\
+2022-09-16 & 2022-09-16 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 5580086GQ4601715 & 9930761BN5941653 & 35.00 &  & undefined\\
+2022-09-16 & 2022-09-16 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 3311053GB6020551 & 9930763BN7577468 & 38.00 &  & undefined\\
+2022-09-18 & 2022-09-18 & B7 Viscessuunt,731 Viscessuunt Idunibregursempletiptium: -331.16 XXX, Postquibeni: 6.70881, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 4583086DT5073063 & 9930763BN7578137 & 7.48 &  & undefined\\
+2022-09-19 & 2022-09-19 & Poegram Hyaciungunt Me,374 Fuibulli Idunibregursempletiptium: -5483.16 XXX, Postquibeni: 6.688881, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 8634677GU7233171 & 9930764BN8530591 & 12.53 &  & undefined\\
+2022-09-19 & 2022-09-19 & Opectatray ibi.,243 PRANTEM Idunibregursempletiptium: -6475.16 XXX, Postquibeni: 6.424151, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 2066737OE2556544 & 9930764BN8516801 & 29.12 &  & undefined\\
+2022-09-20 & 2022-09-20 & Call Expect Call Cone,765 Eximindum Idunibregursempletiptium: -6158.16 XXX, Postquibeni: 6.432685, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 6653377QJ8786550 & 9930766BN0383942 & 10.40 &  & undefined\\
+2022-09-20 & 2022-09-20 & Passivem,871 Everinent Idunibregursempletiptium: -4708.16 XXX, Postquibeni: 6.575626, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 6750780DC2780664 & 9930765BN9469472 & 13.44 &  & undefined\\
+2022-09-20 & 2022-09-20 & Billiguit cone,871 Everinent Idunibregursempletiptium: -2706.16 XXX, Postquibeni: 6.830558, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 6752838AQ0866824 & 9930765BN9449440 & 22.69 &  & undefined\\
+2022-09-21 & 2022-09-21 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 3278658CA6732734 & 9947264TO9619515 & 30.00 &  & undefined\\
+2022-09-21 & 2022-09-21 & Pertiunumn Rotatum ibi,871 Everinent Idunibregursempletiptium: -8466.16 XXX, Postquibeni: 6.683743, Numeni: Cuntube FER Miles Stam an Liquale -1.16 PRO, Latendiximox-Eo. 3357312OK3187388 & 9930766BN0433503 & 47.72 &  & undefined\\
+2022-09-22 & 2022-09-22 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 5228755QV1857165 & 9947265TO0479086 & 25.00 &  & undefined\\
+2022-09-23 & 2022-09-23 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Nabieintionch: PERUNC ASUSPIA, Numeni: Lutumeringentræ XXX, Latendiximox-Eo. 3230485EJ0231613 & 9999266ZC5522155 &  & 4369.80 & undefined\\
+2022-09-23 & 2022-09-23 & Picitum Hombulo,4600 Faburall Nabieintionch: Cascurigava, Latendiximox-Eo. 2277846NY7285165 & 9947766LK6325315 &  & 260.00 & undefined\\
+2022-09-23 & 2022-09-23 & Certeé Seceripar AT,2776 Habis Latendiximox-Eo. 5044086UD7607067 & 9930767BN2051973 & 43.20 &  & undefined\\
+2022-09-24 & 2022-09-24 & MENDA LECT,1746 CUREPARIS Latendiximox-Eo. 4681221OX1570121 & 9930770BN4208682 & 31.00 &  & undefined\\
+2022-09-24 & 2022-09-24 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 1567257JY1804730 & 9947267TO1802267 & 50.00 &  & undefined\\
+2022-09-24 & 2022-09-24 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 4460370HG1851221 & 9947267TO1751525 & 102.00 &  & undefined\\
+2022-09-25 & 2022-09-25 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 3815016BO2088038 & 9930769BN3961844 & 9.45 &  & undefined\\
+2022-09-25 & 2022-09-25 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 5738627CF7783532 & 9930771BN5330378 & 76.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & Potudisi Cannertent,7127 Sendicus Nabieintionch: Cannesuliquit, Latendiximox-Eo. 1056862YB1766118 & 9930769LK6569030 &  & 332.00 & undefined\\
+2022-09-26 & 2022-09-26 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 2172677KU5158331 & 9930770BN5166064 & 2.30 &  & undefined\\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 31731 26877 52807, Nabieintionch: Nuleg, Diecet 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 2283251MP6472860 & 3770269TO4403788 & 19.95 &  & undefined\\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 88780 24365 50323, Nabieintionch: Nuleg, Diecet 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6572184DP3418073 & 3670269TO4403764 & 19.95 &  & undefined\\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 83028 11520 22156 81377, Nabieintionch: Nuleg, Diecet 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 4151146KF8387152 & 3870269TO4403821 & 20.35 &  & undefined\\
+2022-09-26 & 2022-09-26 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 51850 44076 17364, Nabieintionch: Nuleg, Diecet 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3871348MD3081005 & 3570269TO4403751 & 21.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET Haucitas-Eo. PLE: 16 31136 31136 31136 75166 45780, Meris-Eo. REGI: BO24 2706 4310 6305 7157 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 5266038MN6828404 & 3970269TO4404065 & 76.40 &  & undefined\\
+2022-09-26 & 2022-09-26 & Ventine QUE Quid,2646 Orducuple (Cunibus) Haucitas-Eo. PLE: 16 77035 28187 45266 34230 42817, Meris-Eo. REGI: CL07 2706 8566 6324 1443 6, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 5562868ED4488485 & 3470269TO4403730 & 158.60 &  & undefined\\
+2022-09-26 & 2022-09-26 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET Haucitas-Eo. PLE: 16 68875 85181 62831 12335 54418, Meris-Eo. REGI: FT84 2706 8046 7403 5250 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3825045DT0370324 & 4070269TO4404083 & 331.75 &  & undefined\\
+2022-09-26 & 2022-09-26 & Cande Hombulo,7127 Sendicus Meris-Eo. REGI: SG11 3853 5284 4204 78D8 V, Numeni: Practudidum- ris Culaponessidusquam, Latendiximox-Eo. 2687465CF2833726 & 9947769MC6494849 & 350.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell Haucitas-Eo. PLE: 13 68515 78525 25637 10514 72270, Nabieintionch: Ampesed A Obabo, Meris-Eo. REGI: NA37 8863 1670 6521 7187 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 4788467OY0186671 & 3370269TO4403559 & 381.40 &  & undefined\\
+2022-09-26 & 2022-09-26 & Omple Malebite,8703 Bonflungit Meris-Eo. REGI: MR18 8027 1714 3584 G010 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 1165782TA8621162 & 9947267TO1762930 & 1350.00 &  & undefined\\
+2022-09-27 & 2022-09-27 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 5621555BN8847343 & 9930771BN6222323 & 2.30 &  & undefined\\
+2022-09-27 & 2022-09-27 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 6450316CI2003420 & 9930772BN6316543 & 5.35 &  & undefined\\
+2022-09-28 & 2022-09-28 & CONTENT Numeni: Trevoloccuit si Vetudive maximen Periti/Reguisum by aut Caution (*f), Latendiximox-Eo. 5635737GO8126117 & 9930773BN7311676 & 20.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & Cocta ET,6162 Umiral Latendiximox-Eo. 2823233PQ4648202 & 9930774BN9423682 & 2.95 &  & undefined\\
+2022-09-30 & 2022-09-30 & Vicem Tangulathosuiscriavadracibulo Latendiximox-Eo. SO33668KT3753521 & SO33668KT3753521 & 6.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & DicAt  *NECT.AUSPEM AT,7362 Umiral Latendiximox-Eo. 4546577PF8310585 & 9930775BN9537029 & 35.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & FABO,14423 CABILA INCEM Idunibregursempletiptium: -627.16 NOS, Postquibeni: 6.375764, Numeni: Cuntube FER Miles Stam an Liquale -4.56 PRO, Latendiximox-Eo. 5302831AB3261578 & 9930775BN9644309 & 204.63 &  & undefined\\
+2022-10-01 & 2022-10-01 & EX FUISSURATE UT R. ET,8180 SALION Latendiximox-Eo. 3048082NU3862284 & 9930777BN1222452 & 36.00 &  & undefined\\
+2022-10-02 & 2022-10-02 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 2437717WN5745468 & 9947275TO7350252 & 40.00 &  & undefined\\
+2022-10-03 & 2022-10-03 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 2565621YA4076445 & 9930777BN2141170 & 2.30 &  & undefined\\
+2022-10-03 & 2022-10-03 & DicAt  *Combis Xxx AT,1746 Cureparis Latendiximox-Eo. 7470728RB0544448 & 9930778BN2320208 & 7.60 &  & undefined\\
+2022-10-05 & 2022-10-05 & MENDA LECT,1746 CUREPARIS Latendiximox-Eo. 8224075KE5031326 & 9930780BN4358849 & 16.00 &  & undefined\\
+2022-10-07 & 2022-10-07 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 2485025HS0054251 & 9930781BN6328071 & 2.30 &  & undefined\\
+2022-10-07 & 2022-10-07 & DicAt  *Combis Xxx AT,1746 Cureparis Latendiximox-Eo. 6413124PG5657228 & 9930782BN6498195 & 11.00 &  & undefined\\
+2022-10-08 & 2022-10-08 & Vöex Acietis ET,1088 Practis Seps Latendiximox-Eo. 5787716VL8887144 & 9930782BN7302070 & 5.00 &  & undefined\\
+2022-10-08 & 2022-10-08 & Ingral stquisit sterodis,8180 Salion Latendiximox-Eo. 7250036AT0164413 & 9930782BN7284975 & 38.40 &  & undefined\\
+2022-10-08 & 2022-10-08 & Mire Cogita 28,6162 Steranti Latendiximox-Eo. 2524111VS3840218 & 9930782BN7536057 & 39.95 &  & undefined\\
+2022-10-08 & 2022-10-08 & INTUM TIATUS AT,6162 EVICULAC Latendiximox-Eo. 6445805UC0250213 & 9930784BN8222251 & 47.50 &  & undefined\\
+2022-10-08 & 2022-10-08 & Peria Pilis Navitto,6384 Navitto Latendiximox-Eo. 2344805RC4726462 & 9930782BN6723476 & 69.95 &  & undefined\\
+2022-10-08 & 2022-10-08 & Aver \& Anumn Navitto,6384 Navitto Latendiximox-Eo. 1655856XG2227147 & 9930782BN7026096 & 80.30 &  & undefined\\
+2022-10-09 & 2022-10-09 & Cone Estop AT,1817 Postano-Terundi Latendiximox-Eo. 8470370JK2454706 & 9930783BN7824537 & 15.00 &  & undefined\\
+2022-10-10 & 2022-10-10 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 3840005JS6373351 & 9930784BN9131068 & 2.30 &  & undefined\\
+2022-10-10 & 2022-10-10 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 6855120CF8531762 & 9930785BN9206042 & 2.85 &  & undefined\\
+2022-10-11 & 2022-10-11 & OS Sendicus Numeni: Trevoloccuit si Vetudive maximen Periti/Reguisum by aut Caution (*f), Latendiximox-Eo. 3400517FO5527866 & 9930785BN0080964 & 300.00 &  & undefined\\
+2022-10-12 & 2022-10-12 & RIS Ardum Dirorto Umiral,6162 Umiral Latendiximox-Eo. 3188558IU1043366 & 9930786BN0249157 & 2.30 &  & undefined\\
+2022-10-12 & 2022-10-12 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 1122565KJ2646550 & 9930787BN1134997 & 2.85 &  & undefined\\
+2022-10-12 & 2022-10-12 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 1438176KX5148824 & 9930787BN1134072 & 14.75 &  & undefined\\
+2022-10-13 & 2022-10-13 & Cande Hombulo,7127 Sendicus Meris-Eo. 26022515257700G28334, Latendiximox-Eo. 6114246QL4575506 & 9947286TO3626440 & 1000.00 &  & undefined\\
+2022-10-14 & 2022-10-14 & FABO,14423 CABILA INCEM Idunibregursempletiptium: -88.16 NOS, Postquibeni: 6.174085, Numeni: Cuntube FER Miles Stam an Liquale -1.18 PRO, Latendiximox-Eo. 4425101DL6655714 & 9930789BN3242003 & 84.22 &  & undefined\\
+2022-10-15 & 2022-10-15 & Mire Cogita 28,6162 Steranti Latendiximox-Eo. 2403252AF2751827 & 9930789BN4136552 & 17.05 &  & undefined\\
+2022-10-18 & 2022-10-18 & PERIERIT'B,1767 VICUTICO Latendiximox-Eo. 3554601YD4842877 & 9930794BN7683507 & 38.00 &  & undefined\\
+2022-10-22 & 2022-10-22 & Cant-1154 Habis,2776 Habis Latendiximox-Eo. 3355167MJ0888473 & 9930796BN0533729 & 18.25 &  & undefined\\
+2022-10-22 & 2022-10-22 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 5126502OB3730336 & 9930796BN9829310 & 37.32 &  & undefined\\
+2022-10-23 & 2022-10-23 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 1763466YL0165474 & 9930797BN1061960 & 3.85 &  & undefined\\
+2022-10-25 & 2022-10-25 & metube.et AT,Dis ex Fruci 3, ET/Cureparis 1746 Nabieintionch: PERUNC ASUSPIA, Numeni: Lutumeringentræ XXX, Latendiximox-Eo. 1030656IS6117083 & 9999298ZC5922046 &  & 4369.80 & undefined\\
+2022-10-25 & 2022-10-25 & Picitum Hombulo,4600 Faburall Nabieintionch: Cascurigava, Latendiximox-Eo. 4643070DI1424033 & 9947798LK8184196 &  & 260.00 & undefined\\
+2022-10-26 & 2022-10-26 & Cande Hombulo,7127 Sendicus Latendiximox-Eo. 4255084XT3606373 & 9947299TO1473534 &  & 3000.00 & undefined\\
+2022-10-26 & 2022-10-26 & Potudisi Cannertent,7127 Sendicus Nabieintionch: Cannesuliquit, Latendiximox-Eo. 2826186NW1241338 & 9930799LK8392827 &  & 332.00 & undefined\\
+2022-10-26 & 2022-10-26 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 8327015TA8060364 & 9930801BN4320207 & 2.85 &  & undefined\\
+2022-10-26 & 2022-10-26 & Cande Hombulo,7127 Sendicus Meris-Eo. REGI: SG11 3853 5284 4204 78D8 V, Numeni: Practudidum- ris Culaponessidusquam, Latendiximox-Eo. 8043404LR3101745 & 9947799MC8346528 & 350.00 &  & undefined\\
+2022-10-27 & 2022-10-27 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 8278373XR1433380 & 9930802BN5477196 & 0.65 &  & undefined\\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 83028 11520 65306 52164, Nabieintionch: Nuleg, Dentriare 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 7355202SE2118876 & 1670300TO6866836 & 19.95 &  & undefined\\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 31731 44413 68481, Nabieintionch: Nuleg, Dentriare 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 2266232GF3255477 & 1770300TO6866860 & 19.95 &  & undefined\\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 88780 27680 40848, Nabieintionch: Nuleg, Dentriare 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 4170724BG4803634 & 1570300TO6866821 & 21.65 &  & undefined\\
+2022-10-27 & 2022-10-27 & Untiburo (Caution) ET,5055 Dect, ET Haucitas-Eo. PLE: 16 13303 68127 51850 43853 73758, Nabieintionch: Nuleg, Dentriare 5673, Meris-Eo. REGI: AW68 2706 3654 1675 5753 1, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 8587046IU1282463 & 1470300TO6866807 & 23.80 &  & undefined\\
+2022-10-27 & 2022-10-27 & Mini Fluvio AT,Fer et Taterit 4, 1366 Periam, ET Haucitas-Eo. PLE: 16 31136 31136 31136 75166 45780, Meris-Eo. REGI: BO24 2706 4310 6305 7157 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 2324562VO6373702 & 1970300TO6866933 & 114.90 &  & undefined\\
+2022-10-27 & 2022-10-27 & Ventine QUE Quid,2646 Orducuple (Cunibus) Haucitas-Eo. PLE: 16 77035 28187 45266 17201 68281, Meris-Eo. REGI: CL07 2706 8566 6324 1443 6, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 4467647EO2254611 & 1370300TO6866776 & 158.45 &  & undefined\\
+2022-10-27 & 2022-10-27 & Latudusa ET,Pulanicurriblica 31, 8572 Tiatis, ET Haucitas-Eo. PLE: 16 68875 85181 37661 48432 73010, Meris-Eo. REGI: FT84 2706 8046 7403 5250 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 7487655NF0542763 & 2070300TO6866951 & 331.75 &  & undefined\\
+2022-10-27 & 2022-10-27 & MUL (Caution) ET Narehetur Opturra,Dommetinavideium 44, 7766 Suspicell Haucitas-Eo. PLE: 13 68515 78525 25637 10514 72270, Nabieintionch: Ampesed A Obabo, Meris-Eo. REGI: NA37 8863 1670 6521 7187 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 3447316JJ7187263 & 1270300TO6866758 & 381.40 &  & undefined\\
+2022-10-27 & 2022-10-27 & AESTABO CUPATUOR V,VIVENTE, 1415 IPLENTQUAM Haucitas-Eo. PLE: 16 31136 77035 51243 67171 74367, Nabieintionch: OCUNTRO CECTIUNT DITINIX 2833, Meris-Eo. REGI: SU16 2706 8046 8100 6587 6, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 5006168JT6758005 & 2170300TO6866966 & 400.05 &  & undefined\\
+2022-10-27 & 2022-10-27 & OMPLE MALEBITE,ET BONFLUNGIT 8703 Meris-Eo. REGI: MR18 8027 1714 3584 G010 H, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 6351482AR5054437 & 1170300TO6866715 & 1350.00 &  & undefined\\
+2022-10-27 & 2022-10-27 & AESTABO CUPATUOR V,VIVENTE, 1415 IPLENTQUAM Haucitas-Eo. PLE: 16 31136 77035 51243 67171 83251, Nabieintionch: PETA. OCUNTRO ADIGIUNIS 2833, Meris-Eo. REGI: QY46 2706 8046 8100 1714 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 2174164RR0650204 & 2270300TO6866978 & 2644.50 &  & undefined\\
+2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia Latendiximox-Eo. 8778418FN4216217 & 9930803BN7080856 & 30.00 &  & undefined\\
+2022-10-29 & 2022-10-29 & INTUM TIATUS AT,6162 EVICULAC Latendiximox-Eo. 8513514KP1806566 & 9930805BN8594754 & 53.00 &  & undefined\\
+2022-10-31 & 2022-10-31 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 2533281EC3262214 & 9930805BN9558053 & 2.30 &  & undefined\\
+2022-10-31 & 2022-10-31 & Vicem Tangulathosuiscriavadracibulo Latendiximox-Eo. VD03527OP3725703 & VD03527OP3725703 & 6.00 &  & undefined\\
+2022-10-31 & 2022-10-31 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 7110444XP6370564 & 9930806BN9643739 & 7.60 &  & undefined\\
+2022-11-01 & 2022-11-01 & Cannertent, Potudisi Nabieintionch: +60361006328, PLETA-Tum.:+27666745258, Latendiximox-Eo. 2628481OG7040188 & 9930305GK5404335 &  & 159.00 & undefined\\
+2022-11-02 & 2022-11-02 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 1736380ID1678486 & 9930808BN1692390 & 0.65 &  & undefined\\
+2022-11-02 & 2022-11-02 & Ment Cureparis,1746 Cureparis Latendiximox-Eo. 6504656YS5435148 & 9930808BN1699456 & 1.95 &  & undefined\\
+2022-11-02 & 2022-11-02 & XXX VI FER,6162 Umiral Latendiximox-Eo. 7684513IH0310887 & 9930807BN1470349 & 10.00 &  & undefined\\
+2022-11-02 & 2022-11-02 & DUER DUER DUER 1207,CANDE HOMBULO Meris-Eo. 56666062858310830405, Numeni: V-Stimore Merisüusigite, Latendiximox-Eo. 5240050CW6261665 & 9947306TO6493694 & 69.90 &  & undefined\\
+2022-11-04 & 2022-11-04 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 3210780CW4127617 & 9930809BN3754644 & 30.01 &  & undefined\\
+2022-11-04 & 2022-11-04 & FABO,14423 CABILA INCEM Idunibregursempletiptium: -276.16 NOS, Postquibeni: 1.347511, Numeni: Cuntube FER Miles Stam an Liquale -3.65 PRO, Latendiximox-Eo. 2715254LB5746203 & 9930810BN3897220 & 138.68 &  & undefined\\
+2022-11-05 & 2022-11-05 & XXX VI FER,6162 Umiral Latendiximox-Eo. 2880476BE2655057 & 9930810BN3872076 & 32.40 &  & undefined\\
+2022-11-06 & 2022-11-06 & Vöex Acietis ET,1088 Practis Seps Latendiximox-Eo. 4782058OG0444556 & 9930811BN5358212 & 5.00 &  & undefined\\
+2022-11-06 & 2022-11-06 & Stquisit Ficidecire AT,2776 Habis Latendiximox-Eo. 6128117BG5007263 & 9930811BN5353554 & 6.80 &  & undefined\\
+2022-11-07 & 2022-11-07 & RIS Brea. Hoc. Dirorto F,6162 Umiral Latendiximox-Eo. 4321143AV5722870 & 9930812BN6501995 & 2.30 &  & undefined\\
+2022-11-07 & 2022-11-07 & MENT CUREPARIS,CUREPARIS Latendiximox-Eo. 4085027CU0548085 & 9999311BN0755924 & 2.70 &  & undefined\\
+2022-11-07 & 2022-11-07 & MENT CUREPARIS,CUREPARIS Latendiximox-Eo. 6147128JM3460607 & 9999311BN1710030 & 4.35 &  & undefined\\
+2022-11-07 & 2022-11-07 & Untiburo (Duntuunt) AT,Gray Venitiangention 8, 5055 Paral Haucitas-Eo. PLE: 16 71451 88428 67536 23344 28738, Nabieintionch: 6428 / Inte: 56.71.53 - 60.71.53 / Alentris actop by: 87.24.5673, Meris-Eo. REGI: SI77 2706 8046 8782 2887 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 2101258NL6658377 & 1670311TO2672937 & 52.10 &  & undefined\\
+2022-11-07 & 2022-11-07 & Untiburo (Duntuunt) AT,Gray Venitiangention 8, 5055 Paral Haucitas-Eo. PLE: 16 71451 88428 87064 81270 45301, Nabieintionch: 6428 / Inte: 56.24.53 - 65.24.53 / Alentris actop by: 33.62.5673, Meris-Eo. REGI: SI77 2706 8046 8782 2887 3, Numeni: V-Stimore PRO Plenis, Latendiximox-Eo. 2824172OF5465534 & 1770311TO2672955 & 99.80 &  & undefined\\
 \\
 \end{tablevalue}
 \end{document}
