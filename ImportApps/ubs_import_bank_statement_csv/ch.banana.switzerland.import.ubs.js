@@ -49,7 +49,7 @@ function exec(inData, isTest) {
     }
 
     let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-    let transactionsData = getFormattedData(transactions, importUtilities);
+    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
     // Format Credit Card
     var formatCc1Ubs = new UBSFormatCc1();
@@ -877,10 +877,10 @@ function UBSFormatCc1() {
     };
 }
 
-function getFormattedData(transactions, importUtilities) {
+function getFormattedData(transactions, convertionParam, importUtilities) {
     let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
-    var columns = importUtilities.getHeaderData(transactionsCopy, 9); //array
-    var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
+    var columns = importUtilities.getHeaderData(transactionsCopy, convertionParam.headerLineStart); //array
+    var rows = importUtilities.getRowData(transactionsCopy, convertionParam.dataLineStart); //array of array
     let form = [];
     let convertedColumns = [];
 
@@ -1004,7 +1004,16 @@ function convertHeaderDe(columns) {
             case "Credit amount":
                 convertedColumns[i] = "CreditAmount";
                 break;
-            case "IndividualAmount":
+            case "Individual amount":
+                convertedColumns[i] = "IndividualAmount";
+                break;
+            case "Belastung":
+                convertedColumns[i] = "DebitAmount";
+                break;
+            case "Gutschrift":
+                convertedColumns[i] = "CreditAmount";
+                break;
+            case "Einzelbetrag":
                 convertedColumns[i] = "IndividualAmount";
                 break;
             case "Saldo":
@@ -1175,6 +1184,15 @@ function defineConversionParam(inData) {
     convertionParam.textDelim = '"';
     // get separator
     convertionParam.separator = findSeparator(inData);
+
+    // Get the header row for format 3
+    if (inData.split('\n')[9].match(/^Abschlussdatum/)) {
+        convertionParam.headerLineStart = 9;
+        convertionParam.dataLineStart = 10;
+    } else {
+        convertionParam.headerLineStart = 8;
+        convertionParam.dataLineStart = 9;
+    }
 
     return convertionParam;
 }
