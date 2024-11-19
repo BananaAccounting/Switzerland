@@ -164,8 +164,7 @@ function RaiffeisenFormat6() {
 		for (var i = 0; i < transactionsData.length; i++) {
 			var transaction = transactionsData[i];
 			var formatMatched = true;
-  
-			if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+			if (formatMatched && transaction.hasOwnProperty("Details") && transaction["Date"] && transaction["Date"].length >= 10 &&
 				transaction["Date"].match(/^\d{4}-\d{2}-\d{2}/))
 				formatMatched = true;
 			else
@@ -180,9 +179,9 @@ function RaiffeisenFormat6() {
   
 	 this.convert = function (transactionsData) {
 		var transactionsToImport = [];
-  
+		
 		for (var i = 0; i < transactionsData.length; i++) {
-			if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+			if (transactionsData[i].hasOwnProperty("Details") && transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
 				transactionsData[i]["Date"].match(/^\d{4}-\d{2}-\d{2}/)) {
 				transactionsToImport.push(this.mapTransaction(transactionsData[i]));
 			}
