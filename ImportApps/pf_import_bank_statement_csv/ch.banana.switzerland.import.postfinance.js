@@ -72,6 +72,14 @@ function exec(inData, isTest) {
          return Banana.Converter.arrayToTsv(transactions);
       }
 
+      // Credit Card format 2
+      var format2_CreditCard = new PFCSVFormat2_CreditCard();
+      let transactionsDataCC = format2_CreditCard.getFormattedData(transactions, importUtilities);
+      if (format2_CreditCard.match(transactionsDataCC)) {
+         let convTransactions = format2_CreditCard.convert(transactionsDataCC);
+         return Banana.Converter.arrayToTsv(convTransactions);
+      }
+
       // Format 1
       var format1 = new PFCSVFormat1();
       if (format1.match(transactions)) {
@@ -431,6 +439,148 @@ function PFCSVFormat6() {
       mappedLine.push("");
       mappedLine.push("");
       let trDescription = transaction["Description"] + ", " + transaction["Type"];
+      mappedLine.push(trDescription);
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
+      let expAmount = transaction["Expenses"].replace(/-/g, ''); //remove minus sign
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(expAmount, '.'));
+
+      return mappedLine;
+   }
+
+}
+
+
+/**
+ * Kartenkonto:;0000 0000 0000 0000;;;;
+ * Karte:;XXXX XXXX XXXX 1111 PostFinance Visa Business Card;;;;
+ * Karteninhaber:;BRUNO FREY;;;;
+ * Bewegungsart:;"=""Alle""";;;;
+ * Rechnungsperiode;Buchungsdatum;Einkaufsdatum;Buchungsdetails;Gutschrift in CHF;Lastschrift in CHF
+ * Aktuelle Rechnungsperiode;31.10.2024;30.10.2024;Chur;;-34
+ * Aktuelle Rechnungsperiode;31.10.2024;30.10.2024;Apple Pay;;-98.85
+ * 30.09.2024 − 27.10.2024;25.10.2024;23.10.2024;Apple Pay;;-15.87
+ * 30.09.2024 − 27.10.2024;21.10.2024;20.10.2024;Apple Pay;;-104
+ * Disclaimer:;;;;;
+ * Der Dokumentinhalt wurde durch Filtereinstellungen der Kund:innen generiert. PostFinance ist für den Inhalt und die Vollständigkeit nicht verantwortlich.;;;;;
+**/
+function PFCSVFormat2_CreditCard() {
+
+   this.getFormattedData = function (transactions, importUtilities) {
+      let headerLineStart = 5;
+      let dataLineStart = 6;
+      // We do a copy as the getHeaderData modifies the content and we need to keep the original version clean.
+      let transactionsCopy = JSON.parse(JSON.stringify(transactions));
+      if (transactionsCopy.length < dataLineStart)
+         return [];
+      let columns = importUtilities.getHeaderData(transactionsCopy, headerLineStart); //array
+      let rows = importUtilities.getRowData(transactionsCopy, dataLineStart); //array of array
+      let form = [];
+
+      /** We convert the original headers into a custom format to be able to work with the same
+       * format regardless of original's headers language or the position of the header column.
+       * We need to translate all the .csv fields as the loadForm() method expects the header and
+       * the rows to have the same length.
+       * */
+      let convertedColumns = [];
+
+      convertedColumns = this.convertHeaderDe(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+
+   }
+
+   this.convertHeaderDe = function (columns) {
+      let convertedColumns = [];
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Rechnungsperiode":
+               convertedColumns[i] = "Accounting Period";
+               break;
+            case "Buchungsdatum":
+               convertedColumns[i] = "Date";
+               break;
+            case "Einkaufsdatum":
+               convertedColumns[i] = "Purchase date";
+               break;
+            case "Buchungsdetails":
+               convertedColumns[i] = "Description";
+               break;
+            case "Gutschrift in CHF":
+            case "Gutschrift in EUR":
+            case "Gutschrift in USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Lastschrift in CHF":
+            case "Lastschrift in EUR":
+            case "Lastschrift in USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+      return convertedColumns;
+   }
+
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      let trDescription = transaction["Description"];
       mappedLine.push(trDescription);
       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Income"], '.'));
       let expAmount = transaction["Expenses"].replace(/-/g, ''); //remove minus sign
