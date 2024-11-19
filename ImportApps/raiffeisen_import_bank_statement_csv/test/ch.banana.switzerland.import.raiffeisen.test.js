@@ -69,6 +69,7 @@ TestImportRaiffeisen.prototype.testImport = function() {
    fileNameList.push("file:script/../test/testcases/csv_example_format5_20190107.csv");
    fileNameList.push("file:script/../test/testcases/csv_example_format5_20210212.csv");
    fileNameList.push("file:script/../test/testcases/csv_example_format5_20220518.csv");
+   fileNameList.push("file:script/../test/testcases/csv_example_format6_20241119.csv");
    
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
