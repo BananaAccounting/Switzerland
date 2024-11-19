@@ -2,6 +2,7 @@
 Karte:;XXXX XXXX XXXX 1111 PostFinance Visa Business Card;;;;
 Karteninhaber:;BRUNO FREY;;;;
 Bewegungsart:;"=""Alle""";;;;
+
 Rechnungsperiode;Buchungsdatum;Einkaufsdatum;Buchungsdetails;Gutschrift in CHF;Lastschrift in CHF
 Aktuelle Rechnungsperiode;31.10.2024;30.10.2024;Chur;;-34
 Aktuelle Rechnungsperiode;31.10.2024;30.10.2024;Apple Pay;;-98.85
