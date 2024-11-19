@@ -878,15 +878,9 @@ function UBSFormatCc1() {
 }
 
 function getFormattedData(transactions, importUtilities) {
-    var headerLineStart = 9;
-    var dataLineStart = 10;
-    if (transactions[8].length !==  0) {
-        headerLineStart = 8;
-        dataLineStart = 9;
-    }
     let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
-    var columns = importUtilities.getHeaderData(transactionsCopy, headerLineStart); //array
-    var rows = importUtilities.getRowData(transactionsCopy, dataLineStart); //array of array
+    var columns = importUtilities.getHeaderData(transactionsCopy, 9); //array
+    var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
     let form = [];
     let convertedColumns = [];
 
@@ -1005,20 +999,14 @@ function convertHeaderDe(columns) {
                 convertedColumns[i] = "Currency";
                 break;
             case "Debit amount":
-                convertedColumns[i] = "DebitAmount";
-                break;
-            case "Credit amount":
-                convertedColumns[i] = "CreditAmount";
-                break;
-            case "Individual amount":
-                convertedColumns[i] = "IndividualAmount";
-                break;
             case "Belastung":
                 convertedColumns[i] = "DebitAmount";
                 break;
+            case "Credit amount":
             case "Gutschrift":
                 convertedColumns[i] = "CreditAmount";
                 break;
+            case "IndividualAmount":
             case "Einzelbetrag":
                 convertedColumns[i] = "IndividualAmount";
                 break;
