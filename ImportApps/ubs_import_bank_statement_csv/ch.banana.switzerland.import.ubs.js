@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.ubs
 // @api = 1.0
-// @pubdate = 2024-06-24
+// @pubdate = 2024-11-12
 // @publisher = Banana.ch SA
 // @description = UBS - Import account statement .csv (Banana+ Advanced)
 // @description.en = UBS - Import account statement .csv (Banana+ Advanced)
@@ -12,13 +12,16 @@
 // @task = import.transactions
 // @outputformat = transactions.simple
 // @inputdatasource = openfiledialog
-// @inputencoding = latin1
+// @inputencoding = utf-8
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
 // @includejs = import.utilities.js
 // @timeout = -1
+
+const applicationSupportIsDetail = Banana.compareVersion &&
+    (Banana.compareVersion(Banana.application.version, "10.0.12") >= 0);
 
 /**
  * Parse the data and return the data to be imported as a tab separated file.
@@ -44,11 +47,9 @@ function exec(inData, isTest) {
     if (convertionParam.header) {
         inData = convertionParam.header + inData;
     }
-    let transactions = Banana.Converter.csvToArray(
-        inData,
-        convertionParam.separator,
-        convertionParam.textDelim
-    );
+
+    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
+    let transactionsData = getFormattedData(transactions, importUtilities);
 
     // Format Credit Card
     var formatCc1Ubs = new UBSFormatCc1();
@@ -74,9 +75,8 @@ function exec(inData, isTest) {
 
     // Format 3
     var format3Ubs = new UBSFormat3();
-    if (format3Ubs.match(transactions)) {
-        transactions = format3Ubs.convert(transactions, convertionParam);
-        transactions = format3Ubs.postProcessIntermediaryData(transactions);
+    if (format3Ubs.match(transactionsData)) {
+        transactions = format3Ubs.convert(transactionsData);
         return Banana.Converter.arrayToTsv(transactions);
     }
 
@@ -88,7 +88,7 @@ function exec(inData, isTest) {
 /**
  * UBS Format 1
  *
- * Valuation date;Banking relationship;Portfolio;Product;IBAN;Ccy.;Date from;Date to;Description;Trade date;Booking date;Value date;Description 1;Description 2;Description 3;Transaction no.;Exchange rate in the original amount in settlement currency;Individual amount;Debit;Credit;Balance
+ * Valuation date;Banking relationship;Portfolio;Product;IBAN;Ccy.;Date from;Date to;Description;TradeDate;BookingDate;ValueDate;Description 1;Description 2;Description 3;TransactionNr;Exchange rate in the original amount in settlement currency;IndividualAmount;Debit;Credit;Balance
  * 07.07.17;0240 00254061;;0240 00254061.01C;CH62 0024 4240 2340 6101 C;CHF;01.02.17;30.06.17;UBS Business Current Account;30.06.17;30.06.17;30.06.17;e-banking Order;BWS - CHENEVAL, BWS GERMANLINGUA,  DE DE DE 80331     MUECHEN,  INVOICE : M25252,  STD: ALICE CHENEVAL;;ZD81181TI0690091;;;3'416.82;;206'149.34
  * 07.07.17;0240 00254061;;0240 00254061.01C;CH62 0024 4240 2340 6101 C;CHF;01.02.17;30.06.17;UBS Business Current Account;30.06.17;30.06.17;30.06.17;Amount paid;;;ZD81181TI0690091;1.113334;3069;;;
  */
@@ -568,7 +568,7 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
  * Valutazione in:;CHF;
  * Numero di transazioni in questo periodo:;13;
  *
- * Data dell'operazione;Ora dell'operazione;Data di registrazione;Data di valuta;Moneta;Debit amount;Credit amount;Individual amount;Saldo;N. di transazione;Descrizione1;Descrizione2;Descrizione3;Note a piè di pagina;
+ * Data dell'operazione;Ora dell'operazione;Data di registrazione;Data di valuta;Moneta;DebitAmount;CreditAmount;IndividualAmount;Saldo;N. di transazione;Descrizione1;Descrizione2;Descrizione3;Note a piè di pagina;
  * 2022-11-07;;2022-11-07;2022-11-07;TEM;-99.80;;;2215.89;1770311TO2672955;"Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna";"Cepate in consolest tam g-possica";"Decilausa vi. NUS: 35 47463 30382 81016 85544 75378, Experi in consolest: 2213 / Osit: 37.57.84 - 62.57.84 / Mendimus audio at: 75.64.4848, Sologit vi. CAPH: JA18 6457 3522 2051 7571 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 6068584LN1841647";;
  * 2022-11-07;;2022-11-07;2022-11-07;TEM;-52.10;;;2315.69;1670311TO2672937;"Meniunis (Suractae) VI,Maxi Habyssidedertis 6, 3542 Aerna";"Cepate in consolest tam g-possica";"Decilausa vi. NUS: 35 47463 30382 27465 62135 38521, Experi in consolest: 2213 / Osit: 37.80.84 - 16.80.84 / Mendimus audio at: 81.57.4848, Sologit vi. CAPH: JA18 6457 3522 2051 7571 2, Suisi: B-Possica TEM Suractae, Offereganga vi. 7510665VI0356053";;
  * 2022-11-07;17:10:46;;2022-11-07;TEM;-4.35;;;2367.79;9999311BN1710030;"CERA SEPTEMPTO,SEPTEMPTO";"18264075-0 07/24, Pagamento carta di debito";"Offereganga vi. 7740420TJ8353344";;
@@ -582,90 +582,89 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
 
     constructor(banDocument) {
         super(banDocument);
-        //original file columns
-        this.colCount = 13;
-
-        this.colDateOperation = 0;
-        this.colDateValuta = 3;
-        this.colDebitAmt = 5;
-        this.colCreditAmt = 6;
-        this.colTransNr = 9;
-        this.colDescr1 = 10;
-        this.colDescr2 = 11;
-        this.colDescr3 = 12;
-
         this.decimalSeparator = ".";
-
-        //Index of columns in import format.
-        this.newColDate = 0;
-        this.newColDescription = 2;
-        this.newColExpenses = 4;
     }
 
     /** Return true if the transactions match this format */
-    match(transactions) {
-        if (transactions.length === 0) return false;
+    match(transactionsData) {
+        if (transactionsData.length === 0)
+            return false;
 
-        for (i = 0; i < transactions.length; i++) {
-            var transaction = transactions[i];
+        for (i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
 
             var formatMatched = false;
-            /* array should have all columns */
-            if (transaction.length >= this.colCount) formatMatched = true;
-            else formatMatched = false;
 
-            if (
-                formatMatched &&
-                transaction[this.colDateOperation] &&
-                transaction[this.colDateOperation].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
-            )
+            if (transaction["TradeDate"] && transaction["TradeDate"].match(/^[0-9]+\-[0-9]+\-[0-9]+$/))
                 formatMatched = true;
-            else formatMatched = false;
+            else
+                formatMatched = false;
 
-            if (
-                formatMatched &&
-                transaction[this.colDateValuta] &&
-                transaction[this.colDateValuta].match(/^[0-9]+\-[0-9]+\-[0-9]+$/)
-            )
+            if (formatMatched && transaction["ValueDate"] &&
+                transaction["ValueDate"].match(/^[0-9]+\-[0-9]+\-[0-9]+$/))
                 formatMatched = true;
-            else formatMatched = false;
+            else
+                formatMatched = false;
 
-            if (
-                (formatMatched && transaction[this.colDebitAmt]) ||
-                transaction[this.colCreditAmt]
-            )
+            if (formatMatched && transaction["DebitAmount"] || transaction["CreditAmount"])
                 formatMatched = true;
-            else formatMatched = false;
+            else
+                formatMatched = false;
 
-            if (formatMatched) return true;
+            if (formatMatched)
+                return true;
         }
 
         return false;
     }
 
     /** Convert the transaction to the format to be imported */
-    convert(transactions, convertionParam) {
+    convert(transactionsData) {
         var transactionsToImport = [];
 
+        var lastCompleteTransaction = null;
+        var isPreviousCompleteTransaction = false;
+        var lastCompleteTransactionPrinted = false;
+
         // Filter and map rows
-        for (i = 0; i < transactions.length; i++) {
-            var transaction = transactions[i];
-            if (transaction.length < this.colCount + 1) continue;
-            if (
-                transaction[this.colDateOperation].match(/[0-9\.]+/g) &&
-                transaction[this.colDateOperation].length === 10
-            )
-                transactionsToImport.push(this.mapTransaction(transaction));
+        for (i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            if (transaction["Currency"] && transaction["TransactionNr"] && transaction["Description1"]) { //Valid transaction (complete & detail).
+                if (!this.isDetailRow(transaction)) { // Normal row.
+                    lastCompleteTransactionPrinted = false;
+                    if (isPreviousCompleteTransaction) {
+                        transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                    }
+                    lastCompleteTransaction = transaction;
+                    isPreviousCompleteTransaction = true;
+                } else { // Detail row.
+                    if (transaction['IndividualAmount'] && transaction['IndividualAmount'].length > 0) {
+                        if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+                            lastCompleteTransaction['IsDetail'] = 'S';
+                            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                            lastCompleteTransactionPrinted = true;
+                        }
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        if (applicationSupportIsDetail) {
+                            transaction['IsDetail'] = 'D';
+                        }
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    } else {
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    }
+                }
+            }
         }
 
-        /**
-         * Sort rows by date
-         * SPECIFY THE COLUMN TO USE FOR SORTING
-         * If sortColums is empty the data are not sorted
-         * */
-        convertionParam.sortColums = [this.newColDate, this.newColDescription]; //0 = "Date" field position, 2 = "Description" field position.
-        convertionParam.sortDescending = false;
-        transactionsToImport = sort(transactionsToImport, convertionParam);
+        if (isPreviousCompleteTransaction === true) {
+            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+        }
+
+        // Sort rows by date
+        transactionsToImport = transactionsToImport.reverse();
 
         // Add header and return
         var header = [
@@ -676,82 +675,59 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                 "ExternalReference",
                 "Expenses",
                 "Income",
+                "IsDetail",
             ],
         ];
         return header.concat(transactionsToImport);
     }
 
-    mapTransaction(element) {
+    fillDetailRow(detailRow, totalRow) {
+        // Copy dates
+        detailRow["TradeDate"] = totalRow["TradeDate"];
+        detailRow["ValueDate"] = totalRow["ValueDate"];
+
+        if (detailRow["IndividualAmount"] && detailRow["IndividualAmount"].length > 0) {
+            if (totalRow["DebitAmount"].length > 0) {
+                detailRow["DebitAmount"] = detailRow["IndividualAmount"];
+            } else if (totalRow["CreditAmount"].length > 0) {
+                detailRow["CreditAmount"] = detailRow["IndividualAmount"];
+            }
+        } else {
+            detailRow["DebitAmount"] = totalRow["DebitAmount"];
+            detailRow["CreditAmount"] = totalRow["CreditAmount"];
+        }
+    }
+
+    isDetailRow(transaction) {
+        if (transaction["TradeDate"].length === 0
+            && transaction["TradeTime"].length === 0
+            && transaction["BookingDate"].length === 0
+            && transaction["ValueDate"].length === 0)
+            return true;
+        return false;
+    }
+
+    mapTransaction(transaction) {
         var mappedLine = [];
 
         let dateText = "";
         let dateValueText = "";
 
-        dateText = element[this.colDateOperation].substring(0, 10);
-        dateValueText = element[this.colDateValuta].substring(0, 10);
+        dateText = transaction["TradeDate"].substring(0, 10);
+        dateValueText = transaction["ValueDate"].substring(0, 10);
 
-        mappedLine.push(
-            Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd")
-        );
-        mappedLine.push(
-            Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd")
-        );
+        mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd"));
         // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
-        mappedLine.push(element[this.colDescr1] + " " + element[this.colDescr2]);
-        mappedLine.push(element[this.colTransNr]);
+        mappedLine.push(transaction["Description1"] + " " + transaction["Description3"]);
+        mappedLine.push(transaction["TransactionNr"]);
 
-        mappedLine.push(
-            Banana.Converter.toInternalNumberFormat(
-                element[this.colDebitAmt],
-                this.decimalSeparator
-            )
-        );
-        mappedLine.push(
-            Banana.Converter.toInternalNumberFormat(
-                element[this.colCreditAmt],
-                this.decimalSeparator
-            )
-        );
+        let debitAmt = transaction["DebitAmount"].replace(/-/g, ''); //remove minus sign
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(debitAmt, this.decimalSeparator));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], this.decimalSeparator));
+        mappedLine.push(transaction["IsDetail"]);
 
         return mappedLine;
-    }
-
-    //The purpose of this function is to let the user specify how to convert the categories
-    postProcessIntermediaryData(transactions) {
-        let processesData = [];
-
-        if (transactions.length < 1) return processesData;
-
-        processesData = transactions;
-        /** INSERT HERE THE LIST OF ACCOUNTS NAME AND THE CONVERSION NUMBER
-         *   If the content of "Account" is the same of the text
-         *   it will be replaced by the account number given */
-        //Accounts conversion
-        var accounts = {
-            //...
-        };
-
-        /** INSERT HERE THE LIST OF CATEGORIES NAME AND THE CONVERSION NUMBER
-         *   If the content of "ContraAccount" is the same of the text
-         *   it will be replaced by the account number given */
-
-        //Categories conversion
-        var categories = {
-            //...
-        };
-
-        //Apply the conversions
-        for (var i = 1; i < processesData.length; i++) {
-            var convertedData = processesData[i];
-            //Invert values
-            if (convertedData[this.newColExpenses]) {
-                convertedData[this.newColExpenses] = Banana.SDecimal.invert(
-                    convertedData[this.newColExpenses]
-                );
-            }
-        }
-
-        return processesData;
     }
 };
 
@@ -901,9 +877,297 @@ function UBSFormatCc1() {
     };
 }
 
+function getFormattedData(transactions, importUtilities) {
+    let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
+    var columns = importUtilities.getHeaderData(transactionsCopy, 9); //array
+    var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
+    let form = [];
+    let convertedColumns = [];
+
+    convertedColumns = convertHeaderEn(columns);
+    //Load the form with data taken from the array. Create objects
+    if (convertedColumns.length > 0) {
+        importUtilities.loadForm(form, convertedColumns, rows);
+        return form;
+    }
+
+    convertedColumns = convertHeaderDe(columns);
+    //Load the form with data taken from the array. Create objects
+    if (convertedColumns.length > 0) {
+        importUtilities.loadForm(form, convertedColumns, rows);
+        return form;
+    }
+
+    convertedColumns = convertHeaderIt(columns);
+    //Load the form with data taken from the array. Create objects
+    if (convertedColumns.length > 0) {
+        importUtilities.loadForm(form, convertedColumns, rows);
+        return form;
+    }
+
+    convertedColumns = convertHeaderFr(columns);
+    //Load the form with data taken from the array. Create objects
+    if (convertedColumns.length > 0) {
+        importUtilities.loadForm(form, convertedColumns, rows);
+        return form;
+    }
+
+    return [];
+}
+
+function convertHeaderEn(columns) {
+    let convertedColumns = [];
+
+    for (var i = 0; i < columns.length; i++) {
+        switch (columns[i]) {
+            case "Trade date":
+                convertedColumns[i] = "TradeDate";
+                break;
+            case "Trade time":
+                convertedColumns[i] = "TradeTime";
+                break;
+            case "Booking date":
+                convertedColumns[i] = "BookingDate";
+                break;
+            case "Value date":
+                convertedColumns[i] = "ValueDate";
+                break;
+            case "Currency":
+                convertedColumns[i] = "Currency";
+                break;
+            case "Debit amount":
+            case "Debit":
+                convertedColumns[i] = "DebitAmount";
+                break;
+            case "Credit amount":
+            case "Credit":
+                convertedColumns[i] = "CreditAmount";
+                break;
+            case "Individual smount":
+                convertedColumns[i] = "IndividualAmount";
+                break;
+            case "Balance":
+                convertedColumns[i] = "Balance";
+                break;
+            case "Transaction no.":
+                convertedColumns[i] = "TransactionNr";
+                break;
+            case "Description1":
+                convertedColumns[i] = "Description1";
+                break;
+            case "Description2":
+                convertedColumns[i] = "Description2";
+                break;
+            case "Description3":
+                convertedColumns[i] = "Description3";
+                break;
+            case "Footnotes":
+                convertedColumns[i] = "Footnotes";
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (convertedColumns.indexOf("TradeDate") < 0
+        || convertedColumns.indexOf("TradeTime") < 0
+        || convertedColumns.indexOf("BookingDate") < 0
+        || convertedColumns.indexOf("ValueDate") < 0) {
+        return [];
+    }
+
+    return convertedColumns;
+}
+function convertHeaderDe(columns) {
+    let convertedColumns = [];
+
+    for (var i = 0; i < columns.length; i++) {
+        switch (columns[i]) {
+            case "Abschlussdatum":
+                convertedColumns[i] = "TradeDate";
+                break;
+            case "Abschlusszeit":
+                convertedColumns[i] = "TradeTime";
+                break;
+            case "Buchungsdatum":
+                convertedColumns[i] = "BookingDate";
+                break;
+            case "Valutadatum":
+                convertedColumns[i] = "ValueDate";
+                break;
+            case "Währung":
+                convertedColumns[i] = "Currency";
+                break;
+            case "Debit amount":
+                convertedColumns[i] = "DebitAmount";
+                break;
+            case "Credit amount":
+                convertedColumns[i] = "CreditAmount";
+                break;
+            case "IndividualAmount":
+                convertedColumns[i] = "IndividualAmount";
+                break;
+            case "Saldo":
+                convertedColumns[i] = "Balance";
+                break;
+            case "Transaktions-Nr.":
+                convertedColumns[i] = "TransactionNr";
+                break;
+            case "Beschreibung1":
+                convertedColumns[i] = "Description1";
+                break;
+            case "Beschreibung2":
+                convertedColumns[i] = "Description2";
+                break;
+            case "Beschreibung3":
+                convertedColumns[i] = "Description3";
+                break;
+            case "Fussnoten":
+                convertedColumns[i] = "Footnotes";
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (convertedColumns.indexOf("TradeDate") < 0
+        || convertedColumns.indexOf("TradeTime") < 0
+        || convertedColumns.indexOf("BookingDate") < 0
+        || convertedColumns.indexOf("ValueDate") < 0) {
+        return [];
+    }
+
+    return convertedColumns;
+}
+function convertHeaderIt(columns) {
+    let convertedColumns = [];
+
+    for (var i = 0; i < columns.length; i++) {
+        switch (columns[i]) {
+            case "Data dell'operazione":
+                convertedColumns[i] = "TradeDate";
+                break;
+            case "Ora dell'operazione":
+                convertedColumns[i] = "TradeTime";
+                break;
+            case "Data di registrazione":
+            case "Data di contabilizzazione":
+                convertedColumns[i] = "BookingDate";
+                break;
+            case "Data di valuta":
+                convertedColumns[i] = "ValueDate";
+                break;
+            case "Moneta":
+                convertedColumns[i] = "Currency";
+                break;
+            case "Debit amount":
+            case "Addebito":
+                convertedColumns[i] = "DebitAmount";
+                break;
+            case "Credit amount":
+            case "Accredito":
+                convertedColumns[i] = "CreditAmount";
+                break;
+            case "IndividualAmount":
+            case "Importo singolo":
+                convertedColumns[i] = "IndividualAmount";
+                break;
+            case "Saldo":
+                convertedColumns[i] = "Balance";
+                break;
+            case "N. di transazione":
+                convertedColumns[i] = "TransactionNr";
+                break;
+            case "Descrizione1":
+                convertedColumns[i] = "Description1";
+                break;
+            case "Descrizione2":
+                convertedColumns[i] = "Description2";
+                break;
+            case "Descrizione3":
+                convertedColumns[i] = "Description3";
+                break;
+            case "Note a piè di pagina":
+                convertedColumns[i] = "Footnotes";
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (convertedColumns.indexOf("TradeDate") < 0
+        || convertedColumns.indexOf("TradeTime") < 0
+        || convertedColumns.indexOf("BookingDate") < 0
+        || convertedColumns.indexOf("ValueDate") < 0) {
+        return [];
+    }
+
+    return convertedColumns;
+}
+function convertHeaderFr(columns) {
+    let convertedColumns = [];
+
+    for (var i = 0; i < columns.length; i++) {
+        switch (columns[i]) {
+            case "Date de transaction":
+                convertedColumns[i] = "TradeDate";
+                break;
+            case "Heure de transaction":
+                convertedColumns[i] = "TradeTime";
+                break;
+            case "Date de comptabilisation":
+                convertedColumns[i] = "BookingDate";
+                break;
+            case "Date de valeur":
+                convertedColumns[i] = "ValueDate";
+                break;
+            case "Monnaie":
+                convertedColumns[i] = "Currency";
+                break;
+            case "Debit amount":
+                convertedColumns[i] = "DebitAmount";
+                break;
+            case "Credit amount":
+                convertedColumns[i] = "CreditAmount";
+                break;
+            case "IndividualAmount":
+                convertedColumns[i] = "IndividualAmount";
+                break;
+            case "Solde":
+                convertedColumns[i] = "Balance";
+                break;
+            case "N° de transaction":
+                convertedColumns[i] = "TransactionNr";
+                break;
+            case "Description1":
+                convertedColumns[i] = "Description1";
+                break;
+            case "Description2":
+                convertedColumns[i] = "Description2";
+                break;
+            case "Description3":
+                convertedColumns[i] = "Description3";
+                break;
+            case "Notes de bas de page":
+                convertedColumns[i] = "Footnotes";
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (convertedColumns.indexOf("TradeDate") < 0
+        || convertedColumns.indexOf("TradeTime") < 0
+        || convertedColumns.indexOf("BookingDate") < 0
+        || convertedColumns.indexOf("ValueDate") < 0) {
+        return [];
+    }
+
+    return convertedColumns;
+}
+
 function defineConversionParam(inData) {
     var csvData = Banana.Converter.csvToArray(inData);
-    var header = String(csvData[0]);
     var convertionParam = {};
     /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
     convertionParam.format = "csv"; // available formats are "csv", "html"

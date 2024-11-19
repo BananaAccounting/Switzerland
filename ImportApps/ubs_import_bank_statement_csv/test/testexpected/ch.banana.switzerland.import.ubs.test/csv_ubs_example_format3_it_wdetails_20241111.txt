@@ -1,0 +1,49 @@
+%%info_test_name{csv_ubs_example_format3_it_wdetails_20241111}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2024-11-01 & 2024-11-01 & QRR: 00 00000 00000 00000 00000 00000 Spese & 0936306TO4593780 & 7218.80 &  & undefined\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024309PH0008084 &  & 433.20 & D\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024309PH0008084 &  & 658.35 & D\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024309PH0008084 &  & 75.85 & D\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024309PH0008084 &  & 681.15 & D\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024309PH0008084 &  & 1848.55 & S\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 8436309TO5879009 & 100.00 &  & undefined\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 8636309TO5879022 & 426.70 &  & undefined\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 8536309TO5879018 & 907.30 &  & undefined\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 8336309TO5879002 & 1150.00 &  & undefined\\
+2024-11-04 & 2024-11-04 & QRR: 00 00000 00000 00000 00000 00000 Spese & 8736309TO5879030 & 4747.95 &  & undefined\\
+2024-11-05 & 2024-11-05 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024310PH0000413 &  & 433.20 & D\\
+2024-11-05 & 2024-11-05 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024310PH0000413 &  & 433.20 & S\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 292.60 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 701.10 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 410.40 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 843.60 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 433.20 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 182.40 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 155.80 & D\\
+2024-11-06 & 2024-11-06 & QRR: 00 00000 00000 00000 00000 00000 Spese & 2024311PH0004021 &  & 3019.10 & S\\
+2024-11-08 & 2024-11-08 & QRR: 00 00000 00000 00000 00000 00000 Spese & 9999313ZC1994566 &  & 701.10 & undefined\\
+2024-11-08 & 2024-11-08 & QRR: 00 00000 00000 00000 00000 00000 Spese & 9999313ZC1993612 &  & 658.35 & undefined\\
+2024-11-08 & 2024-11-08 & QRR: 00 00000 00000 00000 00000 00000 Spese & 9999313ZC2021435 &  & 433.20 & undefined\\
+\\
+\end{tablevalue}
+\end{document}

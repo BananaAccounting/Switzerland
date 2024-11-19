@@ -1,4 +1,4 @@
-﻿// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+﻿// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.migrosbank
 // @api = 1.0
-// @pubdate = 2023-10-10
+// @pubdate = 2024-11-08
 // @publisher = Banana.ch SA
 // @description = Migros Bank - Import account statement .csv (Banana+ Advanced)
 // @description.en = Migros Bank - Import account statement .csv (Banana+ Advanced)
@@ -44,8 +44,9 @@ function exec(string, isTest) {
    if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
       return "";
 
-   var fieldSeparator = findSeparator(string);
-   var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+   let convertionParam = defineConversionParam(string);
+   var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
+   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
    // Format 1
    var format1 = new MBFormat1();
@@ -54,10 +55,101 @@ function exec(string, isTest) {
       return Banana.Converter.arrayToTsv(transactions);
    }
 
+   // Format 2
+   var format2 = new MBFormat2();
+   if (format2.match(transactionsData)) {
+      transactions = format2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
    importUtilities.getUnknownFormatError();
 
    return "";
 }
+/**
+ * Migros Bank Format 2
+ */
+function MBFormat2() {
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["DateValue"] && transaction["DateValue"].length >= 10 &&
+            transaction["DateValue"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["Description"])
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
+      mappedLine.push("");
+      mappedLine.push("");
+      let description = this.getDescription(transaction);
+      mappedLine.push(description);
+      let amount = transaction["Amount"];
+      if (amount.indexOf("-") < 0) {
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+         mappedLine.push("");
+      } else {
+         amount = amount.replace(/-/g, '');
+         mappedLine.push("");
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+      }
+
+      return mappedLine;
+   }
+
+   this.getDescription = function (transaction) {
+      let description = "";
+      description = transaction["Description"];
+      if (transaction["Description2"])
+         description += ", " + transaction["Description2"];
+      if (transaction["Description3"])
+         description += ", " + transaction["Description3"];
+      return description;
+   }
+}
+
 
 /**
  * Migros Bank Format 1 A):
@@ -196,9 +288,81 @@ var MBFormat1 = class MBFormat1 {
 
 }
 
-/**
- * The function findSeparator is used to find the field separator.
- */
+function defineConversionParam(inData) {
+
+   var inData = Banana.Converter.csvToArray(inData);
+   var convertionParam = {};
+   /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
+   convertionParam.format = "csv"; // available formats are "csv", "html"
+   //get text delimiter
+   convertionParam.textDelim = '"';
+   // get separator
+   convertionParam.separator = ";";
+
+   /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
+   We suppose the data will always begin right away after the header line */
+   convertionParam.headerLineStart = 7;
+   convertionParam.dataLineStart = 8;
+
+   return convertionParam;
+}
+
+function getFormattedData(inData, convertionParam, importUtilities) {
+   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
+   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
+   let form = [];
+
+   let convertedColumns = [];
+   convertedColumns = convertHeaderIt(columns);
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
+   return [];
+}
+
+function convertHeaderIt(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Data":
+            convertedColumns[i] = "Date";
+            break;
+         case "Testo di registrazione":
+            convertedColumns[i] = "Description";
+            break;
+         case "Comunicazione":
+            convertedColumns[i] = "Description2";
+            break;
+         case "Numero di riferimento":
+            convertedColumns[i] = "Description3";
+            break;
+         case "Importo":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Valuta":
+            convertedColumns[i] = "DateValue";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0
+      || convertedColumns.indexOf("Description") < 0
+      || convertedColumns.indexOf("Description2") < 0
+      || convertedColumns.indexOf("Description3") < 0
+      || convertedColumns.indexOf("Amount") < 0
+      || convertedColumns.indexOf("DateValue") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
 function findSeparator(string) {
 
    var commaCount = 0;

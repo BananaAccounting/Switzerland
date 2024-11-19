@@ -18,203 +18,203 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l }
-Date & DateValue & Description & ExternalReference & Expenses & Income\\
-2022-07-28 & 2022-07-28 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Decus g-anernem & 6270209TO6433141 & 163.80 & \\
-2022-07-28 & 2022-07-28 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Decus g-anernem & 7070209TO6433290 & 331.75 & \\
-2022-07-28 & 2022-07-28 & PRO REPEREPAGITUMN EO,BRURESTANA Decus g-anernem & 9947208TO9200212 & 108.35 & \\
-2022-07-28 & 2022-07-28 & Praer Orectime,1200 Ventertibi ATU XXX, Decus g-anernem & 9947208TO9191506 & 1350.00 & \\
-2022-07-28 & 2022-07-28 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Decus g-anernem & 6770209TO6433234 & 89.30 & \\
-2022-07-28 & 2022-07-28 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Decus g-anernem & 6170209TO6433023 & 381.40 & \\
-2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 6570209TO6433206 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 6670209TO6433219 & 20.20 & \\
-2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 6370209TO6433158 & 19.95 & \\
-2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 6470209TO6433185 & 19.95 & \\
-2022-07-29 & 2022-07-31 & Decto séricide aut dive sissupluvit  & GK64160QD5135756 & 6.00 & \\
-2022-07-30 & 2022-07-30 & EX OLEVENERIT ET V. AT,4431 HOSTAE 18264075-0 07/24, Paiement carte de debit & 9930714BN0871952 & 32.20 & \\
-2022-07-30 & 2022-07-30 & Facta Ombiline,7156 Exemones 18264075-0 07/24, Paiement carte de debit & 9930712BN9356783 & 30.21 & \\
-2022-07-30 & 2022-07-30 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930714BN0918457 & 69.00 & \\
-2022-08-01 & 2022-08-01 & Terbillige, Noviduci Anétis NUM COEGI & 9930213GK1654437 &  & 40.00\\
-2022-08-04 & 2022-08-04 & Dipia Post,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930717BN4446066 & 30.02 & \\
-2022-08-04 & 2022-08-04 & Postium \& Mirea Lituunam,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930718BN4509279 & 72.00 & \\
-2022-08-08 & 2022-08-08 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930721BN8092232 & 5.95 & \\
-2022-08-08 & 2022-08-08 & Dicis EO,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930721BN7959401 & 4.60 & \\
-2022-08-08 & 2022-08-08 & PotIs  *CONE.GUNTIO EX,8060 Centio 18264075-0 07/24, Paiement carte de debit & 9930722BN8230888 & 35.00 & \\
-2022-08-08 & 2022-08-08 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930722BN8193658 & 2.85 & \\
-2022-08-08 & 2022-08-08 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930722BN8193942 & 2.90 & \\
-2022-08-09 & 2022-08-09 & Alvi angramus frungura,4181 Quibus 18264075-0 07/24, Paiement carte de debit & 9930722BN8960731 & 30.00 & \\
-2022-08-11 & 2022-08-11 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947223TO6725066 & 17.00 & \\
-2022-08-14 & 2022-08-14 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930729BN4733646 & 37.00 & \\
-2022-08-14 & 2022-08-14 & SUS,8241 Possilini 18264075-0 07/24, Paiement carte de debit & 9930727BN3622307 & 132.06 & \\
-2022-08-14 & 2022-08-14 & Xxx Supar,8241 Possilini 18264075-0 07/24, Paiement carte de debit & 9930727BN3622282 & 12.20 & \\
-2022-08-15 & 2022-08-15 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930728BN4456031 & 40.70 & \\
-2022-08-16 & 2022-08-16 & Novere Bra In Xxx,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930730BN5659363 & 69.30 & \\
-2022-08-16 & 2022-08-16 & ORA Puper Supicus Centio,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930729BN4799698 & 2.30 & \\
-2022-08-16 & 2022-08-16 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930730BN5639008 & 2.85 & \\
-2022-08-17 & 2022-08-17 & Apost ME EX (3832) Frunt,1587 Piraedde 18264075-0 07/24, Paiement carte de debit & 9930730BN6321854 & 25.00 & \\
-2022-08-18 & 2022-08-18 & Eorte Quaerva Inver,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930731BN7488945 & 3.20 & \\
-2022-08-19 & 2022-08-19 & DIVITIO 18264075-0 07/24, Retrait au Bancomat & 9930733BN8544416 & 20.00 & \\
-2022-08-19 & 2022-08-19 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930733BN8525578 & 2.20 & \\
-2022-08-20 & 2022-08-20 & Apecta Alietho,7382 Alietho 18264075-0 07/24, Paiement carte de debit & 9930733BN8938604 & 28.90 & \\
-2022-08-20 & 2022-08-20 & Obae'r EX 71, Alietho,7382 Alietho 18264075-0 07/24, Paiement carte de debit & 9930733BN8963987 & 23.85 & \\
-2022-08-20 & 2022-08-20 & Remox-Turra EX 3446,7382 Alietho 18264075-0 07/24, Paiement carte de debit & 9930733BN8976357 & 18.80 & \\
-2022-08-20 & 2022-08-20 & Somniustop EX,7382 Alietho 18264075-0 07/24, Paiement carte de debit & 9930733BN8964286 & 40.10 & \\
-2022-08-22 & 2022-08-22 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930735BN1056625 & 2.30 & \\
-2022-08-23 & 2022-08-23 & CRICA PUGE,3518 MARACIERM 18264075-0 07/24, Paiement carte de debit & 9930737BN2050048 & 31.00 & \\
-2022-08-23 & 2022-08-23 & Por Parunt,4503 Parunt 18264075-0 07/24, Paiement carte de debit & 9930736BN1807534 & 63.31 & \\
-2022-08-24 & 2022-08-24 & NOVEM DUCILI REM ET UT,12606 DIANTE VIDUM 18264075-0 07/24, Paiement carte de debit & 9930739BN3915438 & 61.99 & \\
-2022-08-25 & 2022-08-25 & Cantuum Gratore,1763 Nateriam sceant & 9947737LK4529099 &  & 260.00\\
-2022-08-25 & 2022-08-25 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930738BN3748816 & 2.30 & \\
-2022-08-25 & 2022-08-25 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930740BN5276881 & 2.85 & \\
-2022-08-26 & 2022-08-26 & Noviduci Terbillige,1587 Piraedde sceant & 9930738LK4923147 &  & 332.00\\
-2022-08-26 & 2022-08-26 & Pasi Possilini 50,8241 Possilini 18264075-0 07/24, Paiement carte de debit & 9930739BN4160378 & 21.30 & \\
-2022-08-26 & 2022-08-26 & Prow-7127 Inver,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930739BN5134524 & 12.60 & \\
-2022-08-26 & 2022-08-26 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947238TO5107716 & 35.00 & \\
-2022-08-26 & 2022-08-26 & Tudis Gratore,1587 Piraedde decus robicalia Color & 9947738MC4808665 & 350.00 & \\
-2022-08-26 & 2022-08-26 & Vident Miuntudivit Caria,8241 Possilini 18264075-0 07/24, Paiement carte de debit & 9930739BN5100158 & 225.00 & \\
-2022-08-26 & 2022-08-26 & sicisi.me EX,Que ex Debis 2, ME/Maracierm 3518 missum viducto & 9999238ZC6626377 &  & 4369.80\\
-2022-08-27 & 2022-08-27 & Me Cinumn EX,1308 Dacuntion 18264075-0 07/24, Paiement carte de debit & 9930740BN5973689 & 21.00 & \\
-2022-08-27 & 2022-08-27 & Tudis Gratore,1587 Piraedde AQUIDERO, Decus g-anernem & 9947241TO5598850 & 500.00 & \\
-2022-08-28 & 2022-08-28 & Sonem Croé et Inere Pray,5048 Zuccipia s'Rienes 18264075-0 07/24, Paiement carte de debit & 9930741BN7023344 & 60.00 & \\
-2022-08-29 & 2022-08-29 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Decus g-anernem & 2670241TO5418920 & 160.40 & \\
-2022-08-29 & 2022-08-29 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Decus g-anernem & 3270241TO5419059 & 331.75 & \\
-2022-08-29 & 2022-08-29 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930742BN8113154 & 2.30 & \\
-2022-08-29 & 2022-08-29 & Praer Orectime,1200 Ventertibi ATU MOX, Decus g-anernem & 9947239TO5585742 & 1350.00 & \\
-2022-08-29 & 2022-08-29 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Decus g-anernem & 3170241TO5419043 & 78.75 & \\
-2022-08-29 & 2022-08-29 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Decus g-anernem & 2570241TO5418915 & 381.40 & \\
-2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 3070241TO5418943 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 2970241TO5418935 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 2770241TO5418926 & 19.95 & \\
-2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 2870241TO5418927 & 25.25 & \\
-2022-08-29 & 2022-08-29 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930743BN8228304 & 2.85 & \\
-2022-08-29 & 2022-08-29 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930743BN8228312 & 1.95 & \\
-2022-08-30 & 2022-08-30 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930743BN9177491 & 2.30 & \\
-2022-08-30 & 2022-08-30 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930744BN9296750 & 6.75 & \\
-2022-08-31 & 2022-08-31 & Decto séricide aut dive sissupluvit  & TY71311AX1642351 & 6.00 & \\
-2022-08-31 & 2022-08-31 & Postium \& Mirea Lituunam,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930744BN0236943 & 67.00 & \\
-2022-09-02 & 2022-09-02 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930749BN4199057 & 38.00 & \\
-2022-09-03 & 2022-09-03 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930747BN3406650 & 15.15 & \\
-2022-09-03 & 2022-09-03 & Atiarvis ut Convere,1763 Nateriam 18264075-0 07/24, Paiement carte de debit & 9930747BN3429480 & 20.00 & \\
-2022-09-04 & 2022-09-04 & Facta Centio Lam,5037 Experate 18264075-0 07/24, Paiement carte de debit & 9930748BN4067830 & 35.01 & \\
-2022-09-05 & 2022-09-05 & Ierunte Coptent EO,Octatimagnutinguit 24m, 4756 Paranga Decus g-anernem & 3070248TO8648912 & 13.20 & \\
-2022-09-05 & 2022-09-05 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930749BN5082020 & 2.30 & \\
-2022-09-05 & 2022-09-05 & PotIs  *Nentis Ant EX,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930750BN5294984 & 11.00 & \\
-2022-09-07 & 2022-09-07 & CRICA PUGE,3518 MARACIERM 18264075-0 07/24, Paiement carte de debit & 9930752BN7301287 & 31.00 & \\
-2022-09-08 & 2022-09-08 & Dicis EO,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930752BN8076216 & 135.00 & \\
-2022-09-09 & 2022-09-09 & Excitibura inte,1587 Piraedde 18264075-0 07/24, Paiement carte de debit & 9930753BN9198874 & 3.20 & \\
-2022-09-10 & 2022-09-10 & CRICA PUGE,3518 MARACIERM 18264075-0 07/24, Paiement carte de debit & 9930756BN1121023 & 59.00 & \\
-2022-09-10 & 2022-09-10 & Incriusa Susitur,1587 Piraedde 18264075-0 07/24, Paiement carte de debit & 9930754BN0210069 & 11.95 & \\
-2022-09-10 & 2022-09-10 & PotIs  *CONE.GUNTIO EX,8060 Centio 18264075-0 07/24, Paiement carte de debit & 9930755BN0443826 & 42.00 & \\
-2022-09-10 & 2022-09-10 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947253TO4322099 & 6.00 & \\
-2022-09-11 & 2022-09-11 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930755BN0679657 & 35.01 & \\
-2022-09-13 & 2022-09-13 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947256TO5744546 & 8.00 & \\
-2022-09-14 & 2022-09-14 & Novere Bra In Xxx,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930759BN4004759 & 28.70 & \\
-2022-09-16 & 2022-09-16 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930760BN5785125 & 2.30 & \\
-2022-09-16 & 2022-09-16 & ORA Puper Supicus Centio,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930760BN5062004 & 2.30 & \\
-2022-09-16 & 2022-09-16 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930763BN7577468 & 38.00 & \\
-2022-09-16 & 2022-09-16 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930761BN5941653 & 35.00 & \\
-2022-09-16 & 2022-09-16 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930761BN5992656 & 2.15 & \\
-2022-09-18 & 2022-09-18 & C1 Intianutabo,636 Intianutabo 18264075-0 07/24, Paiement carte de debit & 9930763BN7578137 & 7.48 & \\
-2022-09-19 & 2022-09-19 & Aciecta Paripigitio Eo,516 Inventur 18264075-0 07/24, Paiement carte de debit & 9930764BN8530591 & 12.53 & \\
-2022-09-19 & 2022-09-19 & Scriavirea age.,784 EFFICUS 18264075-0 07/24, Paiement carte de debit & 9930764BN8516801 & 29.12 & \\
-2022-09-20 & 2022-09-20 & Dica Saequa Dica Mino,111 Humnicunt 18264075-0 07/24, Paiement carte de debit & 9930766BN0383942 & 10.40 & \\
-2022-09-20 & 2022-09-20 & Metuungun mino,317 Pultinare 18264075-0 07/24, Paiement carte de debit & 9930765BN9449440 & 22.69 & \\
-2022-09-20 & 2022-09-20 & Unctavit,317 Pultinare 18264075-0 07/24, Paiement carte de debit & 9930765BN9469472 & 13.44 & \\
-2022-09-21 & 2022-09-21 & Insulliusa Atuunte age,317 Pultinare 18264075-0 07/24, Paiement carte de debit & 9930766BN0433503 & 47.72 & \\
-2022-09-21 & 2022-09-21 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947264TO9619515 & 30.00 & \\
-2022-09-22 & 2022-09-22 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947265TO0479086 & 25.00 & \\
-2022-09-23 & 2022-09-23 & Auxité Cendepatu EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930767BN2051973 & 43.20 & \\
-2022-09-23 & 2022-09-23 & Cantuum Gratore,1763 Nateriam sceant & 9947766LK6325315 &  & 260.00\\
-2022-09-23 & 2022-09-23 & sicisi.me EX,Que ex Debis 2, ME/Maracierm 3518 missum viducto & 9999266ZC5522155 &  & 4369.80\\
-2022-09-24 & 2022-09-24 & CRICA PUGE,3518 MARACIERM 18264075-0 07/24, Paiement carte de debit & 9930770BN4208682 & 31.00 & \\
-2022-09-24 & 2022-09-24 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947267TO1802267 & 50.00 & \\
-2022-09-24 & 2022-09-24 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947267TO1751525 & 102.00 & \\
-2022-09-25 & 2022-09-25 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930769BN3961844 & 9.45 & \\
-2022-09-25 & 2022-09-25 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930771BN5330378 & 76.00 & \\
-2022-09-26 & 2022-09-26 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Decus g-anernem & 3470269TO4403730 & 158.60 & \\
-2022-09-26 & 2022-09-26 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Decus g-anernem & 4070269TO4404083 & 331.75 & \\
-2022-09-26 & 2022-09-26 & Noviduci Terbillige,1587 Piraedde sceant & 9930769LK6569030 &  & 332.00\\
-2022-09-26 & 2022-09-26 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930770BN5166064 & 2.30 & \\
-2022-09-26 & 2022-09-26 & Praer Orectime,1200 Ventertibi ATU CAT, Decus g-anernem & 9947267TO1762930 & 1350.00 & \\
-2022-09-26 & 2022-09-26 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Decus g-anernem & 3970269TO4404065 & 76.40 & \\
-2022-09-26 & 2022-09-26 & Tudis Gratore,1587 Piraedde decus robicalia Color & 9947769MC6494849 & 350.00 & \\
-2022-09-26 & 2022-09-26 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Decus g-anernem & 3370269TO4403559 & 381.40 & \\
-2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 3870269TO4403821 & 20.35 & \\
-2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 3570269TO4403751 & 21.00 & \\
-2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 3770269TO4403788 & 19.95 & \\
-2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 3670269TO4403764 & 19.95 & \\
-2022-09-27 & 2022-09-27 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930771BN6222323 & 2.30 & \\
-2022-09-27 & 2022-09-27 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930772BN6316543 & 5.35 & \\
-2022-09-28 & 2022-09-28 & DIVITIO 18264075-0 07/24, Retrait au Bancomat & 9930773BN7311676 & 20.00 & \\
-2022-09-30 & 2022-09-30 & DIVE,12606 DIANTE VIDUM 18264075-0 07/24, Paiement carte de debit & 9930775BN9644309 & 204.63 & \\
-2022-09-30 & 2022-09-30 & Decto séricide aut dive sissupluvit  & YH76865HP8406038 & 6.00 & \\
-2022-09-30 & 2022-09-30 & Dicis EO,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930774BN9423682 & 2.95 & \\
-2022-09-30 & 2022-09-30 & PotIs  *CONE.GUNTIO EX,8060 Centio 18264075-0 07/24, Paiement carte de debit & 9930775BN9537029 & 35.00 & \\
-2022-10-01 & 2022-10-01 & EX OLEVENERIT ET V. AT,4431 HOSTAE 18264075-0 07/24, Paiement carte de debit & 9930777BN1222452 & 36.00 & \\
-2022-10-02 & 2022-10-02 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947275TO7350252 & 40.00 & \\
-2022-10-03 & 2022-10-03 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930777BN2141170 & 2.30 & \\
-2022-10-03 & 2022-10-03 & PotIs  *Nentis Ant EX,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930778BN2320208 & 7.60 & \\
-2022-10-05 & 2022-10-05 & CRICA PUGE,3518 MARACIERM 18264075-0 07/24, Paiement carte de debit & 9930780BN4358849 & 16.00 & \\
-2022-10-07 & 2022-10-07 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930781BN6328071 & 2.30 & \\
-2022-10-07 & 2022-10-07 & PotIs  *Nentis Ant EX,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930782BN6498195 & 11.00 & \\
-2022-10-08 & 2022-10-08 & Aöby Dierect EO,8856 Solocto Iper 18264075-0 07/24, Paiement carte de debit & 9930782BN7302070 & 5.00 & \\
-2022-10-08 & 2022-10-08 & Cell Choris 53,5377 Comnumen 18264075-0 07/24, Paiement carte de debit & 9930782BN7536057 & 39.95 & \\
-2022-10-08 & 2022-10-08 & DIVIA OBSTIS EX,5377 TESEDITA 18264075-0 07/24, Paiement carte de debit & 9930784BN8222251 & 47.50 & \\
-2022-10-08 & 2022-10-08 & Ples \& Salvo Alietho,7382 Alietho 18264075-0 07/24, Paiement carte de debit & 9930782BN7026096 & 80.30 & \\
-2022-10-08 & 2022-10-08 & Sicat Turra Alietho,7382 Alietho 18264075-0 07/24, Paiement carte de debit & 9930782BN6723476 & 69.95 & \\
-2022-10-08 & 2022-10-08 & Valibi angramus frungura,4431 Hostae 18264075-0 07/24, Paiement carte de debit & 9930782BN7284975 & 38.40 & \\
-2022-10-09 & 2022-10-09 & Pasi Canem EX,4427 Vignute-Secrite 18264075-0 07/24, Paiement carte de debit & 9930783BN7824537 & 15.00 & \\
-2022-10-10 & 2022-10-10 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930784BN9131068 & 2.30 & \\
-2022-10-10 & 2022-10-10 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930785BN9206042 & 2.85 & \\
-2022-10-11 & 2022-10-11 & BY Piraedde 18264075-0 07/24, Retrait au Bancomat & 9930785BN0080964 & 300.00 & \\
-2022-10-12 & 2022-10-12 & ORA Puper Supicus Centio,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930786BN0249157 & 2.30 & \\
-2022-10-12 & 2022-10-12 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930787BN1134072 & 14.75 & \\
-2022-10-12 & 2022-10-12 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930787BN1134997 & 2.85 & \\
-2022-10-13 & 2022-10-13 & Tudis Gratore,1587 Piraedde AQUIDERO, Decus g-anernem & 9947286TO3626440 & 1000.00 & \\
-2022-10-14 & 2022-10-14 & DIVE,12606 DIANTE VIDUM 18264075-0 07/24, Paiement carte de debit & 9930789BN3242003 & 84.22 & \\
-2022-10-15 & 2022-10-15 & Cell Choris 53,5377 Comnumen 18264075-0 07/24, Paiement carte de debit & 9930789BN4136552 & 17.05 & \\
-2022-10-18 & 2022-10-18 & RETIARAM'P,5037 EXPERATE 18264075-0 07/24, Paiement carte de debit & 9930794BN7683507 & 38.00 & \\
-2022-10-22 & 2022-10-22 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930796BN9829310 & 37.32 & \\
-2022-10-22 & 2022-10-22 & Prow-7127 Inver,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930796BN0533729 & 18.25 & \\
-2022-10-23 & 2022-10-23 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930797BN1061960 & 3.85 & \\
-2022-10-25 & 2022-10-25 & Cantuum Gratore,1763 Nateriam sceant & 9947798LK8184196 &  & 260.00\\
-2022-10-25 & 2022-10-25 & sicisi.me EX,Que ex Debis 2, ME/Maracierm 3518 missum viducto & 9999298ZC5922046 &  & 4369.80\\
-2022-10-26 & 2022-10-26 & Noviduci Terbillige,1587 Piraedde sceant & 9930799LK8392827 &  & 332.00\\
-2022-10-26 & 2022-10-26 & Tudis Gratore,1587 Piraedde Anétis g-anernem & 9947299TO1473534 &  & 3000.00\\
-2022-10-26 & 2022-10-26 & Tudis Gratore,1587 Piraedde decus robicalia Color & 9947799MC8346528 & 350.00 & \\
-2022-10-26 & 2022-10-26 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930801BN4320207 & 2.85 & \\
-2022-10-27 & 2022-10-27 & ANESTOP STRINIAM T,COPECTA, 5348 SYLLIQUIET Decus g-anernem & 2270300TO6866978 & 2644.50 & \\
-2022-10-27 & 2022-10-27 & ANESTOP STRINIAM T,COPECTA, 5348 SYLLIQUIET LATE ET MIROW, Decus g-anernem & 2170300TO6866966 & 400.05 & \\
-2022-10-27 & 2022-10-27 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Decus g-anernem & 1370300TO6866776 & 158.45 & \\
-2022-10-27 & 2022-10-27 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Decus g-anernem & 2070300TO6866951 & 331.75 & \\
-2022-10-27 & 2022-10-27 & PRAER ORECTIME,ME VENTERTIBI 1200 ATU NUMETUER, Decus g-anernem & 1170300TO6866715 & 1350.00 & \\
-2022-10-27 & 2022-10-27 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Decus g-anernem & 1970300TO6866933 & 114.90 & \\
-2022-10-27 & 2022-10-27 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Decus g-anernem & 1270300TO6866758 & 381.40 & \\
-2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 1670300TO6866836 & 19.95 & \\
-2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 1770300TO6866860 & 19.95 & \\
-2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 1470300TO6866807 & 23.80 & \\
-2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Decus g-anernem & 1570300TO6866821 & 21.65 & \\
-2022-10-27 & 2022-10-27 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930802BN5477196 & 0.65 & \\
-2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia 18264075-0 07/24, Paiement carte de debit & 9930803BN7080856 & 30.00 & \\
-2022-10-29 & 2022-10-29 & DIVIA OBSTIS EX,5377 TESEDITA 18264075-0 07/24, Paiement carte de debit & 9930805BN8594754 & 53.00 & \\
-2022-10-31 & 2022-10-31 & Decto séricide aut dive sissupluvit  & PS17624XB7087502 & 6.00 & \\
-2022-10-31 & 2022-10-31 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930805BN9558053 & 2.30 & \\
-2022-10-31 & 2022-10-31 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930806BN9643739 & 7.60 & \\
-2022-11-01 & 2022-11-01 & Terbillige, Noviduci Anétis NUM COEGI & 9930305GK5404335 &  & 159.00\\
-2022-11-02 & 2022-11-02 & BRA IN XXX,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930807BN1470349 & 10.00 & \\
-2022-11-02 & 2022-11-02 & SERE SERE SERE 2021,TUDIS GRATORE Tanuluva à por arges & 9947306TO6493694 & 69.90 & \\
-2022-11-02 & 2022-11-02 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930808BN1699456 & 1.95 & \\
-2022-11-02 & 2022-11-02 & Vere Maracierm,3518 Maracierm 18264075-0 07/24, Paiement carte de debit & 9930808BN1692390 & 0.65 & \\
-2022-11-04 & 2022-11-04 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930809BN3754644 & 30.01 & \\
-2022-11-04 & 2022-11-04 & DIVE,12606 DIANTE VIDUM 18264075-0 07/24, Paiement carte de debit & 9930810BN3897220 & 138.68 & \\
-2022-11-05 & 2022-11-05 & BRA IN XXX,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930810BN3872076 & 32.40 & \\
-2022-11-06 & 2022-11-06 & Angramus Diticuruci EX,3840 Inver 18264075-0 07/24, Paiement carte de debit & 9930811BN5353554 & 6.80 & \\
-2022-11-06 & 2022-11-06 & Aöby Dierect EO,8856 Solocto Iper 18264075-0 07/24, Paiement carte de debit & 9930811BN5358212 & 5.00 & \\
-2022-11-07 & 2022-11-07 & ORA Cipe. Tam. Supicus J,5377 Centio 18264075-0 07/24, Paiement carte de debit & 9930812BN6501995 & 2.30 & \\
-2022-11-07 & 2022-11-07 & VERE MARACIERM,MARACIERM 18264075-0 07/24, Paiement carte de debit & 9999311BN1710030 & 4.35 & \\
-2022-11-07 & 2022-11-07 & VERE MARACIERM,MARACIERM 18264075-0 07/24, Paiement carte de debit & 9999311BN0755924 & 2.70 & \\
-2022-11-07 & 2022-11-07 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Decus g-anernem & 1670311TO2672937 & 52.10 & \\
-2022-11-07 & 2022-11-07 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Decus g-anernem & 1770311TO2672955 & 99.80 & \\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 56172 83860 53230, Filla by tanuluva: Opula Latuus, Congit 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3632048TO3134724 & 6570209TO6433206 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 28543 47001 24212, Filla by tanuluva: Opula Latuus, Congit 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2476743CG6756514 & 6470209TO6433185 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 61144 56132 72758 58308, Filla by tanuluva: Opula Latuus, Congit 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 4330071DE6601446 & 6370209TO6433158 & 19.95 &  & undefined\\
+2022-07-28 & 2022-07-28 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 23333 80242 46488, Filla by tanuluva: Opula Latuus, Congit 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 5754026HO4132537 & 6670209TO6433219 & 20.20 &  & undefined\\
+2022-07-28 & 2022-07-28 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Fœnumelia si. QUE: 18 48642 48642 48642 62457 21611, Peliquo si. SALE: YS66 5118 7417 6122 3500 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6352632VH6041366 & 6770209TO6433234 & 89.30 &  & undefined\\
+2022-07-28 & 2022-07-28 & PRO REPEREPAGITUMN EO,BRURESTANA Fœnumelia si. 63 85037 81634 54833 61365 73857, Peliquo si. 75-708027-2, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8776871WG2604746 & 9947208TO9200212 & 108.35 &  & undefined\\
+2022-07-28 & 2022-07-28 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Fœnumelia si. QUE: 18 48785 10244 61065 38385 64026, Peliquo si. SALE: QT65 5118 5047 6721 1782 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3042226QA4470678 & 6270209TO6433141 & 163.80 &  & undefined\\
+2022-07-28 & 2022-07-28 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Fœnumelia si. QUE: 18 65754 13653 30642 86438 35751, Peliquo si. SALE: XT82 5118 4658 7304 8785 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6084322WV1206876 & 7070209TO6433290 & 331.75 &  & undefined\\
+2022-07-28 & 2022-07-28 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Fœnumelia si. QUE: 53 15880 85604 43886 60448 54616, Filla by tanuluva: Glatulo A Orper, Peliquo si. SALE: CH67 3823 3807 2823 3667 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2187218LC8303102 & 6170209TO6433023 & 381.40 &  & undefined\\
+2022-07-28 & 2022-07-28 & Praer Orectime,1200 Ventertibi Peliquo si. SALE: SQ25 2143 5747 4777 Q534 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 4443652WY4880683 & 9947208TO9191506 & 1350.00 &  & undefined\\
+2022-07-29 & 2022-07-31 & Decto séricide aut dive sissupluvit Tuotescieta si. GK64160QD5135756 & GK64160QD5135756 & 6.00 &  & undefined\\
+2022-07-30 & 2022-07-30 & Facta Ombiline,7156 Exemones Tuotescieta si. 8653551PI3260264 & 9930712BN9356783 & 30.21 &  & undefined\\
+2022-07-30 & 2022-07-30 & EX OLEVENERIT ET V. AT,4431 HOSTAE Tuotescieta si. 8785308HN4552442 & 9930714BN0871952 & 32.20 &  & undefined\\
+2022-07-30 & 2022-07-30 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 1301832MP3352824 & 9930714BN0918457 & 69.00 &  & undefined\\
+2022-08-01 & 2022-08-01 & Terbillige, Noviduci Filla by tanuluva: +82144813826, COEGI-Xxx.:+44758884642, Tuotescieta si. 5132060RL4366433 & 9930213GK1654437 &  & 40.00 & undefined\\
+2022-08-04 & 2022-08-04 & Dipia Post,5377 Centio Tuotescieta si. 7777615DH5221006 & 9930717BN4446066 & 30.02 &  & undefined\\
+2022-08-04 & 2022-08-04 & Postium \& Mirea Lituunam,5377 Centio Tuotescieta si. 8222548XH1034717 & 9930718BN4509279 & 72.00 &  & undefined\\
+2022-08-08 & 2022-08-08 & Vere Maracierm,3518 Maracierm Tuotescieta si. 7772331EV3163880 & 9930722BN8193658 & 2.85 &  & undefined\\
+2022-08-08 & 2022-08-08 & Vere Maracierm,3518 Maracierm Tuotescieta si. 5733385XS2836514 & 9930722BN8193942 & 2.90 &  & undefined\\
+2022-08-08 & 2022-08-08 & Dicis EO,5377 Centio Tuotescieta si. 4218642JJ4026483 & 9930721BN7959401 & 4.60 &  & undefined\\
+2022-08-08 & 2022-08-08 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 4067134TA5135417 & 9930721BN8092232 & 5.95 &  & undefined\\
+2022-08-08 & 2022-08-08 & PotIs  *CONE.GUNTIO EX,8060 Centio Tuotescieta si. 3546803KH3048680 & 9930722BN8230888 & 35.00 &  & undefined\\
+2022-08-09 & 2022-08-09 & Alvi angramus frungura,4181 Quibus Tuotescieta si. 8350628NS0723248 & 9930722BN8960731 & 30.00 &  & undefined\\
+2022-08-11 & 2022-08-11 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 5641571JB8408366 & 9947223TO6725066 & 17.00 &  & undefined\\
+2022-08-14 & 2022-08-14 & Xxx Supar,8241 Possilini Tuotescieta si. 5223571KD1007340 & 9930727BN3622282 & 12.20 &  & undefined\\
+2022-08-14 & 2022-08-14 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 1611428MA7258457 & 9930729BN4733646 & 37.00 &  & undefined\\
+2022-08-14 & 2022-08-14 & SUS,8241 Possilini Tuotescieta si. 4147453IT3783658 & 9930727BN3622307 & 132.06 &  & undefined\\
+2022-08-15 & 2022-08-15 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 1563262EM3384628 & 9930728BN4456031 & 40.70 &  & undefined\\
+2022-08-16 & 2022-08-16 & ORA Puper Supicus Centio,5377 Centio Tuotescieta si. 4682067CK0378720 & 9930729BN4799698 & 2.30 &  & undefined\\
+2022-08-16 & 2022-08-16 & Vere Maracierm,3518 Maracierm Tuotescieta si. 8186423WU8240514 & 9930730BN5639008 & 2.85 &  & undefined\\
+2022-08-16 & 2022-08-16 & Novere Bra In Xxx,5377 Centio Tuotescieta si. 4323641EQ6087470 & 9930730BN5659363 & 69.30 &  & undefined\\
+2022-08-17 & 2022-08-17 & Apost ME EX (3832) Frunt,1587 Piraedde Tuotescieta si. 6313410XS1887837 & 9930730BN6321854 & 25.00 &  & undefined\\
+2022-08-18 & 2022-08-18 & Eorte Quaerva Inver,3840 Inver Tuotescieta si. 5066336WB6450076 & 9930731BN7488945 & 3.20 &  & undefined\\
+2022-08-19 & 2022-08-19 & Vere Maracierm,3518 Maracierm Tuotescieta si. 1066007GW4524776 & 9930733BN8525578 & 2.20 &  & undefined\\
+2022-08-19 & 2022-08-19 & DIVITIO Viûan: Gractum s'troèxxx si surexile s'por puline intuer/Pariente in Choris (*g), Tuotescieta si. 7252857HC3037404 & 9930733BN8544416 & 20.00 &  & undefined\\
+2022-08-20 & 2022-08-20 & Remox-Turra EX 3446,7382 Alietho Tuotescieta si. 6227151WS8384236 & 9930733BN8976357 & 18.80 &  & undefined\\
+2022-08-20 & 2022-08-20 & Obae'r EX 71, Alietho,7382 Alietho Tuotescieta si. 7138218WS8547613 & 9930733BN8963987 & 23.85 &  & undefined\\
+2022-08-20 & 2022-08-20 & Apecta Alietho,7382 Alietho Tuotescieta si. 1866182SF3578750 & 9930733BN8938604 & 28.90 &  & undefined\\
+2022-08-20 & 2022-08-20 & Somniustop EX,7382 Alietho Tuotescieta si. 1312834LK3550574 & 9930733BN8964286 & 40.10 &  & undefined\\
+2022-08-22 & 2022-08-22 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 7762273NP4574882 & 9930735BN1056625 & 2.30 &  & undefined\\
+2022-08-23 & 2022-08-23 & CRICA PUGE,3518 MARACIERM Tuotescieta si. 6246273JW7870524 & 9930737BN2050048 & 31.00 &  & undefined\\
+2022-08-23 & 2022-08-23 & Por Parunt,4503 Parunt Tuotescieta si. 7532256UR8707007 & 9930736BN1807534 & 63.31 &  & undefined\\
+2022-08-24 & 2022-08-24 & NOVEM DUCILI REM ET UT,12606 DIANTE VIDUM Frunium vi ex tuotescieta arges: -46.18 LAE, Lodicube cabo: 4.455351, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.67 RET, Tuotescieta si. 2753582PO4105508 & 9930739BN3915438 & 61.99 &  & undefined\\
+2022-08-25 & 2022-08-25 & Cantuum Gratore,1763 Nateriam Filla by tanuluva: Concecuride, Tuotescieta si. 4426168DQ1170140 & 9947737LK4529099 &  & 260.00 & undefined\\
+2022-08-25 & 2022-08-25 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 2401134JO5278504 & 9930738BN3748816 & 2.30 &  & undefined\\
+2022-08-25 & 2022-08-25 & Vere Maracierm,3518 Maracierm Tuotescieta si. 3317178QM3265278 & 9930740BN5276881 & 2.85 &  & undefined\\
+2022-08-26 & 2022-08-26 & sicisi.me EX,Que ex Debis 2, ME/Maracierm 3518 Filla by tanuluva: NUTIME BENTUDO, Viûan: Pleség tanuluva DIO, Tuotescieta si. 7448612NU6482646 & 9999238ZC6626377 &  & 4369.80 & undefined\\
+2022-08-26 & 2022-08-26 & Noviduci Terbillige,1587 Piraedde Filla by tanuluva: Pradectratury, Tuotescieta si. 8716112LA4322735 & 9930738LK4923147 &  & 332.00 & undefined\\
+2022-08-26 & 2022-08-26 & Prow-7127 Inver,3840 Inver Tuotescieta si. 3206651FK0117008 & 9930739BN5134524 & 12.60 &  & undefined\\
+2022-08-26 & 2022-08-26 & Pasi Possilini 50,8241 Possilini Tuotescieta si. 3111526PE1714081 & 9930739BN4160378 & 21.30 &  & undefined\\
+2022-08-26 & 2022-08-26 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 1068707PX2022570 & 9947238TO5107716 & 35.00 &  & undefined\\
+2022-08-26 & 2022-08-26 & Vident Miuntudivit Caria,8241 Possilini Tuotescieta si. 7343833FJ7422157 & 9930739BN5100158 & 225.00 &  & undefined\\
+2022-08-26 & 2022-08-26 & Tudis Gratore,1587 Piraedde Peliquo si. SALE: OU11 6473 5473 3000 75F7 T, Viûan: Evox vi séper / anétis, Tuotescieta si. 1643881TM0267468 & 9947738MC4808665 & 350.00 &  & undefined\\
+2022-08-27 & 2022-08-27 & Me Cinumn EX,1308 Dacuntion Tuotescieta si. 2877002RK0635072 & 9930740BN5973689 & 21.00 &  & undefined\\
+2022-08-27 & 2022-08-27 & Tudis Gratore,1587 Piraedde Peliquo si. 43514434850633K32611, Tuotescieta si. 1800331SC3315766 & 9947241TO5598850 & 500.00 &  & undefined\\
+2022-08-28 & 2022-08-28 & Sonem Croé et Inere Pray,5048 Zuccipia s'Rienes Tuotescieta si. 5822200XV3180658 & 9930741BN7023344 & 60.00 &  & undefined\\
+2022-08-29 & 2022-08-29 & Vere Maracierm,3518 Maracierm Tuotescieta si. 1467424WM1507675 & 9930743BN8228312 & 1.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 6221324OY3474500 & 9930742BN8113154 & 2.30 &  & undefined\\
+2022-08-29 & 2022-08-29 & Vere Maracierm,3518 Maracierm Tuotescieta si. 2367755RN7100253 & 9930743BN8228304 & 2.85 &  & undefined\\
+2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 61144 56132 12025 12714, Filla by tanuluva: Opula, Forsum 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 1447208AD1431688 & 2770241TO5418926 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 23333 67223 66210, Filla by tanuluva: Opula, Forsum 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3682308XO5868604 & 2970241TO5418935 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 56172 56282 74808, Filla by tanuluva: Opula, Forsum 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8741660HT7311285 & 3070241TO5418943 & 19.95 &  & undefined\\
+2022-08-29 & 2022-08-29 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 28543 34128 17576, Filla by tanuluva: Opula, Forsum 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3051854OQ3578422 & 2870241TO5418927 & 25.25 &  & undefined\\
+2022-08-29 & 2022-08-29 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Fœnumelia si. QUE: 18 48642 48642 48642 62457 21611, Peliquo si. SALE: YS66 5118 7417 6122 3500 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6103537WR1011433 & 3170241TO5419043 & 78.75 &  & undefined\\
+2022-08-29 & 2022-08-29 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Fœnumelia si. QUE: 18 48785 10244 61065 67383 62033, Peliquo si. SALE: QT65 5118 5047 6721 1782 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2101747BJ4502486 & 2670241TO5418920 & 160.40 &  & undefined\\
+2022-08-29 & 2022-08-29 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Fœnumelia si. QUE: 18 65754 13653 30642 13873 46550, Peliquo si. SALE: XT82 5118 4658 7304 8785 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8601520FA3457662 & 3270241TO5419059 & 331.75 &  & undefined\\
+2022-08-29 & 2022-08-29 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Fœnumelia si. QUE: 53 15880 85604 43886 60448 54616, Filla by tanuluva: Glatulo A Orper, Peliquo si. SALE: CH67 3823 3807 2823 3667 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2346422CT6742317 & 2570241TO5418915 & 381.40 &  & undefined\\
+2022-08-29 & 2022-08-29 & Praer Orectime,1200 Ventertibi Peliquo si. SALE: SQ25 2143 5747 4777 Q534 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 1483042EG2552675 & 9947239TO5585742 & 1350.00 &  & undefined\\
+2022-08-30 & 2022-08-30 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 7618116LN3670651 & 9930743BN9177491 & 2.30 &  & undefined\\
+2022-08-30 & 2022-08-30 & Vere Maracierm,3518 Maracierm Tuotescieta si. 4016286CL0676306 & 9930744BN9296750 & 6.75 &  & undefined\\
+2022-08-31 & 2022-08-31 & Decto séricide aut dive sissupluvit Tuotescieta si. TY71311AX1642351 & TY71311AX1642351 & 6.00 &  & undefined\\
+2022-08-31 & 2022-08-31 & Postium \& Mirea Lituunam,5377 Centio Tuotescieta si. 3406681YA4644200 & 9930744BN0236943 & 67.00 &  & undefined\\
+2022-09-02 & 2022-09-02 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 6677116CU8046812 & 9930749BN4199057 & 38.00 &  & undefined\\
+2022-09-03 & 2022-09-03 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 7622078UO0455228 & 9930747BN3406650 & 15.15 &  & undefined\\
+2022-09-03 & 2022-09-03 & Atiarvis ut Convere,1763 Nateriam Tuotescieta si. 4838317UH6201716 & 9930747BN3429480 & 20.00 &  & undefined\\
+2022-09-04 & 2022-09-04 & Facta Centio Lam,5037 Experate Tuotescieta si. 1452421EH6436878 & 9930748BN4067830 & 35.01 &  & undefined\\
+2022-09-05 & 2022-09-05 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 5036811JC7846423 & 9930749BN5082020 & 2.30 &  & undefined\\
+2022-09-05 & 2022-09-05 & PotIs  *Nentis Ant EX,3518 Maracierm Tuotescieta si. 8374333OO8647463 & 9930750BN5294984 & 11.00 &  & undefined\\
+2022-09-05 & 2022-09-05 & Ierunte Coptent EO,Octatimagnutinguit 24m, 4756 Paranga Fœnumelia si. QUE: 84 51274 38078 14578 68021 12655, Filla by tanuluva: Vilit 4 xxx mute aest, Peliquo si. SALE: YO55 8377 8030 8816 3333 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3330815XK5370687 & 3070248TO8648912 & 13.20 &  & undefined\\
+2022-09-07 & 2022-09-07 & CRICA PUGE,3518 MARACIERM Tuotescieta si. 5877873HB1321340 & 9930752BN7301287 & 31.00 &  & undefined\\
+2022-09-08 & 2022-09-08 & Dicis EO,5377 Centio Tuotescieta si. 1638651AI1873322 & 9930752BN8076216 & 135.00 &  & undefined\\
+2022-09-09 & 2022-09-09 & Excitibura inte,1587 Piraedde Tuotescieta si. 2455837VS0847722 & 9930753BN9198874 & 3.20 &  & undefined\\
+2022-09-10 & 2022-09-10 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 2631370FG6038502 & 9947253TO4322099 & 6.00 &  & undefined\\
+2022-09-10 & 2022-09-10 & Incriusa Susitur,1587 Piraedde Tuotescieta si. 7756061TG3021222 & 9930754BN0210069 & 11.95 &  & undefined\\
+2022-09-10 & 2022-09-10 & PotIs  *CONE.GUNTIO EX,8060 Centio Tuotescieta si. 2763057QC5783650 & 9930755BN0443826 & 42.00 &  & undefined\\
+2022-09-10 & 2022-09-10 & CRICA PUGE,3518 MARACIERM Tuotescieta si. 2322635KT7478012 & 9930756BN1121023 & 59.00 &  & undefined\\
+2022-09-11 & 2022-09-11 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 4161877CD8555887 & 9930755BN0679657 & 35.01 &  & undefined\\
+2022-09-13 & 2022-09-13 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 2713438IA5473728 & 9947256TO5744546 & 8.00 &  & undefined\\
+2022-09-14 & 2022-09-14 & Novere Bra In Xxx,5377 Centio Tuotescieta si. 6171821OL2522330 & 9930759BN4004759 & 28.70 &  & undefined\\
+2022-09-16 & 2022-09-16 & Vere Maracierm,3518 Maracierm Tuotescieta si. 7238667VQ0202127 & 9930761BN5992656 & 2.15 &  & undefined\\
+2022-09-16 & 2022-09-16 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 1037871KA4433703 & 9930760BN5785125 & 2.30 &  & undefined\\
+2022-09-16 & 2022-09-16 & ORA Puper Supicus Centio,5377 Centio Tuotescieta si. 2473341VP8184430 & 9930760BN5062004 & 2.30 &  & undefined\\
+2022-09-16 & 2022-09-16 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 5884330AT4240788 & 9930761BN5941653 & 35.00 &  & undefined\\
+2022-09-16 & 2022-09-16 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 6658752GV8433360 & 9930763BN7577468 & 38.00 &  & undefined\\
+2022-09-18 & 2022-09-18 & C1 Intianutabo,636 Intianutabo Frunium vi ex tuotescieta arges: -517.18 STA, Lodicube cabo: 4.42158, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 7437765DM8348545 & 9930763BN7578137 & 7.48 &  & undefined\\
+2022-09-19 & 2022-09-19 & Aciecta Paripigitio Eo,516 Inventur Frunium vi ex tuotescieta arges: -4308.18 STA, Lodicube cabo: 4.316654, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 6070537XU8662107 & 9930764BN8530591 & 12.53 &  & undefined\\
+2022-09-19 & 2022-09-19 & Scriavirea age.,784 EFFICUS Frunium vi ex tuotescieta arges: -8604.18 STA, Lodicube cabo: 4.538715, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 1648700QN2113076 & 9930764BN8516801 & 29.12 &  & undefined\\
+2022-09-20 & 2022-09-20 & Dica Saequa Dica Mino,111 Humnicunt Frunium vi ex tuotescieta arges: -7057.18 STA, Lodicube cabo: 4.456806, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 3383542BL1466477 & 9930766BN0383942 & 10.40 &  & undefined\\
+2022-09-20 & 2022-09-20 & Unctavit,317 Pultinare Frunium vi ex tuotescieta arges: -1877.18 STA, Lodicube cabo: 4.214131, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 5112580MV7142147 & 9930765BN9469472 & 13.44 &  & undefined\\
+2022-09-20 & 2022-09-20 & Metuungun mino,317 Pultinare Frunium vi ex tuotescieta arges: -5118.18 STA, Lodicube cabo: 4.410443, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 2313024QD7748862 & 9930765BN9449440 & 22.69 &  & undefined\\
+2022-09-21 & 2022-09-21 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 3623602AL4220114 & 9947264TO9619515 & 30.00 &  & undefined\\
+2022-09-21 & 2022-09-21 & Insulliusa Atuunte age,317 Pultinare Frunium vi ex tuotescieta arges: -5863.18 STA, Lodicube cabo: 4.404287, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 7050661UL2354337 & 9930766BN0433503 & 47.72 &  & undefined\\
+2022-09-22 & 2022-09-22 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 6430326AX2067184 & 9947265TO0479086 & 25.00 &  & undefined\\
+2022-09-23 & 2022-09-23 & sicisi.me EX,Que ex Debis 2, ME/Maracierm 3518 Filla by tanuluva: NUTIME BENTUDO, Viûan: Pleség tanuluva DIO, Tuotescieta si. 3450766YD3377128 & 9999266ZC5522155 &  & 4369.80 & undefined\\
+2022-09-23 & 2022-09-23 & Cantuum Gratore,1763 Nateriam Filla by tanuluva: Concecuride, Tuotescieta si. 8625307JM3505466 & 9947766LK6325315 &  & 260.00 & undefined\\
+2022-09-23 & 2022-09-23 & Auxité Cendepatu EX,3840 Inver Tuotescieta si. 3552867RG5182274 & 9930767BN2051973 & 43.20 &  & undefined\\
+2022-09-24 & 2022-09-24 & CRICA PUGE,3518 MARACIERM Tuotescieta si. 2230441LL0010451 & 9930770BN4208682 & 31.00 &  & undefined\\
+2022-09-24 & 2022-09-24 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 8428776DH2058205 & 9947267TO1802267 & 50.00 &  & undefined\\
+2022-09-24 & 2022-09-24 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 2833550PN5710042 & 9947267TO1751525 & 102.00 &  & undefined\\
+2022-09-25 & 2022-09-25 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 5641837DS2118282 & 9930769BN3961844 & 9.45 &  & undefined\\
+2022-09-25 & 2022-09-25 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 5174831PU6255181 & 9930771BN5330378 & 76.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & Noviduci Terbillige,1587 Piraedde Filla by tanuluva: Pradectratury, Tuotescieta si. 1642071GQ3222026 & 9930769LK6569030 &  & 332.00 & undefined\\
+2022-09-26 & 2022-09-26 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 2788712DM1444143 & 9930770BN5166064 & 2.30 &  & undefined\\
+2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 23333 67353 46466, Filla by tanuluva: Opula, Increm 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6028287UK8248281 & 3770269TO4403788 & 19.95 &  & undefined\\
+2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 28543 48207 42105, Filla by tanuluva: Opula, Increm 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8377757EY1821013 & 3670269TO4403764 & 19.95 &  & undefined\\
+2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 61144 56132 84380 17577, Filla by tanuluva: Opula, Increm 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 1317220DI0410652 & 3870269TO4403821 & 20.35 &  & undefined\\
+2022-09-26 & 2022-09-26 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 56172 52035 66535, Filla by tanuluva: Opula, Increm 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 5320284BK5017613 & 3570269TO4403751 & 21.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Fœnumelia si. QUE: 18 48642 48642 48642 62457 21611, Peliquo si. SALE: YS66 5118 7417 6122 3500 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6544737LD6566871 & 3970269TO4404065 & 76.40 &  & undefined\\
+2022-09-26 & 2022-09-26 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Fœnumelia si. QUE: 18 48785 10244 61065 88381 21487, Peliquo si. SALE: QT65 5118 5047 6721 1782 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2071405PO1051533 & 3470269TO4403730 & 158.60 &  & undefined\\
+2022-09-26 & 2022-09-26 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Fœnumelia si. QUE: 18 65754 13653 81414 76000 52742, Peliquo si. SALE: XT82 5118 4658 7304 8785 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 5247582GC6117844 & 4070269TO4404083 & 331.75 &  & undefined\\
+2022-09-26 & 2022-09-26 & Tudis Gratore,1587 Piraedde Peliquo si. SALE: OU11 6473 5473 3000 75F7 T, Viûan: Evox vi séper / anétis, Tuotescieta si. 8454014BC5712200 & 9947769MC6494849 & 350.00 &  & undefined\\
+2022-09-26 & 2022-09-26 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Fœnumelia si. QUE: 53 15880 85604 43886 60448 54616, Filla by tanuluva: Glatulo A Orper, Peliquo si. SALE: CH67 3823 3807 2823 3667 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8742111VE5646376 & 3370269TO4403559 & 381.40 &  & undefined\\
+2022-09-26 & 2022-09-26 & Praer Orectime,1200 Ventertibi Peliquo si. SALE: SQ25 2143 5747 4777 Q534 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8450168AG5206556 & 9947267TO1762930 & 1350.00 &  & undefined\\
+2022-09-27 & 2022-09-27 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 3812351IN8215014 & 9930771BN6222323 & 2.30 &  & undefined\\
+2022-09-27 & 2022-09-27 & Vere Maracierm,3518 Maracierm Tuotescieta si. 5610653SP3621351 & 9930772BN6316543 & 5.35 &  & undefined\\
+2022-09-28 & 2022-09-28 & DIVITIO Viûan: Gractum s'troèxxx si surexile s'por puline intuer/Pariente in Choris (*g), Tuotescieta si. 3208863KU6658234 & 9930773BN7311676 & 20.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & Dicis EO,5377 Centio Tuotescieta si. 4165455EI4325525 & 9930774BN9423682 & 2.95 &  & undefined\\
+2022-09-30 & 2022-09-30 & Decto séricide aut dive sissupluvit Tuotescieta si. YH76865HP8406038 & YH76865HP8406038 & 6.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & PotIs  *CONE.GUNTIO EX,8060 Centio Tuotescieta si. 3378787BP4316510 & 9930775BN9537029 & 35.00 &  & undefined\\
+2022-09-30 & 2022-09-30 & DIVE,12606 DIANTE VIDUM Frunium vi ex tuotescieta arges: -801.18 LAE, Lodicube cabo: 4.347543, Viûan: Tanuluva NUM Vines Stio à c'émominix -4.75 RET, Tuotescieta si. 6818388GA1430108 & 9930775BN9644309 & 204.63 &  & undefined\\
+2022-10-01 & 2022-10-01 & EX OLEVENERIT ET V. AT,4431 HOSTAE Tuotescieta si. 4722873NJ5841248 & 9930777BN1222452 & 36.00 &  & undefined\\
+2022-10-02 & 2022-10-02 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 8220677KE0624312 & 9947275TO7350252 & 40.00 &  & undefined\\
+2022-10-03 & 2022-10-03 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 1447412TW7821562 & 9930777BN2141170 & 2.30 &  & undefined\\
+2022-10-03 & 2022-10-03 & PotIs  *Nentis Ant EX,3518 Maracierm Tuotescieta si. 4162407BJ5137308 & 9930778BN2320208 & 7.60 &  & undefined\\
+2022-10-05 & 2022-10-05 & CRICA PUGE,3518 MARACIERM Tuotescieta si. 3836640LW1131840 & 9930780BN4358849 & 16.00 &  & undefined\\
+2022-10-07 & 2022-10-07 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 6034548RR6208833 & 9930781BN6328071 & 2.30 &  & undefined\\
+2022-10-07 & 2022-10-07 & PotIs  *Nentis Ant EX,3518 Maracierm Tuotescieta si. 1542858HY3148020 & 9930782BN6498195 & 11.00 &  & undefined\\
+2022-10-08 & 2022-10-08 & Aöby Dierect EO,8856 Solocto Iper Tuotescieta si. 7220411NB3036345 & 9930782BN7302070 & 5.00 &  & undefined\\
+2022-10-08 & 2022-10-08 & Valibi angramus frungura,4431 Hostae Tuotescieta si. 1882758CU8454453 & 9930782BN7284975 & 38.40 &  & undefined\\
+2022-10-08 & 2022-10-08 & Cell Choris 53,5377 Comnumen Tuotescieta si. 1331863GK5685228 & 9930782BN7536057 & 39.95 &  & undefined\\
+2022-10-08 & 2022-10-08 & DIVIA OBSTIS EX,5377 TESEDITA Tuotescieta si. 8007486CY8686323 & 9930784BN8222251 & 47.50 &  & undefined\\
+2022-10-08 & 2022-10-08 & Sicat Turra Alietho,7382 Alietho Tuotescieta si. 4824746GF5617025 & 9930782BN6723476 & 69.95 &  & undefined\\
+2022-10-08 & 2022-10-08 & Ples \& Salvo Alietho,7382 Alietho Tuotescieta si. 3331003QP1825686 & 9930782BN7026096 & 80.30 &  & undefined\\
+2022-10-09 & 2022-10-09 & Pasi Canem EX,4427 Vignute-Secrite Tuotescieta si. 1856717FB2028715 & 9930783BN7824537 & 15.00 &  & undefined\\
+2022-10-10 & 2022-10-10 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 4226368QN0128432 & 9930784BN9131068 & 2.30 &  & undefined\\
+2022-10-10 & 2022-10-10 & Vere Maracierm,3518 Maracierm Tuotescieta si. 1051234HO1827830 & 9930785BN9206042 & 2.85 &  & undefined\\
+2022-10-11 & 2022-10-11 & BY Piraedde Viûan: Gractum s'troèxxx si surexile s'por puline intuer/Pariente in Choris (*g), Tuotescieta si. 4226532NK4540660 & 9930785BN0080964 & 300.00 &  & undefined\\
+2022-10-12 & 2022-10-12 & ORA Puper Supicus Centio,5377 Centio Tuotescieta si. 8720384DK7838084 & 9930786BN0249157 & 2.30 &  & undefined\\
+2022-10-12 & 2022-10-12 & Vere Maracierm,3518 Maracierm Tuotescieta si. 3202367SU1478253 & 9930787BN1134997 & 2.85 &  & undefined\\
+2022-10-12 & 2022-10-12 & Vere Maracierm,3518 Maracierm Tuotescieta si. 4670656OQ2503773 & 9930787BN1134072 & 14.75 &  & undefined\\
+2022-10-13 & 2022-10-13 & Tudis Gratore,1587 Piraedde Peliquo si. 43514434850633K32611, Tuotescieta si. 2832614TU3261384 & 9947286TO3626440 & 1000.00 &  & undefined\\
+2022-10-14 & 2022-10-14 & DIVE,12606 DIANTE VIDUM Frunium vi ex tuotescieta arges: -38.18 LAE, Lodicube cabo: 4.500252, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.21 RET, Tuotescieta si. 8158786GH2022730 & 9930789BN3242003 & 84.22 &  & undefined\\
+2022-10-15 & 2022-10-15 & Cell Choris 53,5377 Comnumen Tuotescieta si. 1058808QL3436888 & 9930789BN4136552 & 17.05 &  & undefined\\
+2022-10-18 & 2022-10-18 & RETIARAM'P,5037 EXPERATE Tuotescieta si. 4328520HW4087225 & 9930794BN7683507 & 38.00 &  & undefined\\
+2022-10-22 & 2022-10-22 & Prow-7127 Inver,3840 Inver Tuotescieta si. 3767577SB6682724 & 9930796BN0533729 & 18.25 &  & undefined\\
+2022-10-22 & 2022-10-22 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 8187282AO8560415 & 9930796BN9829310 & 37.32 &  & undefined\\
+2022-10-23 & 2022-10-23 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 4022653HH3303752 & 9930797BN1061960 & 3.85 &  & undefined\\
+2022-10-25 & 2022-10-25 & sicisi.me EX,Que ex Debis 2, ME/Maracierm 3518 Filla by tanuluva: NUTIME BENTUDO, Viûan: Pleség tanuluva DIO, Tuotescieta si. 4622232MV8766662 & 9999298ZC5922046 &  & 4369.80 & undefined\\
+2022-10-25 & 2022-10-25 & Cantuum Gratore,1763 Nateriam Filla by tanuluva: Concecuride, Tuotescieta si. 8726610FI1430077 & 9947798LK8184196 &  & 260.00 & undefined\\
+2022-10-26 & 2022-10-26 & Tudis Gratore,1587 Piraedde Tuotescieta si. 8001186XU6637138 & 9947299TO1473534 &  & 3000.00 & undefined\\
+2022-10-26 & 2022-10-26 & Noviduci Terbillige,1587 Piraedde Filla by tanuluva: Pradectratury, Tuotescieta si. 7330464FD3721878 & 9930799LK8392827 &  & 332.00 & undefined\\
+2022-10-26 & 2022-10-26 & Vere Maracierm,3518 Maracierm Tuotescieta si. 2468454HR8250375 & 9930801BN4320207 & 2.85 &  & undefined\\
+2022-10-26 & 2022-10-26 & Tudis Gratore,1587 Piraedde Peliquo si. SALE: OU11 6473 5473 3000 75F7 T, Viûan: Evox vi séper / anétis, Tuotescieta si. 3538488CB3860342 & 9947799MC8346528 & 350.00 &  & undefined\\
+2022-10-27 & 2022-10-27 & Vere Maracierm,3518 Maracierm Tuotescieta si. 5058035FB0032064 & 9930802BN5477196 & 0.65 &  & undefined\\
+2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 61144 56132 15123 64758, Filla by tanuluva: Opula, Melocurbo 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2875545YA6184417 & 1670300TO6866836 & 19.95 &  & undefined\\
+2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 23333 35062 13283, Filla by tanuluva: Opula, Melocurbo 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3883468HH2653641 & 1770300TO6866860 & 19.95 &  & undefined\\
+2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 28543 76213 84561, Filla by tanuluva: Opula, Melocurbo 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6852827XA7388006 & 1570300TO6866821 & 21.65 &  & undefined\\
+2022-10-27 & 2022-10-27 & Vemulige (Despere) EO,7075 Pere, ME Fœnumelia si. QUE: 18 48151 68542 56172 46831 34471, Filla by tanuluva: Opula, Melocurbo 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3381752RX4287672 & 1470300TO6866807 & 23.80 &  & undefined\\
+2022-10-27 & 2022-10-27 & Sall Latuus EX,Ral by Cuticia 4, 7638 Stalis, ME Fœnumelia si. QUE: 18 48642 48642 48642 62457 21611, Peliquo si. SALE: YS66 5118 7417 6122 3500 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6557707JV2267637 & 1970300TO6866933 & 114.90 &  & undefined\\
+2022-10-27 & 2022-10-27 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Fœnumelia si. QUE: 18 48785 10244 61065 63150 27707, Peliquo si. SALE: QT65 5118 5047 6721 1782 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6184683MO0475721 & 1370300TO6866776 & 158.45 &  & undefined\\
+2022-10-27 & 2022-10-27 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Fœnumelia si. QUE: 18 65754 13653 30642 34263 36078, Peliquo si. SALE: XT82 5118 4658 7304 8785 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2724153WJ3115831 & 2070300TO6866951 & 331.75 &  & undefined\\
+2022-10-27 & 2022-10-27 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Fœnumelia si. QUE: 53 15880 85604 43886 60448 54616, Filla by tanuluva: Glatulo A Orper, Peliquo si. SALE: CH67 3823 3807 2823 3667 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8044424UA7420252 & 1270300TO6866758 & 381.40 &  & undefined\\
+2022-10-27 & 2022-10-27 & ANESTOP STRINIAM T,COPECTA, 5348 SYLLIQUIET Fœnumelia si. QUE: 18 48642 48785 23328 20110 17205, Filla by tanuluva: PARATIT TERFILIA PERSUUS 8764, Peliquo si. SALE: RF63 5118 4658 6380 1057 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8807826US2826683 & 2170300TO6866966 & 400.05 &  & undefined\\
+2022-10-27 & 2022-10-27 & PRAER ORECTIME,ME VENTERTIBI 1200 Peliquo si. SALE: SQ25 2143 5747 4777 Q534 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 6172226UD0180802 & 1170300TO6866715 & 1350.00 &  & undefined\\
+2022-10-27 & 2022-10-27 & ANESTOP STRINIAM T,COPECTA, 5348 SYLLIQUIET Fœnumelia si. QUE: 18 48642 48785 23328 20110 33473, Filla by tanuluva: DIME. PARATIT INERTUUNT 8764, Peliquo si. SALE: VA74 5118 4658 6380 7255 2, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3031210LC0118005 & 2270300TO6866978 & 2644.50 &  & undefined\\
+2022-10-29 & 2022-10-29 & 04690 Migrol Lugaggia,6953 Lugaggia Tuotescieta si. 4532144AQ8833767 & 9930803BN7080856 & 30.00 &  & undefined\\
+2022-10-29 & 2022-10-29 & DIVIA OBSTIS EX,5377 TESEDITA Tuotescieta si. 4377868WY0355267 & 9930805BN8594754 & 53.00 &  & undefined\\
+2022-10-31 & 2022-10-31 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 8688800EG8238400 & 9930805BN9558053 & 2.30 &  & undefined\\
+2022-10-31 & 2022-10-31 & Decto séricide aut dive sissupluvit Tuotescieta si. PS17624XB7087502 & PS17624XB7087502 & 6.00 &  & undefined\\
+2022-10-31 & 2022-10-31 & Vere Maracierm,3518 Maracierm Tuotescieta si. 4320670TY1063731 & 9930806BN9643739 & 7.60 &  & undefined\\
+2022-11-01 & 2022-11-01 & Terbillige, Noviduci Filla by tanuluva: +82144813826, COEGI-Xxx.:+44758884642, Tuotescieta si. 5883754DJ7733518 & 9930305GK5404335 &  & 159.00 & undefined\\
+2022-11-02 & 2022-11-02 & Vere Maracierm,3518 Maracierm Tuotescieta si. 1483867XJ5657041 & 9930808BN1692390 & 0.65 &  & undefined\\
+2022-11-02 & 2022-11-02 & Vere Maracierm,3518 Maracierm Tuotescieta si. 1378650AQ2741677 & 9930808BN1699456 & 1.95 &  & undefined\\
+2022-11-02 & 2022-11-02 & BRA IN XXX,5377 Centio Tuotescieta si. 6278604QR5462820 & 9930807BN1470349 & 10.00 &  & undefined\\
+2022-11-02 & 2022-11-02 & SERE SERE SERE 2021,TUDIS GRATORE Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 2042458KM5275168 & 9947306TO6493694 & 69.90 &  & undefined\\
+2022-11-04 & 2022-11-04 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 3052616OP4811835 & 9930809BN3754644 & 30.01 &  & undefined\\
+2022-11-04 & 2022-11-04 & DIVE,12606 DIANTE VIDUM Frunium vi ex tuotescieta arges: -627.18 LAE, Lodicube cabo: 7.171418, Viûan: Tanuluva NUM Vines Stio à c'émominix -2.73 RET, Tuotescieta si. 4476686CC1288258 & 9930810BN3897220 & 138.68 &  & undefined\\
+2022-11-05 & 2022-11-05 & BRA IN XXX,5377 Centio Tuotescieta si. 4855537QI1137348 & 9930810BN3872076 & 32.40 &  & undefined\\
+2022-11-06 & 2022-11-06 & Aöby Dierect EO,8856 Solocto Iper Tuotescieta si. 8525232GV0115745 & 9930811BN5358212 & 5.00 &  & undefined\\
+2022-11-06 & 2022-11-06 & Angramus Diticuruci EX,3840 Inver Tuotescieta si. 1003160GO8654502 & 9930811BN5353554 & 6.80 &  & undefined\\
+2022-11-07 & 2022-11-07 & ORA Cipe. Tam. Supicus J,5377 Centio Tuotescieta si. 7378403ME7180126 & 9930812BN6501995 & 2.30 &  & undefined\\
+2022-11-07 & 2022-11-07 & VERE MARACIERM,MARACIERM Tuotescieta si. 5508717CC2028235 & 9999311BN0755924 & 2.70 &  & undefined\\
+2022-11-07 & 2022-11-07 & VERE MARACIERM,MARACIERM Tuotescieta si. 6546764AA7683642 & 9999311BN1710030 & 4.35 &  & undefined\\
+2022-11-07 & 2022-11-07 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Fœnumelia si. QUE: 18 11153 75648 63354 72113 27140, Filla by tanuluva: 8385 / Dion: 75.46.67 - 76.46.67 / Lictudit chent vi: 80.20.4680, Peliquo si. SALE: IJ01 5118 4658 7123 2458 2, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2242602PN7571612 & 1670311TO2672937 & 52.10 &  & undefined\\
+2022-11-07 & 2022-11-07 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Fœnumelia si. QUE: 18 11153 75648 68344 26122 24774, Filla by tanuluva: 8385 / Dion: 75.20.67 - 60.20.67 / Lictudit chent vi: 16.63.4680, Peliquo si. SALE: IJ01 5118 4658 7123 2458 2, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 1687424DD0607404 & 1770311TO2672955 & 99.80 &  & undefined\\
 \\
 \end{tablevalue}
 \end{document}

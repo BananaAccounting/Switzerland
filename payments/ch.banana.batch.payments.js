@@ -369,8 +369,8 @@ function verifyUserParam(userParam) {
 function verifyVersion() {
   var table = Banana.document.table("Transactions");
   if (table) {
-    var row = table.row(0);
-    if (row && row.value("PaymentData"))
+    var columnPaymentData = table.column("PaymentData", "Base");
+    if (columnPaymentData)
       return true;
   }
   Banana.document.addMessage("The payment data functionalities are not installed. Impossible to process the payment data.");

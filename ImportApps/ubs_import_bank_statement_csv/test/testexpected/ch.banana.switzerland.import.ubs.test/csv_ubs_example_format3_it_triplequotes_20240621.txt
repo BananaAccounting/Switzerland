@@ -18,14 +18,14 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l }
-Date & DateValue & Description & ExternalReference & Expenses & Income\\
-2024-05-31 & 2024-05-31 & BR Lugano 111111111-0 07/24; Prelevamento Bancomat & 11111116 & 20.00 & \\
-2024-06-17 & 2024-06-17 & Descrizione1;6900 Lugano 11111111-0 07/24; Pagamento carta di debito & 11111114 & 5.20 & \\
-2024-06-17 & 2024-06-17 & Descrizione1;6962 Viganello 11111111-0 07/24; Pagamento carta di debito & 11111113 & 15.40 & \\
-2024-06-18 & 2024-06-18 & Descrizione1;6900 Lugano Accredito & 11111115 &  & 200.00\\
-2024-06-19 & 2024-06-19 & Descrizione1 Descrizione2; Descrizione2 & 11111112 & 450.00 & \\
-2024-06-19 & 2024-06-19 & FILIALE;VIGANELLO 11111111-0 07/24; Prelevamento Bancomat & 11111111 & 20.00 & \\
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2024-05-31 & 2024-05-31 & BR Lugano Spese: Prelevamento di contanti al Bancomat di banche terze/Postomat in Svizzera; No di transazioni: 1268923683 & 11111116 & 20.00 &  & undefined\\
+2024-06-18 & 2024-06-18 & Descrizione1;6900 Lugano No di transazioni: 12678345643 & 11111115 &  & 200.00 & undefined\\
+2024-06-17 & 2024-06-17 & Descrizione1;6900 Lugano No di transazioni: 11234534553 & 11111114 & 5.20 &  & undefined\\
+2024-06-17 & 2024-06-17 & Descrizione1;6962 Viganello No di transazioni: 11111112334 & 11111113 & 15.40 &  & undefined\\
+2024-06-19 & 2024-06-19 & Descrizione1 Descrizione3 & 11111112 & 450.00 &  & undefined\\
+2024-06-19 & 2024-06-19 & FILIALE;VIGANELLO No di transazioni: 111111 & 11111111 & 20.00 &  & undefined\\
 \\
 \end{tablevalue}
 \end{document}

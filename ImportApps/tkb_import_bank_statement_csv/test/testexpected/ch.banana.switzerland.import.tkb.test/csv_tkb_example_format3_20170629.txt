@@ -18,15 +18,15 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-\begin{tablevalue}{}{ l  l  l  l  l  l  l  l }
-Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & IsDetail\\
-2017-06-21 &  &  &  &  Pentuuntam / Sex.-At. 5300122163 Poter EX Sex Monatu 2 1340 Miunum Puerianeni: LONATIT BW1744 SEX.52807182 SIT 4 EO. 6'535,80 MERA/XXX 11,51  &  &  & undefined\\
-2017-06-21 &  &  &  &  Subirattruntam / Sex.-At. 6358635134 Coepartum: CONE DESTRADECTULUVIT STA PARESTRITINUNTIBUM AESCENTIS Taletraüme: XXX 4.38 matendo ædioreprow  &  &  & undefined\\
-2017-06-29 &  &  &  &  Sursempto i-stustem / Sex.-At. 6286575380 RECTORDA (TAGNIME) UT OBIT CONEIUVITICUBES 3 AN-1707 PASS  &  &  & undefined\\
-2017-06-29 &  &  &  &  Sursempto i-stustem / Sex.-At. 1212234671 RECTORDA (TAGNIME) UT OBIT CONEIUVITICUBES 3 AN-1707 PASS  &  &  & undefined\\
-2017-06-29 &  &  &  &  Sursempto i-stustem / Sex.-At. 2500768086 RECTORDA (TAGNIME) UT OBIT CONEIUVITICUBES 3 AN-1707 PASS  &  &  & undefined\\
-2017-06-29 &  &  &  &  Pentuuntam / Sex.-At. 4800872327 Ganeiunc Elerum Eormiviunava 11 2522 Excipsugat Tagnime  &  &  & undefined\\
-2017-06-29 &  &  &  & Aduceratem ell Aeptimuncerrunge UT CALENTUMNIS Iundabo Tanal Ponattibulus 16758451 43.32.5770 37:30 &  &  & undefined\\
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2017-06-29 &  &  & Aduceratem Ell Aeptimuncerrunge Ut Calentumnis Iundabo Tanal Ponattibulus 16758451 43.32.5770 37:30 &  & 79.60\\
+2017-06-29 &  &  &  Pentuuntam / Sex.-At. 4800872327 Ganeiunc Elerum Eormiviunava 11 2522 Excipsugat Tagnime  & 1640.00 & \\
+2017-06-29 &  &  &  Sursempto I-Stustem / Sex.-At. 2500768086 Rectorda (Tagnime) Ut Obit Coneiuviticubes 3 An-1707 Pass  &  & 26.25\\
+2017-06-29 &  &  &  Sursempto I-Stustem / Sex.-At. 1212234671 Rectorda (Tagnime) Ut Obit Coneiuviticubes 3 An-1707 Pass  &  & 70.00\\
+2017-06-29 &  &  &  Sursempto I-Stustem / Sex.-At. 6286575380 Rectorda (Tagnime) Ut Obit Coneiuviticubes 3 An-1707 Pass  &  & 94.60\\
+2017-06-21 &  &  &  Subirattruntam / Sex.-At. 6358635134 Coepartum: Cone Destradectuluvit Sta Parestritinuntibum Aescentis Taletraüme: Xxx 4.38 Matendo Ædioreprow  & 179.82 & \\
+2017-06-21 &  &  &  Pentuuntam / Sex.-At. 5300122163 Poter Ex Sex Monatu 2 1340 Miunum Puerianeni: Lonatit BW1744 Sex.52807182 Sit 4 Eo. 6'535,80 Mera/xxx 11,51  & 1083.30 & \\
 \\
 \end{tablevalue}
 \end{document}
