@@ -1,0 +1,12 @@
+﻿Kontonummer:;0231 00100040.01;;;;;;;;;;;;;
+IBAN:;CH09 0000 2111 1023 3004 C;;;;;;;;;;;;;
+Von:;2024-11-14;;;;;;;;;;;;;
+Bis:;2024-11-14;;;;;;;;;;;;;
+Anfangssaldo:;107982.61;;;;;;;;;;;;;
+Schlusssaldo:;109136.16;;;;;;;;;;;;;
+Bewertet in:;CHF;;;;;;;;;;;;;
+Anzahl Transaktionen in diesem Zeitraum:;2;;;;;;;;;;;;;
+
+Abschlussdatum;Abschlusszeit;Buchungsdatum;Valutadatum;Währung;Belastung;Gutschrift;Einzelbetrag;Saldo;Transaktions-Nr.;Beschreibung1;Beschreibung2;Beschreibung3;Fussnoten;
+2024-11-14;;2024-11-14;2024-11-14;CHF;-13.95;;;109136.16;8432319TO1096932;Description;Description 2;Description 3;(*e) Befreit aufgrund Freigrenze für Transaktionen;
+2024-11-14;;2024-11-14;2024-11-14;CHF;;1167.50;;109150.11;ZD81319ZC3551360;Description;Description 2;Description 3;(*e) Befreit aufgrund Freigrenze für Transaktionen;

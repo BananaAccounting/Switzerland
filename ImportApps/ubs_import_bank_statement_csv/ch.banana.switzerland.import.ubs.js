@@ -999,12 +999,15 @@ function convertHeaderDe(columns) {
                 convertedColumns[i] = "Currency";
                 break;
             case "Debit amount":
+            case "Belastung":
                 convertedColumns[i] = "DebitAmount";
                 break;
             case "Credit amount":
+            case "Gutschrift":
                 convertedColumns[i] = "CreditAmount";
                 break;
             case "IndividualAmount":
+            case "Einzelbetrag":
                 convertedColumns[i] = "IndividualAmount";
                 break;
             case "Saldo":
