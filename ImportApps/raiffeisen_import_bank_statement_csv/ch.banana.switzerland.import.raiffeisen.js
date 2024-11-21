@@ -31,6 +31,13 @@ function exec(string, isTest) {
 
 	var transactions = Banana.Converter.csvToArray(string, ';', '§');
 
+	// Format 6
+	var format6 = new RaiffeisenFormat6();
+	let transactionsData = format6.getFormattedData(transactions, importUtilities);
+	if (format6.match(transactionsData)) {
+		transactions = format6.convert(transactionsData);
+		return Banana.Converter.arrayToTsv(transactions);
+	}
 	// Format 5
 	var format5 = new RaiffeisenFormat5();
 	if (format5.match(transactions)) {
@@ -71,6 +78,139 @@ function exec(string, isTest) {
 	importUtilities.getUnknownFormatError();
 
 	return "";
+}
+
+/**
+ * Raiffeisen Format 6
+ * From July 2024 Added Details Column
+ * 
+ * IBAN;Booked At;Text;Details;Credit/Debit Amount;Balance;Valuta Date
+ * IC1182551737356068462;2024-07-02 00:00:00.0;Apuelor Antabo A Petimenunt 48.30.2667, 78:46, Sidem Mitruntqua-At. 830788lwslbs8327;;-11.45;2078.76;2024-07-02 00:00:00.0
+ * IC1182551737356068462;2024-07-03 00:00:00.0;Metrinctio EXERE hoc STATUM, SECT;TAE RACURRE CARABIRE OS BOX 78.72 -;10;2088.76;2024-07-03 00:00:00.0
+ * IC1182551737356068462;2024-07-05 00:00:00.0;O-Grequis Scellit (sTall) Ex Viunit OS 6362 Albulige;OS Umedeps y�u: Obsquonsecustquat BOX 11.42 -;-40.7;2048.06;2024-07-05 00:00:00.0
+ */
+function RaiffeisenFormat6() {
+	this.getFormattedData = function (transactions, importUtilities) {
+		let headerLineStart = 0;
+		let dataLineStart = 1;
+		// We do a copy as the getHeaderData modifies the content and we need to keep the original version clean.
+		let transactionsCopy = JSON.parse(JSON.stringify(transactions));
+		if (transactionsCopy.length < dataLineStart)
+		   return [];
+		let columns = importUtilities.getHeaderData(transactionsCopy, headerLineStart); //array
+		let rows = importUtilities.getRowData(transactionsCopy, dataLineStart); //array of array
+		let form = [];
+  
+		/** We convert the original headers into a custom format to be able to work with the same
+		 * format regardless of original's headers language or the position of the header column.
+		 * We need to translate all the .csv fields as the loadForm() method expects the header and
+		 * the rows to have the same length.
+		 * */
+		let convertedColumns = [];
+  
+		convertedColumns = this.convertHeaderEn(columns, convertedColumns);
+		if (convertedColumns.length > 0) {
+		   importUtilities.loadForm(form, convertedColumns, rows);
+		   return form;
+		}
+  
+		return [];
+  
+	}
+  
+	 this.convertHeaderEn = function (columns) {
+		let convertedColumns = [];
+		for (var i = 0; i < columns.length; i++) {
+		   	switch (columns[i]) {
+			  	case "IBAN":
+					convertedColumns[i] = "IBAN";
+					break;
+				case "Booked At":
+					convertedColumns[i] = "Date";
+					break;
+				case "Text":
+					convertedColumns[i] = "Description";
+					break;
+				case "Details":
+					convertedColumns[i] = "Details";
+					break;
+				case "Credit/Debit Amount":
+					convertedColumns[i] = "Amount";
+					break;
+				case "Balance":
+					convertedColumns[i] = "Balance";
+					break;
+				case "Valuta Date":
+					convertedColumns[i] = "DateValue";
+					break;
+				default:
+					break;
+		   }
+		}
+  
+		if (convertedColumns.indexOf("Date") < 0
+		   || convertedColumns.indexOf("Description") < 0
+		   || convertedColumns.indexOf("Amount") < 0) {
+		   return [];
+		}
+		return convertedColumns;
+	 }
+  
+	 /** Return true if the transactions match this format */
+	 this.match = function (transactionsData) {
+		if (transactionsData.length === 0)
+		   return false;
+  
+		for (var i = 0; i < transactionsData.length; i++) {
+			var transaction = transactionsData[i];
+			var formatMatched = true;
+			if (formatMatched && transaction.hasOwnProperty("Details") && transaction["Date"] && transaction["Date"].length >= 10 &&
+				transaction["Date"].match(/^\d{4}-\d{2}-\d{2}/))
+				formatMatched = true;
+			else
+				formatMatched = false;
+	
+			if (formatMatched)
+				return true;
+		}
+  
+		return false;
+	 }
+  
+	 this.convert = function (transactionsData) {
+		var transactionsToImport = [];
+		
+		for (var i = 0; i < transactionsData.length; i++) {
+			if (transactionsData[i].hasOwnProperty("Details") && transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+				transactionsData[i]["Date"].match(/^\d{4}-\d{2}-\d{2}/)) {
+				transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+			}
+		}
+  
+		// Sort rows by date
+		transactionsToImport = transactionsToImport.reverse();
+  
+		// Add header and return
+		var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+		return header.concat(transactionsToImport);
+	 }
+  
+	 this.mapTransaction = function (transaction) {
+		let mappedLine = [];
+  
+		mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy.mm.dd"));
+		mappedLine.push(Banana.Converter.toInternalDateFormat("", "yyyy.mm.dd"));
+		mappedLine.push("");
+		mappedLine.push("");
+		let trDescription = transaction["Description"] + " " + transaction["Details"];
+		mappedLine.push(trDescription);
+		if (transaction["Amount"][0] !== "-")
+			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+		 else
+			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+  
+		return mappedLine;
+	 }
 }
 
 /**

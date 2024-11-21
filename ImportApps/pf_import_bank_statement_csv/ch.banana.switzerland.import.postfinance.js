@@ -466,8 +466,8 @@ function PFCSVFormat6() {
 function PFCSVFormat2_CreditCard() {
 
    this.getFormattedData = function (transactions, importUtilities) {
-      let headerLineStart = 4;
-      let dataLineStart = 5;
+      let headerLineStart = 5;
+      let dataLineStart = 6;
       // We do a copy as the getHeaderData modifies the content and we need to keep the original version clean.
       let transactionsCopy = JSON.parse(JSON.stringify(transactions));
       if (transactionsCopy.length < dataLineStart)
