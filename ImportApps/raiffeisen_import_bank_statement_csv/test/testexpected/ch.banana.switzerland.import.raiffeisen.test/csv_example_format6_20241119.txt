@@ -20,222 +20,222 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2024-11-14 &  &  &  & Apuelor EXERE, ANTABO PETIMENUNT (8245) BOX 5.78 - & -5.1\\
-2024-11-13 &  &  &  & Apuelor Antabo A Petimenunt 54.87.2667, 37:68, Sidem Mitruntqua-At. 830788lwslbs8327  & -20.6\\
-2024-11-12 &  &  &  & Apuelor Antabo A Petimenunt 87.87.2667, 37:17, Sidem Mitruntqua-At. 830788lwslbs8327  & -14.65\\
-2024-11-11 &  &  &  & Metrinctio Aquatifica Salione Puturgenthetumete 66 6123 Clanum OS BOX 210.72 - & 288\\
-2024-11-11 &  &  &  & O-Grequis Scellit (sTall) ANT Bittrit OS Ocaberiungentens 7387 Vione OS Umedeps y�u: Ante Statum BOX 142.72 - & -290\\
-2024-11-11 &  &  &  & Apuelor Linum Parant Milione 32.87.2667, 21:34, Sidem Mitruntqua-At. 830788lwslbs8327  & -74.95\\
-2024-11-07 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), UC500521153857023166 Saect Astano Tagnus�lonavente 7 4773 Mano OS OS Senicabigulertiura puer. Sit�si Dundeandifine Lone BOX 6.52 BOX 105.72 - & 177.65\\
-2024-11-07 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 82.72 - & -26\\
-2024-11-04 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Ipsus 3432 F�dierva OS BOX 66.42 - Ipsus 3432 F�dierva OS BOX 31.72 - Ipsus 3432 F�dierva OS BOX 34.72 - Ipsus 3432 F�dierva OS BOX 67.46 - Pila benis Striant TerE Dit Cestiae 1 4610 Et�cem OS MeDe: 6210332 StaraTa: XU37-32717JltvqWgpkb:81.78. BOX 650.15 - semperbereque.os TerE 8361 Mathediere OS //Y2/78/6644177872/87/367077/46/SPOR-AGIT/71/731454282/46/744342440844/53/1.0 BOX 517.21 - & -961.27\\
-2024-11-04 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), NE452686573652833688 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 203.72 - & 204\\
-2024-11-04 &  &  &  & O-Grequis Scellit (CUNE) ARE 780.72, Pultiritiamitus 0.2838 Conereante pro Grentam TerE F�tiunam 46 7478 Tanerrundum ME SI: 6210332 AT: BL48-20236 EX: 81.78. puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 780.72 - & -531.2\\
-2024-11-04 &  &  &  & O-Grequis Scellit (sTall) Forgem Racurre Carabire DE Probservissursat 43 8381 Q�colo OS Umedeps y�u: Ante Statum BOX 416.24 - & -758.45\\
-2024-11-04 &  &  &  & Apuelor Tral-3567 Ceampulige 21.87.2667, 31:46, Sidem Mitruntqua-At. 830788lwslbs8327  & -65.8\\
-2024-11-04 &  &  &  & Metrinctio EXERE hoc GRICO, QUITATTE TAE RACURRE CARABIRE OS BOX 667.72 - & 198\\
-2024-11-01 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), EY886610638887881743 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BOX 210.72 - & 288\\
-2024-11-01 &  &  &  & O-Grequis Scellit (sTall) RES-FLAM Totiuntenect OS 3510 Q�colo OS Umedeps y�u: Statum Ante BOX 635.44 - & -587.8\\
-2024-10-31 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VB148383567664385605 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 210.72 - & 288\\
-2024-10-31 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), PH501242468106562788 Censi Caudo pro/adde Censi Critus Molvenerturractint 5 1318 S�frect OS BOX 761.72 - & 936\\
-2024-10-31 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Inundo Ubitia Diciungisi CES DE 4166 Motubile OS BOX 81.46 - TUS Diximus-Illiqualiusa OS Actudisuluvidere 42 1711 Vidiem OS BOX 34.44 - & -92\\
-2024-10-29 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
-2024-10-29 &  &  &  & Apuelor Antabo A Petimenunt 68.78.2667, 56:81, Sidem Mitruntqua-At. 830788lwslbs8327  & -25.7\\
-2024-10-29 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum OffiloCem OS 1238 Q�colo OS X252823885 32.32.2667 BOX 88.13 - Gaut Mericitanete 63 4713 Vione OS BOX 342.72 - & -137.9\\
-2024-10-28 &  &  &  & O-Grequis Scellit by Facilocto per Discite Regata 7387 Vione 1 OS BOX 0'210.72 - & -1288\\
-2024-10-28 &  &  &  & Apuelor Tral-1027 Pris ET 82.78.2667, 24:76, Sidem Mitruntqua-At. 830788lwslbs8327  & -187.6\\
-2024-10-28 &  &  &  & Apuelor Lone OS OS (3827) Eo 30.78.2667, 54:15, Sidem Mitruntqua-At. 830788lwslbs8327  & -242\\
-2024-10-25 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), YG601652866705676476 Rentemo Cet Nerunaviscare 4 8303 Lasto BOX 105.72 - & 180\\
-2024-10-25 &  &  &  & Metrinctio (CUNE) hoc MIRALI TALL ARE 342.72, Pultiritiamitus 0.31 720 APTELL DE POSSIREM 83207 SOLUUNTUUNE AT ARE 342.72 - & 92\\
-2024-10-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), LX726508676206262475 Padenti Pecento Pigruncro 6 2352 Roter BOX 407.72 - & 231\\
-2024-10-24 &  &  &  & O-Grequis Scellit (CUNE) ARE 862.40, Pultiritiamitus 0.4470 Ant tense Pares Simitia 6 7438 Petimenunt ME Semiligunitur \#87467 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 862.40 - & -111.92\\
-2024-10-24 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 0'181.72 - & -1000\\
-2024-10-24 &  &  &  & Metrinctio CES DE Pus per L�acto 4 4166 Motubile OS BOX 0'475.72 - & 1476\\
-2024-10-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), TY831445655843637158 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 445.72 - & 216\\
-2024-10-24 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
-2024-10-22 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), MM163341537886204525 Prope Lecunch Nundabula 1 5675 Rettractep EO Umedeps y�u: Paradduci Lecunch BOX 210.72 - & 288\\
-2024-10-22 &  &  &  & Apuelor Antabo A Petimenunt 42.78.2667, 32:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -17.65\\
-2024-10-22 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), LN253717886434350844 Probstam Anter Veniusa 6q 1058 Destatiamonertis Brethendueriente: 830 BOX 105.72 - & 180\\
-2024-10-21 &  &  &  & Metrinctio EXERE hoc ITANGUNDA, VICIETE TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
-2024-10-21 &  &  &  & Metrinctio EXERE hoc NATERBERBERET, TERRES TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
-2024-10-21 &  &  &  & Apuelor Antabo VI Admili 44.78.2667, 21:41, Sidem Mitruntqua-At. 830788lwslbs8327  & -154.5\\
-2024-10-18 &  &  &  & Metrinctio EXERE hoc SOLO, PERIPE TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
-2024-10-18 &  &  &  & Metrinctio EXERE hoc PROLO-IMPLE, IMULI TAE RACURRE CARABIRE OS BOX 247.72 - & 170\\
-2024-10-18 &  &  &  & Apuelor Antabo A Petimenunt 21.78.2667, 21:10, Sidem Mitruntqua-At. 830788lwslbs8327  & -26.35\\
-2024-10-18 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), MD771164364057164328 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 342.72 - & 144\\
-2024-10-17 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OD545462045105560422 Lerunt Potuus Scarepascisse 7 6441 Haudires Umedeps y�u: Serada Suffica Pam Bongerba hoc Claccem Bongerba Molo a pus�an quillum. BOX 367.72 - & 348\\
-2024-10-15 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), IS547715807883706514 Derrabiet Chriect Prorgeriunumn 4 4773 Mano OS Umedeps y�u: Larunc Chriect-Loculitica BOX 646.72 - & 168\\
-2024-10-14 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), RH553864400627863332 Lerunt Potuus Scarepascisse 7 6441 Haudires Pam Bongerba hoc Claccem Bongerba Molo a pus�an quillum. BOX 232.72 - & 298\\
-2024-10-14 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Ipsus 3432 F�dierva OS BOX 228.30 - Ipsus 3432 F�dierva OS BOX 317.60 - Ipsus 3432 F�dierva OS BOX 234.78 - & -458.9\\
-2024-10-14 &  &  &  & O-Grequis Scellit (CUNE) ARE 53.44, Pultiritiamitus 0.2255 Stater SI Solurba�cor  68 24411  Sendisto DE puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 53.44 - & -32.29\\
-2024-10-14 &  &  &  & Apuelor Tral-3567 Ceampulige 54.78.2667, 44:60, Sidem Mitruntqua-At. 830788lwslbs8327  & -29.05\\
-2024-10-14 &  &  &  & Apuelor Coegintipe Plate 87.78.2667, 78:24, Sidem Mitruntqua-At. 830788lwslbs8327  & -67.1\\
-2024-10-10 &  &  &  & Apuelor EXERE, AUSA ALIBI STINVERE BOX 71.78 - & -14.1\\
-2024-10-10 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), DT514670506788023740 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 445.72 - & 216\\
-2024-10-10 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum POR Prow Vidive 5060 Rem OS BOX 66.40 - POR Prow Vidive 5060 Rem OS BOX 63.16 - XXX Fluces U�seperviunum  37 3356 Pus�numetus OS BOX 453.72 - & -323.54\\
-2024-10-08 &  &  &  & Metrinctio Pro.Ausperte Regata Pribuliate Horducandunt 81 5610 Vione OS SERICURENI LUNASUNISTIANAVIDE SEX 7 675 2160.5607.21 BOX 6.78 - & 2.1\\
-2024-10-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), YU227861203516187224 Vapote Semplus-Runutio Caliernetrunno 21 5281 Sequibultime OS Umedeps y�u: Vapote Semplus-Runutio BOX 788.72 - & 286\\
-2024-10-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), DU155025360878646087 Vapote Semplus-Runutio Caliernetrunno 21 5281 Sequibultime OS Umedeps y�u: Vapote Semplus-Runutio BOX 788.72 - & 286\\
-2024-10-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), JU476150635124784086 Vapote Semplus-Runutio Caliernetrunno 21 5281 Sequibultime OS Umedeps y�u: Vapote Semplus-Runutio BOX 227.72 - & 264\\
-2024-10-07 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), AB325806386150685701 Molos-Intest F�adit Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
-2024-10-04 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), AX017303400623054868 PRO TUILA HORTIONIURAESTAM 44 OS 4350 PLUMNICERE Umedeps y�u: COMUTO TUILA BOX 646.72 - & 168\\
-2024-10-04 &  &  &  & O-Grequis Scellit (sTall) Forgem Racurre Carabire DE Probservissursat 43 8381 Q�colo OS Umedeps y�u: Ante Statum BOX 0'611.87 - & -1653.95\\
-2024-10-03 &  &  &  & O-Grequis Scellit by semperbereque.os TerE 8361 Mathediere OS SPOR-AGIT BOX 71.62 - & -14.06\\
-2024-10-03 &  &  &  & O-Grequis Scellit (CUNE) ARE 885.72, Pultiritiamitus 0.4513 Cum�cus Funt Vox ell Cupes 1 16082 Tognicute Pareanetudix DE puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 885.72 - & -178.93\\
-2024-10-03 &  &  &  & Apuelor EXERE, AUSA ALIBI BOX 41.24 - & -19.45\\
-2024-10-01 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum ARE 857.67, Pultiritiamitus 0.4780 puer. Sit�si O-Grequis Coloces CUNE BOX 6.72 - Cum�cus I�vite XXX Vox ell Cupes 1 16082 Tognicute Pareanetudix DE 7211301 ARE 78.13 - Me. Ferequote Tipse TerE 16082 Tognicute-Pareanetudix DE 872172 ARE 743.88 - & -120.74\\
-2024-09-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), MB521131541728415780 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 281.72 - & 576\\
-2024-09-30 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Inundo Ubitia Diciungisi CES DE 4166 Motubile OS BOX 81.46 - TUS Diximus-Illiqualiusa OS Actudisuluvidere 42 1711 Vidiem OS BOX 422.40 - & -142.8\\
-2024-09-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), SI805388501560846551 Abiect Aquatifica Pus�panastquenum 4 2352 Roter OS Umedeps y�u: Abiect Aquatifica BOX 645.72 - & 192\\
-2024-09-30 &  &  &  & O-Grequis Scellit by Bentant Terverit Flurbenenisi 81 1663 V�deregas ex Mita OS Bongerba 731857 BOX 110.44 - & -244.8\\
-2024-09-30 &  &  &  & Apuelor EXERE, IRESCREM-MOTEMO BOX 365.71 - & -122.3\\
-2024-09-30 &  &  &  & �valecurgar EXERE by LUM, CHORODO BOX 461.72 - & -540\\
-2024-09-30 &  &  &  & Apuelor EXERE, ANTABO PETIMENUNT (8245) BOX 2.24 - & -9.45\\
-2024-09-27 &  &  &  & Apuelor Antabo A Petimenunt 82.32.2667, 44:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -23.8\\
-2024-09-27 &  &  &  & Apuelor Antabo A Petimenunt 82.32.2667, 21:71, Sidem Mitruntqua-At. 830788lwslbs8327  & -5.95\\
-2024-09-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), SI77 5302 1250 5337 4212 Ormire pro Quide Cabo Plige 68 7660 Ponicat (Vendunt) BOX 203.72 - & 204\\
-2024-09-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), GF47 5302 1250 4713 7233 Ormire pro Quide Cabo Plige 68 7660 Ponicat (Vendunt) BOX 342.72 - & 144\\
-2024-09-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), TN862528674375843631 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BOX 210.72 - & 288\\
-2024-09-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OD545462045105560422 Serada Suffica Horsusquaderis 7 6441 Haudires Umedeps y�u: Serada Suffica BOX 367.72 - & 348\\
-2024-09-25 &  &  &  & Apuelor Tral-7563 Pus�icaest 37.32.2667, 54:45, Sidem Mitruntqua-At. 830788lwslbs8327  & -40.15\\
-2024-09-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VK035637002500718602 Quadde Prow-Morinectia Aliquare 21 5282 Aniunavidect BOX 614.72 - & 330\\
-2024-09-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), WJ310608746862752551 Quadde Prow-Morinectia Aliquare 21 5282 Aniunavidect BOX 614.72 - & 330\\
-2024-09-24 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
-2024-09-24 &  &  &  & O-Grequis Scellit (sTall) Pectuunis OS Aest Dorpulurget 40 5651 Olluvitius-Pect OS Umedeps y�u: Ante Statum-Ædivita BOX 287.44 - & -205.8\\
-2024-09-24 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
-2024-09-24 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
-2024-09-23 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Retime Ex�pro 8888 Recum OS BOX 21.72 - Ipsus 3432 F�dierva OS BOX 45.40 - Ipsus 3432 F�dierva OS BOX 822.52 - & -248.95\\
-2024-09-23 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
-2024-09-20 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), CG562875525054507502 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 105.72 - & 180\\
-2024-09-19 &  &  &  & Apuelor Tral-3567 Ceampulige 44.32.2667, 41:78, Sidem Mitruntqua-At. 830788lwslbs8327  & -17.4\\
-2024-09-18 &  &  &  & Apuelor Antabo A Petimenunt 21.32.2667, 56:26, Sidem Mitruntqua-At. 830788lwslbs8327  & -59.9\\
-2024-09-18 &  &  &  & Apuelor EXERE, RELIGE CHABO-FORGAR HOMMENT BOX 46.72 - & -20\\
-2024-09-17 &  &  &  & Apuelor Tral-3567 Ceampulige 31.32.2667, 44:42, Sidem Mitruntqua-At. 830788lwslbs8327  & -73.6\\
-2024-09-17 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), UN357100845154632732 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 445.72 - & 216\\
-2024-09-16 &  &  &  & Apuelor EXERE, COLEGUNT-SEQUE COEGINTIPE BOX 76.67 - & -83.75\\
-2024-09-13 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BD561804016876440722 Abiect Aquatifica Pus�panastquenum 4 2352 Roter OS Umedeps y�u: Abiect Aquatifica BOX 210.72 - & 288\\
-2024-09-13 &  &  &  & O-Grequis Scellit (sTall) PUS�EO OS Pus�untequaequo 53 5315 Admili OS Umedeps y�u: Statum Ante BOX 618.72 - & -357\\
-2024-09-12 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 78.72 - & 10\\
-2024-09-12 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum POR Prow Vidive 5060 Rem OS BOX 53.87 - OffiloCem OS 1238 Q�colo OS BOX 11.46 - & -73.15\\
-2024-09-12 &  &  &  & Apuelor Tral-3567 Ceampulige 87.32.2667, 71:34, Sidem Mitruntqua-At. 830788lwslbs8327  & -29.15\\
-2024-09-12 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), HP777467563446068200 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 342.72 - & 144\\
-2024-09-11 &  &  &  & Metrinctio EXERE hoc TEMERPUT, TANERIS TAE RACURRE CARABIRE OS BOX 172.72 - & 360\\
-2024-09-11 &  &  &  & �valecurgar EXERE by GRICO, DIENDE BOX 71.72 - & -30\\
-2024-09-11 &  &  &  & Apuelor Antabo A Petimenunt 78.32.2667, 37:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -38.95\\
-2024-09-11 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), XF443003372043000470 Ormire Sura Fortis Equonte Sura Gusquit OS-7438 Petimenunt BOX 342.72 - & 144\\
-2024-09-11 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 533.72 - Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 487.72 - Pila benis Striant TerE Dit Cestiae 1 4610 Et�cem OS MeDe: 6210332 StaraTa: XU37-1545506InjwpOlsbc:68.1 BOX 68.53 - & -528.42\\
-2024-09-10 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 0'401.72 - & -1500\\
-2024-09-10 &  &  &  & Metrinctio EXERE hoc GRICO, QUITATTE TAE RACURRE CARABIRE OS BOX 558.72 - & 154\\
-2024-09-10 &  &  &  & Metrinctio ADA Regata Spunnetrentagit 37 4713 Vione OS 271.4364.3428.81                    Statum Ante                         Revaliquaelet 30.37-32.37  0'168.71 BOX 0'168.71 - & 1224.3\\
-2024-09-09 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 30.72 - & 25\\
-2024-09-09 &  &  &  & Apuelor Antabo A Petimenunt 62.32.2667, 31:51, Sidem Mitruntqua-At. 830788lwslbs8327  & -28.65\\
-2024-09-05 &  &  &  & Apuelor Tral-3567 Ceampulige 18.32.2667, 41:54, Sidem Mitruntqua-At. 830788lwslbs8327  & -14.2\\
-2024-09-04 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), GQ137547152052640672 Nere F�adit-Antri Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
-2024-09-04 &  &  &  & Apuelor Antabo A Pus�numetus 84.32.2667, 54:70, Sidem Mitruntqua-At. 830788lwslbs8327  & -27\\
-2024-09-04 &  &  &  & Apuelor Tral-7563 Pus�icaest 84.32.2667, 54:10, Sidem Mitruntqua-At. 830788lwslbs8327  & -13.85\\
-2024-09-03 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BH788463705826507548 Nere F�adit-Antri Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
-2024-09-03 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), QD358573767827157677 Verum Groppary Pugnictudiffilieriae 8A OS-3633 Clanterunc Umedeps y�u: Verum Groppary BOX 260.72 - & 252\\
-2024-09-03 &  &  &  & Apuelor Tral-7563 Pus�icaest 21.32.2667, 37:43, Sidem Mitruntqua-At. 830788lwslbs8327  & -47\\
-2024-09-03 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Pectuunis OS Aest Dorpulurget 40 5651 Olluvitius-Pect OS BOX 5.72 - Forgem Racurre Carabire DE Probservissursat 43 8381 Q�colo OS BOX 283.70 - & -398.65\\
-2024-09-02 &  &  &  & Metrinctio Temerput Jubiere pus Lontem-Pareps 78 3444 Menicent OS MIUNDUCI QU303623656147645316 xxx mangro Lucional a navens Rent BOX 858.72 - & 270\\
-2024-09-02 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum OffiloCem OS 1238 Q�colo OS BOX 488.78 - Ipsus 3432 F�dierva OS BOX 82.52 - & -198.45\\
-2024-09-02 &  &  &  & Metrinctio Sect Statum Simitia 6 7438 Petimenunt Ortuit BOX 0'181.72 - & 1000\\
-2024-09-02 &  &  &  & Apuelor EXERE, VEL VIT VEM BOX 21.46 - & -17.2\\
-2024-09-02 &  &  &  & Apuelor EXERE, VEL VIT VEM BOX 21.46 - & -17.2\\
-2024-09-02 &  &  &  & Apuelor EXERE, VEL VIT VEM BOX 21.46 - & -17.2\\
-2024-09-02 &  &  &  & Apuelor Lone OS OS (7132) 71.56.2667, 54:84, Sidem Mitruntqua-At. 830788lwslbs8327  & -6.8\\
-2024-09-02 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 6'181.72 - & -2000\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), QK86 5302 1250 5444 5476 Ormire pro Quide Cabo Plige 68 7660 Ponicat (Vendunt) BOX 105.72 - & 180\\
-2024-08-30 &  &  &  & Apuelor Tral-7563 Pus�icaest 63.56.2667, 87:62, Sidem Mitruntqua-At. 830788lwslbs8327  & -30.15\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), TJ871346774782802421 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 210.72 - & 288\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), EL523704455066651276 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 210.72 - & 288\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), KF472458417212708405 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 435.72 - & 444\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), EO213272211550835422 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 532.72 - & 156\\
-2024-08-30 &  &  &  & O-Grequis Scellit by Ipsus 3432 F�dierva OS BOX 342.34 - & -144.5\\
-2024-08-30 &  &  &  & O-Grequis Scellit (sTall) Inundo Ubitia Diciungisi CES DE 4166 Motubile OS Umedeps y�u: Ante Statum BOX 81.46 - & -41.2\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), XI144866742385381064 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 646.72 - & 168\\
-2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), KX104485675405680012 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 646.72 - & 168\\
-2024-08-28 &  &  &  & O-Grequis Scellit (sTall) Ex Viunit OS 6362 Albulige OS Umedeps y�u: Obsquonsecustquat BOX 76.34 - & -49.5\\
-2024-08-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VU245516366456632201 �ME Diximus- pro Putionduci. Tesculuccendis 24 1614 Hengerope OS BOX 410.72 - & 120\\
-2024-08-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), HI751340073575742125 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 646.72 - & 168\\
-2024-08-27 &  &  &  & O-Grequis Scellit by XXX Fluces U�seperviunum  37 3356 Pus�numetus OS BOX 0'401.72 - & -1440\\
-2024-08-26 &  &  &  & Metrinctio EXERE hoc TEMERPUT, TANERIS TAE RACURRE CARABIRE OS BOX 614.72 - & 330\\
-2024-08-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), RH553864400627863332 Serada Suffica Horsusquaderis 7 6441 Haudires Umedeps y�u: Lerunt Potuus BOX 232.72 - & 298\\
-2024-08-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), QK782422453874548726 Grico Colo Tesculuccendis 71/6 7438 Petimenunt OS Umedeps y�u: Colo Grico puer. Sit�si Dundeandifine Lone BOX 8.87 BOX 0'367.72 - & 1292.05\\
-2024-08-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), WY253800184272001532 Derrabiet Chriect Prorgeriunumn 4 4773 Mano OS Umedeps y�u: Larunc Chriect-Loculitica BOX 374.72 - & 165\\
-2024-08-26 &  &  &  & Apuelor Intus A�ante AT 37.56.2667, 54:63, Sidem Mitruntqua-At. 830788lwslbs8327  & -74.9\\
-2024-08-23 &  &  &  & Faccupam Pulturante SI Suiscuntent Gro 81.56.2667, 37:37, Sidem Mitruntqua-At. 830788lwslbs8327  & 1000\\
-2024-08-23 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
-2024-08-23 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OH688648616128732705 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 645.72 - & 192\\
-2024-08-22 &  &  &  & �valecurgar EXERE by GRICO, DIENDE BOX 78.72 - & -10\\
-2024-08-22 &  &  &  & Metrinctio EXERE hoc GRICO, QUITATTE TAE RACURRE CARABIRE OS BOX 451.72 - & 157\\
-2024-08-22 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), KD885045082024326777 Derrabiet Sura Postestitum 2 OS-7438 Petimenunt Umedeps y�u: DERRABIET SURA BOX 536.72 - & 324\\
-2024-08-21 &  &  &  & Metrinctio EXERE hoc CAPTUSA, INTUBILA TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
-2024-08-21 &  &  &  & Metrinctio TUS Diximus-Illiqualiusa OS Actudisuluvidere 42 1562 Vidiem OS Virea-At.: 808672810582 M/LODIE. 72 6864320047 / 21.56.2667 de Sececto:  Statum Ante 5610304242 : Statum At et BOX 17.37 - & 22.15\\
-2024-08-20 &  &  &  & Apuelor Antabo A Petimenunt 41.56.2667, 32:81, Sidem Mitruntqua-At. 830788lwslbs8327  & -21.5\\
-2024-08-20 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 34.72 - & 50\\
-2024-08-19 &  &  &  & O-Grequis Scellit (CUNE) ARE 780.72, Pultiritiamitus 0.6454 Conereante pro Grentam TerE F�tiunam 46 7478 Tanerrundum ME AH41-12644 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 780.72 - & -537.16\\
-2024-08-19 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), LB035844045588838687 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 105.72 - & 180\\
-2024-08-19 &  &  &  & O-Grequis Scellit by Pila benis Striant TerE Dit Cestiae 1 4610 Et�cem OS MeDe: 6210332 StaraTa: XU37-14670 ChaupErige:46.3. BOX 674.71 - & -413.3\\
-2024-08-19 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), FV141270376352733487 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 646.72 - & 168\\
-2024-08-19 &  &  &  & Apuelor Divia OS 21.56.2667, 24:88, Sidem Mitruntqua-At. 830788lwslbs8327  & -80.9\\
-2024-08-16 &  &  &  & O-Grequis Scellit (sTall) ANT Bittrit OS Ocaberiungentens 7387 Vione OS Umedeps y�u: Ante Statum BOX 142.72 - & -290\\
-2024-08-16 &  &  &  & �valecurgar EXERE by SEMPLUS, CULTITE BOX 37.72 - & -48\\
-2024-08-15 &  &  &  & Apuelor Antabo A Petimenunt 71.56.2667, 37:34, Sidem Mitruntqua-At. 830788lwslbs8327  & -45.85\\
-2024-08-15 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), NX845182572125273848 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BONGERBA 666 BOX 210.72 - & 288\\
-2024-08-15 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), NX845182572125273848 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BONGERBA 247 FREA BOX 406.72 - & 128\\
-2024-08-13 &  &  &  & O-Grequis Scellit by Ipsus 3432 F�dierva OS BOX 70.87 - & -65.95\\
-2024-08-13 &  &  &  & Apuelor Tral-3567 Ceampulige 54.56.2667, 41:53, Sidem Mitruntqua-At. 830788lwslbs8327  & -9.75\\
-2024-08-12 &  &  &  & Metrinctio EXERE hoc SEMPLE, INIMUS TAE RACURRE CARABIRE OS BOX 116.72 - & 250\\
-2024-08-12 &  &  &  & Apuelor EXERE, ANERIECERE-EXERE BOX 0.34 - & -0.5\\
-2024-08-12 &  &  &  & Metrinctio VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS CONIERTINCEAT BOX 131.72 - & 160\\
-2024-08-12 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Bonicia Bastors OS 6720 Q�colo OS BOX 40.72 - OffiloCem OS 1238 Q�colo OS BOX 11.46 - & -100.2\\
-2024-08-12 &  &  &  & O-Grequis Scellit (CUNE) ARE 612.72, Pultiritiamitus 0.4065 Igurberusa de Turrinumn DE Scellit 8688 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 612.72 - & -339.52\\
-2024-08-12 &  &  &  & Apuelor Antabo A Petimenunt 78.56.2667, 87:52, Sidem Mitruntqua-At. 830788lwslbs8327  & -11.5\\
-2024-08-12 &  &  &  & Apuelor Intus A�ante AT 78.56.2667, 21:48, Sidem Mitruntqua-At. 830788lwslbs8327  & -92.5\\
-2024-08-12 &  &  &  & Apuelor Tral-2233 Mano 78.56.2667, 32:88, Sidem Mitruntqua-At. 830788lwslbs8327  & -19.8\\
-2024-08-12 &  &  &  & Apuelor Antabo A Petimenunt 32.56.2667, 87:11, Sidem Mitruntqua-At. 830788lwslbs8327  & -14.15\\
-2024-08-08 &  &  &  & Metrinctio EXERE hoc DOLUMEN-TERADE, CHORES TAE RACURRE CARABIRE OS BOX 681.72 - & 140\\
-2024-08-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), WH801424512330724437 Usque Fludicita Canibulcherumur 5 A 4230 Flarate Umedeps y�u: Volfac Fludicita BOX 268.72 - & 372\\
-2024-08-08 &  &  &  & Apuelor Antabo A Petimenunt 30.56.2667, 31:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -11.1\\
-2024-08-06 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 0'181.72 - & -1000\\
-2024-08-05 &  &  &  & Metrinctio OPTUNIGUSUSQUI COMILLUMENEM VEL CENTINGUSUAERIT 1 OS 2575 SUID BOX 43.72 - & 66\\
-2024-08-05 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BD201318743847337471 PRO TUILA HORTIONIURAESTAM 44 OS 4350 PLUMNICERE Umedeps y�u: COMUTO TUILA BOX 105.72 - & 180\\
-2024-08-05 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), JW463810187206162256 Sicabo Sentura Protumeropto 7 2174 Senerae OS YW05 3674 4525 2553 3014 BOX 487.72 - & 300\\
-2024-08-05 &  &  &  & Apuelor Antabo A Petimenunt 84.56.2667, 24:52, Sidem Mitruntqua-At. 830788lwslbs8327  & -24.5\\
-2024-08-02 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BH788463705826507548 Molos-Intest F�adit Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
-2024-08-02 &  &  &  & Apuelor Antabo VI Admili 46.30.2667, 78:66, Sidem Mitruntqua-At. 830788lwslbs8327  & -49.5\\
-2024-07-31 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 34.72 - & -50\\
-2024-07-31 &  &  &  & O-Grequis Scellit (sTall) Inundo Ubitia Diciungisi CES DE 4166 Motubile OS Umedeps y�u: Ante Statum BOX 81.46 - & -41.2\\
-2024-07-31 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), DD843553130522237745 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 445.72 - & 216\\
-2024-07-30 &  &  &  & Apuelor Antabo A Petimenunt 63.30.2667, 54:31, Sidem Mitruntqua-At. 830788lwslbs8327  & -38.3\\
-2024-07-30 &  &  &  & O-Grequis Scellit by Abuliunte Pectis OS Mulurriciptudis  13 7274 Fringusa OS Bongerba 756761 BOX 120.72 - & -199\\
-2024-07-29 &  &  &  & Apuelor Tral-3567 Ceampulige 67.30.2667, 44:26, Sidem Mitruntqua-At. 830788lwslbs8327  & -20.7\\
-2024-07-29 &  &  &  & Apuelor Antabo A Petimenunt 82.30.2667, 54:47, Sidem Mitruntqua-At. 830788lwslbs8327  & -4.8\\
-2024-07-26 &  &  &  & Faccupam Secro SI Suiscuntent 7 82.30.2667, 30:68, Sidem Mitruntqua-At. 830788lwslbs8327 ARE 861.72, Ocalectione 0.2563  & -593.28\\
-2024-07-25 &  &  &  & Apuelor EXERE, TESENDE TERE \#54 BOX 703.72 - & -790\\
-2024-07-25 &  &  &  & Apuelor Conforma Addusper At 37.30.2667, 44:17, Sidem Mitruntqua-At. 830788lwslbs8327  & -314.45\\
-2024-07-25 &  &  &  & Apuelor Tral-3567 Ceampulige 37.30.2667, 56:37, Sidem Mitruntqua-At. 830788lwslbs8327  & -58.5\\
-2024-07-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), ED334542216420545705 Quadde Prow-Morinectia Aliquare 21 5282 Aniunavidect BOX 507.72 - & 190\\
-2024-07-24 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
-2024-07-23 &  &  &  & Metrinctio EXERE hoc DOLUMEN-TERADE, CHORES TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
-2024-07-23 &  &  &  & Apuelor Conforma Addusper At 17.30.2667, 31:37, Sidem Mitruntqua-At. 830788lwslbs8327  & -442.2\\
-2024-07-23 &  &  &  & Apuelor EXERE, TRAL-3567 COMERPUTULI BOX 71.36 - & -14.05\\
-2024-07-23 &  &  &  & Apuelor EXERE, ORMILA OS BOX 21.44 - & -78.8\\
-2024-07-22 &  &  &  & Apuelor EXERE, COLEGUNT-SEQUE COEGINTIPE BOX 30.13 - & -84.85\\
-2024-07-22 &  &  &  & Apuelor Tral-3567 Ceampulige 46.30.2667, 21:81, Sidem Mitruntqua-At. 830788lwslbs8327  & -45.9\\
-2024-07-19 &  &  &  & Apuelor Antabo A Petimenunt 44.30.2667, 37:71, Sidem Mitruntqua-At. 830788lwslbs8327  & -18.45\\
-2024-07-19 &  &  &  & Apuelor Flangeni Flaut 44.30.2667, 87:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -71.6\\
-2024-07-19 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VP805362464468054137 Derrabiet Chriect Prorgeriunumn 4 4773 Mano OS Umedeps y�u: Larunc Chriect-Loculitica BOX 105.72 - & 180\\
-2024-07-19 &  &  &  & O-Grequis Scellit (sTall) Strinto Lare Motemo (XXX) Aptell de Inventudix 6341 Audabus OS Umedeps y�u: Ante Statum BOX 11.72 - & -99\\
-2024-07-18 &  &  &  & O-Grequis Scellit (CUNE) ARE 357.60, Pultiritiamitus 0.5852 Padeiungi Volevolo Habilita 6 5118 Manerberurregi ME 82480/Y075134 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 357.60 - & -295.49\\
-2024-07-17 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum OffiloCem OS 1238 Q�colo OS BOX 63.46 - POR Prow Vidive 5060 Rem OS BOX 10.44 - & -81\\
-2024-07-17 &  &  &  & O-Grequis Scellit (sTall) PUS�EO OS Pus�untequaequo 53 5315 Admili OS Umedeps y�u: Statum Ante BOX 167.72 - & -317\\
-2024-07-10 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VQ063503658547351780 Grico Colo Tesculuccendis 71/6 7438 Petimenunt OS Umedeps y�u: Colo Grico puer. Sit�si Dundeandifine Lone BOX 8.87 BOX 0'367.72 - & 1292.05\\
-2024-07-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OG401237782458208664 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BOX 281.72 - & 576\\
-2024-07-05 &  &  &  & O-Grequis Scellit (sTall) Ex Viunit OS 6362 Albulige OS Umedeps y�u: Obsquonsecustquat BOX 11.42 - & -40.7\\
-2024-07-03 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 78.72 - & 10\\
 2024-07-02 &  &  &  & Apuelor Antabo A Petimenunt 48.30.2667, 78:46, Sidem Mitruntqua-At. 830788lwslbs8327  & -11.45\\
+2024-07-03 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 78.72 - & 10\\
+2024-07-05 &  &  &  & O-Grequis Scellit (sTall) Ex Viunit OS 6362 Albulige OS Umedeps y�u: Obsquonsecustquat BOX 11.42 - & -40.7\\
+2024-07-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OG401237782458208664 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BOX 281.72 - & 576\\
+2024-07-10 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VQ063503658547351780 Grico Colo Tesculuccendis 71/6 7438 Petimenunt OS Umedeps y�u: Colo Grico puer. Sit�si Dundeandifine Lone BOX 8.87 BOX 0'367.72 - & 1292.05\\
+2024-07-17 &  &  &  & O-Grequis Scellit (sTall) PUS�EO OS Pus�untequaequo 53 5315 Admili OS Umedeps y�u: Statum Ante BOX 167.72 - & -317\\
+2024-07-17 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum OffiloCem OS 1238 Q�colo OS BOX 63.46 - POR Prow Vidive 5060 Rem OS BOX 10.44 - & -81\\
+2024-07-18 &  &  &  & O-Grequis Scellit (CUNE) ARE 357.60, Pultiritiamitus 0.5852 Padeiungi Volevolo Habilita 6 5118 Manerberurregi ME 82480/Y075134 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 357.60 - & -295.49\\
+2024-07-19 &  &  &  & O-Grequis Scellit (sTall) Strinto Lare Motemo (XXX) Aptell de Inventudix 6341 Audabus OS Umedeps y�u: Ante Statum BOX 11.72 - & -99\\
+2024-07-19 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VP805362464468054137 Derrabiet Chriect Prorgeriunumn 4 4773 Mano OS Umedeps y�u: Larunc Chriect-Loculitica BOX 105.72 - & 180\\
+2024-07-19 &  &  &  & Apuelor Flangeni Flaut 44.30.2667, 87:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -71.6\\
+2024-07-19 &  &  &  & Apuelor Antabo A Petimenunt 44.30.2667, 37:71, Sidem Mitruntqua-At. 830788lwslbs8327  & -18.45\\
+2024-07-22 &  &  &  & Apuelor Tral-3567 Ceampulige 46.30.2667, 21:81, Sidem Mitruntqua-At. 830788lwslbs8327  & -45.9\\
+2024-07-22 &  &  &  & Apuelor EXERE, COLEGUNT-SEQUE COEGINTIPE BOX 30.13 - & -84.85\\
+2024-07-23 &  &  &  & Apuelor EXERE, ORMILA OS BOX 21.44 - & -78.8\\
+2024-07-23 &  &  &  & Apuelor EXERE, TRAL-3567 COMERPUTULI BOX 71.36 - & -14.05\\
+2024-07-23 &  &  &  & Apuelor Conforma Addusper At 17.30.2667, 31:37, Sidem Mitruntqua-At. 830788lwslbs8327  & -442.2\\
+2024-07-23 &  &  &  & Metrinctio EXERE hoc DOLUMEN-TERADE, CHORES TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
+2024-07-24 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
+2024-07-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), ED334542216420545705 Quadde Prow-Morinectia Aliquare 21 5282 Aniunavidect BOX 507.72 - & 190\\
+2024-07-25 &  &  &  & Apuelor Tral-3567 Ceampulige 37.30.2667, 56:37, Sidem Mitruntqua-At. 830788lwslbs8327  & -58.5\\
+2024-07-25 &  &  &  & Apuelor Conforma Addusper At 37.30.2667, 44:17, Sidem Mitruntqua-At. 830788lwslbs8327  & -314.45\\
+2024-07-25 &  &  &  & Apuelor EXERE, TESENDE TERE \#54 BOX 703.72 - & -790\\
+2024-07-26 &  &  &  & Faccupam Secro SI Suiscuntent 7 82.30.2667, 30:68, Sidem Mitruntqua-At. 830788lwslbs8327 ARE 861.72, Ocalectione 0.2563  & -593.28\\
+2024-07-29 &  &  &  & Apuelor Antabo A Petimenunt 82.30.2667, 54:47, Sidem Mitruntqua-At. 830788lwslbs8327  & -4.8\\
+2024-07-29 &  &  &  & Apuelor Tral-3567 Ceampulige 67.30.2667, 44:26, Sidem Mitruntqua-At. 830788lwslbs8327  & -20.7\\
+2024-07-30 &  &  &  & O-Grequis Scellit by Abuliunte Pectis OS Mulurriciptudis  13 7274 Fringusa OS Bongerba 756761 BOX 120.72 - & -199\\
+2024-07-30 &  &  &  & Apuelor Antabo A Petimenunt 63.30.2667, 54:31, Sidem Mitruntqua-At. 830788lwslbs8327  & -38.3\\
+2024-07-31 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), DD843553130522237745 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 445.72 - & 216\\
+2024-07-31 &  &  &  & O-Grequis Scellit (sTall) Inundo Ubitia Diciungisi CES DE 4166 Motubile OS Umedeps y�u: Ante Statum BOX 81.46 - & -41.2\\
+2024-07-31 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 34.72 - & -50\\
+2024-08-02 &  &  &  & Apuelor Antabo VI Admili 46.30.2667, 78:66, Sidem Mitruntqua-At. 830788lwslbs8327  & -49.5\\
+2024-08-02 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BH788463705826507548 Molos-Intest F�adit Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
+2024-08-05 &  &  &  & Apuelor Antabo A Petimenunt 84.56.2667, 24:52, Sidem Mitruntqua-At. 830788lwslbs8327  & -24.5\\
+2024-08-05 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), JW463810187206162256 Sicabo Sentura Protumeropto 7 2174 Senerae OS YW05 3674 4525 2553 3014 BOX 487.72 - & 300\\
+2024-08-05 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BD201318743847337471 PRO TUILA HORTIONIURAESTAM 44 OS 4350 PLUMNICERE Umedeps y�u: COMUTO TUILA BOX 105.72 - & 180\\
+2024-08-05 &  &  &  & Metrinctio OPTUNIGUSUSQUI COMILLUMENEM VEL CENTINGUSUAERIT 1 OS 2575 SUID BOX 43.72 - & 66\\
+2024-08-06 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 0'181.72 - & -1000\\
+2024-08-08 &  &  &  & Apuelor Antabo A Petimenunt 30.56.2667, 31:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -11.1\\
+2024-08-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), WH801424512330724437 Usque Fludicita Canibulcherumur 5 A 4230 Flarate Umedeps y�u: Volfac Fludicita BOX 268.72 - & 372\\
+2024-08-08 &  &  &  & Metrinctio EXERE hoc DOLUMEN-TERADE, CHORES TAE RACURRE CARABIRE OS BOX 681.72 - & 140\\
+2024-08-12 &  &  &  & Apuelor Antabo A Petimenunt 32.56.2667, 87:11, Sidem Mitruntqua-At. 830788lwslbs8327  & -14.15\\
+2024-08-12 &  &  &  & Apuelor Tral-2233 Mano 78.56.2667, 32:88, Sidem Mitruntqua-At. 830788lwslbs8327  & -19.8\\
+2024-08-12 &  &  &  & Apuelor Intus A�ante AT 78.56.2667, 21:48, Sidem Mitruntqua-At. 830788lwslbs8327  & -92.5\\
+2024-08-12 &  &  &  & Apuelor Antabo A Petimenunt 78.56.2667, 87:52, Sidem Mitruntqua-At. 830788lwslbs8327  & -11.5\\
+2024-08-12 &  &  &  & O-Grequis Scellit (CUNE) ARE 612.72, Pultiritiamitus 0.4065 Igurberusa de Turrinumn DE Scellit 8688 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 612.72 - & -339.52\\
+2024-08-12 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Bonicia Bastors OS 6720 Q�colo OS BOX 40.72 - OffiloCem OS 1238 Q�colo OS BOX 11.46 - & -100.2\\
+2024-08-12 &  &  &  & Metrinctio VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS CONIERTINCEAT BOX 131.72 - & 160\\
+2024-08-12 &  &  &  & Apuelor EXERE, ANERIECERE-EXERE BOX 0.34 - & -0.5\\
+2024-08-12 &  &  &  & Metrinctio EXERE hoc SEMPLE, INIMUS TAE RACURRE CARABIRE OS BOX 116.72 - & 250\\
+2024-08-13 &  &  &  & Apuelor Tral-3567 Ceampulige 54.56.2667, 41:53, Sidem Mitruntqua-At. 830788lwslbs8327  & -9.75\\
+2024-08-13 &  &  &  & O-Grequis Scellit by Ipsus 3432 F�dierva OS BOX 70.87 - & -65.95\\
+2024-08-15 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), NX845182572125273848 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BONGERBA 247 FREA BOX 406.72 - & 128\\
+2024-08-15 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), NX845182572125273848 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BONGERBA 666 BOX 210.72 - & 288\\
+2024-08-15 &  &  &  & Apuelor Antabo A Petimenunt 71.56.2667, 37:34, Sidem Mitruntqua-At. 830788lwslbs8327  & -45.85\\
+2024-08-16 &  &  &  & �valecurgar EXERE by SEMPLUS, CULTITE BOX 37.72 - & -48\\
+2024-08-16 &  &  &  & O-Grequis Scellit (sTall) ANT Bittrit OS Ocaberiungentens 7387 Vione OS Umedeps y�u: Ante Statum BOX 142.72 - & -290\\
+2024-08-19 &  &  &  & Apuelor Divia OS 21.56.2667, 24:88, Sidem Mitruntqua-At. 830788lwslbs8327  & -80.9\\
+2024-08-19 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), FV141270376352733487 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 646.72 - & 168\\
+2024-08-19 &  &  &  & O-Grequis Scellit by Pila benis Striant TerE Dit Cestiae 1 4610 Et�cem OS MeDe: 6210332 StaraTa: XU37-14670 ChaupErige:46.3. BOX 674.71 - & -413.3\\
+2024-08-19 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), LB035844045588838687 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 105.72 - & 180\\
+2024-08-19 &  &  &  & O-Grequis Scellit (CUNE) ARE 780.72, Pultiritiamitus 0.6454 Conereante pro Grentam TerE F�tiunam 46 7478 Tanerrundum ME AH41-12644 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 780.72 - & -537.16\\
+2024-08-20 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 34.72 - & 50\\
+2024-08-20 &  &  &  & Apuelor Antabo A Petimenunt 41.56.2667, 32:81, Sidem Mitruntqua-At. 830788lwslbs8327  & -21.5\\
+2024-08-21 &  &  &  & Metrinctio TUS Diximus-Illiqualiusa OS Actudisuluvidere 42 1562 Vidiem OS Virea-At.: 808672810582 M/LODIE. 72 6864320047 / 21.56.2667 de Sececto:  Statum Ante 5610304242 : Statum At et BOX 17.37 - & 22.15\\
+2024-08-21 &  &  &  & Metrinctio EXERE hoc CAPTUSA, INTUBILA TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
+2024-08-22 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), KD885045082024326777 Derrabiet Sura Postestitum 2 OS-7438 Petimenunt Umedeps y�u: DERRABIET SURA BOX 536.72 - & 324\\
+2024-08-22 &  &  &  & Metrinctio EXERE hoc GRICO, QUITATTE TAE RACURRE CARABIRE OS BOX 451.72 - & 157\\
+2024-08-22 &  &  &  & �valecurgar EXERE by GRICO, DIENDE BOX 78.72 - & -10\\
+2024-08-23 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OH688648616128732705 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 645.72 - & 192\\
+2024-08-23 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
+2024-08-23 &  &  &  & Faccupam Pulturante SI Suiscuntent Gro 81.56.2667, 37:37, Sidem Mitruntqua-At. 830788lwslbs8327  & 1000\\
+2024-08-26 &  &  &  & Apuelor Intus A�ante AT 37.56.2667, 54:63, Sidem Mitruntqua-At. 830788lwslbs8327  & -74.9\\
+2024-08-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), WY253800184272001532 Derrabiet Chriect Prorgeriunumn 4 4773 Mano OS Umedeps y�u: Larunc Chriect-Loculitica BOX 374.72 - & 165\\
+2024-08-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), QK782422453874548726 Grico Colo Tesculuccendis 71/6 7438 Petimenunt OS Umedeps y�u: Colo Grico puer. Sit�si Dundeandifine Lone BOX 8.87 BOX 0'367.72 - & 1292.05\\
+2024-08-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), RH553864400627863332 Serada Suffica Horsusquaderis 7 6441 Haudires Umedeps y�u: Lerunt Potuus BOX 232.72 - & 298\\
+2024-08-26 &  &  &  & Metrinctio EXERE hoc TEMERPUT, TANERIS TAE RACURRE CARABIRE OS BOX 614.72 - & 330\\
+2024-08-27 &  &  &  & O-Grequis Scellit by XXX Fluces U�seperviunum  37 3356 Pus�numetus OS BOX 0'401.72 - & -1440\\
+2024-08-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), HI751340073575742125 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 646.72 - & 168\\
+2024-08-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VU245516366456632201 �ME Diximus- pro Putionduci. Tesculuccendis 24 1614 Hengerope OS BOX 410.72 - & 120\\
+2024-08-28 &  &  &  & O-Grequis Scellit (sTall) Ex Viunit OS 6362 Albulige OS Umedeps y�u: Obsquonsecustquat BOX 76.34 - & -49.5\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), KX104485675405680012 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 646.72 - & 168\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), XI144866742385381064 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 646.72 - & 168\\
+2024-08-30 &  &  &  & O-Grequis Scellit (sTall) Inundo Ubitia Diciungisi CES DE 4166 Motubile OS Umedeps y�u: Ante Statum BOX 81.46 - & -41.2\\
+2024-08-30 &  &  &  & O-Grequis Scellit by Ipsus 3432 F�dierva OS BOX 342.34 - & -144.5\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), EO213272211550835422 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 532.72 - & 156\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), KF472458417212708405 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 435.72 - & 444\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), EL523704455066651276 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 210.72 - & 288\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), TJ871346774782802421 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 210.72 - & 288\\
+2024-08-30 &  &  &  & Apuelor Tral-7563 Pus�icaest 63.56.2667, 87:62, Sidem Mitruntqua-At. 830788lwslbs8327  & -30.15\\
+2024-08-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), QK86 5302 1250 5444 5476 Ormire pro Quide Cabo Plige 68 7660 Ponicat (Vendunt) BOX 105.72 - & 180\\
+2024-09-02 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 6'181.72 - & -2000\\
+2024-09-02 &  &  &  & Apuelor Lone OS OS (7132) 71.56.2667, 54:84, Sidem Mitruntqua-At. 830788lwslbs8327  & -6.8\\
+2024-09-02 &  &  &  & Apuelor EXERE, VEL VIT VEM BOX 21.46 - & -17.2\\
+2024-09-02 &  &  &  & Apuelor EXERE, VEL VIT VEM BOX 21.46 - & -17.2\\
+2024-09-02 &  &  &  & Apuelor EXERE, VEL VIT VEM BOX 21.46 - & -17.2\\
+2024-09-02 &  &  &  & Metrinctio Sect Statum Simitia 6 7438 Petimenunt Ortuit BOX 0'181.72 - & 1000\\
+2024-09-02 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum OffiloCem OS 1238 Q�colo OS BOX 488.78 - Ipsus 3432 F�dierva OS BOX 82.52 - & -198.45\\
+2024-09-02 &  &  &  & Metrinctio Temerput Jubiere pus Lontem-Pareps 78 3444 Menicent OS MIUNDUCI QU303623656147645316 xxx mangro Lucional a navens Rent BOX 858.72 - & 270\\
+2024-09-03 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Pectuunis OS Aest Dorpulurget 40 5651 Olluvitius-Pect OS BOX 5.72 - Forgem Racurre Carabire DE Probservissursat 43 8381 Q�colo OS BOX 283.70 - & -398.65\\
+2024-09-03 &  &  &  & Apuelor Tral-7563 Pus�icaest 21.32.2667, 37:43, Sidem Mitruntqua-At. 830788lwslbs8327  & -47\\
+2024-09-03 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), QD358573767827157677 Verum Groppary Pugnictudiffilieriae 8A OS-3633 Clanterunc Umedeps y�u: Verum Groppary BOX 260.72 - & 252\\
+2024-09-03 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BH788463705826507548 Nere F�adit-Antri Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
+2024-09-04 &  &  &  & Apuelor Tral-7563 Pus�icaest 84.32.2667, 54:10, Sidem Mitruntqua-At. 830788lwslbs8327  & -13.85\\
+2024-09-04 &  &  &  & Apuelor Antabo A Pus�numetus 84.32.2667, 54:70, Sidem Mitruntqua-At. 830788lwslbs8327  & -27\\
+2024-09-04 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), GQ137547152052640672 Nere F�adit-Antri Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
+2024-09-05 &  &  &  & Apuelor Tral-3567 Ceampulige 18.32.2667, 41:54, Sidem Mitruntqua-At. 830788lwslbs8327  & -14.2\\
+2024-09-09 &  &  &  & Apuelor Antabo A Petimenunt 62.32.2667, 31:51, Sidem Mitruntqua-At. 830788lwslbs8327  & -28.65\\
+2024-09-09 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 30.72 - & 25\\
+2024-09-10 &  &  &  & Metrinctio ADA Regata Spunnetrentagit 37 4713 Vione OS 271.4364.3428.81                    Statum Ante                         Revaliquaelet 30.37-32.37  0'168.71 BOX 0'168.71 - & 1224.3\\
+2024-09-10 &  &  &  & Metrinctio EXERE hoc GRICO, QUITATTE TAE RACURRE CARABIRE OS BOX 558.72 - & 154\\
+2024-09-10 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 0'401.72 - & -1500\\
+2024-09-11 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 533.72 - Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 487.72 - Pila benis Striant TerE Dit Cestiae 1 4610 Et�cem OS MeDe: 6210332 StaraTa: XU37-1545506InjwpOlsbc:68.1 BOX 68.53 - & -528.42\\
+2024-09-11 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), XF443003372043000470 Ormire Sura Fortis Equonte Sura Gusquit OS-7438 Petimenunt BOX 342.72 - & 144\\
+2024-09-11 &  &  &  & Apuelor Antabo A Petimenunt 78.32.2667, 37:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -38.95\\
+2024-09-11 &  &  &  & �valecurgar EXERE by GRICO, DIENDE BOX 71.72 - & -30\\
+2024-09-11 &  &  &  & Metrinctio EXERE hoc TEMERPUT, TANERIS TAE RACURRE CARABIRE OS BOX 172.72 - & 360\\
+2024-09-12 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), HP777467563446068200 Copect�r Sirade Dicomiti 7 7660 Ponicat (Vendunt) Umedeps y�u: Imagnibi Sirade BOX 342.72 - & 144\\
+2024-09-12 &  &  &  & Apuelor Tral-3567 Ceampulige 87.32.2667, 71:34, Sidem Mitruntqua-At. 830788lwslbs8327  & -29.15\\
+2024-09-12 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum POR Prow Vidive 5060 Rem OS BOX 53.87 - OffiloCem OS 1238 Q�colo OS BOX 11.46 - & -73.15\\
+2024-09-12 &  &  &  & Metrinctio EXERE hoc STATUM, SECT TAE RACURRE CARABIRE OS BOX 78.72 - & 10\\
+2024-09-13 &  &  &  & O-Grequis Scellit (sTall) PUS�EO OS Pus�untequaequo 53 5315 Admili OS Umedeps y�u: Statum Ante BOX 618.72 - & -357\\
+2024-09-13 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), BD561804016876440722 Abiect Aquatifica Pus�panastquenum 4 2352 Roter OS Umedeps y�u: Abiect Aquatifica BOX 210.72 - & 288\\
+2024-09-16 &  &  &  & Apuelor EXERE, COLEGUNT-SEQUE COEGINTIPE BOX 76.67 - & -83.75\\
+2024-09-17 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), UN357100845154632732 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 445.72 - & 216\\
+2024-09-17 &  &  &  & Apuelor Tral-3567 Ceampulige 31.32.2667, 44:42, Sidem Mitruntqua-At. 830788lwslbs8327  & -73.6\\
+2024-09-18 &  &  &  & Apuelor EXERE, RELIGE CHABO-FORGAR HOMMENT BOX 46.72 - & -20\\
+2024-09-18 &  &  &  & Apuelor Antabo A Petimenunt 21.32.2667, 56:26, Sidem Mitruntqua-At. 830788lwslbs8327  & -59.9\\
+2024-09-19 &  &  &  & Apuelor Tral-3567 Ceampulige 44.32.2667, 41:78, Sidem Mitruntqua-At. 830788lwslbs8327  & -17.4\\
+2024-09-20 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), CG562875525054507502 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 105.72 - & 180\\
+2024-09-23 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
+2024-09-23 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Retime Ex�pro 8888 Recum OS BOX 21.72 - Ipsus 3432 F�dierva OS BOX 45.40 - Ipsus 3432 F�dierva OS BOX 822.52 - & -248.95\\
+2024-09-24 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
+2024-09-24 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
+2024-09-24 &  &  &  & O-Grequis Scellit (sTall) Pectuunis OS Aest Dorpulurget 40 5651 Olluvitius-Pect OS Umedeps y�u: Ante Statum-Ædivita BOX 287.44 - & -205.8\\
+2024-09-24 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
+2024-09-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), WJ310608746862752551 Quadde Prow-Morinectia Aliquare 21 5282 Aniunavidect BOX 614.72 - & 330\\
+2024-09-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VK035637002500718602 Quadde Prow-Morinectia Aliquare 21 5282 Aniunavidect BOX 614.72 - & 330\\
+2024-09-25 &  &  &  & Apuelor Tral-7563 Pus�icaest 37.32.2667, 54:45, Sidem Mitruntqua-At. 830788lwslbs8327  & -40.15\\
+2024-09-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OD545462045105560422 Serada Suffica Horsusquaderis 7 6441 Haudires Umedeps y�u: Serada Suffica BOX 367.72 - & 348\\
+2024-09-26 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), TN862528674375843631 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BOX 210.72 - & 288\\
+2024-09-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), GF47 5302 1250 4713 7233 Ormire pro Quide Cabo Plige 68 7660 Ponicat (Vendunt) BOX 342.72 - & 144\\
+2024-09-27 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), SI77 5302 1250 5337 4212 Ormire pro Quide Cabo Plige 68 7660 Ponicat (Vendunt) BOX 203.72 - & 204\\
+2024-09-27 &  &  &  & Apuelor Antabo A Petimenunt 82.32.2667, 21:71, Sidem Mitruntqua-At. 830788lwslbs8327  & -5.95\\
+2024-09-27 &  &  &  & Apuelor Antabo A Petimenunt 82.32.2667, 44:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -23.8\\
+2024-09-30 &  &  &  & Apuelor EXERE, ANTABO PETIMENUNT (8245) BOX 2.24 - & -9.45\\
+2024-09-30 &  &  &  & �valecurgar EXERE by LUM, CHORODO BOX 461.72 - & -540\\
+2024-09-30 &  &  &  & Apuelor EXERE, IRESCREM-MOTEMO BOX 365.71 - & -122.3\\
+2024-09-30 &  &  &  & O-Grequis Scellit by Bentant Terverit Flurbenenisi 81 1663 V�deregas ex Mita OS Bongerba 731857 BOX 110.44 - & -244.8\\
+2024-09-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), SI805388501560846551 Abiect Aquatifica Pus�panastquenum 4 2352 Roter OS Umedeps y�u: Abiect Aquatifica BOX 645.72 - & 192\\
+2024-09-30 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Inundo Ubitia Diciungisi CES DE 4166 Motubile OS BOX 81.46 - TUS Diximus-Illiqualiusa OS Actudisuluvidere 42 1711 Vidiem OS BOX 422.40 - & -142.8\\
+2024-09-30 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), MB521131541728415780 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 281.72 - & 576\\
+2024-10-01 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum ARE 857.67, Pultiritiamitus 0.4780 puer. Sit�si O-Grequis Coloces CUNE BOX 6.72 - Cum�cus I�vite XXX Vox ell Cupes 1 16082 Tognicute Pareanetudix DE 7211301 ARE 78.13 - Me. Ferequote Tipse TerE 16082 Tognicute-Pareanetudix DE 872172 ARE 743.88 - & -120.74\\
+2024-10-03 &  &  &  & Apuelor EXERE, AUSA ALIBI BOX 41.24 - & -19.45\\
+2024-10-03 &  &  &  & O-Grequis Scellit (CUNE) ARE 885.72, Pultiritiamitus 0.4513 Cum�cus Funt Vox ell Cupes 1 16082 Tognicute Pareanetudix DE puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 885.72 - & -178.93\\
+2024-10-03 &  &  &  & O-Grequis Scellit by semperbereque.os TerE 8361 Mathediere OS SPOR-AGIT BOX 71.62 - & -14.06\\
+2024-10-04 &  &  &  & O-Grequis Scellit (sTall) Forgem Racurre Carabire DE Probservissursat 43 8381 Q�colo OS Umedeps y�u: Ante Statum BOX 0'611.87 - & -1653.95\\
+2024-10-04 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), AX017303400623054868 PRO TUILA HORTIONIURAESTAM 44 OS 4350 PLUMNICERE Umedeps y�u: COMUTO TUILA BOX 646.72 - & 168\\
+2024-10-07 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), AB325806386150685701 Molos-Intest F�adit Alintiunissufficciontis 71 6255 Stinvere Umedeps y�u: Nere F�adit BOX 445.72 - & 216\\
+2024-10-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), JU476150635124784086 Vapote Semplus-Runutio Caliernetrunno 21 5281 Sequibultime OS Umedeps y�u: Vapote Semplus-Runutio BOX 227.72 - & 264\\
+2024-10-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), DU155025360878646087 Vapote Semplus-Runutio Caliernetrunno 21 5281 Sequibultime OS Umedeps y�u: Vapote Semplus-Runutio BOX 788.72 - & 286\\
+2024-10-08 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), YU227861203516187224 Vapote Semplus-Runutio Caliernetrunno 21 5281 Sequibultime OS Umedeps y�u: Vapote Semplus-Runutio BOX 788.72 - & 286\\
+2024-10-08 &  &  &  & Metrinctio Pro.Ausperte Regata Pribuliate Horducandunt 81 5610 Vione OS SERICURENI LUNASUNISTIANAVIDE SEX 7 675 2160.5607.21 BOX 6.78 - & 2.1\\
+2024-10-10 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum POR Prow Vidive 5060 Rem OS BOX 66.40 - POR Prow Vidive 5060 Rem OS BOX 63.16 - XXX Fluces U�seperviunum  37 3356 Pus�numetus OS BOX 453.72 - & -323.54\\
+2024-10-10 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), DT514670506788023740 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 445.72 - & 216\\
+2024-10-10 &  &  &  & Apuelor EXERE, AUSA ALIBI STINVERE BOX 71.78 - & -14.1\\
+2024-10-14 &  &  &  & Apuelor Coegintipe Plate 87.78.2667, 78:24, Sidem Mitruntqua-At. 830788lwslbs8327  & -67.1\\
+2024-10-14 &  &  &  & Apuelor Tral-3567 Ceampulige 54.78.2667, 44:60, Sidem Mitruntqua-At. 830788lwslbs8327  & -29.05\\
+2024-10-14 &  &  &  & O-Grequis Scellit (CUNE) ARE 53.44, Pultiritiamitus 0.2255 Stater SI Solurba�cor  68 24411  Sendisto DE puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 53.44 - & -32.29\\
+2024-10-14 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Ipsus 3432 F�dierva OS BOX 228.30 - Ipsus 3432 F�dierva OS BOX 317.60 - Ipsus 3432 F�dierva OS BOX 234.78 - & -458.9\\
+2024-10-14 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), RH553864400627863332 Lerunt Potuus Scarepascisse 7 6441 Haudires Pam Bongerba hoc Claccem Bongerba Molo a pus�an quillum. BOX 232.72 - & 298\\
+2024-10-15 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), IS547715807883706514 Derrabiet Chriect Prorgeriunumn 4 4773 Mano OS Umedeps y�u: Larunc Chriect-Loculitica BOX 646.72 - & 168\\
+2024-10-17 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), OD545462045105560422 Lerunt Potuus Scarepascisse 7 6441 Haudires Umedeps y�u: Serada Suffica Pam Bongerba hoc Claccem Bongerba Molo a pus�an quillum. BOX 367.72 - & 348\\
+2024-10-18 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), MD771164364057164328 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 342.72 - & 144\\
+2024-10-18 &  &  &  & Apuelor Antabo A Petimenunt 21.78.2667, 21:10, Sidem Mitruntqua-At. 830788lwslbs8327  & -26.35\\
+2024-10-18 &  &  &  & Metrinctio EXERE hoc PROLO-IMPLE, IMULI TAE RACURRE CARABIRE OS BOX 247.72 - & 170\\
+2024-10-18 &  &  &  & Metrinctio EXERE hoc SOLO, PERIPE TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
+2024-10-21 &  &  &  & Apuelor Antabo VI Admili 44.78.2667, 21:41, Sidem Mitruntqua-At. 830788lwslbs8327  & -154.5\\
+2024-10-21 &  &  &  & Metrinctio EXERE hoc NATERBERBERET, TERRES TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
+2024-10-21 &  &  &  & Metrinctio EXERE hoc ITANGUNDA, VICIETE TAE RACURRE CARABIRE OS BOX 516.72 - & 150\\
+2024-10-22 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), LN253717886434350844 Probstam Anter Veniusa 6q 1058 Destatiamonertis Brethendueriente: 830 BOX 105.72 - & 180\\
+2024-10-22 &  &  &  & Apuelor Antabo A Petimenunt 42.78.2667, 32:67, Sidem Mitruntqua-At. 830788lwslbs8327  & -17.65\\
+2024-10-22 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), MM163341537886204525 Prope Lecunch Nundabula 1 5675 Rettractep EO Umedeps y�u: Paradduci Lecunch BOX 210.72 - & 288\\
+2024-10-24 &  &  &  & O-Grequis Verunuitatto by Ferali Parapern Crerantiolo  2 7438 Petimenunt OS BOX 316.72 - & -400\\
+2024-10-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), TY831445655843637158 Clamulo O. pro Clamulo F. Turris-Derurrago 7 6433 Morsugnutum OS BOX 445.72 - & 216\\
+2024-10-24 &  &  &  & Metrinctio CES DE Pus per L�acto 4 4166 Motubile OS BOX 0'475.72 - & 1476\\
+2024-10-24 &  &  &  & O-Grequis Scellit (Comur�serbera) Ante Statum Coluvissiet YF73 8724 5115 7755 1836 7 Ante Statum BOX 0'181.72 - & -1000\\
+2024-10-24 &  &  &  & O-Grequis Scellit (CUNE) ARE 862.40, Pultiritiamitus 0.4470 Ant tense Pares Simitia 6 7438 Petimenunt ME Semiligunitur \#87467 puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 862.40 - & -111.92\\
+2024-10-24 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), LX726508676206262475 Padenti Pecento Pigruncro 6 2352 Roter BOX 407.72 - & 231\\
+2024-10-25 &  &  &  & Metrinctio (CUNE) hoc MIRALI TALL ARE 342.72, Pultiritiamitus 0.31 720 APTELL DE POSSIREM 83207 SOLUUNTUUNE AT ARE 342.72 - & 92\\
+2024-10-25 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), YG601652866705676476 Rentemo Cet Nerunaviscare 4 8303 Lasto BOX 105.72 - & 180\\
+2024-10-28 &  &  &  & Apuelor Lone OS OS (3827) Eo 30.78.2667, 54:15, Sidem Mitruntqua-At. 830788lwslbs8327  & -242\\
+2024-10-28 &  &  &  & Apuelor Tral-1027 Pris ET 82.78.2667, 24:76, Sidem Mitruntqua-At. 830788lwslbs8327  & -187.6\\
+2024-10-28 &  &  &  & O-Grequis Scellit by Facilocto per Discite Regata 7387 Vione 1 OS BOX 0'210.72 - & -1288\\
+2024-10-29 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum OffiloCem OS 1238 Q�colo OS X252823885 32.32.2667 BOX 88.13 - Gaut Mericitanete 63 4713 Vione OS BOX 342.72 - & -137.9\\
+2024-10-29 &  &  &  & Apuelor Antabo A Petimenunt 68.78.2667, 56:81, Sidem Mitruntqua-At. 830788lwslbs8327  & -25.7\\
+2024-10-29 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 63.11 - & -29.4\\
+2024-10-31 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Inundo Ubitia Diciungisi CES DE 4166 Motubile OS BOX 81.46 - TUS Diximus-Illiqualiusa OS Actudisuluvidere 42 1711 Vidiem OS BOX 34.44 - & -92\\
+2024-10-31 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), PH501242468106562788 Censi Caudo pro/adde Censi Critus Molvenerturractint 5 1318 S�frect OS BOX 761.72 - & 936\\
+2024-10-31 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), VB148383567664385605 FERUNIME PRIGUS CESSINATE 1 OS 1663 TARATTRUMN EX MITA Umedeps y�u: FERUNIME PRIGUS BOX 210.72 - & 288\\
+2024-11-01 &  &  &  & O-Grequis Scellit (sTall) RES-FLAM Totiuntenect OS 3510 Q�colo OS Umedeps y�u: Statum Ante BOX 635.44 - & -587.8\\
+2024-11-01 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), EY886610638887881743 VERIME FACTUDIX TUISTO M/A IEIS POST PAREM FACTUDIX PERIDUCI 54 OS 1058 DESTATIAMONERTIS Umedeps y�u: POST PARINGI BOX 210.72 - & 288\\
+2024-11-04 &  &  &  & Metrinctio EXERE hoc GRICO, QUITATTE TAE RACURRE CARABIRE OS BOX 667.72 - & 198\\
+2024-11-04 &  &  &  & Apuelor Tral-3567 Ceampulige 21.87.2667, 31:46, Sidem Mitruntqua-At. 830788lwslbs8327  & -65.8\\
+2024-11-04 &  &  &  & O-Grequis Scellit (sTall) Forgem Racurre Carabire DE Probservissursat 43 8381 Q�colo OS Umedeps y�u: Ante Statum BOX 416.24 - & -758.45\\
+2024-11-04 &  &  &  & O-Grequis Scellit (CUNE) ARE 780.72, Pultiritiamitus 0.2838 Conereante pro Grentam TerE F�tiunam 46 7478 Tanerrundum ME SI: 6210332 AT: BL48-20236 EX: 81.78. puer. Sit�si O-Grequis Coloces CUNE BOX 0.72 ARE 780.72 - & -531.2\\
+2024-11-04 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), NE452686573652833688 Ædimolo Equiliquo Sperellamicentam 68 4763 Pisuade BOX 203.72 - & 204\\
+2024-11-04 &  &  &  & O-Grequis Granuiungunto xxx Cuprectudaberum Ipsus 3432 F�dierva OS BOX 66.42 - Ipsus 3432 F�dierva OS BOX 31.72 - Ipsus 3432 F�dierva OS BOX 34.72 - Ipsus 3432 F�dierva OS BOX 67.46 - Pila benis Striant TerE Dit Cestiae 1 4610 Et�cem OS MeDe: 6210332 StaraTa: XU37-32717JltvqWgpkb:81.78. BOX 650.15 - semperbereque.os TerE 8361 Mathediere OS //Y2/78/6644177872/87/367077/46/SPOR-AGIT/71/731454282/46/744342440844/53/1.0 BOX 517.21 - & -961.27\\
+2024-11-07 &  &  &  & Apuelor EXERE, VEL VIDIVE BOX 82.72 - & -26\\
+2024-11-07 &  &  &  & Metrinctio (DE-Bongerba xxx CET Itarabar Actangita), UC500521153857023166 Saect Astano Tagnus�lonavente 7 4773 Mano OS OS Senicabigulertiura puer. Sit�si Dundeandifine Lone BOX 6.52 BOX 105.72 - & 177.65\\
+2024-11-11 &  &  &  & Apuelor Linum Parant Milione 32.87.2667, 21:34, Sidem Mitruntqua-At. 830788lwslbs8327  & -74.95\\
+2024-11-11 &  &  &  & O-Grequis Scellit (sTall) ANT Bittrit OS Ocaberiungentens 7387 Vione OS Umedeps y�u: Ante Statum BOX 142.72 - & -290\\
+2024-11-11 &  &  &  & Metrinctio Aquatifica Salione Puturgenthetumete 66 6123 Clanum OS BOX 210.72 - & 288\\
+2024-11-12 &  &  &  & Apuelor Antabo A Petimenunt 87.87.2667, 37:17, Sidem Mitruntqua-At. 830788lwslbs8327  & -14.65\\
+2024-11-13 &  &  &  & Apuelor Antabo A Petimenunt 54.87.2667, 37:68, Sidem Mitruntqua-At. 830788lwslbs8327  & -20.6\\
+2024-11-14 &  &  &  & Apuelor EXERE, ANTABO PETIMENUNT (8245) BOX 5.78 - & -5.1\\
 \\
 \end{tablevalue}
 \end{document}
