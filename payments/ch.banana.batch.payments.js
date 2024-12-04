@@ -16,8 +16,8 @@
 //
 // @id = ch.banana.batch.payments
 // @api = 1.0
-// @pubdate = 2024-07-17
-// @doctype = *.*
+// @pubdate = 2024-12-03
+// @doctype = 100.*;110.*;130.*
 // @description = Add payment data to suppliers invoices [BETA]
 // @task = app.command
 // @timeout = -1
