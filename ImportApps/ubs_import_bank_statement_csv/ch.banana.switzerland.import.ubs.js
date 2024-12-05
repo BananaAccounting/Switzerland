@@ -49,7 +49,7 @@ function exec(inData, isTest) {
     }
 
     let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-    let transactionsData = getFormattedData(transactions, importUtilities);
+    
 
     // Format Credit Card
     var formatCc1Ubs = new UBSFormatCc1();
@@ -75,6 +75,7 @@ function exec(inData, isTest) {
 
     // Format 3
     var format3Ubs = new UBSFormat3();
+    let transactionsData = format3Ubs.getFormattedData(transactions, importUtilities);
     if (format3Ubs.match(transactionsData)) {
         transactions = format3Ubs.convert(transactionsData);
         return Banana.Converter.arrayToTsv(transactions);
@@ -585,6 +586,298 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
         this.decimalSeparator = ".";
     }
 
+    getFormattedData(transactions, importUtilities) {
+        let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
+        var columns = importUtilities.getHeaderData(transactionsCopy, 9); //array
+        var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
+        let form = [];
+        let convertedColumns = [];
+    
+        convertedColumns = this.convertHeaderEn(columns);
+        //Load the form with data taken from the array. Create objects
+        if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+        }
+    
+        convertedColumns = this.convertHeaderDe(columns);
+        //Load the form with data taken from the array. Create objects
+        if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+        }
+    
+        convertedColumns = this.convertHeaderIt(columns);
+        //Load the form with data taken from the array. Create objects
+        if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+        }
+    
+        convertedColumns = this.convertHeaderFr(columns);
+        //Load the form with data taken from the array. Create objects
+        if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+        }
+    
+        return [];
+    }
+    
+    convertHeaderEn(columns) {
+        let convertedColumns = [];
+    
+        for (var i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case "Trade date":
+                    convertedColumns[i] = "TradeDate";
+                    break;
+                case "Trade time":
+                    convertedColumns[i] = "TradeTime";
+                    break;
+                case "Booking date":
+                    convertedColumns[i] = "BookingDate";
+                    break;
+                case "Value date":
+                    convertedColumns[i] = "ValueDate";
+                    break;
+                case "Currency":
+                    convertedColumns[i] = "Currency";
+                    break;
+                case "Debit amount":
+                case "Debit":
+                    convertedColumns[i] = "DebitAmount";
+                    break;
+                case "Credit amount":
+                case "Credit":
+                    convertedColumns[i] = "CreditAmount";
+                    break;
+                case "Individual smount":
+                    convertedColumns[i] = "IndividualAmount";
+                    break;
+                case "Balance":
+                    convertedColumns[i] = "Balance";
+                    break;
+                case "Transaction no.":
+                    convertedColumns[i] = "TransactionNr";
+                    break;
+                case "Description1":
+                    convertedColumns[i] = "Description1";
+                    break;
+                case "Description2":
+                    convertedColumns[i] = "Description2";
+                    break;
+                case "Description3":
+                    convertedColumns[i] = "Description3";
+                    break;
+                case "Footnotes":
+                    convertedColumns[i] = "Footnotes";
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        if (convertedColumns.indexOf("TradeDate") < 0
+            || convertedColumns.indexOf("TradeTime") < 0
+            || convertedColumns.indexOf("BookingDate") < 0
+            || convertedColumns.indexOf("ValueDate") < 0) {
+            return [];
+        }
+    
+        return convertedColumns;
+    }
+    convertHeaderDe(columns) {
+        let convertedColumns = [];
+    
+        for (var i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case "Abschlussdatum":
+                    convertedColumns[i] = "TradeDate";
+                    break;
+                case "Abschlusszeit":
+                    convertedColumns[i] = "TradeTime";
+                    break;
+                case "Buchungsdatum":
+                    convertedColumns[i] = "BookingDate";
+                    break;
+                case "Valutadatum":
+                    convertedColumns[i] = "ValueDate";
+                    break;
+                case "Währung":
+                    convertedColumns[i] = "Currency";
+                    break;
+                case "Debit amount":
+                case "Belastung":
+                    convertedColumns[i] = "DebitAmount";
+                    break;
+                case "Credit amount":
+                case "Gutschrift":
+                    convertedColumns[i] = "CreditAmount";
+                    break;
+                case "IndividualAmount":
+                case "Einzelbetrag":
+                    convertedColumns[i] = "IndividualAmount";
+                    break;
+                case "Saldo":
+                    convertedColumns[i] = "Balance";
+                    break;
+                case "Transaktions-Nr.":
+                    convertedColumns[i] = "TransactionNr";
+                    break;
+                case "Beschreibung1":
+                    convertedColumns[i] = "Description1";
+                    break;
+                case "Beschreibung2":
+                    convertedColumns[i] = "Description2";
+                    break;
+                case "Beschreibung3":
+                    convertedColumns[i] = "Description3";
+                    break;
+                case "Fussnoten":
+                    convertedColumns[i] = "Footnotes";
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        if (convertedColumns.indexOf("TradeDate") < 0
+            || convertedColumns.indexOf("TradeTime") < 0
+            || convertedColumns.indexOf("BookingDate") < 0
+            || convertedColumns.indexOf("ValueDate") < 0) {
+            return [];
+        }
+    
+        return convertedColumns;
+    }
+    convertHeaderIt(columns) {
+        let convertedColumns = [];
+    
+        for (var i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case "Data dell'operazione":
+                    convertedColumns[i] = "TradeDate";
+                    break;
+                case "Ora dell'operazione":
+                    convertedColumns[i] = "TradeTime";
+                    break;
+                case "Data di registrazione":
+                case "Data di contabilizzazione":
+                    convertedColumns[i] = "BookingDate";
+                    break;
+                case "Data di valuta":
+                    convertedColumns[i] = "ValueDate";
+                    break;
+                case "Moneta":
+                    convertedColumns[i] = "Currency";
+                    break;
+                case "Debit amount":
+                case "Addebito":
+                    convertedColumns[i] = "DebitAmount";
+                    break;
+                case "Credit amount":
+                case "Accredito":
+                    convertedColumns[i] = "CreditAmount";
+                    break;
+                case "IndividualAmount":
+                case "Importo singolo":
+                    convertedColumns[i] = "IndividualAmount";
+                    break;
+                case "Saldo":
+                    convertedColumns[i] = "Balance";
+                    break;
+                case "N. di transazione":
+                    convertedColumns[i] = "TransactionNr";
+                    break;
+                case "Descrizione1":
+                    convertedColumns[i] = "Description1";
+                    break;
+                case "Descrizione2":
+                    convertedColumns[i] = "Description2";
+                    break;
+                case "Descrizione3":
+                    convertedColumns[i] = "Description3";
+                    break;
+                case "Note a piè di pagina":
+                    convertedColumns[i] = "Footnotes";
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        if (convertedColumns.indexOf("TradeDate") < 0
+            || convertedColumns.indexOf("TradeTime") < 0
+            || convertedColumns.indexOf("BookingDate") < 0
+            || convertedColumns.indexOf("ValueDate") < 0) {
+            return [];
+        }
+    
+        return convertedColumns;
+    }
+    convertHeaderFr(columns) {
+        let convertedColumns = [];
+    
+        for (var i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case "Date de transaction":
+                    convertedColumns[i] = "TradeDate";
+                    break;
+                case "Heure de transaction":
+                    convertedColumns[i] = "TradeTime";
+                    break;
+                case "Date de comptabilisation":
+                    convertedColumns[i] = "BookingDate";
+                    break;
+                case "Date de valeur":
+                    convertedColumns[i] = "ValueDate";
+                    break;
+                case "Monnaie":
+                    convertedColumns[i] = "Currency";
+                    break;
+                case "Debit amount":
+                    convertedColumns[i] = "DebitAmount";
+                    break;
+                case "Credit amount":
+                    convertedColumns[i] = "CreditAmount";
+                    break;
+                case "IndividualAmount":
+                    convertedColumns[i] = "IndividualAmount";
+                    break;
+                case "Solde":
+                    convertedColumns[i] = "Balance";
+                    break;
+                case "N° de transaction":
+                    convertedColumns[i] = "TransactionNr";
+                    break;
+                case "Description1":
+                    convertedColumns[i] = "Description1";
+                    break;
+                case "Description2":
+                    convertedColumns[i] = "Description2";
+                    break;
+                case "Description3":
+                    convertedColumns[i] = "Description3";
+                    break;
+                case "Notes de bas de page":
+                    convertedColumns[i] = "Footnotes";
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+        if (convertedColumns.indexOf("TradeDate") < 0
+            || convertedColumns.indexOf("TradeTime") < 0
+            || convertedColumns.indexOf("BookingDate") < 0
+            || convertedColumns.indexOf("ValueDate") < 0) {
+            return [];
+        }
+    
+        return convertedColumns;
+    }
+
     /** Return true if the transactions match this format */
     match(transactionsData) {
         if (transactionsData.length === 0)
@@ -877,297 +1170,7 @@ function UBSFormatCc1() {
     };
 }
 
-function getFormattedData(transactions, importUtilities) {
-    let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
-    var columns = importUtilities.getHeaderData(transactionsCopy, 9); //array
-    var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
-    let form = [];
-    let convertedColumns = [];
 
-    convertedColumns = convertHeaderEn(columns);
-    //Load the form with data taken from the array. Create objects
-    if (convertedColumns.length > 0) {
-        importUtilities.loadForm(form, convertedColumns, rows);
-        return form;
-    }
-
-    convertedColumns = convertHeaderDe(columns);
-    //Load the form with data taken from the array. Create objects
-    if (convertedColumns.length > 0) {
-        importUtilities.loadForm(form, convertedColumns, rows);
-        return form;
-    }
-
-    convertedColumns = convertHeaderIt(columns);
-    //Load the form with data taken from the array. Create objects
-    if (convertedColumns.length > 0) {
-        importUtilities.loadForm(form, convertedColumns, rows);
-        return form;
-    }
-
-    convertedColumns = convertHeaderFr(columns);
-    //Load the form with data taken from the array. Create objects
-    if (convertedColumns.length > 0) {
-        importUtilities.loadForm(form, convertedColumns, rows);
-        return form;
-    }
-
-    return [];
-}
-
-function convertHeaderEn(columns) {
-    let convertedColumns = [];
-
-    for (var i = 0; i < columns.length; i++) {
-        switch (columns[i]) {
-            case "Trade date":
-                convertedColumns[i] = "TradeDate";
-                break;
-            case "Trade time":
-                convertedColumns[i] = "TradeTime";
-                break;
-            case "Booking date":
-                convertedColumns[i] = "BookingDate";
-                break;
-            case "Value date":
-                convertedColumns[i] = "ValueDate";
-                break;
-            case "Currency":
-                convertedColumns[i] = "Currency";
-                break;
-            case "Debit amount":
-            case "Debit":
-                convertedColumns[i] = "DebitAmount";
-                break;
-            case "Credit amount":
-            case "Credit":
-                convertedColumns[i] = "CreditAmount";
-                break;
-            case "Individual smount":
-                convertedColumns[i] = "IndividualAmount";
-                break;
-            case "Balance":
-                convertedColumns[i] = "Balance";
-                break;
-            case "Transaction no.":
-                convertedColumns[i] = "TransactionNr";
-                break;
-            case "Description1":
-                convertedColumns[i] = "Description1";
-                break;
-            case "Description2":
-                convertedColumns[i] = "Description2";
-                break;
-            case "Description3":
-                convertedColumns[i] = "Description3";
-                break;
-            case "Footnotes":
-                convertedColumns[i] = "Footnotes";
-                break;
-            default:
-                break;
-        }
-    }
-
-    if (convertedColumns.indexOf("TradeDate") < 0
-        || convertedColumns.indexOf("TradeTime") < 0
-        || convertedColumns.indexOf("BookingDate") < 0
-        || convertedColumns.indexOf("ValueDate") < 0) {
-        return [];
-    }
-
-    return convertedColumns;
-}
-function convertHeaderDe(columns) {
-    let convertedColumns = [];
-
-    for (var i = 0; i < columns.length; i++) {
-        switch (columns[i]) {
-            case "Abschlussdatum":
-                convertedColumns[i] = "TradeDate";
-                break;
-            case "Abschlusszeit":
-                convertedColumns[i] = "TradeTime";
-                break;
-            case "Buchungsdatum":
-                convertedColumns[i] = "BookingDate";
-                break;
-            case "Valutadatum":
-                convertedColumns[i] = "ValueDate";
-                break;
-            case "Währung":
-                convertedColumns[i] = "Currency";
-                break;
-            case "Debit amount":
-            case "Belastung":
-                convertedColumns[i] = "DebitAmount";
-                break;
-            case "Credit amount":
-            case "Gutschrift":
-                convertedColumns[i] = "CreditAmount";
-                break;
-            case "IndividualAmount":
-            case "Einzelbetrag":
-                convertedColumns[i] = "IndividualAmount";
-                break;
-            case "Saldo":
-                convertedColumns[i] = "Balance";
-                break;
-            case "Transaktions-Nr.":
-                convertedColumns[i] = "TransactionNr";
-                break;
-            case "Beschreibung1":
-                convertedColumns[i] = "Description1";
-                break;
-            case "Beschreibung2":
-                convertedColumns[i] = "Description2";
-                break;
-            case "Beschreibung3":
-                convertedColumns[i] = "Description3";
-                break;
-            case "Fussnoten":
-                convertedColumns[i] = "Footnotes";
-                break;
-            default:
-                break;
-        }
-    }
-
-    if (convertedColumns.indexOf("TradeDate") < 0
-        || convertedColumns.indexOf("TradeTime") < 0
-        || convertedColumns.indexOf("BookingDate") < 0
-        || convertedColumns.indexOf("ValueDate") < 0) {
-        return [];
-    }
-
-    return convertedColumns;
-}
-function convertHeaderIt(columns) {
-    let convertedColumns = [];
-
-    for (var i = 0; i < columns.length; i++) {
-        switch (columns[i]) {
-            case "Data dell'operazione":
-                convertedColumns[i] = "TradeDate";
-                break;
-            case "Ora dell'operazione":
-                convertedColumns[i] = "TradeTime";
-                break;
-            case "Data di registrazione":
-            case "Data di contabilizzazione":
-                convertedColumns[i] = "BookingDate";
-                break;
-            case "Data di valuta":
-                convertedColumns[i] = "ValueDate";
-                break;
-            case "Moneta":
-                convertedColumns[i] = "Currency";
-                break;
-            case "Debit amount":
-            case "Addebito":
-                convertedColumns[i] = "DebitAmount";
-                break;
-            case "Credit amount":
-            case "Accredito":
-                convertedColumns[i] = "CreditAmount";
-                break;
-            case "IndividualAmount":
-            case "Importo singolo":
-                convertedColumns[i] = "IndividualAmount";
-                break;
-            case "Saldo":
-                convertedColumns[i] = "Balance";
-                break;
-            case "N. di transazione":
-                convertedColumns[i] = "TransactionNr";
-                break;
-            case "Descrizione1":
-                convertedColumns[i] = "Description1";
-                break;
-            case "Descrizione2":
-                convertedColumns[i] = "Description2";
-                break;
-            case "Descrizione3":
-                convertedColumns[i] = "Description3";
-                break;
-            case "Note a piè di pagina":
-                convertedColumns[i] = "Footnotes";
-                break;
-            default:
-                break;
-        }
-    }
-
-    if (convertedColumns.indexOf("TradeDate") < 0
-        || convertedColumns.indexOf("TradeTime") < 0
-        || convertedColumns.indexOf("BookingDate") < 0
-        || convertedColumns.indexOf("ValueDate") < 0) {
-        return [];
-    }
-
-    return convertedColumns;
-}
-function convertHeaderFr(columns) {
-    let convertedColumns = [];
-
-    for (var i = 0; i < columns.length; i++) {
-        switch (columns[i]) {
-            case "Date de transaction":
-                convertedColumns[i] = "TradeDate";
-                break;
-            case "Heure de transaction":
-                convertedColumns[i] = "TradeTime";
-                break;
-            case "Date de comptabilisation":
-                convertedColumns[i] = "BookingDate";
-                break;
-            case "Date de valeur":
-                convertedColumns[i] = "ValueDate";
-                break;
-            case "Monnaie":
-                convertedColumns[i] = "Currency";
-                break;
-            case "Debit amount":
-                convertedColumns[i] = "DebitAmount";
-                break;
-            case "Credit amount":
-                convertedColumns[i] = "CreditAmount";
-                break;
-            case "IndividualAmount":
-                convertedColumns[i] = "IndividualAmount";
-                break;
-            case "Solde":
-                convertedColumns[i] = "Balance";
-                break;
-            case "N° de transaction":
-                convertedColumns[i] = "TransactionNr";
-                break;
-            case "Description1":
-                convertedColumns[i] = "Description1";
-                break;
-            case "Description2":
-                convertedColumns[i] = "Description2";
-                break;
-            case "Description3":
-                convertedColumns[i] = "Description3";
-                break;
-            case "Notes de bas de page":
-                convertedColumns[i] = "Footnotes";
-                break;
-            default:
-                break;
-        }
-    }
-
-    if (convertedColumns.indexOf("TradeDate") < 0
-        || convertedColumns.indexOf("TradeTime") < 0
-        || convertedColumns.indexOf("BookingDate") < 0
-        || convertedColumns.indexOf("ValueDate") < 0) {
-        return [];
-    }
-
-    return convertedColumns;
-}
 
 function defineConversionParam(inData) {
     var csvData = Banana.Converter.csvToArray(inData);
