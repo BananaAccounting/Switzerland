@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2021-06-02 */
+/* Script update: 2024-12-11 */
 
 
 /*
@@ -40,9 +40,9 @@ function isQRIBAN(input) {
  */
 function isValidIBAN(input) {
 
-    // Not valid when using Banana.ch IBAN (CHF and EUR iban accunts)
+    // Not valid when using Banana.ch IBAN (CHF and EUR iban accunts) or QR-IBAN
     var normalizedIban = input.replace(/ /g,"");
-    if (normalizedIban === "CH5809000000652501224" || normalizedIban === "CH3409000000918741048") {
+    if (normalizedIban === "CH5809000000652501224" || normalizedIban === "CH3409000000918741048" || normalizedIban === "CH4731000133285251000") {
         return;
     }
 

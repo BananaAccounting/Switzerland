@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2023-09-22 */
+/* Print preferences update: 2024-12-11 */
 
 
 
@@ -110,6 +110,10 @@ function getPrintPreferences_en() {
           {
             "id":"qrcode_slip",
             "text": "QR slip"
+          },
+          {
+            "id":"order_confirmation",
+            "text": "Order Confirmation"
           }
         ],
         "default": "automatic"
@@ -169,6 +173,10 @@ function getPrintPreferences_it() {
           {
             "id":"qrcode_slip",
             "text": "Bollettino QR"
+          },
+          {
+            "id":"order_confirmation",
+            "text": "Conferma d'ordine"
           }
         ],
         "default": "automatic"
@@ -228,6 +236,10 @@ function getPrintPreferences_fr() {
           {
             "id":"qrcode_slip",
             "text": "Bulletin QR"
+          },
+          {
+            "id":"order_confirmation",
+            "text": "Confirmation de commande"
           }
         ],
         "default": "automatic"
@@ -287,6 +299,10 @@ function getPrintPreferences_de() {
           {
             "id":"qrcode_slip",
             "text": "QR-Einzahlungsschein"
+          },
+          {
+            "id":"order_confirmation",
+            "text": "Bestellbestätigung"
           }
         ],
         "default": "automatic"

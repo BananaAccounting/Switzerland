@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2023-02-21
+// @pubdate = 2024-12-11
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -295,7 +295,11 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   
   //Test invoice with partial payment transactions
   //Integrated invoice
-  this.add_test_invoice_21("505", "Invoice 505", ""); //payments excluded
+  this.add_test_invoice_21("505", "Invoice 505", ""); //payments excluded, just a normal invoice
+
+  //Test Order Confirmation (selected as print preference)
+  this.add_test_invoice_20("501", "Invoice 501", "order_confirmation"); //integrated invoice
+  this.add_test_invoice_20("502", "Invoice 502", "order_confirmation"); //integrated invoice
 }
 
 
@@ -1270,6 +1274,13 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   userParam.en_text_begin_delivery_note = 'This is the begin text of the delivery note.';
   userParam.en_text_final_delivery_note = 'This is the final text of the delivery note.\nIt can be on multiple lines.\nThank you very much.';
 
+  //Order confirmation params
+  userParam.en_text_info_order_confirmation_number = texts.number_order_confirmation;
+  userParam.en_text_info_date_order_confirmation = texts.date_order_confirmation;
+  userParam.en_title_order_confirmation = texts.order_confirmation;
+  userParam.en_text_begin_order_confirmation = 'This is the begin text of the order confirmation.';
+  userParam.en_text_final_order_confirmation = 'This is the final text of the order confirmation.\nIt can be on multiple lines.\nThank you very much.';
+
   //Reminders params
   userParam.en_title_reminder = '%1. ' + texts.reminder;
   userParam.en_text_begin_reminder = 'This is the begin text of the reminder.';
@@ -1317,7 +1328,7 @@ ReportInvoiceQrCode.prototype.add_test_invoice_20 = function(invoiceNumber, repo
   var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables, preferencesObj);
   Test.logger.addReport(reportName, reportTest);
   //QRCode text
-  if (!printFormat.startsWith("delivery_note") && printformat !== "proforma_invoice" && printformat !== "estimate") { //do not test QRCode text (for deliverynote, proformainvoice and estimates), it's never printed
+  if (!printFormat.startsWith("delivery_note") && printformat !== "proforma_invoice" && printformat !== "estimate" && printformat !== "order_confirmation") { //do not test QRCode text (for deliverynote, proformainvoice, estimates, order_confirmation), it's never printed
     var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
     Test.logger.addText(text);
   }

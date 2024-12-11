@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2024-07-16
+// @pubdate = 2024-12-11
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -191,6 +191,13 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
       print_info_first_page_reminder(repDocObj, invoiceObj, texts, userParam);
     }
   }
+  else if (printFormat === "order_confirmation") {
+    if (BAN_ADVANCED && typeof(hook_print_info_first_page_order_confirmation) === typeof(Function)) {
+      hook_print_info_first_page_order_confirmation(repDocObj, invoiceObj, texts, userParam);
+    } else {
+      print_info_first_page_order_confirmation(repDocObj, invoiceObj, texts, userParam);
+    }    
+  }
   else {
     if (BAN_ADVANCED && typeof(hook_print_info_first_page) === typeof(Function)) {
       hook_print_info_first_page(repDocObj, invoiceObj, texts, userParam);
@@ -213,6 +220,13 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     } else {
       print_info_other_pages_reminder(repDocObj, invoiceObj, texts, userParam);
     }
+  }
+  else if (printFormat === "order_confirmation") {
+    if (BAN_ADVANCED && typeof(hook_print_info_other_pages_order_confirmation) === typeof(Function)) {
+      hook_print_info_other_pages_order_confirmation(repDocObj, invoiceObj, texts, userParam);
+    } else {
+      print_info_other_pages_order_confirmation(repDocObj, invoiceObj, texts, userParam);
+    } 
   }
   else {
     if (BAN_ADVANCED && typeof(hook_print_info_other_pages) === typeof(Function)) {
@@ -268,6 +282,13 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
       hook_print_text_begin_proforma_invoice(sectionClassBegin, invoiceObj, texts, userParam);
     } else {
       print_text_begin_proforma_invoice(sectionClassBegin, invoiceObj, texts, userParam);
+    }
+  }
+  else if (printFormat === "order_confirmation") {
+    if (BAN_ADVANCED && typeof(hook_print_text_begin_order_confirmation) === typeof(Function)) {
+      hook_print_text_begin_order_confirmation(sectionClassBegin, invoiceObj, texts, userParam);
+    } else {
+      print_text_begin_order_confirmation(sectionClassBegin, invoiceObj, texts, userParam);
     }
   }
   else {
@@ -330,6 +351,13 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
       print_final_texts_proforma_invoice(sectionClassFinalTexts, invoiceObj, userParam);
     }
   }
+  else if (printFormat === "order_confirmation") {
+    if (BAN_ADVANCED && typeof(hook_print_final_texts_order_confirmation) === typeof(Function)) {
+      hook_print_final_texts_order_confirmation(sectionClassFinalTexts, invoiceObj, userParam);
+    } else {
+      print_final_texts_order_confirmation(sectionClassFinalTexts, invoiceObj, userParam);
+    }
+  }
   else {
     if (BAN_ADVANCED && typeof(hook_print_final_texts) === typeof(Function)) {
       hook_print_final_texts(sectionClassFinalTexts, invoiceObj, userParam);
@@ -339,7 +367,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice") {
+  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice" || printFormat === "order_confirmation") {
     userParam.qr_code_add = false; //delivery notes printed without QRCode
   }
 
@@ -3578,6 +3606,250 @@ function print_final_texts_proforma_invoice(repDocObj, invoiceObj, userParam) {
         } else {
           addMdBoldText(paragraph, " "); //empty lines
         }
+      }
+    }
+  }
+}
+
+
+
+//====================================================================//
+// FUNCTIONS THAT PRINT THE ORDER CONFIRMATION.
+// USER CAN REPLACE THEM WITH 'HOOK' FUNCTIONS DEFINED USING EMBEDDED 
+// JAVASCRIPT FILES ON DOCUMENTS TABLE
+//====================================================================//
+function print_info_first_page_order_confirmation(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the order confirmation information
+
+    Invoice due date is never printed on order confirmation
+  */
+  var infoTable = "";
+  var rows = 1; //start from 1 because due date is not printed, we count it.
+
+  if (userParam.address_left) {
+    infoTable = repDocObj.addTable("info_table_right");
+  } else {
+    infoTable = repDocObj.addTable("info_table_left");
+  }
+
+  var infoFirstColumn = infoTable.addColumn("info_table_first_column");
+  var infoSecondColumn = infoTable.addColumn("info_table_second_column");
+
+  if (userParam.info_invoice_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_confirmation_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.number,"",1);
+  } else {
+    rows++;
+  }
+  if (userParam.info_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_date_order_confirmation'] + ":","",1);
+    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);
+  } else {
+    rows++;
+  }
+  if (userParam.info_order_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.order_number,"",1);
+  }
+  if (userParam.info_order_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_date'] + ":","",1);
+    if (invoiceObj.document_info.order_date && invoiceObj.document_info.order_date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.order_date),"",1);
+    } else {
+      tableRow.addCell(invoiceObj.document_info.order_date,"",1);
+    }
+  }
+  if (userParam.info_customer) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.number,"",1);
+  } else {
+    rows++;
+  }
+  if (userParam.info_customer_vat_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_vat_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.vat_number);
+  } else {
+    rows++;
+  }
+  if (userParam.info_customer_fiscal_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_fiscal_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.fiscal_number);
+  } else {
+    rows++;
+  }
+  if (userParam.info_page) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
+    tableRow.addCell("","",1).addFieldPageNr();
+  } else {
+    rows++;
+  }
+
+  //Adds custom fields
+  //Works only with the estimates and invoices application
+  //userParam.info_custom_fields is always set to false for integrated invoices, is never used
+  if (userParam.info_custom_fields) {
+    if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
+      for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
+        var customField = invoiceObj.document_info.custom_fields[i];
+        tableRow = infoTable.addRow();
+        tableRow.addCell(customField.title + ":","",1);
+        tableRow.addCell(customField.value,"",1);
+      }
+    }
+  }
+
+  //Empty rows for each non-used info
+  for (var i = 0; i < rows; i++) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(" ", "", 2);
+  }
+}
+
+function print_info_other_pages_order_confirmation(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the order confirmation information
+
+    Invoice due date is never printed on order confirmation
+  */
+  var infoTable = "";
+
+  // Info table that starts at row 0, for pages 2+ :
+  // Since we don't know when we are on a new page, we add Info as Header
+  // and we do not display it the first time (first time is always on first page)
+  repDocObj = repDocObj.getHeader();
+  infoTable = repDocObj.addTable("info_table_row0");
+
+  var infoFirstColumn = infoTable.addColumn("info_table_first_column");
+  var infoSecondColumn = infoTable.addColumn("info_table_second_column");
+
+  if (userParam.info_invoice_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_confirmation_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.number,"",1);
+  }
+  if (userParam.info_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_date_order_confirmation'] + ":","",1);
+    tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.date),"",1);
+  }
+  if (userParam.info_order_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.document_info.order_number,"",1);
+  }
+  if (userParam.info_order_date) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_order_date'] + ":","",1);
+    if (invoiceObj.document_info.order_date && invoiceObj.document_info.order_date.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      tableRow.addCell(Banana.Converter.toLocaleDateFormat(invoiceObj.document_info.order_date),"",1);
+    } else {
+      tableRow.addCell(invoiceObj.document_info.order_date,"",1);
+    }
+  }
+  if (userParam.info_customer) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.number,"",1);
+  }
+  if (userParam.info_customer_vat_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_vat_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.vat_number);
+  }
+  if (userParam.info_customer_fiscal_number) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_customer_fiscal_number'] + ":","",1);
+    tableRow.addCell(invoiceObj.customer_info.fiscal_number);
+  }
+  if (userParam.info_page) {
+    tableRow = infoTable.addRow();
+    tableRow.addCell(userParam[lang+'_text_info_page'] + ":","",1);
+    tableRow.addCell("","",1).addFieldPageNr();
+  }
+  //Adds custom fields
+  //Works only with the estimates and invoices application
+  //userParam.info_custom_fields is always set to false for integrated invoices, is never used
+  if (userParam.info_custom_fields) {
+    if (invoiceObj.document_info.custom_fields && invoiceObj.document_info.custom_fields.length > 0) {
+      for (var i = 0; i < invoiceObj.document_info.custom_fields.length; i++) {
+        var customField = invoiceObj.document_info.custom_fields[i];
+        tableRow = infoTable.addRow();
+        tableRow.addCell(customField.title + ":","",1);
+        tableRow.addCell(customField.value,"",1);
+      }
+    }
+  }
+}
+
+function print_text_begin_order_confirmation(repDocObj, invoiceObj, texts, userParam) {
+  /*
+    Prints the text before the order confirmation details
+  */
+  var textTitle = "";
+  var textBeginOrderConfirmation = userParam[lang+'_text_begin_order_confirmation'];
+  var table = repDocObj.addTable("begin_text_table");
+  var tableRow;
+
+  // print the title
+  textTitle = texts.order_confirmation;
+  if (userParam[lang+'_title_order_confirmation'] && userParam[lang+'_title_order_confirmation'] !== "<none>") {
+    textTitle = userParam[lang+'_title_order_confirmation'];
+  } else {
+    textTitle = "";
+  }
+  
+  if (textTitle) {
+    textTitle = textTitle.replace(/<DocInvoice>/g, invoiceObj.document_info.number.trim());
+    textTitle = columnNamesToValues(invoiceObj, textTitle);
+    tableRow = table.addRow();
+    var titleCell = tableRow.addCell("","",1);
+    titleCell.addParagraph(textTitle, "title_text");
+  }
+
+  // print the begin text
+  if (textBeginOrderConfirmation) {
+    tableRow = table.addRow();
+    var textCell = tableRow.addCell("","begin_text",1);
+    var textBeginLines = textBeginOrderConfirmation.split('\n');
+    for (var i = 0; i < textBeginLines.length; i++) {
+      if (textBeginLines[i]) {
+        textBeginLines[i] = columnNamesToValues(invoiceObj, textBeginLines[i]);
+        addMdBoldText(textCell, textBeginLines[i]);
+      }
+      else {
+        addMdBoldText(textCell, " "); //empty lines
+      }
+    }
+  }
+}
+
+function print_final_texts_order_confirmation(repDocObj, invoiceObj, userParam) {
+  /*
+    Prints final texts for the order confirmation after the details table.
+    Texts are defined in parameter settings.
+  */
+  if (userParam[lang+'_text_final_order_confirmation'] && userParam[lang+'_text_final_order_confirmation'] !== "<none>") {
+    var text = userParam[lang+'_text_final_order_confirmation'];
+    text = text.split('\n');
+    // if (invoiceObj.note.length > 0 || invoiceObj.document_info.greetings) {
+    //   repDocObj.addParagraph(" ", "");
+    // }
+    for (var i = 0; i < text.length; i++) {
+      var paragraph = repDocObj.addParagraph("","final_texts");
+      if (text[i]) {
+        text[i] = columnNamesToValues(invoiceObj, text[i]);
+        addMdBoldText(paragraph, text[i]);
+      } else {
+        addMdBoldText(paragraph, " "); //empty lines
       }
     }
   }

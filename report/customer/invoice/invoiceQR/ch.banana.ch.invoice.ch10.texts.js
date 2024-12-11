@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2024-03-05 */
+/* Texts update: 2024-12-11 */
 
 
 
@@ -274,6 +274,20 @@ function setTexts_it(texts) {
   texts.it_param_text_final_proforma_invoice = "Testo finale";
   texts.param_tooltip_text_final_proforma_invoice = "Inserisci un testo per sostituire quello predefinito";
 
+  texts.order_confirmation = "Conferma d'ordine";
+  texts.number_order_confirmation = "No riferimento";
+  texts.date_order_confirmation = "Data";
+  texts.it_param_text_info_order_confirmation_number = "Numero conferma d'ordine";
+  texts.param_tooltip_text_info_order_confirmation_number = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_info_date_order_confirmation = "Data conferma d'ordine";
+  texts.param_tooltip_text_info_date_order_confirmation = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_title_order_confirmation = "Titolo";
+  texts.param_tooltip_title_order_confirmation = "Inserisci un testo per sostituire quello predefinito; inserisci <none> per non visualizzare alcun titolo";
+  texts.it_param_text_begin_order_confirmation = "Testo iniziale";
+  texts.param_tooltip_text_begin_order_confirmation = "Inserisci un testo per sostituire quello predefinito";
+  texts.it_param_text_final_order_confirmation = "Testo finale";
+  texts.param_tooltip_text_final_order_confirmation = "Inserisci un testo per sostituire quello predefinito";
+
   texts.param_color_title_total = "Colore titolo e totale";
   texts.param_tooltip_color_title_total = "Inserisci il colore";
 
@@ -511,6 +525,20 @@ function setTexts_fr(texts) {
   texts.param_tooltip_text_begin_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
   texts.fr_param_text_final_proforma_invoice = "Texte final";
   texts.param_tooltip_text_final_proforma_invoice = "Insérez un texte pour remplacer le texte par défaut";
+
+  texts.order_confirmation = "Confirmation de commande";
+  texts.number_order_confirmation = "Numéro référence";
+  texts.date_order_confirmation = "Date";
+  texts.fr_param_text_info_order_confirmation_number = "Numéro confirmation de commande";
+  texts.param_tooltip_text_info_order_confirmation_number = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_info_date_order_confirmation = "Date confirmation de commande";
+  texts.param_tooltip_text_info_date_order_confirmation = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_title_order_confirmation = "Titre";
+  texts.param_tooltip_title_order_confirmation = "Insérez un texte pour remplacer le texte par défaut; insérez <none> pour n'afficher aucun titre";
+  texts.fr_param_text_begin_order_confirmation = "Texte de début";
+  texts.param_tooltip_text_begin_order_confirmation = "Insérez un texte pour remplacer le texte par défaut";
+  texts.fr_param_text_final_order_confirmation = "Texte final";
+  texts.param_tooltip_text_final_order_confirmation = "Insérez un texte pour remplacer le texte par défaut";
 
   texts.param_color_title_total = "Couleur titre et totale";
   texts.param_tooltip_color_title_total = "Insérer la couleur";
@@ -750,6 +778,20 @@ function setTexts_de(texts) {
   texts.de_param_text_final_proforma_invoice = "Schlusstext";
   texts.param_tooltip_text_final_proforma_invoice = "Text eingeben, um Standardtext zu ersetzen";
 
+  texts.order_confirmation = "Bestellbestätigung";
+  texts.number_order_confirmation = "Referenznummer";
+  texts.date_order_confirmation = "Datum";
+  texts.de_param_text_info_order_confirmation_number = "Bestellbestätigungsnummer";
+  texts.param_tooltip_text_info_order_confirmation_number = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_info_date_order_confirmation = "Bestellbestätigungsdatum";
+  texts.param_tooltip_text_info_date_order_confirmation = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_title_order_confirmation = "Titel";
+  texts.param_tooltip_title_order_confirmation = "Text eingeben, um Standardtext zu ersetzen; <none> eingeben, um keinen Titel anzuzeigen";
+  texts.de_param_text_begin_order_confirmation = "Anfangstext";
+  texts.param_tooltip_text_begin_order_confirmation = "Text eingeben, um Standardtext zu ersetzen";
+  texts.de_param_text_final_order_confirmation = "Schlusstext";
+  texts.param_tooltip_text_final_order_confirmation = "Text eingeben, um Standardtext zu ersetzen";
+
   texts.param_color_title_total = "Titel und Gesamtfarbe";
   texts.param_tooltip_color_title_total = "Farbe eingeben";
 
@@ -987,6 +1029,20 @@ function setTexts_en(texts) {
   texts.param_tooltip_text_begin_proforma_invoice = "Enter text to replace the default";
   texts.en_param_text_final_proforma_invoice = "Final text";
   texts.param_tooltip_text_final_proforma_invoice = "Enter text to replace the default";
+
+  texts.order_confirmation = "Order Confirmation";
+  texts.number_order_confirmation = "Reference No";
+  texts.date_order_confirmation = "Date";
+  texts.en_param_text_info_order_confirmation_number = "Order Confirmation Number";
+  texts.param_tooltip_text_info_order_confirmation_number = "Enter text to replace the default";
+  texts.en_param_text_info_date_order_confirmation = "Order Confirmation Date";
+  texts.param_tooltip_text_info_date_order_confirmation = "Enter text to replace the default";
+  texts.en_param_text_title_order_confirmation = "Title";
+  texts.param_tooltip_title_order_confirmation = "Enter text to replace the default; enter <none> to display no title";
+  texts.en_param_text_begin_order_confirmation = "Begin text";
+  texts.param_tooltip_text_begin_order_confirmation = "Enter text to replace the default";
+  texts.en_param_text_final_order_confirmation = "Final text";
+  texts.param_tooltip_text_final_order_confirmation = "Enter text to replace the default";
 
   texts.param_color_title_total = "Title and total color";
   texts.param_tooltip_color_title_total = "Enter the color";

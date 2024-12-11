@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2024-03-05 */
+/* User parameters update: 2024-12-11 */
 
 
 
@@ -1359,6 +1359,93 @@ function convertParam(userParam) {
     }
     convertedParam.data.push(currentParam);
 
+
+
+    /*******************************************************************************************
+    * ORDER CONFIRMATION
+    ********************************************************************************************/
+    var currentParam = {};
+    currentParam.name = langCode+'_order_confirmation';
+    currentParam.parentObject = langCode;
+    currentParam.title = langTexts.order_confirmation;
+    currentParam.type = 'string';
+    currentParam.value = '';
+    currentParam.editable = false;
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam.texts = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_order_confirmation_number';
+    currentParam.parentObject = langCode+'_order_confirmation';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_order_confirmation_number'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_order_confirmation_number'] ? userParam[langCode+'_text_info_order_confirmation_number'] : '';
+    currentParam.defaultvalue = langTexts.number_order_confirmation;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_order_confirmation_number'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_text_info_order_confirmation_number'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_info_date_order_confirmation';
+    currentParam.parentObject = langCode+'_order_confirmation';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_info_date_order_confirmation'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_text_info_date_order_confirmation'] ? userParam[langCode+'_text_info_date_order_confirmation'] : '';
+    currentParam.defaultvalue = langTexts.date_order_confirmation;
+    currentParam.tooltip = langTexts['param_tooltip_text_info_date_order_confirmation'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_text_info_date_order_confirmation'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_title_order_confirmation';
+    currentParam.parentObject = langCode+'_order_confirmation';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_title_order_confirmation'];
+    currentParam.type = 'string';
+    currentParam.value = userParam[langCode+'_title_order_confirmation'] ? userParam[langCode+'_title_order_confirmation'] : '';
+    currentParam.defaultvalue = langTexts.order_confirmation;
+    currentParam.tooltip = langTexts['param_tooltip_title_order_confirmation'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_title_order_confirmation'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_begin_order_confirmation';
+    currentParam.parentObject = langCode+'_order_confirmation';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_begin_order_confirmation'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_begin_order_confirmation'] ? userParam[langCode+'_text_begin_order_confirmation'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_begin_order_confirmation'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_text_begin_order_confirmation'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
+
+    currentParam = {};
+    currentParam.name = langCode+'_text_final_order_confirmation';
+    currentParam.parentObject = langCode+'_order_confirmation';
+    currentParam.title = langTexts[langCodeTitle+'_param_text_final_order_confirmation'];
+    currentParam.type = 'multilinestring';
+    currentParam.value = userParam[langCode+'_text_final_order_confirmation'] ? userParam[langCode+'_text_final_order_confirmation'] : '';
+    currentParam.defaultvalue = '';
+    currentParam.tooltip = langTexts['param_tooltip_text_final_order_confirmation'];
+    currentParam.language = langCode;
+    currentParam.readValueLang = function(langCode) {
+      userParam[langCode+'_text_final_order_confirmation'] = this.value;
+    }
+    convertedParam.data.push(currentParam);
   }
 
 
@@ -1661,6 +1748,12 @@ function initParam() {
     userParam[langCodes[i]+'_text_begin_proforma_invoice'] = '';
     userParam[langCodes[i]+'_text_final_proforma_invoice'] = '';
 
+    //Order Confirmation
+    userParam[langCodes[i]+'_text_info_order_confirmation_number'] = langTexts.number_order_confirmation;
+    userParam[langCodes[i]+'_text_info_date_order_confirmation'] = langTexts.date_order_confirmation;
+    userParam[langCodes[i]+'_title_order_confirmation'] = langTexts.order_confirmation;
+    userParam[langCodes[i]+'_text_begin_order_confirmation'] = '';
+    userParam[langCodes[i]+'_text_final_order_confirmation'] = '';
   }
 
   //Styles
@@ -1938,6 +2031,23 @@ function verifyParam(userParam) {
     }
     if (!userParam[langCodes[i]+'_text_final_proforma_invoice']) {
       userParam[langCodes[i]+'_text_final_proforma_invoice'] = "";
+    }
+
+    //Order Confirmation
+    if (!userParam[langCodes[i]+'_text_info_order_confirmation_number']) {
+      userParam[langCodes[i]+'_text_info_order_confirmation_number'] = langTexts.number_order_confirmation;
+    }
+    if (!userParam[langCodes[i]+'_text_info_date_order_confirmation']) {
+      userParam[langCodes[i]+'_text_info_date_order_confirmation'] = langTexts.date_order_confirmation;
+    }
+    if (!userParam[langCodes[i]+'_title_order_confirmation']) {
+      userParam[langCodes[i]+'_title_order_confirmation'] = langTexts.order_confirmation;
+    }
+    if (!userParam[langCodes[i]+'_text_begin_order_confirmation']) {
+      userParam[langCodes[i]+'_text_begin_order_confirmation'] = "";
+    }
+    if (!userParam[langCodes[i]+'_text_final_order_confirmation']) {
+      userParam[langCodes[i]+'_text_final_order_confirmation'] = "";
     }
 
 

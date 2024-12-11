@@ -10883,6 +10883,117 @@ ewline RF55411003505
 ewline 
 ewline EPD
 ewline //S1/10/505/11/230101/20/1100/31/230101/32/7.7:501.5;3.8:57.8/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "order_confirmation"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: order\_confirmation}
+\begin{reportvalue}{Invoice 501}
+\begin{longtable}[l]{ l  l }
+Reference No:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Reference No:  & 501 \\
+Date:  & 01.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Order Confirmation \newline \\
+This is the begin text of the order confirmation. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  &  &  & 501.39  & 501.39 \\
+\multicolumn{494}{l}{}\\
+\multicolumn{493}{l}{Total net } & 501.39 \\
+\multicolumn{493}{l}{VAT 7.70\% (501.39) } & 38.61 \\
+\multicolumn{494}{l}{}\\
+\multicolumn{493}{l}{TOTAL CHF } & 540.00 \\
+\end{longtable}
+This is the final text of the order confirmation. \\
+It can be on multiple lines. \\
+Thank you very much. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "order_confirmation"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: order\_confirmation}
+\begin{reportvalue}{Invoice 502}
+\begin{longtable}[l]{ l  l }
+Reference No:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Reference No:  & 502 \\
+Date:  & 03.01.2023 \\
+Customer No:  & 1100 \\
+VAT No:  & \\
+Fiscal No:  & \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Banana.ch SA - Via alla Santa 7 - 6962 Viganello Redford SA \newline Andrew Redford \newline Viale Stazione 11 \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Order Confirmation \newline \\
+This is the begin text of the order confirmation. \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Service 1 \newline \newline  & 2.0000  & hrs  & 23.21  & 46.43 \\
+Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
+\multicolumn{499}{l}{}\\
+\multicolumn{498}{l}{Total net } & 83.57 \\
+\multicolumn{498}{l}{VAT 7.70\% (83.57) } & 6.43 \\
+\multicolumn{499}{l}{}\\
+\multicolumn{498}{l}{TOTAL CHF } & 90.00 \\
+\end{longtable}
+This is the final text of the order confirmation. \\
+It can be on multiple lines. \\
+Thank you very much. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
+\end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
