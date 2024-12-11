@@ -837,12 +837,15 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     convertedColumns[i] = "Currency";
                     break;
                 case "Debit amount":
+                case "Débit":           
                     convertedColumns[i] = "DebitAmount";
                     break;
                 case "Credit amount":
+                case "Crédit":
                     convertedColumns[i] = "CreditAmount";
                     break;
                 case "IndividualAmount":
+                case "Sous-montant":
                     convertedColumns[i] = "IndividualAmount";
                     break;
                 case "Solde":
@@ -958,7 +961,7 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
 
         // Sort rows by date
         transactionsToImport = transactionsToImport.reverse();
-
+        
         // Add header and return
         var header = [
             [
