@@ -1,0 +1,50 @@
+%%info_test_name{csv_ubs_example_format3_fr_20241205}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2024-11-28 & 2024-11-28 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Peliquo si. SALE: SQ25 2143 5747 4777 Q534 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 4443652WY4880683 & 9999333ZC8787921 &  & 168.65 & undefined\\
+2024-11-28 & 2024-11-28 & Tudis Gratore,1587 Piraedde Filla by tanuluva: +82144813826, COEGI-Xxx.:+44758884642, Tuotescieta si. 5132060RL4366433 & 9940333TI2128790 & 1500.00 &  & undefined\\
+2024-11-28 & 2024-11-28 & Novere Bra In Xxx,5377 Centio Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 5641571JB8408366 & 0140333TO9686894 & 1901.10 &  & undefined\\
+2024-11-28 & 2024-11-28 & Angramus Diticuruci Tuotescieta si. GK64160QD5135756 & 9940833L73584420 & 5861.50 &  & undefined\\
+2024-11-29 & 2024-11-29 & C1 Intianutabo,636 Intianutabo Filla by tanuluva: NUTIME BENTUDO, Viûan: Pleség tanuluva DIO, Tuotescieta si. 7448612NU6482646 & 9999334ZC9485478 &  & 1433.00 & undefined\\
+2024-11-29 & 2024-11-29 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 1068707PX2022570 & 9999334ZC0033042 &  & 783.03 & undefined\\
+2024-11-29 & 2024-11-30 & Cargaut FUN Legi,5768 Bonfiliet (Numente) Tuotescieta si. 3406681YA4644200 & GG01834HJ0047740 & 0.00 &  & undefined\\
+2024-11-29 & 2024-11-29 & Disquali EO,Aniundierridecum 72, 2005 Difica, ME Fœnumelia si. QUE: 53 15880 85604 43886 60448 54616, Filla by tanuluva: Glatulo A Orper, Peliquo si. SALE: CH67 3823 3807 2823 3667 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 2346422CT6742317 & 4240334TO0231779 & 465.85 &  & undefined\\
+2024-11-29 & 2024-11-29 & Tudis Gratore,1587 Piraedde Tuotescieta si. 6677116CU8046812 & 9940334TO0738907 & 1433.00 &  & undefined\\
+2024-12-02 & 2024-12-02 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Fœnumelia si. QUE: 84 51274 38078 14578 68021 12655, Filla by tanuluva: Vilit 4 xxx mute aest, Peliquo si. SALE: YO55 8377 8030 8816 3333 4, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 3330815XK5370687 & 9999337ZC0918508 &  & 1326.00 & undefined\\
+2024-12-02 & 2024-12-02 & Prow-7127 Inver,3840 Inver Fœnumelia si. QUE: 18 48151 61144 56132 84380 17577, Filla by tanuluva: Opula, Increm 4680, Peliquo si. SALE: IQ08 5118 5872 3738 5343 7, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 1317220DI0410652 & 0140337TJ5107930 & 41.35 &  & D\\
+2024-12-02 & 2024-12-02 & ULA (Despere) EO Finiavisi Quibulo,Quieriatentibero 23, 7857 Ferusimox Frunium vi ex tuotescieta arges: -5118.18 STA, Lodicube cabo: 4.410443, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 2313024QD7748862 & 0140337TJ5107930 & 656.30 &  & D\\
+2024-12-02 & 2024-12-02 & Decto séricide aut dive sissupluvit Frunium vi ex tuotescieta arges: -5863.18 STA, Lodicube cabo: 4.404287, Viûan: Tanuluva NUM Vines Stio à c'émominix -7.18 RET, Tuotescieta si. 7050661UL2354337 & 0140337TJ5107930 & 72.00 &  & D\\
+2024-12-02 & 2024-12-02 & Tudis Gratore Filla by tanuluva: Concecuride, Tuotescieta si. 8625307JM3505466 & 0140337TJ5107930 & 769.65 &  & S\\
+2024-12-03 & 2024-12-03 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 8428776DH2058205 & 9999338ZC1407056 &  & 1397.15 & undefined\\
+2024-12-03 & 2024-12-03 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 2833550PN5710042 & 9999338ZC1406726 &  & 1348.85 & undefined\\
+2024-12-04 & 2024-12-04 & EX OLEVENERIT ET V. AT,4431 HOSTAE Fœnumelia si. QUE: 18 65754 13653 81414 76000 52742, Peliquo si. SALE: XT82 5118 4658 7304 8785 5, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 5247582GC6117844 & 9240339TO4006113 & 253.21 &  & undefined\\
+2024-12-04 & 2024-12-04 & Prow-7127 Inver,3840 Inver Peliquo si. SALE: OU11 6473 5473 3000 75F7 T, Viûan: Evox vi séper / anétis, Tuotescieta si. 8454014BC5712200 & 0140339TJ5315390 & 266.45 &  & D\\
+2024-12-04 & 2024-12-04 & ORA Cipe. Tam. Supicus J,5377 Centio Peliquo si. SALE: SQ25 2143 5747 4777 Q534 S, Viûan: T-Anernem RET ditésubis, Tuotescieta si. 8450168AG5206556 & 0140339TJ5315390 & 33.60 &  & D\\
+2024-12-04 & 2024-12-04 & Prow-7127 Inver,3840 Inver Viûan: Gractum s'troèxxx si surexile s'por puline intuer/Pariente in Choris (*g), Tuotescieta si. 3208863KU6658234 & 0140339TJ5315390 & 499.60 &  & D\\
+2024-12-04 & 2024-12-04 & Tudis Gratore Peliquo si. 13418264138015842736, Viûan: T-Anernem lonatury ricide à ricide, Tuotescieta si. 8220677KE0624312 & 0140339TJ5315390 & 799.65 &  & S\\
+2024-12-04 & 2024-12-04 & Vere Maracierm,3518 Maracierm Frunium vi ex tuotescieta arges: -627.18 LAE, Lodicube cabo: 7.171418, Viûan: Tanuluva NUM Vines Stio à c'émominix -2.73 RET, Tuotescieta si. 4476686CC1288258 & 9940839LP4963780 & 1808.00 &  & D\\
+2024-12-04 & 2024-12-04 & Angramus Diticuruci Frunium vi ex tuotescieta arges: -627.18 LAE, Lodicube cabo: 7.171418, Viûan: Tanuluva NUM Vines Stio à c'émominix -2.73 RET, Tuotescieta si. 4476686CC1288258 & 9940839LP4963780 & 1808.00 &  & S\\
+2024-12-05 & 2024-12-05 & VERE MARACIERM,MARACIERM Tuotescieta si. 7378403ME7180126 & ZD81340AE5033343 &  & 886.46 & undefined\\
+2024-12-05 & 2024-12-05 & Vemulige (Actionto) EX,Nulo Sciracipectente 6, 7075 Obies Tuotescieta si. 6546764AA7683642 & 9999340ZC2552123 &  & 176.34 & undefined\\
+\\
+\end{tablevalue}
+\end{document}
