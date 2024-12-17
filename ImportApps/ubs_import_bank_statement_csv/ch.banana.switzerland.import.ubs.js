@@ -49,7 +49,7 @@ function exec(inData, isTest) {
     }
 
     let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-    
+
 
     // Format Credit Card
     var formatCc1Ubs = new UBSFormatCc1();
@@ -592,41 +592,41 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
         var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
         let form = [];
         let convertedColumns = [];
-    
+
         convertedColumns = this.convertHeaderEn(columns);
         //Load the form with data taken from the array. Create objects
         if (convertedColumns.length > 0) {
             importUtilities.loadForm(form, convertedColumns, rows);
             return form;
         }
-    
+
         convertedColumns = this.convertHeaderDe(columns);
         //Load the form with data taken from the array. Create objects
         if (convertedColumns.length > 0) {
             importUtilities.loadForm(form, convertedColumns, rows);
             return form;
         }
-    
+
         convertedColumns = this.convertHeaderIt(columns);
         //Load the form with data taken from the array. Create objects
         if (convertedColumns.length > 0) {
             importUtilities.loadForm(form, convertedColumns, rows);
             return form;
         }
-    
+
         convertedColumns = this.convertHeaderFr(columns);
         //Load the form with data taken from the array. Create objects
         if (convertedColumns.length > 0) {
             importUtilities.loadForm(form, convertedColumns, rows);
             return form;
         }
-    
+
         return [];
     }
-    
+
     convertHeaderEn(columns) {
         let convertedColumns = [];
-    
+
         for (var i = 0; i < columns.length; i++) {
             switch (columns[i]) {
                 case "Trade date":
@@ -652,7 +652,7 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                 case "Credit":
                     convertedColumns[i] = "CreditAmount";
                     break;
-                case "Individual smount":
+                case "Individual amount":
                     convertedColumns[i] = "IndividualAmount";
                     break;
                 case "Balance":
@@ -677,19 +677,19 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     break;
             }
         }
-    
+
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("TradeTime") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
             return [];
         }
-    
+
         return convertedColumns;
     }
     convertHeaderDe(columns) {
         let convertedColumns = [];
-    
+
         for (var i = 0; i < columns.length; i++) {
             switch (columns[i]) {
                 case "Abschlussdatum":
@@ -741,19 +741,19 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     break;
             }
         }
-    
+
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("TradeTime") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
             return [];
         }
-    
+
         return convertedColumns;
     }
     convertHeaderIt(columns) {
         let convertedColumns = [];
-    
+
         for (var i = 0; i < columns.length; i++) {
             switch (columns[i]) {
                 case "Data dell'operazione":
@@ -806,19 +806,19 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     break;
             }
         }
-    
+
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("TradeTime") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
             return [];
         }
-    
+
         return convertedColumns;
     }
     convertHeaderFr(columns) {
         let convertedColumns = [];
-    
+
         for (var i = 0; i < columns.length; i++) {
             switch (columns[i]) {
                 case "Date de transaction":
@@ -837,7 +837,7 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     convertedColumns[i] = "Currency";
                     break;
                 case "Debit amount":
-                case "Débit":           
+                case "Débit":
                     convertedColumns[i] = "DebitAmount";
                     break;
                 case "Credit amount":
@@ -870,14 +870,14 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     break;
             }
         }
-    
+
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("TradeTime") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
             return [];
         }
-    
+
         return convertedColumns;
     }
 
@@ -961,7 +961,7 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
 
         // Sort rows by date
         transactionsToImport = transactionsToImport.reverse();
-        
+
         // Add header and return
         var header = [
             [
