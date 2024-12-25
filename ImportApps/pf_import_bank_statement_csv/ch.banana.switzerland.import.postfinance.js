@@ -483,7 +483,26 @@ function PFCSVFormat2_CreditCard() {
        * */
       let convertedColumns = [];
 
+      // Convert headers from german.
       convertedColumns = this.convertHeaderDe(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from italian.
+      convertedColumns = this.convertHeaderIt(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from french.
+      convertedColumns = this.convertHeaderFr(columns, convertedColumns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+      // Convert headers from english.
+      convertedColumns = this.convertHeaderEn(columns, convertedColumns);
       if (convertedColumns.length > 0) {
          importUtilities.loadForm(form, convertedColumns, rows);
          return form;
@@ -528,6 +547,123 @@ function PFCSVFormat2_CreditCard() {
          || convertedColumns.indexOf("Description") < 0
          || convertedColumns.indexOf("Income") < 0
          || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+      return convertedColumns;
+   }
+
+   this.convertHeaderIt = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Periodo contabile":
+               convertedColumns[i] = "Accounting Period";
+               break;
+            case "Data di contabilizzazione":
+               convertedColumns[i] = "Date";
+               break;
+            case "Data di acquisto":
+               convertedColumns[i] = "Purchase date";
+               break;
+            case "Dettagli di contabilizzazione":
+               convertedColumns[i] = "Description";
+               break;
+            case "Accredito in CHF":
+            case "Accredito in EUR":
+            case "Accredito in USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Addebito in CHF":
+            case "Addebito in EUR":
+            case "Addebito in USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+          || convertedColumns.indexOf("Description") < 0
+          || convertedColumns.indexOf("Income") < 0
+          || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+      return convertedColumns;
+   }
+
+   this.convertHeaderFr = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Période de facturation":
+               convertedColumns[i] = "Accounting Period";
+               break;
+            case "Date d’écriture":
+               convertedColumns[i] = "Date";
+               break;
+            case "Date d’achat":
+               convertedColumns[i] = "Purchase date";
+               break;
+            case "Détails de comptabilisation":
+               convertedColumns[i] = "Description";
+               break;
+            case "Crédit en CHF":
+            case "Crédit en EUR":
+            case "Crédit en USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Débit en CHF":
+            case "Débit en EUR":
+            case "Débit en USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+          || convertedColumns.indexOf("Description") < 0
+          || convertedColumns.indexOf("Income") < 0
+          || convertedColumns.indexOf("Expenses") < 0) {
+         return [];
+      }
+      return convertedColumns;
+   }
+
+   this.convertHeaderEn = function (columns, convertedColumns) {
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Invoicing period":
+               convertedColumns[i] = "Accounting Period";
+               break;
+            case "Booking date":
+               convertedColumns[i] = "Date";
+               break;
+            case "Purchase date":
+               convertedColumns[i] = "Purchase date";
+               break;
+            case "Booking details":
+               convertedColumns[i] = "Description";
+               break;
+            case "Credit in CHF":
+            case "Credit in EUR":
+            case "Credit in USD":
+               convertedColumns[i] = "Income";
+               break;
+            case "Debit in CHF":
+            case "Debit in EUR":
+            case "Debit in USD":
+               convertedColumns[i] = "Expenses";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+          || convertedColumns.indexOf("Description") < 0
+          || convertedColumns.indexOf("Income") < 0
+          || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
       return convertedColumns;
