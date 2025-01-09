@@ -1,4 +1,4 @@
-%%info_test_name{csv_postfinance_example_format2_CreditCard_20241118}
+%%info_test_name{csv_postfinance_example_format2_CreditCard_20241118-EN}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
