@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.swkb
 // @api = 1.0
-// @pubdate = 2024-08-03
+// @pubdate = 2025-01-15
 // @publisher = Banana.ch SA
 // @description = Schwyzer KantonalBank - Import movements .csv (Banana+ Advanced)
 // @description.it = Schwyzer KantonalBank - Importa movimenti .csv (Banana+ Advanced)
@@ -39,8 +39,6 @@
  */
 function exec(string, isTest) {
 
-   Banana.console.debug("ch.banana.switzerland.import.swkb"); // Test version.
-
    var importUtilities = new ImportUtilities(Banana.document);
 
    if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
@@ -56,8 +54,11 @@ function exec(string, isTest) {
 
    let convertionParam = defineConversionParam(string);
 
-   var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
-   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
+   let transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
+   /**Removes the empty rows (rapresented as "[]"), as keeping them could cause some problems with soma Macs as
+    * they removes them automatically for some reasons.*/
+   let filteredTransactions = transactions.filter(subArray => subArray.length > 0);
+   let transactionsData = getFormattedData(filteredTransactions, convertionParam, importUtilities);
 
    // Schwyzer KantonalBank Format, this format works with the header names.
    var swkbFormat = new SWKBFormat();
@@ -172,8 +173,8 @@ function defineConversionParam(inData) {
 
    /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
    We suppose the data will always begin right away after the header line */
-   convertionParam.headerLineStart = 22;
-   convertionParam.dataLineStart = 24;
+   convertionParam.headerLineStart = 11;
+   convertionParam.dataLineStart = 12;
 
    /** SPECIFY THE COLUMN TO USE FOR SORTING
    If sortColums is empty the data are not sorted */
