@@ -451,6 +451,8 @@ function PFCSVFormat6() {
 
 
 /**
+ * This format is used for both Business and Private accounts.
+ * 
  * Kartenkonto:;0000 0000 0000 0000;;;;
  * Karte:;XXXX XXXX XXXX 1111 PostFinance Visa Business Card;;;;
  * Karteninhaber:;BRUNO FREY;;;;
