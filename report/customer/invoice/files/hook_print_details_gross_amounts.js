@@ -1,8 +1,8 @@
-function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
+function hook_print_details_gross_amounts(banDoc, repDocObj, invoiceObj, texts, userParam, detailsTable, variables) {
   /* 
-    Print the invoice details using net Amounts (VAT excluded) 
+    Prints the invoice details using gross Amounts (VAT included)
   */
-  
+
   removeDiscountColumn(invoiceObj, userParam);
 
   var columnsDimension = userParam.details_columns_widths.split(";");
@@ -41,7 +41,7 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
   }
   else {
     for (var i = 0; i < columnsNames.length; i++) {
-      columnsNames[i] = columnsNames[i].trim().toLowerCase();
+      columnsNames[i] = columnsNames[i].trim();
       header.addCell(columnsNames[i], "doc_table_header center", 1);
       columnsNumber ++;
     }
@@ -112,7 +112,7 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
         }
         else {
           if (item.quantity) {
-            decimals = variables.decimals_quantity
+            decimals = variables.decimals_quantity;
             var itemValue = formatItemsValue(item.quantity, decimals, columnsNames[j], className, item);
             tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
           }
@@ -126,11 +126,11 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else if (columnsNames[j].trim().toLowerCase() === "unitprice" || columnsNames[j] === "unit_price") {
-        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_exclusive, variables, columnsNames[j], className, item);
+        var itemValue = formatItemsValue(item.unit_price.calculated_amount_vat_inclusive, variables, columnsNames[j], className, item);
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
-      else if (columnsNames[j].trim().toLowerCase() === "amount" || columnsNames[j] === "total_amount_vat_exclusive") {
-        var itemValue = formatItemsValue(item.total_amount_vat_exclusive, variables, columnsNames[j], className, item);
+      else if (columnsNames[j].trim().toLowerCase() === "amount" || columnsNames[j] === "total_amount_vat_inclusive") {
+        var itemValue = formatItemsValue(item.total_amount_vat_inclusive, variables, columnsNames[j], className, item);
         tableRow.addCell(itemValue.value, classNameEvenRow + " " + alignment + " padding-left padding-right " + itemValue.className, 1);
       }
       else if (columnsNames[j].trim().toLowerCase() === "vatrate" || columnsNames[j] === "vat_rate") {
@@ -192,7 +192,7 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
       }
     }
   }
-  // Show message when using "T.Column" with a non advanced version of Banana+
+  // Show message when using custom column with a non advanced version of Banana+
   if (customColumnMsg.length > 0) {
     banDoc.addMessage(customColumnMsg);
   }
@@ -200,42 +200,35 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
   tableRow = repTableObj.addRow();
   tableRow.addCell("", "border-top", columnsNumber);
 
+  //SUBTOTAL
+  //Only used for the Application Estimates-Invoices
+  //Print subtotal if there is discount, deposit or rounding
+  if (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+    && (invoiceObj.billing_info.total_discount_vat_inclusive 
+    || invoiceObj.billing_info.total_rounding_difference
+    || invoiceObj.billing_info.total_advance_payment)
+  ) {
+    
+    tableRow = repTableObj.addRow();
+    tableRow.addCell(texts.subtotal, "padding-left padding-right", columnsNumber-1);
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_amount_vat_inclusive_before_discount, variables.decimals_amounts, true), "right padding-left padding-right", 1);
+  }
+
   //DISCOUNT
   //Only used for the Application Estimates-Invoices
   //On Integrated Invoice, discounts are entered as items in transactions
-  if (invoiceObj.billing_info.total_discount_vat_exclusive) {
+  if (invoiceObj.billing_info.total_discount_vat_inclusive) {
     tableRow = repTableObj.addRow();
     let discountText = invoiceObj.billing_info.discount.description ? invoiceObj.billing_info.discount.description : texts.discount;
     if (invoiceObj.billing_info.discount.percent) {
       discountText += " " + invoiceObj.billing_info.discount.percent + "%";
     }
     tableRow.addCell(discountText, "padding-left padding-right", columnsNumber-1);
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.invert(invoiceObj.billing_info.total_discount_vat_exclusive), variables.decimals_amounts, true), "right padding-left padding-right", 1);
-  }
-
-  //PRINT 0% VAT RATE
-  //only when a VatCode with 0% VAT is used (i.e. V0)
-  //when VAT is 0 but no VatCode is used (without VAT), the VAT rate is not printed
-  if (invoiceObj.billing_info.total_vat_rate_zero) {
-    invoiceObj.billing_info.total_vat_rate_zero.vat_rate = Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rate_zero.total_vat_amount,variables.decimals_amounts,true); //"0.00";
-    invoiceObj.billing_info.total_vat_rates.unshift(invoiceObj.billing_info.total_vat_rate_zero);
-  }
-
-  //TOTAL NET
-  if (invoiceObj.billing_info.total_vat_rates.length > 0) {
-    tableRow = repTableObj.addRow();
-    tableRow.addCell(texts.totalnet, "padding-left padding-right", columnsNumber-1);
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_amount_vat_exclusive, variables.decimals_amounts, true), "right padding-left padding-right", 1);
-
-    for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
-      tableRow = repTableObj.addRow();
-      tableRow.addCell(texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "% (" + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + ")", "padding-left padding-right", columnsNumber-1);
-      tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true), "right padding-left padding-right", 1);
-    }
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(Banana.SDecimal.invert(invoiceObj.billing_info.total_discount_vat_inclusive), variables.decimals_amounts, true), "right padding-left padding-right", 1);
   }
 
   //TOTAL ROUNDING DIFFERENCE
-  if (invoiceObj.billing_info.total_rounding_difference.length) {
+  if (invoiceObj.billing_info.total_rounding_difference) {
     tableRow = repTableObj.addRow();
     tableRow.addCell(texts.rounding, "padding-left padding-right", columnsNumber-1);
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_rounding_difference, variables.decimals_amounts, true), "right padding-left padding-right", 1);
@@ -254,7 +247,11 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
   }
 
   tableRow = repTableObj.addRow();
-  if (invoiceObj.billing_info.total_vat_rates.length > 0 || invoiceObj.billing_info.total_rounding_difference.length) {
+  if (invoiceObj.billing_info.total_amount_vat_inclusive_before_discount
+    && (invoiceObj.billing_info.total_discount_vat_inclusive 
+    || invoiceObj.billing_info.total_rounding_difference
+    || (!IS_INTEGRATED_INVOICE && invoiceObj.billing_info.total_advance_payment) )
+  ) {
     tableRow.addCell("", "border-top", columnsNumber);
   } else {
     tableRow.addCell("", "", columnsNumber);
@@ -264,4 +261,19 @@ function hook_print_details_net_amounts(banDoc, repDocObj, invoiceObj, texts, us
   tableRow = repTableObj.addRow();
   tableRow.addCell(userParam[lang+'_text_total'] + " " + invoiceObj.document_info.currency, "total_cell", columnsNumber-1);
   tableRow.addCell(Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_to_pay, variables.decimals_amounts, true), "total_cell right", 1);
+  
+  tableRow = repTableObj.addRow();
+  tableRow.addCell("", "", columnsNumber);
+
+  //VAT INFO
+  tableRow = repTableObj.addRow();
+  var cellVatInfo = tableRow.addCell("", "padding-right right vat_info", columnsNumber);
+  for (var i = 0; i < invoiceObj.billing_info.total_vat_rates.length; i++) {
+    var vatInfo = "";
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_inclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency + " (" + texts.gross + ") // ";
+    vatInfo += Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_amount_vat_exclusive, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency + " (" + texts.net + ")";
+    vatInfo += " " + texts.vat + " " + invoiceObj.billing_info.total_vat_rates[i].vat_rate + "%";
+    vatInfo += " = " + Banana.Converter.toLocaleNumberFormat(invoiceObj.billing_info.total_vat_rates[i].total_vat_amount, variables.decimals_amounts, true) + " " + invoiceObj.document_info.currency;
+    cellVatInfo.addParagraph(vatInfo);
+  }
 }
