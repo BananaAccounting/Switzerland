@@ -33,6 +33,9 @@
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
 // @includejs = import.utilities.js
 
+const applicationSupportIsDetail = Banana.compareVersion &&
+    (Banana.compareVersion(Banana.application.version, "10.0.12") >= 0);
+
 function exec(inData, isTest) {
 
     var importUtilities = new ImportUtilities(Banana.document);
@@ -45,9 +48,19 @@ function exec(inData, isTest) {
     var transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, '"');
     let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
+    // Format 6, this format has detailed rows.
+    var format6 = new LKBFormat6();
+    let transactionsDataF6 = format6.getFormattedData(transactions, importUtilities);
+    if (format6.match(transactionsDataF6)) {
+        Banana.console.log("format 6");
+        transactions = format6.convert(transactionsDataF6);
+        return Banana.Converter.arrayToTsv(transactions);
+    }
+
     // Format 5, this format works with the header names.
     var format5 = new LKBFormat5();
     if (format5.match(transactionsData)) {
+        Banana.console.log("format 5");
         transactions = format5.convert(transactionsData);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -88,6 +101,210 @@ function exec(inData, isTest) {
 
     return "";
 }
+
+/**
+ * LKB Format 6
+ *
+ * Buchung;Valuta;Buchungstext;Detail;Gutschrift;Belastung;Saldo (CHF)
+ * 31.12.2024;31.12.2024;Warenbezug/Dienstleistung / 1556695048 Bezugsort: Description; ; ;228.55;140574.1
+ * 31.12.2024;31.12.2024;Warenbezug/Dienstleistung / 1556701551 Bezugsort: Description; ;5827.8; ;140802.65
+ *  ; ;Warenbezug/Dienstleistung / 1556701551 Bezugsort: Description;72; ; ; 
+ *  ; ;Warenbezug/Dienstleistung / 1556701551 Bezugsort: Description;293.7; ; ; 
+*/
+function LKBFormat6() {
+    // Index of columns in *.csv file
+
+    this.getFormattedData = function(transactions, importUtilities) {
+        let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
+        var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
+        var rows = importUtilities.getRowData(transactionsCopy, 1); //array of array
+        let form = [];
+        let convertedColumns = [];
+
+        convertedColumns = this.convertHeaderDe(columns);
+        //Load the form with data taken from the array. Create objects
+        if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+        }
+
+        return [];
+    }
+
+    this.convertHeaderDe = function(columns) {
+        let convertedColumns = [];
+
+        for (var i = 0; i < columns.length; i++) {
+            switch (columns[i]) {
+                case "Buchung":
+                    convertedColumns[i] = "Date";
+                    break;
+                case "Valuta":
+                    convertedColumns[i] = "DateValue";
+                    break;
+                case "Buchungstext":
+                    convertedColumns[i] = "Description";
+                    break;
+                case "Detail":
+                    convertedColumns[i] = "DetailAmount";
+                    break;
+                case "Belastung":
+                    convertedColumns[i] = "DebitAmount";
+                    break;
+                case "Gutschrift":
+                    convertedColumns[i] = "CreditAmount";
+                    break;
+                case "Saldo (CHF)":
+                    convertedColumns[i] = "Balance";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (convertedColumns.indexOf("Date") < 0
+            || convertedColumns.indexOf("DateValue") < 0) {
+            return [];
+        }
+
+        return convertedColumns;
+    }
+    
+
+    /** Return true if the transactions match this format */
+    this.match = function(transactionsData) {
+        if (transactionsData.length === 0)
+            return false;
+
+        for (i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+
+            var formatMatched = false;
+
+            if (transaction["Date"] && transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/)
+                && "DetailAmount" in transaction)
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched && transaction["DateValue"] &&
+                transaction["DateValue"].match(/^\d{2}.\d{2}.\d{4}$/) && "DetailAmount" in transaction)
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched && transaction["DebitAmount"] || transaction["CreditAmount"])
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched)
+                return true;
+        }
+
+        return false;
+    }
+
+    /** Convert the transaction to the format to be imported */
+    this.convert = function(transactionsData) {
+        var transactionsToImport = [];
+
+        var lastCompleteTransaction = null;
+        var isPreviousCompleteTransaction = false;
+        var lastCompleteTransactionPrinted = false;
+
+        // Filter and map rows
+        for (i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            if (transaction["Description"]) { //Valid transaction (complete & detail).
+                if (!this.isDetailRow(transaction)) { // Normal row.
+                    lastCompleteTransactionPrinted = false;
+                    if (isPreviousCompleteTransaction) {
+                        transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                    }
+                    lastCompleteTransaction = transaction;
+                    isPreviousCompleteTransaction = true;
+                } else { // Detail row.
+                    if (transaction['DetailAmount'] && transaction['DetailAmount'].length > 1) {
+                        if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+                            lastCompleteTransaction['IsDetail'] = 'S';
+                            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                            lastCompleteTransactionPrinted = true;
+                        }
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        if (applicationSupportIsDetail) {
+                            transaction['IsDetail'] = 'D';
+                        }
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    } else {
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    }
+                }
+            }
+        }
+
+        if (isPreviousCompleteTransaction === true) {
+            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+        }
+
+        // Sort rows by date
+        transactionsToImport = transactionsToImport.reverse();
+
+        // Add header and return
+        var header = [
+            ["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses", "IsDetail"],
+        ];
+        return header.concat(transactionsToImport);
+    }
+
+    this.fillDetailRow = function(detailRow, totalRow) {
+        // Copy dates
+        detailRow["Date"] = totalRow["Date"];
+        detailRow["DateValue"] = totalRow["DateValue"];
+        if (detailRow["DetailAmount"] && detailRow["DetailAmount"].length > 1) {
+            if (totalRow["DebitAmount"].length > 1) {
+                detailRow["DebitAmount"] = detailRow["DetailAmount"];
+            } else if (totalRow["CreditAmount"].length > 1) {
+                detailRow["CreditAmount"] = detailRow["DetailAmount"];
+            }
+        } else {
+            detailRow["DebitAmount"] = totalRow["DebitAmount"];
+            detailRow["CreditAmount"] = totalRow["CreditAmount"];
+        }
+    }
+
+    this.isDetailRow = function(transaction) {
+        if (transaction["Date"].length === 1
+            && transaction["DateValue"].length === 1)
+            return true;
+        return false;
+    }
+
+    this.mapTransaction = function(transaction) {
+        var mappedLine = [];
+
+        let dateText = "";
+        let dateValueText = "";
+
+        dateText = transaction["Date"].substring(0, 10);
+        dateValueText = transaction["DateValue"].substring(0, 10);
+
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
+        mappedLine.push("");
+        mappedLine.push("");
+        mappedLine.push(transaction["Description"]);
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
+        mappedLine.push(transaction["IsDetail"]);
+
+        return mappedLine;
+    }
+}
+
 /**
  * LKB Format 5
  *
@@ -104,6 +321,7 @@ function LKBFormat5() {
         if (transactionsData.length === 0)
             return false;
 
+        // Banana.console.log("transactionsData: " + JSON.stringify(transactionsData));
         for (var i = 0; i < transactionsData.length; i++) {
             var transaction = transactionsData[i];
 
