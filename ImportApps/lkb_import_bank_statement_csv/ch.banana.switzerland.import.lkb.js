@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 
 // @id = ch.banana.switzerland.import.lkb
 // @api = 1.0
-// @pubdate = 2023-11-03
+// @pubdate = 2025-01-24
 // @publisher = Banana.ch SA
 // @description = Luzerner Kantonalbank - Import account statement .csv (Banana+ Advanced)
 // @description.de = Luzerner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)
@@ -52,7 +52,6 @@ function exec(inData, isTest) {
     var format6 = new LKBFormat6();
     let transactionsDataF6 = format6.getFormattedData(transactions, importUtilities);
     if (format6.match(transactionsDataF6)) {
-        Banana.console.log("format 6");
         transactions = format6.convert(transactionsDataF6);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -60,7 +59,6 @@ function exec(inData, isTest) {
     // Format 5, this format works with the header names.
     var format5 = new LKBFormat5();
     if (format5.match(transactionsData)) {
-        Banana.console.log("format 5");
         transactions = format5.convert(transactionsData);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -68,7 +66,6 @@ function exec(inData, isTest) {
     // Format 4
     var format4 = new LKBFormat4();
     if (format4.match(transactions)) {
-        Banana.console.debug("format 4");
         transactions = format4.convert(transactions);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -76,7 +73,6 @@ function exec(inData, isTest) {
     // Format 3
     var format3 = new LKBFormat3();
     if (format3.match(transactions)) {
-        Banana.console.debug("format 3");
         transactions = format3.convert(transactions);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -84,7 +80,6 @@ function exec(inData, isTest) {
     // Format 2
     var format2 = new LKBFormat2();
     if (format2.match(transactions)) {
-        Banana.console.debug("format 2");
         transactions = format2.convert(transactions);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -92,7 +87,6 @@ function exec(inData, isTest) {
     // Format 1
     var format1 = new LKBFormat1();
     if (format1.match(transactions)) {
-        Banana.console.debug("format 1");
         transactions = format1.convert(transactions);
         return Banana.Converter.arrayToTsv(transactions);
     }
@@ -114,7 +108,7 @@ function exec(inData, isTest) {
 function LKBFormat6() {
     // Index of columns in *.csv file
 
-    this.getFormattedData = function(transactions, importUtilities) {
+    this.getFormattedData = function (transactions, importUtilities) {
         let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
         var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
         var rows = importUtilities.getRowData(transactionsCopy, 1); //array of array
@@ -131,7 +125,7 @@ function LKBFormat6() {
         return [];
     }
 
-    this.convertHeaderDe = function(columns) {
+    this.convertHeaderDe = function (columns) {
         let convertedColumns = [];
 
         for (var i = 0; i < columns.length; i++) {
@@ -169,10 +163,10 @@ function LKBFormat6() {
 
         return convertedColumns;
     }
-    
+
 
     /** Return true if the transactions match this format */
-    this.match = function(transactionsData) {
+    this.match = function (transactionsData) {
         if (transactionsData.length === 0)
             return false;
 
@@ -206,7 +200,7 @@ function LKBFormat6() {
     }
 
     /** Convert the transaction to the format to be imported */
-    this.convert = function(transactionsData) {
+    this.convert = function (transactionsData) {
         var transactionsToImport = [];
 
         var lastCompleteTransaction = null;
@@ -260,7 +254,7 @@ function LKBFormat6() {
         return header.concat(transactionsToImport);
     }
 
-    this.fillDetailRow = function(detailRow, totalRow) {
+    this.fillDetailRow = function (detailRow, totalRow) {
         // Copy dates
         detailRow["Date"] = totalRow["Date"];
         detailRow["DateValue"] = totalRow["DateValue"];
@@ -276,14 +270,14 @@ function LKBFormat6() {
         }
     }
 
-    this.isDetailRow = function(transaction) {
+    this.isDetailRow = function (transaction) {
         if (transaction["Date"].length === 1
             && transaction["DateValue"].length === 1)
             return true;
         return false;
     }
 
-    this.mapTransaction = function(transaction) {
+    this.mapTransaction = function (transaction) {
         var mappedLine = [];
 
         let dateText = "";
