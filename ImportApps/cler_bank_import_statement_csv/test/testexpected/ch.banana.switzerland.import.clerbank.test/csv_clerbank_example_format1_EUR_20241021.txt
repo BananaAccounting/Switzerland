@@ -1,0 +1,65 @@
+%%info_test_name{csv_clerbank_example_format1_EUR_20241021}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2022-10-10 & 2022-10-10 &  &  & Dacciustodire at by erunt xxxnovum &  & 6377.03\\
+2022-10-10 & 2022-10-10 &  &  & Opere ex patiusto vit liensicum &  & 1750.00\\
+2022-10-10 & 2022-10-10 &  &  & Opere ex patiusto vit liensicum &  & 750.00\\
+2022-10-10 & 2022-10-10 &  &  & Opere ex patiusto vit liensicum &  & 730.00\\
+2022-10-10 & 2022-10-10 &  &  & Chorobsto SCRO exeres ,40/528266,105979,835257.841668. ,DIME-14663242-IKK1-KAS3,40/528266,105979 & 256.00 & \\
+2022-10-10 & 2022-10-10 &  &  & Homilia ex chorobsto sentquod SCRO ,SUISUAEPATER I.N.S. MOX PRIDULA RENT ,1936745533835956606470,SUISUAEPATER I.N.S.,MOX PRIDULA DICITTE B. 5 28782,CONERANT & 82.50 & \\
+2022-10-10 & 2022-10-10 &  &  & Chorobsto xxx'innent ,50\%EO ME:BI53402466 ,DIME-44621002-IKK1-KAS3,50\%EO ME:BI53402466 & 137.50 & \\
+2022-10-10 & 2022-10-10 &  &  & Chorobsto xxx'innent ,6452621186  6/6 (SI 21321) & 3415.50 & \\
+2022-10-10 & 2022-10-11 &  &  & Dacciustodire at by erunt xxx &  & 181.00\\
+2024-10-07 & 2024-10-07 &  &  & Debit at nocento. Potuduento Actunis &  & 1178.54\\
+2024-10-07 & 2024-10-07 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 &  & 872.60\\
+2024-10-08 & 2024-10-08 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 &  & 169.89\\
+2024-10-08 & 2024-10-08 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 115.00 & \\
+2024-10-08 & 2024-10-08 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 225.00 & \\
+2024-10-08 & 2024-10-08 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 198.00 & \\
+2024-10-09 & 2024-10-09 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 1000.00 & \\
+2024-10-09 & 2024-10-09 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 12276.88 & \\
+2024-10-09 & 2024-10-09 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 32.50 & \\
+2024-10-10 & 2024-10-08 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 &  & 79.01\\
+2024-10-10 & 2024-10-10 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 54.00 & \\
+2024-10-10 & 2024-10-10 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 35573.20 & \\
+2024-10-11 & 2024-10-11 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 52.50 & \\
+2024-10-11 & 2024-10-11 &  &  & Klook Travel Technology Limited 2F, KINWICK CENTRE, 32 HOLLYWOOD ROAD, CENTRALHK/HONG KONG 0000 S S2024100800109 & 166.60 & \\
+2024-10-11 & 2024-10-11 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 335.00 & \\
+2024-10-14 & 2024-10-14 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 &  & 366.00\\
+2024-10-14 & 2024-10-14 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 227.50 & \\
+2024-10-15 & 2024-10-15 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 &  & 470.00\\
+2024-10-15 & 2024-10-15 &  &  & Debit at nocento. Potuduento Actunis &  & 13886.66\\
+2024-10-15 & 2024-10-15 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000978/XZ &  & 511.83\\
+2024-10-15 & 2024-10-15 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000978/XZ & 120.00 & \\
+2024-10-15 & 2024-10-15 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000978/XZ & 929.66 & \\
+2024-10-16 & 2024-10-16 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000978/XZ & 234.00 & \\
+2024-10-16 & 2024-10-16 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000978/XZ & 1821.50 & \\
+2024-10-17 & 2024-10-17 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000978/XZ &  & 8000.00\\
+2024-10-18 & 2024-10-16 &  &  & Purchase of goods and services abroad Pickup location: PETROFUEL 8921 Transaction date: 16.10.24 / 10:00:06 Card No: **** 5732 Amount: EUR 92.00 Fees: EUR 1.00 &  & 93.00\\
+2024-10-18 & 2024-10-18 &  &  & Vertex Tours Ltd Via Alta Vista 22 45020 Rivabella Italy saldo fattura 8745 del 10/9 & 126.00 & \\
+2024-10-21 & 2024-10-21 &  &  & Orion Travel Via Romano 12 Verona (VR) Italia Fattura 2024/0000987/XZ &  & 8508.00\\
+2024-10-21 & 2024-10-21 &  &  & Zenith Transactions Ltd 8th Floor, 250 Grand Avenue, GB - Bristol BS1 4AA Omnipay Q7L3Y9 & 159.68 & \\
+2024-10-21 & 2024-10-21 &  &  & NOVA PAYMENTS LTD P.O.BOX9021 METRO AIRPORT COUNTRYLAND Terra X908712345 double pmt (already paid14-10-2024) & 366.00 & \\
+2024-10-21 & 2024-10-21 &  &  & OMEGA SOLUTIONS INC 4501 NOVA CITY Z908765432 &  & 961.94\\
+\\
+\end{tablevalue}
+\end{document}
