@@ -52,7 +52,7 @@ function exec(string, isTest) {
     // Cler Bank Format, this format works with the header names.
     var clerBankFormat1 = new ClerBankFormat1();
     if (clerBankFormat1.match(transactionsData)) {
-       transactions = valiantFormat.convert(transactionsData);
+       transactions = clerBankFormat1.convert(transactionsData);
        return Banana.Converter.arrayToTsv(transactions);
     }
  
@@ -63,25 +63,12 @@ function exec(string, isTest) {
  }
  
  /**
-  * Valiant Format
+  * Cler Bank Format
   *
-  * Kontoauszug bis: 31.12.2023 ;;;
-  * ;;;
-  * Kontonummer: 110123-4567;;;
-  * Bezeichnung: Geschäftskonto;;;
-  * Saldo: CHF 30920.51;;;
-  * ;;;
-  * Genossenschaft ABC;;;
-  * Salzburg St 25;;;
-  * 1111 Bern;;;
-  * ;;;
-  * ;;;
-  * Datum;Buchungstext;Betrag;Valuta
-  * 31.12.23;Clothing purchase at ABC Boutique;-19.95;31.12.23
-  * 27.11.23;Coffee and snacks at Caffeine Delight;-7.50;27.11.23
-  * 23.11.23;Dinner at Bella Italia;-1.50;23.11.23
-  * 15.11.23;Books from PageTurner Bookstore;500.00;15.11.23
-  * 14.11.23;Fuel purchase at PetroFuel Station;-2088.15;14.11.23
+  * Data di registrazione;Data valuta;Tipo di ordine;Testo;Importo di addebito (EUR);Importo di accredito (EUR);Saldo (EUR)
+  * 31.10.2022;31.10.2022;Pagamento in Svizzera;Clothing purchase at ABC Boutique;11.32;;5467.92
+  * 31.10.2022;31.10.2022;Trasferimento di conto;Clothing purchase at ABC Boutique;411.04;;5479.24
+  * 31.10.2022;31.10.2022;Pagamento all'estero;Coffee and snacks at Caffeine Delight;1750.00;;5890.28
  */
  function ClerBankFormat1() {
  
@@ -94,8 +81,8 @@ function exec(string, isTest) {
           var transaction = transactionsData[i];
           var formatMatched = true;
  
-          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 8 &&
-             transaction["Date"].match(/^\d{2}.\d{2}.\d{2}$/))
+          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+             transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
              formatMatched = true;
           else
              formatMatched = false;
@@ -111,8 +98,8 @@ function exec(string, isTest) {
        var transactionsToImport = [];
  
        for (var i = 0; i < transactionsData.length; i++) {
-          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
-             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{2}$/)) {
+          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
              transactionsToImport.push(this.mapTransaction(transactionsData[i]));
           }
        }
@@ -126,17 +113,15 @@ function exec(string, isTest) {
     }
  
     this.mapTransaction = function (transaction) {
-       let mappedLine = [];
- 
-       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
-       mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
-       mappedLine.push("");
-       mappedLine.push("");
-       mappedLine.push(transaction["Description"]);
-       if (transaction["Amount"].match(/^[0-9]/))
-          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
-       else
-          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+        let mappedLine = [];
+    
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
+        mappedLine.push("");
+        mappedLine.push("");
+        mappedLine.push(transaction["Description"]);
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
  
        return mappedLine;
     }
