@@ -1,0 +1,58 @@
+%%info_test_name{csv_clerbank_example_format1_CHF_20241021}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2024-01-05 & 2024-01-05 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 65.90\\
+2024-01-05 & 2024-01-05 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 525.00\\
+2024-01-08 & 2024-01-09 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 1250.40 & \\
+2024-01-09 & 2024-01-09 &  &  & SONE SAER VIANASTABIBO UNCEM &  & 160.50\\
+2024-01-09 & 2024-01-09 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 44.50\\
+2024-01-11 & 2024-01-11 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 131.10\\
+2024-01-18 & 2024-01-18 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 984.00\\
+2024-01-24 & 2024-01-24 &  &  & talenture sa Riva Albertolli 1, 6901  Lugano Rata rientro &  & 500.00\\
+2024-01-26 & 2024-01-26 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 631.35\\
+2024-01-29 & 2024-01-29 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 1000.00 & \\
+2024-01-30 & 2024-01-30 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 201.20\\
+2024-01-31 & 2024-01-31 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 650.00\\
+2024-02-02 & 2024-02-02 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 428.75 & \\
+2024-02-02 & 2024-02-02 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 141.60 & \\
+2024-02-06 & 2024-02-06 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 16.30\\
+2024-02-07 & 2024-02-07 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 232.00\\
+2024-02-07 & 2024-02-07 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 442.00\\
+2024-02-13 & 2024-02-13 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 2500.00 & \\
+2024-02-14 & 2024-02-14 &  &  & Digitalparking AG R�tistrasse 13 8952 Schlieren Schweiz &  & 23.30\\
+2024-02-26 & 2024-02-26 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 154.80\\
+2024-02-27 & 2024-02-27 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 631.35\\
+2024-02-27 & 2024-02-27 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 741.05 & \\
+2024-02-28 & 2024-02-28 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 75.00\\
+2024-02-29 & 2024-02-29 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 650.00\\
+2024-03-05 & 2024-03-05 &  &  & Dabiensilocular PAM / Xxx.-By. 27622338 &  & 172.15\\
+2024-03-06 & 2024-03-07 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 388.00 & \\
+2024-03-08 & 2024-03-08 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 66.45\\
+2024-03-11 & 2024-03-11 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 49.25 & \\
+2024-03-14 & 2024-03-14 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 56.30\\
+2024-03-18 & 2024-03-18 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM & 312.00 & \\
+2024-03-25 & 2024-03-25 &  &  & Diciti Grantis Xxx.-By. 64487542 DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 500.00\\
+2024-03-27 & 2024-03-27 &  &  & Diciti Grantis Xxx.-By. 64487542  DEANGRUNA PULLARIUNGIT SONE SAER VIANASTABIBO UNCEM &  & 631.35\\
+2024-03-31 & 2024-03-31 &  &  & INUM-Secteritursectifig Mere Agindus / Xxx.-By. 14788742 &  & 47.60\\
+\\
+\end{tablevalue}
+\end{document}
