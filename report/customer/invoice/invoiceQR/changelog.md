@@ -2,6 +2,8 @@
 
 All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana.ch/apps/en/node/9338) extension will be documented in this file.  
 
+* 2025-02-04
+	* Added the customer email in the invoice address and as free text using the EmailWork column.
 * 2024-12-11
 	* Added Order Confirmation as print options (Advanced plan required).
 * 2024-03-08
