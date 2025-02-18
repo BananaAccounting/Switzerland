@@ -82,7 +82,7 @@ function exec(string, isTest) {
           var formatMatched = true;
  
           if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
-             transaction["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/))
+             transaction["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/)/* && (transaction["CreditAmount"] || transaction["DebitAmount"])*/)
              formatMatched = true;
           else
              formatMatched = false;
@@ -99,7 +99,7 @@ function exec(string, isTest) {
  
        for (var i = 0; i < transactionsData.length; i++) {
           if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
-             transactionsData[i]["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/)) {
+             transactionsData[i]["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/)/* && (transactionsData[i]["CreditAmount"] || transactionsData[i]["DebitAmount"])*/) {
              transactionsToImport.push(this.mapTransaction(transactionsData[i]));
           }
        }
@@ -121,7 +121,12 @@ function exec(string, isTest) {
         mappedLine.push("");
         mappedLine.push(transaction["Description1"] + "; " + transaction["Description2"]);
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
-        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
+        let debitAmount = transaction["DebitAmount"];
+        if (debitAmount[0] === "-") {
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(debitAmount.replace(/-/g, ''), '.'));
+        } else {
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(debitAmount, '.'));
+        }
  
        return mappedLine;
     }
