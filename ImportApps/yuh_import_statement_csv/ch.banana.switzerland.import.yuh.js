@@ -43,10 +43,18 @@ function exec(string, isTest) {
  
     if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
        return "";
+
+    var cleanString = string;
+    if (cleanString.match(/""/)) {
+        cleanString = cleanString.replace(/^"/mg, "");
+        cleanString = cleanString.replace(/"$/mg, "");
+        cleanString = cleanString.replace(/""/g, '');
+    }
+    Banana.console.log(cleanString);
  
-    let convertionParam = defineConversionParam(string);
+    let convertionParam = defineConversionParam(cleanString);
  
-    var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
+    var transactions = Banana.Converter.csvToArray(cleanString, convertionParam.separator, '"');
     let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
  
     // Yuh transactions Format, this format works with the header names.
