@@ -20,10 +20,10 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2025-01-03 & 2024-12-31 &  &  & Sentuunt Factuum, Aph Pupra Ter 44, 6213 Trumna, QI3177852416247040216 &  & 1550\\
-2025-01-03 & 2025-01-03 &  &  & Lecute Sent, Aph dit Dertum 86, 6213 Trumna, SM4762583466626656158, 85 67875 81662 61556 35206 48772 &  & 91885\\
-2025-01-03 & 2025-01-03 &  &  & Plavire Amide, Aph dit Dertum 86, 6213 Trumna, 85 28307 23533 52705 83780 41023 &  & 222500\\
-2025-01-03 & 2025-01-03 &  &  & Obtia Actodo Insuba, Aph dit Dertum 86, 6213 Trumna, JP8822651342422773068, 85 28307 23533 52705 83780 12345 &  & 131360\\
+2025-01-03 & 2024-12-31 &  &  & Sentuunt Factuum, Aph Pupra Ter 44, 6213 Trumna, QI3177852416247040216 &  & 15.50\\
+2025-01-03 & 2025-01-03 &  &  & Lecute Sent, Aph dit Dertum 86, 6213 Trumna, SM4762583466626656158, 85 67875 81662 61556 35206 48772 &  & 918.85\\
+2025-01-03 & 2025-01-03 &  &  & Plavire Amide, Aph dit Dertum 86, 6213 Trumna, 85 28307 23533 52705 83780 41023 &  & 2225.00\\
+2025-01-03 & 2025-01-03 &  &  & Obtia Actodo Insuba, Aph dit Dertum 86, 6213 Trumna, JP8822651342422773068, 85 28307 23533 52705 83780 12345 &  & 1313.60\\
 \\
 \end{tablevalue}
 \end{document}
