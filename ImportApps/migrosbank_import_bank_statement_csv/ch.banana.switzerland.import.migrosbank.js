@@ -127,13 +127,19 @@ function MBFormat2() {
       let description = this.getDescription(transaction);
       mappedLine.push(description);
       let amount = transaction["Amount"];
-      if (amount.indexOf("-") < 0) {
-         mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
-         mappedLine.push("");
-      } else {
-         amount = amount.replace(/-/g, '');
-         mappedLine.push("");
-         mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+      if (amount.length > 0) {
+         //check decimal separator, if is comma, we replace it.
+         if (amount.indexOf(",") >= 0)
+            amount = amount.replace(',', '.');
+         if (amount[0] === "-") {
+            amount = amount.replace(/-/g, ''); //remove minus sign
+            mappedLine.push("");
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
+
+         } else {
+            mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, "."));
+            mappedLine.push("");
+         }
       }
 
       return mappedLine;
