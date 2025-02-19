@@ -50,7 +50,6 @@ function exec(string, isTest) {
         cleanString = cleanString.replace(/"$/mg, "");
         cleanString = cleanString.replace(/""/g, '');
     }
-    Banana.console.log(cleanString);
  
     let convertionParam = defineConversionParam(cleanString);
  
@@ -90,7 +89,7 @@ function exec(string, isTest) {
           var formatMatched = true;
  
           if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
-             transaction["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/)/* && (transaction["CreditAmount"] || transaction["DebitAmount"])*/)
+             transaction["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/) && (transaction["CreditAmount"] || transaction["DebitAmount"]))
              formatMatched = true;
           else
              formatMatched = false;
@@ -107,7 +106,7 @@ function exec(string, isTest) {
  
        for (var i = 0; i < transactionsData.length; i++) {
           if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
-             transactionsData[i]["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/)/* && (transactionsData[i]["CreditAmount"] || transactionsData[i]["DebitAmount"])*/) {
+             transactionsData[i]["Date"].match(/^\d{2}\/\d{2}\/\d{4}$/) && (transactionsData[i]["CreditAmount"] || transactionsData[i]["DebitAmount"])) {
              transactionsToImport.push(this.mapTransaction(transactionsData[i]));
           }
        }
