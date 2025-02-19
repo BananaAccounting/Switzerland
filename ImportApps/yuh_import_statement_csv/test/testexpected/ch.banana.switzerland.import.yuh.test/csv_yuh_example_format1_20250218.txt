@@ -25,7 +25,6 @@ Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
 2023-12-18 &  &  &  & MENT CUREPARIS,CUREPARIS; Ment Cureparis,1746 Curepari &  & 3.88\\
 2023-12-16 &  &  &  & MENT CUREPARIS,CUREPARIS; DUER DUER DUER 1207,CANDE HOMBULO & 3.88 & \\
 2023-11-02 &  &  &  & MENT CUREPARIS,CUREPARIS; FABO,14423 CABILA INCEM &  & 1000.00\\
-2023-09-04 &  &  &  & MENT CUREPARIS,CUREPARIS; Stquisit Ficidecire AT,2776 Habis &  & \\
 2023-09-04 &  &  &  & MENT CUREPARIS,CUREPARIS; RIS Brea. Hoc. Dirorto F,6162 Umiral & 1000.00 & \\
 \\
 \end{tablevalue}
