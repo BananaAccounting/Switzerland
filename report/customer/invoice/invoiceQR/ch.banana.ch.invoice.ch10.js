@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2025-02-04
+// @pubdate = 2025-03-05
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -367,8 +367,8 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice" || printFormat === "order_confirmation") {
-    userParam.qr_code_add = false; //delivery notes printed without QRCode
+  if (invoiceObj.document_info.doc_type == "17" || printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice" || printFormat === "order_confirmation") {
+    userParam.qr_code_add = false; //estimates, delivery notes, proforma invoices, order confirmations printed without QRCode
   }
 
   if (invoiceObj.payment_info && invoiceObj.payment_info.last_reminder_date && invoiceObj.payment_info.last_reminder_due_date && (printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3")) {

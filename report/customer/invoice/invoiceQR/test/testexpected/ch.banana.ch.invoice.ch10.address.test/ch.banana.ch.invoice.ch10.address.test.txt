@@ -18,7 +18,7 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{/Users/lorenzo/Programmazione/Repo/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.address.test.js}
+%%SCRIPT{/Users/ivan/GitHub/BananaAccounting/Switzerland/report/customer/invoice/invoiceQR/test/ch.banana.ch.invoice.ch10.address.test.js}
 %
 \begin{testcase}{ReportInvoiceQrCodeWithAddress}
 \begin{test}{testReport}
@@ -29,12 +29,12 @@
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -61,12 +61,12 @@ ewline //S1/10/1/11/200115/20/100001/30/101734967/31/200115/32/8/40/0:30}\\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -93,12 +93,12 @@ ewline //S1/10/2/11/200215/20/100002/30/101734967/31/200215/32/8/40/0:30}\\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -125,12 +125,12 @@ ewline //S1/10/3/11/200315/20/100003/30/101734967/31/200315/32/8/40/0:30}\\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -157,12 +157,12 @@ ewline //S1/10/4/11/200415/20/100004/30/101734967/31/200415/32/7.7/40/0:30}\\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -189,12 +189,12 @@ ewline //S1/10/5/11/200515/20/100005/30/101734967/31/200515/32/7.7/40/0:30}\\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1589,12 +1589,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline NON
 ewline 
@@ -1621,12 +1621,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline NON
 ewline 
@@ -1653,12 +1653,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline NON
 ewline 
@@ -1685,12 +1685,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -1717,12 +1717,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline NON
 ewline 
@@ -1749,12 +1749,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline NON
 ewline 
@@ -1782,12 +1782,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline NON
 ewline 
@@ -1814,12 +1814,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline NON
 ewline 
@@ -1846,12 +1846,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline NON
 ewline 
@@ -1878,12 +1878,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -1910,12 +1910,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline NON
 ewline 
@@ -1942,12 +1942,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline NON
 ewline 
@@ -2162,12 +2162,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF69610000111
@@ -2194,12 +2194,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline SCOR
 ewline RF58610000212
@@ -2226,12 +2226,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF47610000313
@@ -2258,12 +2258,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF36610000414
@@ -2290,12 +2290,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF25610000515
@@ -2322,12 +2322,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline SCOR
 ewline RF14610000616
@@ -2355,12 +2355,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF69610000111
@@ -2387,12 +2387,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline SCOR
 ewline RF58610000212
@@ -2419,12 +2419,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF47610000313
@@ -2451,12 +2451,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF36610000414
@@ -2483,12 +2483,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF25610000515
@@ -2515,12 +2515,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline SCOR
 ewline RF14610000616
@@ -2548,12 +2548,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF69610000111
@@ -2580,12 +2580,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline SCOR
 ewline RF58610000212
@@ -2612,12 +2612,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF47610000313
@@ -2644,12 +2644,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF36610000414
@@ -2676,12 +2676,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF25610000515
@@ -2708,12 +2708,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline SCOR
 ewline RF14610000616
@@ -2741,12 +2741,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF69610000111
@@ -2772,12 +2772,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline SCOR
 ewline RF58610000212
@@ -2803,12 +2803,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF47610000313
@@ -2834,12 +2834,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF36610000414
@@ -2865,12 +2865,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF25610000515
@@ -2896,12 +2896,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline SCOR
 ewline RF14610000616
@@ -2928,12 +2928,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF69610000111
@@ -2959,12 +2959,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline SCOR
 ewline RF58610000212
@@ -2990,12 +2990,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF47610000313
@@ -3021,12 +3021,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF36610000414
@@ -3052,12 +3052,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF25610000515
@@ -3083,12 +3083,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline SCOR
 ewline RF14610000616
@@ -3115,12 +3115,12 @@ ewline
 ewline 
 ewline 9.00
 ewline CHF
-ewline K
+ewline S
 ewline Rossi SA
 ewline Via Trevano
-ewline 6963 Pregassona
-ewline 
-ewline 
+ewline 7
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF69610000111
@@ -3146,12 +3146,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline Solevita SA
 ewline 
-ewline 9490 Vaduz
 ewline 
-ewline 
+ewline 9490
+ewline Vaduz
 ewline LI
 ewline SCOR
 ewline RF58610000212
@@ -3177,12 +3177,12 @@ ewline
 ewline 
 ewline 1.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF47610000313
@@ -3208,12 +3208,12 @@ ewline
 ewline 
 ewline 80.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra
-ewline 6599 Robasacco
-ewline 
-ewline 
+ewline 3a/5
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF36610000414
@@ -3239,12 +3239,12 @@ ewline
 ewline 
 ewline 89.00
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline 
-ewline 6928 Manno
-ewline 
-ewline 
+ewline V. Campagnola 7
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF25610000515
@@ -3270,12 +3270,12 @@ ewline
 ewline 
 ewline 70.00
 ewline EUR
-ewline K
+ewline S
 ewline Ryan Girard
 ewline 23 Smithe Street
-ewline VZS 2S8 Vancouver
 ewline 
-ewline 
+ewline VZS 2S8
+ewline Vancouver
 ewline CA
 ewline SCOR
 ewline RF14610000616
