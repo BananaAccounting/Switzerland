@@ -77,7 +77,6 @@ var QRBill = class QRBill {
 		this.ID_ERR_LENGTH_ADDRESS_HOUSENUMBER = "ID_ERR_LENGTH_ADDRESS_HOUSENUMBER";
 		this.ID_ERR_LENGTH_ADDRESS_POSTALCODE = "ID_ERR_LENGTH_ADDRESS_POSTALCODE";
 		this.ID_ERR_LENGTH_ADDRESS_CITY = "ID_ERR_LENGTH_ADDRESS_CITY";
-		this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY = "ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY";
 
 		//swiss cross image
 		this.swiss_cross = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxOS44IDE5LjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE5LjggMTkuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGRkZGRkY7fQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuNDM1NztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cjwvc3R5bGU+Cjxwb2x5Z29uIHBvaW50cz0iMTguMywwLjcgMS42LDAuNyAwLjcsMC43IDAuNywxLjYgMC43LDE4LjMgMC43LDE5LjEgMS42LDE5LjEgMTguMywxOS4xIDE5LjEsMTkuMSAxOS4xLDE4LjMgMTkuMSwxLjYgMTkuMSwwLjcgIi8+CjxyZWN0IHg9IjguMyIgeT0iNCIgY2xhc3M9InN0MCIgd2lkdGg9IjMuMyIgaGVpZ2h0PSIxMSIvPgo8cmVjdCB4PSI0LjQiIHk9IjcuOSIgY2xhc3M9InN0MCIgd2lkdGg9IjExIiBoZWlnaHQ9IjMuMyIvPgo8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjAuNywxLjYgMC43LDE4LjMgMC43LDE5LjEgMS42LDE5LjEgMTguMywxOS4xIDE5LjEsMTkuMSAxOS4xLDE4LjMgMTkuMSwxLjYgMTkuMSwwLjcgMTguMywwLjcgCgkxLjYsMC43IDAuNywwLjcgIi8+Cjwvc3ZnPgo=";
@@ -353,16 +352,6 @@ var QRBill = class QRBill {
 					return "Ort zu lang, max. 35 Zeichen: " + value;
 				} else {
 					return "Locality too long, max 35 characters: " + value;
-				}
-			case this.ID_ERR_LENGTH_ADDRESS_POSTALCODE_AND_CITY:
-				if (lang === 'it') {
-					return "Codice postale+Località troppo lungo, max 70 caratteri: " + value;
-				} else if (lang === 'fr') {
-					return "Code postal+Localité trop long, 70 caractères maximum: " + value;
-				} else if (lang === 'de') {
-					return "Postleitzahl+Ort zu lang, max. 70 Zeichen: " + value;
-				} else {
-					return "Postal code+Locality too long, max 70 characters: " + value;
 				}
 		}
 		return "";
@@ -808,7 +797,6 @@ var QRBill = class QRBill {
 		if (userParam.qr_code_debtor_address_type) {
 			delete userParam.qr_code_debtor_address_type;
 		}
-
 	}
 
 
