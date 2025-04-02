@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>ch.banana.switzerland.import.infoniqa.js</file>
+     <file>../import.utilities.js</file>
+     <file>ch.banana.switzerland.import.infoniqa.manifest.json</file>
+ </qresource>
+ </RCC>
