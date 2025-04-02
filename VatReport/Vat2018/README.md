@@ -22,7 +22,7 @@ ch.banana.apps.vatreportch.old.ef.sbaa
 ch.banana.apps.vatreportch.old.sa.sbaa
 
 Log 2025-04-02
---------------
+---------------
 - rinominato ch.banana.apps.vatreportch.ef.sbaa in ch.banana.apps.vatreportch.2024.ef.sbaa
 - rinominato ch.banana.apps.vatreportch.sa.sbaa in ch.banana.apps.vatreportch.2024.sa.sbaa
 - copiato beta/ch.banana.apps.vatreportch.ef.sbaa in ch.banana.apps.vatreportch.ef.sbaa
