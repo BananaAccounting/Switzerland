@@ -16,9 +16,9 @@
 // @api = 1.0
 // @pubdate = 2025-04-02
 // @publisher = Banana.ch SA
-// @description = Nidwaldner - Import movements .csv (Banana+ Advanced)
+// @description = Nidwaldner - Import account statement .csv (Banana+ Advanced)
 // @description.it = Nidwaldner - Importa movimenti .csv (Banana+ Advanced)
-// @description.en = Nidwaldner - Import movements .csv (Banana+ Advanced)
+// @description.en = Nidwaldner - Import account statement .csv (Banana+ Advanced)
 // @description.de = Nidwaldner - Bewegungen importieren .csv (Banana+ Advanced)
 // @description.fr = Nidwaldner - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
