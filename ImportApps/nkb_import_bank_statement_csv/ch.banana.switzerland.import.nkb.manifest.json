@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Nidwaldner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Nidwaldner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.de":"Nidwaldner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr":"Nidwaldner Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it":"Nidwaldner Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.nkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Nidwaldner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Nidwaldner Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.de":"Nidwaldner Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr":"Nidwaldner Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it":"Nidwaldner Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
