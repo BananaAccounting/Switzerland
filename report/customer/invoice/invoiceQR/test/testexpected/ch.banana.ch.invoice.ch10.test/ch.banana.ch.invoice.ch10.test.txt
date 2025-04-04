@@ -98,13 +98,13 @@ Via Trevano \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Conto / Pagabile a \\
 CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -213,13 +213,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -667,13 +667,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -1442,13 +1442,13 @@ Via Trevano \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Conto / Pagabile a \\
 @error QR-IBAN non corretto: CH58 0900 0000 6525 0122 4 \\
 Banana.ch SA \\
@@ -1557,13 +1557,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 @error QR-IBAN non corretto: CH58 0900 0000 6525 0122 4 \\
 Banana.ch SA \\
@@ -2011,13 +2011,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 @error QR-IBAN non corretto: CH58 0900 0000 6525 0122 4 \\
 Banana.ch SA \\
@@ -2258,13 +2258,13 @@ Via Trevano \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Conto / Pagabile a \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -2373,13 +2373,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -2827,13 +2827,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -3868,13 +3868,13 @@ Via Trevano \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Conto / Pagabile a \\
 @error IBAN non corretto: CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -3983,13 +3983,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 @error IBAN non corretto: CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -4437,13 +4437,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 @error IBAN non corretto: CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -4667,13 +4667,13 @@ V.Meggiagra 3 \\
 Currency \\
 CHF \\
 Amount \\
-4  500.00 \\
+4 500.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-4  500.00 \\
+4 500.00 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -4796,13 +4796,13 @@ Via Trevano \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Conto / Pagabile a \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -4905,13 +4905,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -5335,13 +5335,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -5461,13 +5461,13 @@ Via Trevano \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  130.00 \\
+1 130.00 \\
 Conto / Pagabile a \\
 @error IBAN non corretto: CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -5570,13 +5570,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 @error IBAN non corretto: CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -6000,13 +6000,13 @@ V.Meggiagra 3 \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  234  567.90 \\
+1 234 567.90 \\
 Conto / Pagabile a \\
 @error IBAN non corretto: CH09 3000 0001 6525 0122 4 \\
 Banana.ch SA \\
@@ -6285,13 +6285,13 @@ V. Campuréta 40 \\
 Currency \\
 CHF \\
 Amount \\
-1  593.00 \\
+1 593.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  593.00 \\
+1 593.00 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -6461,13 +6461,13 @@ V. Campuréta 40 \\
 Currency \\
 CHF \\
 Amount \\
-1  593.00 \\
+1 593.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  593.00 \\
+1 593.00 \\
 Account / Payable to \\
 @error Incorrect IBAN: CH58 0900 0000 6525 0122 4 \\
 Banana.ch SA \\
@@ -6726,13 +6726,13 @@ V. Campuréta 40 \\
 Currency \\
 CHF \\
 Amount \\
-3  614.60 \\
+3 614.60 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-3  614.60 \\
+3 614.60 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Banana.ch SA \\
@@ -8702,13 +8702,13 @@ Viale Stazione 11 \\
 Currency \\
 CHF \\
 Amount \\
-3  940.00 \\
+3 940.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-3  940.00 \\
+3 940.00 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
