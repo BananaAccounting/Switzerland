@@ -2109,9 +2109,10 @@ var JsAction = class JsAction {
 
         var paymentObj = pain001CH.initPaymObject();
 
+        //unlike edit(), which reads the paymentdata object from row, create() inits a new paymentdata object
         var row = null;
         var table = this.banDocument.table(tabPos.tableName);
-        if (tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
+        if (tabPos.rowNr >=0 && tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
             row = table.row(tabPos.rowNr);
         }
 
@@ -2133,7 +2134,10 @@ var JsAction = class JsAction {
         if (!paymentObj)
             return null;
 
-        paymentObj["@uuid"] = uuid;
+        // Before adding uuid to the payment object, check if the registration row is valid
+        // If row is not valid, the payment is added into a new row and uuid is set later by updateRow()
+        if (row && uuid.length > 0)
+            paymentObj["@uuid"] = uuid;
         // Banana.console.debug("create, columnName " + tabPos.columnName + " uuid" + paymentObj["@uuid"] );
 
         //verify all data
@@ -2141,8 +2145,15 @@ var JsAction = class JsAction {
 
         var changedRowFields = {};
         changedRowFields["PaymentData"] = { "paymentdata_json": JSON.stringify(paymentObj) };
+        //update row content to prevent loss of data, because updateRow() is called immediately after create()
+        //updateRow() update row content to payment object
+        this._rowSetAccount(paymentObj, changedRowFields);
+        this._rowSetAmount(paymentObj, changedRowFields);
+        this._rowSetDoc(paymentObj, changedRowFields);
+        this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
 
-        // Create docChange
+        // Create docChange which adds the paymentdata to a new row or an existing row in the transaction table
+        // the new row is appended to the end of the transaction table
         var docChange = new DocumentChange();
         if (tabPos.rowNr == -1)
             docChange.addOperationRowAdd(tabPos.tableName, changedRowFields);
@@ -2178,6 +2189,7 @@ var JsAction = class JsAction {
 
         var paymentObj = pain001CH.initPaymObject();
 
+        //unlike create(), which inits a new paymentdata object, edit() reads the paymentdata object from row
         var row = null;
         var table = this.banDocument.table(tabPos.tableName);
         if (tabPos.rowNr < table.rowCount && tabPos.tableName === "Transactions") {
@@ -2484,6 +2496,7 @@ var JsAction = class JsAction {
             return null;
         }
 
+        //returns null if paymentObj is not valid
         var paymentObj = null;
         try {
             var rowObj = JSON.parse(row.value("PaymentData"));
@@ -2493,8 +2506,10 @@ var JsAction = class JsAction {
             /*if (rowObj === undefined && tabPos.changeSource === "programm_add")
                 paymentObj = pain001CH.initPaymObject();
             else*/
+                //Banana.console.debug("invalid paymentobject at row " + tabPos.rowNr);
                 return null;
         }
+        //Banana.console.debug("paymentobject ok at row: " + tabPos.rowNr);
 
         var changedRowFields = {};
         if (tabPos.columnName === "Amount" || tabPos.columnName === "AmountCurrency"
