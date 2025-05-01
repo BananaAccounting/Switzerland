@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.cbaa.test
 // @api = 1.0
-// @pubdate = 2024-07-08
+// @pubdate = 2025-04-11
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.cbaa.test>
 // @task = app.command
@@ -60,6 +60,7 @@ TestImportCbaaTrans.prototype.testImport = function () {
    var fileNameList = [];
 
    fileNameList.push("file:script/../test/testcases/csv_cbaa_example_format1_20240708.csv");
+   fileNameList.push("file:script/../test/testcases/csv_cbaa_example_format1_20250411.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
