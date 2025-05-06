@@ -80,7 +80,6 @@ function exec(inData, banDocument, isTest) {
     banDoc
   );
   if (infoniqaTransactionsImportFormat1.match(transactionsData)) {
-    Banana.console.log("Format 1 matched");
     infoniqaTransactionsImportFormat1.createJsonDocument(transactionsData);
     var jsonDoc = { format: "documentChange", error: "" };
     jsonDoc["data"] = infoniqaTransactionsImportFormat1.jsonDocArray;
@@ -218,7 +217,7 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
         row.fields["Account"] = account;
         row.fields["Description"] = description;
         row.fields["BClass"] = bClass;
-        // row.fields["Currency"] = this.banDocument.info("AccountingDataBase", "BasicCurrency"); //actually set the base currency to all.
+        row.fields["Currency"] = this.banDocument.info("AccountingDataBase", "BasicCurrency"); //actually set the base currency to all.
 
         rows.push(row);
       }
@@ -465,152 +464,37 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
     return accounts;
   }
 
-  /**
-   * Finds and returns the vat code contained in the MWST field (Bexio file).
-   * field format:
-   *  - "UN77 (7.70%)"
-   *  - "UR25 (2.50%)"
-   */
-  getCodeFromVatField(rowField) {
-    let code = "";
-    if (rowField) {
-      code = rowField.substring(0, rowField.indexOf(" "));
-      code.trim();
-    }
-
-    return code;
-  }
-
-  /**
-   * Creates the document change object for the transactions table.
-   */
   createJsonDocument_AddTransactions(transactions) {
+
+    if (transactions.length === 0)
+      return [];
+
+    let groupedTransactions = this.groupTransactionsByOperationNumber(transactions);
     let jsonDoc = this.createJsonDocument_Init();
     let rows = [];
 
-    // Process transactions in pairs
-    for (let i = 0; i < transactions.length; i++) {
-      const tr = transactions[i];
-      let groupTrs = [tr];
-      let j = i + 1;
-      while (j < transactions.length && transactions[j]["Blg"] === tr["Blg"]) {
-        groupTrs.push(transactions[j]);
-        j++;
+    for (const nr in groupedTransactions) {
+      let transactions = groupedTransactions[nr];
+      let rowsWithDiv = false;
+      let mTyp = "";
+
+      const rowWithDiv = transactions.find(trx =>
+        trx["Kto"] === "div" || trx["GKto"] === "div"
+      );
+
+      if (rowWithDiv) {
+        rowsWithDiv = true;
+        mTyp = rowWithDiv["MTyp"];
       }
 
-      // Skip processed rows in next iterations
-      let skipCount = groupTrs.length - 1;
-
-      if (groupTrs.length === 2) {
-        // Handle pairs as before
-        let row = {};
-        row.operation = {};
-        row.operation.name = "add";
-        row.operation.srcFileName = "";
-        row.fields = {};
-        row.fields["Date"] = Banana.Converter.toInternalDateFormat(
-          tr["Datum"],
-          "dd.mm.yyyy"
-        );
-        row.fields["ExternalReference"] = tr["Blg"];
-
-        if (tr["S/H"] === "S") {
-          row.fields["AccountDebit"] = this.getAccountDebit(tr);
-          row.fields["AccountCredit"] = this.getAccountCredit(tr);
-          row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]) || tr["SId"];
-        } else {
-          row.fields["AccountDebit"] = this.getAccountDebit(groupTrs[1]);
-          row.fields["AccountCredit"] = this.getAccountCredit(groupTrs[1]);
-          row.fields["VatCode"] =
-            this.getBananaVatCode(groupTrs[1]["SId"]) || groupTrs[1]["SId"];
-        }
-
-        row.fields["Description"] = this.getDescription(tr);
-        row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(
-          tr["Netto"],
-          "."
-        );
-
-        rows.push(row);
-      } else if (groupTrs.length === 3) {
-        // For triplets, only import the row with SId, Netto and Steuer
-        let vatRow = groupTrs.find(
-          (t) => t["SId"] && t["Netto"] && t["Steuer"]
-        );
-        if (vatRow) {
-          let row = {};
-          row.operation = {};
-          row.operation.name = "add";
-          row.operation.srcFileName = "";
-          row.fields = {};
-          row.fields["Date"] = Banana.Converter.toInternalDateFormat(
-            vatRow["Datum"],
-            "dd.mm.yyyy"
-          );
-          row.fields["ExternalReference"] = vatRow["Blg"];
-          row.fields["AccountDebit"] = this.getAccountDebit(vatRow);
-          row.fields["AccountCredit"] = this.getAccountCredit(vatRow);
-          row.fields["Description"] = this.getDescription(vatRow);
-          row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(
-            vatRow["Netto"],
-            "."
-          );
-          row.fields["VatCode"] =
-            this.getBananaVatCode(vatRow["SId"]) || vatRow["SId"];
-
-          rows.push(row);
-        }
-      } else if (groupTrs.length > 3) {
-        // For groups larger than 3, import all rows as separate transactions
-        for (let groupTr of groupTrs) {
-          let row = {};
-          row.operation = {};
-          row.operation.name = "add";
-          row.operation.srcFileName = "";
-          row.fields = {};
-          row.fields["Date"] = Banana.Converter.toInternalDateFormat(
-            groupTr["Datum"],
-            "dd.mm.yyyy"
-          );
-          row.fields["ExternalReference"] = groupTr["Blg"];
-          row.fields["AccountDebit"] = this.getAccountDebit(groupTr);
-          row.fields["AccountCredit"] = this.getAccountCredit(groupTr);
-          row.fields["Description"] = this.getDescription(groupTr);
-          row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(
-            groupTr["Netto"],
-            "."
-          );
-          row.fields["VatCode"] =
-            this.getBananaVatCode(groupTr["SId"]) || groupTr["SId"];
-
-          rows.push(row);
-        }
+      if (rowsWithDiv && mTyp == "2") {
+        createJsonDocument_AddTransactions_MapTransactionsWithSeparateVat(rows, transactions)
       } else {
-        // Handle single transactions
-        let row = {};
-        row.operation = {};
-        row.operation.name = "add";
-        row.operation.srcFileName = "";
-        row.fields = {};
-        row.fields["Date"] = Banana.Converter.toInternalDateFormat(
-          tr["Datum"],
-          "dd.mm.yyyy"
-        );
-        row.fields["ExternalReference"] = tr["Blg"];
-        row.fields["AccountDebit"] = this.getAccountDebit(tr);
-        row.fields["AccountCredit"] = this.getAccountCredit(tr);
-        row.fields["Description"] = this.getDescription(tr);
-        row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(
-          tr["Netto"],
-          "."
-        );
-        row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]) || tr["SId"];
-
-        rows.push(row);
+        createJsonDocument_AddTransactions_MapNormalTransactions(rows, transactions)
       }
-
-      i += skipCount;
     }
+
+    // riordinare le righe in base alla data.
 
     var dataUnitFilePorperties = {};
     dataUnitFilePorperties.nameXml = "Transactions";
@@ -623,134 +507,357 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
     return jsonDoc;
   }
 
-  getExchangeCurrency(transaction) {
-    let excCurrency = "";
-    if (transaction["Fremdwährung"]) {
-      excCurrency = transaction["Fremdwährung"];
-    } else excCurrency = transaction["Währung"];
-
-    return excCurrency;
-  }
-
-  getAmountCurrency(transaction) {
-    let amtCurrency = "";
-    // if (transaction["FW-Betrag"]) // We use the original (foreign) currency amount
-    // amtCurrency = transaction["FW-Betrag"];
-    // We just use the base currency amount, checking if is in debit or credit.
-    if (transaction["S/H"] === "S" || transaction["S/H"] === "H")
-      amtCurrency = transaction["Netto"];
-
-    return amtCurrency;
-  }
-
-  getAccountDebit(transaction) {
-    let accountDebit = "";
-    if (transaction["S/H"] === "S") {
-      accountDebit = transaction["Kto"].trim();
-    } else if (transaction["S/H"] === "H") {
-      accountDebit = transaction["GKto"].trim();
-    }
-    return accountDebit;
-  }
-
-  getAccountCredit(transaction) {
-    let accountCredit = "";
-    if (transaction["S/H"] === "S") {
-      accountCredit = transaction["GKto"].trim();
-    } else if (transaction["S/H"] === "H") {
-      accountCredit = transaction["Kto"].trim();
-    }
-    return accountCredit;
-  }
-
-  getDescription(transaction) {
-    let description = "";
-    if (transaction["Tx1"] && transaction["Tx2"])
-      description = transaction["Tx1"] + ", " + transaction["Tx2"];
-    else description = transaction["Tx1"];
-
-    return description;
-  }
-
   /**
-   * Dato un coidce iva Bexio ritorna il codice corrispondente in Banana.
+   * Aggiunge alla lista delle transazioni, quelle transazioni per le quali il movimento con iva è separato
+   * che hanno una struttura un attimino diversa:
+   * 10,20.1.2025,1021,H, ,div,,0,0,0,2,"",344.70,0.00,366.14,"nexus-ips.de 90311493","",0,,0
+   * 10,20.1.2025,4201,S, ,div,,0,0,0,2,"",344.70,0.00,366.14,"nexus-ips.de 90311493","",0,,0
+   * 10,20.1.2025,2200,H, ,div,VDL81,0,0,3,2,"",25.85,25.85,0.00,"nexus-ips.de 90311493","",0,,0
+   * 10,20.1.2025,1170,S, ,div,VSM81,0,0,3,2,"",25.85,25.85,0.00,"nexus-ips.de 90311493","",0,,0
+   * Con queste transazioni che hanno dei placeholder "div" nei campi Kto e GKto e l'iva separata, è necessario
+   * implementare una logica che permetta di mappare le transazioni in modo corretto.
    */
-  getBananaVatCode(infoniqaVatCode) {
-    if (infoniqaVatCode) {
-      let mpdVatCodes = this.getMappedVatCodes();
-      let banVatCode;
+  createJsonDocument_AddTransactions_MapTransactionsWithSeparateVat(rows, transactions) {
+    // Map the normal transactions.
+    let normalTransactions = transactions.filter(trx => trx["BTyp"] === "0"); // get the normal transactions
+    if (normalTransactions.length !== 2)
+      return Banana.console.debug("Case not managed: " + transactions.length + " transactions found");
 
-      /**get the Banana vat code */
-      banVatCode = mpdVatCodes.get(infoniqaVatCode);
+    let amount1 = normalTransactions[0]["Netto"];
+    let amount2 = normalTransactions[1]["Netto"];
 
-      if (banVatCode) {
-        return banVatCode;
+    if (amount1 === amount2) {
+      let tr = normalTransactions[0];
+      let row = {};
+      row.operation = {};
+      row.operation.name = "add";
+      row.operation.srcFileName = "";
+      row.fields = {};
+      row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
+      row.fields["ExternalReference"] = tr["Blg"];
+      row.fields["AccountDebit"] = accountDebit;
+      row.fields["AccountCredit"] = accountCredit;
+      row.fields["Description"] = this.getDescription(tr);
+      row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
+      row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]);
+      row.fields["VatAmountType"] = vatAmountType;
+    }
+
+    /** */
+    createJsonDocument_AddTransactions_MapNormalTransactions(rows, transactions) {
+
+      let vatAmountType = "0";
+      let transactionsKeys = new Set();
+
+      for (const tr of transactions) {
+
+        let accountDebit = this.getAccountDebit(tr);
+        let accountCredit = this.getAccountCredit(tr);
+        let movType = tr["MTyp"];
+
+        Banana.console.debug(tr["Blg"] + " -  " + accountDebit + " - " + accountCredit + " - " + movType);
+
+        if (accountDebit === "div" || accountCredit === "div" && movType == "0")
+          continue; //skip the transaction with div account, as are only transactions totals.
+
+        let vatCode = this.getBananaVatCode(tr["SId"]);
+        if (vatCode)
+          vatAmountType = "1";
+
+        let row = {};
+        row.operation = {};
+        row.operation.name = "add";
+        row.operation.srcFileName = "";
+        row.fields = {};
+        row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
+        row.fields["ExternalReference"] = tr["Blg"];
+        row.fields["AccountDebit"] = accountDebit;
+        row.fields["AccountCredit"] = accountCredit;
+        row.fields["Description"] = this.getDescription(tr);
+        row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
+        row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]);
+        row.fields["VatAmountType"] = vatAmountType;
+
+        let rowContent = JSON.stringify(row.fields);
+
+        if (!transactionsKeys.has(rowContent)) { // We wants to avoid duplicates as we work with a journal.
+          transactionsKeys.add(rowContent);
+          rows.push(row);
+        }
       }
     }
 
-    return "";
-  }
-
-  /**
-   * Ritorna la bclasse per l'account inserito partendo
-   * dal presupposto che si tratti di un piano dei conti
-   * svizzero per PMI, altrimenti torna vuoto.
-   */
-  setAccountBclass(accountNr) {
-    let bClass = "";
-    let firstDigit = accountNr.substring(0, 1);
-    switch (firstDigit) {
-      case "1":
-        bClass = "1";
-        return bClass;
-      case "2":
-        bClass = "2";
-        return bClass;
-      case "4":
-        bClass = "3";
-        return bClass;
-      case "4":
-        bClass = "3";
-        return bClass;
-      case "3":
-      case "5":
-      case "6": //some cases is 4.
-      case "7":
-      case "8":
-      case "9":
-        bClass = "3";
-        return bClass;
-      default:
-        return bClass;
-    }
-  }
-
-  /**
-   * Ritorna la struttura contenente i codici iva mappati da Bexio
-   * questa struttura contiene i codici standard, non funziona in
-   * caso in cui l'utente abbia personalizzato la tabella codici iva.
-   */
-  getMappedVatCodes() {
     /**
-     * Map structure:
-     * key = Bexio vat code
-     * value = Banana vat code
+     * Example grouped transactions:
+     * "1": [
+     *  { "Blg": "1", ... },
+     *  { "Blg": "1", ... }
+     *  ],
+     *  "2": [
+     *  { "Blg": "2", ... }
+     *  ]
+     * }}*/
+    groupTransactionsByOperationNumber(transactions) {
+      const grouped = {};
+
+      transactions.forEach(trx => {
+        const operationNumber = trx["Blg"];
+        if (!grouped[operationNumber]) {
+          grouped[operationNumber] = [];
+        }
+        grouped[operationNumber].push(trx);
+      });
+
+      return grouped;
+    }
+
+    /**
+     * Creates the document change object for the transactions table. V1
      */
-    const vatCodes = new Map();
+    /** createJsonDocument_AddTransactions(transactions) {
+      let jsonDoc = this.createJsonDocument_Init();
+      let rows = [];
+      let vatAmountType = "0";
+   
+      // Process transactions in pairs
+      for (let i = 0; i < transactions.length; i++) {
+        const tr = transactions[i];
+        let groupTrs = [tr];
+        let j = i + 1;
+        while (j < transactions.length && transactions[j]["Blg"] === tr["Blg"]) {
+          groupTrs.push(transactions[j]);
+          j++;
+        }
+   
+        // Skip processed rows in next iterations
+        let skipCount = groupTrs.length - 1;
+   
+        if (groupTrs.length === 2) {
+          // Handle pairs as before
+          let row = {};
+          row.operation = {};
+          row.operation.name = "add";
+          row.operation.srcFileName = "";
+          row.fields = {};
+          row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
+          row.fields["ExternalReference"] = tr["Blg"];
+   
+          let vatCode = this.getBananaVatCode(groupTrs[1]["SId"]);
+          if (vatCode)
+            vatAmountType = "1";
+   
+          if (tr["S/H"] === "S") {
+            row.fields["AccountDebit"] = this.getAccountDebit(tr);
+            row.fields["AccountCredit"] = this.getAccountCredit(tr);
+            row.fields["VatCode"] = vatCode;
+            row.fields["VatAmountType"] = vatAmountType;
+          } else {
+            row.fields["AccountDebit"] = this.getAccountDebit(groupTrs[1]);
+            row.fields["AccountCredit"] = this.getAccountCredit(groupTrs[1]);
+            row.fields["VatCode"] = vatCode;
+            row.fields["VatAmountType"] = vatAmountType;
+          }
+   
+          row.fields["Description"] = this.getDescription(tr);
+          row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
+   
+          rows.push(row);
+   
+        } else if (groupTrs.length === 3) {
+          // For triplets, only import the row with SId, Netto and Steuer
+          let vatRow = groupTrs.find((t) => t["SId"] && t["Netto"] && t["Steuer"]);
+          if (vatRow) {
+   
+            let vatCode = this.getBananaVatCode(vatRow["SId"]);
+            if (vatCode)
+              vatAmountType = "1";
+   
+            let row = {};
+            row.operation = {};
+            row.operation.name = "add";
+            row.operation.srcFileName = "";
+            row.fields = {};
+            row.fields["Date"] = Banana.Converter.toInternalDateFormat(
+              vatRow["Datum"],
+              "dd.mm.yyyy"
+            );
+            row.fields["ExternalReference"] = vatRow["Blg"];
+            row.fields["AccountDebit"] = this.getAccountDebit(vatRow);
+            row.fields["AccountCredit"] = this.getAccountCredit(vatRow);
+            row.fields["Description"] = this.getDescription(vatRow);
+            row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(vatRow["Netto"], ".");
+            row.fields["VatCode"] = vatCode;
+            row.fields["VatAmountType"] = vatAmountType;
+   
+            rows.push(row);
+          }
+        } else if (groupTrs.length > 3) {
+          //For groups larger than 3, import all rows as separate transactions.
+          for (let tr of groupTrs) {
+            let row = {};
+            row.operation = {};
+            row.operation.name = "add";
+            row.operation.srcFileName = "";
+            row.fields = {};
+            row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
+            row.fields["ExternalReference"] = tr["Blg"];
+            row.fields["AccountDebit"] = this.getAccountDebit(tr);
+            row.fields["AccountCredit"] = this.getAccountCredit(tr);
+            row.fields["Description"] = this.getDescription(tr);
+            row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
+            row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]) || tr["SId"];
+            row.fields["VatAmountType"] = this.getBananaVatCode(tr["SId"]) ? "1" : "";
+   
+            rows.push(row);
+          }
+        } else {
+          // Handle single transactions
+   
+          let vatCode = this.getBananaVatCode(tr["SId"]);
+          if (vatCode)
+            vatAmountType = "1";
+   
+          let row = {};
+          row.operation = {};
+          row.operation.name = "add";
+          row.operation.srcFileName = "";
+          row.fields = {};
+          row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
+          row.fields["ExternalReference"] = tr["Blg"];
+          row.fields["AccountDebit"] = this.getAccountDebit(tr);
+          row.fields["AccountCredit"] = this.getAccountCredit(tr);
+          row.fields["Description"] = this.getDescription(tr);
+          row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
+          row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]) || tr["SId"];
+          row.fields["VatAmountType"] = vatAmountType;
+   
+          rows.push(row);
+        }
+   
+        i += skipCount;
+      }
+   
+      var dataUnitFilePorperties = {};
+      dataUnitFilePorperties.nameXml = "Transactions";
+      dataUnitFilePorperties.data = {};
+      dataUnitFilePorperties.data.rowLists = [];
+      dataUnitFilePorperties.data.rowLists.push({ rows: rows });
+   
+      jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
+   
+      return jsonDoc;
+    }*/
 
-    //set codes
-    vatCodes.set("UN77", "V77");
-    vatCodes.set("UR25", "V25-N");
-    vatCodes.set("VB77", "V77-B");
-    vatCodes.set("VM77", "M77");
-    vatCodes.set("USN81", "V81");
-    vatCodes.set("VSM81", "M81-1");
-    vatCodes.set("VDL81", "I81-1");
-    vatCodes.set("VSB81", "V81");
+    getAccountDebit(transaction) {
+      let accountDebit = "";
+      if (transaction["S/H"] === "S") {
+        accountDebit = transaction["Kto"].trim();
+      } else if (transaction["S/H"] === "H") {
+        accountDebit = transaction["GKto"].trim();
+      }
+      return accountDebit;
+    }
 
-    return vatCodes;
-  }
-};
+    getAccountCredit(transaction) {
+      let accountCredit = "";
+      if (transaction["S/H"] === "S") {
+        accountCredit = transaction["GKto"].trim();
+      } else if (transaction["S/H"] === "H") {
+        accountCredit = transaction["Kto"].trim();
+      }
+      return accountCredit;
+    }
+
+    getDescription(transaction) {
+      let description = "";
+      if (transaction["Tx1"] && transaction["Tx2"])
+        description = transaction["Tx1"] + ", " + transaction["Tx2"];
+      else description = transaction["Tx1"];
+
+      return description;
+    }
+
+    /**
+     * Dato un coidce iva Infoniqa ritorna il codice corrispondente in Banana.
+     */
+    getBananaVatCode(infoniqaVatCode) {
+      if (infoniqaVatCode) {
+        let mpdVatCodes = this.getMappedVatCodes();
+        let banVatCode;
+
+        /**get the Banana vat code */
+        banVatCode = mpdVatCodes.get(infoniqaVatCode);
+
+        if (banVatCode) {
+          return banVatCode;
+        }
+      }
+
+      return "";
+    }
+
+    /**
+     * Ritorna la bclasse per l'account inserito partendo
+     * dal presupposto che si tratti di un piano dei conti
+     * svizzero per PMI, altrimenti torna vuoto.
+     */
+    setAccountBclass(accountNr) {
+      let bClass = "";
+      let firstDigit = accountNr.substring(0, 1);
+      switch (firstDigit) {
+        case "1":
+          bClass = "1";
+          return bClass;
+        case "2":
+          bClass = "2";
+          return bClass;
+        case "4":
+          bClass = "3";
+          return bClass;
+        case "4":
+          bClass = "3";
+          return bClass;
+        case "3":
+        case "5":
+        case "6": //some cases is 4.
+        case "7":
+        case "8":
+        case "9":
+          bClass = "3";
+          return bClass;
+        default:
+          return bClass;
+      }
+    }
+
+    /**
+     * Ritorna la struttura contenente i codici iva mappati da Bexio
+     * questa struttura contiene i codici standard, non funziona in
+     * caso in cui l'utente abbia personalizzato la tabella codici iva.
+     */
+    getMappedVatCodes() {
+      /**
+       * Map structure:
+       * key = Bexio vat code
+       * value = Banana vat code
+       */
+      const vatCodes = new Map();
+
+      //set codes
+      vatCodes.set("USt77", "V77");
+      vatCodes.set("UR25", "M25");
+      vatCodes.set("VSM77", "M77");
+      vatCodes.set("VSM25", "M25");
+      vatCodes.set("VSB77", "M77");
+      vatCodes.set("VDL81", "B81");
+      vatCodes.set("VSM81", "M81");
+      vatCodes.set("VSB81", "M81");
+      vatCodes.set("USt81", "V81");
+      vatCodes.set("USN81", "V81");
+
+      return vatCodes;
+    }
+  };
 
 function defineConversionParam(inData) {
   var convertionParam = {};
