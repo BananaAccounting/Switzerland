@@ -526,22 +526,32 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
     let amount1 = normalTransactions[0]["Netto"];
     let amount2 = normalTransactions[1]["Netto"];
 
+    let row = {};
+
     if (amount1 === amount2) {
-      let tr = normalTransactions[0];
-      let row = {};
+      let tr0 = normalTransactions[0];
+      let tr1 = normalTransactions[1];
       row.operation = {};
       row.operation.name = "add";
       row.operation.srcFileName = "";
       row.fields = {};
-      row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
-      row.fields["ExternalReference"] = tr["Blg"];
-      row.fields["AccountDebit"] = accountDebit;
-      row.fields["AccountCredit"] = accountCredit;
-      row.fields["Description"] = this.getDescription(tr);
-      row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
-      row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]);
-      row.fields["VatAmountType"] = vatAmountType;
+      row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr0["Datum"], "dd.mm.yyyy");
+      row.fields["ExternalReference"] = tr0["Blg"];
+      if (tr0['S/H'] === "S") {
+        row.fields["AccountDebit"] = tr0["Kto"];
+        row.fields["AccountCredit"] = tr1["GKto"];
+      } else if (tr0['S/H'] === "H") {
+        row.fields["AccountDebit"] = tr1["Kto"];
+        row.fields["AccountCredit"] = tr0["GKto"];
+      }
+      // testare quii.
+      row.fields["Description"] = this.getDescription(tr0);
+      row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(amount1, ".");
     }
+
+    // Map the vat values
+    row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]);
+    row.fields["VatAmountType"] = vatAmountType;
 
     /** */
     createJsonDocument_AddTransactions_MapNormalTransactions(rows, transactions) {
@@ -859,7 +869,7 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
     }
   };
 
-function defineConversionParam(inData) {
+    function defineConversionParam(inData) {
   var convertionParam = {};
   /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
   convertionParam.format = "csv"; // available formats are "csv", "html"
