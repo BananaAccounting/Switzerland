@@ -15,13 +15,13 @@
 //
 // @id = ch.banana.switzerland.import.infoniqa
 // @api = 1.0
-// @pubdate = 2025-02-28
+// @pubdate = 2025-05-07
 // @publisher = Banana.ch SA
-// @description = Infoniqa - Import movements .csv (Banana+ Advanced)
-// @description.it = Infoniqa - Importa movimenti .csv (Banana+ Advanced)
-// @description.en = Infoniqa - Import movements .csv (Banana+ Advanced)
-// @description.de = Infoniqa - Bewegungen importieren .csv (Banana+ Advanced)
-// @description.fr = Infoniqa - Importer mouvements .csv (Banana+ Advanced)
+// @description = Infoniqa ONE 50 - Import movements .csv (Banana+ Advanced)
+// @description.it = Infoniqa ONE 50 - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = Infoniqa ONE 50 - Import movements .csv (Banana+ Advanced)
+// @description.de = Infoniqa ONE 50 - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Infoniqa ONE 50 - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *.*
 // @inputencoding = latin1
 // @task = import.transactions
@@ -36,7 +36,7 @@
 /*
  * SUMMARY
  *
- * Import transactions form Infoniqa to Banana using document change.
+ * Import transactions form Infoniqa ONE 50 to Banana using document change.
  *
  */
 

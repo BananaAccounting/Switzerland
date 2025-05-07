@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.import.infoniqa
 // @api = 1.0
-// @pubdate = 2025-05-01
+// @pubdate = 2025-05-07
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.infoniqa>
 // @task = app.command
@@ -64,9 +64,10 @@ TestImportInfoniqaTrans.prototype.testJsonInvoiceStructure = function () {
    this.testLogger.addKeyValue("ImportFormInfoniqa", "testReport");
 
    let fileNameList = [];
-   fileNameList.push("file:script/../test/testcases/.csv");
+   fileNameList.push("file:script/../test/testcases/csv_infoniqa_example_format1_2025.csv");
+   fileNameList.push("file:script/../test/testcases/csv_infoniqa_example_format1_2024.csv");
 
-   let fileAc2 = "file:script/../test/testcases/Double_entry_with_foreign_currencies_and_VAT_Sales_tax_1.ac2"; //type 100.130
+   let fileAc2 = "file:script/../test/testcases/infoniqa_doubleentry_multi_withvat.ac2"; //type 100.130
    let banDoc = Banana.application.openDocument(fileAc2);
    if (!banDoc)
       this.testLogger.addFatalError("ac2 file not valid: " + fileAc2);
