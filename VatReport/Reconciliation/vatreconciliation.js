@@ -30,14 +30,13 @@ function exec(inData) {
     if (!Banana.document)
         return "@Cancel";
 
-    var param = {};
-    param.period = {};
-    param.period.startDate = "";
-    param.period.endDate = "";
-    if (Banana.document) {
-        param.period.startDate = Banana.document.info("AccountingDataBase", "OpeningDate");
-        param.period.endDate = Banana.document.info("AccountingDataBase", "ClosureDate");
+    var vatReconciliation = new VatReconciliation(Banana.document);
+    if (!vatReconciliation.verifyBananaVersion()) {
+        return "@Cancel";
     }
+
+    var param = vatReconciliation.initParam();
+    /*
     var period = Banana.Ui.getPeriod("Select Period", param.period.startDate, param.period.endDate);
     if (period) {
         param.period.startDate = period.startDate;
@@ -45,13 +44,7 @@ function exec(inData) {
     }
     else {
         return false;
-    }
-
-    var vatReconciliation = new VatReconciliation(Banana.document);
-    if (!vatReconciliation.verifyBananaVersion()) {
-        return "@Cancel";
-    }
-
+    }*/
     vatReconciliation.setParam(param);
     vatReconciliation.loadData();
 
@@ -71,40 +64,121 @@ function VatReconciliation(banDocument) {
 
 VatReconciliation.prototype.initData = function () {
     this.data = {};
-    //elenco conti utilizzati
-    this.data.accounts = [];
-    //registrazioni ricavi con codici iva
-    this.data.table1 = {};
-    //registrazioni ricavi senza codici iva
-    this.data.table2 = {};
-    //iva dichiarata nel formulario
-    this.data.table3 = {};
-    //totali da stampare
-    this.data.totalRevenuesBookedWithVatCode = {};
-    this.data.totalRevenuesBookedWithoutVatCode = {};
-    this.data.totalRevenuesDeclared = {};
-    //opzioni
-    this.options = {};
-    this.options.printTransactions = false;
+
+    this.accountingDataBase = {};
+    this.accountingDataBase.basicCurrency = "";
+    this.accountingDataBase.openingDate = "";
+    this.accountingDataBase.closureDate = "";
+    this.accountingDataBase.openingYear = "";
+    this.accountingDataBase.closureYear = "";
+
+    if (this.banDocument) {
+        this.accountingDataBase.basicCurrency = this.banDocument.info("AccountingDataBase", "BasicCurrency");
+        this.accountingDataBase.openingDate = this.banDocument.info("AccountingDataBase", "OpeningDate");
+        this.accountingDataBase.closureDate = this.banDocument.info("AccountingDataBase", "ClosureDate");
+        if (this.accountingDataBase.openingDate.length >= 10)
+            this.accountingDataBase.openingYear = this.accountingDataBase.openingDate.substring(0, 4);
+        if (this.accountingDataBase.closureDate.length >= 10)
+            this.accountingDataBase.closureYear = this.accountingDataBase.closureDate.substring(0, 4);
+    }
+}
+
+VatReconciliation.prototype.initParam = function () {
+    var param = {};
+    param.period = {};
+    param.period.startDate = this.accountingDataBase.openingDate;
+    param.period.endDate = this.accountingDataBase.closureDate;
+    param.period.subdivision = "Q";
+
+    // gruppo cifra d'affari
+    param.options = {};
+    param.options.groupRevenues = "3";
     // gruppo imponibile nel formulario
-    this.options.groupVatTaxable = "200";
+    param.options.groupVatTaxable = "200";
+
+    return param;
 }
 
 VatReconciliation.prototype.loadData = function () {
     if (!this.banDocument)
         return;
 
-    if (!this.param.period.startDate || !this.param.period.endDate) {
-        this.param.period.startDate = this.banDocument.info("AccountingDataBase", "OpeningDate");
-        this.param.period.endDate = this.banDocument.info("AccountingDataBase", "ClosureDate");
-    }
-
     var startDate = this.param.period.startDate;
     var endDate = this.param.period.endDate;
+
+    if (this.accountingDataBase.openingDate === startDate && this.accountingDataBase.closureDate === endDate) {
+        this.loadDataPeriod(startDate, endDate, "Y");
+        if (this.param.period.subdivision === "Q") {
+            startDate = this.accountingDataBase.closureYear + "-01-01";
+            endDate = this.accountingDataBase.closureYear + "-03-31";
+            this.loadDataPeriod(startDate, endDate, "1Q");
+            startDate = this.accountingDataBase.closureYear + "-04-01";
+            endDate = this.accountingDataBase.closureYear + "-06-30";
+            this.loadDataPeriod(startDate, endDate, "2Q");
+            startDate = this.accountingDataBase.closureYear + "-07-01";
+            endDate = this.accountingDataBase.closureYear + "-09-30";
+            this.loadDataPeriod(startDate, endDate, "3Q");
+            startDate = this.accountingDataBase.closureYear + "-10-01";
+            endDate = this.accountingDataBase.closureYear + "-12-31";
+            this.loadDataPeriod(startDate, endDate, "4Q");
+        }
+    }
+}
+
+VatReconciliation.prototype.loadDataAccounts = function (grText) {
+    var str = [];
+    if (!this.banDocument)
+        return str;
+    var table = this.banDocument.table("Accounts");
+    if (!table) {
+        return str;
+    }
+
+    for (var i = 0; i < table.rowCount; i++) {
+        var tRow = table.row(i);
+        var account = tRow.value("Account");
+        var bClass = tRow.value("BClass");
+        var gr = tRow.value("Gr");
+        if (bClass == "4" && gr == grText) {
+            str.push(account);
+        }
+    }
+
+    //Return the array
+    return str;
+}
+
+VatReconciliation.prototype.loadDataPeriod = function (startDate, endDate, periodName) {
+
+    if (!startDate || !endDate || !periodName)
+        return;
+    
+    this.data[periodName] = {};
+    this.data[periodName].startDate = startDate;
+    this.data[periodName].endDate = endDate;
+    this.data[periodName].periodName = periodName;
+    this.data[periodName].accounts = [];
+    //registrazioni ricavi
+    this.data[periodName].table1 = {};
+    //iva dichiarata nel formulario
+    this.data[periodName].table2 = {};
+
+    //totale ricavi suddivisi per conto
+    this.data[periodName].totalRevenuesBookedWithVatCode = {};
+    this.data[periodName].totalRevenuesBookedWithoutVatCode = {};
+    //totale ricavi suddivisi per codice iva
+    this.data[periodName].totalRevenuesBooked = {};
+    //totali dichiarati suddivisi per conto
+    this.data[periodName].totalRevenuesDeclared = {};
+    //totali dichiarati suddivisi per codice iva
+    this.data[periodName].totalVatCodesDeclared = {};
+
     var journal = this.banDocument.journal(this.banDocument.ORIGINTYPE_CURRENT, this.banDocument.ACCOUNTTYPE_NORMAL);
 
     //riprende tutti i codici iva che appartengono al gr1 200
-    var vatCodesAllowed = this.loadDataVatCodes(journal, this.options.groupVatTaxable);
+    var vatCodesAllowed = this.loadDataVatCodes(journal, this.param.options.groupVatTaxable);
+    //riprende tutti i conti che appartengono al gruppo 3 ricavi
+    var accountsAllowed = this.loadDataAccounts(this.param.options.groupRevenues);
 
     for (var i = 0; i < journal.rowCount; i++) {
 
@@ -130,79 +204,101 @@ VatReconciliation.prototype.loadData = function () {
             line.vattwinaccount = Banana.SDecimal.abs(tRow.value("VatTwinAccount"));
 
             //table1
-            //ricavi con codice iva
-            if (line.accountclass === "4" && line.vatcode.length>0) {
-                var vatcode = line.vatcode;
-                var account = line.account;
-                if (!this.data.table1[vatcode]) {
-                    this.data.table1[vatcode] = {};
+            //cifra d'affari
+            if (line.accountclass === "4") {
+                if (accountsAllowed.indexOf(line.account) >= 0) {
+                    var vatcode = line.vatcode;
+                    if (vatcode.length <= 0) {
+                        vatcode = "_void_";
+                    }
+                    var account = line.account;
+                    if (!this.data[periodName].table1[vatcode]) {
+                        this.data[periodName].table1[vatcode] = {};
+                    }
+                    if (!this.data[periodName].table1[vatcode][account]) {
+                        this.data[periodName].table1[vatcode][account] = {};
+                        this.data[periodName].table1[vatcode][account].rows = [];
+                    }
+                    this.data[periodName].table1[vatcode][account].rows.push(line);
+                    if (account.length > 0 && this.data[periodName].accounts.indexOf(account) < 0)
+                        this.data[periodName].accounts.push(account);
                 }
-                if (!this.data.table1[vatcode][account]) {
-                    this.data.table1[vatcode][account] = {};
-                    this.data.table1[vatcode][account].rows = [];
-                }
-                this.data.table1[vatcode][account].rows.push(line);
-                if (account.length > 0 && this.data.accounts.indexOf(account) < 0)
-                    this.data.accounts.push(account);
             }
 
-            //table2 
-            //ricavi senza codice iva
-            if (line.accountclass === "4" && line.vatcode.length<=0) {
-                var vatcode = "_void_";
-                var account = line.account;
-                if (!this.data.table2[vatcode]) {
-                    this.data.table2[vatcode] = {};
-                }
-                if (!this.data.table2[vatcode][account]) {
-                    this.data.table2[vatcode][account] = {};
-                    this.data.table2[vatcode][account].rows = [];
-                }
-                this.data.table2[vatcode][account].rows.push(line);
-                if (account.length > 0 && this.data.accounts.indexOf(account) < 0)
-                    this.data.accounts.push(account);
-            }
-
-            //table3
+            //table2
             //iva dichiarata nel formulario
             if (line.isvatoperation === "1") {
                 if (vatCodesAllowed.indexOf(line.vatcode) >= 0) {
                     var vatcode = line.vatcode;
                     var twinaccount = line.vattwinaccount;
-                    if (!this.data.table3[vatcode]) {
-                        this.data.table3[vatcode] = {};
+                    if (!this.data[periodName].table2[vatcode]) {
+                        this.data[periodName].table2[vatcode] = {};
                     }
-                    if (!this.data.table3[vatcode][twinaccount]) {
-                        this.data.table3[vatcode][twinaccount] = {};
-                        this.data.table3[vatcode][twinaccount].rows = [];
+                    if (!this.data[periodName].table2[vatcode][twinaccount]) {
+                        this.data[periodName].table2[vatcode][twinaccount] = {};
+                        this.data[periodName].table2[vatcode][twinaccount].rows = [];
                     }
-                    this.data.table3[vatcode][twinaccount].rows.push(line);
-                    if (twinaccount.length > 0 && this.data.accounts.indexOf(twinaccount) < 0)
-                        this.data.accounts.push(twinaccount);
+                    this.data[periodName].table2[vatcode][twinaccount].rows.push(line);
+                    if (twinaccount.length > 0 && this.data[periodName].accounts.indexOf(twinaccount) < 0)
+                        this.data[periodName].accounts.push(twinaccount);
                 }
             }
         }
     }
+    this.loadDataTotals(this.data[periodName]);
 }
 
-VatReconciliation.prototype.loadDataAccounts = function () {
-    if (!this.banDocument)
-        return;
+VatReconciliation.prototype.loadDataTotals = function (data) {
 
-    var table = this.banDocument.table("Accounts");
-    for (var i = 0; i < table.rowCount; i++) {
-        var tRow = table.row(i);
-        var account = tRow.value("Account");
-        var bClass = tRow.value("BClass");
-        if (bClass == "4" && this.data.accounts.indexOf(account) < 0) {
-            this.data.accounts.push(account);
+    for (var vatcode in data.table1) {
+        var totalAmountVatCode = 0;
+        for (var account in data.table1[vatcode]) {
+            var totalAmountAccount = 0;
+            for (var i = 0; i < data.table1[vatcode][account].rows.length; i++) {
+                var row = data.table1[vatcode][account].rows[i];
+                totalAmountVatCode = Banana.SDecimal.add(row.amount, totalAmountVatCode);
+                totalAmountAccount = Banana.SDecimal.add(row.amount, totalAmountAccount);
+            }
+            //Total accounts by vatcode
+            if (vatcode === "_void_") {
+                if (!data.totalRevenuesBookedWithoutVatCode[account])
+                    data.totalRevenuesBookedWithoutVatCode[account] = 0;
+                data.totalRevenuesBookedWithoutVatCode[account] = Banana.SDecimal.add(totalAmountAccount, data.totalRevenuesBookedWithoutVatCode[account]);
+            }
+            else {
+                if (!data.totalRevenuesBookedWithVatCode[account])
+                    data.totalRevenuesBookedWithVatCode[account] = 0;
+                data.totalRevenuesBookedWithVatCode[account] = Banana.SDecimal.add(totalAmountAccount, data.totalRevenuesBookedWithVatCode[account]);
+            }
         }
+        //Total vatcode
+        data.totalRevenuesBooked[vatcode] = totalAmountVatCode;
+    }
+
+    for (var vatcode in data.table2) {
+        var totalTaxableAmount = 0;
+        for (var account in data.table2[vatcode]) {
+            var totalTaxableAmountAccount = 0;
+            for (var i = 0; i < data.table2[vatcode][account].rows.length; i++) {
+                var row = data.table2[vatcode][account].rows[i];
+                totalTaxableAmount = Banana.SDecimal.add(row.vattaxable, totalTaxableAmount);
+                totalTaxableAmountAccount = Banana.SDecimal.add(row.vattaxable, totalTaxableAmountAccount);
+            }
+            //Total account
+            if (!data.totalRevenuesDeclared[account])
+                data.totalRevenuesDeclared[account] = 0;
+            data.totalRevenuesDeclared[account] = Banana.SDecimal.add(totalTaxableAmountAccount, data.totalRevenuesDeclared[account]);
+        }
+        //Total vatcode
+        data.totalVatCodesDeclared[vatcode] = Banana.SDecimal.add(totalTaxableAmount, data.totalVatCodesDeclared[vatcode]);
     }
 }
 
 VatReconciliation.prototype.loadDataVatCodes = function (transactions, gr1Text) {
     //Riprende i codici iva gr1 200
     var str = [];
+    if (!this.banDocument)
+        return str;
     var table = this.banDocument.table("VatCodes");
     if (!table) {
         return str;
@@ -254,7 +350,7 @@ VatReconciliation.prototype.printData = function (report, stylesheet) {
     stylesheet.addStyle(".center", "text-align:center;");
     stylesheet.addStyle(".h1", "font-weight:bold; font-size:16pt; text-align:left;padding-bottom:10px;");
     stylesheet.addStyle(".h2", "font-weight:bold; font-size:12pt; text-align:left;padding-bottom:5px;padding-top:5px;");
-    stylesheet.addStyle(".h3", "font-size:10pt; text-align:left; padding-bottom:10px;");
+    stylesheet.addStyle(".h3", "font-size:10pt; text-align:left;");
     stylesheet.addStyle(".footer", "text-align:center; font-size:8px; font-family:Courier New;");
     stylesheet.addStyle(".horizontalLine", "border-top:1px solid orange");
     stylesheet.addStyle(".borderLeft", "border-left:thin solid orange");
@@ -272,107 +368,111 @@ VatReconciliation.prototype.printData = function (report, stylesheet) {
     stylesheet.addStyle("table", "width:100%;");
 
     // Titolo report
-    var text = "Stampa di riconciliazione IVA";
+    var year = this.accountingDataBase.closureYear;
+    var text = "Riconciliazione IVA esercizio " + year;
     report.addParagraph(text, "h1");
 
-    // tabella 1 registrazioni ricavi con codice iva
+    this.printDataTableDifferences(report, stylesheet, this.data["1Q"]);
+    this.printDataTableDifferences(report, stylesheet, this.data["2Q"]);
+    this.printDataTableDifferences(report, stylesheet, this.data["3Q"]);
+    this.printDataTableDifferences(report, stylesheet, this.data["4Q"]);
+    this.printDataTableDifferences(report, stylesheet, this.data["Y"]);
+
+    report.addPageBreak();
+    // tabella 1 registrazioni ricavi
     this.printDataTable1(report, stylesheet);
     report.addPageBreak();
-
-    // tabella 2 registrazioni ricavi senza codice iva
+    // tabella 2 iva dichiarata nel formulario
     this.printDataTable2(report, stylesheet);
-    report.addPageBreak();
-
-    // tabella 3 iva dichiarata nel formulario
-    this.printDataTable3(report, stylesheet);
-    report.addPageBreak();
-
-    // tabella differenze
-    this.printDataTableDifferences(report, stylesheet);
-    //Righe vuote
-    /*for (var i = 0; i < 3; i++) {
-        report.addParagraph(" ");
-    }*/
 }
 
-VatReconciliation.prototype.printDataTableDifferences = function (report, stylesheet) {
+VatReconciliation.prototype.printDataTableDifferences = function (report, stylesheet, data) {
 
-    // Tabella 4
-    // Differenze
-    report.addParagraph("4) Confronto totali", "h2");
-    report.addParagraph("Periodo: " + Banana.Converter.toLocaleDateFormat(this.param.period.startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.param.period.endDate), "h3");
+    report.addParagraph(" ", "h2");
+    report.addParagraph("Periodo: " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h2");
+    report.addParagraph(" ", "h2");
 
-    // print difference
+    // Crea elenco ordinato dei conti
+    var accountsList = this.loadDataAccounts(this.param.options.groupRevenues);
+    for (var i = 0; i < data.accounts.length; i++) {
+        if (accountsList.indexOf(data.accounts[i]) < 0)
+            accountsList.push(data.accounts[i]);
+    }
+
     var myTable = report.addTable("");
     var tableHeader = myTable.addRow("header");
-    tableHeader.addCell("Conto");
-    tableHeader.addCell("Totale ricavi");
-    tableHeader.addCell("Ricavi senza cod.IVA");
-    tableHeader.addCell("Ricavi con cod.IVA");
-    tableHeader.addCell("IVA imponibile nel formulario");
-    tableHeader.addCell("Differenza");
+    tableHeader.addCell("Conto", "left");
+    var tableCell = tableHeader.addCell("Cifra d'affari", "right");
+    tableCell.addParagraph("con cod.IVA");
+    var tableCell = tableHeader.addCell("Cifra d'affari", "right");
+    tableCell.addParagraph("senza cod.IVA");
+    var tableCell = tableHeader.addCell("Cifra d'affari", "right");
+    tableCell.addParagraph("complessiva");
+    tableHeader.addCell("Netto dichiarato", "right");
+    tableHeader.addCell("Differenza", "right");
     var globalTotal1 = 0;
     var globalTotal2 = 0;
     var globalTotal3 = 0;
     var globalTotal4 = 0;
     var globalDiff = 0;
-    for (var i = 0; i < this.data.accounts.length; i++) {
-        var account = this.data.accounts[i];
+    for (var i = 0; i < accountsList.length; i++) {
+        var account = accountsList[i];
         var total1 = 0;
         var total2 = 0;
         var total3 = 0;
         var total4 = 0;
         var totalDiff = 0;
-        if (this.data.totalRevenuesBookedWithVatCode[account])
-            total1 = this.data.totalRevenuesBookedWithVatCode[account];
-        if (this.data.totalRevenuesBookedWithoutVatCode[account])
-            total2 = this.data.totalRevenuesBookedWithoutVatCode[account];
+        if (data.totalRevenuesBookedWithVatCode[account])
+            total1 = Banana.SDecimal.invert(data.totalRevenuesBookedWithVatCode[account]);
+        if (data.totalRevenuesBookedWithoutVatCode[account])
+            total2 = Banana.SDecimal.invert(data.totalRevenuesBookedWithoutVatCode[account]);
         total3 = Banana.SDecimal.add(total1, total2);
-        if (this.data.totalRevenuesDeclared[account])
-            total4 = this.data.totalRevenuesDeclared[account];
-        var diff = Banana.SDecimal.subtract(total1, total4);
+        if (data.totalRevenuesDeclared[account])
+            total4 = Banana.SDecimal.invert(data.totalRevenuesDeclared[account]);
+        var diff = Banana.SDecimal.subtract(total3, total4);
 
-        globalTotal3 = Banana.SDecimal.add(total3, globalTotal3);
-        globalTotal2 = Banana.SDecimal.add(total2, globalTotal2);
         globalTotal1 = Banana.SDecimal.add(total1, globalTotal1);
+        globalTotal2 = Banana.SDecimal.add(total2, globalTotal2);
+        globalTotal3 = Banana.SDecimal.add(total3, globalTotal3);
         globalTotal4 = Banana.SDecimal.add(total4, globalTotal4);
         globalDiff = Banana.SDecimal.add(diff, globalDiff);
 
-        var tableRow = myTable.addRow();
-        tableRow.addCell(account);
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total3), "right");
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total2), "right");
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total1), "right");
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total4), "right");
-        tableRow.addCell(Banana.Converter.toLocaleNumberFormat(diff), "right");
+        var printRow = false;
+        if (!Banana.SDecimal.isZero(total1))
+            printRow = true;
+        if (!Banana.SDecimal.isZero(total2))
+            printRow = true;
+        if (!Banana.SDecimal.isZero(total3))
+            printRow = true;
+        if (!Banana.SDecimal.isZero(total4))
+            printRow = true;
+        if (!Banana.SDecimal.isZero(totalDiff))
+            printRow = true;
+
+        if (printRow) {
+            var tableRow = myTable.addRow();
+            tableRow.addCell(account);
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total1), "right");
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total2), "right");
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total3), "right");
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(total4), "right");
+            tableRow.addCell(Banana.Converter.toLocaleNumberFormat(diff), "right");
+        }
     }
     //totale
     var tableRow = myTable.addRow("total");
     tableRow.addCell("Totale");
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal3), "right");
-    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal2), "right");
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal1), "right");
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal2), "right");
+    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal3), "right");
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal4), "right");
     tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalDiff), "right");
 }
 
 VatReconciliation.prototype.printDataTable1 = function (report, stylesheet) {
-    // Registrazioni - classe 4 Ricavi
-    report.addParagraph("1) Registrazioni ricavi con codice IVA (BClasse=4)", "h2");
-    report.addParagraph("Periodo: " + Banana.Converter.toLocaleDateFormat(this.param.period.startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.param.period.endDate), "h3");
-    this.printDataTable(report, stylesheet, this.data.table1);
-}
+    report.addParagraph("Cifra d'affari (Gr=" + this.param.options.groupRevenues +")", "h2");
+    report.addParagraph("Periodo: " + this.data["Y"].periodName + " " + Banana.Converter.toLocaleDateFormat(this.data["Y"].startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.data["Y"].endDate), "h3");
 
-VatReconciliation.prototype.printDataTable2 = function (report, stylesheet) {
-    // Registrazioni - classe 4 Ricavi
-    report.addParagraph("2) Registrazioni ricavi senza codice IVA (BClasse=4)", "h2");
-    report.addParagraph("Periodo: " + Banana.Converter.toLocaleDateFormat(this.param.period.startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.param.period.endDate), "h3");
-    this.printDataTable(report, stylesheet, this.data.table2);
-}
-
-VatReconciliation.prototype.printDataTable = function (report, stylesheet, data) {
-
-    // Tabella 1
     var myTable = report.addTable("");
 
     //header
@@ -380,74 +480,47 @@ VatReconciliation.prototype.printDataTable = function (report, stylesheet, data)
     tableHeader.addCell("");
     tableHeader.addCell("");
     tableHeader.addCell("Descrizione", "left");
-    tableHeader.addCell("");
-    tableHeader.addCell("Dare", "right");
-    tableHeader.addCell("Avere", "right");
-    tableHeader.addCell("Saldo", "right");
+    for (var period in this.data) {
+        var tableCell = tableHeader.addCell(Banana.Converter.toLocaleDateFormat(this.data[period].endDate), "right");
+        tableCell.addParagraph(this.data[period].periodName);
+        tableCell.addParagraph(this.accountingDataBase.basicCurrency);
+    }
 
-    var globalDebitAmount = 0;
-    var globalCreditAmount = 0;
-    var globalAmount = 0;
-    var globalAccountList = {};
-    for (var vatcode in data) {
+    // Crea elenco ordinato dei codici iva
+    var data = this.data["Y"];
+    var vatcodesList = [];
+    for (var vatcode in data.table1) {
+        vatcodesList.push(vatcode);
+    }
+    vatcodesList.sort(); // Ordina alfabeticamente*/
+
+    //rows
+    for (var i = 0; i < vatcodesList.length; i++) {
+        var vatcode = vatcodesList[i];
         var vatcodedescription = vatcode;
         if (vatcode === "_void_")
             vatcodedescription = "senza codice IVA";
-        var totalDebitAmountVatCode = 0;
-        var totalCreditAmountVatCode = 0;
-        var totalAmountVatCode = 0;
-        for (var account in data[vatcode]) {
-            var totalDebitAmountAccount = 0;
-            var totalCreditAmountAccount = 0;
-            var totalAmountAccount = 0;
-            for (var i = 0; i < data[vatcode][account].rows.length; i++) {
-                var row = data[vatcode][account].rows[i];
-                totalDebitAmountVatCode = Banana.SDecimal.add(row.debitamount, totalDebitAmountVatCode);
-                totalCreditAmountVatCode = Banana.SDecimal.add(row.creditamount, totalCreditAmountVatCode);
-                totalAmountVatCode = Banana.SDecimal.add(row.amount, totalAmountVatCode);
-                totalDebitAmountAccount = Banana.SDecimal.add(row.debitamount, totalDebitAmountAccount);
-                totalCreditAmountAccount = Banana.SDecimal.add(row.creditamount, totalCreditAmountAccount);
-                totalAmountAccount = Banana.SDecimal.add(row.amount, totalAmountAccount);
+        var totalAmountVatCode = {};
+        for (var account in data.table1[vatcode]) {
 
-                if (this.options.printTransactions) {
-                    var tableRow = myTable.addRow();
-                    tableRow.addCell(account);
-                    tableRow.addCell(Banana.Converter.toLocaleDateFormat(row.date));
-                    tableRow.addCell(row.description);
-                    tableRow.addCell(row.vatcode);
-                    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(row.debitamount), "right");
-                    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(row.creditamount), "right");
-                    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(row.amount), "right");
-                }
-            }
-            //Total account
             var tableHeader = myTable.addRow("subtotal");
             tableHeader.addCell("");
             tableHeader.addCell("");
             tableHeader.addCell("Totale " + vatcodedescription + " conto " + account);
-            tableHeader.addCell("");
-            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalDebitAmountAccount), "right");
-            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalCreditAmountAccount), "right");
-            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalAmountAccount), "right");
 
-            if (!globalAccountList[account]) {
-                globalAccountList[account] = {};
-                globalAccountList[account].debit = 0;
-                globalAccountList[account].credit = 0;
-                globalAccountList[account].balance = 0;
-            }
-            globalAccountList[account].debit = Banana.SDecimal.add(totalDebitAmountAccount, globalAccountList[account].debit);
-            globalAccountList[account].credit = Banana.SDecimal.add(totalCreditAmountAccount, globalAccountList[account].credit);
-            globalAccountList[account].balance  = Banana.SDecimal.add(totalAmountAccount, globalAccountList[account].balance);
-            if (vatcode === "_void_") {
-                if (!this.data.totalRevenuesBookedWithoutVatCode[account])
-                    this.data.totalRevenuesBookedWithoutVatCode[account] = 0;
-                this.data.totalRevenuesBookedWithoutVatCode[account] = Banana.SDecimal.add(totalAmountAccount, this.data.totalRevenuesBookedWithoutVatCode[account]);
-            }
-            else {
-                if (!this.data.totalRevenuesBookedWithVatCode[account])
-                    this.data.totalRevenuesBookedWithVatCode[account] = 0;
-                this.data.totalRevenuesBookedWithVatCode[account] = Banana.SDecimal.add(totalAmountAccount, this.data.totalRevenuesBookedWithVatCode[account]);
+            for (var period in this.data) {
+                var totalAmountPeriod = 0;
+                if (!totalAmountVatCode[period])
+                    totalAmountVatCode[period] = 0;
+                var dataPeriod = this.data[period];
+                if (dataPeriod.table1[vatcode] && dataPeriod.table1[vatcode][account]) {
+                    for (var j = 0; j < dataPeriod.table1[vatcode][account].rows.length; j++) {
+                        var row = dataPeriod.table1[vatcode][account].rows[j];
+                        totalAmountPeriod = Banana.SDecimal.add(row.amount, totalAmountPeriod);
+                        totalAmountVatCode[period] = Banana.SDecimal.add(row.amount, totalAmountVatCode[period]);
+                    }
+                }
+                tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalAmountPeriod), "right");
             }
         }
         //Total vatcode
@@ -455,69 +528,16 @@ VatReconciliation.prototype.printDataTable = function (report, stylesheet, data)
         tableHeader.addCell("");
         tableHeader.addCell("");
         tableHeader.addCell("Totale registrazioni " + vatcodedescription, "bold");
-        tableHeader.addCell("");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalDebitAmountVatCode), "right bold");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalCreditAmountVatCode), "right bold");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalAmountVatCode), "right bold");
-        globalDebitAmount = Banana.SDecimal.add(totalDebitAmountVatCode, globalDebitAmount);
-        globalCreditAmount = Banana.SDecimal.add(totalCreditAmountVatCode, globalCreditAmount);
-        globalAmount = Banana.SDecimal.add(totalAmountVatCode, globalAmount);
+        for (var period in totalAmountVatCode) {
+            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalAmountVatCode[period]), "right bold");
+        }
     }
-
-    //Global amount
-    var tableHeader = myTable.addRow("total2");
-    tableHeader.addCell("");
-    tableHeader.addCell("");
-    tableHeader.addCell("Totale cifra d'affari registrata", "bold2");
-    tableHeader.addCell("");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalDebitAmount), "right bold2");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalCreditAmount), "right bold2");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalAmount), "right bold2");
-
-    //Righe vuote
-    for (var i = 0; i < 2; i++) {
-        var emptyRow = myTable.addRow("");
-        emptyRow.addCell("", 7);
-    }
-
-    //Suddivisione per conto
-    var tableHeader = myTable.addRow("");
-    tableHeader.addCell("");
-    tableHeader.addCell("");
-    tableHeader.addCell("Suddivisione per conto", "bold2");
-    tableHeader.addCell("", 4);
-    var totalDebitAmount = 0;
-    var totalCreditAmount = 0;
-    var totalAmount = 0;
-    for (var account in globalAccountList) {
-        var tableHeader = myTable.addRow("");
-        tableHeader.addCell("");
-        tableHeader.addCell("");
-        tableHeader.addCell("Totale conto " + account, "");
-        tableHeader.addCell("");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalAccountList[account].debit), "right ");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalAccountList[account].credit), "right ");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalAccountList[account].balance), "right ");
-        totalDebitAmount = Banana.SDecimal.add(globalAccountList[account].debit, totalDebitAmount);
-        totalCreditAmount = Banana.SDecimal.add(globalAccountList[account].credit, totalCreditAmount);
-        totalAmount = Banana.SDecimal.add(globalAccountList[account].balance, totalAmount);
-    }
-    var tableHeader = myTable.addRow("total");
-    tableHeader.addCell("");
-    tableHeader.addCell("");
-    tableHeader.addCell("Totale conti", "bold");
-    tableHeader.addCell("");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalDebitAmount), "right bold");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalCreditAmount), "right bold");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalAmount), "right bold");
 }
 
-VatReconciliation.prototype.printDataTable3 = function (report, stylesheet) {
+VatReconciliation.prototype.printDataTable2 = function (report, stylesheet) {
 
-    // Tabella 2
-    // Riassunto IVA - classe 4 Ricavi
-    report.addParagraph("3) IVA imponibile dichiarata nel formulario (Gr1=" + this.options.groupVatTaxable +")", "h2");
-    report.addParagraph("Periodo: " + Banana.Converter.toLocaleDateFormat(this.param.period.startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.param.period.endDate), "h3");
+    report.addParagraph("IVA imponibile dichiarata nel formulario (Gr1=" + this.param.options.groupVatTaxable +")", "h2");
+    report.addParagraph("Periodo: " + this.data["Y"].periodName + " " + Banana.Converter.toLocaleDateFormat(this.data["Y"].startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.data["Y"].endDate), "h3");
 
     var myTable = report.addTable("");
 
@@ -526,94 +546,55 @@ VatReconciliation.prototype.printDataTable3 = function (report, stylesheet) {
     tableHeader.addCell("");
     tableHeader.addCell("Descrizione", "left");
     tableHeader.addCell("");
-    tableHeader.addCell("Importo IVA", "right");
-    tableHeader.addCell("Imponibile", "right");
+    for (var period in this.data) {
+        var tableCell = tableHeader.addCell("Imponibile", "right");
+        tableCell.addParagraph(this.data[period].periodName);
+        tableCell.addParagraph(this.accountingDataBase.basicCurrency);
+    }
 
-    var globalTaxableAmount = 0;
-    var globalVatAmount = 0;
-    var globalAccountList = {};
-    for (var vatcode in this.data.table3) {
-        var totalVatAmount = 0;
-        var totalTaxableAmount = 0;
-        for (var account in this.data.table3[vatcode]) {
-            var totalVatAmountAccount = 0;
-            var totalTaxableAmountAccount = 0;
-            for (var i = 0; i < this.data.table3[vatcode][account].rows.length; i++) {
-                var row = this.data.table3[vatcode][account].rows[i];
-                totalVatAmount = Banana.SDecimal.add(row.vatposted, totalVatAmount);
-                totalTaxableAmount = Banana.SDecimal.add(row.vattaxable, totalTaxableAmount);
-                totalVatAmountAccount = Banana.SDecimal.add(row.vatposted, totalVatAmountAccount);
-                totalTaxableAmountAccount = Banana.SDecimal.add(row.vattaxable, totalTaxableAmountAccount);
+    // Crea elenco ordinato dei codici iva
+    var data = this.data["Y"];
+    var vatcodesList = [];
+    for (var vatcode in data.table2) {
+        vatcodesList.push(vatcode);
+    }
+    vatcodesList.sort(); // Ordina alfabeticamente*/
 
-                if (this.options.printTransactions) {
-                    var tableRow = myTable.addRow();
-                    tableRow.addCell(vatcode);
-                    tableRow.addCell(row.description);
-                    tableRow.addCell(row.vattwinaccount);
-                    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(row.vatposted), "right");
-                    tableRow.addCell(Banana.Converter.toLocaleNumberFormat(row.vattaxable), "right");
-                }
-            }
-             //Total account
+    //rows
+    for (var i = 0; i < vatcodesList.length; i++) {
+        var vatcode = vatcodesList[i];
+        var totalTaxableAmount = {};
+        for (var account in data.table2[vatcode]) {
+
             var tableHeader = myTable.addRow("subtotal");
             tableHeader.addCell("");
             tableHeader.addCell("Totale " + vatcode + " conto " + account);
             tableHeader.addCell("");
-            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalVatAmountAccount), "right");
-            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalTaxableAmountAccount), "right");
 
-            if (!globalAccountList[account]) {
-                globalAccountList[account] = {};
-                globalAccountList[account].vatposted = 0;
-                globalAccountList[account].vattaxable = 0;
+            for (var period in this.data) {
+                var totalTaxableAmountPeriod = 0;
+                if (!totalTaxableAmount[period])
+                    totalTaxableAmount[period] = 0;
+                var dataPeriod = this.data[period];
+                if (dataPeriod.table2[vatcode] && dataPeriod.table2[vatcode][account]) {
+                    for (var j = 0; j < dataPeriod.table2[vatcode][account].rows.length; j++) {
+                        var row = dataPeriod.table2[vatcode][account].rows[j];
+                        totalTaxableAmountPeriod = Banana.SDecimal.add(row.vattaxable, totalTaxableAmountPeriod);
+                        totalTaxableAmount[period] = Banana.SDecimal.add(row.vattaxable, totalTaxableAmount[period]);
+                    }
+                }
+                tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalTaxableAmountPeriod), "right");
             }
-            globalAccountList[account].vatposted = Banana.SDecimal.add(totalVatAmountAccount, globalAccountList[account].vatposted);
-            globalAccountList[account].vattaxable = Banana.SDecimal.add(totalTaxableAmountAccount, globalAccountList[account].vattaxable);
-            if (!this.data.totalRevenuesDeclared[account])
-                this.data.totalRevenuesDeclared[account] = 0;
-            this.data.totalRevenuesDeclared[account] = Banana.SDecimal.add(totalTaxableAmountAccount, this.data.totalRevenuesDeclared[account]);
         }
         //Total vatcode
         var tableHeader = myTable.addRow("total");
         tableHeader.addCell("");
         tableHeader.addCell("Totale " + vatcode, "bold");
         tableHeader.addCell("");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalVatAmount), "right bold");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalTaxableAmount), "right bold");
-        globalVatAmount = Banana.SDecimal.add(totalVatAmount, globalVatAmount);
-        globalTaxableAmount = Banana.SDecimal.add(totalTaxableAmount, globalTaxableAmount);
+        for (var period in totalTaxableAmount) {
+            tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalTaxableAmount[period]), "right bold");
+        }
     }
-    //Global amount
-    var tableHeader = myTable.addRow("total2");
-    tableHeader.addCell("");
-    tableHeader.addCell("Totale cifra d'affari dichiarata", "bold2");
-    tableHeader.addCell("");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalVatAmount), "right bold2");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalTaxableAmount), "right bold2");
-
-    //Suddivisione per conto
-    var tableHeader = myTable.addRow("");
-    tableHeader.addCell("");
-    tableHeader.addCell("Suddivisione per conto", "bold2");
-    tableHeader.addCell("", 3);
-    var totalVatPosted = 0;
-    var totalVatTaxable = 0;
-    for (var account in globalAccountList) {
-        var tableHeader = myTable.addRow("");
-        tableHeader.addCell("");
-        tableHeader.addCell("Totale conto " + account, "");
-        tableHeader.addCell("");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalAccountList[account].vatposted), "right ");
-        tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(globalAccountList[account].vattaxable), "right ");
-        totalVatPosted = Banana.SDecimal.add(globalAccountList[account].vatposted, totalVatPosted);
-        totalVatTaxable = Banana.SDecimal.add(globalAccountList[account].vattaxable, totalVatTaxable);
-    }
-    var tableHeader = myTable.addRow("total");
-    tableHeader.addCell("");
-    tableHeader.addCell("Totale conti", "bold");
-    tableHeader.addCell("");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalVatPosted), "right bold");
-    tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalVatTaxable), "right bold");
 }
 
 VatReconciliation.prototype.setParam = function (param) {
