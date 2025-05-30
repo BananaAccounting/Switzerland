@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2025-03-05
+// @pubdate = 2025-05-27
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -54,6 +54,7 @@ var BAN_VERSION = "10.0.1";
 var BAN_EXPM_VERSION = "";
 var BAN_ADVANCED;
 var IS_INTEGRATED_INVOICE;
+var HAS_BUILDING_NUMBER;
 
 // Counter for the columns of the Details table
 var columnsNumber = 0;
@@ -110,6 +111,10 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
       lang = 'en';
     }
     var texts = setInvoiceTexts(lang);
+
+    // Check if the building number exists
+    hasBuildingNumber(invoiceObj);
+    Banana.console.log(HAS_BUILDING_NUMBER);
 
     // Include the embedded javascript file entered by the user
     includeEmbeddedJavascriptFile(Banana.document, texts, userParam);
@@ -1763,6 +1768,7 @@ function columnNamesToValues(invoiceObj, text) {
   var firstName = invoiceObj.customer_info.first_name;
   var lastName = invoiceObj.customer_info.last_name;
   var address1 = invoiceObj.customer_info.address1;
+  var buildingNumber = invoiceObj.customer_info.building_number;
   var address2 = invoiceObj.customer_info.address2;
   var address3 = invoiceObj.customer_info.address3;
   var postalCode = invoiceObj.customer_info.postal_code;
@@ -1823,6 +1829,11 @@ function columnNamesToValues(invoiceObj, text) {
       text = text.replace(/<Street>/g, address1.trim());
     } else {
       text = text.replace(/<Street>/g, "<>");
+    }
+    if (buildingNumber && text.indexOf("<BuildingNumber>") > -1) {
+      text = text.replace(/<BuildingNumber>/g, buildingNumber.trim());
+    } else {
+      text = text.replace(/<BuildingNumber>/g, "<>");
     }
     if (address2 && text.indexOf("<AddressExtra>") > -1) {
       text = text.replace(/<AddressExtra>/g, address2.trim());
@@ -2054,6 +2065,7 @@ function getInvoiceAddress(invoiceAddress, userParam) {
   var firstName = invoiceAddress.first_name;
   var lastName = invoiceAddress.last_name;
   var address1 = invoiceAddress.address1;
+  var buildingNumber = invoiceAddress.building_number;
   var address2 = invoiceAddress.address2;
   var address3 = invoiceAddress.address3;
   var postalCode = invoiceAddress.postal_code;
@@ -2104,6 +2116,10 @@ function getInvoiceAddress(invoiceAddress, userParam) {
     address = address.replace(/<Street>/g, address1.trim());
   }
   
+  if (address.indexOf("<BuildingNumber>") > -1 && buildingNumber) {
+    address = address.replace(/<BuildingNumber>/g, buildingNumber.trim());
+  }
+
   if (address.indexOf("<AddressExtra>") > -1 && address2) {
     address = address.replace(/<AddressExtra>/g, address2.trim());
   }
@@ -2175,8 +2191,14 @@ function getInvoiceSupplier(invoiceSupplier, userParam, texts) {
   if (invoiceSupplier.address1) {
     supplierAddress += invoiceSupplier.address1;
   }
-  if (invoiceSupplier.address2) {
+  if (invoiceSupplier.building_number) {
     if (invoiceSupplier.address1) {
+      supplierAddress += " ";
+    }
+    supplierAddress += invoiceSupplier.building_number;
+  }
+  if (invoiceSupplier.address2) {
+    if (invoiceSupplier.address1 || invoiceSupplier.building_number) {
       supplierAddress += ", ";
     }
     supplierAddress += invoiceSupplier.address2;
@@ -2709,6 +2731,26 @@ function isIntegratedInvoice() {
     else {
       // App. Estimates and Invoices
       IS_INTEGRATED_INVOICE = false;
+    }
+  }
+}
+
+function hasBuildingNumber() {
+  /**
+   * Check if the banana document has the building number.
+   * Old Banana Accounting versions don't have the building number field and column.
+   * Only new Banana Accounting versions have the building number field and column.
+   * - Building number of customer address retrieved from Accounts table, BuildingNumber column
+   * - Building number of supplier address retrieved from File properties, Address, BuildingNumber
+   */
+  HAS_BUILDING_NUMBER = false;
+  if (Banana.document) {
+    var table = Banana.document.table("Accounts");
+    if (table) {
+      var tColumnNames = table.columnNames;
+      if (tColumnNames.includes("BuildingNumber")) {
+        HAS_BUILDING_NUMBER = true;
+      }
     }
   }
 }

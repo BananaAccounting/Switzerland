@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2025-03-31 */
+/* Script update: 2025-05-27 */
 
 
 
@@ -769,8 +769,9 @@ var QRBill = class QRBill {
 		//deprecated, it's not used anymore. We always use the structured S address type
 		//at the moment, the parameter it's not been deleted for compatibility with release and beta release of the extension, it's just not used.
 		// if (!userParam.qr_code_debtor_address_type) {
-		// 	userParam.qr_code_debtor_address_type = "k";
+		// 	userParam.qr_code_debtor_address_type = "K";
 		// }
+		
 		if (!userParam.qr_code_additional_information) {
 			userParam.qr_code_additional_information = '';
 		}
@@ -1252,8 +1253,10 @@ var QRBill = class QRBill {
 		if (invoiceObj.supplier_info.address1) {
 			qrcodeData.creditorAddress1 = invoiceObj.supplier_info.address1.trim();
 		}
-		if (invoiceObj.supplier_info.address2) {
-			qrcodeData.creditorAddress2 = invoiceObj.supplier_info.address2.trim();
+		if (HAS_BUILDING_NUMBER) {
+			if (invoiceObj.supplier_info.building_number) {
+				qrcodeData.creditorAddress2 = invoiceObj.supplier_info.building_number.trim();
+			}
 		}
 		if (invoiceObj.supplier_info.postal_code) {
 			qrcodeData.creditorPostalcode = invoiceObj.supplier_info.postal_code.trim();
@@ -1427,7 +1430,11 @@ var QRBill = class QRBill {
 		if (invoiceObj.customer_info.address1) {
 			qrcodeData.debtorAddress1 = invoiceObj.customer_info.address1.trim();
 		}
-		if (invoiceObj.customer_info.address2) {
+		if (HAS_BUILDING_NUMBER) {
+			if (invoiceObj.customer_info.building_number) {
+				qrcodeData.debtorAddress2 = invoiceObj.customer_info.building_number.trim();
+			}
+		} else if (invoiceObj.customer_info.address2) {
 			qrcodeData.debtorAddress2 = invoiceObj.customer_info.address2.trim();
 		}
 		if (invoiceObj.customer_info.postal_code) {

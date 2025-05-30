@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2024-12-11 */
+/* User parameters update: 2025-05-27 */
 
 
 
@@ -245,7 +245,9 @@ function convertParam(userParam) {
   currentParam.title = texts.param_address_composition;
   currentParam.type = 'multilinestring';
   currentParam.value = userParam.address_composition ? userParam.address_composition : '';
-  currentParam.defaultvalue = '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
+  currentParam.defaultvalue = HAS_BUILDING_NUMBER 
+    ? '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<POBox>\n<PostalCode> <Locality>' 
+    : '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
   currentParam.tooltip = texts.param_tooltip_address_composition;
   currentParam.readValue = function() {
     userParam.address_composition = this.value;
@@ -1656,7 +1658,9 @@ function initParam() {
   userParam.logo_name = 'Logo';
   userParam.address_small_line = '<none>';
   userParam.address_left = false;
-  userParam.address_composition = '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
+  userParam.address_composition = HAS_BUILDING_NUMBER 
+    ? '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<POBox>\n<PostalCode> <Locality>' 
+    : '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
   userParam.address_position_dX = '0';
   userParam.address_position_dY = '0';
   userParam.shipping_address = false;
@@ -1821,7 +1825,9 @@ function verifyParam(userParam) {
     userParam.address_left = false;
   }
   if (!userParam.address_composition) {
-    userParam.address_composition = '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
+    userParam.address_composition = HAS_BUILDING_NUMBER 
+    ? '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<POBox>\n<PostalCode> <Locality>' 
+    : '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
   }
   if (!userParam.address_position_dX) {
     userParam.address_position_dX = '0';
