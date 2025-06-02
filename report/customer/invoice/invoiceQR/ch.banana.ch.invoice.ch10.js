@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2025-05-27
+// @pubdate = 2025-05-30
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -54,7 +54,6 @@ var BAN_VERSION = "10.0.1";
 var BAN_EXPM_VERSION = "";
 var BAN_ADVANCED;
 var IS_INTEGRATED_INVOICE;
-var HAS_BUILDING_NUMBER;
 
 // Counter for the columns of the Details table
 var columnsNumber = 0;
@@ -111,10 +110,6 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
       lang = 'en';
     }
     var texts = setInvoiceTexts(lang);
-
-    // Check if the building number exists
-    hasBuildingNumber(invoiceObj);
-    Banana.console.log(HAS_BUILDING_NUMBER);
 
     // Include the embedded javascript file entered by the user
     includeEmbeddedJavascriptFile(Banana.document, texts, userParam);
@@ -2731,26 +2726,6 @@ function isIntegratedInvoice() {
     else {
       // App. Estimates and Invoices
       IS_INTEGRATED_INVOICE = false;
-    }
-  }
-}
-
-function hasBuildingNumber() {
-  /**
-   * Check if the banana document has the building number.
-   * Old Banana Accounting versions don't have the building number field and column.
-   * Only new Banana Accounting versions have the building number field and column.
-   * - Building number of customer address retrieved from Accounts table, BuildingNumber column
-   * - Building number of supplier address retrieved from File properties, Address, BuildingNumber
-   */
-  HAS_BUILDING_NUMBER = false;
-  if (Banana.document) {
-    var table = Banana.document.table("Accounts");
-    if (table) {
-      var tColumnNames = table.columnNames;
-      if (tColumnNames.includes("BuildingNumber")) {
-        HAS_BUILDING_NUMBER = true;
-      }
     }
   }
 }

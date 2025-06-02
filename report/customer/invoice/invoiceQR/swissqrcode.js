@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2025-05-27 */
+/* Script update: 2025-05-30 */
 
 
 
@@ -1253,11 +1253,13 @@ var QRBill = class QRBill {
 		if (invoiceObj.supplier_info.address1) {
 			qrcodeData.creditorAddress1 = invoiceObj.supplier_info.address1.trim();
 		}
-		if (HAS_BUILDING_NUMBER) {
-			if (invoiceObj.supplier_info.building_number) {
-				qrcodeData.creditorAddress2 = invoiceObj.supplier_info.building_number.trim();
-			}
+		
+		var building_number = "";
+		if (invoiceObj.supplier_info.building_number) {
+			building_number = invoiceObj.supplier_info.building_number;
 		}
+		qrcodeData.creditorAddress2 = building_number.trim();
+	
 		if (invoiceObj.supplier_info.postal_code) {
 			qrcodeData.creditorPostalcode = invoiceObj.supplier_info.postal_code.trim();
 		}
@@ -1430,12 +1432,10 @@ var QRBill = class QRBill {
 		if (invoiceObj.customer_info.address1) {
 			qrcodeData.debtorAddress1 = invoiceObj.customer_info.address1.trim();
 		}
-		if (HAS_BUILDING_NUMBER) {
-			if (invoiceObj.customer_info.building_number) {
-				qrcodeData.debtorAddress2 = invoiceObj.customer_info.building_number.trim();
-			}
-		} else if (invoiceObj.customer_info.address2) {
-			qrcodeData.debtorAddress2 = invoiceObj.customer_info.address2.trim();
+		if (invoiceObj.customer_info.building_number) {
+			qrcodeData.debtorAddress2 = invoiceObj.customer_info.building_number.trim();
+			// not compatible for address type S with AddressExtra column
+			// => AddressExtra content must be copied to BuildingNumber column
 		}
 		if (invoiceObj.customer_info.postal_code) {
 			qrcodeData.debtorPostalcode = invoiceObj.customer_info.postal_code.trim();

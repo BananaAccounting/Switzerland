@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2025-05-27 */
+/* User parameters update: 2025-05-30 */
 
 
 
@@ -245,9 +245,7 @@ function convertParam(userParam) {
   currentParam.title = texts.param_address_composition;
   currentParam.type = 'multilinestring';
   currentParam.value = userParam.address_composition ? userParam.address_composition : '';
-  currentParam.defaultvalue = HAS_BUILDING_NUMBER 
-    ? '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<POBox>\n<PostalCode> <Locality>' 
-    : '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
+  currentParam.defaultvalue = '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
   currentParam.tooltip = texts.param_tooltip_address_composition;
   currentParam.readValue = function() {
     userParam.address_composition = this.value;
@@ -1647,6 +1645,9 @@ function initParam() {
   }
   var texts = setInvoiceTexts(lang);
 
+  // Version 2 introduces the BuildingNumber
+  userParam.version = "2";
+
   //Include
   userParam.header_print = true;
   userParam.header_row_1 = "";
@@ -1658,9 +1659,7 @@ function initParam() {
   userParam.logo_name = 'Logo';
   userParam.address_small_line = '<none>';
   userParam.address_left = false;
-  userParam.address_composition = HAS_BUILDING_NUMBER 
-    ? '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<POBox>\n<PostalCode> <Locality>' 
-    : '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
+  userParam.address_composition = '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
   userParam.address_position_dX = '0';
   userParam.address_position_dY = '0';
   userParam.shipping_address = false;
@@ -1825,9 +1824,7 @@ function verifyParam(userParam) {
     userParam.address_left = false;
   }
   if (!userParam.address_composition) {
-    userParam.address_composition = HAS_BUILDING_NUMBER 
-    ? '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<POBox>\n<PostalCode> <Locality>' 
-    : '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
+    userParam.address_composition = '<OrganisationName>\n<NamePrefix>\n<FirstName> <FamilyName>\n<Street> <BuildingNumber>\n<AddressExtra>\n<POBox>\n<PostalCode> <Locality>';
   }
   if (!userParam.address_position_dX) {
     userParam.address_position_dX = '0';
@@ -2100,6 +2097,12 @@ function verifyParam(userParam) {
   //Develop
   if (!userParam.dev_show_json || !BAN_ADVANCED) {
     userParam.dev_show_json = false;
+  }
+
+  // First time check the version parameter: if < 2 add the building number to the address composition
+  if (!userParam.version || parseInt(userParam.version) < 2) {
+    userParam.version = "2";
+    userParam.address_composition = userParam.address_composition.replace("<Street> <AddressExtra>", "<Street> <BuildingNumber>\n<AddressExtra>");
   }
 
   return userParam;
