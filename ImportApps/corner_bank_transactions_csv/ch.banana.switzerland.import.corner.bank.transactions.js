@@ -393,13 +393,13 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
 
     for (var i = 0; i < columns.length; i++) {
       switch (columns[i]) {
-        case "Datum":
+        case "Erfassungsdatum":
           convertedColumns[i] = "Date";
           break;
-        case "Ihr Auftrag von":
         case "Valutadatum":
           convertedColumns[i] = "DateValue";
-        case "Buchungstext":
+          break;
+        case "Bezeichnung":
           convertedColumns[i] = "Description";
           break;
         case "Detail":
