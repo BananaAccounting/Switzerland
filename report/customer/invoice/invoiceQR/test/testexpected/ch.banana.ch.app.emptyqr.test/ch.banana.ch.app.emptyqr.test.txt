@@ -519,13 +519,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -581,13 +581,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -643,13 +643,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -705,13 +705,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -767,13 +767,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.00 \\
+1 234.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.00 \\
+1 234.00 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -829,13 +829,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.00 \\
+1 234.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.00 \\
+1 234.00 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -891,13 +891,13 @@ Payable by (name/address) \\
 Currency \\
 CHF \\
 Amount \\
-1  234.00 \\
+1 234.00 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.00 \\
+1 234.00 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -1273,13 +1273,13 @@ Payable by (name/address) \\
 Currency \\
 EUR \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 EUR \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
@@ -1338,13 +1338,13 @@ Via alla Chiesa 12 \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH52 0483 5012 3456 7100 0 \\
 Mario Rossi \\
@@ -1406,13 +1406,13 @@ Via alla Chiesa 12 \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Acceptance point \\
 Payment part \\
 Currency \\
 CHF \\
 Amount \\
-1  234.56 \\
+1 234.56 \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\

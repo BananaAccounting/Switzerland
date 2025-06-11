@@ -240,13 +240,13 @@ Via Abc Tre 233 \\
 Valuta \\
 CHF \\
 Importo \\
-1  200.50 \\
+1 200.50 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  200.50 \\
+1 200.50 \\
 Conto / Pagabile a \\
 CH52 0483 5012 3456 7100 0 \\
 Banana.ch SA \\
@@ -688,13 +688,13 @@ Via Abc Tre 233 \\
 Valuta \\
 CHF \\
 Importo \\
-1  200.50 \\
+1 200.50 \\
 Punto di accettazione \\
 Sezione pagamento \\
 Valuta \\
 CHF \\
 Importo \\
-1  200.50 \\
+1 200.50 \\
 Conto / Pagabile a \\
 CH52 0483 5012 3456 7100 0 \\
 Banana.ch SA \\
