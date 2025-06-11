@@ -387,6 +387,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "199.10",
+                                                "Date": "2025-01-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "1146",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "168.20",
@@ -442,6 +458,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1146",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "382.80",
+                                                "Date": "2025-01-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "1144",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -521,6 +553,22 @@
                                                 "Date": "2025-01-06",
                                                 "Description": "Test",
                                                 "ExternalReference": "1153",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "148.90",
+                                                "Date": "2025-01-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "1145",
                                                 "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
@@ -643,6 +691,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "513.40",
+                                                "Date": "2025-01-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "1133",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "458.95",
@@ -698,6 +762,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1133",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "77.15",
+                                                "Date": "2025-01-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "1137",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -825,6 +905,22 @@
                                                 "Date": "2025-01-08",
                                                 "Description": "Test",
                                                 "ExternalReference": "1161",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "380.85",
+                                                "Date": "2025-01-08",
+                                                "Description": "Test",
+                                                "ExternalReference": "1134",
                                                 "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
@@ -1107,6 +1203,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "235.75",
+                                                "Date": "2025-01-09",
+                                                "Description": "Test",
+                                                "ExternalReference": "1142",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "202.10",
@@ -1251,6 +1363,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "100.55",
+                                                "Date": "2025-01-10",
+                                                "Description": "Test",
+                                                "ExternalReference": "1138",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "77.00",
@@ -1317,12 +1445,12 @@
                                             "fields": {
                                                 "AccountCredit": "3200",
                                                 "AccountDebit": "1020",
-                                                "AmountCurrency": "144.40",
+                                                "AmountCurrency": "133.60",
                                                 "Date": "2025-01-13",
                                                 "Description": "Test",
                                                 "ExternalReference": "29",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -1509,12 +1637,12 @@
                                             "fields": {
                                                 "AccountCredit": "3412",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "2546.85",
+                                                "AmountCurrency": "2356.00",
                                                 "Date": "2025-01-14",
                                                 "Description": "Test",
                                                 "ExternalReference": "1129",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -1530,6 +1658,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1129",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "417.65",
+                                                "Date": "2025-01-14",
+                                                "Description": "Test",
+                                                "ExternalReference": "1127",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -1603,6 +1747,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "900.40",
+                                                "Date": "2025-01-14",
+                                                "Description": "Test",
+                                                "ExternalReference": "1141",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "816.95",
@@ -1658,6 +1818,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1141",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "398.25",
+                                                "Date": "2025-01-14",
+                                                "Description": "Test",
+                                                "ExternalReference": "1135",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -1731,6 +1907,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "235.75",
+                                                "Date": "2025-01-14",
+                                                "Description": "Test",
+                                                "ExternalReference": "1143",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "202.10",
@@ -1786,6 +1978,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1143",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "251.35",
+                                                "Date": "2025-01-14",
+                                                "Description": "Test",
+                                                "ExternalReference": "1132",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -1891,6 +2099,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "616.35",
+                                                "Date": "2025-01-14",
+                                                "Description": "Test",
+                                                "ExternalReference": "1136",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "554.15",
@@ -1987,6 +2211,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "339.20",
+                                                "Date": "2025-01-15",
+                                                "Description": "Test",
+                                                "ExternalReference": "1139",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "297.80",
@@ -2042,6 +2282,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1139",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "859.55",
+                                                "Date": "2025-01-15",
+                                                "Description": "Test",
+                                                "ExternalReference": "1140",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -2115,6 +2371,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "1044.25",
+                                                "Date": "2025-01-15",
+                                                "Description": "Test",
+                                                "ExternalReference": "1128",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3410",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "890.00",
@@ -2170,6 +2442,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1128",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "2330.65",
+                                                "Date": "2025-01-15",
+                                                "Description": "Test",
+                                                "ExternalReference": "1130",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -2307,6 +2595,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "2542.50",
+                                                "Date": "2025-01-15",
+                                                "Description": "Test",
+                                                "ExternalReference": "1131",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3200",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "858.00",
@@ -2435,6 +2739,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "193.05",
+                                                "Date": "2025-01-16",
+                                                "Description": "Test",
+                                                "ExternalReference": "1201",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "171.15",
@@ -2531,6 +2851,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "252.95",
+                                                "Date": "2025-01-17",
+                                                "Description": "Test",
+                                                "ExternalReference": "1209",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3410",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "178.00",
@@ -2597,12 +2933,12 @@
                                             "fields": {
                                                 "AccountCredit": "3410",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "240.50",
+                                                "AmountCurrency": "222.50",
                                                 "Date": "2025-01-17",
                                                 "Description": "Test",
                                                 "ExternalReference": "1208",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -2665,6 +3001,22 @@
                                                 "Date": "2025-01-17",
                                                 "Description": "Test",
                                                 "ExternalReference": "1180",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "1764.75",
+                                                "Date": "2025-01-17",
+                                                "Description": "Test",
+                                                "ExternalReference": "1197",
                                                 "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
@@ -2757,12 +3109,12 @@
                                             "fields": {
                                                 "AccountCredit": "3410",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "577.25",
+                                                "AmountCurrency": "534.00",
                                                 "Date": "2025-01-17",
                                                 "Description": "Test",
                                                 "ExternalReference": "1194",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -2805,12 +3157,12 @@
                                             "fields": {
                                                 "AccountCredit": "3200",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "577.25",
+                                                "AmountCurrency": "534.00",
                                                 "Date": "2025-01-17",
                                                 "Description": "Test",
                                                 "ExternalReference": "1210",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -3075,6 +3427,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "327.90",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "1202",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "287.35",
@@ -3140,12 +3508,60 @@
                                         {
                                             "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "3772.45",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "13",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "3772.45",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "13",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "282.65",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "13",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "282.65",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "13",
+                                                "VatAmountType": "1",
                                                 "VatCode": "M81"
                                             },
                                             "operation": {
@@ -3161,6 +3577,22 @@
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "17",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "623.20",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "1199",
                                                 "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
@@ -3236,12 +3668,44 @@
                                         {
                                             "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "2716.85",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "14",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "2716.85",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "14",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "203.60",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "14",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
                                             },
                                             "operation": {
@@ -3251,13 +3715,61 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "203.60",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "14",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "2320.55",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "16",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "2320.55",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "16",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "173.90",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "16",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
                                             },
                                             "operation": {
@@ -3267,14 +3779,78 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "173.90",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "16",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "901.60",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "15",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "901.60",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "15",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "67.55",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "15",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "67.55",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "15",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -3316,13 +3892,61 @@
                                         {
                                             "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "344.70",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "10",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "344.70",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "10",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "25.85",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "10",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "25.85",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "10",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -3364,12 +3988,44 @@
                                         {
                                             "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "2682.40",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "11",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "2682.40",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "11",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "201.00",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "11",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
                                             },
                                             "operation": {
@@ -3379,14 +4035,78 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "201.00",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "11",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "2308.25",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "12",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "2308.25",
                                                 "Date": "2025-01-20",
                                                 "Description": "Test",
                                                 "ExternalReference": "12",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "172.95",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "12",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "172.95",
+                                                "Date": "2025-01-20",
+                                                "Description": "Test",
+                                                "ExternalReference": "12",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -3417,6 +4137,22 @@
                                                 "Date": "2025-01-21",
                                                 "Description": "Test",
                                                 "ExternalReference": "1184",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "225.00",
+                                                "Date": "2025-01-21",
+                                                "Description": "Test",
+                                                "ExternalReference": "1200",
                                                 "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
@@ -3491,6 +4227,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "2176.90",
+                                                "Date": "2025-01-21",
+                                                "Description": "Test",
+                                                "ExternalReference": "1203",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "1992.80",
@@ -3556,13 +4308,61 @@
                                         {
                                             "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "3409.55",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "19",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "3409.55",
                                                 "Date": "2025-01-22",
                                                 "Description": "Test",
                                                 "ExternalReference": "19",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "255.50",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "19",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "255.50",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "19",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -3626,6 +4426,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "40",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "975.05",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "1206",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -3764,13 +4580,61 @@
                                         {
                                             "fields": {
                                                 "AccountCredit": "1021",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "13749.40",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "18",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
                                                 "AccountDebit": "4201",
                                                 "AmountCurrency": "13749.40",
                                                 "Date": "2025-01-22",
                                                 "Description": "Test",
                                                 "ExternalReference": "18",
                                                 "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "2200",
+                                                "AccountDebit": "div",
+                                                "AmountCurrency": "1030.25",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "18",
+                                                "VatAmountType": "1",
                                                 "VatCode": "B81"
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1170",
+                                                "AmountCurrency": "1030.25",
+                                                "Date": "2025-01-22",
+                                                "Description": "Test",
+                                                "ExternalReference": "18",
+                                                "VatAmountType": "1",
+                                                "VatCode": "M81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -3785,6 +4649,22 @@
                                                 "Date": "2025-01-23",
                                                 "Description": "Test",
                                                 "ExternalReference": "1190",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "259.65",
+                                                "Date": "2025-01-23",
+                                                "Description": "Test",
+                                                "ExternalReference": "1198",
                                                 "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
@@ -3850,6 +4730,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1198",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "173.10",
+                                                "Date": "2025-01-23",
+                                                "Description": "Test",
+                                                "ExternalReference": "1205",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -3987,6 +4883,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "235.75",
+                                                "Date": "2025-01-27",
+                                                "Description": "Test",
+                                                "ExternalReference": "1207",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "202.10",
@@ -4053,12 +4965,12 @@
                                             "fields": {
                                                 "AccountCredit": "3400",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "396.40",
+                                                "AmountCurrency": "366.70",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "48",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4085,12 +4997,12 @@
                                             "fields": {
                                                 "AccountCredit": "3400",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "160.60",
+                                                "AmountCurrency": "148.55",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "45",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4117,12 +5029,12 @@
                                             "fields": {
                                                 "AccountCredit": "3400",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "160.60",
+                                                "AmountCurrency": "148.55",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "47",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4149,12 +5061,12 @@
                                             "fields": {
                                                 "AccountCredit": "3412",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "288.65",
+                                                "AmountCurrency": "267.00",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "1195",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4181,12 +5093,12 @@
                                             "fields": {
                                                 "AccountCredit": "3400",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "160.60",
+                                                "AmountCurrency": "148.55",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "44",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4217,8 +5129,8 @@
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "46",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4229,12 +5141,12 @@
                                             "fields": {
                                                 "AccountCredit": "3420",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "5087.20",
+                                                "AmountCurrency": "4706.00",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test",
                                                 "ExternalReference": "49",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4250,6 +5162,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "49",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "303.00",
+                                                "Date": "2025-01-27",
+                                                "Description": "Test",
+                                                "ExternalReference": "1204",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -4314,6 +5242,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "1204",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "5551.90",
+                                                "Date": "2025-01-27",
+                                                "Description": "Test",
+                                                "ExternalReference": "1196",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -4421,12 +5365,12 @@
                                             "fields": {
                                                 "AccountCredit": "3200",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "0.85",
+                                                "AmountCurrency": "0.80",
                                                 "Date": "2025-01-27",
                                                 "Description": "Test, Test2",
                                                 "ExternalReference": "43",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -4442,6 +5386,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "43",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "516.65",
+                                                "Date": "2025-01-27",
+                                                "Description": "Test",
+                                                "ExternalReference": "65",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -4547,6 +5507,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "3341.05",
+                                                "Date": "2025-01-28",
+                                                "Description": "Test",
+                                                "ExternalReference": "60",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "3026.70",
@@ -4611,6 +5587,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "404.30",
+                                                "Date": "2025-01-30",
+                                                "Description": "Test",
+                                                "ExternalReference": "53",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "358.00",
@@ -4666,6 +5658,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "53",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "193.05",
+                                                "Date": "2025-01-30",
+                                                "Description": "Test",
+                                                "ExternalReference": "55",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -4771,6 +5779,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "371.05",
+                                                "Date": "2025-01-31",
+                                                "Description": "Test",
+                                                "ExternalReference": "61",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "327.25",
@@ -4826,6 +5850,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "61",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "157.40",
+                                                "Date": "2025-01-31",
+                                                "Description": "Test",
+                                                "ExternalReference": "54",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -4931,6 +5971,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "112.55",
+                                                "Date": "2025-02-03",
+                                                "Description": "Test",
+                                                "ExternalReference": "62",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "88.10",
@@ -4986,6 +6042,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "62",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "305.70",
+                                                "Date": "2025-02-04",
+                                                "Description": "Test",
+                                                "ExternalReference": "50",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5059,6 +6131,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "57.20",
+                                                "Date": "2025-02-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "57",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "36.90",
@@ -5114,6 +6202,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "57",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "884.95",
+                                                "Date": "2025-02-06",
+                                                "Description": "Test",
+                                                "ExternalReference": "56",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5187,6 +6291,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "381.60",
+                                                "Date": "2025-02-10",
+                                                "Description": "Test",
+                                                "ExternalReference": "51",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "332.00",
@@ -5242,6 +6362,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "51",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "1799.85",
+                                                "Date": "2025-02-10",
+                                                "Description": "Test",
+                                                "ExternalReference": "52",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5315,6 +6451,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "597.80",
+                                                "Date": "2025-02-10",
+                                                "Description": "Test",
+                                                "ExternalReference": "63",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3200",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "286.00",
@@ -5370,6 +6522,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "63",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "268.35",
+                                                "Date": "2025-02-10",
+                                                "Description": "Test",
+                                                "ExternalReference": "59",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5443,6 +6611,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "1078.55",
+                                                "Date": "2025-02-10",
+                                                "Description": "Test",
+                                                "ExternalReference": "58",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "981.75",
@@ -5498,6 +6682,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "58",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "148.90",
+                                                "Date": "2025-02-11",
+                                                "Description": "Test",
+                                                "ExternalReference": "69",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5603,6 +6803,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "259.85",
+                                                "Date": "2025-02-11",
+                                                "Description": "Test",
+                                                "ExternalReference": "64",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3420",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "227.85",
@@ -5658,6 +6874,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "64",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "71.80",
+                                                "Date": "2025-02-12",
+                                                "Description": "Test",
+                                                "ExternalReference": "71",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5731,6 +6963,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "623.35",
+                                                "Date": "2025-02-12",
+                                                "Description": "Test",
+                                                "ExternalReference": "70",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3206",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "560.65",
@@ -5795,6 +7043,22 @@
                                         },
                                         {
                                             "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "1243.55",
+                                                "Date": "2025-02-13",
+                                                "Description": "Test",
+                                                "ExternalReference": "73",
+                                                "VatAmountType": "0",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
                                                 "AccountCredit": "3410",
                                                 "AccountDebit": "1100",
                                                 "AmountCurrency": "1038.35",
@@ -5850,6 +7114,22 @@
                                                 "Description": "Test",
                                                 "ExternalReference": "73",
                                                 "VatAmountType": "1",
+                                                "VatCode": ""
+                                            },
+                                            "operation": {
+                                                "name": "add",
+                                                "srcFileName": ""
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "AccountCredit": "div",
+                                                "AccountDebit": "1100",
+                                                "AmountCurrency": "6855.15",
+                                                "Date": "2025-02-13",
+                                                "Description": "Test",
+                                                "ExternalReference": "72",
+                                                "VatAmountType": "0",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -5957,12 +7237,12 @@
                                             "fields": {
                                                 "AccountCredit": "3200",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "1117.75",
+                                                "AmountCurrency": "1034.00",
                                                 "Date": "2025-02-13",
                                                 "Description": "Test",
                                                 "ExternalReference": "74",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -5989,12 +7269,12 @@
                                             "fields": {
                                                 "AccountCredit": "3410",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "192.40",
+                                                "AmountCurrency": "178.00",
                                                 "Date": "2025-02-13",
                                                 "Description": "Test",
                                                 "ExternalReference": "68",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -6021,12 +7301,12 @@
                                             "fields": {
                                                 "AccountCredit": "3412",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "625.35",
+                                                "AmountCurrency": "578.50",
                                                 "Date": "2025-02-13",
                                                 "Description": "Test",
                                                 "ExternalReference": "66",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -6053,12 +7333,12 @@
                                             "fields": {
                                                 "AccountCredit": "3412",
                                                 "AccountDebit": "1100",
-                                                "AmountCurrency": "529.15",
+                                                "AmountCurrency": "489.50",
                                                 "Date": "2025-02-13",
                                                 "Description": "Test",
                                                 "ExternalReference": "67",
-                                                "VatAmountType": "0",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "V81"
                                             },
                                             "operation": {
                                                 "name": "add",

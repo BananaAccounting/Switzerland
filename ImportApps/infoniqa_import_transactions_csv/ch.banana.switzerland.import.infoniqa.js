@@ -475,21 +475,7 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
 
     for (const nr in groupedTransactions) {
       let transactions = groupedTransactions[nr];
-      let rowsWithDiv = false;
-      let mTyp = "";
-
-      const rowWithDiv = transactions.find(trx => trx["Kto"] === "div" || trx["GKto"] === "div");
-
-      if (rowWithDiv) {
-        rowsWithDiv = true;
-        mTyp = rowWithDiv["MTyp"];
-      }
-
-      if (rowsWithDiv && mTyp == "2") {
-        this.createJsonDocument_AddTransactions_MapTransactionsWithSeparateVat(rows, transactions)
-      } else {
-        this.createJsonDocument_AddTransactions_MapNormalTransactions(rows, transactions)
-      }
+      this.createJsonDocument_AddTransactions_MapNormalTransactions(rows, transactions)
     }
 
     rows = this.sortGroupedTransactionsByDate(rows);
@@ -529,93 +515,16 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
     }, []);
   }
 
-  /**
-   * Aggiunge alla lista delle transazioni, quelle transazioni per le quali il movimento con iva è separato
-   * che hanno una struttura un attimino diversa:
-   * 10,20.1.2025,1021,H, ,div,,0,0,0,2,"",344.70,0.00,366.14,"nexus-ips.de 90311493","",0,,0
-   * 10,20.1.2025,4201,S, ,div,,0,0,0,2,"",344.70,0.00,366.14,"nexus-ips.de 90311493","",0,,0
-   * 10,20.1.2025,2200,H, ,div,VDL81,0,0,3,2,"",25.85,25.85,0.00,"nexus-ips.de 90311493","",0,,0
-   * 10,20.1.2025,1170,S, ,div,VSM81,0,0,3,2,"",25.85,25.85,0.00,"nexus-ips.de 90311493","",0,,0
-   * Con queste transazioni che hanno dei placeholder "div" nei campi Kto e GKto e l'iva separata, è necessario
-   * implementare una logica che permetta di mappare le transazioni in modo corretto.
-   */
-  createJsonDocument_AddTransactions_MapTransactionsWithSeparateVat(rows, transactions) {
-
-    // Map the normal transactions (2 normal rows and 1 or 2 vat rows)
-    let normalTransactions = transactions.filter(trx => trx["BTyp"] === "0"); // get the normal transactions
-    let amount1 = normalTransactions[0]["Netto"];
-    let amount2 = normalTransactions[1]["Netto"];
-
-    if (amount1 === amount2) {
-      let row = {};
-      row.operation = {};
-      row.operation.name = "add";
-      row.operation.srcFileName = "";
-      row.fields = {};
-      let tr0 = normalTransactions[0];
-      let tr1 = normalTransactions[1];
-      row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr0["Datum"], "dd.mm.yyyy");
-      row.fields["ExternalReference"] = tr0["Blg"];
-      if (tr0['S/H'] === "S") {
-        row.fields["AccountDebit"] = tr0["Kto"];
-        row.fields["AccountCredit"] = tr1["Kto"];
-      } else if (tr0['S/H'] === "H") {
-        row.fields["AccountDebit"] = tr1["Kto"];
-        row.fields["AccountCredit"] = tr0["Kto"];
-      }
-      row.fields["Description"] = this.getDescription(tr0);
-      row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(amount1, ".");
-      row.fields["VatCode"] = "";
-      row.fields["VatAmountType"] = "";
-
-      // Map the VAT value
-      let vatTransactions = transactions.filter(trx => trx["SId"] !== ""); // get vat transactions.
-      if (vatTransactions.length >= 1) {
-        let tr0 = vatTransactions[0];
-        row.fields["VatCode"] = this.getBananaVatCode(tr0["SId"]);
-        row.fields["VatAmountType"] = "0";
-      }
-
-      rows.push(row);
-
-    } else {
-      //for other cases we just map the transactions as they are.
-      for (let i = 0; i < transactions.length; i++) {
-        let tr = transactions[i];
-        let row = {};
-        row.operation = {};
-        row.operation.name = "add";
-        row.operation.srcFileName = "";
-        row.fields = {};
-        row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
-        row.fields["ExternalReference"] = tr["Blg"];
-        row.fields["AccountDebit"] = this.getAccountDebit(tr);
-        row.fields["AccountCredit"] = this.getAccountCredit(tr);
-        row.fields["Description"] = this.getDescription(tr);
-        row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
-        row.fields["VatCode"] = tr["SId"];
-        row.fields["VatAmountType"] = "0";
-        rows.push(row);
-      }
-    }
-  }
-
   /** */
   createJsonDocument_AddTransactions_MapNormalTransactions(rows, transactions) {
 
     let vatAmountType = "0";
-    let transactionsKeys = new Set();
+    let transactionsKeys = new Map();
 
     for (const tr of transactions) {
 
       let accountDebit = this.getAccountDebit(tr);
       let accountCredit = this.getAccountCredit(tr);
-      let movType = tr["MTyp"];
-
-      //Banana.console.debug(tr["Blg"] + " -  " + accountDebit + " - " + accountCredit + " - " + movType);
-
-      if (accountDebit === "div" || accountCredit === "div" && movType == "0")
-        continue; //skip the transaction with div account, as are only transactions totals.
 
       let vatCode = this.getBananaVatCode(tr["SId"]);
       if (vatCode)
@@ -637,9 +546,22 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
 
       let rowContent = row.fields["Date"] + row.fields["ExternalReference"] + row.fields["AccountDebit"] + row.fields["AccountCredit"] + Banana.SDecimal.add(tr["Netto"], tr["Steuer"]);
 
-      if (!transactionsKeys.has(rowContent)) { // We wants to avoid duplicates as we work with a journal.
-        transactionsKeys.add(rowContent);
+      if (!transactionsKeys.has(rowContent)) {
+        transactionsKeys.set(rowContent, rows.length);
         rows.push(row);
+
+      } else {
+        // Esiste gia quindi confronto IVA
+        let index = transactionsKeys.get(rowContent);
+        let existingRow = rows[index];
+        let existingHasVat = !!existingRow.fields["VatCode"];
+        let newHasVat = !!row.fields["VatCode"];
+
+        if (newHasVat && !existingHasVat) {
+          /** Sostituisco la vecchia riga con quella nuova che ha l'IVA, questo ci permette
+           * di salvare solo il movimento con IVA.*/
+          rows[index] = row;
+        }
       }
     }
   }
@@ -667,143 +589,6 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
 
     return grouped;
   }
-
-  /**
-   * Creates the document change object for the transactions table. V1
-   */
-  /** createJsonDocument_AddTransactions(transactions) {
-    let jsonDoc = this.createJsonDocument_Init();
-    let rows = [];
-    let vatAmountType = "0";
- 
-    // Process transactions in pairs
-    for (let i = 0; i < transactions.length; i++) {
-      const tr = transactions[i];
-      let groupTrs = [tr];
-      let j = i + 1;
-      while (j < transactions.length && transactions[j]["Blg"] === tr["Blg"]) {
-        groupTrs.push(transactions[j]);
-        j++;
-      }
- 
-      // Skip processed rows in next iterations
-      let skipCount = groupTrs.length - 1;
- 
-      if (groupTrs.length === 2) {
-        // Handle pairs as before
-        let row = {};
-        row.operation = {};
-        row.operation.name = "add";
-        row.operation.srcFileName = "";
-        row.fields = {};
-        row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
-        row.fields["ExternalReference"] = tr["Blg"];
- 
-        let vatCode = this.getBananaVatCode(groupTrs[1]["SId"]);
-        if (vatCode)
-          vatAmountType = "1";
- 
-        if (tr["S/H"] === "S") {
-          row.fields["AccountDebit"] = this.getAccountDebit(tr);
-          row.fields["AccountCredit"] = this.getAccountCredit(tr);
-          row.fields["VatCode"] = vatCode;
-          row.fields["VatAmountType"] = vatAmountType;
-        } else {
-          row.fields["AccountDebit"] = this.getAccountDebit(groupTrs[1]);
-          row.fields["AccountCredit"] = this.getAccountCredit(groupTrs[1]);
-          row.fields["VatCode"] = vatCode;
-          row.fields["VatAmountType"] = vatAmountType;
-        }
- 
-        row.fields["Description"] = this.getDescription(tr);
-        row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
- 
-        rows.push(row);
- 
-      } else if (groupTrs.length === 3) {
-        // For triplets, only import the row with SId, Netto and Steuer
-        let vatRow = groupTrs.find((t) => t["SId"] && t["Netto"] && t["Steuer"]);
-        if (vatRow) {
- 
-          let vatCode = this.getBananaVatCode(vatRow["SId"]);
-          if (vatCode)
-            vatAmountType = "1";
- 
-          let row = {};
-          row.operation = {};
-          row.operation.name = "add";
-          row.operation.srcFileName = "";
-          row.fields = {};
-          row.fields["Date"] = Banana.Converter.toInternalDateFormat(
-            vatRow["Datum"],
-            "dd.mm.yyyy"
-          );
-          row.fields["ExternalReference"] = vatRow["Blg"];
-          row.fields["AccountDebit"] = this.getAccountDebit(vatRow);
-          row.fields["AccountCredit"] = this.getAccountCredit(vatRow);
-          row.fields["Description"] = this.getDescription(vatRow);
-          row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(vatRow["Netto"], ".");
-          row.fields["VatCode"] = vatCode;
-          row.fields["VatAmountType"] = vatAmountType;
- 
-          rows.push(row);
-        }
-      } else if (groupTrs.length > 3) {
-        //For groups larger than 3, import all rows as separate transactions.
-        for (let tr of groupTrs) {
-          let row = {};
-          row.operation = {};
-          row.operation.name = "add";
-          row.operation.srcFileName = "";
-          row.fields = {};
-          row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
-          row.fields["ExternalReference"] = tr["Blg"];
-          row.fields["AccountDebit"] = this.getAccountDebit(tr);
-          row.fields["AccountCredit"] = this.getAccountCredit(tr);
-          row.fields["Description"] = this.getDescription(tr);
-          row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
-          row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]) || tr["SId"];
-          row.fields["VatAmountType"] = this.getBananaVatCode(tr["SId"]) ? "1" : "";
- 
-          rows.push(row);
-        }
-      } else {
-        // Handle single transactions
- 
-        let vatCode = this.getBananaVatCode(tr["SId"]);
-        if (vatCode)
-          vatAmountType = "1";
- 
-        let row = {};
-        row.operation = {};
-        row.operation.name = "add";
-        row.operation.srcFileName = "";
-        row.fields = {};
-        row.fields["Date"] = Banana.Converter.toInternalDateFormat(tr["Datum"], "dd.mm.yyyy");
-        row.fields["ExternalReference"] = tr["Blg"];
-        row.fields["AccountDebit"] = this.getAccountDebit(tr);
-        row.fields["AccountCredit"] = this.getAccountCredit(tr);
-        row.fields["Description"] = this.getDescription(tr);
-        row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(tr["Netto"], ".");
-        row.fields["VatCode"] = this.getBananaVatCode(tr["SId"]) || tr["SId"];
-        row.fields["VatAmountType"] = vatAmountType;
- 
-        rows.push(row);
-      }
- 
-      i += skipCount;
-    }
- 
-    var dataUnitFilePorperties = {};
-    dataUnitFilePorperties.nameXml = "Transactions";
-    dataUnitFilePorperties.data = {};
-    dataUnitFilePorperties.data.rowLists = [];
-    dataUnitFilePorperties.data.rowLists.push({ rows: rows });
- 
-    jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
- 
-    return jsonDoc;
-  }*/
 
   getAccountDebit(transaction) {
     let accountDebit = "";
@@ -850,7 +635,7 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
       }
     }
 
-    return "";
+    return infoniqaVatCode;
   }
 
   /**
@@ -895,7 +680,7 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
   getMappedVatCodes() {
     /**
      * Map structure:
-     * key = Bexio vat code
+     * key = Infoniqa vat code
      * value = Banana vat code
      */
     const vatCodes = new Map();
@@ -909,6 +694,8 @@ var InfoniqaTransactionsImportFormat1 = class InfoniqaTransactionsImportFormat1 
     vatCodes.set("VDL81", "B81");
     vatCodes.set("VSM81", "M81");
     vatCodes.set("VSB81", "M81");
+    vatCodes.set("VSB26", "V26");
+    vatCodes.set("VSS38", "V38");
     vatCodes.set("USt81", "V81");
     vatCodes.set("USN81", "V81");
 
