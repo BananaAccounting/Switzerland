@@ -756,6 +756,7 @@ class VatReconciliation {
                         var date = tRow.value("JDate");
                         var doc = tRow.value("Doc");
                         var description = tRow.value("Description");
+                        description = description ? (description.length > 20 ? description.slice(0, 20).replace(/\s+$/, "") + "..." : description) : "";
                         var account = tRow.value("JAccount");
                         var contraaccount = tRow.value("JContraAccount");
                         var debitamount = tRow.value("JDebitAmount");
@@ -832,6 +833,7 @@ class VatReconciliation {
                         date = transactions[k].date;
                         doc = transactions[k].doc;
                         description = transactions[k].description;
+                        description = description ? (description.length > 20 ? description.slice(0, 20).replace(/\s+$/, "") + "..." : description) : "";
                         account = transactions[k].account;
                         contraaccount = transactions[k].vattwinaccount;
                         debitamount = transactions[k].debitamount;
@@ -1001,13 +1003,13 @@ class VatReconciliation {
         switch (errorId) {
             case this.ID_ERR_VERSION:
                 if (lang === 'it') {
-                    return "L'estensione richiede Banana Contabilità Plus 10.0.1";
+                    return "L'estensione richiede Banana Contabilità Plus 10";
                 } else if (lang === 'de') {
-                    return "Die Erweiterung erfordert Banana Buchhaltung Plus 10.0.1";
+                    return "Die Erweiterung erfordert Banana Buchhaltung Plus 10";
                 } else if (lang === 'fr') {
-                    return "L'extension nécessite Banana Comptabilité Plus 10.0.1";
+                    return "L'extension nécessite Banana Comptabilité Plus 10";
                 } else {
-                    return "The extension requires Banana Accounting Plus 10.0.1";
+                    return "The extension requires Banana Accounting Plus 10";
                 }
             case this.ID_ERR_LICENSE:
                 if (lang === 'it') {
