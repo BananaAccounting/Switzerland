@@ -61,6 +61,8 @@ TestImportVisecaTrans.prototype.testImport = function () {
 
    fileNameList.push("file:script/../test/testcases/xls_viseca_one_example_format1_20240828.csv");
    fileNameList.push("file:script/../test/testcases/xls_viseca_one_example_format2_20241001.csv");
+   fileNameList.push("file:script/../test/testcases/csv_viseca_one_example_format3a_20250611.csv");
+   fileNameList.push("file:script/../test/testcases/csv_viseca_one_example_format3b_20250611.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);

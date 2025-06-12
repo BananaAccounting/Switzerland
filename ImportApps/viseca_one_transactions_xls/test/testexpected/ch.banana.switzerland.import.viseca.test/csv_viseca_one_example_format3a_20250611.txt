@@ -1,0 +1,38 @@
+%%info_test_name{csv_viseca_one_example_format3a_20250611}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2025-05-06 & 2025-05-06 &  & TRX2025050600001701047 & , , Ihre Zahlung - Danke &  & 199.980\\
+2025-04-23 & 2025-04-28 &  & TRX2025042800005357099 & Hertz, Leganés, HERTZ DE ESPANA SA & 475.590 & \\
+2025-05-06 & 2025-05-07 &  & TRX2025050700001722336 & Tollbird, Diedorf, Tollbird & 3.900 & \\
+2025-04-23 & 2025-04-24 &  & TRX2025042400000895845 & GHCDS 0Es, Puerto Real, GHCDS 4ES & 135.000 & \\
+2025-04-27 & 2025-04-28 &  & TRX2025042800005360408 & CedipSa -0 Eminen, Sevilla, CEDIPSA 34280-1 EMINEN & 41.560 & \\
+2025-05-01 & 2025-05-02 &  & TRX2025050200003656982 & Coop Pronto, Pambio-Noranco, Coop Stazione Servizio & 73.900 & \\
+2025-05-01 & 2025-05-02 &  & TRX2025050200003657651 & Google, Dublin, GOOGLE *ADS6096424854 & 392.990 & \\
+2025-05-01 & 2025-05-05 &  & TRX2025050500002114256 & Motel Cuore, Gadesco-Pieve Delmona, MOTEL CUORE & 264.000 & \\
+2025-05-05 & 2025-05-06 &  & TRX2025050600001693617 & SBB CFF FFS, Bern, SBB CFF FFS Mobile Tic & 37.200 & \\
+2025-05-05 & 2025-05-07 &  & TRX2025050700001717971 & SBB CFF FFS, Bern, SBB CFF FFS Ticket Sho & 37.650 & \\
+2025-05-06 & 2025-05-07 &  & TRX2025050700001721537 & ACCOR Pullman Paris M, Issy-les-Moulineaux, ACCOR* PULLMAN PARIS M & 156.960 & \\
+2025-05-08 & 2025-05-09 &  & TRX2025050900001741612 & Setram, Le Mans, SETRAM & 8.400 & \\
+2025-04-16 & 2025-04-17 &  & TRX2025041700001807975 & Adobe, , Adobe & 13.300 & \\
+\\
+\end{tablevalue}
+\end{document}
