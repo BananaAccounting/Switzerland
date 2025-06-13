@@ -20,19 +20,19 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2025-05-06 & 2025-05-06 &  & TRX2025050600001701047 & , , Ihre Zahlung - Danke &  & 199.980\\
-2025-04-23 & 2025-04-28 &  & TRX2025042800005357099 & Hertz, Leganés, HERTZ DE ESPANA SA & 475.590 & \\
-2025-05-06 & 2025-05-07 &  & TRX2025050700001722336 & Tollbird, Diedorf, Tollbird & 3.900 & \\
-2025-04-23 & 2025-04-24 &  & TRX2025042400000895845 & GHCDS 0Es, Puerto Real, GHCDS 4ES & 135.000 & \\
-2025-04-27 & 2025-04-28 &  & TRX2025042800005360408 & CedipSa -0 Eminen, Sevilla, CEDIPSA 34280-1 EMINEN & 41.560 & \\
-2025-05-01 & 2025-05-02 &  & TRX2025050200003656982 & Coop Pronto, Pambio-Noranco, Coop Stazione Servizio & 73.900 & \\
-2025-05-01 & 2025-05-02 &  & TRX2025050200003657651 & Google, Dublin, GOOGLE *ADS6096424854 & 392.990 & \\
-2025-05-01 & 2025-05-05 &  & TRX2025050500002114256 & Motel Cuore, Gadesco-Pieve Delmona, MOTEL CUORE & 264.000 & \\
-2025-05-05 & 2025-05-06 &  & TRX2025050600001693617 & SBB CFF FFS, Bern, SBB CFF FFS Mobile Tic & 37.200 & \\
-2025-05-05 & 2025-05-07 &  & TRX2025050700001717971 & SBB CFF FFS, Bern, SBB CFF FFS Ticket Sho & 37.650 & \\
-2025-05-06 & 2025-05-07 &  & TRX2025050700001721537 & ACCOR Pullman Paris M, Issy-les-Moulineaux, ACCOR* PULLMAN PARIS M & 156.960 & \\
-2025-05-08 & 2025-05-09 &  & TRX2025050900001741612 & Setram, Le Mans, SETRAM & 8.400 & \\
-2025-04-16 & 2025-04-17 &  & TRX2025041700001807975 & Adobe, , Adobe & 13.300 & \\
+2025-05-06 & 2025-05-06 &  & TRX2025050600001701047 & , , test &  & 199.980\\
+2025-04-23 & 2025-04-28 &  & TRX2025042800005357099 & xxx, xxx, test & 475.590 & \\
+2025-05-06 & 2025-05-07 &  & TRX2025050700001722336 & xxx, xxx, test & 3.900 & \\
+2025-04-23 & 2025-04-24 &  & TRX2025042400000895845 & xxx, xxx, test & 135.000 & \\
+2025-04-27 & 2025-04-28 &  & TRX2025042800005360408 & xxx, xxx, test & 41.560 & \\
+2025-05-01 & 2025-05-02 &  & TRX2025050200003656982 & xxx, xxx, test & 73.900 & \\
+2025-05-01 & 2025-05-02 &  & TRX2025050200003657651 & xxx, xxx, test & 392.990 & \\
+2025-05-01 & 2025-05-05 &  & TRX2025050500002114256 & xxx, xxx, test & 264.000 & \\
+2025-05-05 & 2025-05-06 &  & TRX2025050600001693617 & xxx, xxx, test & 37.200 & \\
+2025-05-05 & 2025-05-07 &  & TRX2025050700001717971 & xxx, xxx, test & 37.650 & \\
+2025-05-06 & 2025-05-07 &  & TRX2025050700001721537 & xxx, xxx, test & 156.960 & \\
+2025-05-08 & 2025-05-09 &  & TRX2025050900001741612 & xxx, xxx, test & 8.400 & \\
+2025-04-16 & 2025-04-17 &  & TRX2025041700001807975 & xxx, xxx, test & 13.300 & \\
 \\
 \end{tablevalue}
 \end{document}
