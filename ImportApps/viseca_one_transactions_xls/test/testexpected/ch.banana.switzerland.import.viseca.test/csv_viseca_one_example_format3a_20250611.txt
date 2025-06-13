@@ -1,0 +1,38 @@
+%%info_test_name{csv_viseca_one_example_format3a_20250611}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2025-05-06 & 2025-05-06 &  & TRX2025050600001701047 & , , test &  & 199.980\\
+2025-04-23 & 2025-04-28 &  & TRX2025042800005357099 & xxx, xxx, test & 475.590 & \\
+2025-05-06 & 2025-05-07 &  & TRX2025050700001722336 & xxx, xxx, test & 3.900 & \\
+2025-04-23 & 2025-04-24 &  & TRX2025042400000895845 & xxx, xxx, test & 135.000 & \\
+2025-04-27 & 2025-04-28 &  & TRX2025042800005360408 & xxx, xxx, test & 41.560 & \\
+2025-05-01 & 2025-05-02 &  & TRX2025050200003656982 & xxx, xxx, test & 73.900 & \\
+2025-05-01 & 2025-05-02 &  & TRX2025050200003657651 & xxx, xxx, test & 392.990 & \\
+2025-05-01 & 2025-05-05 &  & TRX2025050500002114256 & xxx, xxx, test & 264.000 & \\
+2025-05-05 & 2025-05-06 &  & TRX2025050600001693617 & xxx, xxx, test & 37.200 & \\
+2025-05-05 & 2025-05-07 &  & TRX2025050700001717971 & xxx, xxx, test & 37.650 & \\
+2025-05-06 & 2025-05-07 &  & TRX2025050700001721537 & xxx, xxx, test & 156.960 & \\
+2025-05-08 & 2025-05-09 &  & TRX2025050900001741612 & xxx, xxx, test & 8.400 & \\
+2025-04-16 & 2025-04-17 &  & TRX2025041700001807975 & xxx, xxx, test & 13.300 & \\
+\\
+\end{tablevalue}
+\end{document}
