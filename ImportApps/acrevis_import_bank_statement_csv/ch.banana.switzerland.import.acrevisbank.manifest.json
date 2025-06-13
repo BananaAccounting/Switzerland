@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Acrevis Bank - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Acrevis Bank - Import movements .csv (Banana+ Advanced)",
+    "description.it": "Acrevis Bank - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Acrevis Bank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Acrevis Bank - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.acrevisbank",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Acrevis Bank - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Acrevis Bank - Import movements .csv (Banana+ Advanced)",
+    "title.it": "Acrevis Bank - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Acrevis Bank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Acrevis Bank - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
