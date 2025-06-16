@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.swissvatreconciliation
 // @api = 1.0
-// @pubdate = 2025-06-10
+// @pubdate = 2025-06-16
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Reconciliation
 // @description.it = Riconciliazione IVA Svizzera
@@ -61,7 +61,7 @@ function exec(inData) {
     Banana.Report.preview(report, stylesheet);
 }
 
-class VatReconciliation {
+var VatReconciliation = class VatReconciliation {
 
     constructor(banDocument) {
         this.banDocument = banDocument;
@@ -272,7 +272,7 @@ class VatReconciliation {
                 if (line.vatcode && line.isvatoperation === "1" && line.vattwinaccount.length <= 0) {
                     var vatCodeGr = this.banDocument.table('VatCodes').findRowByValue('VatCode', line.vatcode).value("Gr");
                     if (vatCodeGr === this.param.groupVatCodes) {
-                        Banana.console.log("loaddataperiod => this.param.groupVatCodes: " + this.param.groupVatCodes);
+                        //Banana.console.log("loaddataperiod => this.param.groupVatCodes: " + this.param.groupVatCodes);
                         this.data[periodName].vatTransactionsWithoutAccount.push(line);
                         //Banana.console.log(JSON.stringify(tRow.toJSON(), null, 3));
                     }
@@ -716,7 +716,7 @@ class VatReconciliation {
 
             if (printRow) {
 
-                var accountRow = Banana.document.table('Accounts').findRowByValue('Account',account);
+                var accountRow = this.banDocument.table('Accounts').findRowByValue('Account',account);
                 var accountDescription = "";
                 if (accountRow) {
                     accountDescription = accountRow.value("Description");
@@ -747,7 +747,7 @@ class VatReconciliation {
                 var invertSign = false;
 
                 if (account !== "0") {
-                    var transTab = Banana.document.currentCard(account, data.startDate, data.endDate);
+                    var transTab = this.banDocument.currentCard(account, data.startDate, data.endDate);
                     
                     for (var j = 0; j < transTab.rowCount-1; j++) { //-1 without total row
                         var tRow = transTab.row(j);
@@ -923,7 +923,7 @@ class VatReconciliation {
 
     settingsDialog() {
         var param = this.initParam();
-        var savedParam = Banana.document.getScriptSettings();
+        var savedParam = this.banDocument.getScriptSettings();
         if (savedParam.length > 0) {
             param = JSON.parse(savedParam);
         }
@@ -945,7 +945,7 @@ class VatReconciliation {
         }
 
         var paramToString = JSON.stringify(this.param);
-        Banana.document.setScriptSettings(paramToString);
+        this.banDocument.setScriptSettings(paramToString);
 
         return this.param; // for exec
     }
@@ -953,7 +953,7 @@ class VatReconciliation {
     setParam(param) {
         this.param = param;
         this.verifyParam(param);
-        Banana.console.log("setparam => this.param.groupVatCodes: " + this.param.groupVatCodes);
+        //Banana.console.log("setparam => this.param.groupVatCodes: " + this.param.groupVatCodes);
     }
 
     verifyParam(param) {
@@ -967,7 +967,7 @@ class VatReconciliation {
             param.groupVatCodes = '1.1';
         }
 
-        Banana.console.log("verifyparam => this.param.groupVatCodes: " + this.param.groupVatCodes);
+        //Banana.console.log("verifyparam => this.param.groupVatCodes: " + this.param.groupVatCodes);
     }
 
     verifyBananaVersion() {
@@ -975,7 +975,7 @@ class VatReconciliation {
         // Version
         if (!Banana.compareVersion || Banana.compareVersion(Banana.application.version, "10.0.1") < 0) {
             Banana.application.showMessages();
-            Banana.document.addMessage(this.getErrorMessage(this.ID_ERR_VERSION));
+            this.banDocument.addMessage(this.getErrorMessage(this.ID_ERR_VERSION));
             return false;
         }
 
@@ -983,7 +983,7 @@ class VatReconciliation {
         var license = Banana.application.license;
         if (!license || license.licenseType !== "advanced") {
             Banana.application.showMessages();
-            Banana.document.addMessage(this.getErrorMessage(this.ID_ERR_LICENSE));
+            this.banDocument.addMessage(this.getErrorMessage(this.ID_ERR_LICENSE));
             return false;
         }
 
@@ -993,8 +993,8 @@ class VatReconciliation {
     getErrorMessage(errorId) {
 
         var lang = "en";
-        if (Banana.document.locale) {
-            lang = Banana.document.locale;
+        if (this.banDocument.locale) {
+            lang = this.banDocument.locale;
         }
         if (lang.length > 2) {
             lang = lang.substr(0, 2);
@@ -1028,8 +1028,8 @@ class VatReconciliation {
     setTexts() {
 
         var lang = "en";
-        if (Banana.document.locale) {
-            lang = Banana.document.locale;
+        if (this.banDocument.locale) {
+            lang = this.banDocument.locale;
         }
         if (lang.length > 2) {
             lang = lang.substr(0, 2);
