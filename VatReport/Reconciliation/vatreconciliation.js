@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.swissvatreconciliation
 // @api = 1.0
-// @pubdate = 2025-06-16
+// @pubdate = 2025-06-17
 // @publisher = Banana.ch SA
 // @description = Swiss VAT Reconciliation
 // @description.it = Riconciliazione IVA Svizzera
@@ -53,11 +53,9 @@ function exec(inData) {
 
     vatReconciliation.loadData();
 
-    var texts = vatReconciliation.setTexts();
-
-    var report = Banana.Report.newReport(texts.document);
+    var report = Banana.Report.newReport(vatReconciliation.texts.document);
     var stylesheet = Banana.Report.newStyleSheet();
-    vatReconciliation.printData(report, stylesheet, texts);
+    vatReconciliation.printData(report, stylesheet);
     Banana.Report.preview(report, stylesheet);
 }
 
@@ -68,6 +66,7 @@ var VatReconciliation = class VatReconciliation {
         if (this.banDocument === undefined) {
             this.banDocument = Banana.document;
         }
+        this.setTexts();
         this.initData();
 
         //errors
@@ -372,7 +371,7 @@ var VatReconciliation = class VatReconciliation {
         return str;
     }
 
-    printData(report, stylesheet, texts) {
+    printData(report, stylesheet) {
 
         if (!report || !stylesheet) {
             return;
@@ -409,28 +408,28 @@ var VatReconciliation = class VatReconciliation {
 
         // Report title
         var year = this.accountingDataBase.closureYear;
-        var text = texts.title_main + " " + year;
+        var text = this.texts.title_main + " " + year;
         report.addParagraph(text, "h1");
 
-        this.printDataTableDifferences(report, stylesheet, this.data["1Q"], texts);
-        this.printDataTableDifferences(report, stylesheet, this.data["2Q"], texts);
-        this.printDataTableDifferences(report, stylesheet, this.data["3Q"], texts);
-        this.printDataTableDifferences(report, stylesheet, this.data["4Q"], texts);
-        this.printDataTableDifferences(report, stylesheet, this.data["Y"], texts);
+        this.printDataTableDifferences(report, stylesheet, this.data["1Q"]);
+        this.printDataTableDifferences(report, stylesheet, this.data["2Q"]);
+        this.printDataTableDifferences(report, stylesheet, this.data["3Q"]);
+        this.printDataTableDifferences(report, stylesheet, this.data["4Q"]);
+        this.printDataTableDifferences(report, stylesheet, this.data["Y"]);
 
         report.addPageBreak();
         // tabella 1 registrazioni ricavi
-        this.printDataTable1(report, stylesheet, texts);
+        this.printDataTable1(report, stylesheet);
         report.addPageBreak();
         // tabella 2 iva dichiarata nel formulario
-        this.printDataTable2(report, stylesheet, texts);
+        this.printDataTable2(report, stylesheet);
 
         // scheda conto per ogni conto con differenze
-        // this.printDataTransactions(report, stylesheet, this.data["1Q"], texts);
-        // this.printDataTransactions(report, stylesheet, this.data["2Q"], texts);
-        // this.printDataTransactions(report, stylesheet, this.data["3Q"], texts);
-        // this.printDataTransactions(report, stylesheet, this.data["4Q"], texts);
-        this.printDataTransactions(report, stylesheet, this.data["Y"], texts);
+        // this.printDataTransactions(report, stylesheet, this.data["1Q"]);
+        // this.printDataTransactions(report, stylesheet, this.data["2Q"]);
+        // this.printDataTransactions(report, stylesheet, this.data["3Q"]);
+        // this.printDataTransactions(report, stylesheet, this.data["4Q"]);
+        this.printDataTransactions(report, stylesheet, this.data["Y"]);
 
         // numero pagina nel footer
         report.getFooter().addClass("footer");
@@ -439,10 +438,10 @@ var VatReconciliation = class VatReconciliation {
         report.getFooter().addText("-", "");
     }
 
-    printDataTableDifferences(report, stylesheet, data, texts) {
+    printDataTableDifferences(report, stylesheet, data) {
 
         report.addParagraph(" ", "h2");
-        report.addParagraph(texts.period + ": " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h2");
+        report.addParagraph(this.texts.period + ": " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h2");
         report.addParagraph(" ", "h2");
 
         // Crea elenco ordinato dei conti
@@ -455,15 +454,15 @@ var VatReconciliation = class VatReconciliation {
 
         var myTable = report.addTable("");
         var tableHeader = myTable.addRow("header");
-        tableHeader.addCell(texts.account, "left");
-        var tableCell = tableHeader.addCell(texts.turnover, "right");
-        tableCell.addParagraph(texts.with_vat_code);
-        var tableCell = tableHeader.addCell(texts.turnover, "right");
-        tableCell.addParagraph(texts.without_vat_code);
-        var tableCell = tableHeader.addCell(texts.turnover, "right");
-        tableCell.addParagraph(texts.overall);
-        tableHeader.addCell(texts.net_declared, "right");
-        tableHeader.addCell(texts.difference, "right");
+        tableHeader.addCell(this.texts.account, "left");
+        var tableCell = tableHeader.addCell(this.texts.turnover, "right");
+        tableCell.addParagraph(this.texts.with_vat_code);
+        var tableCell = tableHeader.addCell(this.texts.turnover, "right");
+        tableCell.addParagraph(this.texts.without_vat_code);
+        var tableCell = tableHeader.addCell(this.texts.turnover, "right");
+        tableCell.addParagraph(this.texts.overall);
+        tableHeader.addCell(this.texts.net_declared, "right");
+        tableHeader.addCell(this.texts.difference, "right");
         var globalTotal1 = 0;
         var globalTotal2 = 0;
         var globalTotal3 = 0;
@@ -523,7 +522,7 @@ var VatReconciliation = class VatReconciliation {
         }
         //totale
         var tableRow = myTable.addRow("total");
-        tableRow.addCell(texts.total);
+        tableRow.addCell(this.texts.total);
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal1), "right");
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal2), "right");
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalTotal3), "right");
@@ -531,9 +530,9 @@ var VatReconciliation = class VatReconciliation {
         tableRow.addCell(Banana.Converter.toLocaleNumberFormat(globalDiff), "right");
     }
 
-    printDataTable1(report, stylesheet, texts) {
-        report.addParagraph(texts.turnover + " (Gr=" + this.param.groupRevenues +")", "h2");
-        report.addParagraph(texts.period + ": " + this.data["Y"].periodName + " " + Banana.Converter.toLocaleDateFormat(this.data["Y"].startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.data["Y"].endDate), "h3");
+    printDataTable1(report, stylesheet) {
+        report.addParagraph(this.texts.turnover + " (Gr=" + this.param.groupRevenues +")", "h2");
+        report.addParagraph(this.texts.period + ": " + this.data["Y"].periodName + " " + Banana.Converter.toLocaleDateFormat(this.data["Y"].startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.data["Y"].endDate), "h3");
 
         var myTable = report.addTable("");
 
@@ -541,7 +540,7 @@ var VatReconciliation = class VatReconciliation {
         var tableHeader = myTable.addRow("header");
         tableHeader.addCell("");
         tableHeader.addCell("");
-        tableHeader.addCell(texts.description, "left");
+        tableHeader.addCell(this.texts.description, "left");
         for (var period in this.data) {
             var tableCell = tableHeader.addCell(Banana.Converter.toLocaleDateFormat(this.data[period].endDate), "right");
             tableCell.addParagraph(this.data[period].periodName);
@@ -561,7 +560,7 @@ var VatReconciliation = class VatReconciliation {
             var vatcode = vatcodesList[i];
             var vatcodedescription = vatcode;
             if (vatcode === "_void_") {
-                vatcodedescription = texts.without_vat_code;
+                vatcodedescription = this.texts.without_vat_code;
             }
             var totalAmountVatCode = {};
             for (var account in data.table1[vatcode]) {
@@ -569,7 +568,7 @@ var VatReconciliation = class VatReconciliation {
                 var tableHeader = myTable.addRow("subtotal");
                 tableHeader.addCell("");
                 tableHeader.addCell("");
-                tableHeader.addCell(texts.total + " " + vatcodedescription + " " + texts.account.toLowerCase() + " " + account);
+                tableHeader.addCell(this.texts.total + " " + vatcodedescription + " " + this.texts.account.toLowerCase() + " " + account);
 
                 for (var period in this.data) {
                     var totalAmountAccount = 0;
@@ -592,27 +591,27 @@ var VatReconciliation = class VatReconciliation {
             var tableHeader = myTable.addRow("total");
             tableHeader.addCell("");
             tableHeader.addCell("");
-            tableHeader.addCell(texts.total_transactions + " " + vatcodedescription, "bold");
+            tableHeader.addCell(this.texts.total_transactions + " " + vatcodedescription, "bold");
             for (var period in totalAmountVatCode) {
                 tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalAmountVatCode[period]), "right bold");
             }
         }
     }
 
-    printDataTable2(report, stylesheet, texts) {
+    printDataTable2(report, stylesheet) {
 
-        report.addParagraph("IVA imponibile dichiarata nel formulario (Gr1=" + this.param.groupVatTaxable +")", "h2");
-        report.addParagraph(texts.period + ": " + this.data["Y"].periodName + " " + Banana.Converter.toLocaleDateFormat(this.data["Y"].startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.data["Y"].endDate), "h3");
+        report.addParagraph(this.texts.taxableVatDeclaredTitle + " (Gr1=" + this.param.groupVatTaxable +")", "h2");
+        report.addParagraph(this.texts.period + ": " + this.data["Y"].periodName + " " + Banana.Converter.toLocaleDateFormat(this.data["Y"].startDate) + " - " + Banana.Converter.toLocaleDateFormat(this.data["Y"].endDate), "h3");
 
         var myTable = report.addTable("");
 
         //header
         var tableHeader = myTable.addRow("header");
         tableHeader.addCell("");
-        tableHeader.addCell("Descrizione", "left");
+        tableHeader.addCell(this.texts.description, "left");
         tableHeader.addCell("");
         for (var period in this.data) {
-            var tableCell = tableHeader.addCell("Imponibile", "right");
+            var tableCell = tableHeader.addCell(this.texts.taxableAmount, "right");
             tableCell.addParagraph(this.data[period].periodName);
             tableCell.addParagraph(this.accountingDataBase.basicCurrency);
         }
@@ -633,7 +632,7 @@ var VatReconciliation = class VatReconciliation {
 
                 var tableHeader = myTable.addRow("subtotal");
                 tableHeader.addCell("");
-                tableHeader.addCell("Totale " + vatcode + " conto " + account);
+                tableHeader.addCell(this.texts.total + " " + vatcode + " " + this.texts.account.toLowerCase() + " " + account);
                 tableHeader.addCell("");
 
                 for (var period in this.data) {
@@ -655,7 +654,7 @@ var VatReconciliation = class VatReconciliation {
             //Total vatcode
             var tableHeader = myTable.addRow("total");
             tableHeader.addCell("");
-            tableHeader.addCell("Totale " + vatcode, "bold");
+            tableHeader.addCell(this.texts.total + " " + vatcode, "bold");
             tableHeader.addCell("");
             for (var period in totalTaxableAmount) {
                 tableHeader.addCell(Banana.Converter.toLocaleNumberFormat(totalTaxableAmount[period]), "right bold");
@@ -663,11 +662,11 @@ var VatReconciliation = class VatReconciliation {
         }
     }
 
-    printDataTransactions(report, stylesheet, data, texts) {
+    printDataTransactions(report, stylesheet, data) {
 
         report.addPageBreak();
-        report.addParagraph("Registrazioni dei conti con differenze", "h2");
-        report.addParagraph(texts.period + ": " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h3");
+        report.addParagraph(this.texts.accountDifferencesTitle, "h2");
+        report.addParagraph(this.texts.period + ": " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h3");
 
         // Crea elenco ordinato dei conti
         var accountsList = this.loadDataAccounts(this.param.groupRevenues);
@@ -725,22 +724,22 @@ var VatReconciliation = class VatReconciliation {
                 var tableRow = myTable.addRow();
                 tableRow.addCell("","",13);
                 var tableRow = myTable.addRow();
-                tableRow.addCell("Conto: " + account + " " + accountDescription + " - Differenza: " + Banana.Converter.toLocaleNumberFormat(diff), "bold", 13);
+                tableRow.addCell(this.texts.account + ": " + account + " " + accountDescription + " -> " + this.texts.difference + ": " + Banana.Converter.toLocaleNumberFormat(diff), "bold", 13);
 
                 var tableRow = myTable.addRow();
-                tableRow.addCell("Riga","transactions bold");
-                tableRow.addCell("Data","transactions bold");
-                tableRow.addCell("Doc","transactions bold");
-                tableRow.addCell("Descrizione","transactions bold");
-                tableRow.addCell("Conto","transactions bold");
-                tableRow.addCell("Ctrp.","transactions bold");
-                tableRow.addCell("Dare","transactions bold");
-                tableRow.addCell("Avere","transactions bold");
-                tableRow.addCell("Cod.IVA","transactions bold");
-                tableRow.addCell("Tipo Imp.","transactions bold");
-                tableRow.addCell("IVA imponibile","transactions bold");
-                tableRow.addCell("Importo IVA","transactions bold");
-                tableRow.addCell("IVA contabile","transactions bold");
+                tableRow.addCell(this.texts.rowNumber,"transactions bold");
+                tableRow.addCell(this.texts.date,"transactions bold");
+                tableRow.addCell(this.texts.documentNumber,"transactions bold");
+                tableRow.addCell(this.texts.description,"transactions bold");
+                tableRow.addCell(this.texts.account,"transactions bold");
+                tableRow.addCell(this.texts.contraAccount,"transactions bold");
+                tableRow.addCell(this.texts.debit,"transactions bold");
+                tableRow.addCell(this.texts.credit,"transactions bold");
+                tableRow.addCell(this.texts.vatCode,"transactions bold");
+                tableRow.addCell(this.texts.amountType,"transactions bold");
+                tableRow.addCell(this.texts.vatTaxableAmount,"transactions bold");
+                tableRow.addCell(this.texts.vatAmount,"transactions bold");
+                tableRow.addCell(this.texts.postedVat,"transactions bold");
 
                 var totalDebit = 0;
                 var totalCredit = 0;
@@ -865,21 +864,19 @@ var VatReconciliation = class VatReconciliation {
                 }
 
                 var tableRow = myTable.addRow();
-                tableRow.addCell("Totale", "transactions bold", 5);
+                tableRow.addCell(this.texts.total, "transactions bold", 5);
                 tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totalDebit), "transactions bold right");
                 tableRow.addCell(Banana.Converter.toLocaleNumberFormat(totalCredit), "transactions bold right");
                 var diffTotalTransactions = Banana.SDecimal.subtract(totalCredit,totalDebit);
                 if (invertSign) {
                     diffTotalTransactions = Banana.SDecimal.subtract(totalDebit,totalCredit);
                 }
-                tableRow.addCell("Differenza da registrazioni: " + Banana.Converter.toLocaleNumberFormat(diffTotalTransactions),"transactions bold", 6);
+                tableRow.addCell(this.texts.transactionDifference + ": " + Banana.Converter.toLocaleNumberFormat(diffTotalTransactions),"transactions bold", 6);
             }
         }
     }
 
     convertParam(param) {
-
-        var texts = this.setTexts();
 
         var convertedParam = {};
         convertedParam.version = '1.0';
@@ -887,7 +884,7 @@ var VatReconciliation = class VatReconciliation {
 
         var currentParam = {};
         currentParam.name = 'groupRevenues';
-        currentParam.title = texts.param_group_revenues;
+        currentParam.title = this.texts.param_group_revenues;
         currentParam.type = 'string';
         currentParam.value = param.groupRevenues ? param.groupRevenues : '';
         currentParam.defaultvalue = '3';
@@ -898,7 +895,7 @@ var VatReconciliation = class VatReconciliation {
 
         currentParam = {};
         currentParam.name = 'groupVatTaxable';
-        currentParam.title = texts.param_group_vat_taxable;
+        currentParam.title = this.texts.param_group_vat_taxable;
         currentParam.type = 'string';
         currentParam.value = param.groupVatTaxable ? param.groupVatTaxable : '';
         currentParam.defaultvalue = '200';
@@ -909,7 +906,7 @@ var VatReconciliation = class VatReconciliation {
 
         currentParam = {};
         currentParam.name = 'groupVatCodes';
-        currentParam.title = texts.param_group_vat_codes;
+        currentParam.title = this.texts.param_group_vat_codes;
         currentParam.type = 'string';
         currentParam.value = param.groupVatCodes ? param.groupVatCodes : '';
         currentParam.defaultvalue = '1.1';
@@ -1035,80 +1032,139 @@ var VatReconciliation = class VatReconciliation {
             lang = lang.substr(0, 2);
         }
 
-        var texts = {};
+        this.texts = {};
         if (lang === 'it') {
-            texts.document = "Riconciliazione IVA Svizzera";
-            texts.title_main = "Riconciliazione IVA esercizio";
-            texts.period = "Periodo";
-            texts.turnover = "Cifra d'affari";
-            texts.account = "Conto";
-            texts.with_vat_code = "con cod.IVA";
-            texts.without_vat_code = "senza cod.IVA";
-            texts.overall = "complessiva";
-            texts.net_declared = "Netto dichiarato";
-            texts.difference = "Differenza";
-            texts.total = "Totale";
-            texts.total_transactions = "Totale registrazioni";
-            texts.description = "Descrizione";
-            texts.param_group_revenues = 'Gruppo conti entrate';
-            texts.param_group_vat_taxable = 'Gruppo imponibile nel formulario';
-            texts.param_group_vat_codes = 'Gruppo raggruppamento codici IVA per vendite';
+            this.texts.document = "Riconciliazione IVA Svizzera";
+            this.texts.title_main = "Riconciliazione IVA esercizio";
+            this.texts.period = "Periodo";
+            this.texts.turnover = "Cifra d'affari";
+            this.texts.account = "Conto";
+            this.texts.with_vat_code = "con cod.IVA";
+            this.texts.without_vat_code = "senza cod.IVA";
+            this.texts.overall = "complessiva";
+            this.texts.net_declared = "Netto dichiarato";
+            this.texts.difference = "Differenza";
+            this.texts.total = "Totale";
+            this.texts.total_transactions = "Totale registrazioni";
+            this.texts.description = "Descrizione";
+            this.texts.taxableVatDeclaredTitle = "IVA imponibile dichiarata nel formulario";
+            this.texts.taxableAmount = "Imponibile";
+            this.texts.accountDifferencesTitle = "Registrazioni dei conti con differenze";
+            this.texts.rowNumber = "Riga";
+            this.texts.date = "Data";
+            this.texts.documentNumber = "Doc";
+            this.texts.contraAccount = "Ctrp."; //contropartita
+            this.texts.debit = "Dare";
+            this.texts.credit = "Avere";
+            this.texts.vatCode = "Cod.IVA";
+            this.texts.amountType = "Tipo Imp.";
+            this.texts.vatTaxableAmount = "IVA imponibile";
+            this.texts.vatAmount = "Importo IVA";
+            this.texts.postedVat = "IVA contabile";
+            this.texts.transactionDifference = "Differenza da registrazioni";
+            this.texts.param_group_revenues = 'Gruppo conti entrate';
+            this.texts.param_group_vat_taxable = 'Gruppo imponibile nel formulario';
+            this.texts.param_group_vat_codes = 'Gruppo raggruppamento codici IVA per vendite';
         }
         else if (lang === 'de') {
-            texts.document = "MWST-Abstimmung Schweiz";
-            texts.title_main = "MWST-Abstimmung Geschäftsjahr";
-            texts.period = "Zeitraum";
-            texts.turnover = "Umsatz";
-            texts.account = "Konto";
-            texts.with_vat_code = "mit MWST-Code";
-            texts.without_vat_code = "ohne MWST-Code";
-            texts.overall = "gesamt";
-            texts.net_declared = "Netto deklariert";
-            texts.difference = "Differenz";
-            texts.total = "Gesamt";
-            texts.total_transactions = "Gesamtbuchungen";
-            texts.description = "Beschreibung";
-            texts.param_group_revenues = "Ertragskontengruppe";
-            texts.param_group_vat_taxable = "Gruppe steuerpflichtiger Umsätze im Formular";
-            texts.param_group_vat_codes = "Gruppe der MWST-Codes für Verkäufe";
+            this.texts.document = "MWST-Abstimmung Schweiz";
+            this.texts.title_main = "MWST-Abstimmung Geschäftsjahr";
+            this.texts.period = "Zeitraum";
+            this.texts.turnover = "Umsatz";
+            this.texts.account = "Konto";
+            this.texts.with_vat_code = "mit MWST-Code";
+            this.texts.without_vat_code = "ohne MWST-Code";
+            this.texts.overall = "gesamt";
+            this.texts.net_declared = "Netto deklariert";
+            this.texts.difference = "Differenz";
+            this.texts.total = "Gesamt";
+            this.texts.total_transactions = "Gesamtbuchungen";
+            this.texts.description = "Beschreibung";
+            this.texts.taxableVatDeclaredTitle = "Versteuerbarer Umsatz laut Formular";
+            this.texts.taxableAmount = "Steuerbarer Betrag";
+            this.texts.accountDifferencesTitle = "Buchungen der Konten mit Differenzen";
+            this.texts.rowNumber = "Zeile";
+            this.texts.date = "Datum";
+            this.texts.documentNumber = "Beleg";
+            this.texts.contraAccount = "Gegenkonto";
+            this.texts.debit = "Soll";
+            this.texts.credit = "Haben";
+            this.texts.vatCode = "MwSt-Code";
+            this.texts.amountType = "Betragstyp";
+            this.texts.vatTaxableAmount = "Steuerbarer Betrag";
+            this.texts.vatAmount = "MwSt-Betrag";
+            this.texts.postedVat = "Verbuchte MwSt";
+            this.texts.transactionDifference = "Differenz aus Buchungen";
+            this.texts.param_group_revenues = "Ertragskontengruppe";
+            this.texts.param_group_vat_taxable = "Gruppe steuerpflichtiger Umsätze im Formular";
+            this.texts.param_group_vat_codes = "Gruppe der MWST-Codes für Verkäufe";
         }
         else if (lang === 'fr') {
-            texts.document = "Rapprochement TVA Suisse";
-            texts.title_main = "Rapprochement TVA exercice";
-            texts.period = "Période";
-            texts.turnover = "Chiffre d'affaires";
-            texts.account = "Compte";
-            texts.with_vat_code = "avec code TVA";
-            texts.without_vat_code = "sans code TVA";
-            texts.overall = "global";
-            texts.net_declared = "Net déclaré";
-            texts.difference = "Différence";
-            texts.total = "Total";
-            texts.total_transactions = "Total écritures";
-            texts.description = "Description";
-            texts.param_group_revenues = "Groupe de comptes de revenus";
-            texts.param_group_vat_taxable = "Groupe taxable dans le formulaire";
-            texts.param_group_vat_codes = "Groupe de codes TVA pour les ventes";
+            this.texts.document = "Rapprochement TVA Suisse";
+            this.texts.title_main = "Rapprochement TVA exercice";
+            this.texts.period = "Période";
+            this.texts.turnover = "Chiffre d'affaires";
+            this.texts.account = "Compte";
+            this.texts.with_vat_code = "avec code TVA";
+            this.texts.without_vat_code = "sans code TVA";
+            this.texts.overall = "global";
+            this.texts.net_declared = "Net déclaré";
+            this.texts.difference = "Différence";
+            this.texts.total = "Total";
+            this.texts.total_transactions = "Total écritures";
+            this.texts.description = "Description";
+            this.texts.taxableVatDeclaredTitle = "TVA imposable déclarée dans le formulaire";
+            this.texts.taxableAmount = "Montant imposable";
+            this.texts.accountDifferencesTitle = "Écritures des comptes avec différences";
+            this.texts.rowNumber = "Ligne";
+            this.texts.date = "Date";
+            this.texts.documentNumber = "Pièce";
+            this.texts.contraAccount = "Contrepartie";
+            this.texts.debit = "Débit";
+            this.texts.credit = "Crédit";
+            this.texts.vatCode = "Code TVA";
+            this.texts.amountType = "Type de montant";
+            this.texts.vatTaxableAmount = "Montant imposable";
+            this.texts.vatAmount = "Montant TVA";
+            this.texts.postedVat = "TVA comptabilisée";
+            this.texts.transactionDifference = "Différence selon les écritures";
+            this.texts.param_group_revenues = "Groupe de comptes de revenus";
+            this.texts.param_group_vat_taxable = "Groupe taxable dans le formulaire";
+            this.texts.param_group_vat_codes = "Groupe de codes TVA pour les ventes";
         }
         else {
-            texts.document = "Swiss VAT Reconciliation";
-            texts.title_main = "VAT Reconciliation – Fiscal Year";
-            texts.period = "Period";
-            texts.turnover = "Turnover";
-            texts.account = "Account";
-            texts.with_vat_code = "with VAT code";
-            texts.without_vat_code = "without VAT code";
-            texts.overall = "Overall";
-            texts.net_declared = "Net Declared";
-            texts.difference = "Difference";
-            texts.total = "Total";
-            texts.total_transactions = "Total Transactions";
-            texts.description = "Description";
-            texts.param_group_revenues = "Revenue Accounts Group";
-            texts.param_group_vat_taxable = "Taxable Amount Group in Form";
-            texts.param_group_vat_codes = "VAT Code Grouping for Sales";
+            this.texts.document = "Swiss VAT Reconciliation";
+            this.texts.title_main = "VAT Reconciliation – Fiscal Year";
+            this.texts.period = "Period";
+            this.texts.turnover = "Turnover";
+            this.texts.account = "Account";
+            this.texts.with_vat_code = "with VAT code";
+            this.texts.without_vat_code = "without VAT code";
+            this.texts.overall = "Overall";
+            this.texts.net_declared = "Net Declared";
+            this.texts.difference = "Difference";
+            this.texts.total = "Total";
+            this.texts.total_transactions = "Total Transactions";
+            this.texts.description = "Description";
+            this.texts.taxableVatDeclaredTitle = "Taxable VAT declared in the form";
+            this.texts.taxableAmount = "Taxable amount";
+            this.texts.accountDifferencesTitle = "Account entries with differences";
+            this.texts.rowNumber = "Row";
+            this.texts.date = "Date";
+            this.texts.documentNumber = "Document";
+            this.texts.contraAccount = "Contra account";
+            this.texts.debit = "Debit";
+            this.texts.credit = "Credit";
+            this.texts.vatCode = "VAT code";
+            this.texts.amountType = "Amount type";
+            this.texts.vatTaxableAmount = "Taxable amount";
+            this.texts.vatAmount = "VAT amount";
+            this.texts.postedVat = "Posted VAT";
+            this.texts.transactionDifference = "Difference from transactions";
+            this.texts.param_group_revenues = "Revenue Accounts Group";
+            this.texts.param_group_vat_taxable = "Taxable Amount Group in Form";
+            this.texts.param_group_vat_codes = "VAT Code Grouping for Sales";
         }
-        return texts;
     }
 }
 
