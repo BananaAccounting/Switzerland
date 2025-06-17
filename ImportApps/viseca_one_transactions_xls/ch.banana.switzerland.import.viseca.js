@@ -50,27 +50,31 @@ function exec(inData, isTest) {
    convertionParam = defineConversionParam(inData);
    Banana.console.log("convertion separator: " + convertionParam.separator);
    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
    // Viseca Card Payments, this format works with the header names.
    // Format 1
    var visecaFormat1 = new VisecaFormat1();
+   let transactionsData = visecaFormat1.getFormattedData(transactions, importUtilities);
    if (visecaFormat1.match(transactionsData)) {
+      Banana.console.log("Viseca Format 1 matched");
       transactions = visecaFormat1.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 2
    var visecaFormat2 = new VisecaFormat2();
+   transactionsData = visecaFormat2.getFormattedData(transactions, importUtilities);
    if (visecaFormat2.match(transactionsData)) {
+      Banana.console.log("Viseca Format 2 matched");
       transactions = visecaFormat2.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
    // Format 3
    var visecaFormat3 = new VisecaFormat3();
-   // let visecaFormattedData = visecaFormat3.getFormattedData(inData, importUtilities);
+   transactionsData = visecaFormat3.getFormattedData(transactions, importUtilities);
    if (visecaFormat3.match(transactionsData)) {
+      Banana.console.log("Viseca Format 3 matched");
       transactions = visecaFormat3.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -135,6 +139,32 @@ function VisecaFormat1() {
       // Add header and return
       var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
+   }
+
+   this.getFormattedData = function (inData, importUtilities) {
+      var columns = importUtilities.getHeaderData(inData, 5); //array
+      var rows = importUtilities.getRowData(inData, 6); //array of array
+      let form = [];
+
+      let convertedColumns = [];
+
+      convertedColumns = convertHeaderDe(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderEn(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
    }
 
    this.mapTransaction = function (transaction) {
@@ -209,6 +239,32 @@ function VisecaFormat2() {
       return header.concat(transactionsToImport);
    }
 
+   this.getFormattedData = function (inData, importUtilities) {
+      var columns = importUtilities.getHeaderData(inData, 4); //array
+      var rows = importUtilities.getRowData(inData, 5); //array of array
+      let form = [];
+
+      let convertedColumns = [];
+
+      convertedColumns = convertHeaderDe(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderEn(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+   }
+
    this.mapTransaction = function (transaction) {
       let mappedLine = [];
 
@@ -236,48 +292,12 @@ function defineConversionParam(inData) {
    // get separator
    convertionParam.separator = findSeparator(inData);
 
-   convertionParam.headerLineStart = 0;
-   convertionParam.dataLineStart = 1;
-   if (inData.split('\n')[5].match(/^POSITION/)) {
-      convertionParam.headerLineStart = 5;
-      convertionParam.dataLineStart = 6;
-   } else if (inData.split('\n')[4].match(/^TRANSAKTIONSDATUM/)) {
-      convertionParam.headerLineStart = 4;
-      convertionParam.dataLineStart = 5;
-   }
-
    /** SPECIFY THE COLUMN TO USE FOR SORTING
    If sortColums is empty the data are not sorted */
    convertionParam.sortColums = ["Date", "Description"];
    convertionParam.sortDescending = false;
 
    return convertionParam;
-}
-
-function getFormattedData(inData, convertionParam, importUtilities) {
-   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
-   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
-   let form = [];
-
-   let convertedColumns = [];
-
-   convertedColumns = convertHeaderDe(columns);
-
-   //Load the form with data taken from the array. Create objects
-   if (convertedColumns.length > 0) {
-      importUtilities.loadForm(form, convertedColumns, rows);
-      return form;
-   }
-
-   convertedColumns = convertHeaderEn(columns);
-
-   //Load the form with data taken from the array. Create objects
-   if (convertedColumns.length > 0) {
-      importUtilities.loadForm(form, convertedColumns, rows);
-      return form;
-   }
-
-   return [];
 }
 
 function convertHeaderDe(columns) {
@@ -341,6 +361,22 @@ function VisecaFormat3() {
       }
 
       return false;
+   }
+
+   this.getFormattedData = function (inData, importUtilities) {
+      var columns = importUtilities.getHeaderData(inData, 0); //array
+      var rows = importUtilities.getRowData(inData, 1); //array of array
+      let form = [];
+
+      let convertedColumns = convertHeaderEn(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
    }
 
    this.convert = function (transactionsData) {
