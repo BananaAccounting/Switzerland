@@ -48,6 +48,7 @@ function exec(inData, isTest) {
       return "";
 
    convertionParam = defineConversionParam(inData);
+   Banana.console.log("convertion separator: " + convertionParam.separator);
    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
@@ -63,6 +64,14 @@ function exec(inData, isTest) {
    var visecaFormat2 = new VisecaFormat2();
    if (visecaFormat2.match(transactionsData)) {
       transactions = visecaFormat2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
+   // Format 3
+   var visecaFormat3 = new VisecaFormat3();
+   // let visecaFormattedData = visecaFormat3.getFormattedData(inData, importUtilities);
+   if (visecaFormat3.match(transactionsData)) {
+      transactions = visecaFormat3.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
@@ -226,10 +235,13 @@ function defineConversionParam(inData) {
    convertionParam.textDelim = '\"';
    // get separator
    convertionParam.separator = findSeparator(inData);
+
+   convertionParam.headerLineStart = 0;
+   convertionParam.dataLineStart = 1;
    if (inData.split('\n')[5].match(/^POSITION/)) {
       convertionParam.headerLineStart = 5;
       convertionParam.dataLineStart = 6;
-   } else {
+   } else if (inData.split('\n')[4].match(/^TRANSAKTIONSDATUM/)) {
       convertionParam.headerLineStart = 4;
       convertionParam.dataLineStart = 5;
    }
@@ -250,6 +262,14 @@ function getFormattedData(inData, convertionParam, importUtilities) {
    let convertedColumns = [];
 
    convertedColumns = convertHeaderDe(columns);
+
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
+   convertedColumns = convertHeaderEn(columns);
 
    //Load the form with data taken from the array. Create objects
    if (convertedColumns.length > 0) {
@@ -279,6 +299,123 @@ function convertHeaderDe(columns) {
             break;
          case "BRUTTOBETRAG RECHNUNG":
             convertedColumns[i] = "Amount";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+/**
+ * Viseco (One) Format 3
+ * TransactionId,CardId,Date,ValutaDate,Amount,Currency,OriginalAmount,OriginalCurrency,MerchantName,MerchantPlace,MerchantCountry,StateType,Details,Type
+ * TRX2025123456789012345,1239456ABC3Z1234,2025-05-08 12:04:06,2025-05-09 00:00:00,8.500,EUR,8.500,EUR,Vichy,FRA,BOOKED,Vichy,merchant
+ * TRX2025012345678901234,1239456ABC3Z1234,2025-05-06 21:29:11,2025-05-07 00:00:00,256.960,EUR,256.960,EUR,hotel,FRA,BOOKED,hotel,merchant
+ * TRX2025123456789001234,1239456ABC3Z1234,2025-04-16 14:18:01,2025-04-17 00:00:00,14.300,EUR,12.900,CHF,Test,,,BOOKED,Test,merchant
+ * 
+ */
+function VisecaFormat3() {
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+         
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
+      mappedLine.push("");
+      mappedLine.push(transaction["Transaction Id"]);
+      mappedLine.push(transaction["Merchant Name"] + ", " + transaction["Merchant Place"] + ", " + transaction["Details"]);
+      if (transaction["Amount"].substring(0, 1) === '-') {
+         mappedLine.push("");
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), '.'));
+      } else {
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+         mappedLine.push("");
+      }
+
+      return mappedLine;
+   }
+}
+
+function convertHeaderEn(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Date":
+            convertedColumns[i] = "Date";
+            break;
+         case "ValutaDate":
+            convertedColumns[i] = "DateValue";
+            break;  
+         case "TransactionId":
+            convertedColumns[i] = "Transaction Id";
+            break; 
+         case "Amount":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Currency":
+            convertedColumns[i] = "Currency";
+            break;
+         case "MerchantName":
+            convertedColumns[i] = "Merchant Name";
+            break;
+         case "MerchantPlace":
+            convertedColumns[i] = "Merchant Place";
+            break;
+         case "MerchantCountry":
+            convertedColumns[i] = "Merchant Country";
+            break;
+         case "StateType":
+            convertedColumns[i] = "State Type";
+            break;
+         case "Details":
+            convertedColumns[i] = "Details";
             break;
          default:
             break;
