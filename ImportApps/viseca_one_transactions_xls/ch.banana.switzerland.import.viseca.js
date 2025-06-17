@@ -48,7 +48,7 @@ function exec(inData, isTest) {
       return "";
 
    convertionParam = defineConversionParam(inData);
-   Banana.console.log("convertion separator: " + convertionParam.separator);
+   
    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
 
    // Viseca Card Payments, this format works with the header names.
@@ -56,7 +56,6 @@ function exec(inData, isTest) {
    var visecaFormat1 = new VisecaFormat1();
    let transactionsData = visecaFormat1.getFormattedData(transactions, importUtilities);
    if (visecaFormat1.match(transactionsData)) {
-      Banana.console.log("Viseca Format 1 matched");
       transactions = visecaFormat1.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -65,7 +64,6 @@ function exec(inData, isTest) {
    var visecaFormat2 = new VisecaFormat2();
    transactionsData = visecaFormat2.getFormattedData(transactions, importUtilities);
    if (visecaFormat2.match(transactionsData)) {
-      Banana.console.log("Viseca Format 2 matched");
       transactions = visecaFormat2.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
@@ -74,7 +72,6 @@ function exec(inData, isTest) {
    var visecaFormat3 = new VisecaFormat3();
    transactionsData = visecaFormat3.getFormattedData(transactions, importUtilities);
    if (visecaFormat3.match(transactionsData)) {
-      Banana.console.log("Viseca Format 3 matched");
       transactions = visecaFormat3.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
