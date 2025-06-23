@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.letterqrmultiple
 // @api = 1.2.0
-// @pubdate = 2025-03-31
+// @pubdate = 2025-06-17
 // @publisher = Banana.ch SA
 // @description = QR-Invoice from Excel
 // @description.it = QR-Fattura da Excel
@@ -326,7 +326,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
       userParam.sender_address_name = banDoc.info("AccountingDataBase","Company");
     }
     userParam.sender_address_address = banDoc.info("AccountingDataBase","Address1");
-    userParam.sender_address_house_number = banDoc.info("AccountingDataBase","Address2");
+    userParam.sender_address_house_number = banDoc.info("AccountingDataBase","BuildingNumber");
     userParam.sender_address_postal_code = banDoc.info("AccountingDataBase","Zip");
     userParam.sender_address_locality = banDoc.info("AccountingDataBase","City");
     userParam.sender_address_country_code = banDoc.info("AccountingDataBase","CountryCode");
@@ -339,7 +339,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
     userParam.supplier_info_first_name = banDoc.info("AccountingDataBase","Name");
     userParam.supplier_info_last_name = banDoc.info("AccountingDataBase","FamilyName");
     userParam.supplier_info_address1 = banDoc.info("AccountingDataBase","Address1");
-    userParam.supplier_info_address2 = banDoc.info("AccountingDataBase","Address2");
+    userParam.supplier_info_address2 = banDoc.info("AccountingDataBase","BuildingNumber");
     userParam.supplier_info_postal_code = banDoc.info("AccountingDataBase","Zip");
     userParam.supplier_info_city = banDoc.info("AccountingDataBase","City");
     userParam.supplier_info_country_code = banDoc.info("AccountingDataBase","CountryCode");

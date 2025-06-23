@@ -33,7 +33,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -48,7 +48,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -60,7 +60,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -93,7 +93,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -108,7 +108,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -120,7 +120,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -152,7 +152,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -167,7 +167,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -179,7 +179,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -212,7 +212,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -227,7 +227,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -239,7 +239,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -272,7 +272,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -287,7 +287,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -299,7 +299,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -512,7 +512,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -529,7 +529,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -541,7 +541,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -574,7 +574,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -591,7 +591,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -603,7 +603,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -636,7 +636,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -653,7 +653,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -665,7 +665,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -698,7 +698,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -715,7 +715,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -727,7 +727,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -760,7 +760,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -777,7 +777,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -789,7 +789,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -822,7 +822,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -839,7 +839,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -851,7 +851,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -884,7 +884,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -901,7 +901,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -913,7 +913,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -946,7 +946,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -963,7 +963,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Additional information \\
@@ -978,7 +978,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1011,7 +1011,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1028,7 +1028,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Additional information \\
@@ -1043,7 +1043,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1076,7 +1076,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1093,7 +1093,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Additional information \\
@@ -1108,7 +1108,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1141,7 +1141,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1158,7 +1158,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Additional information \\
@@ -1173,7 +1173,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1206,7 +1206,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1221,7 +1221,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1233,7 +1233,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1266,7 +1266,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1283,7 +1283,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by (name/address) \\
@@ -1295,7 +1295,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1396,7 +1396,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by \\
@@ -1416,7 +1416,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by \\
@@ -1431,7 +1431,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
@@ -1464,7 +1464,7 @@ Receipt \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by \\
@@ -1482,7 +1482,7 @@ Amount \\
 Account / Payable to \\
 CH58 0079 1123 0008 8901 2 \\
 Company \\
-Address1 Address 22 \\
+Address1 \\
 Zip City \\
   \\
 Payable by \\
@@ -1497,7 +1497,7 @@ ewline CH5800791123000889012
 ewline S
 ewline Company
 ewline Address1
-ewline Address 22
+ewline 
 ewline Zip
 ewline City
 ewline CH
