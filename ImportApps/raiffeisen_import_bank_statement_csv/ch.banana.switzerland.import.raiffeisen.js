@@ -261,6 +261,15 @@ function RaiffeisenFormat6() {
  * CHXXXXXXXXXXXXXXXXXXX;01.01.2021 00:00;Prelevamento Bancomat BR;-482.2;6541.01;01.01.2021 00:00
  * CHXXXXXXXXXXXXXXXXXXX;03.02.2021 00:00;Acquisto TAMOIL;-66.57;6474.44;03.02.2021 00:00
  * CHXXXXXXXXXXXXXXXXXXX;04.05.2021 00:00;Ordine collettivo e-banking da pagamenti singoli;-1967;239.1;04.05.2021 00:00
+ * 
+ * 
+ * Example 3:
+ * 
+ * IBAN;Booked At;Text;Credit/Debit Amount;Balance;Valuta Date
+ * CHXXXXXXXXXXXXXXXXXXX;2021-01-01 00:00:00.0;Prelevamento Bancomat BR;-482.2;6541.01;2021-01-01 00:00:00.0
+ * ;;Description 1 on next row;;;
+ * CHXXXXXXXXXXXXXXXXXXX;2018-01-04 04:04:16.0;Acquisto TAMOIL;-66.57;6474.44;2018-01-04 00:00:00.0
+ * ;;Description 2 on next row;;;
  */
 function RaiffeisenFormat5() {
 	this.getFormattedData = function (transactions, importUtilities) {
@@ -280,7 +289,7 @@ function RaiffeisenFormat5() {
 				while (i + 1 < transactions.length &&   // next row exists
 					!transactions[i + 1][1] && 		// next row has no date (indicating continuation)
 					transactions[i + 1][2]) {	 	// next row has text to combine
-					// Combine text with separator
+					// Combine text 
 					combinedText += " " + transactions[i + 1][2];
 					i++; // Skip the continuation row in next iteration
 				}
@@ -355,7 +364,7 @@ function RaiffeisenFormat5() {
 		for (var i = 0; i < transactionsData.length; i++) {
 			var transaction = transactionsData[i];
 			var formatMatched = true;
-			if ((formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+			if ((formatMatched && transaction.hasOwnProperty("IBAN")&& transaction["Date"] && transaction["Date"].length >= 10 &&
 				transaction["Date"].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/)) || (formatMatched && transaction.hasOwnProperty("IBAN")))
 				formatMatched = true;
 			else
@@ -372,7 +381,7 @@ function RaiffeisenFormat5() {
 		var transactionsToImport = [];
 
 		for (var i = 0; i < transactionsData.length; i++) {
-			if ((transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+			if ((transactionsData[i].hasOwnProperty("IBAN")&& transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
 				transactionsData[i]["Date"].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/)) || (transactionsData[i].hasOwnProperty("IBAN"))) {
 				transactionsToImport.push(this.mapTransaction(transactionsData[i]));
 			}
@@ -399,107 +408,6 @@ function RaiffeisenFormat5() {
 		return mappedLine;	
 	}
 }
-// function RaiffeisenFormat5() {
-// 	this.colIBAN = 0;
-// 	this.colDate = 1;
-// 	this.colDescr = 2;
-// 	this.colAmount = 3;
-// 	this.colBalance = 4;
-// 	this.colDateValuta = 5;
-
-// 	/** Return true if the transactions match this format */
-// 	this.match = function (transactions) {
-// 		if (transactions.length === 0)
-// 			return false;
-
-// 		for (i = 0; i < transactions.length; i++) {
-// 			var transaction = transactions[i];
-
-// 			var formatMatched = false;
-
-// 			/* array should have all columns */
-// 			if (transaction.length === (this.colDateValuta + 1))
-// 				formatMatched = true;
-// 			else
-// 				formatMatched = false;
-
-// 			//13 as the format colud be es: 01.01.22 00:00 or 01.01.2022 00:00
-// 			if (formatMatched && transaction[this.colDate].length > 13
-// 				&& transaction[this.colDate].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/))
-// 				formatMatched = true;
-// 			else
-// 				formatMatched = false;
-
-// 			if (formatMatched && transaction[this.colDateValuta].length > 13
-// 				&& transaction[this.colDateValuta].match(/^[0-9]+(\-|\.)[0-9]+(\-|\.)[0-9]+\s[0-9]+\:[0-9]+(\:[0-9]+\.[0-9]+)?$/))
-// 				formatMatched = true;
-// 			else
-// 				formatMatched = false;
-
-// 			if (formatMatched)
-// 				return true;
-// 		}
-
-// 		return false;
-// 	}
-
-// 	/** Convert the transaction to the format to be imported */
-// 	this.convert = function (transactions) {
-// 		var transactionsToImport = [];
-
-// 		// Filter and map rows
-// 		for (i = 0; i < transactions.length; i++) {
-// 			var transaction = transactions[i];
-// 			if (transaction.length < (this.colBalance + 1)) {
-// 				continue;
-// 			}
-// 			if (transaction[this.colDate].length >= 13
-// 				&& transaction[this.colDateValuta].length >= 13) {
-// 				transactionsToImport.push(this.mapTransaction(transaction));
-// 			}
-// 		}
-
-// 		// Add header and return
-// 		var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
-// 		return header.concat(transactionsToImport);
-// 	}
-
-// 	this.mapTransaction = function (element) {
-// 		var mappedLine = [];
-
-// 		var dateText = element[this.colDate].substring(0, 10);
-// 		if (dateText.indexOf(".") > -1)
-// 			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
-// 		else
-// 			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
-
-// 		dateText = element[this.colDateValuta].substring(0, 10);
-// 		if (dateText.indexOf(".") > -1)
-// 			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
-// 		else
-// 			mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
-
-// 		mappedLine.push(""); // Doc is empty for now
-// 		mappedLine.push(element[this.colDescr]);
-// 		if (element[this.colAmount].length > 0) {
-// 			if (element[this.colAmount].substring(0, 1) === '-') {
-// 				mappedLine.push("");
-// 				var amount;
-// 				if (element[this.colAmount].length > 1)
-// 					amount = element[this.colAmount].substring(1);
-// 				mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
-// 			} else {
-// 				mappedLine.push(Banana.Converter.toInternalNumberFormat(element[this.colAmount], '.'));
-// 				mappedLine.push("");
-// 			}
-// 		} else {
-// 			mappedLine.push("");
-// 			mappedLine.push("");
-// 		}
-
-// 		return mappedLine;
-// 	}
-// }
 
 /**
  * Raiffeisen Format 4
