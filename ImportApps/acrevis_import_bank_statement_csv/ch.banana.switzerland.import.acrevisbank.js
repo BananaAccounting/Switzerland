@@ -47,10 +47,10 @@ function exec(string, isTest) {
     let convertionParam = defineConversionParam(string);
  
     var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
-    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
  
     // Acrevis Bank Format, this format works with the header names.
     var acrevisBankFormat1 = new AcrevisBankFormat1();
+    let transactionsData = acrevisBankFormat1.getFormattedData(transactions, importUtilities);
     if (acrevisBankFormat1.match(transactionsData)) {
        transactions = acrevisBankFormat1.convert(transactionsData);
        return Banana.Converter.arrayToTsv(transactions);
@@ -123,6 +123,24 @@ function exec(string, isTest) {
        var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
        return header.concat(transactionsToImport);
     }
+
+    this.getFormattedData = function (inData, importUtilities) {
+         var columns = importUtilities.getHeaderData(inData, 11); //array
+         var rows = importUtilities.getRowData(inData, 12); //array of array
+         let form = [];
+   
+         let convertedColumns = [];
+   
+         convertedColumns = convertHeaderDe(columns);
+   
+         //Load the form with data taken from the array. Create objects
+         if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+         }
+   
+         return [];
+    }
  
     this.mapTransaction = function (transaction) {
       let mappedLine = [];
@@ -171,24 +189,6 @@ function exec(string, isTest) {
     convertionParam.sortDescending = false;
  
     return convertionParam;
- }
- 
- function getFormattedData(inData, convertionParam, importUtilities) {
-    var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
-    var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
-    let form = [];
- 
-    let convertedColumns = [];
- 
-    convertedColumns = convertHeaderDe(columns);
- 
-    //Load the form with data taken from the array. Create objects
-    if (convertedColumns.length > 0) {
-       importUtilities.loadForm(form, convertedColumns, rows);
-       return form;
-    }
- 
-    return [];
  }
  
  function convertHeaderDe(columns) {
