@@ -66,6 +66,120 @@ function exec(string, isTest) {
 
    return "";
 }
+
+/**
+ * Migros Bank Credit Card Format 1
+ */
+function MBFormatCC1() {
+   this.getFormattedData = function (inData, importUtilities) {
+      var columns = importUtilities.getHeaderData(inData, 0); //array
+      var rows = importUtilities.getRowData(inData, 1); //array of array
+      let form = [];
+
+      let convertedColumns = [];
+      convertedColumns = convertHeaderIt(columns);
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderFr(columns);
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+   }
+
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].match(/^\d{4}-\d{2}-\d{2}/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+      
+         if (formatMatched && transaction["DateValue"] && transaction["DateValue"].length >= 10 &&
+            transaction["DateValue"].match(/^\d{4}-\d{2}-\d{2}/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["TransactionId"])
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched && transaction["Amount"] && transaction["Amount"].length > 0)
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].match(/^\d{4}-\d{2}-\d{2}/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
+      mappedLine.push(""); // Doc is the TransactionId
+      mappedLine.push(transaction["TransactionId"]);
+      let description = this.getDescription(transaction);
+      mappedLine.push(description);
+      if (transaction["Amount"].substring(0, 1) === "-") {
+         mappedLine.push("");
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), '.'));
+      } else {
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+         mappedLine.push("");
+      }
+
+      return mappedLine;
+   }
+
+   this.getDescription = function (transaction) {
+      let description = "";
+      if (transaction["Details"])
+         description += ", " + transaction["Details"];
+      if (transaction["MerchantName"])
+         description += transaction["MerchantName"];
+      if (transaction["MerchantPlace"])
+         description += ", " + transaction["MerchantPlace"];
+      if (transaction["MerchantCountry"])
+         description += ", " + transaction["MerchantCountry"];
+      return description;
+   }
+}
+
 /**
  * Migros Bank Format 2
  */
@@ -398,6 +512,58 @@ function convertHeaderFr(columns) {
             break;
          case "Valeur":
             convertedColumns[i] = "DateValue";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0
+      || convertedColumns.indexOf("Description") < 0
+      || convertedColumns.indexOf("Description2") < 0
+      || convertedColumns.indexOf("Description3") < 0
+      || convertedColumns.indexOf("Amount") < 0
+      || convertedColumns.indexOf("DateValue") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+function convertHeaderEn(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Date":
+            convertedColumns[i] = "Date";
+            break;
+         case "ValutaDate":
+            convertedColumns[i] = "DateValue";
+            break;         
+         case "TransactionId":
+            convertedColumns[i] = "TransactionId";
+            break;
+         case "CardId":
+            convertedColumns[i] = "CardId";
+            break;
+         case "Currency":
+            convertedColumns[i] = "Currency";
+            break;
+         case "Amount":
+            convertedColumns[i] = "Amount";
+            break;
+         case "MerchantName":
+            convertedColumns[i] = "MerchantName";
+            break;
+         case "MerchantPlace":
+            convertedColumns[i] = "MerchantPlace";
+            break;
+         case "MerchantCountry":
+            convertedColumns[i] = "MerchantCountry";
+            break;
+         case "Details":
+            convertedColumns[i] = "Description";
             break;
          default:
             break;
