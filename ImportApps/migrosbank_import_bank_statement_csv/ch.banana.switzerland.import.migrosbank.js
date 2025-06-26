@@ -65,7 +65,7 @@ function exec(string, isTest) {
    // Migros Bank Credit Card Format 1
    var mbFormatCC1 = new MBFormatCC1();
    transactionsData = mbFormatCC1.getFormattedData(transactions, importUtilities);
-   Banana.console.debug("Migros Bank Credit Card Format 1: " + JSON.stringify(transactionsData));
+   
    if (mbFormatCC1.match(transactionsData)) {
       transactions = mbFormatCC1.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
