@@ -62,6 +62,15 @@ function exec(string, isTest) {
       return Banana.Converter.arrayToTsv(transactions);
    }
 
+   // Migros Bank Credit Card Format 1
+   var mbFormatCC1 = new MBFormatCC1();
+   transactionsData = mbFormatCC1.getFormattedData(transactions, importUtilities);
+   Banana.console.debug("Migros Bank Credit Card Format 1: " + JSON.stringify(transactionsData));
+   if (mbFormatCC1.match(transactionsData)) {
+      transactions = mbFormatCC1.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
    importUtilities.getUnknownFormatError();
 
    return "";
@@ -77,14 +86,8 @@ function MBFormatCC1() {
       let form = [];
 
       let convertedColumns = [];
-      convertedColumns = convertHeaderIt(columns);
-      //Load the form with data taken from the array. Create objects
-      if (convertedColumns.length > 0) {
-         importUtilities.loadForm(form, convertedColumns, rows);
-         return form;
-      }
-
-      convertedColumns = convertHeaderFr(columns);
+      convertedColumns = this.convertHeaderEn(columns);
+      
       //Load the form with data taken from the array. Create objects
       if (convertedColumns.length > 0) {
          importUtilities.loadForm(form, convertedColumns, rows);
@@ -92,6 +95,55 @@ function MBFormatCC1() {
       }
 
       return [];
+   }
+
+   this.convertHeaderEn = function (columns) {
+      let convertedColumns = [];
+
+      for (var i = 0; i < columns.length; i++) {
+         switch (columns[i]) {
+            case "Date":
+               convertedColumns[i] = "Date";
+               break;
+            case "ValutaDate":
+               convertedColumns[i] = "DateValue";
+               break;         
+            case "TransactionId":
+               convertedColumns[i] = "TransactionId";
+               break;
+            case "CardId":
+               convertedColumns[i] = "CardId";
+               break;
+            case "Currency":
+               convertedColumns[i] = "Currency";
+               break;
+            case "Amount":
+               convertedColumns[i] = "Amount";
+               break;
+            case "MerchantName":
+               convertedColumns[i] = "MerchantName";
+               break;
+            case "MerchantPlace":
+               convertedColumns[i] = "MerchantPlace";
+               break;
+            case "MerchantCountry":
+               convertedColumns[i] = "MerchantCountry";
+               break;
+            case "Details":
+               convertedColumns[i] = "Description";
+               break;
+            default:
+               break;
+         }
+      }
+
+      if (convertedColumns.indexOf("Date") < 0
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Amount") < 0) {
+         return [];
+      }
+      
+      return convertedColumns;
    }
 
    this.match = function (transactionsData) {
@@ -151,7 +203,7 @@ function MBFormatCC1() {
 
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
-      mappedLine.push(""); // Doc is the TransactionId
+      mappedLine.push(""); 
       mappedLine.push(transaction["TransactionId"]);
       let description = this.getDescription(transaction);
       mappedLine.push(description);
@@ -168,10 +220,10 @@ function MBFormatCC1() {
 
    this.getDescription = function (transaction) {
       let description = "";
-      if (transaction["Details"])
-         description += ", " + transaction["Details"];
+      if (transaction["Description"])
+         description += transaction["Description"];
       if (transaction["MerchantName"])
-         description += transaction["MerchantName"];
+         description += ", " + transaction["MerchantName"];
       if (transaction["MerchantPlace"])
          description += ", " + transaction["MerchantPlace"];
       if (transaction["MerchantCountry"])
@@ -409,7 +461,7 @@ var MBFormat1 = class MBFormat1 {
 }
 
 function defineConversionParam(inData) {
-
+   var string = inData;
    var inData = Banana.Converter.csvToArray(inData);
    var convertionParam = {};
    /** SPECIFY THE SEPARATOR AND THE TEXT DELIMITER USED IN THE CSV FILE */
@@ -417,7 +469,7 @@ function defineConversionParam(inData) {
    //get text delimiter
    convertionParam.textDelim = '"';
    // get separator
-   convertionParam.separator = ";";
+   convertionParam.separator = findSeparator(string);
 
    /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
    We suppose the data will always begin right away after the header line */
@@ -512,58 +564,6 @@ function convertHeaderFr(columns) {
             break;
          case "Valeur":
             convertedColumns[i] = "DateValue";
-            break;
-         default:
-            break;
-      }
-   }
-
-   if (convertedColumns.indexOf("Date") < 0
-      || convertedColumns.indexOf("Description") < 0
-      || convertedColumns.indexOf("Description2") < 0
-      || convertedColumns.indexOf("Description3") < 0
-      || convertedColumns.indexOf("Amount") < 0
-      || convertedColumns.indexOf("DateValue") < 0) {
-      return [];
-   }
-
-   return convertedColumns;
-}
-
-function convertHeaderEn(columns) {
-   let convertedColumns = [];
-
-   for (var i = 0; i < columns.length; i++) {
-      switch (columns[i]) {
-         case "Date":
-            convertedColumns[i] = "Date";
-            break;
-         case "ValutaDate":
-            convertedColumns[i] = "DateValue";
-            break;         
-         case "TransactionId":
-            convertedColumns[i] = "TransactionId";
-            break;
-         case "CardId":
-            convertedColumns[i] = "CardId";
-            break;
-         case "Currency":
-            convertedColumns[i] = "Currency";
-            break;
-         case "Amount":
-            convertedColumns[i] = "Amount";
-            break;
-         case "MerchantName":
-            convertedColumns[i] = "MerchantName";
-            break;
-         case "MerchantPlace":
-            convertedColumns[i] = "MerchantPlace";
-            break;
-         case "MerchantCountry":
-            convertedColumns[i] = "MerchantCountry";
-            break;
-         case "Details":
-            convertedColumns[i] = "Description";
             break;
          default:
             break;
