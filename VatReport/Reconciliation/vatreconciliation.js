@@ -14,13 +14,13 @@
 //
 // @id = ch.banana.ch.swissvatreconciliation
 // @api = 1.0
-// @pubdate = 2025-06-17
+// @pubdate = 2025-06-27
 // @publisher = Banana.ch SA
-// @description = Swiss VAT Reconciliation
-// @description.it = Riconciliazione IVA Svizzera
-// @description.de = MWST-Abstimmung Schweiz
-// @description.fr = Rapprochement TVA Suisse
-// @description.en = Swiss VAT Reconciliation
+// @description = Swiss Annual VAT Reconciliation
+// @description.it = Riconciliazione annuale IVA Svizzera
+// @description.de = MWST-Jahresabstimmung Schweiz
+// @description.fr = Concordance annuelle TVA Suisse
+// @description.en = Swiss Annual VAT Reconciliation
 // @task = app.command
 // @doctype = 100.110;110.110;130.110;100.130
 // @docproperties =
@@ -120,42 +120,57 @@ var VatReconciliation = class VatReconciliation {
         var startDate = this.param.startDate;
         var endDate = this.param.endDate;
 
+
+        //riprende tutti i conti che appartengono al gruppo 3 ricavi
+        var accountsList = this.loadDataAccounts(this.param.groupRevenues);
+
         if (this.accountingDataBase.openingDate === startDate && this.accountingDataBase.closureDate === endDate) {
-            this.loadDataPeriod(startDate, endDate, "Y");
+            this.loadDataPeriod(startDate, endDate, "Y", accountsList);
             if (this.param.subdivision === "Q") {
                 startDate = this.accountingDataBase.closureYear + "-01-01";
                 endDate = this.accountingDataBase.closureYear + "-03-31";
-                this.loadDataPeriod(startDate, endDate, "1Q");
+                this.loadDataPeriod(startDate, endDate, "1Q", accountsList);
                 startDate = this.accountingDataBase.closureYear + "-04-01";
                 endDate = this.accountingDataBase.closureYear + "-06-30";
-                this.loadDataPeriod(startDate, endDate, "2Q");
+                this.loadDataPeriod(startDate, endDate, "2Q", accountsList);
                 startDate = this.accountingDataBase.closureYear + "-07-01";
                 endDate = this.accountingDataBase.closureYear + "-09-30";
-                this.loadDataPeriod(startDate, endDate, "3Q");
+                this.loadDataPeriod(startDate, endDate, "3Q", accountsList);
                 startDate = this.accountingDataBase.closureYear + "-10-01";
                 endDate = this.accountingDataBase.closureYear + "-12-31";
-                this.loadDataPeriod(startDate, endDate, "4Q");
+                this.loadDataPeriod(startDate, endDate, "4Q", accountsList);
             }
         }
     }
 
-    loadDataAccounts(grText) {
-        var str = [];
+    loadDataAccounts(targetGroup) {
         if (!this.banDocument) {
-            return str;
-        }
-        var table = this.banDocument.table("Accounts");
-        if (!table) {
-            return str;
+            return [];
         }
 
+        /*var table = this.banDocument.table("Categories");
+        var isIncomeExpensesAccounting = true;
+        if (!table) {
+            table = this.banDocument.table("Accounts");
+            isIncomeExpensesAccounting = false;
+        }*/
+        var table = this.banDocument.table("Accounts");
+        if (!table) {
+            return [];
+        }
+
+        var str = [];
+        var maxDepth = 10;
         for (var i = 0; i < table.rowCount; i++) {
-            var tRow = table.row(i);
-            var account = tRow.value("Account");
-            var bClass = tRow.value("BClass");
-            var gr = tRow.value("Gr");
-            if (bClass == "4" && gr == grText) {
-                str.push(account);
+            var account = table.row(i).value("Account");
+            /*if (isIncomeExpensesAccounting) {
+                account = table.row(i).value("Category");
+            }*/
+            if (account) {
+                if (this.loadDataAccountsBelongsToGroup(table, i, targetGroup, maxDepth)) {
+                    // Banana.console.debug("aggiunge conto " + account);
+                    str.push(account);
+                }
             }
         }
 
@@ -163,7 +178,36 @@ var VatReconciliation = class VatReconciliation {
         return str;
     }
 
-    loadDataPeriod(startDate, endDate, periodName) {
+    loadDataAccountsBelongsToGroup(table, i, targetGroup, maxDepth) {
+        if (!targetGroup || !table || maxDepth <= 0)
+            return false;
+
+        var tRow = table.row(i);
+        if (!tRow)
+            return false;
+
+        var gr = tRow.value("Gr");
+        // Banana.console.debug("loadDataAccountsBelongsToGroup i: " + i + " gr: " + gr + " targetGroup: " + targetGroup + " maxDepth: " + maxDepth);
+        if (gr === targetGroup) {
+            // Banana.console.debug("Trovato gruppo " + tRow.value("Group") + " che appartiene al gr " + targetGroup)
+            return true;
+        }
+
+        //se Gr è diverso da targetGroup cerca a che gruppo appartiene Gr
+        //e verifica se il gruppo appartiene a sua volta a targetGroup
+        //in modo ricorsivo fino che maxDepth==0
+        if (gr && gr.length > 0) {
+            for (var j = 0; j < table.rowCount; j++) {
+                var group = table.row(j).value("Group");
+                if (group === gr) {
+                    return this.loadDataAccountsBelongsToGroup(table, j, targetGroup, maxDepth - 1);
+                }
+            }
+        }
+        return false;
+    }
+
+    loadDataPeriod(startDate, endDate, periodName, accountsList) {
 
         if (!startDate || !endDate || !periodName) {
             return;
@@ -195,8 +239,6 @@ var VatReconciliation = class VatReconciliation {
 
         //riprende tutti i codici iva che appartengono al gr1 200
         var vatCodesAllowed = this.loadDataVatCodes(journal, this.param.groupVatTaxable);
-        //riprende tutti i conti che appartengono al gruppo 3 ricavi
-        var accountsAllowed = this.loadDataAccounts(this.param.groupRevenues);
 
         for (var i = 0; i < journal.rowCount; i++) {
 
@@ -226,7 +268,7 @@ var VatReconciliation = class VatReconciliation {
                 //table1
                 //cifra d'affari
                 if (line.accountclass === "4") {
-                    if (accountsAllowed.indexOf(line.account) >= 0) {
+                    if (accountsList.indexOf(line.account) >= 0) {
                         var vatcode = line.vatcode;
                         if (vatcode.length <= 0) {
                             vatcode = "_void_";
@@ -271,9 +313,9 @@ var VatReconciliation = class VatReconciliation {
                 if (line.vatcode && line.isvatoperation === "1" && line.vattwinaccount.length <= 0) {
                     var vatCodeGr = this.banDocument.table('VatCodes').findRowByValue('VatCode', line.vatcode).value("Gr");
                     if (vatCodeGr === this.param.groupVatCodes) {
-                        //Banana.console.log("loaddataperiod => this.param.groupVatCodes: " + this.param.groupVatCodes);
+                        // Banana.console.log("loaddataperiod => this.param.groupVatCodes: " + this.param.groupVatCodes);
                         this.data[periodName].vatTransactionsWithoutAccount.push(line);
-                        //Banana.console.log(JSON.stringify(tRow.toJSON(), null, 3));
+                        // Banana.console.log(JSON.stringify(tRow.toJSON(), null, 3));
                     }
                 }
             }
@@ -411,11 +453,13 @@ var VatReconciliation = class VatReconciliation {
         var text = this.texts.title_main + " " + year;
         report.addParagraph(text, "h1");
 
-        this.printDataTableDifferences(report, stylesheet, this.data["1Q"]);
-        this.printDataTableDifferences(report, stylesheet, this.data["2Q"]);
-        this.printDataTableDifferences(report, stylesheet, this.data["3Q"]);
-        this.printDataTableDifferences(report, stylesheet, this.data["4Q"]);
-        this.printDataTableDifferences(report, stylesheet, this.data["Y"]);
+        var accountsList = this.loadDataAccounts(this.param.groupRevenues);
+
+        this.printDataTableDifferences(report, stylesheet, this.data["1Q"], accountsList);
+        this.printDataTableDifferences(report, stylesheet, this.data["2Q"], accountsList);
+        this.printDataTableDifferences(report, stylesheet, this.data["3Q"], accountsList);
+        this.printDataTableDifferences(report, stylesheet, this.data["4Q"], accountsList);
+        this.printDataTableDifferences(report, stylesheet, this.data["Y"], accountsList);
 
         report.addPageBreak();
         // tabella 1 registrazioni ricavi
@@ -429,7 +473,7 @@ var VatReconciliation = class VatReconciliation {
         // this.printDataTransactions(report, stylesheet, this.data["2Q"]);
         // this.printDataTransactions(report, stylesheet, this.data["3Q"]);
         // this.printDataTransactions(report, stylesheet, this.data["4Q"]);
-        this.printDataTransactions(report, stylesheet, this.data["Y"]);
+        this.printDataTransactions(report, stylesheet, this.data["Y"], accountsList);
 
         // numero pagina nel footer
         report.getFooter().addClass("footer");
@@ -438,14 +482,13 @@ var VatReconciliation = class VatReconciliation {
         report.getFooter().addText("-", "");
     }
 
-    printDataTableDifferences(report, stylesheet, data) {
+    printDataTableDifferences(report, stylesheet, data, accountsList) {
 
         report.addParagraph(" ", "h2");
         report.addParagraph(this.texts.period + ": " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h2");
         report.addParagraph(" ", "h2");
 
         // Crea elenco ordinato dei conti
-        var accountsList = this.loadDataAccounts(this.param.groupRevenues);
         for (var i = 0; i < data.accounts.length; i++) {
             if (accountsList.indexOf(data.accounts[i]) < 0) {
                 accountsList.push(data.accounts[i]);
@@ -662,14 +705,13 @@ var VatReconciliation = class VatReconciliation {
         }
     }
 
-    printDataTransactions(report, stylesheet, data) {
+    printDataTransactions(report, stylesheet, data, accountsList) {
 
         report.addPageBreak();
         report.addParagraph(this.texts.accountDifferencesTitle, "h2");
         report.addParagraph(this.texts.period + ": " + data.periodName + " " + Banana.Converter.toLocaleDateFormat(data.startDate) + " - " + Banana.Converter.toLocaleDateFormat(data.endDate), "h3");
 
         // Crea elenco ordinato dei conti
-        var accountsList = this.loadDataAccounts(this.param.groupRevenues);
         for (var i = 0; i < data.accounts.length; i++) {
             if (accountsList.indexOf(data.accounts[i]) < 0) {
                 accountsList.push(data.accounts[i]);
@@ -1034,8 +1076,8 @@ var VatReconciliation = class VatReconciliation {
 
         this.texts = {};
         if (lang === 'it') {
-            this.texts.document = "Riconciliazione IVA Svizzera";
-            this.texts.title_main = "Riconciliazione IVA esercizio";
+            this.texts.document = "Riconciliazione annuale IVA Svizzera";
+            this.texts.title_main = "Riconciliazione annuale IVA esercizio";
             this.texts.period = "Periodo";
             this.texts.turnover = "Cifra d'affari";
             this.texts.account = "Conto";
@@ -1067,8 +1109,8 @@ var VatReconciliation = class VatReconciliation {
             this.texts.param_group_vat_codes = 'Gruppo raggruppamento codici IVA per vendite';
         }
         else if (lang === 'de') {
-            this.texts.document = "MWST-Abstimmung Schweiz";
-            this.texts.title_main = "MWST-Abstimmung Geschäftsjahr";
+            this.texts.document = "MWST-Jahresabstimmung Schweiz";
+            this.texts.title_main = "MWST-Jahresabstimmung Geschäftsjahr";
             this.texts.period = "Zeitraum";
             this.texts.turnover = "Umsatz";
             this.texts.account = "Konto";
@@ -1100,8 +1142,8 @@ var VatReconciliation = class VatReconciliation {
             this.texts.param_group_vat_codes = "Gruppe der MWST-Codes für Verkäufe";
         }
         else if (lang === 'fr') {
-            this.texts.document = "Rapprochement TVA Suisse";
-            this.texts.title_main = "Rapprochement TVA exercice";
+            this.texts.document = "Concordance annuelle TVA Suisse";
+            this.texts.title_main = "Concordance annuelle TVA exercice";
             this.texts.period = "Période";
             this.texts.turnover = "Chiffre d'affaires";
             this.texts.account = "Compte";
@@ -1133,8 +1175,8 @@ var VatReconciliation = class VatReconciliation {
             this.texts.param_group_vat_codes = "Groupe de codes TVA pour les ventes";
         }
         else {
-            this.texts.document = "Swiss VAT Reconciliation";
-            this.texts.title_main = "VAT Reconciliation – Fiscal Year";
+            this.texts.document = "Annual Swiss VAT Reconciliation";
+            this.texts.title_main = "Annual VAT Reconciliation – Fiscal Year";
             this.texts.period = "Period";
             this.texts.turnover = "Turnover";
             this.texts.account = "Account";
