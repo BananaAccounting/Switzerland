@@ -18,15 +18,18 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/p/GitHub/BananaAccounting/Switzerland/VatReport/Reconciliation/test/vatreconciliation.test.js}
+%%SCRIPT{/Users/ivan/GitHub/BananaAccounting/Switzerland/VatReport/Reconciliation/test/vatreconciliation.test.js}
 %
 \begin{testcase}{VatReconciliationTest}
 \begin{test}{test\_1}
 \begin{reportvalue}{Test\#1}
 Riconciliazione annuale IVA esercizio 2025 \\
+MyCompany \\
+Year 2025 \\
+  \\
+Confronto cifra d'affari dichiarata nel rendiconto e registrata in contabilità \\
   \\
 Periodo: 1Q 01.01.2025 - 31.03.2025 \\
-  \\
 \begin{longtable}[l]{ l  l  l  l  l  l }
 Conto  & Cifra d'affari con cod.IVA \newline  & Cifra d'affari senza cod.IVA \newline  & Cifra d'affari complessiva \newline  & Netto dichiarato  & Differenza \\
 3000  & 7'475.47  & 0.00  & 7'475.47  & 7'475.47  & 0.00 \\
@@ -46,7 +49,6 @@ Totale  & 1'220'151.43  & -1'372.79  & 1'218'778.64  & 1'255'008.99  & -36'230.3
 \end{longtable}
   \\
 Periodo: 2Q 01.04.2025 - 30.06.2025 \\
-  \\
 \begin{longtable}[l]{ l  l  l  l  l  l }
 Conto  & Cifra d'affari con cod.IVA \newline  & Cifra d'affari senza cod.IVA \newline  & Cifra d'affari complessiva \newline  & Netto dichiarato  & Differenza \\
 3000  & 2'059.30  & 4'740.95  & 6'800.25  & 2'059.30  & 4'740.95 \\
@@ -64,7 +66,6 @@ Totale  & 914'695.79  & 3'992.99  & 918'688.78  & 917'689.80  & 998.98 \\
 \end{longtable}
   \\
 Periodo: 3Q 01.07.2025 - 30.09.2025 \\
-  \\
 \begin{longtable}[l]{ l  l  l  l  l  l }
 Conto  & Cifra d'affari con cod.IVA \newline  & Cifra d'affari senza cod.IVA \newline  & Cifra d'affari complessiva \newline  & Netto dichiarato  & Differenza \\
 3000  & 1'255.79  & 0.00  & 1'255.79  & 1'255.79  & 0.00 \\
@@ -80,7 +81,6 @@ Totale  & 757'719.75  & -634.02  & 757'085.73  & 763'791.32  & -6'705.59 \\
 \end{longtable}
   \\
 Periodo: 4Q 01.10.2025 - 31.12.2025 \\
-  \\
 \begin{longtable}[l]{ l  l  l  l  l  l }
 Conto  & Cifra d'affari con cod.IVA \newline  & Cifra d'affari senza cod.IVA \newline  & Cifra d'affari complessiva \newline  & Netto dichiarato  & Differenza \\
 3000  & 2'448.61  & 14'899.42  & 17'348.03  & 2'448.61  & 14'899.42 \\
@@ -98,7 +98,6 @@ Totale  & 945'613.53  & 75'691.40  & 1'021'304.93  & 899'392.91  & 121'912.02 \\
 \end{longtable}
   \\
 Periodo: Y 01.01.2025 - 31.12.2025 \\
-  \\
 \begin{longtable}[l]{ l  l  l  l  l  l }
 Conto  & Cifra d'affari con cod.IVA \newline  & Cifra d'affari senza cod.IVA \newline  & Cifra d'affari complessiva \newline  & Netto dichiarato  & Differenza \\
 3000  & 13'239.17  & 19'640.37  & 32'879.54  & 13'239.17  & 19'640.37 \\
@@ -119,7 +118,8 @@ Conto  & Cifra d'affari con cod.IVA \newline  & Cifra d'affari senza cod.IVA \ne
 8505  & 0.00  & 0.00  & 0.00  & -54'402.94  & 54'402.94 \\
 Totale  & 3'838'180.50  & 77'677.58  & 3'915'858.08  & 3'835'883.02  & 79'975.06 \\
 \end{longtable}
-Cifra d'affari (Gr=3) \\
+Cifra d'affari dichiarata nel formulario raggruppata per codice IVA (Gr=3) \\
+  \\
 Periodo: Y 01.01.2025 - 31.12.2025 \\
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l }
  &  & Descrizione  & 31.12.2025 Y \newline CHF \newline  & 31.03.2025 1Q \newline CHF \newline  & 30.06.2025 2Q \newline CHF \newline  & 30.09.2025 3Q \newline CHF \newline  & 31.12.2025 4Q \newline CHF \newline \\
@@ -151,6 +151,7 @@ Periodo: Y 01.01.2025 - 31.12.2025 \\
  &  & Totale registrazioni senza cod.IVA  & 77'677.58  & -1'372.79  & 3'992.99  & -634.02  & 75'691.40 \\
 \end{longtable}
 IVA imponibile dichiarata nel formulario (Gr1=200) \\
+  \\
 Periodo: Y 01.01.2025 - 31.12.2025 \\
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l }
  & Descrizione  &  & Imponibile Y \newline CHF \newline  & Imponibile 1Q \newline CHF \newline  & Imponibile 2Q \newline CHF \newline  & Imponibile 3Q \newline CHF \newline  & Imponibile 4Q \newline CHF \newline \\
@@ -178,6 +179,7 @@ Periodo: Y 01.01.2025 - 31.12.2025 \\
  & Totale V81  &  & -3'748'588.60  & -1'211'490.04  & -892'152.80  & -745'552.85  & -899'392.91 \\
 \end{longtable}
 Registrazioni dei conti con differenze \\
+  \\
 Periodo: Y 01.01.2025 - 31.12.2025 \\
 \begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l }
 \multicolumn{13}{l}{}\\
@@ -313,8 +315,7 @@ Riga  & Data  & Doc  & Descrizione  & Conto  & Ctrp.  & Dare  & Avere  & Cod.IVA
 3162  & 31.12.2025  &  & Desc. reg. riga 3162  & 8505  & 1105  & 54'402.94  & 0.00  & V0-E  &  & 54'402.94  & 0.00  & 0.00 \\
 \multicolumn{5}{l}{Totale } & 54'402.94  & 0.00  & \multicolumn{6}{l}{Differenza da registrazioni: 54'402.94 }\\
 \end{longtable}
-- \#page-nr - \\
-\end{reportvalue}
+27.06.2025  -  \#page-nr \end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
