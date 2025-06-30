@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.swissvatreconciliation
 // @api = 1.0
-// @pubdate = 2025-06-27
+// @pubdate = 2025-06-30
 // @publisher = Banana.ch SA
 // @description = Swiss Annual VAT Reconciliation
 // @description.it = Riconciliazione annuale IVA Svizzera
@@ -939,8 +939,10 @@ var VatReconciliation = class VatReconciliation {
     printFooter(report) {
         var date = date = Banana.Converter.toLocaleDateFormat(new Date());
         report.getFooter().addClass("footer");
-        report.getFooter().addText(date, "");
-        report.getFooter().addText(" - ", "");
+        var textfield = report.getFooter().addText(date + " - ", "");
+        if (textfield.excludeFromTest) {
+            textfield.excludeFromTest();
+        }
         report.getFooter().addFieldPageNr();
     }
 

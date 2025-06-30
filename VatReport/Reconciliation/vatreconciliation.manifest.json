@@ -1,0 +1,18 @@
+{
+    "category": "productivity",
+    "country":"switzerland",
+    "countryCode":"ch",
+    "description": "Swiss Annual VAT Reconciliation",
+    "description.en": "Swiss Annual VAT Reconciliation",
+    "description.it": "Riconciliazione annuale IVA Svizzera",
+    "description.fr": "Concordance annuelle TVA Suisse",
+    "description.de": "MWST-Jahresabstimmung Schweiz",
+    "language":"",
+    "publisher": "Banana.ch",
+    "title": "Swiss Annual VAT Reconciliation",
+    "title.en": "Swiss Annual VAT Reconciliation",
+    "title.it": "Riconciliazione annuale IVA Svizzera",
+    "title.fr": "Concordance annuelle TVA Suisse",
+    "title.de": "MWST-Jahresabstimmung Schweiz",
+    "version": "1.0"
+}

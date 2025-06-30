@@ -1,0 +1,6 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+   <file>vatreconciliation.manifest.json</file>
+   <file>vatreconciliation.js</file>
+ </qresource>
+ </RCC>

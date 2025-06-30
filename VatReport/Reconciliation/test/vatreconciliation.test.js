@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.swissvatreconciliation.test
 // @api = 1.0
-// @pubdate = 2025-06-17
+// @pubdate = 2025-06-30
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.swissvatreconciliation.js>
 // @task = app.command
@@ -24,7 +24,7 @@
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../vatreconciliation.js
+// @includejs = ../vatreconciliation.sbaa/vatreconciliation.js
 // @timeout = -1
 
 

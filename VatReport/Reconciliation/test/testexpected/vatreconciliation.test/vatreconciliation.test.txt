@@ -315,7 +315,7 @@ Riga  & Data  & Doc  & Descrizione  & Conto  & Ctrp.  & Dare  & Avere  & Cod.IVA
 3162  & 31.12.2025  &  & Desc. reg. riga 3162  & 8505  & 1105  & 54'402.94  & 0.00  & V0-E  &  & 54'402.94  & 0.00  & 0.00 \\
 \multicolumn{5}{l}{Totale } & 54'402.94  & 0.00  & \multicolumn{6}{l}{Differenza da registrazioni: 54'402.94 }\\
 \end{longtable}
-27.06.2025  -  \#page-nr \end{reportvalue}
+\excltest{30.06.2025 - } \#page-nr \end{reportvalue}
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}
