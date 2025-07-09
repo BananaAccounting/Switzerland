@@ -1,9 +1,28 @@
-﻿// @id = ch.banana.filter.import.blkb
+﻿// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+//
+// @id = ch.banana.switzerland.import.blkb
 // @api = 1.0
-// @pubdate = 2019-02-20
+// @pubdate = 2025-07-09
 // @publisher = Banana.ch SA
-// @description = Basellandschaftliche Kantonalbank (*.csv)
-// @doctype = *
+// @description = Basellandschaftliche Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.en = Basellandschaftliche Kantonalbank - Import account statement .csv (Banana+ Advanced)
+// @description.it = Basellandschaftliche Kantonalbank - Importa movimenti .csv (Banana+ Advanced)
+// @description.de = Basellandschaftliche Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Basellandschaftliche Kantonalbank - Importer mouvements .csv (Banana+ Advanced)
+// @doctype = *.*
 // @docproperties =
 // @task = import.transactions
 // @outputformat = transactions.simple
@@ -13,6 +32,8 @@
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
+// @task = import.transactions
+
 
 /**
  * Parse the data and return the data to be imported as a tab separated file.
@@ -20,6 +41,8 @@
 function exec( string) {
 
 	string = cleanupText( string);
+
+	var importUtilities = new ImportUtilities(Banana.document);
 	var fieldSeparator = findSeparator(string);
 	var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
 	transactions = completeRows(transactions);
