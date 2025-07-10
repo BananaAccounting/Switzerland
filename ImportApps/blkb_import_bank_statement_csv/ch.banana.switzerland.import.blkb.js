@@ -44,7 +44,7 @@ function exec(string, isTest) {
 
 	var importUtilities = new ImportUtilities(Banana.document);
 
-	string = cleanupText( string);
+	// string = cleanupText( string);
 	if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
        return "";
 
@@ -54,19 +54,28 @@ function exec(string, isTest) {
 	
 
 	// Basellandschaftliche Kantonalbank Format, this format works with the header names.
-    var blkbFormat1 = new BLKBFormat1();
-    let transactionsData = blkbFormat1.getFormattedData(transactions, importUtilities);
-    if (blkbFormat1.match(transactionsData)) {
-		Banana.console.log("BLKBFormat1 match");
-       transactions = blkbFormat1.convert(transactionsData);
+    var blkbFormat3 = new BLKBFormat3();
+    let transactionsData = blkbFormat3.getFormattedData(transactions, importUtilities);
+    if (blkbFormat3.match(transactionsData)) {
+		Banana.console.log("BLKBFormat3 match");
+       transactions = blkbFormat3.convert(transactionsData);
        return Banana.Converter.arrayToTsv(transactions);
     }
 
+	// Basellandschaftliche Kantonalbank Format, this format works with the header names.
+	var blkbFormat2 = new BLKBFormat2();
+	transactionsData = blkbFormat2.getFormattedData(transactions, importUtilities);
+	if (blkbFormat2.match(transactionsData)) {
+		Banana.console.log("BLKBFormat2 match");
+		transactions = blkbFormat2.convert(transactionsData);
+		return Banana.Converter.arrayToTsv(transactions);
+	}
+
     // Basellandschaftliche Kantonalbank Old Format, this format works with the column index.
-	var blkbOldFormat = new BLKBOldFormat();
-	if (blkbOldFormat.match(transactions)) {
-		Banana.console.log("BLKBOldFormat match");
-		transactions = blkbOldFormat.convert(transactions);
+	var blkbFormat1 = new BLKBFormat1();
+	if (blkbFormat1.match(transactions)) {
+		Banana.console.log("BLKBFormat1 match");
+		transactions = blkbFormat1.convert(transactions);
 		return Banana.Converter.arrayToTsv(transactions);
 	}
 
@@ -76,7 +85,7 @@ function exec(string, isTest) {
 }
 
 /**
- * Format 1
+ * Format 2
  * 
  * Auftragsdatum;Buchungstext;Betrag Einzelzahlung (CHF);Belastungsbetrag (CHF);Gutschriftsbetrag (CHF);Valutadatum;Saldo (CHF)
  * 31.01.2025;"Menetianduperum / Nor.-At. 258750247
@@ -86,7 +95,7 @@ function exec(string, isTest) {
  * Semplatas w-quobset / Nor.-At. 360605503
  * Nittrigero: FACIEIUNTRIUVIVIT 4343"; ; ;607.95;31.01.2025;535003.27
  */
-function BLKBFormat1() {
+function BLKBFormat3() {
 	/** Return true if the transactions match this format */
     this.match = function (transactionsData) {
         
@@ -199,7 +208,99 @@ function BLKBFormat1() {
 	}
 }
 
-function BLKBOldFormat() {
+/**
+ * Format 2
+ * 
+ * 
+ */
+function BLKBFormat2() {
+	/** Return true if the transactions match this format */
+	this.match = function (transactionsData) {
+		
+		if (transactionsData.length === 0)
+			return false;
+
+		for (var i = 0; i < transactionsData.length; i++) {
+			var transaction = transactionsData[i];
+			var formatMatched = true;
+			
+			if (formatMatched && transaction["Datum"] && transaction["Datum"].length >= 8 &&
+				transaction["Datum"].match(/^\d{1,2}\/\d{1,2}\/\d{4}$/))
+				formatMatched = true;
+			else
+				formatMatched = false;
+
+			if (formatMatched && transaction["Valuta"] && transaction["Valuta"].length >= 8 &&
+				transaction["Valuta"].match(/^\d{1,2}\/\d{1,2}\/\d{4}$/))
+				formatMatched = true;
+			else
+				formatMatched = false;
+
+			if (formatMatched)
+				return true;
+		}
+
+		return false;
+	}
+
+	this.convert = function (transactionsData) {
+		var transactionsToImport = [];
+
+		for (var i = 0; i < transactionsData.length; i++) {
+			if (transactionsData[i]["Datum"] && transactionsData[i]["Datum"].length >= 8 &&
+				transactionsData[i]["Datum"].match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) &&
+				transactionsData[i]["Valuta"] && transactionsData[i]["Valuta"].length >= 8 &&
+				transactionsData[i]["Valuta"].match(/^\d{1,2}\/\d{1,2}\/\d{4}$/)) {
+				transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+			}
+		}
+
+		// Sort rows by date
+		transactionsToImport = transactionsToImport.reverse();
+
+		// Add header and return
+		var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+		return header.concat(transactionsToImport);
+	}
+
+	this.getFormattedData = function(inData, importUtilities) {
+		var columns = importUtilities.getHeaderData(inData, 0); //array
+		var rows = importUtilities.getRowData(inData, 1); //array of array
+		let form = [];
+		//Load the form with data taken from the array. Create objects
+		importUtilities.loadForm(form, columns, rows);
+		return form;
+	}
+
+	this.mapTransaction = function (transaction) {
+		let mappedLine = [];
+
+		mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Datum"], "dd/mm/yyyy"));
+		mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Valuta"], "dd/mm/yyyy"));
+		mappedLine.push("");
+		mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Buchungstext"]));
+		
+		if (transaction["Gutschrift"] && transaction["Gutschrift"].length > 0)
+			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Gutschrift"], '.'));
+		else	
+			mappedLine.push("");
+			
+		if (transaction["Belastung"] && transaction["Belastung"].length > 0)
+			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Belastung"], '.'));
+		else
+			mappedLine.push("");
+
+		return mappedLine;
+	}
+}
+
+/**
+ * 	Format 1
+ * 
+ * 
+ * 
+ **/
+function BLKBFormat1() {
 
 	// Index of columns in csv file	
 	// this.colType     		= 0;
@@ -210,6 +311,7 @@ function BLKBOldFormat() {
 	
 	// Return true if the transactions match this format
 	this.match = function (transactions) {
+		
 		if (transactions.length === 0)
 			return false;
 
@@ -218,7 +320,7 @@ function BLKBOldFormat() {
 			var formatMatched = true;
 			
 			if (formatMatched && transaction[this.colDate] && transaction[this.colDate].length >= 8 &&
-				(transaction[this.colDate].match(/^\d{2}.\d{2}.\d{4}$/) ))
+				(transaction[this.colDate].match(/^\d{2}.\d{2}.\d{4}$/) || transaction[this.colDate].match(/^\d{1,2}\/\d{1,2}\/\d{4}$/)))
 				formatMatched = true;
 			else
 				formatMatched = false;
@@ -235,8 +337,8 @@ function BLKBOldFormat() {
 		var transactionsToImport = [];
 
 		for (var i = 0; i < transactions.length; i++) {
-			if (transactions[i][this.colDate] && transactions[i][this.colDate].length >= 10 &&
-				transactions[i][this.colDate].match(/^\d{2}.\d{2}.\d{4}$/)) {
+			if (transactions[i][this.colDate] && transactions[i][this.colDate].length >= 8 &&
+				(transactions[i][this.colDate].match(/^\d{2}.\d{2}.\d{4}$/) || transactions[i][this.colDate].match(/^\d{1,2}\/\d{1,2}\/\d{4}$/))) {
 				transactionsToImport.push(this.mapTransaction(transactions[i]));
 			}
 		}
