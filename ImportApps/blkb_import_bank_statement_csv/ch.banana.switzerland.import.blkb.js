@@ -33,6 +33,8 @@
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
 // @inputfilefilter.it = Testo (*.txt *.csv);;Tutti i files (*.*)
 // @task = import.transactions
+// @timeout = -1
+// @includejs = import.utilities.js
 
 
 /**
@@ -42,27 +44,31 @@ function exec(string, isTest) {
 
 	var importUtilities = new ImportUtilities(Banana.document);
 
-	// string = cleanupText( string);
+	string = cleanupText( string);
 	if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
        return "";
 
 	var fieldSeparator = findSeparator(string);
 
 	var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
-	// transactions = completeRows(transactions);
-    // transactions = transactions.filter(filterTransactions);
-    // transactions = transactions.sort(sortTransactions);
-    // transactions = transactions.map(mapTransactions);
+	
 
 	// Basellandschaftliche Kantonalbank Format, this format works with the header names.
     var blkbFormat1 = new BLKBFormat1();
     let transactionsData = blkbFormat1.getFormattedData(transactions, importUtilities);
     if (blkbFormat1.match(transactionsData)) {
+		Banana.console.log("BLKBFormat1 match");
        transactions = blkbFormat1.convert(transactionsData);
        return Banana.Converter.arrayToTsv(transactions);
     }
 
-    // var header = [["Date","Description","Income","Expenses"]];
+    // Basellandschaftliche Kantonalbank Old Format, this format works with the column index.
+	var blkbOldFormat = new BLKBOldFormat();
+	if (blkbOldFormat.match(transactions)) {
+		Banana.console.log("BLKBOldFormat match");
+		transactions = blkbOldFormat.convert(transactions);
+		return Banana.Converter.arrayToTsv(transactions);
+	}
 
 	importUtilities.getUnknownFormatError();
 
@@ -130,7 +136,7 @@ function BLKBFormat1() {
    
          let convertedColumns = [];
    
-         convertedColumns = convertHeaderDe(columns);
+         convertedColumns = this.convertHeaderDe(columns);
    
          //Load the form with data taken from the array. Create objects
          if (convertedColumns.length > 0) {
@@ -193,14 +199,235 @@ function BLKBFormat1() {
 	}
 }
 
-// This is the implementation of the importing filter
+function BLKBOldFormat() {
 
-// Index of columns in csv file
-// var colType     		= 0;
-// var colDate     		= 1;
-// var colDescr    		= 2;
-// var colDebit    		= 4;
-// var colCredit   		= 5;
+	// Index of columns in csv file	
+	// this.colType     		= 0;
+	this.colDate     		= 0;
+	this.colDescr    		= 1;
+	this.colDebit    		= 2;
+	this.colCredit   		= 3;	
+	
+	// Return true if the transactions match this format
+	this.match = function (transactions) {
+		if (transactions.length === 0)
+			return false;
+
+		for (var i = 0; i < transactions.length; i++) {
+			var transaction = transactions[i];
+			var formatMatched = true;
+			
+			if (formatMatched && transaction[this.colDate] && transaction[this.colDate].length >= 10 &&
+				transaction[this.colDate].match(/^\d{2}.\d{2}.\d{4}$/))
+				formatMatched = true;
+			else
+				formatMatched = false;
+
+			if (formatMatched)
+				return true;
+		}
+
+		return false;
+	}
+
+	/** Convert the transaction to the format to be imported */
+	this.convert = function (transactions) {
+		var transactionsToImport = [];
+
+		for (var i = 0; i < transactions.length; i++) {
+			if (transactions[i][this.colDate] && transactions[i][this.colDate].length >= 10 &&
+				transactions[i][this.colDate].match(/^\d{2}.\d{2}.\d{4}$/)) {
+				transactionsToImport.push(this.mapTransaction(transactions[i]));
+			}
+		}
+
+		// Sort rows by date
+		transactionsToImport = transactionsToImport.reverse();
+
+		// Add header and return
+		var header = [["Date", "Description", "Income", "Expenses"]];
+		return header.concat(transactionsToImport);
+	}
+
+	this.mapTransaction = function (transaction) {
+		var mappedLine = [];
+
+		mappedLine.push(Banana.Converter.toInternalDateFormat(transaction[this.colDate], "dd.mm.yyyy"));
+		mappedLine.push(Banana.Converter.stringToCamelCase(transaction[this.colDescr]));
+		
+		if (transaction[this.colCredit] && transaction[this.colCredit].length > 0)
+			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[this.colCredit], '.'));
+		else	
+			mappedLine.push("");
+			
+		if (transaction[this.colDebit] && transaction[this.colDebit].length > 0)
+			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[this.colDebit], '.'));
+		else
+			mappedLine.push("");
+
+		return mappedLine;
+	}
+	
+
+	// /**
+	//  * The function completeRows complete detail rows with fields
+	//  from total row and mark lines to be imported with ">" 
+	// */
+	// this.completeRows = function ( transactions) {
+
+	// 	var rowType;
+	// 	var date;
+	// 	var debit;
+	// 	var credit;
+
+	// 	//add empty column to format with 6 columns (without Betrag Detail)
+	// 	for (i=0;i<transactions.length;i++)
+	// 	{
+	// 		var element = transactions[i];
+	// 		if (element.length!=6)
+	// 			break;
+	// 		element.splice(2,0,"");
+	// 	}
+		
+	// 	for (i=0;i<transactions.length;i++)
+	// 	{
+	// 		var element = transactions[i];
+			
+	// 		if (element.length<7)
+	// 			break;
+
+	// 		//update only detail rows adding missing fields
+	// 		if (element[0] == "" && rowType == "TOTAL")
+	// 		{
+	// 			//Detail row
+	// 			//Amount is the second field
+	// 			if (element[2]=="" && element[3]=="" && element[4]=="")
+	// 			{
+	// 				element.splice(3,1,debit);
+	// 				element.splice(4,1,credit);
+	// 			}
+	// 			else
+	// 			{
+	// 				//move amount to debit credit columns
+	// 				var amount = element[2];
+	// 				element.splice(2,1,"");
+	// 				if (debit.length>0)
+	// 					element.splice(3,1,amount);
+	// 				else if (credit.length>0)
+	// 					element.splice(4,1,amount);
+	// 			}
+	// 			element.splice(0,1,date);
+	// 			element.splice(0,0,">");
+	// 		}
+	// 		else
+	// 		{
+	// 			if (element[0].match(/[0-9\.]+/g))
+	// 			{
+	// 				//Save data from total row
+	// 				rowType = "TOTAL";
+	// 				date = element[0];
+	// 				debit = element[3];
+	// 				credit = element[4];
+	// 				//check if detail follows, if not keep the row like detail row
+	// 				if (i+1<transactions.length)
+	// 				{
+	// 					var nextElement = transactions[i+1];
+	// 					if (nextElement[0].length > 0)
+	// 						element.splice(0,0,">");
+	// 					else	
+	// 						element.splice(0,0,"");
+	// 				}
+	// 				//last row to keep if has date
+	// 				else if (i+1==transactions.length)
+	// 				{
+	// 					element.splice(0,0,">");
+	// 				}
+	// 			}
+	// 			else
+	// 			{
+	// 				//not considered row
+	// 				rowtype = "";
+	// 				element.splice(0,0,"");
+	// 			}
+	// 		}
+	// 		transactions[i]=element;
+	// 	}
+	// 	return transactions;
+	// }
+
+	// /**
+	//  * The function filterTransactions is used to filter the transactions
+	//  * thought the method Array.filter().
+	//  */
+	// this.filterTransactions = function ( element, index, array) {
+	// 	return element[colType] == ">";
+	// }
+
+	// /**
+	//  * The function sortTransactions is used to sort the transactions
+	//  * thought the method Array.sort().
+	//  */
+	// this.sortTransactions = function ( a, b) {
+	// 	return -1;
+	// }
+
+	// /**
+	//  * The function mapTransactions filter the columns and set the header line.
+	//  */
+	// this.mapTransactions = function ( element) {
+	// 	var mappedLine = [];
+		
+	// 	if (element[colDate] == null || element[colDescr] == null || element[colCredit] == null || element[colDebit] == null)
+	// 	{
+	// 		mappedLine.push( "");
+	// 		mappedLine.push( "Error importing data");
+	// 		mappedLine.push( "");
+	// 		mappedLine.push( "");
+	// 		return mappedLine;
+	// 	}
+		
+	// 	mappedLine.push( element[colDate]);
+	// 	mappedLine.push( element[colDescr]);
+	// 	if (element[colCredit].length>0)
+	// 		mappedLine.push( Banana.Converter.toInternalNumberFormat( element[colCredit]));
+	// 	else	
+	// 		mappedLine.push( "");
+			
+	// 	if (element[colDebit].length>0)
+	// 		mappedLine.push( Banana.Converter.toInternalNumberFormat( element[colDebit]));
+	// 	else
+	// 		mappedLine.push( "");
+		
+	// 	return mappedLine;
+	// }
+
+	// this.execute = function ( transactions) {
+
+	// 	Banana.console.log("transactions: " + JSON.stringify(transactions));
+	// 	//complete rows
+	// 	transactions = this.completeRows(transactions);
+		
+	// 	//filter transactions
+	// 	transactions = transactions.filter(this.filterTransactions);
+		
+	// 	//sort transactions
+	//     transactions = transactions.sort(this.sortTransactions);
+		
+	// 	//map transactions
+	// 	transactions = transactions.map(this.mapTransactions);
+
+		
+
+	// 	var header = [["Date", "Description", "Income", "Expenses"]];
+
+	// 	transactions = Banana.Converter.arrayToTsv(header.concat(transactions));
+
+	// 	Banana.console.log("transactions after map: " + JSON.stringify(transactions));
+		
+	// 	return transactions;
+	// }
+}
+
 
 
 /**
@@ -213,91 +440,7 @@ function cleanupText( string) {
 	return string;
 }
 
-/**
- * The function completeRows complete detail rows with fields
- from total row and mark lines to be imported with ">" 
- */
-function completeRows( transactions) {
 
-	var rowType;
-	var date;
-	var debit;
-	var credit;
-
-	//add empty column to format with 6 columns (without Betrag Detail)
-	for (i=0;i<transactions.length;i++)
-	{
-		var element = transactions[i];
-		if (element.length!=6)
-			break;
-		element.splice(2,0,"");
-	}
-	
-	for (i=0;i<transactions.length;i++)
-	{
-		var element = transactions[i];
-		
-		if (element.length<7)
-			break;
-
-		//update only detail rows adding missing fields
-		if (element[0] == "" && rowType == "TOTAL")
-		{
-			//Detail row
-			//Amount is the second field
-			if (element[2]=="" && element[3]=="" && element[4]=="")
-			{
-				element.splice(3,1,debit);
-				element.splice(4,1,credit);
-			}
-			else
-			{
-				//move amount to debit credit columns
-				var amount = element[2];
-				element.splice(2,1,"");
-				if (debit.length>0)
-					element.splice(3,1,amount);
-				else if (credit.length>0)
-					element.splice(4,1,amount);
-			}
-			element.splice(0,1,date);
-			element.splice(0,0,">");
-		}
-		else
-		{
-			if (element[0].match(/[0-9\.]+/g))
-			{
-				//Save data from total row
-				rowType = "TOTAL";
-				date = element[0];
-				debit = element[3];
-				credit = element[4];
-				//check if detail follows, if not keep the row like detail row
-				if (i+1<transactions.length)
-				{
-					var nextElement = transactions[i+1];
-					if (nextElement[0].length > 0)
-						element.splice(0,0,">");
-					else	
-						element.splice(0,0,"");
-				}
-				//last row to keep if has date
-				else if (i+1==transactions.length)
-				{
-					element.splice(0,0,">");
-				}
-			}
-			else
-			{
-				//not considered row
-				rowtype = "";
-				element.splice(0,0,"");
-			}
-		}
-		transactions[i]=element;
-	}
-	return transactions;
-}
 
 /**
  * The function findSeparator is used to find the field separator.
@@ -330,48 +473,4 @@ function findSeparator( string) {
 	return ',';
 }
 
-/**
- * The function filterTransactions is used to filter the transactions
- * thought the method Array.filter().
- */
-function filterTransactions( element, index, array) {
-    return element[colType] == ">";
-}
 
-/**
- * The function sortTransactions is used to sort the transactions
- * thought the method Array.sort().
- */
-function sortTransactions( a, b) {
-	return -1;
-}
-
-/**
- * The function mapTransactions filter the columns and set the header line.
- */
-function mapTransactions( element) {
-    var mappedLine = [];
-	
-	if (element[colDate] == null || element[colDescr] == null || element[colCredit] == null || element[colDebit] == null)
-	{
-		mappedLine.push( "");
-		mappedLine.push( "Error importing data");
-		mappedLine.push( "");
-		mappedLine.push( "");
-		return mappedLine;
-	}
-	
-	mappedLine.push( element[colDate]);
-	mappedLine.push( element[colDescr]);
-	if (element[colCredit].length>0)
-		mappedLine.push( Banana.Converter.toInternalNumberFormat( element[colCredit]));
-	else	
-		mappedLine.push( "");
-		
-	if (element[colDebit].length>0)
-		mappedLine.push( Banana.Converter.toInternalNumberFormat( element[colDebit]));
-	else
-		mappedLine.push( "");
-	
-    return mappedLine;
-}
