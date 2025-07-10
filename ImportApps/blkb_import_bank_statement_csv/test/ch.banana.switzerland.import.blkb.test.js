@@ -29,37 +29,42 @@
 // @timeout = -1
 
 // Register test case to be executed
-Test.registerTestCase(new TestImportBLKBBankTrans());
+Test.registerTestCase(new TestImportBLKBTrans());
 
 // Here we define the class, the name of the class is not important
-function TestImportBLKBBankTrans() {
+function TestImportBLKBTrans() {
 }
 
 // This method will be called at the beginning of the test case
-TestImportBLKBBankTrans.prototype.initTestCase = function () {
+TestImportBLKBTrans.prototype.initTestCase = function () {
    this.testLogger = Test.logger;
    this.progressBar = Banana.application.progressBar;
 }
 
 // This method will be called at the end of the test case
-TestImportBLKBBankTrans.prototype.cleanupTestCase = function () {
+TestImportBLKBTrans.prototype.cleanupTestCase = function () {
 
 }
 
 // This method will be called before every test method is executed
-TestImportBLKBBankTrans.prototype.init = function () {
+TestImportBLKBTrans.prototype.init = function () {
 
 }
 
 // This method will be called after every test method is executed
-TestImportBLKBBankTrans.prototype.cleanup = function () {
+TestImportBLKBTrans.prototype.cleanup = function () {
 
 }
 
-TestImportBLKBBankTrans.prototype.testImport = function () {
+TestImportBLKBTrans.prototype.testImport = function () {
    var fileNameList = [];
 
-   fileNameList.push("file:script/../test/testcases/csv_acrevisbank_example_format1_20250611.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_2012101.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20080718.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20121010.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20190218.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20250709.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format2_20160629.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
