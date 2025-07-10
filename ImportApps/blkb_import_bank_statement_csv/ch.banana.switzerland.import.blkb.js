@@ -38,30 +38,169 @@
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
-function exec( string) {
-
-	string = cleanupText( string);
+function exec(string, isTest) {
 
 	var importUtilities = new ImportUtilities(Banana.document);
-	var fieldSeparator = findSeparator(string);
-	var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
-	transactions = completeRows(transactions);
-    transactions = transactions.filter(filterTransactions);
-    transactions = transactions.sort(sortTransactions);
-    transactions = transactions.map(mapTransactions);
 
-    var header = [["Date","Description","Income","Expenses"]];
-    return Banana.Converter.arrayToTsv( header.concat(transactions));
+	// string = cleanupText( string);
+	if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
+       return "";
+
+	var fieldSeparator = findSeparator(string);
+
+	var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+	// transactions = completeRows(transactions);
+    // transactions = transactions.filter(filterTransactions);
+    // transactions = transactions.sort(sortTransactions);
+    // transactions = transactions.map(mapTransactions);
+
+	// Basellandschaftliche Kantonalbank Format, this format works with the header names.
+    var blkbFormat1 = new BLKBFormat1();
+    let transactionsData = blkbFormat1.getFormattedData(transactions, importUtilities);
+    if (blkbFormat1.match(transactionsData)) {
+       transactions = blkbFormat1.convert(transactionsData);
+       return Banana.Converter.arrayToTsv(transactions);
+    }
+
+    // var header = [["Date","Description","Income","Expenses"]];
+
+	importUtilities.getUnknownFormatError();
+
+    return "";
+}
+
+/**
+ * Format 1
+ * 
+ * Auftragsdatum;Buchungstext;Betrag Einzelzahlung (CHF);Belastungsbetrag (CHF);Gutschriftsbetrag (CHF);Valutadatum;Saldo (CHF)
+ * 31.01.2025;"Menetianduperum / Nor.-At. 258750247
+ * COMNIUVA-CONE 6
+ * Puniurem: ME 745200150 ET-NAM 55.51.43
+ * Mitteilung: TELEFONKARTEN AUFLADEN
+ * Semplatas w-quobset / Nor.-At. 360605503
+ * Nittrigero: FACIEIUNTRIUVIVIT 4343"; ; ;607.95;31.01.2025;535003.27
+ */
+function BLKBFormat1() {
+	/** Return true if the transactions match this format */
+    this.match = function (transactionsData) {
+        
+        if (transactionsData.length === 0)
+            return false;
+
+        for (var i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            var formatMatched = true;
+            
+            if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+                transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
+                formatMatched = true;
+            else
+                formatMatched = false;
+
+            if (formatMatched)
+                return true;
+        }
+
+        return false;
+    }
+
+	this.convert = function (transactionsData) {
+        var transactionsToImport = [];
+
+        for (var i = 0; i < transactionsData.length; i++) {
+        
+            if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+                    transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
+                    transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+            }
+        }
+
+        // Sort rows by date
+        transactionsToImport = transactionsToImport.reverse();
+
+        // Add header and return
+        var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+        return header.concat(transactionsToImport);
+    }
+
+	this.getFormattedData = function (inData, importUtilities) {
+         var columns = importUtilities.getHeaderData(inData, 0); //array
+         var rows = importUtilities.getRowData(inData, 1); //array of array
+         let form = [];
+   
+         let convertedColumns = [];
+   
+         convertedColumns = convertHeaderDe(columns);
+   
+         //Load the form with data taken from the array. Create objects
+         if (convertedColumns.length > 0) {
+            importUtilities.loadForm(form, convertedColumns, rows);
+            return form;
+         }
+   
+         return [];
+    }
+
+	this.mapTransaction = function (transaction) {
+        let mappedLine = [];
+
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+        mappedLine.push("");
+        mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"]));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
+        mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
+
+        return mappedLine;
+    }
+
+	this.convertHeaderDe = function (columns) {
+		let convertedColumns = [];
+	
+		for (var i = 0; i < columns.length; i++) {
+		switch (columns[i]) {
+			case "Auftragsdatum":
+				convertedColumns[i] = "Date";
+				break;
+			case "Valutadatum":
+				convertedColumns[i] = "DateValue";
+				break;
+			case "Betrag":
+				convertedColumns[i] = "Amount";
+				break;  
+			case "Buchungstext":
+				convertedColumns[i] = "Description";
+				break; 
+			case "Betrag Einzelzahlung (CHF)":
+				convertedColumns[i] = "SinglePaymentAmount";
+				break;
+			case "Belastungsbetrag (CHF)":
+				convertedColumns[i] = "DebitAmount";
+				break;
+			case "Gutschriftsbetrag (CHF)":
+				convertedColumns[i] = "CreditAmount";
+				break;
+			default:
+				break;
+		}
+		}
+	
+		if (convertedColumns.indexOf("Date") < 0) {
+		return [];
+		}
+	
+		return convertedColumns;
+	}
 }
 
 // This is the implementation of the importing filter
 
 // Index of columns in csv file
-var colType     		= 0;
-var colDate     		= 1;
-var colDescr    		= 2;
-var colDebit    		= 4;
-var colCredit   		= 5;
+// var colType     		= 0;
+// var colDate     		= 1;
+// var colDescr    		= 2;
+// var colDebit    		= 4;
+// var colCredit   		= 5;
 
 
 /**
