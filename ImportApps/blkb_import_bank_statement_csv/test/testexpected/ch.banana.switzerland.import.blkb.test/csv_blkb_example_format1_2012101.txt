@@ -1,0 +1,159 @@
+%%info_test_name{csv_blkb_example_format1_2012101}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l }
+Date & Description & Income & Expenses\\
+2011-10-10 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 658474322 **�quispilide.-Caludio & 575.85 & \\
+2011-10-18 & Potemptulo�mox Segro 1 25:22 &  & 3000.00\\
+2011-10-19 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 680215847) & 3054.60 & \\
+2011-10-21 & Maliquibo: Mortumquaede / Ple.-Eo. 425513480�Untimox Rerangi-Siciunga & 1400.00 & \\
+2011-10-25 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 556584377 **�serinum Vispostrungunt Eo & 78.90 & \\
+2011-10-25 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 664833053 **�autunt Vispostrungunt Me & 71.40 & \\
+2011-10-26 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 343838207 **�frego Appagiturequam & 171.25 & \\
+2011-10-28 & Maliquibo: Mortumquaede / Ple.-Eo. 615176374�Pariti Forumediae Eo & 930.00 & \\
+2011-10-31 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 268755484 **�hic Colocte-Fest. Eo & 319.95 & \\
+2011-10-31 & Potemptulo�mox Segro 1 25:77 &  & 2000.00\\
+2011-11-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 134507885 **�os Potinava Vituersect & 92.40 & \\
+2011-11-07 & Somuluvitandabo / Ple.-Eo. 764343604�XXX-Segro/achent Vis/clava Vis &  & 1663.00\\
+2011-11-18 & Potemptulo�mox Segro 1 25:65 &  & 3000.00\\
+2011-11-22 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 403274786 **�autunt Vispostrungunt Me & 57.85 & \\
+2011-11-22 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 1 / Ple.-Eo. 472233821) & 1021.10 & \\
+2011-11-23 & Maliquibo: Mortumquaede / Ple.-Eo. 178410254�Untimox Rerangi-Siciunga & 1400.00 & \\
+2011-11-29 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 348212600 **�frego Appagiturequam & 83.15 & \\
+2011-11-30 & Maliquibo: Mortumquaede / Ple.-Eo. 653417026�Pariti Forumediae Eo & 930.00 & \\
+2011-11-30 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 308070624 **�hic Colocte-Fest. Eo & 319.95 & \\
+2011-11-30 & Potemptulo�mox Segro 1 22:82 &  & 2000.00\\
+2011-12-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 367653206 **�os Potinava Vituersect & 92.40 & \\
+2011-12-06 & Somuluvitandabo / Ple.-Eo. 332880155�XXX-Segro/achent Vis/clava Vis &  & 1663.00\\
+2011-12-15 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 846054532 **�quispilide.-Caludio & 1162.20 & \\
+2011-12-15 & Potemptulo�mox Segro 1 25:63 &  & 2500.00\\
+2011-12-22 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 117463388 **�autunt Vispostrungunt Me & 74.00 & \\
+2011-12-22 & Potemptulo�mox Segro 1 25:62 &  & 1500.00\\
+2011-12-23 & Maliquibo: Mortumquaede / Ple.-Eo. 128086325�Untimox Rerangi-Siciunga & 1400.00 & \\
+2011-12-23 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 615646286 **�serinum Vispostrungunt Eo & 97.90 & \\
+2011-12-23 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 1 / Ple.-Eo. 675375812) & 829.90 & \\
+2011-12-27 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 676542308 **�frego Appagiturequam & 166.50 & \\
+2011-12-30 & Maliquibo: Mortumquaede / Ple.-Eo. 414374483�Pariti Forumediae Eo & 930.00 & \\
+2011-12-30 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 565372845 **�hic Colocte-Fest. Eo & 319.95 & \\
+2011-12-31 & Voluundifige Mules� & 48.25 & \\
+2011-12-31 & Sperinoviud�mirimervaph Pam &  & 6.07\\
+2012-01-03 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 467165788 **�os Potinava Vituersect & 92.40 & \\
+2012-01-05 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 1 / Ple.-Eo. 832742501) & 1443.70 & \\
+2012-01-06 & Somuluvitandabo / Ple.-Eo. 255081387�XXX-Segro/achent Vis/clava Vis &  & 1663.00\\
+2012-01-10 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 846404503 **�quispilide.-Caludio & 575.85 & \\
+2012-01-13 & Potemptulo�mox Segro 1 25:25 &  & 3000.00\\
+2012-01-19 & Reparegit�in Pramnus-Pirae� & 30.00 & \\
+2012-01-23 & Maliquibo: Mortumquaede / Ple.-Eo. 675776621�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-01-24 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 230171463 **�autunt Vispostrungunt Me & 86.50 & \\
+2012-01-26 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 646166475 **�quispilide.-Caludio & 55.70 & \\
+2012-01-30 & Maliquibo: Mortumquaede / Ple.-Eo. 648872062�Pariti Forumediae Eo & 930.00 & \\
+2012-01-31 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 625210662 **�serinum Vispostrungunt Eo & 65.65 & \\
+2012-01-31 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 380763550 **�hic Colocte-Fest. Eo & 1817.25 & \\
+2012-01-31 & Potemptulo�mox Segro 1 86:22 &  & 2200.00\\
+2012-02-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 617467442 **�novemo Eo & 293.25 & \\
+2012-02-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 557508324 **�os Potinava Vituersect & 92.40 & \\
+2012-02-06 & Somuluvitandabo / Ple.-Eo. 112257328�XXX-Segro/achent Vis/clava Vis &  & 1663.00\\
+2012-02-09 & Potemptulo�mox Segro 1 22:50 &  & 2500.00\\
+2012-02-10 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 358703812) & 1445.95 & \\
+2012-02-22 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 472107244 **�autunt Vispostrungunt Me & 60.50 & \\
+2012-02-23 & Maliquibo: Mortumquaede / Ple.-Eo. 544574741�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-02-23 & Cangurbite / Ple.-Eo. 463285533�Experis Pus Soncto 1 Mules &  & 12632.65\\
+2012-02-29 & Maliquibo: Mortumquaede / Ple.-Eo. 365133628�Pariti Forumediae Eo & 930.00 & \\
+2012-02-29 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 161705283 **�serinum Vispostrungunt Eo & 39.25 & \\
+2012-03-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 553248570 **�os Potinava Vituersect & 92.40 & \\
+2012-03-01 & Potemptulo�mox Segro 1 25:41 &  & 3000.00\\
+2012-03-01 & Susupatest �ficiunt�mox Segro 1 25:32 & 10000.00 & \\
+2012-03-02 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 334386435) & 3495.45 & \\
+2012-03-12 & Pramnus-Ostis�fillia Me Triursuro & 71.10 & \\
+2012-03-20 & Potemptulo�mox Segro 1 42:40 &  & 3000.00\\
+2012-03-22 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 247878586) & 1908.05 & \\
+2012-03-23 & Maliquibo: Mortumquaede / Ple.-Eo. 302105578�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-03-23 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 262211762 **�autunt Vispostrungunt Me & 70.95 & \\
+2012-03-30 & Maliquibo: Mortumquaede / Ple.-Eo. 416731825�Pariti Forumediae Eo & 930.00 & \\
+2012-04-02 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 873378377 **�os Potinava Vituersect & 92.40 & \\
+2012-04-05 & Potemptulo�mox Segro 1 22:24 &  & 3000.00\\
+2012-04-10 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 363142613 **�quispilide.-Caludio & 289.20 & \\
+2012-04-11 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 318000476) & 2068.60 & \\
+2012-04-23 & Maliquibo: Mortumquaede / Ple.-Eo. 220530858�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-04-24 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 410337415 **�autunt Vispostrungunt Me & 55.80 & \\
+2012-04-26 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 885204156 **�frego Appagiturequam & 92.40 & \\
+2012-04-26 & Potemptulo�mox Segro 1 42:22 &  & 2000.00\\
+2012-04-27 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 5 / Ple.-Eo. 787670411) & 936.90 & \\
+2012-04-30 & Maliquibo: Mortumquaede / Ple.-Eo. 220754454�Pariti Forumediae Eo & 930.00 & \\
+2012-04-30 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 632822183 **�serinum Vispostrungunt Eo & 78.25 & \\
+2012-05-02 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 841075403 **�os Potinava Vituersect & 92.40 & \\
+2012-05-07 & Somuluvitandabo / Ple.-Eo. 305188227�XXX-Segro/achent Vis/clava Vis &  & 6615.00\\
+2012-05-14 & Pramnus-Ostis�fillia Me Triursuro & 89.90 & \\
+2012-05-23 & Maliquibo: Mortumquaede / Ple.-Eo. 351335428�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-05-23 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 724211603 **�autunt Vispostrungunt Me & 64.40 & \\
+2012-05-24 & Potemptulo�mox Segro 1 42:66 &  & 2500.00\\
+2012-05-25 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 615132025) & 3685.20 & \\
+2012-05-30 & Maliquibo: Mortumquaede / Ple.-Eo. 773842114�Pariti Forumediae Eo & 930.00 & \\
+2012-05-30 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 331157756 **�frego Appagiturequam & 61.50 & \\
+2012-06-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 311000113 **�os Potinava Vituersect & 92.40 & \\
+2012-06-06 & Somuluvitandabo / Ple.-Eo. 504631471�XXX-Segro/achent Vis/clava Vis &  & 2205.00\\
+2012-06-13 & Potemptulo�mox Segro 1 66:14 &  & 3000.00\\
+2012-06-13 & Susupatest �ficiunt�mox Segro 1 66:14 & 5000.00 & \\
+2012-06-22 & Maliquibo: Mortumquaede / Ple.-Eo. 370247026�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-06-22 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 221076402 **�autunt Vispostrungunt Me & 53.25 & \\
+2012-06-26 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 313785245 **�frego Appagiturequam & 49.20 & \\
+2012-06-28 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 823852145) & 3623.40 & \\
+2012-06-29 & Maliquibo: Mortumquaede / Ple.-Eo. 546110344�Pariti Forumediae Eo & 930.00 & \\
+2012-07-02 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 865015034 **�serinum Vispostrungunt Eo & 69.05 & \\
+2012-07-02 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 278368505 **�os Potinava Vituersect & 92.40 & \\
+2012-07-05 & Somuluvitandabo / Ple.-Eo. 861664871�XXX-Segro/achent Vis/clava Vis &  & 2205.00\\
+2012-07-10 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 628162524 **�quispilide.-Caludio & 289.20 & \\
+2012-07-10 & Potemptulo�mox Segro 1 42:25 &  & 3000.00\\
+2012-07-23 & Maliquibo: Mortumquaede / Ple.-Eo. 107184666�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-07-24 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 646770721 **�autunt Vispostrungunt Me & 58.15 & \\
+2012-07-27 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 606380282 **�frego Appagiturequam & 89.80 & \\
+2012-07-30 & Maliquibo: Mortumquaede / Ple.-Eo. 382387257�Pariti Forumediae Eo & 930.00 & \\
+2012-07-30 & Potemptulo�abicis Segro 5 22:86 &  & 2000.00\\
+2012-07-31 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 610148508 **�hic Colocte-Fest. Eo & 1817.25 & \\
+2012-07-31 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 1 / Ple.-Eo. 143010550) & 2095.95 & \\
+2012-08-02 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 521727553 **�os Potinava Vituersect & 92.40 & \\
+2012-08-07 & Somuluvitandabo / Ple.-Eo. 136304587�XXX-Segro/achent Vis/clava Vis &  & 2205.00\\
+2012-08-13 & Somuluvitandabo / Ple.-Eo. 570378253�XXX-Segro/achent Vis/clava Vis &  & 617.40\\
+2012-08-23 & Maliquibo: Mortumquaede / Ple.-Eo. 387253317�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-08-23 & Somuluvitandabo / Ple.-Eo. 115436458�Pratritis-Tarate, Cerieri &  & 82.00\\
+2012-08-24 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 825701705 **�autunt Vispostrungunt Me & 56.75 & \\
+2012-08-24 & Potemptulo�mox Segro 1 24:25 &  & 3500.00\\
+2012-08-24 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 5 / Ple.-Eo. 653278568) & 1754.05 & \\
+2012-08-30 & Maliquibo: Mortumquaede / Ple.-Eo. 368601136�Pariti Forumediae Eo & 930.00 & \\
+2012-08-31 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 565672722 **�serinum Vispostrungunt Eo & 80.60 & \\
+2012-09-03 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 178846100 **�os Potinava Vituersect & 92.40 & \\
+2012-09-06 & Somuluvitandabo / Ple.-Eo. 381438705�XXX-Segro/achent Vis/clava Vis &  & 2205.00\\
+2012-09-07 & Potemptulo�abicis Segro 1 42:63 &  & 2200.00\\
+2012-09-12 & Somuluvitandabo / Ple.-Eo. 141415384�XXX-Segro/achent Vis/clava Vis &  & 21.45\\
+2012-09-14 & Potemptulo�abicis Segro 1 82:10 &  & 1500.00\\
+2012-09-17 & �ficiunt Xxx 7657.8500.6530 Rerangi Untimox / Ple.-Eo. 338861666� &  & 19000.00\\
+2012-09-17 & Ettipanendabibo Et-Hartem�(Areque Heraccaph: 6 / Ple.-Eo. 887088481) & 2553.55 & \\
+2012-09-18 & Sustem Caligit F-Hostiae / Ple.-Eo. 777443838�POR Sect & 26000.00 & \\
+2012-09-21 & Maliquibo: Mortumquaede / Ple.-Eo. 738426504�Untimox Rerangi-Siciunga & 1400.00 & \\
+2012-09-24 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 732574332 **�autunt Vispostrungunt Me & 59.55 & \\
+2012-09-28 & Potemptulo�abicis Segro 5 86:10 &  & 3000.00\\
+2012-09-28 & Maliquibo: Mortumquaede / Ple.-Eo. 873662028�Pariti Forumediae Eo & 930.00 & \\
+2012-10-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 645115651 **�serinum Vispostrungunt Eo & 45.00 & \\
+2012-10-01 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 477173628 **�os Potinava Vituersect & 92.40 & \\
+2012-10-04 & Somuluvitandabo / Ple.-Eo. 705487374�XXX-Segro/achent Vis/clava Vis &  & 2205.00\\
+2012-10-10 & Maliquibo: Praecebiratangeriere / Ple.-Eo. 452771330 **�quispilide.-Caludio & 289.20 & \\
+\\
+\end{tablevalue}
+\end{document}
