@@ -55,7 +55,6 @@ function exec(string, isTest) {
 	var blkbFormat4 = new BLKBFormat4();
 	let transactionsData = blkbFormat4.getFormattedData(transactions, importUtilities);
 	if (blkbFormat4.match(transactionsData)) {
-		Banana.console.log("BLKBFormat4 match");
 		transactions = blkbFormat4.convert(transactionsData);
 		return Banana.Converter.arrayToTsv(transactions);
 	}	
@@ -64,7 +63,6 @@ function exec(string, isTest) {
     var blkbFormat3 = new BLKBFormat3();
     transactionsData = blkbFormat3.getFormattedData(transactions, importUtilities);
     if (blkbFormat3.match(transactionsData)) {
-	   Banana.console.log("BLKBFormat3 match");
        transactions = blkbFormat3.convert(transactionsData);
        return Banana.Converter.arrayToTsv(transactions);
     }
@@ -73,7 +71,6 @@ function exec(string, isTest) {
 	var blkbFormat2 = new BLKBFormat2();
 	transactionsData = blkbFormat2.getFormattedData(transactions, importUtilities);
 	if (blkbFormat2.match(transactionsData)) {
-		Banana.console.log("BLKBFormat2 match");
 		transactions = blkbFormat2.convert(transactionsData);
 		return Banana.Converter.arrayToTsv(transactions);
 	}
@@ -81,7 +78,6 @@ function exec(string, isTest) {
     // Basellandschaftliche Kantonalbank Old Format, this format works with the column index.
 	var blkbFormat1 = new BLKBFormat1();
 	if (blkbFormat1.match(transactions)) {
-		Banana.console.log("BLKBFormat1 match");
 		transactions = blkbFormat1.convert(transactions);
 		return Banana.Converter.arrayToTsv(transactions);
 	}
