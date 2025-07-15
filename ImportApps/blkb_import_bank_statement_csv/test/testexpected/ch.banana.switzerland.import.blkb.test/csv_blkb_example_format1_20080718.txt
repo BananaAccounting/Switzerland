@@ -20,14 +20,17 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l }
 Date & Description & Income & Expenses\\
-2008-07-14 & Mens-Octustriceratursus�(Magnum Octimulum: 8 / Pra.-An. 83064464) &  & \\
-2008-07-16 & �vitandi Sec 3445.5886.3066 Seriptuid Gregultiusta / Pra.-An. &  & 157.50\\
-2008-07-17 & Canter Manubis K-Carduli / Pra.-An. 14671686�SERIPTUID Gregultiusta &  & 4.55\\
-2008-07-17 & Puercuntus / Pra.-An. 67480675�SERIPTUID Gregultiusta Y-Carduli &  & \\
-2008-07-18 & Canter Manubis K-Carduli / Pra.-An. 74854182�SERIPTUID Gregultiusta &  & 41.25\\
-2008-07-18 & Puercuntus / Pra.-An. 40187367�SERIPTUID Gregultiusta Y-Carduli &  & \\
-2008-07-18 & Mens-Octustriceratursus & 8. & \\
-2008-07-18 & Mens-Octustriceratursus & . & \\
+2008-07-14 & Suuntrundicural Ute / Pra.-An. 34788403�735685463845718318787882771� & 2.48 & \\
+2008-07-14 & Suuntrundicural Ute / Pra.-An. 71237728�164013137345255573228623814� & 23.28 & \\
+2008-07-14 & Suuntrundicural Ute / Pra.-An. 64458773�883407283344275328000726332� & 51.28 & \\
+2008-07-14 & Suuntrundicural Ute / Pra.-An. 24405536�233856625572733826616617827� & 71.28 & \\
+2008-07-16 & �vitandi Sec 3445.5886.3066 Seriptuid Gregultiusta / Pra.-An.�36520501� &  & 157.50\\
+2008-07-17 & Canter Manubis K-Carduli / Pra.-An. 14671686�SERIPTUID GREGULTIUSTA�7474 Obsecteria� &  & 4.55\\
+2008-07-17 & Puercuntus / Pra.-An. 67480675�SERIPTUID Gregultiusta Y-Carduli�serectuunt: Tore Remplescunt�ratorastinte Stinumerae�canthombullar Subi Capicum� & 4.55 & \\
+2008-07-18 & Canter Manubis K-Carduli / Pra.-An. 74854182�SERIPTUID Gregultiusta�longeripsigit Rego� &  & 41.25\\
+2008-07-18 & Puercuntus / Pra.-An. 40187367�SERIPTUID Gregultiusta Y-Carduli�serectuunt: Mage Ideo Mincinotumea Addux�ustiamenerba Que Usper Mulia�obtimetiaracturba� & 41.25 & \\
+2008-07-18 & Suuntrundicural Ute / Pra.-An. 38654515�735685463845718318787882771� & 1.00 & \\
+2008-07-18 & Mens-Octustriceratursus�subi Capicum / Pra.-An. 40582237 & 10.00 & \\
 \\
 \end{tablevalue}
 \end{document}
