@@ -427,12 +427,6 @@ function BLKBFormat1() {
 	this.convert = function (transactions) {
 		var transactionsToImport = [];
 
-		// for (var i = 0; i < transactions.length; i++) {
-		// 	if (transactions[i][this.colDate] && transactions[i][this.colDate].length >= 10 &&
-		// 		transactions[i][this.colDate].match(/^\d{2}.\d{2}.\d{4}$/)) {
-		// 		transactionsToImport.push(this.mapTransaction(transactions[i]));
-		// 	}
-		// }
 		/** Complete, filter and map rows */
 		var lastCompleteTransaction = null;
 		var isPreviousCompleteTransaction = false;
@@ -445,28 +439,41 @@ function BLKBFormat1() {
 				// Righe vuote
 				continue;
 			} else if (!this.isDetailRow(transaction)) {
-				if (isPreviousCompleteTransaction === true)
-				transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+				if (isPreviousCompleteTransaction === true) {
+
+					transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+				}
 				lastCompleteTransaction = transaction;
 				isPreviousCompleteTransaction = true;
 			} else {
-				this.fillDetailRow(transaction, lastCompleteTransaction);
-				transactionsToImport.push(this.mapTransaction(transaction));
-				isPreviousCompleteTransaction = false;
+		
+				if (transaction[this.colDetail] && transaction[this.colDetail].length > 0) {
+					// Adding total row first, if not yet added
+					if (isPreviousCompleteTransaction === true) {
+						transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+						isPreviousCompleteTransaction = false;
+					}
+					// Then add detail row
+					this.fillDetailRow(transaction, lastCompleteTransaction);
+					transactionsToImport.push(this.mapTransaction(transaction));
+				} else {
+					// If the detail row has no amount, concatenate its description to the description of the last complete transaction
+					if (lastCompleteTransaction) {
+						if (lastCompleteTransaction[this.colDescr] && lastCompleteTransaction[this.colDescr].length > 0) {
+							lastCompleteTransaction[this.colDescr] += "; " + transaction[this.colDescr];
+						} else {
+							lastCompleteTransaction[this.colDescr] = transaction[this.colDescr];
+						}
+					}
+				}
 			}
 		}
 		if (isPreviousCompleteTransaction === true) {
 			transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
 		}
 
-		// Sort rows by date (just invert)
-		if (transactionsToImport.length > 1 &&
-			transactionsToImport[0][0] > transactionsToImport[transactionsToImport.length - 1][0]) {
-			transactionsToImport = transactionsToImport.reverse();
-		}
-
 		// Sort rows by date
-		// transactionsToImport = transactionsToImport.reverse();
+		transactionsToImport = transactionsToImport.reverse();
 
 		// Add header and return
 		var header = [["Date", "Description", "Income", "Expenses"]];
@@ -475,8 +482,9 @@ function BLKBFormat1() {
 
 	/** Return true if the transaction is a transaction row */
 	this.isDetailRow = function (transaction) {
-		if (transaction[this.colDate].length === 0) // Date (first field) is empty
+		if (transaction[this.colDate].length === 0) {// Date (first field) is empty		
 			return true;
+		}
 		return false;
 	}
 
