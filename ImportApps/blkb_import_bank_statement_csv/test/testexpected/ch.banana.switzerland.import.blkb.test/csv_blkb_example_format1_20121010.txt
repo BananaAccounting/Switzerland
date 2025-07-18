@@ -20,140 +20,201 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l }
 Date & Description & Income & Expenses\\
-2011-10-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 857562425 **�trecturepe.-Diptium &  & 575.85\\
-2011-10-18 & Winestodum�xxx Ligit 3 43:38 &  & \\
+2011-10-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 857562425 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 857562425 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 62.43.4345�Liqueriavaraer: S04.448 4345 6017� &  & 575.85\\
+2011-10-18 & Winestodum�xxx Ligit 3 43:38 & 3000.00 & \\
+2011-10-19 & Taratu Credipe Me-Revent / Men.-Eo. 230245648�PERRASCIPIRISIGURA�DOMIREGRAY� &  & 751.25\\
+2011-10-19 & Taratu Credipe Me-Revent / Men.-Eo. 162486314�IENIUNIARGAVIONTIS�S�ANGIUNIS� &  & 6273.31\\
+2011-10-19 & Taratu Credipe Me-Revent / Men.-Eo. 357324620�LONSUBET An�nomunt 64�5207 Qualittrit� &  & 847.15\\
+2011-10-19 & Taratu Credipe Me-Revent / Men.-Eo. 551045607�CIA-Lique An�milluniunt. 6P�5614 Prientanerra� &  & 318.52\\
 2011-10-19 & Puluceatumniare Me-Revent�(Flutae Peramquis: 7 / Men.-Eo. 635681565) &  & 3054.60\\
-2011-10-21 & Tiuscecto: Supituntento / Men.-Eo. 808111208�Catinch Tudabem-Puludima &  & 1400.00\\
-2011-10-25 & Tiuscecto: Sececientesenturrine / Men.-Eo. 231737312 **�vissuus Dabicuctogitum An &  & 78.90\\
-2011-10-25 & Tiuscecto: Sececientesenturrine / Men.-Eo. 445421344 **�mutuer Dabicuctogitum In &  & 71.40\\
-2011-10-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 434178443 **�relis Culundiaraeset &  & 171.25\\
-2011-10-28 & Tiuscecto: Supituntento / Men.-Eo. 268762162�Effies Geriargati An &  & 930.00\\
-2011-10-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 156501263 **�ale Plecepe-Munt. An &  & 319.95\\
-2011-10-31 & Winestodum�xxx Ligit 3 43:50 &  & \\
-2011-11-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 436725827 **�eo Padueres Elecuceant &  & 92.40\\
-2011-11-07 & Capoepateredect / Men.-Eo. 383473344�REA-Ligit/vistae Sit/comni Sit &  & \\
-2011-11-18 & Winestodum�xxx Ligit 3 43:53 &  & \\
-2011-11-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 387446236 **�mutuer Dabicuctogitum In &  & 57.85\\
+2011-10-21 & Tiuscecto: Supituntento / Men.-Eo. 808111208�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 808111208�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2011-10-25 & Tiuscecto: Sececientesenturrine / Men.-Eo. 231737312 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 231737312 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 4628832468085772�Restogitorsiti: 48.43.4345� &  & 78.90\\
+2011-10-25 & Tiuscecto: Sececientesenturrine / Men.-Eo. 445421344 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 445421344 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 71.40\\
+2011-10-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 434178443 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 434178443 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 320828� &  & 171.25\\
+2011-10-28 & Tiuscecto: Supituntento / Men.-Eo. 268762162�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 268762162�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2011-10-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 156501263 **�ale Plecepe-Munt. An; Tiuscecto: Sececientesenturrine / Men.-Eo. 156501263 **�ale Plecepe-Munt. An�aductiavesterres 68�Mentelus 3183�5466 Natuer�bilingerna: Ale Plecepe-Munt. An�stiptum 50.30.4345 - 12.30.4345� &  & 319.95\\
+2011-10-31 & Winestodum�xxx Ligit 3 43:50 & 2000.00 & \\
+2011-11-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 436725827 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 436725827 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 446232�Officta Ut 12.30.4345�Cutubenturrunt 71452� &  & 92.40\\
+2011-11-07 & Capoepateredect / Men.-Eo. 383473344�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per F�g Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 4457� & 18.4345702784302434104367625652 & \\
+2011-11-07 & Capoepateredect / Men.-Eo. 383473344�REA-Ligit/vistae Sit/comni Sit & 1663.00 & \\
+2011-11-18 & Winestodum�xxx Ligit 3 43:53 & 3000.00 & \\
+2011-11-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 387446236 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 387446236 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 57.85\\
+2011-11-22 & Taratu Credipe Me-Revent / Men.-Eo. 818707004�RITTRIANDO Tubi�que Me Coniete Vi Pultum 525�VI-64004 Evolfac Nant� &  & 621.60\\
+2011-11-22 & Taratu Credipe Me-Revent / Men.-Eo. 388765480�SUCALIQUIS�AT-\& Solevatumn�s�angiunis� &  & 21.32\\
+2011-11-22 & Taratu Credipe Me-Revent / Men.-Eo. 541147131�ADA Luci�maxile Tudabem�banetatimetincia 20�7718 Vi. Hostantanta De� &  & 440.15\\
 2011-11-22 & Puluceatumniare Me-Revent�(Flutae Peramquis: 5 / Men.-Eo. 338626851) &  & 1021.10\\
-2011-11-23 & Tiuscecto: Supituntento / Men.-Eo. 455705717�Catinch Tudabem-Puludima &  & 1400.00\\
-2011-11-29 & Tiuscecto: Sececientesenturrine / Men.-Eo. 856783127 **�relis Culundiaraeset &  & 83.15\\
-2011-11-30 & Tiuscecto: Supituntento / Men.-Eo. 557206635�Effies Geriargati An &  & 930.00\\
-2011-11-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 222648742 **�ale Plecepe-Munt. An &  & 319.95\\
-2011-11-30 & Winestodum�xxx Ligit 5 30:68 &  & \\
-2011-12-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 154811781 **�eo Padueres Elecuceant &  & 92.40\\
-2011-12-06 & Capoepateredect / Men.-Eo. 761520776�REA-Ligit/vistae Sit/comni Sit &  & \\
-2011-12-15 & Tiuscecto: Sececientesenturrine / Men.-Eo. 104738763 **�trecturepe.-Diptium &  & 1162.20\\
-2011-12-15 & Winestodum�xxx Ligit 5 43:38 &  & \\
-2011-12-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 752261021 **�mutuer Dabicuctogitum In &  & 74.00\\
-2011-12-22 & Winestodum�xxx Ligit 5 43:31 &  & \\
-2011-12-23 & Tiuscecto: Supituntento / Men.-Eo. 751268437�Catinch Tudabem-Puludima &  & 1400.00\\
-2011-12-23 & Tiuscecto: Sececientesenturrine / Men.-Eo. 210076540 **�vissuus Dabicuctogitum An &  & 97.90\\
-2011-12-23 & Puluceatumniare Me-Revent�(Flutae Peramquis: 3 / Men.-Eo. 844843066) &  & 829.90\\
-2011-12-27 & Tiuscecto: Sececientesenturrine / Men.-Eo. 566044707 **�relis Culundiaraeset &  & 166.50\\
-2011-12-30 & Tiuscecto: Supituntento / Men.-Eo. 848803405�Effies Geriargati An &  & 930.00\\
-2011-12-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 167631221 **�ale Plecepe-Munt. An &  & 319.95\\
+2011-11-23 & Tiuscecto: Supituntento / Men.-Eo. 455705717�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 455705717�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2011-11-29 & Tiuscecto: Sececientesenturrine / Men.-Eo. 856783127 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 856783127 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 527642� &  & 83.15\\
+2011-11-30 & Tiuscecto: Supituntento / Men.-Eo. 557206635�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 557206635�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2011-11-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 222648742 **�ale Plecepe-Munt. An; Tiuscecto: Sececientesenturrine / Men.-Eo. 222648742 **�ale Plecepe-Munt. An�aductiavesterres 68�Mentelus 3183�5466 Natuer�bilingerna: Ale Plecepe-Munt. An�stiptum 50.18.4345 - 60.18.4345� &  & 319.95\\
+2011-11-30 & Winestodum�xxx Ligit 5 30:68 & 2000.00 & \\
+2011-12-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 154811781 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 154811781 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 734586�Officta Ut 60.18.4345�Cutubenturrunt 71452� &  & 92.40\\
+2011-12-06 & Capoepateredect / Men.-Eo. 761520776�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per F�g Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 4457� & 83.4345025574646067147834375445 & \\
+2011-12-06 & Capoepateredect / Men.-Eo. 761520776�REA-Ligit/vistae Sit/comni Sit & 1663.00 & \\
+2011-12-15 & Tiuscecto: Sececientesenturrine / Men.-Eo. 104738763 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 104738763 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 26.18.4345�Liqueriavaraer: S04.448 4345 1814� &  & 1162.20\\
+2011-12-15 & Winestodum�xxx Ligit 5 43:38 & 2500.00 & \\
+2011-12-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 752261021 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 752261021 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 74.00\\
+2011-12-22 & Winestodum�xxx Ligit 5 43:31 & 1500.00 & \\
+2011-12-23 & Tiuscecto: Supituntento / Men.-Eo. 751268437�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 751268437�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2011-12-23 & Tiuscecto: Sececientesenturrine / Men.-Eo. 210076540 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 210076540 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 5250580858422308�Restogitorsiti: 48.18.4345� &  & 97.90\\
+2011-12-23 & Puluceatumniare Me-Revent�(Flutae Peramquis: 3 / Men.-Eo. 844843066); Taratu Credipe Me-Revent / Men.-Eo. 276838540�MAXILE Tudabem�dicendabiet�banetatimetincia 20�7718 Vi. Hostantanta De� &  & 829.90\\
+2011-12-27 & Tiuscecto: Sececientesenturrine / Men.-Eo. 566044707 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 566044707 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 760302� &  & 166.50\\
+2011-12-30 & Tiuscecto: Supituntento / Men.-Eo. 848803405�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 848803405�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2011-12-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 167631221 **�ale Plecepe-Munt. An; Tiuscecto: Sececientesenturrine / Men.-Eo. 167631221 **�ale Plecepe-Munt. An�aductiavesterres 68�Mentelus 3183�5466 Natuer�bilingerna: Ale Plecepe-Munt. An�stiptum 50.83.4345 - 12.83.4345� &  & 319.95\\
 2011-12-31 & Lieiuntersum Fruro� &  & 48.25\\
-2011-12-31 & Habitimerum�eventiquies Fig &  & \\
-2012-01-03 & Tiuscecto: Sececientesenturrine / Men.-Eo. 415364625 **�eo Padueres Elecuceant &  & 92.40\\
+2011-12-31 & Habitimerum�eventiquies Fig; Habitimerum�eventiquies FIG�12.83.30-12.83.18�Culuceper: 1.57�Winabieiustino Coepe: 1.57� & 6.07 & \\
+2012-01-03 & Tiuscecto: Sececientesenturrine / Men.-Eo. 415364625 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 415364625 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 247064�Officta Ut 12.83.4345�Cutubenturrunt 71452� &  & 92.40\\
+2012-01-05 & Taratu Credipe Me-Revent / Men.-Eo. 225182413�RETRUNIUSTRIBO Tesperae�apiecentellitabervivensit AN�4840 Sone� &  & 107.15\\
+2012-01-05 & Taratu Credipe Me-Revent / Men.-Eo. 387362201�RETRUNIUSTRIBO Tesperae�apiecentellitabervivensit AN�4840 Sone� &  & 104.60\\
+2012-01-05 & Taratu Credipe Me-Revent / Men.-Eo. 880070536�RETRUNIUSTRIBO Tesperae�apiecentellitabervivensit AN�4840 Sone� &  & 115.30\\
 2012-01-05 & Puluceatumniare Me-Revent�(Flutae Peramquis: 5 / Men.-Eo. 860485257) &  & 1443.70\\
-2012-01-06 & Capoepateredect / Men.-Eo. 147434686�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-01-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 848373054 **�trecturepe.-Diptium &  & 575.85\\
-2012-01-13 & Winestodum�xxx Ligit 5 43:30 &  & \\
+2012-01-06 & Capoepateredect / Men.-Eo. 147434686�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per F�g Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 4457� & 50.2563861288475868577706728772 & \\
+2012-01-06 & Capoepateredect / Men.-Eo. 147434686�REA-Ligit/vistae Sit/comni Sit & 1663.00 & \\
+2012-01-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 848373054 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 848373054 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 62.83.4345�Liqueriavaraer: S04.448 4345 7846� &  & 575.85\\
+2012-01-13 & Winestodum�xxx Ligit 5 43:30 & 3000.00 & \\
 2012-01-19 & Offeripis�os Natuune-Sunda� &  & 30.00\\
-2012-01-23 & Tiuscecto: Supituntento / Men.-Eo. 211055575�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-01-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 760467852 **�mutuer Dabicuctogitum In &  & 86.50\\
-2012-01-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 486345433 **�trecturepe.-Diptium &  & 55.70\\
-2012-01-30 & Tiuscecto: Supituntento / Men.-Eo. 725401136�Effies Geriargati An &  & 930.00\\
-2012-01-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 177824503 **�vissuus Dabicuctogitum An &  & 65.65\\
-2012-01-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 427071608 **�ale Plecepe-Munt. An &  & 1817.25\\
-2012-01-31 & Winestodum�xxx Ligit 3 61:30 &  & \\
-2012-02-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 264437848 **�pilide An &  & 293.25\\
-2012-02-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 565306434 **�eo Padueres Elecuceant &  & 92.40\\
-2012-02-06 & Capoepateredect / Men.-Eo. 670383155�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-02-09 & Winestodum�xxx Ligit 3 30:27 &  & \\
+2012-01-23 & Tiuscecto: Supituntento / Men.-Eo. 211055575�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 211055575�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-01-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 760467852 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 760467852 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 86.50\\
+2012-01-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 486345433 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 486345433 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 60.83.4345�Liqueriavaraer: S04.448 4345 4782� &  & 55.70\\
+2012-01-30 & Tiuscecto: Supituntento / Men.-Eo. 725401136�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 725401136�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-01-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 177824503 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 177824503 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 1374620362425634�Restogitorsiti: 50.50.2563� &  & 65.65\\
+2012-01-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 427071608 **�ale Plecepe-Munt. An; Tiuscecto: Sececientesenturrine / Men.-Eo. 427071608 **�ale Plecepe-Munt. An�aductiavesterres 68�Mentelus 3183�5466 Natuer�bilingerna: Ale Plecepe-Munt. An�stiptum 50.50.2563 - 60.32.2563� &  & 1817.25\\
+2012-01-31 & Winestodum�xxx Ligit 3 61:30 & 2200.00 & \\
+2012-02-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 264437848 **�pilide An; Tiuscecto: Sececientesenturrine / Men.-Eo. 264437848 **�pilide An�ut. Vi Dorime 5�7887 Tultione�bilingerna: Xxx.Eo. 4205516234 Sent:�opedica. 50.18.4345�PAVA.Eo. 4272442357256337� &  & 293.25\\
+2012-02-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 565306434 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 565306434 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 847435�Officta Ut 12.50.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-02-06 & Capoepateredect / Men.-Eo. 670383155�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per F�g Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 4457� & 27.2563632604225672580586536015 & \\
+2012-02-06 & Capoepateredect / Men.-Eo. 670383155�REA-Ligit/vistae Sit/comni Sit & 1663.00 & \\
+2012-02-09 & Winestodum�xxx Ligit 3 30:27 & 2500.00 & \\
+2012-02-10 & Taratu Credipe Me-Revent / Men.-Eo. 775447062�RETRUNIUSTRIBO�VICISCEPARUNTERRA (Vemo)�x�scia� &  & 60.15\\
+2012-02-10 & Taratu Credipe Me-Revent / Men.-Eo. 667886561�NUBI \& Carviortudo An�prinervaripiligerant�in-5076 Rotura� &  & 817.42\\
+2012-02-10 & Taratu Credipe Me-Revent / Men.-Eo. 771406245�SUCALIQUIS�AT-\& Solevatumn�s�angiunis� &  & 37.50\\
+2012-02-10 & Taratu Credipe Me-Revent / Men.-Eo. 737121422�PERRASCIPIRISIGURA�DOMIREGRAY� &  & 464.33\\
+2012-02-10 & Taratu Credipe Me-Revent / Men.-Eo. 447723831�SUUNUBELIOLURGANTUS Cominit�ercundo 6H�5583 Probstrino� &  & 638.15\\
 2012-02-10 & Puluceatumniare Me-Revent�(Flutae Peramquis: 2 / Men.-Eo. 857224784) &  & 1445.95\\
-2012-02-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 732573283 **�mutuer Dabicuctogitum In &  & 60.50\\
-2012-02-23 & Tiuscecto: Supituntento / Men.-Eo. 331621755�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-02-23 & Expectuunt / Men.-Eo. 816835456�Aptulle Tra Derusa 5 Fruro &  & \\
-2012-02-29 & Tiuscecto: Supituntento / Men.-Eo. 452204888�Effies Geriargati An &  & 930.00\\
-2012-02-29 & Tiuscecto: Sececientesenturrine / Men.-Eo. 287233252 **�vissuus Dabicuctogitum An &  & 39.25\\
-2012-03-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 800064136 **�eo Padueres Elecuceant &  & 92.40\\
-2012-03-01 & Winestodum�xxx Ligit 3 43:21 &  & \\
-2012-03-01 & Sunduntudo �bonitis�xxx Ligit 3 43:24 &  & 10000.00\\
+2012-02-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 732573283 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 732573283 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 60.50\\
+2012-02-23 & Tiuscecto: Supituntento / Men.-Eo. 331621755�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 331621755�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-02-23 & Expectuunt / Men.-Eo. 816835456�Aptulle Tra Derusa 5 Fruro; Expectuunt / Men.-Eo. 816835456�Aptulle Tra Derusa 5 Fruro�eo. 3251.3888.2824�ast�in Ristquiderige�navittica Ore Rea-Suripe� & 12632.65 & \\
+2012-02-29 & Tiuscecto: Supituntento / Men.-Eo. 452204888�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 452204888�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-02-29 & Tiuscecto: Sececientesenturrine / Men.-Eo. 287233252 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 287233252 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 5571836543084356�Restogitorsiti: 50.27.2563� &  & 39.25\\
+2012-03-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 800064136 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 800064136 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 173364�Officta Ut 17.27.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-03-01 & Winestodum�xxx Ligit 3 43:21 & 3000.00 & \\
+2012-03-01 & Sunduntudo �bonitis�xxx Ligit 3 43:24; Sunduntudo �bonitis�xxx Ligit 3 43:24��bonitis Dit Fruro 7573.5235.5567� &  & 10000.00\\
+2012-03-02 & Taratu Credipe Me-Revent / Men.-Eo. 120621362�SPOTE Osta An�ut-EO�MALI�8844 X�scia� &  & 1742.32\\
+2012-03-02 & Taratu Credipe Me-Revent / Men.-Eo. 873767870�SOLUCENIBULI Cat SOMMENTIO�5008 Sommentio� &  & 581.15\\
+2012-03-02 & Taratu Credipe Me-Revent / Men.-Eo. 135226521�QUISPOST An�matemptuum 88�1213 Centi G. Ortatura� &  & 104.38\\
+2012-03-02 & Taratu Credipe Me-Revent / Men.-Eo. 616603363�AUDIVISCERECT Ocenti An�ocenti� &  & 126.52\\
 2012-03-02 & Puluceatumniare Me-Revent�(Flutae Peramquis: 7 / Men.-Eo. 818562053) &  & 3495.45\\
-2012-03-12 & Natuune-Albus�trimen At Sulcellae &  & 71.10\\
-2012-03-20 & Winestodum�xxx Ligit 3 18:71 &  & \\
+2012-03-12 & Natuune-Albus�trimen At Sulcellae; Natuune-Albus�trimen At Sulcellae�escecunnavis 85313007�62.71.2563 46:80� &  & 71.10\\
+2012-03-20 & Winestodum�xxx Ligit 3 18:71 & 3000.00 & \\
+2012-03-22 & Taratu Credipe Me-Revent / Men.-Eo. 281356121�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 628.15\\
+2012-03-22 & Taratu Credipe Me-Revent / Men.-Eo. 816548256�SUCALIQUIS�AT-\& Solevatumn�s�angiunis� &  & 38.62\\
+2012-03-22 & Taratu Credipe Me-Revent / Men.-Eo. 150767136�RAPICIUS Matetubi +�didentimul AN�8334 Canero� &  & 300.24\\
+2012-03-22 & Taratu Credipe Me-Revent / Men.-Eo. 860587872�QUISPOST An�matemptuum 88�1213 Centi G. Ortatura� &  & 54.25\\
+2012-03-22 & Taratu Credipe Me-Revent / Men.-Eo. 104815546�PERRASCIPIRISIGURA�DOMIREGRAY� &  & 704.62\\
 2012-03-22 & Puluceatumniare Me-Revent�(Flutae Peramquis: 2 / Men.-Eo. 258721721) &  & 1908.05\\
-2012-03-23 & Tiuscecto: Supituntento / Men.-Eo. 731223266�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-03-23 & Tiuscecto: Sececientesenturrine / Men.-Eo. 171521747 **�mutuer Dabicuctogitum In &  & 70.95\\
-2012-03-30 & Tiuscecto: Supituntento / Men.-Eo. 862660232�Effies Geriargati An &  & 930.00\\
-2012-04-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 876772732 **�eo Padueres Elecuceant &  & 92.40\\
-2012-04-05 & Winestodum�xxx Ligit 3 30:62 &  & \\
-2012-04-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 177674206 **�trecturepe.-Diptium &  & 289.20\\
+2012-03-23 & Tiuscecto: Supituntento / Men.-Eo. 731223266�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 731223266�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-03-23 & Tiuscecto: Sececientesenturrine / Men.-Eo. 171521747 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 171521747 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 70.95\\
+2012-03-30 & Tiuscecto: Supituntento / Men.-Eo. 862660232�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 862660232�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-04-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 876772732 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 876772732 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 482708�Officta Ut 12.71.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-04-05 & Winestodum�xxx Ligit 3 30:62 & 3000.00 & \\
+2012-04-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 177674206 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 177674206 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 62.71.2563�Liqueriavaraer: S04.448 2563 1636� &  & 289.20\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 546060750�LIGATUDABO AN�2365 Potuite� &  & 38.54\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 680673285�G�DITIMOTUUNDIVIS Tam�adunticia Numedertiore-CABSIREM�8224 Paramna� &  & 54.15\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 436382884�CIA-Lique An�milluniunt. 6P�5614 Prientanerra� &  & 284.24\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 188500886�PERRASCIPIRISIGURA�DOMIREGRAY� &  & 318.62\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 183108886�VIONSTA An�os�absectuid 7�5108 Padivent� &  & 48.15\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 286283128�LONSUBET An�nomunt 64�5207 Qualittrit� &  & 812.60\\
+2012-04-11 & Taratu Credipe Me-Revent / Men.-Eo. 218724516�ALE Senstimitino�natuer� &  & 172.62\\
 2012-04-11 & Puluceatumniare Me-Revent�(Flutae Peramquis: 1 / Men.-Eo. 245828687) &  & 2068.60\\
-2012-04-23 & Tiuscecto: Supituntento / Men.-Eo. 111681377�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-04-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 416814744 **�mutuer Dabicuctogitum In &  & 55.80\\
-2012-04-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 837871462 **�relis Culundiaraeset &  & 92.40\\
-2012-04-26 & Winestodum�xxx Ligit 3 18:30 &  & \\
+2012-04-23 & Tiuscecto: Supituntento / Men.-Eo. 111681377�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 111681377�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-04-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 416814744 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 416814744 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 55.80\\
+2012-04-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 837871462 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 837871462 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 862482� &  & 92.40\\
+2012-04-26 & Winestodum�xxx Ligit 3 18:30 & 2000.00 & \\
+2012-04-27 & Taratu Credipe Me-Revent / Men.-Eo. 733173616�MAXILE Tudabem�pupersegant 12�3212 Tesertundam De� &  & 115.75\\
+2012-04-27 & Taratu Credipe Me-Revent / Men.-Eo. 803284460�SCET Coeps An�capissu Duxore Aeriusposse�prianguitanitura 6�5313 Verino� &  & 52.25\\
 2012-04-27 & Puluceatumniare Me-Revent�(Flutae Peramquis: 4 / Men.-Eo. 551224530) &  & 936.90\\
-2012-04-30 & Tiuscecto: Supituntento / Men.-Eo. 638412734�Effies Geriargati An &  & 930.00\\
-2012-04-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 753581332 **�vissuus Dabicuctogitum An &  & 78.25\\
-2012-05-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 337563462 **�eo Padueres Elecuceant &  & 92.40\\
-2012-05-07 & Capoepateredect / Men.-Eo. 633371640�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-05-14 & Natuune-Albus�trimen At Sulcellae &  & 89.90\\
-2012-05-23 & Tiuscecto: Supituntento / Men.-Eo. 210380410�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-05-23 & Tiuscecto: Sececientesenturrine / Men.-Eo. 106104332 **�mutuer Dabicuctogitum In &  & 64.40\\
-2012-05-24 & Winestodum�xxx Ligit 3 18:66 &  & \\
+2012-04-30 & Tiuscecto: Supituntento / Men.-Eo. 638412734�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 638412734�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-04-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 753581332 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 753581332 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 2612618513446310�Restogitorsiti: 50.70.2563� &  & 78.25\\
+2012-05-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 337563462 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 337563462 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 888214�Officta Ut 60.70.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-05-07 & Capoepateredect / Men.-Eo. 633371640�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per B�u Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�monsaliquis� & 71.2563 & \\
+2012-05-07 & Capoepateredect / Men.-Eo. 633371640�REA-Ligit/vistae Sit/comni Sit & 6615.00 & \\
+2012-05-14 & Natuune-Albus�trimen At Sulcellae; Natuune-Albus�trimen At Sulcellae�escecunnavis 85313007�30.42.2563 71:54� &  & 89.90\\
+2012-05-23 & Tiuscecto: Supituntento / Men.-Eo. 210380410�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 210380410�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-05-23 & Tiuscecto: Sececientesenturrine / Men.-Eo. 106104332 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 106104332 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 64.40\\
+2012-05-24 & Winestodum�xxx Ligit 3 18:66 & 2500.00 & \\
+2012-05-25 & Taratu Credipe Me-Revent / Men.-Eo. 163707635�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 6135.15\\
+2012-05-25 & Taratu Credipe Me-Revent / Men.-Eo. 546425655�IENIUNIARGAVIONTIS�S�ANGIUNIS� &  & 6361.15\\
+2012-05-25 & Taratu Credipe Me-Revent / Men.-Eo. 147066760�SUCALIQUIS�AT-\& Solevatumn�s�angiunis� &  & 38.62\\
+2012-05-25 & Taratu Credipe Me-Revent / Men.-Eo. 666833556�EFFIES-Mare AN�QUIERCILLAVA�2760 Complus� &  & 825.62\\
 2012-05-25 & Puluceatumniare Me-Revent�(Flutae Peramquis: 7 / Men.-Eo. 100837752) &  & 3685.20\\
-2012-05-30 & Tiuscecto: Supituntento / Men.-Eo. 486406664�Effies Geriargati An &  & 930.00\\
-2012-05-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 487221258 **�relis Culundiaraeset &  & 61.50\\
-2012-06-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 448282211 **�eo Padueres Elecuceant &  & 92.40\\
-2012-06-06 & Capoepateredect / Men.-Eo. 605577718�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-06-13 & Winestodum�xxx Ligit 3 66:42 &  & \\
-2012-06-13 & Sunduntudo �bonitis�xxx Ligit 3 66:42 &  & 5000.00\\
-2012-06-22 & Tiuscecto: Supituntento / Men.-Eo. 384705277�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-06-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 547712086 **�mutuer Dabicuctogitum In &  & 53.25\\
-2012-06-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 608354242 **�relis Culundiaraeset &  & 49.20\\
+2012-05-30 & Tiuscecto: Supituntento / Men.-Eo. 486406664�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 486406664�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-05-30 & Tiuscecto: Sececientesenturrine / Men.-Eo. 487221258 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 487221258 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 526546� &  & 61.50\\
+2012-06-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 448282211 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 448282211 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 477856�Officta Ut 12.42.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-06-06 & Capoepateredect / Men.-Eo. 605577718�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per B�u Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 7620� & 32.2563583860102557517532455513 & \\
+2012-06-06 & Capoepateredect / Men.-Eo. 605577718�REA-Ligit/vistae Sit/comni Sit & 2205.00 & \\
+2012-06-13 & Winestodum�xxx Ligit 3 66:42 & 3000.00 & \\
+2012-06-13 & Sunduntudo �bonitis�xxx Ligit 3 66:42; Sunduntudo �bonitis�xxx Ligit 3 66:42��bonitis Dit Fruro 5775.3745.5567� &  & 5000.00\\
+2012-06-22 & Tiuscecto: Supituntento / Men.-Eo. 384705277�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 384705277�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-06-22 & Tiuscecto: Sececientesenturrine / Men.-Eo. 547712086 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 547712086 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 53.25\\
+2012-06-26 & Tiuscecto: Sececientesenturrine / Men.-Eo. 608354242 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 608354242 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 705437� &  & 49.20\\
+2012-06-28 & Taratu Credipe Me-Revent / Men.-Eo. 841120436�ANTUR Securbit�curem-ETIUM�NJDEVCURR3IHKLKJ 7�1023 Congungi� &  & 41.15\\
+2012-06-28 & Taratu Credipe Me-Revent / Men.-Eo. 156538462�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 103.33\\
+2012-06-28 & Taratu Credipe Me-Revent / Men.-Eo. 367718718�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 5172.54\\
+2012-06-28 & Taratu Credipe Me-Revent / Men.-Eo. 824812722�XXX - A A A A A G�xxx + Sige-Potunix AN�6524 Ligit� &  & 27.62\\
+2012-06-28 & Taratu Credipe Me-Revent / Men.-Eo. 745375058�FAMBULERUMEA Lies An�sone� &  & 30.15\\
 2012-06-28 & Puluceatumniare Me-Revent�(Flutae Peramquis: 2 / Men.-Eo. 475287428) &  & 3623.40\\
-2012-06-29 & Tiuscecto: Supituntento / Men.-Eo. 414834206�Effies Geriargati An &  & 930.00\\
-2012-07-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 206650210 **�vissuus Dabicuctogitum An &  & 69.05\\
-2012-07-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 556867614 **�eo Padueres Elecuceant &  & 92.40\\
-2012-07-05 & Capoepateredect / Men.-Eo. 171847306�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-07-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 648152650 **�trecturepe.-Diptium &  & 289.20\\
-2012-07-10 & Winestodum�xxx Ligit 3 18:43 &  & \\
-2012-07-23 & Tiuscecto: Supituntento / Men.-Eo. 644441474�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-07-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 154511136 **�mutuer Dabicuctogitum In &  & 58.15\\
-2012-07-27 & Tiuscecto: Sececientesenturrine / Men.-Eo. 720050081 **�relis Culundiaraeset &  & 89.80\\
-2012-07-30 & Tiuscecto: Supituntento / Men.-Eo. 376016668�Effies Geriargati An &  & 930.00\\
-2012-07-30 & Winestodum�ocenti Ligit 4 30:61 &  & \\
-2012-07-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 276714141 **�ale Plecepe-Munt. An &  & 1817.25\\
+2012-06-29 & Tiuscecto: Supituntento / Men.-Eo. 414834206�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 414834206�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-07-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 206650210 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 206650210 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 2643256647355616�Restogitorsiti: 50.32.2563� &  & 69.05\\
+2012-07-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 556867614 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 556867614 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 874048�Officta Ut 60.32.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-07-05 & Capoepateredect / Men.-Eo. 171847306�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per B�u Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 7620� & 57.2563476638674807123124706678 & \\
+2012-07-05 & Capoepateredect / Men.-Eo. 171847306�REA-Ligit/vistae Sit/comni Sit & 2205.00 & \\
+2012-07-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 648152650 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 648152650 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 18.32.2563�Liqueriavaraer: S04.448 2563 7000� &  & 289.20\\
+2012-07-10 & Winestodum�xxx Ligit 3 18:43 & 3000.00 & \\
+2012-07-23 & Tiuscecto: Supituntento / Men.-Eo. 644441474�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 644441474�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-07-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 154511136 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 154511136 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 58.15\\
+2012-07-27 & Tiuscecto: Sececientesenturrine / Men.-Eo. 720050081 **�relis Culundiaraeset; Tiuscecto: Sececientesenturrine / Men.-Eo. 720050081 **�relis Culundiaraeset�coventatudiury 31�6153 Dividenus�bilingerna: 837784� &  & 89.80\\
+2012-07-30 & Tiuscecto: Supituntento / Men.-Eo. 376016668�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 376016668�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-07-30 & Winestodum�ocenti Ligit 4 30:61 & 2000.00 & \\
+2012-07-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 276714141 **�ale Plecepe-Munt. An; Tiuscecto: Sececientesenturrine / Men.-Eo. 276714141 **�ale Plecepe-Munt. An�aductiavesterres 68�Mentelus 3183�5466 Natuer�bilingerna: Ale Plecepe-Munt. An�stiptum 50.57.2563 - 12.83.2563� &  & 1817.25\\
+2012-07-31 & Taratu Credipe Me-Revent / Men.-Eo. 407082066�RETRUNIUSTRIBO Tesperae�apiecentellitabervivensit AN�4840 Sone� &  & 716.33\\
+2012-07-31 & Taratu Credipe Me-Revent / Men.-Eo. 721844520�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 6135.15\\
+2012-07-31 & Taratu Credipe Me-Revent / Men.-Eo. 274575672�SUCALIQUIS�AT-\& Solevatumn�s�angiunis� &  & 38.62\\
 2012-07-31 & Puluceatumniare Me-Revent�(Flutae Peramquis: 5 / Men.-Eo. 268864842) &  & 2095.95\\
-2012-08-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 204083878 **�eo Padueres Elecuceant &  & 92.40\\
-2012-08-07 & Capoepateredect / Men.-Eo. 672720057�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-08-13 & Capoepateredect / Men.-Eo. 262540105�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-08-23 & Tiuscecto: Supituntento / Men.-Eo. 416314072�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-08-23 & Capoepateredect / Men.-Eo. 216676173�Eordusque-Funnal, Iungunt &  & \\
-2012-08-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 148708127 **�mutuer Dabicuctogitum In &  & 56.75\\
-2012-08-24 & Winestodum�xxx Ligit 5 62:20 &  & \\
+2012-08-02 & Tiuscecto: Sececientesenturrine / Men.-Eo. 204083878 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 204083878 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 162341�Officta Ut 12.57.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-08-07 & Capoepateredect / Men.-Eo. 672720057�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per B�u Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 7620� & 62.2563746204665476737253488005 & \\
+2012-08-07 & Capoepateredect / Men.-Eo. 672720057�REA-Ligit/vistae Sit/comni Sit & 2205.00 & \\
+2012-08-13 & Capoepateredect / Men.-Eo. 262540105�REA-Ligit/vistae Sit/comni Sit; Capoepateredect / Men.-Eo. 262540105�REA-Ligit/vistae Sit/comni Sit�crevelluniustandabstestius EX�4806 Vi. Numete�crevelluniustandabstestius�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Ientiminos Tra 43.62.83�TUDABEM-Puludima Catinch� & 617.40 & \\
+2012-08-23 & Tiuscecto: Supituntento / Men.-Eo. 416314072�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 416314072�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-08-23 & Capoepateredect / Men.-Eo. 216676173�Eordusque-Funnal, Iungunt; Capoepateredect / Men.-Eo. 216676173�Eordusque-Funnal, Iungunt�3310 X�scia�eordusque-Funnal Iungunt�aligrahedereraesse 46�3310 X�scia�bilingerna: 6. Certanesta Iungunt Eordusque� & 82.00 & \\
+2012-08-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 148708127 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 148708127 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 56.75\\
+2012-08-24 & Winestodum�xxx Ligit 5 62:20 & 3500.00 & \\
+2012-08-24 & Taratu Credipe Me-Revent / Men.-Eo. 140485336�PERRASCIPIRISIGURA�DOMIREGRAY� &  & 407.62\\
+2012-08-24 & Taratu Credipe Me-Revent / Men.-Eo. 517652403�IENIUNIARGAVIONTIS�S�ANGIUNIS� &  & 6650.54\\
 2012-08-24 & Puluceatumniare Me-Revent�(Flutae Peramquis: 4 / Men.-Eo. 375788874) &  & 1754.05\\
-2012-08-30 & Tiuscecto: Supituntento / Men.-Eo. 338632886�Effies Geriargati An &  & 930.00\\
-2012-08-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 280022218 **�vissuus Dabicuctogitum An &  & 80.60\\
-2012-09-03 & Tiuscecto: Sececientesenturrine / Men.-Eo. 617554687 **�eo Padueres Elecuceant &  & 92.40\\
-2012-09-06 & Capoepateredect / Men.-Eo. 342438725�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-09-07 & Winestodum�ocenti Ligit 5 18:67 &  & \\
-2012-09-12 & Capoepateredect / Men.-Eo. 261202628�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-09-14 & Winestodum�ocenti Ligit 5 48:83 &  & \\
-2012-09-17 & �bonitis Hoc 5775.3745.5567 Tudabem Catinch / Men.-Eo. 360343731� &  & \\
+2012-08-30 & Tiuscecto: Supituntento / Men.-Eo. 338632886�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 338632886�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-08-31 & Tiuscecto: Sececientesenturrine / Men.-Eo. 280022218 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 280022218 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 8402414664037838�Restogitorsiti: 50.62.2563� &  & 80.60\\
+2012-09-03 & Tiuscecto: Sececientesenturrine / Men.-Eo. 617554687 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 617554687 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 532063�Officta Ut 12.62.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-09-06 & Capoepateredect / Men.-Eo. 342438725�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per B�u Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 7620� & 43.2563017878482758570402222172 & \\
+2012-09-06 & Capoepateredect / Men.-Eo. 342438725�REA-Ligit/vistae Sit/comni Sit & 2205.00 & \\
+2012-09-07 & Winestodum�ocenti Ligit 5 18:67 & 2200.00 & \\
+2012-09-12 & Capoepateredect / Men.-Eo. 261202628�REA-Ligit/vistae Sit/comni Sit; Capoepateredect / Men.-Eo. 261202628�REA-Ligit/vistae Sit/comni Sit�crevelluniustandabstestius EX�4806 Vi. Numete�crevelluniustandabstestius�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Mempertubenstrate�tudabem-Puludima Catinch� & 21.45 & \\
+2012-09-14 & Winestodum�ocenti Ligit 5 48:83 & 1500.00 & \\
+2012-09-17 & �bonitis Hoc 5775.3745.5567 Tudabem Catinch / Men.-Eo. 360343731� & 19000.00 & \\
+2012-09-17 & Taratu Credipe Me-Revent / Men.-Eo. 610881358�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 6450.15\\
+2012-09-17 & Taratu Credipe Me-Revent / Men.-Eo. 123404747�RITTRIANDO TUBI�525 Que Me Coniete Vi Miceat�vi-64004 Evolfac Nant� &  & 257.30\\
+2012-09-17 & Taratu Credipe Me-Revent / Men.-Eo. 425055274�SUCALIQUIS�AT-\& Solevatumn�s�angiunis� &  & 38.62\\
+2012-09-17 & Taratu Credipe Me-Revent / Men.-Eo. 606750370�SPIRE. Semerima Domiregray�comnutantaterucute�domiregray� &  & 282.86\\
 2012-09-17 & Puluceatumniare Me-Revent�(Flutae Peramquis: 7 / Men.-Eo. 442018642) &  & 2553.55\\
-2012-09-18 & Taratu Credipe X-Liunces / Men.-Eo. 843484783�ADA Luci &  & 26000.00\\
-2012-09-21 & Tiuscecto: Supituntento / Men.-Eo. 737718018�Catinch Tudabem-Puludima &  & 1400.00\\
-2012-09-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 573358156 **�mutuer Dabicuctogitum In &  & 59.55\\
-2012-09-28 & Winestodum�ocenti Ligit 4 61:12 &  & \\
-2012-09-28 & Tiuscecto: Supituntento / Men.-Eo. 158660463�Effies Geriargati An &  & 930.00\\
-2012-10-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 114621500 **�vissuus Dabicuctogitum An &  & 45.00\\
-2012-10-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 628503381 **�eo Padueres Elecuceant &  & 92.40\\
-2012-10-04 & Capoepateredect / Men.-Eo. 737570328�REA-Ligit/vistae Sit/comni Sit &  & \\
-2012-10-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 446856234 **�trecturepe.-Diptium &  & 289.20\\
+2012-09-18 & Taratu Credipe X-Liunces / Men.-Eo. 843484783�ADA Luci; Taratu Credipe X-Liunces / Men.-Eo. 843484783�ADA Luci�maxile Tudabem�banetatimetincia 20�7718 Vi. Hostantanta De� &  & 26000.00\\
+2012-09-21 & Tiuscecto: Supituntento / Men.-Eo. 737718018�Catinch Tudabem-Puludima; Tiuscecto: Supituntento / Men.-Eo. 737718018�Catinch Tudabem-Puludima�3212 S�angiunis De� &  & 1400.00\\
+2012-09-24 & Tiuscecto: Sececientesenturrine / Men.-Eo. 573358156 **�mutuer Dabicuctogitum In; Tiuscecto: Sececientesenturrine / Men.-Eo. 573358156 **�mutuer Dabicuctogitum In�ut.Ascrit-Domnus 1�IN-7141�RATINGES 60 Nava� &  & 59.55\\
+2012-09-28 & Winestodum�ocenti Ligit 4 61:12 & 3000.00 & \\
+2012-09-28 & Tiuscecto: Supituntento / Men.-Eo. 158660463�Effies Geriargati An; Tiuscecto: Supituntento / Men.-Eo. 158660463�Effies Geriargati An�banetatimetincia 83�3212 Tesertundam De� &  & 930.00\\
+2012-10-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 114621500 **�vissuus Dabicuctogitum An; Tiuscecto: Sececientesenturrine / Men.-Eo. 114621500 **�vissuus Dabicuctogitum An�vissuus�magnumerannassimi 318�IN - 5568 Potuite�bilingerna: Mutatuotunga: 5486063250�Cantuntervistas: 1670871557400421�Restogitorsiti: 50.43.2563� &  & 45.00\\
+2012-10-01 & Tiuscecto: Sececientesenturrine / Men.-Eo. 628503381 **�eo Padueres Elecuceant; Tiuscecto: Sececientesenturrine / Men.-Eo. 628503381 **�eo Padueres Elecuceant�aredeangerima 71�6364 Munt�bilingerna: Tudabem Ordux�icidista Eo. 276237�Officta Ut 60.43.2563�Cutubenturrunt 71452� &  & 92.40\\
+2012-10-04 & Capoepateredect / Men.-Eo. 737570328�REA-Ligit/vistae Sit/comni Sit�per F�g Rea Hat Et COMINIT�1056 Probstrino�per B�u Rea Hat Et Ore�zucaray Cominit�vi. Miliunnaraest 48�1056 Probstrino�bilingerna: 413.3086.3805.54 Tudabem-Puludima�et 7620� & 30.2563212283656018545340422800 & \\
+2012-10-04 & Capoepateredect / Men.-Eo. 737570328�REA-Ligit/vistae Sit/comni Sit & 2205.00 & \\
+2012-10-10 & Tiuscecto: Sececientesenturrine / Men.-Eo. 446856234 **�trecturepe.-Diptium; Tiuscecto: Sececientesenturrine / Men.-Eo. 446856234 **�trecturepe.-Diptium�ore Zucaray Vi. Numete�exerusquendio 84�4806 Vi. Numete�bilingerna: Orsendie Tra 30.43.2563�Liqueriavaraer: S04.448 2563 4782� &  & 289.20\\
 \\
 \end{tablevalue}
 \end{document}

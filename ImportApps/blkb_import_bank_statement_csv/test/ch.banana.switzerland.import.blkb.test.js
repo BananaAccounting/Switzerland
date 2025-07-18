@@ -59,12 +59,12 @@ TestImportBLKBTrans.prototype.cleanup = function () {
 TestImportBLKBTrans.prototype.testImport = function () {
    var fileNameList = [];
 
-   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_2012101.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format2_2012101.csv");
    fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20080718.csv");
    fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20121010.csv");
    fileNameList.push("file:script/../test/testcases/csv_blkb_example_format1_20190218.csv");   
-   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format2_20160629.csv");
-   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format3_20250709.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format3_20160629.csv");
+   fileNameList.push("file:script/../test/testcases/csv_blkb_example_format4_20250709.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
