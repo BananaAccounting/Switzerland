@@ -36,7 +36,8 @@
 // @timeout = -1
 // @includejs = import.utilities.js
 
-
+var applicationSupportIsDetail = Banana.compareVersion &&
+   (Banana.compareVersion(Banana.application.version, "10.0.12") >= 0);
 /**
  * Parse the data and return the data to be imported as a tab separated file.
  */
@@ -44,13 +45,19 @@ function exec(string, isTest) {
 
 	var importUtilities = new ImportUtilities(Banana.document);
 
-	// string = cleanupText( string);
 	if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
        return "";
 
-	var fieldSeparator = findSeparator(string);
+	var cleanString = string;
+	if (cleanString.match(/""/)) {
+		cleanString = cleanString.replace(/^"/g, "");
+		cleanString = cleanString.replace(/"$/g, "");
+		cleanString = cleanString.replace(/""/g, '');
+	}
 
-	var transactions = Banana.Converter.csvToArray(string, fieldSeparator, '"');
+	var fieldSeparator = findSeparator(cleanString);
+
+	var transactions = Banana.Converter.csvToArray(cleanString, fieldSeparator, '"');
 
 	var blkbFormat4 = new BLKBFormat4();
 	let transactionsData = blkbFormat4.getFormattedData(transactions, importUtilities);
@@ -416,6 +423,12 @@ function BLKBFormat1() {
 			else
 				formatMatched = false;
 
+			if (formatMatched && transaction[this.colDateValuta] && transaction[this.colDateValuta].length >= 10 &&
+				transaction[this.colDateValuta].match(/^\d{2}.\d{2}.\d{4}$/))
+				formatMatched = true;
+			else
+				formatMatched = false;
+
 			if (formatMatched)
 				return true;
 		}
@@ -430,6 +443,7 @@ function BLKBFormat1() {
 		/** Complete, filter and map rows */
 		var lastCompleteTransaction = null;
 		var isPreviousCompleteTransaction = false;
+		var lastCompleteTransactionPrinted = false;
 
 		for (i = 1; i < transactions.length; i++) // First row contains the header
 		{
@@ -438,33 +452,34 @@ function BLKBFormat1() {
 			if (transaction.length === 0) {
 				// Righe vuote
 				continue;
-			} else if (!this.isDetailRow(transaction)) {
-				if (isPreviousCompleteTransaction === true) {
-
-					transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+			} else if (!this.isDetailRow(transaction)) { // Normal row
+				lastCompleteTransactionPrinted = false;
+				if (isPreviousCompleteTransaction === true && transaction[this.colDate].match(/^\d{2}.\d{2}.\d{4}$/)) {
+					transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));					
+				}		
+				if (transaction[this.colDate].match(/^\d{2}.\d{2}.\d{4}$/))	{
+					lastCompleteTransaction = transaction;
+					isPreviousCompleteTransaction = true;
 				}
-				lastCompleteTransaction = transaction;
-				isPreviousCompleteTransaction = true;
-			} else {
-		
+			} else { // Detail row
 				if (transaction[this.colDetail] && transaction[this.colDetail].length > 0) {
 					// Adding total row first, if not yet added
-					if (isPreviousCompleteTransaction === true) {
+					if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+						lastCompleteTransaction['IsDetail'] = 'S';
 						transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
-						isPreviousCompleteTransaction = false;
+						lastCompleteTransactionPrinted = true;
 					}
 					// Then add detail row
 					this.fillDetailRow(transaction, lastCompleteTransaction);
-					transactionsToImport.push(this.mapTransaction(transaction));
-				} else {
-					// If the detail row has no amount, concatenate its description to the description of the last complete transaction
-					if (lastCompleteTransaction) {
-						if (lastCompleteTransaction[this.colDescr] && lastCompleteTransaction[this.colDescr].length > 0) {
-							lastCompleteTransaction[this.colDescr] += "; " + transaction[this.colDescr];
-						} else {
-							lastCompleteTransaction[this.colDescr] = transaction[this.colDescr];
-						}
+					if (applicationSupportIsDetail) {
+						transaction['IsDetail'] = 'D';
 					}
+					transactionsToImport.push(this.mapTransaction(transaction));
+					isPreviousCompleteTransaction = false;
+				} else {
+					this.fillDetailRow(transaction, lastCompleteTransaction);
+					transactionsToImport.push(this.mapTransaction(transaction));
+					isPreviousCompleteTransaction = false;
 				}
 			}
 		}
@@ -476,7 +491,7 @@ function BLKBFormat1() {
 		transactionsToImport = transactionsToImport.reverse();
 
 		// Add header and return
-		var header = [["Date", "Description", "Income", "Expenses"]];
+		var header = [["Date", "Description", "Income", "Expenses", "IsDetail"]];
 		return header.concat(transactionsToImport);
 	}
 
@@ -490,12 +505,11 @@ function BLKBFormat1() {
 
 	/** Fill the detail rows with the missing values. The value are copied from the preceding total row */
 	this.fillDetailRow = function (detailRow, totalRow) {
-		// Copy dates
+		// Copy dates		
 		detailRow[this.colDate] = totalRow[this.colDate];
-		detailRow[this.colDateValuta] = totalRow[this.colDateValuta];
 
 		// Copy amount from complete row to detail row
-		if (detailRow[this.colDetail].length > 0) {
+		if (detailRow[this.colDetail] && detailRow[this.colDetail].length > 0) {
 			if (totalRow[this.colDebit].length > 0) {
 				detailRow[this.colDebit] = detailRow[this.colDetail];
 			} else if (totalRow[this.colCredit].length > 0) {
@@ -522,6 +536,7 @@ function BLKBFormat1() {
 			mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction[this.colDebit], '.'));
 		else
 			mappedLine.push("");
+		mappedLine.push(transaction["IsDetail"]);
 
 		return mappedLine;
 	}
