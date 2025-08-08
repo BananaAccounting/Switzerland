@@ -776,7 +776,7 @@ var QRBill = class QRBill {
 			userParam.qr_code_additional_information = '';
 		}
 		if (!userParam.qr_code_billing_information) {
-			userParam.qr_code_billing_information = '';
+			userParam.qr_code_billing_information = false;
 		}
 		if (!userParam.qr_code_empty_address) {
 			userParam.qr_code_empty_address = false;

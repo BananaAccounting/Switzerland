@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2025-05-30
+// @pubdate = 2025-08-08
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -79,6 +79,14 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
     if (savedParam.length > 0) {
       userParam = JSON.parse(savedParam);
       userParam = verifyParam(userParam);
+    }
+
+    //use the loaded json with invoice parameters
+    if (BAN_ADVANCED && userParam.params_json) {
+      userParam = createParam(userParam);
+      userParam = verifyParam(userParam);
+      var paramToString = JSON.stringify(userParam);
+      Banana.document.setScriptSettings(paramToString);
     }
 
     // jsonInvoice can be a json string or a js object
@@ -168,6 +176,11 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     return repDocObj;
   }
 
+  // Eval the JavaScript code entered in param settings
+  // Used to overwrite the default functions with the custom hook functions
+  if (BAN_ADVANCED && userParam.code_javascript) {
+    eval(userParam.code_javascript);
+  }
 
   /* PRINT HEADER */
   if (BAN_ADVANCED && typeof(hook_print_header) === typeof(Function)) {
@@ -1958,13 +1971,18 @@ function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
     User can define an embedded javascript file in the table Documents
     and use it to write his own 'hook' functions that overwrite the
     default functions.
+    User can also enter the javascript code directly in settings parameters.
   */
 
-
-  // User entered a javascript file name
-  // Take from the table documents all the javascript file names
-  if (userParam.embedded_javascript_filename) {
-
+  if (userParam.code_javascript) {
+    // User entered a javascript code in settings parameters
+    if (!BAN_ADVANCED) {
+      banDoc.addMessage("The customization with JavaScript requires Banana Accounting+ Advanced");
+    }
+  }
+  else if (userParam.embedded_javascript_filename) {
+    // User entered a javascript file name
+    // Take from the table documents all the javascript file names
     if (BAN_ADVANCED) {
     
       var jsFiles = [];
@@ -1996,7 +2014,7 @@ function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
       }
     }
     else {
-      banDoc.addMessage("The customization with Javascript requires Banana Accounting+ Advanced");
+      banDoc.addMessage("The customization with JavaScript requires Banana Accounting+ Advanced");
     }
   }
 }
@@ -2559,11 +2577,19 @@ function set_css_style(banDoc, repStyleObj, variables, userParam) {
 
   /**
     User defined CSS
-    Checks if the *.css file defined settings parameters exists in Documents table, then use it.
-
     Only available with Banana ADVANCED.
   */
-  if (userParam.embedded_css_filename) {
+  if (userParam.code_css) {
+    // CSS code entered in settings parameters
+    if (BAN_ADVANCED) {
+      textCSS += userParam.code_css;
+    }
+    else {
+      banDoc.addMessage("The customization with CSS requires Banana Accounting+ Advanced");
+    }
+  }
+  else if (userParam.embedded_css_filename) {
+    // CSS file defined in settings parameters exists in Documents table
     if (BAN_ADVANCED) {
       var cssFiles = [];
       var documentsTable = banDoc.table("Documents");
