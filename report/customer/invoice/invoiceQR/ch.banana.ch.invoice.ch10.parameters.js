@@ -4318,6 +4318,9 @@ function createParam(userParam) {
       if (paramObject.hasOwnProperty(key)) {
         paramObject[key] = value;
       }
+      // else {
+      //   paramObject[key] = value;
+      // }
     }
 
     Banana.console.log(JSON.stringify(paramObject, null, 3));

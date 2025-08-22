@@ -1644,6 +1644,11 @@ function formatItemsValue(value, variables, columnName, className, item) {
    */
   columnName = columnName.trim().toLowerCase();
 
+  // Eval the JavaScript code entred in param settings to overwrite the default functions
+  if (BAN_ADVANCED && variables.code_javascript) {
+    eval(variables.code_javascript);
+  }
+
   if (typeof(hook_formatItemsValue) === typeof(Function)) {
     var newItemFormatted = {};
     newItemFormatted = hook_formatItemsValue(value, columnName, className, item);
@@ -2650,6 +2655,15 @@ function set_variables(variables, userParam) {
   variables.$right_address_margin_top = parseFloat(4.5) + parseFloat(userParam.address_position_dY)+"cm";
   variables.$left_address_margin_left = parseFloat(2.2) + parseFloat(userParam.address_position_dX)+"cm";
   variables.$left_address_margin_top = parseFloat(5.5) + parseFloat(userParam.address_position_dY)+"cm";  
+  /* Variable to save the JavaScript code entered in param settings.
+     Used in formatItemsValue function since userParam is not available */
+  variables.code_javascript = "";
+  
+  /* Eval the JavaScript code entred in param settings to overwrite the default functions */
+  if (BAN_ADVANCED && userParam.code_javascript) {
+    variables.code_javascript = userParam.code_javascript;
+    eval(userParam.code_javascript);
+  }
   /* If exists use the function defined by the user */
   if (typeof(hook_set_variables) === typeof(Function)) {
     hook_set_variables(variables, userParam);
