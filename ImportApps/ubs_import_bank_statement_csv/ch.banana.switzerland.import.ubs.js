@@ -487,6 +487,16 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
         }
 
+        // Only reverse if first date is later than last date
+        if (transactionsToImport.length > 1) {
+            let firstDate = transactionsToImport[0][0]; // Date column
+            let lastDate = transactionsToImport[transactionsToImport.length - 1][0]; // Date column
+            
+            if (firstDate > lastDate) {
+                transactionsToImport = transactionsToImport.reverse();
+            }
+        }
+
         var header = [
             [
                 "Date",
@@ -542,6 +552,14 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
     };
 
     getFormattedData(transactions, importUtilities) {
+        let needsFixing = transactions.some(row => row.length > 21);
+        if (needsFixing) {
+            for (let i = 0; i < transactions.length; i++) {
+                if (transactions[i].length > 21) {
+                    transactions[i] = this.fixSplitDescriptions(transactions[i]);
+                }
+            }
+        }
         let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
         
         var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
@@ -578,6 +596,27 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
         }
 
         return [];
+    }
+
+    fixSplitDescriptions(row) {
+        if (row.length <= 21) return row;
+        
+        // Calculate how many extra columns we have
+        let extraColumns = row.length - 21;
+        
+        // Merge Description3 (column 14) with the extra columns
+        let mergedDescription3 = "";
+        for (let i = 14; i <= 14 + extraColumns; i++) {
+            mergedDescription3 += row[i];
+            if (i < 14 + extraColumns) mergedDescription3 += ";"; 
+        }
+
+        // Reconstruct the row
+        let fixedRow = row.slice(0, 14); // Columns 0-13
+        fixedRow.push(mergedDescription3); // Fixed Description3
+        fixedRow = fixedRow.concat(row.slice(15 + extraColumns)); // Remaining columns
+        
+        return fixedRow;
     }
 };
 
