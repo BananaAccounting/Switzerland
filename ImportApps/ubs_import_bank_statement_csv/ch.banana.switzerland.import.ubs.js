@@ -1446,7 +1446,6 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
         // Filter and map rows
         for (i = 0; i < transactionsData.length; i++) {
             var transaction = transactionsData[i];
-
             if (transaction["Currency"] && transaction["TransactionNr"] && transaction["Description1"]) { //Valid transaction (complete & detail).
                 if (!this.isDetailRow(transaction)) { // Normal row.
                     lastCompleteTransactionPrinted = false;
