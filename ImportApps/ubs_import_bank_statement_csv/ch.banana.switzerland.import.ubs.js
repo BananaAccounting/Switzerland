@@ -29,26 +29,20 @@ const applicationSupportIsDetail = Banana.compareVersion &&
 function exec(inData, isTest) {
     if (!inData) return "";
 
-    /** in the new version of format 3 (June 2024) we could have the situation where descriptions have
-     * trhee pairs of quotes: """description text""". This situation cause problems
-     * when the API Banana.Converter.csvToArray() read the content, the text is ignored. This happen
-     * when the text description contains a semicolon ';'.
-     * For the time being, we 'clean' the text of these quotes pairs by replacing them with normal quotes pairs.
-     *  */
-    inData = inData.replace(/"""/g, '"');
+    const cleanedData = cleanData(inData);
 
     var importUtilities = new ImportUtilities(Banana.document);
 
     if (isTest !== true && !importUtilities.verifyBananaAdvancedVersion())
         return "";
 
-    convertionParam = defineConversionParam(inData);
+    convertionParam = defineConversionParam(cleanedData);
     //Add the header if present
     if (convertionParam.header) {
-        inData = convertionParam.header + inData;
+        cleanedData = convertionParam.header + cleanedData;
     }
 
-    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
+    let transactions = Banana.Converter.csvToArray(cleanedData, convertionParam.separator, convertionParam.textDelim);
 
 
     // Format Credit Card
@@ -58,7 +52,8 @@ function exec(inData, isTest) {
         return Banana.Converter.arrayToTsv(transactions);
     }
 
-    let transactionsData;
+    let transactionsData = {};
+
     var format1Ubs = new UBSFormat1New(Banana.document);
     transactionsData = format1Ubs.getFormattedData(transactions, importUtilities);
     if (format1Ubs.match(transactionsData)) {
@@ -85,6 +80,26 @@ function exec(inData, isTest) {
     importUtilities.getUnknownFormatError();
 
     return "";
+}
+
+function cleanData(inData) {
+    /** in the new version of format 3 (June 2024) we could have the situation where descriptions have
+    * trhee pairs of quotes: """description text""". This situation cause problems
+    * when the API Banana.Converter.csvToArray() read the content, the text is ignored. This happen
+    * when the text description contains a semicolon ';'.
+    * For the time being, we 'clean' the text of these quotes pairs by replacing them with normal quotes pairs.
+    *  */
+    if (inData.indexOf('"""') >= 0) {
+        inData = inData.replace(/"""/g, '"');
+    }
+
+    /** Clean data: replace all " ; " with " " 
+    * This happen when the description contains a semicolon and is not properly quoted*/
+    if (inData.indexOf(" ; ") >= 0) {
+        inData = inData.replace(/ ; /g, " ");
+    }
+
+    return inData;
 }
 
 /**
@@ -382,18 +397,18 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
 
     /** Return true if the transactions match this format */
     match(transactionsData) {
-        if (transactionsData.length === 0) 
+        if (transactionsData.length === 0)
             return false;
 
         for (i = 0; i < transactionsData.length; i++) {
             var transaction = transactionsData[i];
 
             var formatMatched = false;
-            
+
             if (transaction["BookingDate"] &&
                 transaction["BookingDate"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/))
                 formatMatched = true;
-            else 
+            else
                 formatMatched = false;
 
             if (
@@ -402,7 +417,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
                 transaction["ValueDate"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/)
             )
                 formatMatched = true;
-            else 
+            else
                 formatMatched = false;
 
             if (formatMatched && transaction["DebitAmount"] || transaction["CreditAmount"])
@@ -422,14 +437,14 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
 
         /** Complete, filter and map rows */
         var lastCompleteTransaction = null;
-        
+
         for (let i = 0; i < transactionsData.length; i++) {
             var mappedTransaction = [];
             var transaction = transactionsData[i];
-            
+
             var length = Object.keys(transaction).length;
             if (length <= 10 ||
-                transaction["BookingDate"] === '') 
+                transaction["BookingDate"] === '')
                 continue;
 
             if (length >= 10 &&
@@ -444,7 +459,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
                     lastCompleteTransaction = null;
                 }
                 lastCompleteTransaction = transaction;
-            } else if (length >= 17 && 
+            } else if (length >= 17 &&
                 transaction["IndividualAmount"] &&
                 transaction["IndividualAmount"].length > 0) {
                 // Is a detail row
@@ -480,9 +495,9 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
                     }
                 }
 
-            } 
+            }
         }
-        
+
         if (lastCompleteTransaction !== null) {
             transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
         }
@@ -491,7 +506,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
         if (transactionsToImport.length > 1) {
             let firstDate = transactionsToImport[0][0]; // Date column
             let lastDate = transactionsToImport[transactionsToImport.length - 1][0]; // Date column
-            
+
             if (firstDate > lastDate) {
                 transactionsToImport = transactionsToImport.reverse();
             }
@@ -510,7 +525,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             ],
         ];
         return header.concat(transactionsToImport);
-        
+
     }
 
     mapTransaction(transaction) {
@@ -552,16 +567,9 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
     };
 
     getFormattedData(transactions, importUtilities) {
-        let needsFixing = transactions.some(row => row.length > 21);
-        if (needsFixing) {
-            for (let i = 0; i < transactions.length; i++) {
-                if (transactions[i].length > 21) {
-                    transactions[i] = this.fixSplitDescriptions(transactions[i]);
-                }
-            }
-        }
+
         let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
-        
+
         var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
         var rows = importUtilities.getRowData(transactionsCopy, 1); //array of array
         let form = [];
@@ -596,27 +604,6 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
         }
 
         return [];
-    }
-
-    fixSplitDescriptions(row) {
-        if (row.length <= 21) return row;
-        
-        // Calculate how many extra columns we have
-        let extraColumns = row.length - 21;
-        
-        // Merge Description3 (column 14) with the extra columns
-        let mergedDescription3 = "";
-        for (let i = 14; i <= 14 + extraColumns; i++) {
-            mergedDescription3 += row[i];
-            if (i < 14 + extraColumns) mergedDescription3 += ";"; 
-        }
-
-        // Reconstruct the row
-        let fixedRow = row.slice(0, 14); // Columns 0-13
-        fixedRow.push(mergedDescription3); // Fixed Description3
-        fixedRow = fixedRow.concat(row.slice(15 + extraColumns)); // Remaining columns
-        
-        return fixedRow;
     }
 };
 
@@ -1459,7 +1446,7 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
         // Filter and map rows
         for (i = 0; i < transactionsData.length; i++) {
             var transaction = transactionsData[i];
-            
+
             if (transaction["Currency"] && transaction["TransactionNr"] && transaction["Description1"]) { //Valid transaction (complete & detail).
                 if (!this.isDetailRow(transaction)) { // Normal row.
                     lastCompleteTransactionPrinted = false;
