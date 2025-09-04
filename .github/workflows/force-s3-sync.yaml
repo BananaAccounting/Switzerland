@@ -3,21 +3,21 @@ name: Force-S3-Sync
 on:
   workflow_dispatch:
     inputs:
-      choice:
+      action:
         description: 'Force files resync to S3?'
         required: true
-        default: 'No'
+        default: no
         type: choice
         options:
-        - Yes
-        - No
+        - yes
+        - no
 
 env:
   AWS_ENDPOINT: https://s3-ti.tinext.cloud
 
 jobs:
   upload-files:
-    if: ${{ inputs.choice == 'Yes' }}
+    if: ${{ inputs.action == 'yes' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
