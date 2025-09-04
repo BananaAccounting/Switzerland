@@ -345,6 +345,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
                     convertedColumns[i] = "DateTo";
                     break;
                 case "Date de conclusion":
+                case "Date de transaction":
                     convertedColumns[i] = "TradeDate";
                     break;
                 case "Date de comptabilisation":
