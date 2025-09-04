@@ -1,4 +1,4 @@
-name: Upload-To-S3
+name: Force-S3-Sync
 
 on:
   workflow_dispatch:
