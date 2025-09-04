@@ -11,18 +11,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Get Commit Diff
-        run: |
-          git diff-tree --no-commit-id --name-only -r ${{ github.sha }} > /tmp/git-diff.txt
       - name: Sync files to S3 bucket
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-east-1
+        # env:
+        #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        #   AWS_REGION: us-east-1
         run: |
-          for file in $(cat /tmp/git-diff.txt);
+          for file in $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
           do
-            echo $file
+            echo $file;
           done
         # run: |
         #   aws s3 sync --delete --dryrun --size-only \
