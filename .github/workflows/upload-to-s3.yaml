@@ -17,4 +17,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
         run: |
-          aws s3 sync --delete --dryrun --endpoint-url ${{ env.AWS_ENDPOINT }}    --exclude ".git*" --exclude "*.gitignore" . s3://files.banana.ch/portal/repodata/ghba/Switzerland
+          ls -l && \
+          aws s3 sync --delete --dryrun \
+          --endpoint-url ${{ env.AWS_ENDPOINT }} \
+          --exclude ".git*" \
+          --exclude "*.gitignore" \
+          . s3://files.banana.ch/portal/repodata/ghba/Switzerland
