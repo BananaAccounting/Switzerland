@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.ubs
 // @api = 1.0
-// @pubdate = 2024-11-12
+// @pubdate = 2025-09-04
 // @publisher = Banana.ch SA
 // @description = UBS - Import account statement .csv (Banana+ Advanced)
 // @description.en = UBS - Import account statement .csv (Banana+ Advanced)
@@ -176,6 +176,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             }
         }
 
+        // all fields must be present (even if empty)
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
@@ -247,6 +248,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             }
         }
 
+        // all fields must be present (even if empty)
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
@@ -271,12 +273,14 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
                     convertedColumns[i] = "DateTo";
                     break;
                 case "Data di chiusura":
+                case "Data dell'operazione":
                     convertedColumns[i] = "TradeDate";
                     break;
                 case "Data di registrazione":
                     convertedColumns[i] = "BookingDate";
                     break;
                 case "Valuta":
+                case "Data di valuta":
                     convertedColumns[i] = "ValueDate";
                     break;
                 case "Mon.":
@@ -317,6 +321,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             }
         }
 
+        // all fields must be present (even if empty)
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
@@ -386,6 +391,7 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             }
         }
 
+        // all fields must be present (even if empty)
         if (convertedColumns.indexOf("TradeDate") < 0
             || convertedColumns.indexOf("BookingDate") < 0
             || convertedColumns.indexOf("ValueDate") < 0) {
@@ -442,9 +448,10 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
             var mappedTransaction = [];
             var transaction = transactionsData[i];
 
+            //BookingDate may be empty
             var length = Object.keys(transaction).length;
             if (length <= 10 ||
-                transaction["BookingDate"] === '')
+                (transaction["BookingDate"] === '' && transaction["TradeDate"] === ''))
                 continue;
 
             if (length >= 10 &&
@@ -531,7 +538,11 @@ var UBSFormat1New = class UBSFormat1New extends ImportUtilities {
     mapTransaction(transaction) {
         var mappedLine = [];
 
-        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["BookingDate"], "dd.mm.yyyy"));
+        //BookingDate may be empty
+        let bookingDate = transaction["BookingDate"];
+        if (!bookingDate)
+            bookingDate = transaction["TradeDate"];
+        mappedLine.push(Banana.Converter.toInternalDateFormat(bookingDate, "dd.mm.yyyy"));
         mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["ValueDate"], "dd.mm.yyyy"));
         mappedLine.push("");
         mappedLine.push(transaction["TransactionNr"]); //transaction number.
@@ -1000,12 +1011,15 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
         dateText = element[this.colDateOperation].substring(0, 10);
         dateValueText = element[this.colDateValuta].substring(0, 10);
 
-        mappedLine.push(
-            Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd")
-        );
-        mappedLine.push(
-            Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd")
-        );
+        if (dateText.match(/^[0-9]+\.[0-9]+\.[0-9]+$/)) {
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "dd.mm.yyyy"));
+        }
+        else {
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd"));
+        }
+
         // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
         mappedLine.push(
             element[this.colDescr1] +
@@ -1101,7 +1115,6 @@ var UBSFormat2 = class UBSFormat2 extends ImportUtilities {
  */
 var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
     // Index of columns in *.csv file
-
     constructor(banDocument) {
         super(banDocument);
         this.decimalSeparator = ".";
@@ -1533,8 +1546,14 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
         dateText = transaction["TradeDate"].substring(0, 10);
         dateValueText = transaction["ValueDate"].substring(0, 10);
 
-        mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
-        mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd"));
+        if (dateText.match(/^[0-9]+\.[0-9]+\.[0-9]+$/)) {
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "dd.mm.yyyy"));
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "dd.mm.yyyy"));
+        }
+        else {
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateText, "yyyy-mm-dd"));
+            mappedLine.push(Banana.Converter.toInternalDateFormat(dateValueText, "yyyy-mm-dd"));
+        }
         // wrap descr to bypass TipoFileImporta::IndovinaSeparatore problem
         mappedLine.push(transaction["Description1"] + " " + transaction["Description3"]);
         mappedLine.push(transaction["TransactionNr"]);
