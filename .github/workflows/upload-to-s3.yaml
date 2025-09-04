@@ -11,15 +11,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Get Commit Diff
+        run: |
+          git diff-tree --no-commit-id --name-only -r ${{ github.sha }} > /tmp/git-diff.txt
       - name: Sync files to S3 bucket
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
         run: |
-          ls -l && \
-          aws s3 sync --delete --dryrun \
-          --endpoint-url ${{ env.AWS_ENDPOINT }} \
-          --exclude ".git*" \
-          --exclude "*.gitignore" \
-          . s3://files.banana.ch/portal/repodata/ghba/Switzerland
+          for file in $(cat /tmp/git-diff.txt);
+          do
+            echo $file
+          done
+        # run: |
+        #   aws s3 sync --delete --dryrun --size-only \
+        #   --endpoint-url ${{ env.AWS_ENDPOINT }} \
+        #   --exclude ".git*" \
+        #   --exclude "*.gitignore" \
+        #   . s3://files.banana.ch/portal/repodata/ghba/Switzerland
