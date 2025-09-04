@@ -23,5 +23,5 @@ jobs:
             --endpoint-url ${{ env.AWS_ENDPOINT }} \
             --exclude ".git*" \
             --exclude "*.gitignore" \
-            $file s3://files.banana.ch/portal/repodata/ghba/Switzerland/$file
+            $file s3://files.banana.ch/portal/repodata/ghba/Switzerland/$file;
           done
