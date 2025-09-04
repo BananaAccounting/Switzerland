@@ -18,8 +18,4 @@ jobs:
           AWS_REGION: us-east-1
           AWS_BUCKET: files.banana.ch
         run: |
-          aws s3 sync --delete --dryrun \
-            --endpoint-url ${{ env.AWS_ENDPOINT }} \
-            --exclude ".git*" \
-            --exclude "*.gitignore" \
-            . s3://$S3_BUCKET/portal/repodata/ghba/Switzerland
+          aws s3 sync --delete --dryrun --endpoint-url ${{ env.AWS_ENDPOINT }} --exclude ".git*" --exclude "*.gitignore"  . s3://$S3_BUCKET/portal/repodata/ghba/Switzerland
