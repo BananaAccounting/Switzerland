@@ -1,0 +1,22 @@
+name: Upload-To-S3
+
+on: [push]
+
+env:
+  AWS_ENDPOINT: https://s3-ti.tinext.cloud
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Sync files to S3 bucket
+        run: |
+          aws s3 sync --dryrun --endpoint-url ${{ env.AWS_ENDPOINT }} --exclude ".git*" --exclude "*.gitignore" --delete . s3://s3-ti.tinext.cloud/files.banana.ch/portal/repodata/ghba/Switzerland
