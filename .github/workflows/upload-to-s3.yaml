@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  
       - name: Sync files to S3 bucket
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -19,7 +21,7 @@ jobs:
         run: |
           for file in $(git diff-tree --no-commit-id --name-only --diff-filter ACMRT -r ${{ github.sha }}); \
           do \
-            aws s3 cp --dryrun \
+            aws s3 cp \
             --endpoint-url ${{ env.AWS_ENDPOINT }} \
             --exclude ".git*" \
             --exclude "*.gitignore" \
