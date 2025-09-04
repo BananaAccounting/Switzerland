@@ -6,11 +6,11 @@ on:
       action:
         description: 'Force files resync to S3?'
         required: true
-        default: no
+        default: 'no'
         type: choice
         options:
-        - yes
-        - no
+        - 'yes'
+        - 'no'
 
 env:
   AWS_ENDPOINT: https://s3-ti.tinext.cloud
