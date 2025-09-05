@@ -1,6 +1,9 @@
 name: Upload-To-S3
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'master'
 
 env:
   AWS_ENDPOINT: https://s3-ti.tinext.cloud
