@@ -1,4 +1,4 @@
-%%info_test_name{Double-entry test Twint;csv_twint_example_format1_business_20250902}
+%%info_test_name{Double_entry_test_Twint;csv_twint_example_format1_business_20250902}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
