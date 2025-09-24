@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//ID_PAIN_FORMAT_001_001_09_CH_04 DomBuilderSPS2025
+//ID_PAIN_FORMAT_001_001_09_CH_03 DomBuilderSPS2025
+//ID_BUSINESS_RULES_SPS2025 SPS2025
 var DomBuilderSPS2025 = class DomBuilderSPS2025 extends DomBuilder {
 	constructor(painFormat, withSchemaLocation) {
 		super(painFormat, withSchemaLocation);
