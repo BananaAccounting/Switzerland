@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2024-07-30
+// @pubdate = 2025-09-24
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -22,6 +22,7 @@
 // @includejs = ch.banana.pain.iso.2009.js
 // @includejs = ch.banana.pain.sps.2021.js
 // @includejs = ch.banana.pain.sps.2022.js
+// @includejs = ch.banana.pain.sps.2025.js
 // @includejs = checkfunctions.js
 // @includejs = documentchange.js
 
@@ -234,28 +235,48 @@ function Pain001Switzerland(banDocument) {
     this.ID_PAYMENT_TYPE_X_DESCRIPTION = "Domestic payment in foreign currency (with IBAN or account)";
 
     // supported payment formats
+    //SPS2021 ISO 20022:2009
     this.ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
+    //SPS2022-SPS2025 ISO 20022:2019
     this.ID_PAIN_FORMAT_001_001_09_CH_03 = "pain.001.001.09.ch.03";
+    //ISO 20022 Schema DEPRECATED
     this.ID_PAIN_FORMAT_001_001_03 = "pain.001.001.03";
+
+    // bank rules
+    // SPS 2025 applies the same schema as SPS 2022-2024 but with different rules (structured addresses and hybrid addresses)
+    this.ID_BUSINESS_RULES_SPS2025 = "SPS2025";
+    this.ID_BUSINESS_RULES_SPS2022 = "SPS2022";
+    this.ID_BUSINESS_RULES_SPS2021 = "SPS2021";
+
     this.painFormats = [];
+    this.painFormats.push({
+        "@appId": this.id,
+        "@description": "Swiss Payment Standard 2025 (pain.001.001.09.ch.03)", 
+        "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
+        "@rules": this.ID_BUSINESS_RULES_SPS2025,
+        "@version": this.version
+    });
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2022 (pain.001.001.09.ch.03)",
         "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
+        "@rules": this.ID_BUSINESS_RULES_SPS2022,
         "@version": this.version
     });
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
         "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
+        "@rules": this.ID_BUSINESS_RULES_SPS2021,
         "@version": this.version
     });
-    this.painFormats.push({
+    // DEPRECATED
+    /*this.painFormats.push({
         "@appId": this.id,
         "@description": "ISO 20022 Schema (pain.001.001.03)",
         "@format": this.ID_PAIN_FORMAT_001_001_03,
         "@version": this.version
-    });
+    });*/
 
     this.SEPARATOR_CHAR = '\xa0';
     this.isTest = false;
@@ -819,6 +840,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
     }
 
     var painFormat = paymentObj["@format"];
+    var standardRules = paymentObj["@rules"]; 
     var msgId = this.formatUuid(paymentObj["@uuid"]);
 
     // Payment Information Identification unique inside msg
@@ -1015,10 +1037,17 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
         domBuilder = new DomBuilderSPS2021(painFormat, true);
     }
     else if (painFormat === this.ID_PAIN_FORMAT_001_001_09_CH_03) {
-        domBuilder = new DomBuilderSPS2022(painFormat, true);
+        if (standardRules === this.ID_BUSINESS_RULES_SPS2025) {
+            domBuilder = new DomBuilderSPS2025(painFormat, true);
+        }
+        else {
+            domBuilder = new DomBuilderSPS2022(painFormat, true);
+        }
     }
     else {
-        domBuilder = new DomBuilder(painFormat, true);
+        //domBuilder = new DomBuilder(painFormat, true);   
+        //the format is not supported
+        return '';
     }
 
     transferFile.accept(domBuilder);
