@@ -1,0 +1,15 @@
+Date de comptabilisation;Type d'ordre;Libellé;Montant débité (CHF);Montant crédité (CHF);Solde (CHF)
+31.12.2024;Frais de tenue de compte;Frais de tenue de compte;2.00;;14602.71
+30.12.2024;Débit groupé;Débit global du 30.12.2024;617.40;;14604.71
+30.12.2024;payment (standing order);"TEST
+TEST
+TEST
+TEST";244.00;;15222.11
+30.12.2024;TEST;TEST;34.90;;15466.11
+30.12.2024;TEST;"TEST
+TEST
+TEST
+TEST
+
+TEST
+TEST";12.97;;15501.01
