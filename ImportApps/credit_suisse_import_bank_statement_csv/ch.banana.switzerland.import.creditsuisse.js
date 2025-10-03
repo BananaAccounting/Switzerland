@@ -1,4 +1,4 @@
-﻿// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+﻿// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.creditsuisse
 // @api = 1.0
-// @pubdate = 2024-09-19
+// @pubdate = 2025-10-03
 // @publisher = Banana.ch SA
 // @description = Credit Suisse - Import account statement .csv (Banana+ Advanced)
 // @description.en = Credit Suisse - Import account statement .csv (Banana+ Advanced)
@@ -628,6 +628,7 @@ function convertHeaderDe(columns) {
    for (let i = 0; i < columns.length; i++) {
       switch (columns[i]) {
          case "Valutadatum":
+         case "Buchungsdatum":
             convertedColumns[i] = "Date";
             break;
          case "Text":
