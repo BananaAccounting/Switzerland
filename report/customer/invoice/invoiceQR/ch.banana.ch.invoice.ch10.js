@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2025-05-30
+// @pubdate = 2025-08-08
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -168,6 +168,11 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
     return repDocObj;
   }
 
+  // Eval the JavaScript code entered in param settings
+  // Used to overwrite the default functions with the custom hook functions
+  if (BAN_ADVANCED && userParam.code_javascript) {
+    eval(userParam.code_javascript);
+  }
 
   /* PRINT HEADER */
   if (BAN_ADVANCED && typeof(hook_print_header) === typeof(Function)) {
@@ -238,7 +243,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT CUSTOMER ADDRESS */
   if (invoiceObj.shipping_info && invoiceObj.shipping_info.different_shipping_address && (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts")) { //for delivery note use shipping address when available
-    if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
+    if (BAN_ADVANCED && typeof(hook_print_address_delivery_note) === typeof(Function)) {
       hook_print_address_delivery_note(repDocObj, invoiceObj, userParam);
     } else {
       print_address_delivery_note(repDocObj, invoiceObj, userParam);
@@ -1631,6 +1636,11 @@ function formatItemsValue(value, variables, columnName, className, item) {
    */
   columnName = columnName.trim().toLowerCase();
 
+  // Eval the JavaScript code entred in param settings to overwrite the default functions
+  if (BAN_ADVANCED && variables.code_javascript) {
+    eval(variables.code_javascript);
+  }
+
   if (typeof(hook_formatItemsValue) === typeof(Function)) {
     var newItemFormatted = {};
     newItemFormatted = hook_formatItemsValue(value, columnName, className, item);
@@ -1960,11 +1970,15 @@ function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
     default functions.
   */
 
-
-  // User entered a javascript file name
-  // Take from the table documents all the javascript file names
-  if (userParam.embedded_javascript_filename) {
-
+  if (userParam.code_javascript) {
+    // User entered a javascript code in settings parameters
+    if (!BAN_ADVANCED) {
+      banDoc.addMessage("The customization with JavaScript requires Banana Accounting+ Advanced");
+    }
+  }
+  else if (userParam.embedded_javascript_filename) {
+    // User entered a javascript file name
+    // Take from the table documents all the javascript file names
     if (BAN_ADVANCED) {
     
       var jsFiles = [];
@@ -1996,7 +2010,7 @@ function includeEmbeddedJavascriptFile(banDoc, texts, userParam) {
       }
     }
     else {
-      banDoc.addMessage("The customization with Javascript requires Banana Accounting+ Advanced");
+      banDoc.addMessage("The customization with JavaScript requires Banana Accounting+ Advanced");
     }
   }
 }
@@ -2559,11 +2573,19 @@ function set_css_style(banDoc, repStyleObj, variables, userParam) {
 
   /**
     User defined CSS
-    Checks if the *.css file defined settings parameters exists in Documents table, then use it.
-
     Only available with Banana ADVANCED.
   */
-  if (userParam.embedded_css_filename) {
+  if (userParam.code_css) {
+    // CSS code entered in settings parameters
+    if (BAN_ADVANCED) {
+      textCSS += userParam.code_css;
+    }
+    else {
+      banDoc.addMessage("The customization with CSS requires Banana Accounting+ Advanced");
+    }
+  }
+  else if (userParam.embedded_css_filename) {
+    // CSS file defined in settings parameters exists in Documents table
     if (BAN_ADVANCED) {
       var cssFiles = [];
       var documentsTable = banDoc.table("Documents");
@@ -2624,6 +2646,15 @@ function set_variables(variables, userParam) {
   variables.$right_address_margin_top = parseFloat(4.5) + parseFloat(userParam.address_position_dY)+"cm";
   variables.$left_address_margin_left = parseFloat(2.2) + parseFloat(userParam.address_position_dX)+"cm";
   variables.$left_address_margin_top = parseFloat(5.5) + parseFloat(userParam.address_position_dY)+"cm";  
+  /* Variable to save the JavaScript code entered in param settings.
+     Used in formatItemsValue function since userParam is not available */
+  variables.code_javascript = "";
+  
+  /* Eval the JavaScript code entred in param settings to overwrite the default functions */
+  if (BAN_ADVANCED && userParam.code_javascript) {
+    variables.code_javascript = userParam.code_javascript;
+    eval(userParam.code_javascript);
+  }
   /* If exists use the function defined by the user */
   if (typeof(hook_set_variables) === typeof(Function)) {
     hook_set_variables(variables, userParam);
