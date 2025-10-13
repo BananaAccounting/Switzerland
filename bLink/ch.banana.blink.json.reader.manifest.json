@@ -1,0 +1,13 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "bLink Json reader",
+    "description.en": "bLink Json reader",
+    "id": "ch.banana.blink.json.reader",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "bLink Json reader",
+    "title.en": "bLink Json reader",
+    "version": "1.0"
+}
