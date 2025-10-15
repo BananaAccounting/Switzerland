@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.viseca
 // @api = 1.0
-// @pubdate = 2024-08-28
+// @pubdate = 2025-10-15
 // @publisher = Banana.ch SA
 // @description = Viseca (One) - Import movements .xls (Banana+ Advanced)
 // @description.it = Viseca (One) - Importa movimenti .xls (Banana+ Advanced)
@@ -48,7 +48,7 @@ function exec(inData, isTest) {
       return "";
 
    convertionParam = defineConversionParam(inData);
-   
+
    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
 
    // Viseca Card Payments, this format works with the header names.
@@ -105,7 +105,7 @@ function VisecaFormat1() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 8 &&
             transaction["Date"].match(/^\d{2}.\d{2}.\d{2}$/))
             formatMatched = true;
@@ -123,7 +123,7 @@ function VisecaFormat1() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{2}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -203,7 +203,7 @@ function VisecaFormat2() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
             transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
             formatMatched = true;
@@ -221,7 +221,7 @@ function VisecaFormat2() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -306,8 +306,8 @@ function convertHeaderDe(columns) {
             convertedColumns[i] = "Date";
             break;
          case "VORNAME":
-               convertedColumns[i] = "First Name";
-               break;
+            convertedColumns[i] = "First Name";
+            break;
          case "NACHNAME":
             convertedColumns[i] = "Last Name";
             break;
@@ -346,7 +346,7 @@ function VisecaFormat3() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
             transaction["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/))
             formatMatched = true;
@@ -380,7 +380,7 @@ function VisecaFormat3() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
             transactionsData[i]["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -402,16 +402,28 @@ function VisecaFormat3() {
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
       mappedLine.push("");
       mappedLine.push(transaction["Transaction Id"]);
-      mappedLine.push(transaction["Merchant Name"] + ", " + transaction["Merchant Place"] + ", " + transaction["Details"]);
-      if (transaction["Amount"].substring(0, 1) === '-') {
-         mappedLine.push("");
+      mappedLine.push(this.getDescription(transaction));
+      if (transaction["Amount"].substring(0, 1) === '-') { // Income has the minus sign
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), '.'));
-      } else {
-         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
          mappedLine.push("");
+      } else { // Expenses
+         mappedLine.push("");
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
       }
 
       return mappedLine;
+   }
+
+   this.getDescription = function (transaction) {
+
+      if (!transaction) return "";
+
+      const { "Merchant Name": name, "Merchant Place": place, "Details": details } = transaction;
+
+      // Crea un array, filtra i valori vuoti e unisci con virgola
+      return [name, place, details]
+         .filter(value => value && value.trim() !== "")
+         .join(", ");
    }
 }
 
@@ -425,10 +437,10 @@ function convertHeaderEn(columns) {
             break;
          case "ValutaDate":
             convertedColumns[i] = "DateValue";
-            break;  
+            break;
          case "TransactionId":
             convertedColumns[i] = "Transaction Id";
-            break; 
+            break;
          case "Amount":
             convertedColumns[i] = "Amount";
             break;
