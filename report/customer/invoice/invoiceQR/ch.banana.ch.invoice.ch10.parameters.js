@@ -42,7 +42,7 @@ function settingsDialog() {
       var dialogTitle = 'Settings';
       var convertedParam = convertParam(userParam);
       var pageAnchor = 'dlgSettings';
-      if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor, true)) {
+      if (!Banana.Ui.openPropertyEditor(dialogTitle, convertedParam, pageAnchor)) {
         return;
       }
       for (var i = 0; i < convertedParam.data.length; i++) {
