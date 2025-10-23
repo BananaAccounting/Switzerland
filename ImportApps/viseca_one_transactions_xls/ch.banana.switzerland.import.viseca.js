@@ -139,8 +139,9 @@ function VisecaFormat1() {
    }
 
    this.getFormattedData = function (inData, importUtilities) {
-      var columns = importUtilities.getHeaderData(inData, 5); //array
-      var rows = importUtilities.getRowData(inData, 6); //array of array
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 5); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 6); //array of array
       let form = [];
 
       let convertedColumns = [];
@@ -237,8 +238,9 @@ function VisecaFormat2() {
    }
 
    this.getFormattedData = function (inData, importUtilities) {
-      var columns = importUtilities.getHeaderData(inData, 4); //array
-      var rows = importUtilities.getRowData(inData, 5); //array of array
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 4); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 5); //array of array
       let form = [];
 
       let convertedColumns = [];
@@ -361,8 +363,9 @@ function VisecaFormat3() {
    }
 
    this.getFormattedData = function (inData, importUtilities) {
-      var columns = importUtilities.getHeaderData(inData, 0); //array
-      var rows = importUtilities.getRowData(inData, 1); //array of array
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 1); //array of array
       let form = [];
 
       let convertedColumns = convertHeaderEn(columns);
@@ -415,25 +418,11 @@ function VisecaFormat3() {
    }
 
    this.getDescription = function (transaction) {
-
       if (!transaction) return "";
-
-      let description = "";
-
-      if (transaction["MerchantName"] && transaction["MerchantName"] !== "") {
-         description += transaction["MerchantName"];
-      }
-      if (transaction["MerchantPlace"] && transaction["MerchantPlace"] !== "") {
-         if (description !== "")
-            description += ", ";
-         description += transaction["MerchantPlace"];
-      }
-      if (transaction["Details"] && transaction["Details"] !== "") {
-         if (description !== "")
-            description += ", ";
-         description += transaction["Details"];
-      }
-      return description;
+      const { "MerchantName": name, "MerchantPlace": place, "Details": details } = transaction;
+      return [name, place, details]
+         .filter(value => value && typeof value === "string" && value.trim() !== "")
+         .join(", ");
    }
 }
 
