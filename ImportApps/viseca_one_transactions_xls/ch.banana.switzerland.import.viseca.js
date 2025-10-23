@@ -401,7 +401,7 @@ function VisecaFormat3() {
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
       mappedLine.push("");
-      mappedLine.push(transaction["Transaction Id"]);
+      mappedLine.push(transaction["TransactionId"]);
       mappedLine.push(this.getDescription(transaction));
       if (transaction["Amount"].substring(0, 1) === '-') { // Income has the minus sign
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), '.'));
@@ -418,12 +418,22 @@ function VisecaFormat3() {
 
       if (!transaction) return "";
 
-      const { "Merchant Name": name, "Merchant Place": place, "Details": details } = transaction;
+      let description = "";
 
-      // Crea un array, filtra i valori vuoti e unisci con virgola
-      return [name, place, details]
-         .filter(value => value && value.trim() !== "")
-         .join(", ");
+      if (transaction["MerchantName"] && transaction["MerchantName"] !== "") {
+         description += transaction["MerchantName"];
+      }
+      if (transaction["MerchantPlace"] && transaction["MerchantPlace"] !== "") {
+         if (description !== "")
+            description += ", ";
+         description += transaction["MerchantPlace"];
+      }
+      if (transaction["Details"] && transaction["Details"] !== "") {
+         if (description !== "")
+            description += ", ";
+         description += transaction["Details"];
+      }
+      return description;
    }
 }
 
@@ -439,7 +449,7 @@ function convertHeaderEn(columns) {
             convertedColumns[i] = "DateValue";
             break;
          case "TransactionId":
-            convertedColumns[i] = "Transaction Id";
+            convertedColumns[i] = "TransactionId";
             break;
          case "Amount":
             convertedColumns[i] = "Amount";
@@ -448,13 +458,13 @@ function convertHeaderEn(columns) {
             convertedColumns[i] = "Currency";
             break;
          case "MerchantName":
-            convertedColumns[i] = "Merchant Name";
+            convertedColumns[i] = "MerchantName";
             break;
          case "MerchantPlace":
-            convertedColumns[i] = "Merchant Place";
+            convertedColumns[i] = "MerchantPlace";
             break;
          case "MerchantCountry":
-            convertedColumns[i] = "Merchant Country";
+            convertedColumns[i] = "MerchantCountry";
             break;
          case "StateType":
             convertedColumns[i] = "State Type";
