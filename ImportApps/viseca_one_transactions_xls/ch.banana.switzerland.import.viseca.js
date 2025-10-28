@@ -16,11 +16,11 @@
 // @api = 1.0
 // @pubdate = 2025-10-15
 // @publisher = Banana.ch SA
-// @description = Viseca (One) - Import movements .xls (Banana+ Advanced)
-// @description.it = Viseca (One) - Importa movimenti .xls (Banana+ Advanced)
-// @description.en = Viseca (One) - Import movements .xls (Banana+ Advanced)
-// @description.de = Viseca (One) - Bewegungen importieren .xls (Banana+ Advanced)
-// @description.fr = Viseca (One) - Importer mouvements .xls (Banana+ Advanced)
+// @description = Viseca (One) - Import movements .csv (Banana+ Advanced)
+// @description.it = Viseca (One) - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = Viseca (One) - Import movements .csv (Banana+ Advanced)
+// @description.de = Viseca (One) - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Viseca (One) - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
