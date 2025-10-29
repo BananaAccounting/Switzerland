@@ -847,10 +847,6 @@ function getLang() {
    var lang = 'en';
    if (this.banDocument)
       lang = this.banDocument.locale;
-   else if (Banana.application.locale)
-      lang = Banana.application.locale;
-   if (lang.length > 2)
-      lang = lang.substr(0, 2);
    return lang;
 }
 
