@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
 
 // @id = ch.banana.switzerland.import.viseca
 // @api = 1.0
-// @pubdate = 2024-08-28
+// @pubdate = 2025-10-15
 // @publisher = Banana.ch SA
-// @description = Viseca (One) - Import movements .xls (Banana+ Advanced)
-// @description.it = Viseca (One) - Importa movimenti .xls (Banana+ Advanced)
-// @description.en = Viseca (One) - Import movements .xls (Banana+ Advanced)
-// @description.de = Viseca (One) - Bewegungen importieren .xls (Banana+ Advanced)
-// @description.fr = Viseca (One) - Importer mouvements .xls (Banana+ Advanced)
+// @description = Viseca (One) - Import movements .csv (Banana+ Advanced)
+// @description.it = Viseca (One) - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = Viseca (One) - Import movements .csv (Banana+ Advanced)
+// @description.de = Viseca (One) - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Viseca (One) - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -48,7 +48,7 @@ function exec(inData, isTest) {
       return "";
 
    convertionParam = defineConversionParam(inData);
-   
+
    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
 
    // Viseca Card Payments, this format works with the header names.
@@ -105,7 +105,7 @@ function VisecaFormat1() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 8 &&
             transaction["Date"].match(/^\d{2}.\d{2}.\d{2}$/))
             formatMatched = true;
@@ -123,7 +123,7 @@ function VisecaFormat1() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{2}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -139,8 +139,9 @@ function VisecaFormat1() {
    }
 
    this.getFormattedData = function (inData, importUtilities) {
-      var columns = importUtilities.getHeaderData(inData, 5); //array
-      var rows = importUtilities.getRowData(inData, 6); //array of array
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 5); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 6); //array of array
       let form = [];
 
       let convertedColumns = [];
@@ -203,7 +204,7 @@ function VisecaFormat2() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
             transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
             formatMatched = true;
@@ -221,7 +222,7 @@ function VisecaFormat2() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -237,8 +238,9 @@ function VisecaFormat2() {
    }
 
    this.getFormattedData = function (inData, importUtilities) {
-      var columns = importUtilities.getHeaderData(inData, 4); //array
-      var rows = importUtilities.getRowData(inData, 5); //array of array
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 4); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 5); //array of array
       let form = [];
 
       let convertedColumns = [];
@@ -306,8 +308,8 @@ function convertHeaderDe(columns) {
             convertedColumns[i] = "Date";
             break;
          case "VORNAME":
-               convertedColumns[i] = "First Name";
-               break;
+            convertedColumns[i] = "First Name";
+            break;
          case "NACHNAME":
             convertedColumns[i] = "Last Name";
             break;
@@ -346,7 +348,7 @@ function VisecaFormat3() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
             transaction["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/))
             formatMatched = true;
@@ -361,8 +363,9 @@ function VisecaFormat3() {
    }
 
    this.getFormattedData = function (inData, importUtilities) {
-      var columns = importUtilities.getHeaderData(inData, 0); //array
-      var rows = importUtilities.getRowData(inData, 1); //array of array
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 1); //array of array
       let form = [];
 
       let convertedColumns = convertHeaderEn(columns);
@@ -380,7 +383,7 @@ function VisecaFormat3() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
             transactionsData[i]["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -401,17 +404,25 @@ function VisecaFormat3() {
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
       mappedLine.push("");
-      mappedLine.push(transaction["Transaction Id"]);
-      mappedLine.push(transaction["Merchant Name"] + ", " + transaction["Merchant Place"] + ", " + transaction["Details"]);
-      if (transaction["Amount"].substring(0, 1) === '-') {
-         mappedLine.push("");
+      mappedLine.push(transaction["TransactionId"]);
+      mappedLine.push(this.getDescription(transaction));
+      if (transaction["Amount"].substring(0, 1) === '-') { // Income has the minus sign
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), '.'));
-      } else {
-         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
          mappedLine.push("");
+      } else { // Expenses
+         mappedLine.push("");
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
       }
 
       return mappedLine;
+   }
+
+   this.getDescription = function (transaction) {
+      if (!transaction) return "";
+      const { "MerchantName": name, "MerchantPlace": place, "Details": details } = transaction;
+      return [name, place, details]
+         .filter(value => value && typeof value === "string" && value.trim() !== "")
+         .join(", ");
    }
 }
 
@@ -425,10 +436,10 @@ function convertHeaderEn(columns) {
             break;
          case "ValutaDate":
             convertedColumns[i] = "DateValue";
-            break;  
+            break;
          case "TransactionId":
-            convertedColumns[i] = "Transaction Id";
-            break; 
+            convertedColumns[i] = "TransactionId";
+            break;
          case "Amount":
             convertedColumns[i] = "Amount";
             break;
@@ -436,13 +447,13 @@ function convertHeaderEn(columns) {
             convertedColumns[i] = "Currency";
             break;
          case "MerchantName":
-            convertedColumns[i] = "Merchant Name";
+            convertedColumns[i] = "MerchantName";
             break;
          case "MerchantPlace":
-            convertedColumns[i] = "Merchant Place";
+            convertedColumns[i] = "MerchantPlace";
             break;
          case "MerchantCountry":
-            convertedColumns[i] = "Merchant Country";
+            convertedColumns[i] = "MerchantCountry";
             break;
          case "StateType":
             convertedColumns[i] = "State Type";

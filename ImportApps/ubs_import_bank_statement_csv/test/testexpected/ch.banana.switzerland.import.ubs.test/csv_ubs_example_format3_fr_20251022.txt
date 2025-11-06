@@ -1,4 +1,4 @@
-%%info_test_name{ch.banana.switzerland.import.viseca.test}
+%%info_test_name{csv_ubs_example_format3_fr_20251022}
 \documentclass{report}
 \usepackage{longtable}
 \usepackage{color}
@@ -18,11 +18,12 @@
 \newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
 \newenvironment{test}[1]{\section*{Test case: #1}}{}
 %Begin test data
-%%SCRIPT{C:/P/Switzerland/ImportApps/viseca_one_transactions_xls/test/ch.banana.switzerland.import.viseca.test.js}
-%
-\begin{testcase}{TestImportVisecaTrans}
-\begin{test}{testImport}
-\keyvalue{Result}{Passed}
-\end{test}
-\end{testcase}
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Description & ExternalReference & Expenses & Income & IsDetail\\
+2025-10-03 & 2025-10-03 & test test & 2025276PH0003980 &  & 200.00 & D\\
+2025-10-03 & 2025-10-03 & Test test & 2025276PH0003980 &  & 200.00 & S\\
+2025-10-09 & 2025-10-09 & test test & 2025282PH0005046 &  & 200.00 & D\\
+2025-10-09 & 2025-10-09 & Test test & 2025282PH0005046 &  & 200.00 & S\\
+\\
+\end{tablevalue}
 \end{document}
