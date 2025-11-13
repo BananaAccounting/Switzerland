@@ -23,6 +23,98 @@ var DomBuilderSPS2025 = class DomBuilderSPS2025 extends DomBuilder {
         }
 	}
 
+    /**
+     * Appends an address node to the given DOM element, including country and address lines.
+     * Uses the hybrid address format.
+     * If no address is available in transactionInformation, the method does nothing.
+     *
+     * @param \DOMElement $creditor
+     * @param CustomerCreditTransferInformation $transactionInformation
+     */
+    appendCreditorAddressToDomElement(creditor, transactionInformation) {
+        if (transactionInformation.getCreditorCountry().length < 0 && transactionInformation.getCreditorTown().length < 0) {
+            return; // No address exists, nothing to do.
+        }
+
+        var postalAddress = creditor.addElement('PstlAdr');
+
+        // Generate postalcode node.
+        if (transactionInformation.getCreditorPostalCode().length > 0) {
+            var node = postalAddress.addElement('PstCd');
+            node.addTextNode(transactionInformation.getCreditorPostalCode());
+        }
+
+        // Generate town node.
+        if (transactionInformation.getCreditorTown().length > 0) {
+            var node = postalAddress.addElement('TwnNm');
+            node.addTextNode(transactionInformation.getCreditorTown());
+        }
+
+        // Generate country node.
+        if (transactionInformation.getCreditorCountry().length > 0) {
+            var node = postalAddress.addElement('Ctry');
+            node.addTextNode(transactionInformation.getCreditorCountry());
+        }
+
+        // Generate addressline 1. (max length?)
+        if (transactionInformation.getCreditorStreet1().length > 0) {
+            var node = postalAddress.addElement('AdrLine');
+            node.addTextNode(transactionInformation.getCreditorStreet1());
+        }
+
+        // Generate addressline 2. (max length?)
+        if (transactionInformation.getCreditorStreet2().length > 0) {
+            var node = postalAddress.addElement('AdrLine');
+            node.addTextNode(transactionInformation.getCreditorStreet2());
+        }
+    }
+
+    /**
+     * Appends an address node to the given DOM element, including country and address lines.
+     * Uses the hybrid address format.
+     * If no address is available in transactionInformation, the method does nothing.
+     *
+     * @param \DOMElement $ultimateDebtor
+     * @param CustomerCreditTransferInformation $transactionInformation
+     */
+    appendUltimateDebtorAddressToDomElement(ultimateDebtor, transactionInformation) {
+        if (transactionInformation.getUltimateDebtorCountry().length < 0 && transactionInformation.getUltimateDebtorTown().length < 0) {
+            return; // No address exists, nothing to do.
+        }
+
+        var postalAddress = ultimateDebtor.addElement('PstlAdr');
+
+        // Generate postalcode node.
+        if (transactionInformation.getUltimateDebtorPostalCode().length > 0) {
+            var node = postalAddress.addElement('PstCd');
+            node.addTextNode(transactionInformation.getUltimateDebtorPostalCode());
+        }
+
+        // Generate town node.
+        if (transactionInformation.getUltimateDebtorTown().length > 0) {
+            var node = postalAddress.addElement('TwnNm');
+            node.addTextNode(transactionInformation.getUltimateDebtorTown());
+        }
+
+        // Generate country node.
+        if (transactionInformation.getUltimateDebtorCountry().length > 0) {
+            var node = postalAddress.addElement('Ctry');
+            node.addTextNode(transactionInformation.getUltimateDebtorCountry());
+        }
+
+        // Generate addressline 1. (max length?)
+        if (transactionInformation.getUltimateDebtorStreet1().length > 0) {
+            var node = postalAddress.addElement('AdrLine');
+            node.addTextNode(transactionInformation.getUltimateDebtorStreet1());
+        }
+
+        // Generate addressline 2. (max length?)
+        if (transactionInformation.getUltimateDebtorStreet2().length > 0) {
+            var node = postalAddress.addElement('AdrLine');
+            node.addTextNode(transactionInformation.getUltimateDebtorStreet2());
+        }
+    }
+
     appendFinancialInstitutionElement(debtorAgent, bic) {
         var finInstitution = super.appendFinancialInstitutionElement(debtorAgent, bic);
         var nodeToReplace = finInstitution.firstChildElement('BIC');

@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2025-09-24
+// @pubdate = 2025-11-13
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -235,39 +235,38 @@ function Pain001Switzerland(banDocument) {
     this.ID_PAYMENT_TYPE_X_DESCRIPTION = "Domestic payment in foreign currency (with IBAN or account)";
 
     // supported payment formats
-    //SPS2021 ISO 20022:2009
+    //SPS2021 ISO 2009
     this.ID_PAIN_FORMAT_001_001_03_CH_02 = "pain.001.001.03.ch.02";
-    //SPS2022-SPS2025 ISO 20022:2019
+    //SPS2022 ISO 2019
+    // 2.0.1 = SPS 2022 rules (unstructured address supported) valid until November 2026
     this.ID_PAIN_FORMAT_001_001_09_CH_03 = "pain.001.001.09.ch.03";
-    //ISO 20022 Schema DEPRECATED
+    //SPS2025 ISO 2019
+    // 2.2 = SPS 2025 rules (adds hybrid address, new recommendations on characters and addresses)
+    this.ID_PAIN_FORMAT_001_001_09_CH_03_2025 = "pain.001.001.09.ch.03 SPS2025";
+    //ISO 20022 Schema  ------------------ !!! DEPRECATED !!! --------------------------------
     this.ID_PAIN_FORMAT_001_001_03 = "pain.001.001.03";
 
     // bank rules
-    // SPS 2025 applies the same schema as SPS 2022-2024 but with different rules (structured addresses and hybrid addresses)
+    // SPS 2025 applies the same schema as SPS 2022 but with different rules (structured addresses and hybrid addresses)
     this.ID_BUSINESS_RULES_SPS2025 = "SPS2025";
-    this.ID_BUSINESS_RULES_SPS2022 = "SPS2022";
-    this.ID_BUSINESS_RULES_SPS2021 = "SPS2021";
 
     this.painFormats = [];
     this.painFormats.push({
         "@appId": this.id,
-        "@description": "Swiss Payment Standard 2025 (pain.001.001.09.ch.03)", 
-        "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
-        "@rules": this.ID_BUSINESS_RULES_SPS2025,
-        "@version": this.version
-    });
-    this.painFormats.push({
-        "@appId": this.id,
         "@description": "Swiss Payment Standard 2022 (pain.001.001.09.ch.03)",
         "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
-        "@rules": this.ID_BUSINESS_RULES_SPS2022,
         "@version": this.version
     });
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2021 (pain.001.001.03.ch.02)",
         "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
-        "@rules": this.ID_BUSINESS_RULES_SPS2021,
+        "@version": this.version
+    });
+    this.painFormats.push({
+        "@appId": this.id,
+        "@description": "Swiss Payment Standard 2025 (pain.001.001.09.ch.03) [BETA]", 
+        "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03_2025,
         "@version": this.version
     });
     // DEPRECATED
@@ -406,7 +405,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'creditorStreet1';
-    currentParam.title = 'Street 1';
+    currentParam.title = 'Address 1';
     currentParam.type = 'string';
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentObj.creditorStreet1 ? paymentObj.creditorStreet1 : '';
@@ -418,7 +417,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'creditorStreet2';
-    currentParam.title = 'Street 2';
+    currentParam.title = 'Address 2';
     currentParam.type = 'string';
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentObj.creditorStreet2 ? paymentObj.creditorStreet2 : '';
@@ -677,7 +676,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
         currentParam = {};
         currentParam.name = 'ultimateDebtorStreet1';
-        currentParam.title = 'Street 1';
+        currentParam.title = 'Address 1';
         currentParam.type = 'string';
         currentParam.parentObject = 'ultimateDebtor';
         currentParam.value = paymentObj.ultimateDebtorStreet1 ? paymentObj.ultimateDebtorStreet1 : '';
@@ -689,7 +688,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
         currentParam = {};
         currentParam.name = 'ultimateDebtorStreet2';
-        currentParam.title = 'Street 2';
+        currentParam.title = 'Address 2';
         currentParam.type = 'string';
         currentParam.parentObject = 'ultimateDebtor';
         currentParam.value = paymentObj.ultimateDebtorStreet2 ? paymentObj.ultimateDebtorStreet2 : '';
@@ -839,8 +838,10 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
         return "";
     }
 
-    var painFormat = paymentObj["@format"];
-    var standardRules = paymentObj["@rules"]; 
+    var parsedPainFormat = this.parsePainFormat(paymentObj["@format"]);
+    var painFormat = parsedPainFormat.format || "";
+    var standardRules = parsedPainFormat.rules || "";
+
     var msgId = this.formatUuid(paymentObj["@uuid"]);
 
     // Payment Information Identification unique inside msg
@@ -985,7 +986,18 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 transfer.setIban(transactionInfoObj.creditorIban); //IBAN or account number
                 transfer.setCreditorReference(transactionInfoObj.reference); //Creditor Reference Information
                 transfer.setUltimateDebtorName(transactionInfoObj.ultimateDebtorName); //Ultimate Debtor Name
-                transfer.setCountry(transactionInfoObj.creditorCountry);
+                transfer.setUltimateDebtorCountry(transactionInfoObj.ultimateDebtorCountry);
+                transfer.setUltimateDebtorTown(transactionInfoObj.ultimateDebtorCity);
+                transfer.setUltimateDebtorPostalCode(transactionInfoObj.ultimateDebtorPostalCode);
+                transfer.setUltimateDebtorStreet1(transactionInfoObj.ultimateDebtorStreet1);
+                transfer.setUltimateDebtorStreet2(transactionInfoObj.ultimateDebtorStreet2);
+                transfer.setCreditorCountry(transactionInfoObj.creditorCountry);
+                transfer.setCreditorTown(transactionInfoObj.creditorCity);
+                transfer.setCreditorPostalCode(transactionInfoObj.creditorPostalCode);
+                transfer.setCreditorStreet1(transactionInfoObj.creditorStreet1); //Street + Building Nr.
+                transfer.setCreditorStreet2(transactionInfoObj.creditorStreet2); //AddressExtra
+                
+                //unstructured address of creditor
                 var postalAddress = [];
                 var postalLine = "";
                 if (transactionInfoObj.creditorStreet1.length > 0)
@@ -998,7 +1010,22 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 postalAddress.push(postalLine);
                 if (transactionInfoObj.creditorPostalCode.length > 0 || transactionInfoObj.creditorCity.length > 0)
                     postalAddress.push(transactionInfoObj.creditorPostalCode + " " + transactionInfoObj.creditorCity);
-                transfer.setPostalAddress(postalAddress);
+                transfer.setCreditorUnstructuredAddress(postalAddress);
+
+                //unstructured address of ultimate debtor
+                postalAddress = [];
+                postalLine = "";
+                if (transactionInfoObj.ultimateDebtorStreet1.length > 0)
+                    postalLine = transactionInfoObj.ultimateDebtorStreet1;
+                if (transactionInfoObj.ultimateDebtorStreet2.length > 0) {
+                    if (postalLine.length > 0)
+                        postalLine += " ";
+                    postalLine += transactionInfoObj.ultimateDebtorStreet2;
+                }
+                postalAddress.push(postalLine);
+                if (transactionInfoObj.ultimateDebtorPostalCode.length > 0 || transactionInfoObj.ultimateDebtorCity.length > 0)
+                    postalAddress.push(transactionInfoObj.ultimateDebtorPostalCode + " " + transactionInfoObj.ultimateDebtorCity);
+                transfer.setUltimateDebtorUnstructuredAddress(postalAddress);
 
                 // Set Instruction for confidential data like salaries
                 if (transactionInfoObj.categoryPurpose) {
@@ -1149,6 +1176,17 @@ Pain001Switzerland.prototype.getCreditor = function (accountId) {
             }
             if (row.value("Street")) {
                 creditor.street1 = row.value("Street");
+            }
+            if (row.value("BuildingNumber")) {
+                let buildingNumber = row.value("BuildingNumber");
+                if (buildingNumber.length > 0) {
+                    let street1 = creditor.street1;
+                    if (street1.length > 0) {
+                        street1 += " ";
+                    }
+                    street1 += buildingNumber;
+                    creditor.street1 = street1;
+                }
             }
             if (row.value("AddressExtra")) {
                 creditor.street2 = row.value("AddressExtra");
@@ -1540,6 +1578,18 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
     }
 
     return paymentObj;
+}
+
+Pain001Switzerland.prototype.parsePainFormat = function (input) {
+    if (typeof input !== "string" || !input.trim()) {
+        return { format: "", rules: "" };
+    }
+    
+    const parts = input.trim().split(/\s+/);
+    return {
+        format: parts[0] || "",
+        rules: parts[1] || ""
+    };
 }
 
 Pain001Switzerland.prototype.saveTransferFile = function (inData, _fileName) {
@@ -1970,7 +2020,11 @@ Pain001Switzerland.prototype.validateTransferFile = function (xml, painFormat) {
     // Validate against schema (schema is passed as a file path relative to the script)
     /*var schemaFileName = Banana.IO.getOpenFileName("Select schema file to validate", "pain.001.001.03.ch.02.xsd", "XSD schema file (*.xsd);;All files (*)");*/
 
-    var schemaFileName = painFormat + ".xsd";
+    var parsedPainFormat = this.parsePainFormat(painFormat);
+    var _painFormat = parsedPainFormat.format || "";
+    var _standardRules = parsedPainFormat.rules || "";
+
+    var schemaFileName = _painFormat + ".xsd";
 
     /*var file = Banana.IO.getLocalFile(schemaFileName)
     if (file.errorString) {
@@ -2510,6 +2564,15 @@ var JsAction = class JsAction {
      */
     updateRow(tabPos, uuid) {
         // Banana.console.debug("--------updateRow-------- " + uuid + " " + JSON.stringify(tabPos));
+        // When undo, updateRow() does nothing; otherwise, undo would not work.
+        if (tabPos && tabPos.changeSource === "undo") {
+            return null;
+        }
+        // When recalc accounting, updateRow() does nothing; otherwise, undo would not work.
+        if (tabPos && tabPos.changeSource === "recalc") {
+            return null;
+        }
+
         var pain001CH = new Pain001Switzerland(this.banDocument);
         if (!pain001CH.verifyBananaVersion(true)) {
             return null;
@@ -2853,21 +2916,23 @@ var JsAction = class JsAction {
         var accountId = "";
         if (paymentObj.creditorAccountId)
             accountId = paymentObj.creditorAccountId;
-        //Write account only if it is not empty to prevent removing existing transaction data
-        //This method is called when recalculating accounting
-        if (accountId.length <= 0)
-            return;
+        // If accountId is empty, remove the account from the transaction row.
+        // Recalculating the accounting (recalc) does not fully execute updateRow and call _rowSetAccount(),
+        // so there is no risk of removing existing transaction data when no account is set.
+        // if (accountId.length <= 0)
+        //     return;
 
         //check if cost centers' account
         var fieldName = "";
         if (accountId.length <= 0) {
             var creditors = this.pain001CH.loadCreditors(false);
-            if (creditors.length>0) {
-                if (creditors[0].startsWith("."))
+            //first row is always empty creditors[0]
+            if (creditors.length > 1) {
+                if (creditors[1].startsWith("."))
                     fieldName = "Cc1";
-                else if (creditors[0].startsWith(","))
+                else if (creditors[1].startsWith(","))
                     fieldName = "Cc2";
-                else if (creditors[0].startsWith(";"))
+                else if (creditors[1].startsWith(";"))
                     fieldName = "Cc3";
                 }
         }

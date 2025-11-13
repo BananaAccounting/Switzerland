@@ -94,6 +94,36 @@ CustomerCreditTransferFile.prototype.validate = function () {
 }*/
 function CustomerCreditTransferInformation(id, name, amount) {
 
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.creditorCountry = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.creditorTown = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.creditorPostalCode = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.creditorStreet1 = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.creditorStreet2 = '';
+
     /**
      * @var string
      */
@@ -120,11 +150,6 @@ function CustomerCreditTransferInformation(id, name, amount) {
      * @var string
      */
      this.categoryPurpose = '';
-
-     /**
-     * @var string
-     */
-    this.country = '';
 
     /**
      * Structured creditor reference type.
@@ -179,8 +204,19 @@ function CustomerCreditTransferInformation(id, name, amount) {
 
     /**
      * @var string|array
+     * creditor unstructured address
+     * first line: creditorStreet1 + " " + creditorStreet2
+     * second line: creditorPostalCode + " " + creditorCity
      */
-    this.postalAddress = '';
+    this.creditorUnstructuredAddress = '';
+
+    /**
+     * @var string|array
+     * ultimate debtor unstructured address
+     * first line: ultimateDebtorStreet1 + " " + ultimateDebtorStreet2
+     * second line: ultimateDebtorPostalCode + " " + ultimateDebtorCity
+     */
+    this.ultimateDebtorUnstructuredAddress = '';
 
     /**
      * Purpose of this transaction
@@ -206,6 +242,38 @@ function CustomerCreditTransferInformation(id, name, amount) {
      * @var string
      */
      this.ultimateDebtorName = '';    
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.ultimateDebtorCountry = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.ultimateDebtorTown = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.ultimateDebtorPostalCode = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.ultimateDebtorStreet1 = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.ultimateDebtorStreet2 = '';
+
+
 }
 
 /**
@@ -213,6 +281,86 @@ function CustomerCreditTransferInformation(id, name, amount) {
  */
 CustomerCreditTransferInformation.prototype.accept = function (domBuilder) {
     domBuilder.visitTransferInformation(this);
+}
+
+/**
+ * @return country
+ */
+CustomerCreditTransferInformation.prototype.getCreditorCountry = function () {
+    if (!this.creditorCountry)
+        return '';
+    return this.creditorCountry;
+}
+
+/**
+ * @param string creditorCountry
+ */
+CustomerCreditTransferInformation.prototype.setCreditorCountry = function (creditorCountry) {
+    this.creditorCountry = creditorCountry;
+}
+
+/**
+ * @return creditorTown
+ */
+CustomerCreditTransferInformation.prototype.getCreditorTown = function () {
+    if (!this.creditorTown)
+        return '';
+    return this.creditorTown;
+}
+
+/**
+ * @param string creditorTown
+ */
+CustomerCreditTransferInformation.prototype.setCreditorTown = function (creditorTown) {
+    this.creditorTown = creditorTown;
+}
+
+/**
+ * @return creditorPostalCode
+ */
+CustomerCreditTransferInformation.prototype.getCreditorPostalCode = function () {
+    if (!this.creditorPostalCode)
+        return '';
+    return this.creditorPostalCode;
+}
+
+/**
+ * @param string creditorPostalCode
+ */
+CustomerCreditTransferInformation.prototype.setCreditorPostalCode = function (creditorPostalCode) {
+    this.creditorPostalCode = creditorPostalCode;
+}
+
+/**
+ * @return creditorStreet1
+ */
+CustomerCreditTransferInformation.prototype.getCreditorStreet1 = function () {
+    if (!this.creditorStreet1)
+        return '';
+    return this.creditorStreet1;
+}
+
+/**
+ * @param string creditorStreet1
+ */
+CustomerCreditTransferInformation.prototype.setCreditorStreet1 = function (creditorStreet1) {
+    this.creditorStreet1 = creditorStreet1;
+}
+
+/**
+ * @return creditorStreet2
+ */
+CustomerCreditTransferInformation.prototype.getCreditorStreet2 = function () {
+    if (!this.creditorStreet2)
+        return '';
+    return this.creditorStreet2;
+}
+
+/**
+ * @param string creditorStreet2
+ */
+CustomerCreditTransferInformation.prototype.setCreditorStreet2 = function (creditorStreet2) {
+    this.creditorStreet2 = creditorStreet2;
 }
 
 /**
@@ -298,22 +446,6 @@ CustomerCreditTransferInformation.prototype.setCategoryPurpose = function (categ
         throw 'Invalid Category purpose: ' + categoryPurpose;
     }
     this.categoryPurpose = categoryPurpose;
-}
-
-/**
- * @return string
- */
-CustomerCreditTransferInformation.prototype.getCountry = function () {
-    if (!this.country)
-        return '';
-    return this.country;
-}
-
-/**
- * @param string country
- */
-CustomerCreditTransferInformation.prototype.setCountry = function (country) {
-    this.country = country;
 }
 
 /**
@@ -473,17 +605,33 @@ CustomerCreditTransferInformation.prototype.setLocalInstrumentCode = function (l
 /**
  * @return array|string
  */
-CustomerCreditTransferInformation.prototype.getPostalAddress = function () {
-    if (!this.postalAddress)
+CustomerCreditTransferInformation.prototype.getCreditorUnstructuredAddress = function () {
+    if (!this.creditorUnstructuredAddress)
         return '';
-    return this.postalAddress;
+    return this.creditorUnstructuredAddress;
 }
 
 /**
- * @param array|string postalAddress
+ * @param array|string creditorUnstructuredAddress
  */
-CustomerCreditTransferInformation.prototype.setPostalAddress = function (postalAddress) {
-    this.postalAddress = postalAddress;
+CustomerCreditTransferInformation.prototype.setCreditorUnstructuredAddress = function (creditorUnstructuredAddress) {
+    this.creditorUnstructuredAddress = creditorUnstructuredAddress;
+}
+
+/**
+ * @return array|string
+ */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorUnstructuredAddress = function () {
+    if (!this.ultimateDebtorUnstructeredAddress)
+        return '';
+    return this.ultimateDebtorUnstructeredAddress;
+}
+
+/**
+ * @param array|string ultimateDebtorUnstructeredAddress
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorUnstructuredAddress = function (ultimateDebtorUnstructeredAddress) {
+    this.ultimateDebtorUnstructeredAddress = ultimateDebtorUnstructeredAddress;
 }
 
 /**
@@ -548,6 +696,86 @@ CustomerCreditTransferInformation.prototype.getTransferAmount = function () {
     this.ultimateDebtorName = ultimateDebtorName;
 }
 
+/**
+     * @return ultimateDebtorCountry
+     */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorCountry = function () {
+    if (!this.ultimateDebtorCountry)
+        return '';
+    return this.ultimateDebtorCountry;
+}
+
+/**
+ * @param string ultimateDebtorCountry
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorCountry = function (ultimateDebtorCountry) {
+    this.ultimateDebtorCountry = ultimateDebtorCountry;
+}
+
+/**
+     * @return ultimateDebtorTown
+     */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorTown = function () {
+    if (!this.ultimateDebtorTown)
+        return '';
+    return this.ultimateDebtorTown;
+}
+
+/**
+ * @param string ultimateDebtorTown
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorTown = function (ultimateDebtorTown) {
+    this.ultimateDebtorTown = ultimateDebtorTown;
+}
+
+/**
+     * @return ultimateDebtorPostalCode
+     */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorPostalCode = function () {
+    if (!this.ultimateDebtorPostalCode)
+        return '';
+    return this.ultimateDebtorPostalCode;
+}
+
+/**
+ * @param string ultimateDebtorPostalCode
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorPostalCode = function (ultimateDebtorPostalCode) {
+    this.ultimateDebtorPostalCode = ultimateDebtorPostalCode;
+}
+
+/**
+     * @return ultimateDebtorStreet1
+     */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorStreet1 = function () {
+    if (!this.ultimateDebtorStreet1)
+        return '';
+    return this.ultimateDebtorStreet1;
+}
+
+/**
+ * @param string ultimateDebtorStreet1
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorStreet1 = function (ultimateDebtorStreet1) {
+    this.ultimateDebtorStreet1 = ultimateDebtorStreet1;
+}
+
+/**
+     * @return ultimateDebtorStreet2
+     */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorStreet2 = function () {
+    if (!this.ultimateDebtorStreet2)
+        return '';
+    return this.ultimateDebtorStreet2;
+}
+
+/**
+ * @param string ultimateDebtorStreet2
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorStreet2 = function (ultimateDebtorStreet2) {
+    this.ultimateDebtorStreet2 = ultimateDebtorStreet2;
+}
+
 //ID_PAIN_FORMAT_001_001_03
 var DomBuilder = class DomBuilder {
     constructor(painFormat, withSchemaLocation) {
@@ -561,27 +789,28 @@ var DomBuilder = class DomBuilder {
     }
 
     /**
-     * Appends an address node to the passed dom element containing country and unstructured address lines.
-     * Does nothing if no address exists in transactionInformation.
+     * Appends an address node to the given DOM element, including country and address lines.
+     * Uses the unstructured address format.
+     * If no address is available in transactionInformation, the method does nothing.
      *
      * @param \DOMElement $creditor
      * @param CustomerCreditTransferInformation $transactionInformation
      */
-    appendAddressToDomElement(creditor, transactionInformation) {
-        if (transactionInformation.getCountry().length < 0 && transactionInformation.getPostalAddress().length < 0) {
+    appendCreditorAddressToDomElement(creditor, transactionInformation) {
+        if (transactionInformation.getCreditorCountry().length < 0 && transactionInformation.getCreditorUnstructuredAddress().length < 0) {
             return; // No address exists, nothing to do.
         }
 
         var postalAddress = creditor.addElement('PstlAdr');
 
         // Generate country address node.
-        if (transactionInformation.getCountry().length > 0) {
+        if (transactionInformation.getCreditorCountry().length > 0) {
             var node = postalAddress.addElement('Ctry');
-            node.addTextNode(transactionInformation.getCountry());
+            node.addTextNode(transactionInformation.getCreditorCountry());
         }
 
-        // Ensure postalAddressData is an array as getPostalAddress() returns either string or string[].
-        var postalAddressData = transactionInformation.getPostalAddress();
+        // Ensure postalAddressData is an array as getCreditorUnstructuredAddress() returns either string or string[].
+        var postalAddressData = transactionInformation.getCreditorUnstructuredAddress();
         if (!Array.isArray(postalAddressData)) {
             postalAddressData = Array.from(postalAddressData);
         }
@@ -594,12 +823,31 @@ var DomBuilder = class DomBuilder {
         }
     }
 
-    appendBankAddressToDomElement(creditor, transactionInformation) {
+    /**
+     * Appends an address node to the given DOM element, including country and address lines.
+     * Uses the unstructured address format.
+     * If no address is available in transactionInformation, the method does nothing.
+     *
+     * @param \DOMElement $ultimateDebtor
+     * @param CustomerCreditTransferInformation $transactionInformation
+     */
+    appendUltimateDebtorAddressToDomElement(ultimateDebtor, transactionInformation) {
+    }
+
+    /**
+     * Appends an address node to the given DOM element, including country and address lines.
+     * Uses the unstructured address format.
+     * If no address is available in transactionInformation, the method does nothing.
+     *
+     * @param \DOMElement $bank
+     * @param CustomerCreditTransferInformation $transactionInformation
+     */
+    appendBankAddressToDomElement(bank, transactionInformation) {
         if (transactionInformation.getBankAddress().length < 0) {
             return; // No address exists, nothing to do.
         }
 
-        var bankAddress = creditor.addElement('PstlAdr');
+        var bankAddress = bank.addElement('PstlAdr');
 
         // Ensure bankAddressData is an array as getBankAddress() returns either string or string[].
         var bankAddressData = transactionInformation.getBankAddress();
@@ -865,8 +1113,12 @@ var DomBuilder = class DomBuilder {
         // Ultimate Debtor
         if (transactionInformation.getUltimateDebtorName().length > 0) {
             var ultimateDebtor = cdtTrfTxInf.addElement('UltmtDbtr');
+            
             var ultimateDebtorName = ultimateDebtor.addElement('Nm');
             ultimateDebtorName.addTextNode(transactionInformation.getUltimateDebtorName());
+
+            // Ultimate debtor address if needed and supported by schema.
+            this.appendUltimateDebtorAddressToDomElement(ultimateDebtor, transactionInformation);
         }
 
         //Creditor Agent 2.77
@@ -894,7 +1146,7 @@ var DomBuilder = class DomBuilder {
         node.addTextNode(transactionInformation.getCreditorName());
 
         // Creditor address if needed and supported by schema.
-        this.appendAddressToDomElement(creditor, transactionInformation);
+        this.appendCreditorAddressToDomElement(creditor, transactionInformation);
 
         // CreditorAccount 2.80
         var creditorAccount = cdtTrfTxInf.addElement('CdtrAcct');
