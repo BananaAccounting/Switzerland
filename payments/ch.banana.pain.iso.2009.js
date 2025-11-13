@@ -173,14 +173,14 @@ function CustomerCreditTransferInformation(id, name, amount) {
     /**
      * @var string
      */
-    this.EndToEndIdentification = id;
+    this.endToEndIdentification = id;
 
     /**
 	  * Account Identifier
       *
       * @var string
       */
-    this.iban;
+    this.iban = '';
 
     /**
      * @var string
@@ -515,16 +515,16 @@ CustomerCreditTransferInformation.prototype.setCurrency = function (currency) {
  * @return string
  */
 CustomerCreditTransferInformation.prototype.getEndToEndIdentification = function () {
-    if (!this.EndToEndIdentification)
+    if (!this.endToEndIdentification)
         return '';
-    return this.EndToEndIdentification;
+    return this.endToEndIdentification;
 }
 
 /**
- * @param string EndToEndIdentification
+ * @param string endToEndIdentification
  */
-CustomerCreditTransferInformation.prototype.setEndToEndIdentification = function (EndToEndIdentification) {
-    this.EndToEndIdentification = EndToEndIdentification;
+CustomerCreditTransferInformation.prototype.setEndToEndIdentification = function (endToEndIdentification) {
+    this.endToEndIdentification = endToEndIdentification;
 }
 
 /**
@@ -622,16 +622,16 @@ CustomerCreditTransferInformation.prototype.setCreditorUnstructuredAddress = fun
  * @return array|string
  */
 CustomerCreditTransferInformation.prototype.getUltimateDebtorUnstructuredAddress = function () {
-    if (!this.ultimateDebtorUnstructeredAddress)
+    if (!this.ultimateDebtorUnstructuredAddress)
         return '';
-    return this.ultimateDebtorUnstructeredAddress;
+    return this.ultimateDebtorUnstructuredAddress;
 }
 
 /**
- * @param array|string ultimateDebtorUnstructeredAddress
+ * @param array|string ultimateDebtorUnstructuredAddress
  */
-CustomerCreditTransferInformation.prototype.setUltimateDebtorUnstructuredAddress = function (ultimateDebtorUnstructeredAddress) {
-    this.ultimateDebtorUnstructeredAddress = ultimateDebtorUnstructeredAddress;
+CustomerCreditTransferInformation.prototype.setUltimateDebtorUnstructuredAddress = function (ultimateDebtorUnstructuredAddress) {
+    this.ultimateDebtorUnstructuredAddress = ultimateDebtorUnstructuredAddress;
 }
 
 /**
@@ -1170,28 +1170,6 @@ var DomBuilder = class DomBuilder {
             this.appendRemittanceElement(cdtTrfTxInf, transactionInformation.getRemittanceInformation());
         }
         return cdtTrfTxInf;
-    }
-}
-
-//ID_PAIN_FORMAT_001_001_09_CH_03
-var DomBuilderSPS2022 = class DomBuilderSPS2022 extends DomBuilder {
-	constructor(painFormat, withSchemaLocation) {
-		super(painFormat, withSchemaLocation);
-        this.root.setAttribute('xmlns', 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09');
-        if (withSchemaLocation) {
-            this.root.setAttribute('xsi:schemaLocation', 'urn:iso:std:iso:20022:tech:xsd:pain.001.001.09 pain.001.001.09.ch.03.xsd');
-        }
-	}
-}
-
-//ID_PAIN_FORMAT_001_001_03_CH_02
-var DomBuilderSPS2021 = class DomBuilderSPS2021 extends DomBuilder {
-    constructor(painFormat, withSchemaLocation) {
-        super(painFormat, withSchemaLocation);
-        this.root.setAttribute('xmlns', 'http://www.six-interbank-clearing.com/de/%1.xsd'.arg(this.painFormat));
-        if (withSchemaLocation) {
-            this.root.setAttribute('xsi:schemaLocation', 'http://www.six-interbank-clearing.com/de/%1.xsd %2.xsd'.arg(this.painFormat).arg(this.painFormat));
-        }
     }
 }
 
@@ -1897,7 +1875,7 @@ function _formatTime(time) {
     if (timeFormatted.indexOf("T") > 0)
         timeFormatted = timeFormatted.split('T')[1];
     if (timeFormatted.length > 8)
-        timeFormatted = timeFormatted.substr(0, 8);
+        timeFormatted = timeFormatted.substring(0, 8);
     return timeFormatted;
 }
 
@@ -1905,7 +1883,7 @@ function _inArray(needle, haystack) {
     var length = haystack.length;
     for (var i = 0; i < length; i++) {
         if (typeof haystack[i] == 'object') {
-            if (arrayCompare(haystack[i], needle)) return true;
+            if (_arrayCompare(haystack[i], needle)) return true;
         } else {
             if (haystack[i] == needle) return true;
         }

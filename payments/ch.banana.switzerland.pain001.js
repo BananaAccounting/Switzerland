@@ -917,7 +917,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
 
             var currentPmtInfId = pmtInfId;
             if (currentPmtInfId.length > 31)
-                currentPmtInfId = currentPmtInfId.substr(0, 31);
+                currentPmtInfId = currentPmtInfId.substring(0, 31);
             currentPmtInfId += "-" + id.toString();
             currentPmtInfId = _swiftString(currentPmtInfId);
 
@@ -1032,7 +1032,7 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                     let categoryPurpose = transactionInfoObj.categoryPurpose;
                     let pos = categoryPurpose.indexOf("=");
                     if (pos > 0)
-                        categoryPurpose = categoryPurpose.substr(0, pos);
+                        categoryPurpose = categoryPurpose.substring(0, pos);
                     transfer.setCategoryPurpose(categoryPurpose);
                 }
 
@@ -1121,7 +1121,7 @@ Pain001Switzerland.prototype.formatUuid = function (uuid) {
     if (uuid.length > 35)
         uuid = uuid.replace(/-/g, '');
     if (uuid.length > 35)
-        uuid = uuid.substr(0, 35);
+        uuid = uuid.substring(0, 35);
     return uuid;
 }
 
@@ -1145,7 +1145,7 @@ Pain001Switzerland.prototype.getCreditor = function (accountId) {
 
     creditor.accountId = accountId;
     if (accountId.indexOf(this.SEPARATOR_CHAR) > 0) {
-        creditor.accountId = accountId.substr(0, accountId.indexOf(this.SEPARATOR_CHAR));
+        creditor.accountId = accountId.substring(0, accountId.indexOf(this.SEPARATOR_CHAR));
     }
 
     if (this.banDocument.table('Accounts')) {
@@ -1322,7 +1322,7 @@ Pain001Switzerland.prototype.getLang = function () {
     else if (Banana.application.locale)
         lang = Banana.application.locale;
     if (lang.length > 2)
-        lang = lang.substr(0, 2);
+        lang = lang.substring(0, 2);
     return lang;
 }
 
@@ -1556,7 +1556,7 @@ Pain001Switzerland.prototype.openEditor = function (dialogTitle, editorData, pag
         let key = editorData.data[i].name;
         let value = editorData.data[i].value;
         if (key == 'creditorAccountId' && value.indexOf('\xa0') > 0) {
-            value = value.substr(0, value.indexOf('\xa0'));
+            value = value.substring(0, value.indexOf('\xa0'));
         }
         else if (key == 'methodId' && value == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
             value = this.ID_PAYMENT_QRCODE;
@@ -1676,7 +1676,7 @@ Pain001Switzerland.prototype.scanCode = function (code) {
 
     // Remove 000026 prefix that appears when reading certain QR codes (ECI block)
     if (swissQRCodeData.QRType.startsWith('\\000026')) {
-        swissQRCodeData.QRType = swissQRCodeData.QRType.substr(7);
+        swissQRCodeData.QRType = swissQRCodeData.QRType.substring(7);
     }
 
     if (swissQRCodeData.QRType === "SPC" && swissQRCodeData.Version === "0200") {
@@ -1930,7 +1930,7 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
             value = params.data[i].placeholder;
         if (key === 'creditorAccountId' && value.indexOf(this.SEPARATOR_CHAR) > 0) {
             var posStart = value.indexOf(this.SEPARATOR_CHAR);
-            params.data[i].value = value.substr(0, posStart);
+            params.data[i].value = value.substring(0, posStart);
         }
         if (value.length <= 0 && (key === 'amount' || key === 'currency')) {
             params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
@@ -2073,11 +2073,11 @@ Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
     if (Banana.compareVersion && Banana.compareVersion(version, requiredVersion) < 0) {
         supportedVersion = false;
     }
-//Banana.console.debug("serial number: " + serial.substr(serial.lastIndexOf('-') + 1));
+//Banana.console.debug("serial number: " + serial.substring(serial.lastIndexOf('-') + 1));
 //Banana.console.debug("serial number complete: " + serial);
 
     if (serial.lastIndexOf('-') > 0) {
-        serial = serial.substr(serial.lastIndexOf('-') + 1);
+        serial = serial.substring(serial.lastIndexOf('-') + 1);
         if (parseInt(serial) < parseInt(requiredSerial)) {
             supportedVersion = false;
         }
@@ -2780,33 +2780,33 @@ var JsAction = class JsAction {
 
         //remove comment
         if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-            accountId = accountId.substr(1, accountId.length - 2);
+            accountId = accountId.substring(1, accountId.length - 2);
 
         //cost centers
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc3");
             if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-                accountId = accountId.substr(1, accountId.length - 2);
+                accountId = accountId.substring(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
-                accountId = accountId.substr(1);
+                accountId = accountId.substring(1);
             if (accountId)
                 accountId = ";" + accountId;
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc2");
             if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-                accountId = accountId.substr(1, accountId.length - 2);
+                accountId = accountId.substring(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
-                accountId = accountId.substr(1);
+                accountId = accountId.substring(1);
             if (accountId)
                 accountId = "," + accountId;
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc1");
             if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-                accountId = accountId.substr(1, accountId.length - 2);
+                accountId = accountId.substring(1, accountId.length - 2);
             if (accountId && accountId.startsWith("-"))
-                accountId = accountId.substr(1);
+                accountId = accountId.substring(1);
             if (accountId)
                 accountId = "." + accountId;
         }
