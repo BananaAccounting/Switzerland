@@ -484,11 +484,17 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
         row++;
       } else {
         if (row > 0 && transactionsData[i] && transactionsData[i]["Description"]) {
-          transactionsToImport[row - 1][4] += " " + transactionsData[i]["Description"];
+          let detDescr = transactionsData[i]["Description"];
+          if (transactionsData[i]["Detail"] && transactionsData[i]["Detail"] !== "") {
+            /** Insert details between quotes to avoid problems with method who take care
+             * to guess the separator. In the Transactions table, values appears without
+             * double quotes, those are visibles just in tests.*/
+            detDescr += " \"" + transactionsData[i]["Detail"] + "\"";
+          }
+          transactionsToImport[row - 1][4] += " " + detDescr;
         }
       }
     }
-
     // Sort rows by date
     transactionsToImport = transactionsToImport.reverse();
 
@@ -505,10 +511,15 @@ var ImportCornerBankFormat3 = class ImportCornerBankFormat3 extends ImportUtilit
     mappedLine.push(Banana.Converter.toInternalDateFormat(""));
     mappedLine.push("");
     mappedLine.push(transaction["Description"]);
-    if (transaction["Amount"][0] === "-")
+    if (transaction["Amount"][0] === "-") {
+      let amount = transaction["Amount"];
+      amount = amount.replace(/-/g, ''); //remove minus sign
+      mappedLine.push("");
+      mappedLine.push(Banana.Converter.toInternalNumberFormat(amount, '.'));
+    } else {
       mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
-    else
-      mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+      mappedLine.push("");
+    }
 
     return mappedLine;
   }

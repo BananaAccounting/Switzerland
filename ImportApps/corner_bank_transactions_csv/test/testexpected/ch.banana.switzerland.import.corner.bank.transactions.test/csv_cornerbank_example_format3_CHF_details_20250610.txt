@@ -20,8 +20,8 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2025-05-02 & 2025-05-02 &  &  & test test test test test Anzahl Aussch�ttung Eingang Vorbehalten test & 800.0\\
-2025-05-15 & 2025-05-15 &  &  & test test test test test test Datum 13.05.2025 Zeit 17.54.44 test & -3862.65\\
+2025-05-02 & 2025-05-02 &  &  & test test "test" test test "test" test "test" Anzahl "200,00" Aussch�ttung "4,00 CHF" Eingang Vorbehalten test & 800.0 & \\
+2025-05-15 & 2025-05-15 &  &  & test test test test test test Datum 13.05.2025 Zeit 17.54.44 test &  & 3862.65\\
 \\
 \end{tablevalue}
 \end{document}
