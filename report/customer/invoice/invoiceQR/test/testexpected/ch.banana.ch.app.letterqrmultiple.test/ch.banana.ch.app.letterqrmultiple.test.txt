@@ -25,7 +25,7 @@
 \section{Test file: file:script/../test/testcases/qrtable\_structured.ac2}
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1a \\
 Sig. \\
@@ -116,7 +116,7 @@ ewline 1
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1a \\
 Sig. \\
@@ -206,7 +206,7 @@ ewline 2
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1a \\
 Pinco Pallino3 \\
@@ -294,7 +294,7 @@ ewline 3
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1a \\
 Sig. \\
@@ -383,7 +383,7 @@ ewline 5
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1a \\
 Sig. \\
@@ -473,7 +473,7 @@ ewline EPD}\\
 \section{Test file: file:script/../test/testcases/qrtable\_combined.ac2}
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1b \\
 Sig. \\
@@ -564,7 +564,7 @@ ewline 1
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1b \\
 Sig. \\
@@ -654,7 +654,7 @@ ewline 2
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1b \\
 Pinco Pallino3 \\
@@ -742,7 +742,7 @@ ewline 3
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1b \\
 Sig. \\
@@ -831,7 +831,7 @@ ewline 5
 ewline EPD}\\
 \begin{reportvalue}{}
 Banana.ch SA \\
-Via la Santa 7  \\
+Via la Santa 7 \\
 6962 Viganello \\
 Testo data test 1b \\
 Sig. \\

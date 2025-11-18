@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.app.emptyqr
 // @api = 1.0
-// @pubdate = 2023-05-19
+// @pubdate = 2025-06-17
 // @publisher = Banana.ch SA
 // @description = Letter-Invoice with Swiss QR
 // @description.it = Lettera-Fattura con QR Svizzera
@@ -185,7 +185,11 @@ function printReportSingle(banDoc, report, stylesheet, texts, reportParam) {
   // Print sender address
   if (reportParam.print_sender_address) {
     sectionSenderAddress.addParagraph(reportParam.sender_address_name, "");
-    sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+    if (reportParam.sender_address_house_number) {
+      sectionSenderAddress.addParagraph(reportParam.sender_address_address + " " + reportParam.sender_address_house_number, "");
+    } else {
+      sectionSenderAddress.addParagraph(reportParam.sender_address_address, "");
+    }
     sectionSenderAddress.addParagraph(reportParam.sender_address_postal_code + " " + reportParam.sender_address_locality, "")
   }
 
@@ -254,7 +258,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
       userParam.sender_address_name = banDoc.info("AccountingDataBase","Company");
     }
     userParam.sender_address_address = banDoc.info("AccountingDataBase","Address1");
-    userParam.sender_address_house_number = '';
+    userParam.sender_address_house_number = banDoc.info("AccountingDataBase","BuildingNumber");
     userParam.sender_address_postal_code = banDoc.info("AccountingDataBase","Zip");
     userParam.sender_address_locality = banDoc.info("AccountingDataBase","City");
     userParam.sender_address_country_code = banDoc.info("AccountingDataBase","CountryCode");
@@ -267,7 +271,7 @@ function setSenderAddress(banDoc, userParam, qrSettings) {
     userParam.supplier_info_first_name = banDoc.info("AccountingDataBase","Name");
     userParam.supplier_info_last_name = banDoc.info("AccountingDataBase","FamilyName");
     userParam.supplier_info_address1 = banDoc.info("AccountingDataBase","Address1");
-    userParam.supplier_info_address2 = ''; //banDoc.info("AccountingDataBase","Address2");
+    userParam.supplier_info_address2 = banDoc.info("AccountingDataBase","BuildingNumber");
     userParam.supplier_info_postal_code = banDoc.info("AccountingDataBase","Zip");
     userParam.supplier_info_city = banDoc.info("AccountingDataBase","City");
     userParam.supplier_info_country_code = banDoc.info("AccountingDataBase","CountryCode");
@@ -296,7 +300,6 @@ function setCustomerAddress(userParam, qrSettings) {
 
   if (userParam.customer_address_include) {
     qrSettings.qr_code_empty_address = false;
-    qrSettings.qr_code_debtor_address_type = 'S';
   }
 }
 
