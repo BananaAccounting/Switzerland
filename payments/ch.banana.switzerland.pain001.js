@@ -2545,9 +2545,8 @@ var JsAction = class JsAction {
             this._rowSetUnstructuredMessage(paymentObj, changedRowFields);
 
             // Add to docChange
-            // Only append rows because qr codes could be more than one and rows must be added to the table
-            docChange.addOperationRowAdd(tabPos.tableName, changedRowFields);
-
+            // Insert rows at current position in the table
+            docChange.addOperationRowInsert(tabPos.tableName, tabPos.rowNr, changedRowFields);
         }
 
         // Move to the last row
