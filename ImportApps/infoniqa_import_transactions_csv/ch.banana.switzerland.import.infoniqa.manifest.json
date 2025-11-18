@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Infoniqa ONE 50 - Import movements .csv (Banana+ Advanced)",
+    "description.en": "Infoniqa ONE 50 - Import movements .csv (Banana+ Advanced)",
+    "description.de": "Infoniqa ONE 50 - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.it": "Infoniqa ONE 50 - Importa movimenti .csv (Banana+ Advanced)",
+    "description.fr": "Infoniqa ONE 50 - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.infoniqa",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Infoniqa ONE 50 - Import movements .csv (Banana+ Advanced)",
+    "title.en": "Infoniqa ONE 50 - Import movements .csv (Banana+ Advanced)",
+    "title.de": "Infoniqa ONE 50 - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.it": "Infoniqa ONE 50 - Importa movimenti .csv (Banana+ Advanced)",
+    "title.fr": "Infoniqa ONE 50 - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

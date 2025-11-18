@@ -1,0 +1,14 @@
+﻿Numéro de compte:;0000 00000000.00;
+IBAN:;CH00 0000 0000 0000 0000 G;
+Du:;2025-10-03;
+Au:;2025-10-09;
+Solde initial:;5684.83;
+Solde final:;6084.83;
+Évaluation en:;CHF;
+Nombre de transactions dans cette période:;2;
+
+Date de transaction;Heure de transaction;Date de comptabilisation;Date de valeur;Monnaie;Débit;Crédit;Sous-montant;Solde;No de transaction;Description1;Description2;Description3;Notes de bas de page;
+2025-10-09;;2025-10-09;2025-10-09;CHF;;200.00;;6084.83;2025282PH0005046;Test;test;test;;
+;;;;CHF;;;200.00;;2025282PH0005046;test;;"test";;
+2025-10-03;;2025-10-03;2025-10-03;CHF;;200.00;;5884.83;2025276PH0003980;Test;test;"test";test;
+;;;;CHF;;;200.00;;2025276PH0003980;test;;"test";test;

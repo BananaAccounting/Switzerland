@@ -1,0 +1,171 @@
+%%info_test_name{csv_cbaa_example_format1_20250411}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l  l }
+Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
+2025-01-03 &  &  &  & Quelligunga-Nocapta 83.83.4674 58:78 ARI 1347 Requaespedeo: 324600******6850 & -435.53\\
+2025-01-03 &  &  &  & Scregistracta 35.83.4674 35:14 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -2638.34\\
+2025-01-06 &  &  &  & Quelligunga-Nocapta 35.83.4674 86:87 BIS*Tabula ApiS Requaespedeo: 324600******6850 & -15.34\\
+2025-01-06 &  &  &  & Quelligunga-Nocapta 35.83.4674 73:58 PAM 3512 Requaespedeo: 324600******6850 & -650.68\\
+2025-01-06 &  &  &  & Villicus 53.83.4674 86:15 Visu EX Requaespedeo: 324600******6850 & -301.73\\
+2025-01-06 &  &  &  & Toterba Secide Conerit Navigas & -16400.58\\
+2025-01-06 &  &  &  & Toterba u-Conerit & -746.53\\
+2025-01-07 &  &  &  & Scregistracta 40.83.4674 24:43 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -2638.34\\
+2025-01-07 &  &  &  & Quelligunga-Nocapta 40.83.4674 73:27 Laucem Manem� Requaespedeo: 324600******6850 & -328.37\\
+2025-01-08 &  &  &  & Quelligunga-Nocapta 58.83.4674 86:36 Pulis Numedectem Requaespedeo: 324600******6850 & -41.35\\
+2025-01-08 &  &  &  & Quelligunga-Nocapta 58.83.4674 24:75 Divinga Potudisse Os Requaespedeo: 324600******6850 & -56.72\\
+2025-01-08 &  &  &  & Villicus 58.83.4674 35:87 Puluus Numedectem Requaespedeo: 324600******6850 & -5.26\\
+2025-01-08 &  &  &  & Scregistracta 58.83.4674 73:80 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -610.34\\
+2025-01-08 &  &  &  & Quelligunga-Nocapta 58.83.4674 61:35 Cabo'a DE 25, Pute Requaespedeo: 324600******6850 & -256.68\\
+2025-01-09 &  &  &  & Quelligunga-Nocapta 58.83.4674 58:14 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -156.68\\
+2025-01-09 &  &  &  & Quelligunga-Nocapta 58.83.4674 35:14 Bone Vistam Requaespedeo: 324600******6850 & -87.61\\
+2025-01-10 &  &  &  & Quelligunga-Nocapta 61.83.4674 73:34 Facit Os. Pludifinem Requaespedeo: 324600******6850 & -362.68\\
+2025-01-13 &  &  &  & Quelligunga-Nocapta 52.83.4674 73:71 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -363.37\\
+2025-01-13 &  &  &  & Quelligunga-Nocapta 52.83.4674 73:48 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -71.52\\
+2025-01-13 &  &  &  & Quelligunga-Nocapta 52.83.4674 73:85 OS Numedectem Requaespedeo: 324600******6850 & -152.58\\
+2025-01-13 &  &  &  & Villicus 51.83.4674 86:25 Visu EX Requaespedeo: 324600******6850 & -862.61\\
+2025-01-13 &  &  &  & Toterba Secide Conerit & -384.15\\
+2025-01-15 &  &  &  & Quelligunga-Nocapta 86.83.4674 52:71 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -63.35\\
+2025-01-16 &  &  &  & Quelligunga-Nocapta 35.83.4674 35:25 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -377.58\\
+2025-01-16 &  &  &  & Quelligunga-Nocapta 35.83.4674 66:87 PAM 4518 Requaespedeo: 324600******6850 & -73.15\\
+2025-01-16 &  &  &  & Quelligunga-Nocapta 35.83.4674 73:83 Divinga Potudisse Os Requaespedeo: 324600******6850 & -38.65\\
+2025-01-17 &  &  &  & Quelligunga-Nocapta 35.83.4674 73:86 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -4086.58\\
+2025-01-17 &  &  &  & Quelligunga-Nocapta 73.83.4674 35:25 Tall AT DE (4547) Ex Requaespedeo: 324600******6850 & -73.64\\
+2025-01-17 &  &  &  & Quelligunga-Nocapta 73.83.4674 73:24 Divinga Os. Repantia Requaespedeo: 324600******6850 & -14.36\\
+2025-01-20 &  &  &  & Quelligunga-Nocapta 73.83.4674 43:87 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -788.64\\
+2025-01-20 &  &  &  & Scregistracta 43.83.4674 86:76 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -1155.34\\
+2025-01-20 &  &  &  & Quelligunga-Nocapta 66.83.4674 77:56 POTE Imodiundit Requaespedeo: 324600******6850 & -50.15\\
+2025-01-20 &  &  &  & Villicus 66.83.4674 60:61 OS Numedectem F�sple Requaespedeo: 324600******6850 & -43.58\\
+2025-01-21 &  &  &  & Quelligunga-Nocapta 58.83.4674 77:61 Pulis Numedectem Requaespedeo: 324600******6850 & -702.34\\
+2025-01-22 &  &  &  & Quelligunga-Nocapta 58.83.4674 61:24 Solo Os. Pludifinem Requaespedeo: 324600******6850 & -526.72\\
+2025-01-23 &  &  &  & Quelligunga-Nocapta 27.83.4674 24:13 Divinga Irabervo. Requaespedeo: 324600******6850 & -14.58\\
+2025-01-24 &  &  &  & Quelligunga-Nocapta 27.83.4674 24:77 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -826.37\\
+2025-01-24 &  &  &  & Quelligunga-Nocapta 77.83.4674 86:45 Divinga Irabervo. Requaespedeo: 324600******6850 & -78.26\\
+2025-01-24 &  &  &  & Quelligunga-Nocapta 77.83.4674 73:63 Lunt. Vox. ALIT DE,V Requaespedeo: 324600******6850 & -74.65\\
+2025-01-24 &  &  &  & Toterba u-Conerit & -1665.36\\
+2025-01-27 &  &  &  & Quelligunga-Nocapta 77.83.4674 86:61 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -826.72\\
+2025-01-27 &  &  &  & Quelligunga-Nocapta 77.83.4674 86:87 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -66.68\\
+2025-01-27 &  &  &  & Quelligunga-Nocapta 77.83.4674 43:40 FIERA 8738 Requaespedeo: 324600******6850 & -325.87\\
+2025-01-27 &  &  &  & Quelligunga-Nocapta 77.83.4674 43:58 FIERA 8738 Requaespedeo: 324600******6850 & -838.58\\
+2025-01-27 &  &  &  & Scregistracta 34.83.4674 52:14 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -5408.34\\
+2025-01-27 &  &  &  & Quelligunga-Nocapta 34.83.4674 52:66 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -127.26\\
+2025-01-27 &  &  &  & Toterba u-Conerit & -5020.51\\
+2025-01-29 &  &  &  & Scregistracta 87.83.4674 66:34 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -2638.34\\
+2025-01-31 &  &  &  & Sentuunibuli & -313.34\\
+2025-02-03 &  &  &  & Quelligunga-Nocapta 87.83.4674 24:76 Divinga Irabervo. Requaespedeo: 324600******6850 & -80.15\\
+2025-02-03 &  &  &  & Scregistracta 87.83.4674 61:76 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -6715.34\\
+2025-02-03 &  &  &  & Scregistracta 87.83.4674 52:80 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -3810.34\\
+2025-02-03 &  &  &  & Quelligunga-Nocapta 87.83.4674 24:80 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -776.64\\
+2025-02-03 &  &  &  & Quelligunga-Nocapta 87.83.4674 86:51 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -483.64\\
+2025-02-03 &  &  &  & Arva�nate & 568803.45\\
+2025-02-04 &  &  &  & Quelligunga-Nocapta 77.35.4674 43:77 Pulis Numedectem Requaespedeo: 324600******6850 & -174.35\\
+2025-02-04 &  &  &  & Quelligunga-Nocapta 77.35.4674 53:72 Pulis Numedectem Requaespedeo: 324600******6850 & -470.64\\
+2025-02-05 &  &  &  & Quelligunga-Nocapta 77.35.4674 24:45 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -511.13\\
+2025-02-06 &  &  &  & Scregistracta 53.35.4674 86:71 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -5827.34\\
+2025-02-06 &  &  &  & Scregistracta 53.35.4674 86:71 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -3054.34\\
+2025-02-07 &  &  &  & Quelligunga-Nocapta 53.35.4674 75:35 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -557.13\\
+2025-02-10 &  &  &  & Quelligunga-Nocapta 24.35.4674 52:27 Divinga Videanuibuli Requaespedeo: 324600******6850 & -702.80\\
+2025-02-10 &  &  &  & Scregistracta 24.35.4674 35:13 DE Vistam Requile 4 Requaespedeo: 324600******6850 & -5033.34\\
+2025-02-10 &  &  &  & Quelligunga-Nocapta 24.35.4674 61:82 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -6200.53\\
+2025-02-10 &  &  &  & Quelligunga-Nocapta 24.35.4674 35:24 FIERA 8738 Requaespedeo: 324600******6850 & -362.52\\
+2025-02-11 &  &  &  & Scregistracta 52.35.4674 75:83 TELL SEDIS Requaespedeo: 324600******6850 & -5507.34\\
+2025-02-11 &  &  &  & Quelligunga-Nocapta 52.35.4674 24:60 Divinga Potudisse Os Requaespedeo: 324600******6850 & -70.51\\
+2025-02-11 &  &  &  & Scregistracta 52.35.4674 58:74 DE Pargeres Tralvum Requaespedeo: 324600******6850 & -2638.34\\
+2025-02-11 &  &  &  & Quelligunga-Nocapta 52.35.4674 66:15 Pulis Numedectem Requaespedeo: 324600******6850 & -38.36\\
+2025-02-11 &  &  &  & Toterba u-Conerit & -88540.13\\
+2025-02-11 &  &  &  & Toterba Secide Conerit & -50861.36\\
+2025-02-12 &  &  &  & Quelligunga-Nocapta 52.35.4674 58:56 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -380.26\\
+2025-02-12 &  &  &  & Scregistracta 75.35.4674 73:35 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -5155.35\\
+2025-02-12 &  &  &  & Scregistracta 75.35.4674 73:77 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -5626.53\\
+2025-02-13 &  &  &  & Quelligunga-Nocapta 51.35.4674 24:87 Divinga Potudisse Os Requaespedeo: 324600******6850 & -14.36\\
+2025-02-14 &  &  &  & Quelligunga-Nocapta 51.35.4674 24:51 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -738.13\\
+2025-02-14 &  &  &  & Quelligunga-Nocapta 51.35.4674 73:78 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -588.13\\
+2025-02-17 &  &  &  & Scregistracta 35.35.4674 73:86 DE Vistam Requile 6 Requaespedeo: 324600******6850 & -5408.34\\
+2025-02-18 &  &  &  & Quelligunga-Nocapta 43.35.4674 24:35 Facit Os. Pludifinem Requaespedeo: 324600******6850 & -48.64\\
+2025-02-19 &  &  &  & Scregistracta 73.35.4674 43:83 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -5827.34\\
+2025-02-19 &  &  &  & Toterba Secide Conerit & -41301.34\\
+2025-02-19 &  &  &  & Arva�nate & 5827.34\\
+2025-02-20 &  &  &  & Quelligunga-Nocapta 73.35.4674 24:31 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -460.52\\
+2025-02-20 &  &  &  & Quelligunga-Nocapta 73.35.4674 24:25 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -313.80\\
+2025-02-20 &  &  &  & Quelligunga-Nocapta 73.35.4674 24:27 OS Numedectem Requaespedeo: 324600******6850 & -73.58\\
+2025-02-20 &  &  &  & Toterba Secide Conerit & -5827.34\\
+2025-02-20 &  &  &  & Toterba u-Conerit & -23816.34\\
+2025-02-21 &  &  &  & Quelligunga-Nocapta 73.35.4674 73:85 TURY STABITA MANERAL Requaespedeo: 324600******6850 & -5.72\\
+2025-02-21 &  &  &  & Quelligunga-Nocapta 66.35.4674 66:64 Quientea Ex Habilium Requaespedeo: 324600******6850 & -78.72\\
+2025-02-21 &  &  &  & Villicus 58.35.4674 35:35 Visu Numedectem Requaespedeo: 324600******6850 & -63.53\\
+2025-02-21 &  &  &  & Scregistracta 58.35.4674 24:58 PRO 51 Cante Os.Volo Requaespedeo: 324600******6850 & -5827.34\\
+2025-02-24 &  &  &  & Quelligunga-Nocapta 66.35.4674 66:31 TURY STABITA MANERAL Requaespedeo: 324600******6850 & -4.26\\
+2025-02-24 &  &  &  & Quelligunga-Nocapta 43.35.4674 43:75 Itanto PeRurbell Xxx Requaespedeo: 324600******6850 & -14.64\\
+2025-02-24 &  &  &  & Xxx�in 4674 Eiusa Putiungray 324600******6850 & -64.34\\
+2025-02-25 &  &  &  & Quelligunga-Nocapta 77.35.4674 73:36 PAM 4518 Requaespedeo: 324600******6850 & -34.35\\
+2025-02-25 &  &  &  & Toterba u-Conerit & -4228.53\\
+2025-02-25 &  &  &  & Toterba u-Conerit & -8386.58\\
+2025-02-28 &  &  &  & Sentuunibuli & -313.34\\
+2025-03-03 &  &  &  & Quelligunga-Nocapta 87.35.4674 86:78 Pulis Numedectem Requaespedeo: 324600******6850 & -788.80\\
+2025-03-03 &  &  &  & Villicus 83.77.4674 58:35 Visu EX Requaespedeo: 324600******6850 & -515.14\\
+2025-03-05 &  &  &  & Quelligunga-Nocapta 77.77.4674 58:34 Fruntiunte Lor Occit Requaespedeo: 324600******6850 & -142.34\\
+2025-03-06 &  &  &  & Arva�nate & 4863.87\\
+2025-03-12 &  &  &  & Scregistracta 75.77.4674 75:45 PRO 77 Saeprati Sect Requaespedeo: 324600******6850 & -3810.34\\
+2025-03-12 &  &  &  & Toterba u-Conerit & -15281.64\\
+2025-03-12 &  &  &  & Arva�nate & 636632.74\\
+2025-03-14 &  &  &  & Quelligunga-Nocapta 51.77.4674 35:48 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -481.61\\
+2025-03-14 &  &  &  & Quelligunga-Nocapta 51.77.4674 35:48 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -461.51\\
+2025-03-14 &  &  &  & Quelligunga-Nocapta 51.77.4674 35:53 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -767.58\\
+2025-03-14 &  &  &  & Quelligunga-Nocapta 51.77.4674 35:32 OS Numedectem Requaespedeo: 324600******6850 & -66.52\\
+2025-03-17 &  &  &  & Quelligunga-Nocapta 86.77.4674 35:14 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -681.37\\
+2025-03-17 &  &  &  & Quelligunga-Nocapta 35.77.4674 58:87 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -657.51\\
+2025-03-17 &  &  &  & Quelligunga-Nocapta 35.77.4674 24:34 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -411.58\\
+2025-03-17 &  &  &  & Quelligunga-Nocapta 35.77.4674 51:56 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -554.36\\
+2025-03-17 &  &  &  & Quelligunga-Nocapta 35.77.4674 24:58 XXX Os. Movent Requaespedeo: 324600******6850 & -212.52\\
+2025-03-17 &  &  &  & Quelligunga-Nocapta 35.77.4674 61:43 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -177.26\\
+2025-03-19 &  &  &  & Quelligunga-Nocapta 43.77.4674 61:71 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -311.53\\
+2025-03-19 &  &  &  & Toterba u-Conerit & -5283.58\\
+2025-03-19 &  &  &  & Toterba u-Conerit Navigas & -88887.34\\
+2025-03-19 &  &  &  & Arva�nate & 41301.34\\
+2025-03-20 &  &  &  & Quelligunga-Nocapta 73.77.4674 24:87 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -380.32\\
+2025-03-20 &  &  &  & Quelligunga-Nocapta 73.77.4674 61:53 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -7427.34\\
+2025-03-20 &  &  &  & Toterba Secide Conerit & -516.68\\
+2025-03-21 &  &  &  & Quelligunga-Nocapta 66.77.4674 58:25 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -764.53\\
+2025-03-21 &  &  &  & Quelligunga-Nocapta 58.77.4674 61:87 Divinga Potudisse Os Requaespedeo: 324600******6850 & -25.26\\
+2025-03-24 &  &  &  & Quelligunga-Nocapta 58.77.4674 61:77 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -25.15\\
+2025-03-24 &  &  &  & Quelligunga-Nocapta 58.77.4674 24:80 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -4801.36\\
+2025-03-24 &  &  &  & Scregistracta 43.77.4674 43:74 FORE Vistam / Murrum Requaespedeo: 324600******6850 & -254.34\\
+2025-03-24 &  &  &  & Quelligunga-Nocapta 27.77.4674 51:71 Facit Os. Pludifinem Requaespedeo: 324600******6850 & -4654.36\\
+2025-03-24 &  &  &  & Quelligunga-Nocapta 27.77.4674 61:80 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -83.87\\
+2025-03-24 &  &  &  & Toterba u-Conerit & -71858.64\\
+2025-03-25 &  &  &  & Quelligunga-Nocapta 77.77.4674 66:25 Quientea Ex Habilium Requaespedeo: 324600******6850 & -538.26\\
+2025-03-25 &  &  &  & Quelligunga-Nocapta 34.77.4674 61:38 Divinga Irabervo. Requaespedeo: 324600******6850 & -44.65\\
+2025-03-25 &  &  &  & Toterba u-Conerit & -84663.34\\
+2025-03-25 &  &  &  & Toterba u-Conerit & -5434.87\\
+2025-03-25 &  &  &  & Toterba u-Conerit & -41301.34\\
+2025-03-25 &  &  &  & Toterba u-Conerit Navigas & -40257.26\\
+2025-03-26 &  &  &  & Quelligunga-Nocapta 34.77.4674 61:63 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -2270.61\\
+2025-03-26 &  &  &  & Quelligunga-Nocapta 34.77.4674 43:25 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -875.53\\
+2025-03-26 &  &  &  & Toterba u-Conerit & -2411.36\\
+2025-03-27 &  &  &  & Quelligunga-Nocapta 36.77.4674 58:83 Ple 2622 Requaespedeo: 324600******6850 & -73.25\\
+2025-03-28 &  &  &  & Quelligunga-Nocapta 63.77.4674 35:80 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -713.51\\
+2025-03-31 &  &  &  & Quelligunga-Nocapta 87.77.4674 51:76 Stinuium Eorgento Et Requaespedeo: 324600******6850 & -376.64\\
+2025-03-31 &  &  &  & Quelligunga-Nocapta 87.77.4674 75:35 Usquideiundifico- by Requaespedeo: 324600******6850 & -402.37\\
+2025-03-31 &  &  &  & Villicus 32.77.4674 51:40 REQUO Conem Requaespedeo: 324600******6850 & -538.78\\
+2025-03-31 &  &  &  & Sentuunibuli & -313.34\\
+2025-03-31 &  &  &  & Toterba u-Conerit & -15.32\\
+\\
+\end{tablevalue}
+\end{document}

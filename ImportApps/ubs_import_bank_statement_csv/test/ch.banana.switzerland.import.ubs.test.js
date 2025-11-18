@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.ubs.test
 // @api = 1.0
-// @pubdate = 2022-09-30
+// @pubdate = 2025-10-11
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.ubs.test>
 // @task = app.command
@@ -76,6 +76,7 @@ TestImportUbsTrans.prototype.testImport = function () {
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_de_20241115.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_fr_20221108.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_fr_20241205.csv");
+    fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_fr_20251022.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_it_20221108.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_it_20221129.csv");
     fileNameList.push("file:script/../test/testcases/csv_ubs_example_format3_it_triplequotes_20240621.csv");

@@ -20,20 +20,20 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & ExternalReference & Description & Income & Expenses\\
-2023-11-04 &  &  &  & Bonifico Ter Coeperm xxx Morespeddum Oluditerunto AB123456789060001 Importo ricevuto Ns.rif: AB12345678900001 & 24713.0\\
-2023-12-04 &  &  &  & Bonifico Ter Coeperm xxx Morespeddum Oluditerunto AB123455678090001 Importo ricevuto Ns.rif: AB123456789050001 & 24421.0\\
-2023-12-28 &  &  &  & Magiongentenate NERE IUVINO IN 03323/2023-10-06 Ns.rif: 2023FFFF123456TAB01SPBCDEFNC3 & -15.0\\
-2023-12-28 &  &  &  & Magiongentenate Spese Ns.rif: 2023ABC12344565CC01COCOM3 & -42.0\\
-2024-01-05 &  &  &  & I-silique BRANAVARIPTINTUMERE 5H DISPITUM ANABULUVIANT IN - VOLOGIS AB41123450020001 Importo ricevuto Ns.rif: AB12345644320001 & 24324.0\\
-2024-01-12 &  &  &  & I-silique IRIDUCUM OBITITUUM AN Del: Scadenza Importo in divisa Tasso: Interessi creditori Imp. preventiva 35\% Totale operazione Ns.rif: 12345/2023-10-06-01 & 2341.75\\
-2024-01-19 &  &  &  & Samilondientanendirunc Ter Coeperm xxx Morespeddum Oluditerunto 2023 AB12345678960001 Importo ricevuto Ns.rif: AB123456740170001 & 78.0\\
-2024-01-31 &  &  &  & Samilondientanendirunc Ter Coeperm xxx Morespeddum Oluditerunto AB12345670330001 Importo ricevuto Ns.rif: AB12345678330001 & 22428.0\\
-2024-02-01 &  &  &  & Samilondientanendirunc Ter Coeperm xxx Morespeddum Oluditerunto AB123456748760001 Importo ricevuto Ns.rif: AB46123456710001 & 24513.0\\
-2024-02-28 &  &  &  & I-silique Spese Ns.rif: 2024ABC1234567RR01CBCYW3 & -25.0\\
-2024-03-02 &  &  &  & I-silique Ter Coeperm xxx Morespeddum Oluditerunto AB66334345670001 Importo ricevuto Ns.rif: AB42424242890001 & 24500.0\\
-2024-03-09 &  &  &  & Samilondientanendirunc Cupaudo Morespeddum: Scadenza Importo in divisa Tasso: Interessi creditori Imp. preventiva 35\% Totale operazione Ns.rif: 12345/2023-10-06-01 & 2754.81\\
-2024-04-02 &  &  &  & Probiresto navivens Latipsuceligant Oluditerunto Intare Lia AB66994432130001 Importo ricevuto Ns.rif: AB12345678930001 & 25362.0\\
-2024-05-28 &  &  &  & Plapillumedducipse Latipsuceligant Oluditerunto Intare Lia AB31234145670001 Importo ricevuto Ns.rif: AB051345671520001 & 25362.0\\
+2023-11-04 & 2023-11-04 &  &  & Bonifico Ter Coeperm xxx Morespeddum Oluditerunto AB123456789060001 Importo ricevuto "24.713,00 CHF" Ns.rif: AB12345678900001 & 24713.0 & \\
+2023-12-04 & 2023-12-04 &  &  & Bonifico Ter Coeperm xxx Morespeddum Oluditerunto AB123455678090001 Importo ricevuto "23.694,00 CHF" Ns.rif: AB123456789050001 & 24421.0 & \\
+2023-12-28 & 2023-12-30 &  &  & Magiongentenate NERE IUVINO IN 03323/2023-10-06 Ns.rif: 2023FFFF123456TAB01SPBCDEFNC3 &  & 15.0\\
+2023-12-28 & 2023-12-30 &  &  & Magiongentenate Spese "42,00- CHF" Ns.rif: 2023ABC12344565CC01COCOM3 &  & 42.0\\
+2024-01-05 & 2024-01-05 &  &  & I-silique BRANAVARIPTINTUMERE 5H DISPITUM ANABULUVIANT IN - VOLOGIS AB41123450020001 Importo ricevuto "21.431,00 CHF" Ns.rif: AB12345644320001 & 24324.0 & \\
+2024-01-12 & 2024-01-12 &  &  & I-silique IRIDUCUM OBITITUUM AN "12345" Del: "06.10.2023" Scadenza "12.01.2024" Importo in divisa "1.222.333,00" Tasso: "1,2134242 \%" Interessi creditori "4.432,77+ CHF" Imp. preventiva 35\% "1.234,02- CHF" Totale operazione "2.764,75+ CHF" Ns.rif: 12345/2023-10-06-01 & 2341.75 & \\
+2024-01-19 & 2024-01-19 &  &  & Samilondientanendirunc Ter Coeperm xxx Morespeddum Oluditerunto 2023 AB12345678960001 Importo ricevuto "78,00 CHF" Ns.rif: AB123456740170001 & 78.0 & \\
+2024-01-31 & 2024-01-31 &  &  & Samilondientanendirunc Ter Coeperm xxx Morespeddum Oluditerunto AB12345670330001 Importo ricevuto "22.428,00 CHF" Ns.rif: AB12345678330001 & 22428.0 & \\
+2024-02-01 & 2024-02-01 &  &  & Samilondientanendirunc Ter Coeperm xxx Morespeddum Oluditerunto AB123456748760001 Importo ricevuto "24.513,00 CHF" Ns.rif: AB46123456710001 & 24513.0 & \\
+2024-02-28 & 2024-03-01 &  &  & I-silique Spese "25,00- CHF" Ns.rif: 2024ABC1234567RR01CBCYW3 &  & 25.0\\
+2024-03-02 & 2024-03-02 &  &  & I-silique Ter Coeperm xxx Morespeddum Oluditerunto AB66334345670001 Importo ricevuto "21.241,00 CHF" Ns.rif: AB42424242890001 & 24500.0 & \\
+2024-03-09 & 2024-03-10 &  &  & Samilondientanendirunc Cupaudo "44444" Morespeddum: "06.10.2023" Scadenza "10.03.2024" Importo in divisa "1.333.222,00" Tasso: "1,12345678 \%" Interessi creditori "2.432,43+ CHF" Imp. preventiva 35\% "1.421,11- CHF" Totale operazione "2.432,43+ CHF" Ns.rif: 12345/2023-10-06-01 & 2754.81 & \\
+2024-04-02 & 2024-04-02 &  &  & Probiresto navivens Latipsuceligant Oluditerunto Intare Lia AB66994432130001 Importo ricevuto "25.362,00 CHF" Ns.rif: AB12345678930001 & 25362.0 & \\
+2024-05-28 & 2024-05-28 &  &  & Plapillumedducipse Latipsuceligant Oluditerunto Intare Lia AB31234145670001 Importo ricevuto "25.362,00 CHF" Ns.rif: AB051345671520001 & 25362.0 & \\
 \\
 \end{tablevalue}
 \end{document}

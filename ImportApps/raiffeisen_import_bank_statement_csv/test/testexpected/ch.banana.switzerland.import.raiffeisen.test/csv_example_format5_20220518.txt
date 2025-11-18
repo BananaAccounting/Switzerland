@@ -21,54 +21,54 @@
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
 2021-01-05 & 2021-01-05 &  & Valiuva VIDE-SAL AN 42.32.6378, 33:38, O XXX-Faccus-Vi. 56835004 &  & 45.8\\
-2021-01-07 & 2021-01-08 &  & J�audidecta Ombum Sulabit OBSECUM LOCANT ME-BY 1788406 Capiculi Ansitate, Nibo AN /MULA/6378-32-75N38:37:41 & 1699.7 & \\
+2021-01-07 & 2021-01-08 &  & J�audidecta Ombum Sulabit OBSECUM LOCANT ME-BY 1788406 Capiculi Ansitate, Nibo AN /MULA/6378-32-75N38:37:41 4132 MUTTENZ 2 PAYMENT REJECT NF-ID 3945736 Autohaus Wederich, Dona AG /SETT/2021-01-08T19:05:06 CHF 1'699.70 & 1699.7 & \\
 2021-01-08 & 2021-01-08 &  & Quatuduero &  & 1840\\
 2021-01-11 & 2021-01-11 &  & Valiuva Pila. Vit. HABO AN,Y 51.32.6378, 72:42, O XXX-Faccus-Vi. 56835004 &  & 237.15\\
 2021-01-12 & 2021-01-12 &  & Valiuva Pada-7811 Prow Mered 12.32.6378, 37:34, O XXX-Faccus-Vi. 56835004 &  & 12.45\\
 2021-01-12 & 2021-01-12 &  & Valiuva Pila. Vit. HABO AN,Y 12.32.6378, 88:30, O XXX-Faccus-Vi. 56835004 &  & 1599\\
 2021-01-13 & 2021-01-13 &  & Valiuva Pada-4233 Bantemo O 63.32.6378, 12:63, O XXX-Faccus-Vi. 56835004 &  & 45.85\\
-2021-01-14 & 2021-01-14 &  & Viductudum NUTIUNDIS AN & 12319.31 & \\
-2021-01-14 & 2021-01-14 &  & Viductudum Induniunate Serestinsi AN & 5282.5 & \\
+2021-01-14 & 2021-01-14 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 827 88.63.8131/NAS/332 865 42.63.8131 Imilis Rodire ALE 5.30 ALE 63'371.50 & 12319.31 & \\
+2021-01-14 & 2021-01-14 &  & Viductudum Induniunate Serestinsi AN Humivicidect 6 ME-2076 Carundo AT Apintella nus 63.32.6378 ALE 8'458.71 & 5282.5 & \\
 2021-01-15 & 2021-01-14 &  & Rectudix Monda AN D�PATHO 7 37.32.6378, 10:38, O XXX-Faccus-Vi. 56835004 &  & 100\\
-2021-01-15 & 2021-01-15 &  & Rectudix Monda HOC Ocenentum.-85 37.32.6378, 72:10, O XXX-Faccus-Vi. 56835004 &  & 400\\
+2021-01-15 & 2021-01-15 &  & Rectudix Monda HOC Ocenentum.-85 37.32.6378, 72:10, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (2. Monda fac 63 ost�frestridit Cor�sex) &  & 400\\
 2021-01-15 & 2021-01-15 &  & Valiuva Pada-3588 Q�oRtas 37.32.6378, 88:72, O XXX-Faccus-Vi. 56835004 &  & 112.35\\
-2021-01-15 & 2021-01-15 &  & Rectudix Monda HOC Ocenentum.-85 37.32.6378, 72:34, O XXX-Faccus-Vi. 56835004 &  & 140\\
+2021-01-15 & 2021-01-15 &  & Rectudix Monda HOC Ocenentum.-85 37.32.6378, 72:34, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (2. Monda fac 63 ost�frestridit Cor�sex) &  & 140\\
 2021-01-15 & 2021-01-15 &  & Valiuva Pada-5108 Muludium 37.32.6378, 88:38, O XXX-Faccus-Vi. 56835004 &  & 53\\
 2021-01-15 & 2021-01-15 &  & Valiuva Pada-3588 Q�oRtas 37.32.6378, 72:78, O XXX-Faccus-Vi. 56835004 &  & 3.6\\
 2021-01-18 & 2021-01-16 &  & Rectudix Monda AN MILLIQUOD 88.32.6378, 72:30, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-01-18 & 2021-01-18 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 4400\\
-2021-01-19 & 2021-01-19 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 875.63\\
-2021-01-19 & 2021-01-19 &  & Rectudix Monda XXX Milliquod 42.32.6378, 33:10, O XXX-Faccus-Vi. 56835004 &  & 1000\\
+2021-01-18 & 2021-01-18 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 8'888.30 &  & 4400\\
+2021-01-19 & 2021-01-19 &  & X-Plavire Potuuniunuibo cum Pertathentunava Coegi + Flaph AN Contiontatiunde 74 5406 Rede ME Perierum Vi. 2316072 ALE 813.73 Frali Gerunte AN Actunicium. 8M 2366 Cepterundo 2366 Cepterundo ALE 560.38 &  & 875.63\\
+2021-01-19 & 2021-01-19 &  & Rectudix Monda XXX Milliquod 42.32.6378, 33:10, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (4. Monda fac 63 ost�frestridit Cor�sex) &  & 1000\\
 2021-01-19 & 2021-01-19 &  & Valiuva Sensto ME Carundo 72.32.6378, 72:73, O XXX-Faccus-Vi. 56835004 &  & 1.6\\
 2021-01-19 & 2021-01-19 &  & Valiuva Interviore Senda 88.32.6378, 72:80, O XXX-Faccus-Vi. 56835004 &  & 52\\
-2021-01-20 & 2021-01-20 &  & Viductudum (QUAM) fac Tratere CelL PRA 323.30, Unutatiuvitudit 2.6754 & 801.13 & \\
-2021-01-21 & 2021-01-21 &  & Viductudum PUPLAM TATUIUS AN & 5277.3 & \\
-2021-01-21 & 2021-01-21 &  & Viductudum PUPLAM TATUIUS AN & 5277.3 & \\
-2021-01-21 & 2021-01-21 &  & Viductudum PUPLAM TATUIUS AN & 522.46 & \\
-2021-01-21 & 2021-01-21 &  & Viductudum NUTIUNDIS AN & 20016.38 & \\
+2021-01-20 & 2021-01-20 &  & Viductudum (QUAM) fac Tratere CelL PRA 323.30, Unutatiuvitudit 2.6754 Bonubendimulla 734 10631 Congitridis OS V1227-765 PRA 323.30 & 801.13 & \\
+2021-01-21 & 2021-01-21 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.877575 ALE 8'253.38 & 5277.3 & \\
+2021-01-21 & 2021-01-21 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.L02418 ALE 8'253.38 & 5277.3 & \\
+2021-01-21 & 2021-01-21 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.433617 ALE 732.87 & 522.46 & \\
+2021-01-21 & 2021-01-21 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 671 88.2.8131 Imilis Rodire ALE 5.30 ALE 80'604.34 & 20016.38 & \\
 2021-01-25 & 2021-01-25 &  & Valiuva Glam Aequis 50 63.32.6378, 88:70, O XXX-Faccus-Vi. 56835004 &  & 45.8\\
 2021-01-25 & 2021-01-25 &  & Valiuva Sensto ME Carundo 33.32.6378, 72:47, O XXX-Faccus-Vi. 56835004 &  & 286.45\\
 2021-01-25 & 2021-01-24 &  & Rectudix Monda AN MILLIQUOD 30.32.6378, 37:30, O XXX-Faccus-Vi. 56835004 &  & 500\\
-2021-01-25 & 2021-01-25 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2000\\
+2021-01-25 & 2021-01-25 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'332.30 &  & 2000\\
 2021-01-26 & 2021-01-26 &  & Valiuva Pada-7232 Postelibum 35.32.6378, 12:37, O XXX-Faccus-Vi. 56835004 &  & 11.95\\
 2021-01-26 & 2021-01-26 &  & Valiuva - Abenti Cor Pascenter 35.32.6378, 72:13, O XXX-Faccus-Vi. 56835004 &  & 14.5\\
 2021-01-27 & 2021-01-27 &  & Valiuva XXX Suisiliam-ET 72.32.6378, 37:38, O XXX-Faccus-Vi. 56835004 &  & 69.85\\
-2021-01-27 & 2021-01-27 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 6000\\
-2021-01-28 & 2021-01-28 &  & Viductudum NUTIUNDIS AN & 8708.08 & \\
-2021-01-29 & 2021-01-29 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 4336.2\\
+2021-01-27 & 2021-01-27 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 6'332.30 &  & 6000\\
+2021-01-28 & 2021-01-28 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 574 4.63.8131 Imilis Rodire ALE 5.30 ALE 3'552.51 & 8708.08 & \\
+2021-01-29 & 2021-01-29 &  & X-Plavire Potuuniunuibo cum Pertathentunava Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'725.80 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 4336.2\\
 2021-02-01 & 2021-02-01 &  & Valiuva ocuctubis Milliquod 38.32.6378, 12:51, O XXX-Faccus-Vi. 56835004 &  & 20\\
 2021-02-01 & 2021-02-01 &  & Valiuva - Abenti Equam Coegeriant Pam 38.32.6378, 80:20, O XXX-Faccus-Vi. 56835004 &  & 23\\
-2021-02-01 & 2021-02-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 17424.83\\
+2021-02-01 & 2021-02-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava Coegi + Flaph AN Contiontatiunde 74 5406 Rede ME Perierum Vi. 7605353 ALE 231.78 Coegi + Flaph AN Contiontatiunde 74 5406 Rede ME Perierum Vi. 5236667 ALE 715.80 Imura Umetimium Dentit�brenduerigit 85 1205 Magna ME ALE 4'531.72 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'723.30 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 4'463.84 Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'486.34 &  & 17424.83\\
 2021-02-02 & 2021-02-02 &  & Valiuva IDIFINARE LATTETRURA 38.32.6378, 12:10, O XXX-Faccus-Vi. 56835004 &  & 24.4\\
-2021-02-02 & 2021-02-02 &  & Viductudum REVAREM TATUIUS AN & 6203.52 & \\
+2021-02-02 & 2021-02-02 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ALE 6'127.45 & 6203.52 & \\
 2021-02-08 & 2021-02-08 &  & Valiuva VEM 8180 50.42.6378, 80:33, O XXX-Faccus-Vi. 56835004 IPE 0'235.30, Collucipupa 5.8042 &  & 83.87\\
 2021-02-08 & 2021-02-08 &  & Valiuva ET RERARE ET-Q 50.42.6378, 42:72, O XXX-Faccus-Vi. 56835004 PRA 61.80, Collucipupa 2.8100 &  & 98.28\\
 2021-02-08 & 2021-02-08 &  & Valiuva Pada-2001 Clation T+ 41.42.6378, 80:13, O XXX-Faccus-Vi. 56835004 &  & 17.35\\
-2021-02-08 & 2021-02-08 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 9937.75\\
+2021-02-08 & 2021-02-08 &  & X-Plavire Potuuniunuibo cum Pertathentunava Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'660.78 CIS Conuidicturiam AN 6661 Centeturra ALE 820.86 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'680.84 Pada Dimunguret AN Terrunabienendacus 78 5220 Tententam 5220 Tententam ALE 2'868.65 Caratodi ME-3116 Rede ALE 86.37 Grae 4753 Coegun 4753 Coegun ALE 548.88 Araectas Viatiunterba-Andiatuunnam AN 6772 Rede ALE 2'300.71 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'483.80 &  & 9937.75\\
 2021-02-12 & 2021-02-12 &  & Valiuva SIDES  *F-PUNICULUUS 80.42.6378, 88:33, O XXX-Faccus-Vi. 56835004 &  & 850\\
 2021-02-15 & 2021-02-15 &  & Valiuva Pra Pratudo 10.42.6378, 80:20, O XXX-Faccus-Vi. 56835004 &  & 89.7\\
 2021-02-15 & 2021-02-15 &  & Valiuva - Abenti Pada IN Milliquod 10.42.6378, 80:42, O XXX-Faccus-Vi. 56835004 &  & 16.9\\
-2021-02-15 & 2021-02-15 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ &  & 7500\\
+2021-02-15 & 2021-02-15 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ ALE 4'471.30 &  & 7500\\
 2021-02-16 & 2021-02-16 &  & Valiuva 43OE STET AN 10.42.6378, 80:51, O XXX-Faccus-Vi. 56835004 &  & 17.9\\
 2021-02-16 & 2021-02-16 &  & Valiuva VIDE-SAL AN 37.42.6378, 30:72, O XXX-Faccus-Vi. 56835004 &  & 12.4\\
 2021-02-17 & 2021-02-17 &  & Valiuva Capiculi Ansitate, O 88.42.6378, 12:47, O XXX-Faccus-Vi. 56835004 &  & 14.5\\
@@ -77,26 +77,26 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-02-19 & 2021-02-19 &  & Valiuva - Abenti Pada IN Bantemo 72.42.6378, 88:88, O XXX-Faccus-Vi. 56835004 &  & 81.42\\
 2021-02-19 & 2021-02-19 &  & Valiuva - Abenti Pada IN Bantemo 72.42.6378, 88:88, O XXX-Faccus-Vi. 56835004 &  & 9.31\\
 2021-02-22 & 2021-02-22 &  & Valiuva XXX Suisiliam-ET 83.42.6378, 37:30, O XXX-Faccus-Vi. 56835004 &  & 24.8\\
-2021-02-23 & 2021-02-23 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 3000\\
+2021-02-23 & 2021-02-23 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 4'332.30 &  & 3000\\
 2021-02-24 & 2021-02-24 &  & Valiuva - Abenti Pada IN 33.42.6378, 10:42, O XXX-Faccus-Vi. 56835004 &  & 70.22\\
-2021-02-25 & 2021-02-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2900\\
+2021-02-25 & 2021-02-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Antudiunt Teritti-Gensucem Domenerverenerum 30 8122 Obtine ME ALE 2'888.30 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 2900\\
 2021-02-25 & 2021-02-25 &  & Valiuva POSTO FER 63.42.6378, 10:78, O XXX-Faccus-Vi. 56835004 &  & 30\\
-2021-03-01 & 2021-03-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 22119.18\\
-2021-03-01 & 2021-03-01 &  & Viductudum Grae & 1878.1 & \\
+2021-03-01 & 2021-03-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'620.84 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'535.38 Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'614.71 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'601.84 Imura Umetimium Dentit�brenduerigit 85 1205 Magna ME ALE 4'452.72 &  & 22119.18\\
+2021-03-01 & 2021-03-01 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:20.11062.80 .6 Perierum:80735020 ALE 2'482.80 & 1878.1 & \\
 2021-03-02 & 2021-03-02 &  & Valiuva Pada-4233 Bantemo O 32.74.6378, 63:78, O XXX-Faccus-Vi. 56835004 &  & 51.8\\
 2021-03-04 & 2021-03-04 &  & Valiuva Pada-4233 Bantemo O 74.74.6378, 51:13, O XXX-Faccus-Vi. 56835004 &  & 56.6\\
-2021-03-04 & 2021-03-04 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2500\\
-2021-03-04 & 2021-03-04 &  & Viductudum NUTIUNDIS AN & 14035.61 & \\
+2021-03-04 & 2021-03-04 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'471.30 &  & 2500\\
+2021-03-04 & 2021-03-04 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 682 38.2.6378/NAS/332 740 38.2.6378/NAS/332 272 42.2.6378 ALE 37'765.71 & 14035.61 & \\
 2021-03-08 & 2021-03-08 &  & Valiuva Salocascasuli-2580 O 41.74.6378, 10:38, O XXX-Faccus-Vi. 56835004 &  & 29.95\\
-2021-03-09 & 2021-03-09 &  & Rectudix Monda DOMPLAE 41.74.6378, 12:10, O XXX-Faccus-Vi. 56835004 &  & 200\\
+2021-03-09 & 2021-03-09 &  & Rectudix Monda DOMPLAE 41.74.6378, 12:10, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (8. Monda fac 63 ost�frestridit Cor�sex) &  & 200\\
 2021-03-10 & 2021-03-10 &  & Valiuva Pada-6383 Igitri H. 37.74.6378, 12:72, O XXX-Faccus-Vi. 56835004 &  & 28.7\\
 2021-03-10 & 2021-03-10 &  & Valiuva - Abenti Calent Produnt 37.74.6378, 37:10, O XXX-Faccus-Vi. 56835004 &  & 20.01\\
 2021-03-11 & 2021-03-11 &  & Valiuva - Abenti Pada Ideaneride 80.74.6378, 51:73, O XXX-Faccus-Vi. 56835004 &  & 26.85\\
 2021-03-12 & 2021-03-12 &  & Valiuva Cabum Inentis 12.74.6378, 63:63, O XXX-Faccus-Vi. 56835004 &  & 42.8\\
-2021-03-15 & 2021-03-15 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1901\\
-2021-03-16 & 2021-03-16 &  & Rectudix Monda XXX Milliquod 88.74.6378, 32:37, O XXX-Faccus-Vi. 56835004 &  & 500\\
-2021-03-18 & 2021-03-18 &  & Viductudum Grae & 8523 & \\
-2021-03-19 & 2021-03-19 &  & Viductudum NUTIUNDIS AN & 501.46 & \\
+2021-03-15 & 2021-03-15 &  & X-Plavire Potuuniunuibo cum Pertathentunava Luturbitumquit Perundit Mulunnavige puluungulticor AN 6772 Rede ALE 624.35 Vicaperi Muluvia AN Ombulaterime 61 6360 F�funt 7 ALE 365.11 Vicaperi Muluvia AN Ombulaterime 61 6360 F�funt 7 ALE 866.30 &  & 1901\\
+2021-03-16 & 2021-03-16 &  & Rectudix Monda XXX Milliquod 88.74.6378, 32:37, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (8. Monda fac 63 ost�frestridit Cor�sex) &  & 500\\
+2021-03-18 & 2021-03-18 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:33.71036.10 .4 Perierum:53730632 ALE 3'203.30 & 8523 & \\
+2021-03-19 & 2021-03-19 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 478 88.2.6378 ALE 777.87 & 501.46 & \\
 2021-03-22 & 2021-03-22 &  & Valiuva Pila. Vit. HABO AN,Y 83.74.6378, 88:74, O XXX-Faccus-Vi. 56835004 &  & 79.9\\
 2021-03-22 & 2021-03-22 &  & Valiuva Pada-2343 Picinteni 83.74.6378, 51:35, O XXX-Faccus-Vi. 56835004 &  & 24.2\\
 2021-03-22 & 2021-03-22 &  & Valiuva Sensto ME Carundo 80.74.6378, 37:30, O XXX-Faccus-Vi. 56835004 &  & 60.8\\
@@ -104,16 +104,16 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-03-22 & 2021-03-22 &  & Valiuva Pere Magnis AN 80.74.6378, 88:10, O XXX-Faccus-Vi. 56835004 &  & 184.9\\
 2021-03-22 & 2021-03-22 &  & Valiuva NOUN-7328 ET Et. Pam 80.74.6378, 63:13, O XXX-Faccus-Vi. 56835004 &  & 114.9\\
 2021-03-23 & 2021-03-23 &  & Valiuva IDIFINARE MAGNA 80.74.6378, 88:38, O XXX-Faccus-Vi. 56835004 &  & 10\\
-2021-03-23 & 2021-03-23 &  & Rectudix Monda XXX Milliquod 63.74.6378, 80:38, O XXX-Faccus-Vi. 56835004 &  & 400\\
+2021-03-23 & 2021-03-23 &  & Rectudix Monda XXX Milliquod 63.74.6378, 80:38, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (6. Monda fac 63 ost�frestridit Cor�sex) &  & 400\\
 2021-03-23 & 2021-03-23 &  & Valiuva ocuctubis Milliquod 63.74.6378, 37:14, O XXX-Faccus-Vi. 56835004 &  & 3.9\\
 2021-03-23 & 2021-03-23 &  & Valiuva IDIFINARE 10.74.6378, 12:70, O XXX-Faccus-Vi. 56835004 &  & 13.6\\
 2021-03-23 & 2021-03-23 &  & Valiuva - Abenti Pada Ideaneride 63.74.6378, 51:87, O XXX-Faccus-Vi. 56835004 &  & 8.4\\
 2021-03-23 & 2021-03-23 &  & Valiuva - Abenti Pada IN F�caesurrepe 10.74.6378, 80:47, O XXX-Faccus-Vi. 56835004 &  & 9.5\\
 2021-03-23 & 2021-03-23 &  & Valiuva - Abenti Cor Pascenter 63.74.6378, 80:65, O XXX-Faccus-Vi. 56835004 &  & 3.7\\
 2021-03-23 & 2021-03-23 &  & Valiuva Sicita Centane 63.74.6378, 10:41, O XXX-Faccus-Vi. 56835004 &  & 4.1\\
-2021-03-24 & 2021-03-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 4307.15\\
-2021-03-25 & 2021-03-25 &  & Viductudum NUTIUNDIS AN & 26650.24 & \\
-2021-03-26 & 2021-03-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 24478.63\\
+2021-03-24 & 2021-03-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'483.80 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'680.84 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 682.35 &  & 4307.15\\
+2021-03-25 & 2021-03-25 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/606181 63.4.6378 ALE 72'748.30 & 26650.24 & \\
+2021-03-26 & 2021-03-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'317.73 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'364.84 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'720.37 Imura Umetimium Dentit�brenduerigit 85 1205 Magna ME ALE 4'452.72 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'775.80 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 24478.63\\
 2021-03-26 & 2021-03-26 &  & Rectudix Monda AN CARUNDO 72.74.6378, 37:10, O XXX-Faccus-Vi. 56835004 PRA 471.30, Collucipupa 2.626 &  & 569.5\\
 2021-03-26 & 2021-03-26 &  & Rectudix Monda AN CARUNDO 72.74.6378, 37:63, O XXX-Faccus-Vi. 56835004 &  & 550\\
 2021-03-30 & 2021-03-31 &  & Ost�magnunierinno Cogino�coegi 32.32.6378 - 50.74.6378 &  & 12\\
@@ -123,39 +123,39 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-03-31 & 2021-03-31 &  & Ost�magnunierinno Practuelecentubsect &  & 6\\
 2021-03-31 & 2021-03-31 &  & Ost�magnunierinno Suunit/Prat�eo 32.32.6378 - 50.74.6378 &  & 3\\
 2021-03-31 & 2021-03-31 &  & Patelecerbileractam  fac 50.63.8131 lis 50.74.6378 & 7 & \\
-2021-04-01 & 2021-04-01 &  & Viductudum NUTIUNDIS AN & 313.4 & \\
+2021-04-01 & 2021-04-01 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 220 72.2.6378 ALE 720.78 & 313.4 & \\
 2021-04-07 & 2021-04-07 &  & Valiuva VEM 1170 37.50.6378, 37:37, O XXX-Faccus-Vi. 56835004 PRA 53.42, Collucipupa 2.5776 &  & 60.75\\
 2021-04-08 & 2021-04-08 &  & Valiuva Serat-Rento AN 2021 72.50.6378, 63:73, O XXX-Faccus-Vi. 56835004 &  & 19.95\\
 2021-04-08 & 2021-04-08 &  & Valiuva - Abenti Cor Pascenter 72.50.6378, 72:78, O XXX-Faccus-Vi. 56835004 &  & 11.6\\
-2021-04-08 & 2021-04-08 &  & Viductudum NUTIUNDIS AN & 1244.74 & \\
+2021-04-08 & 2021-04-08 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/483701 80.4.6378/NAS/332 242 80.4.6378 ALE 2'533.77 & 1244.74 & \\
 2021-04-13 & 2021-04-13 &  & Valiuva ocuctubis Milliquod 12.50.6378, 88:78, O XXX-Faccus-Vi. 56835004 &  & 25.3\\
 2021-04-13 & 2021-04-13 &  & Valiuva ocuctubis Milliquod 63.50.6378, 41:72, O XXX-Faccus-Vi. 56835004 &  & 12.7\\
 2021-04-13 & 2021-04-13 &  & Valiuva ocuctubis Milliquod 63.50.6378, 41:20, O XXX-Faccus-Vi. 56835004 &  & 10.9\\
 2021-04-13 & 2021-04-13 &  & Valiuva Pada-5108 Muludium 63.50.6378, 88:53, O XXX-Faccus-Vi. 56835004 &  & 124.55\\
 2021-04-13 & 2021-04-13 &  & Valiuva Cangungent F�vollige 63.50.6378, 63:30, O XXX-Faccus-Vi. 56835004 &  & 9.9\\
-2021-04-14 & 2021-04-14 &  & Rectudix Monda DE Bantemo 10.50.6378, 88:42, O XXX-Faccus-Vi. 56835004 &  & 200\\
+2021-04-14 & 2021-04-14 &  & Rectudix Monda DE Bantemo 10.50.6378, 88:42, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (4. Monda fac 63 ost�frestridit Cor�sex) &  & 200\\
 2021-04-14 & 2021-04-14 &  & Valiuva - Abenti Pada IN Bantemo 10.50.6378, 80:80, O XXX-Faccus-Vi. 56835004 &  & 9.25\\
 2021-04-14 & 2021-04-14 &  & Valiuva Pada-4233 Bantemo O 10.50.6378, 88:37, O XXX-Faccus-Vi. 56835004 &  & 9.6\\
 2021-04-14 & 2021-04-14 &  & Valiuva Sicita Exspero 10.50.6378, 12:53, O XXX-Faccus-Vi. 56835004 &  & 82.35\\
 2021-04-15 & 2021-04-15 &  & Valiuva Sensto O Roxituerunc 37.50.6378, 37:83, O XXX-Faccus-Vi. 56835004 &  & 26.85\\
 2021-04-15 & 2021-04-15 &  & Valiuva ocuctubis Milliquod 37.50.6378, 80:72, O XXX-Faccus-Vi. 56835004 &  & 49.2\\
-2021-04-15 & 2021-04-15 &  & Viductudum NUTIUNDIS AN & 2041.2 & \\
+2021-04-15 & 2021-04-15 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 364 72.4.6378 ALE 2'471.80 & 2041.2 & \\
 2021-04-16 & 2021-04-16 &  & Valiuva ocuctubis Milliquod 88.50.6378, 41:45, O XXX-Faccus-Vi. 56835004 &  & 6.5\\
 2021-04-16 & 2021-04-16 &  & Valiuva Sicita Vimplumn 2278 88.50.6378, 10:37, O XXX-Faccus-Vi. 56835004 &  & 13.05\\
 2021-04-16 & 2021-04-16 &  & Valiuva - Abenti Pecusa Ideaneride 88.50.6378, 72:47, O XXX-Faccus-Vi. 56835004 &  & 2.8\\
 2021-04-16 & 2021-04-16 &  & Valiuva Sicita Milliquod-Die 88.50.6378, 88:34, O XXX-Faccus-Vi. 56835004 &  & 41.5\\
 2021-04-16 & 2021-04-16 &  & Valiuva - Abenti Pada Ideaneride 88.50.6378, 12:80, O XXX-Faccus-Vi. 56835004 &  & 4.3\\
 2021-04-16 & 2021-04-16 &  & Valiuva ocuctubis Milliquod 88.50.6378, 80:86, O XXX-Faccus-Vi. 56835004 &  & 6.2\\
-2021-04-19 & 2021-04-19 &  & Rectudix Monda XXX Milliquod 88.50.6378, 51:65, O XXX-Faccus-Vi. 56835004 &  & 200\\
+2021-04-19 & 2021-04-19 &  & Rectudix Monda XXX Milliquod 88.50.6378, 51:65, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (3. Monda fac 63 ost�frestridit Cor�sex) &  & 200\\
 2021-04-19 & 2021-04-19 &  & Valiuva Sensto ME Carundo 88.50.6378, 83:55, O XXX-Faccus-Vi. 56835004 &  & 134.35\\
 2021-04-19 & 2021-04-19 &  & Valiuva Pada-5108 Muludium 42.50.6378, 88:10, O XXX-Faccus-Vi. 56835004 &  & 94.95\\
 2021-04-19 & 2021-04-19 &  & Valiuva - Abenti Tate Natittenatur. 42.50.6378, 37:85, O XXX-Faccus-Vi. 56835004 &  & 30\\
-2021-04-20 & 2021-04-20 &  & Rectudix Monda Divo Agna-Novilis. 83.50.6378, 63:53, O XXX-Faccus-Vi. 56835004 &  & 1500\\
+2021-04-20 & 2021-04-20 &  & Rectudix Monda Divo Agna-Novilis. 83.50.6378, 63:53, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (0. Monda fac 63 ost�frestridit Cor�sex) &  & 1500\\
 2021-04-20 & 2021-04-20 &  & Valiuva ocuctubis Milliquod 83.50.6378, 41:12, O XXX-Faccus-Vi. 56835004 &  & 11.7\\
 2021-04-20 & 2021-04-20 &  & Valiuva ocuctubis Milliquod 72.50.6378, 63:85, O XXX-Faccus-Vi. 56835004 &  & 8.4\\
 2021-04-22 & 2021-04-22 &  & Valiuva Sensto O Roxituerunc 10.50.6378, 51:50, O XXX-Faccus-Vi. 56835004 &  & 17.05\\
-2021-04-22 & 2021-04-22 &  & Viductudum NUTIUNDIS AN & 10967.72 & \\
-2021-04-23 & 2021-04-23 &  & X-Plavire Mitrice at CIS Serigatequiricit m/b CIS Caupa &  & 10088.75\\
+2021-04-22 & 2021-04-22 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 350 72.4.6378/NAS/332 225 63.8.6378/NAS/332 253 50.4.6378 ALE 80'210.80 & 10967.72 & \\
+2021-04-23 & 2021-04-23 &  & X-Plavire Mitrice at CIS Serigatequiricit m/b CIS Caupa AN 6661 Centeturra ALE 80'437.11 &  & 10088.75\\
 2021-04-23 & 2021-04-23 &  & Valiuva Sensto O Roxituerunc 63.50.6378, 88:30, O XXX-Faccus-Vi. 56835004 &  & 8.9\\
 2021-04-26 & 2021-04-26 &  & Valiuva ocuctubis Milliquod 33.50.6378, 42:56, O XXX-Faccus-Vi. 56835004 &  & 8.4\\
 2021-04-26 & 2021-04-26 &  & Valiuva ocuctubis Milliquod 33.50.6378, 72:72, O XXX-Faccus-Vi. 56835004 &  & 8.4\\
@@ -163,32 +163,32 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-04-26 & 2021-04-26 &  & Valiuva ocuctubis Milliquod 33.50.6378, 10:88, O XXX-Faccus-Vi. 56835004 &  & 8.4\\
 2021-04-26 & 2021-04-26 &  & Valiuva SIDES  *INTERVIORE O 33.50.6378, 37:13, O XXX-Faccus-Vi. 56835004 &  & 70\\
 2021-04-26 & 2021-04-26 &  & Valiuva SidEs  *Interviore O 33.50.6378, 10:35, O XXX-Faccus-Vi. 56835004 &  & 20\\
-2021-04-26 & 2021-04-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 4536.45\\
-2021-04-27 & 2021-04-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 13531.63\\
+2021-04-26 & 2021-04-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 807.86 Grae 4753 Coegun 4753 Coegun ALE 262.71 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'624.34 &  & 4536.45\\
+2021-04-27 & 2021-04-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'801.37 Imura Umetimium Dentit�brenduerigit 85 1205 Magna ME ALE 4'452.72 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'855.30 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 536.78 &  & 13531.63\\
 2021-04-28 & 2021-04-28 &  & Valiuva Sicita DE-Sufferell 20.50.6378, 12:70, O XXX-Faccus-Vi. 56835004 &  & 30.65\\
-2021-04-29 & 2021-04-29 &  & Viductudum NUTIUNDIS AN & 6365.31 & \\
-2021-04-29 & 2021-04-29 &  & Viductudum PUPLAM TATUIUS-MIRIBULUDO AN & 1496.11 & \\
+2021-04-29 & 2021-04-29 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 458 37.8.6378 ALE 6'808.50 & 6365.31 & \\
+2021-04-29 & 2021-04-29 &  & Viductudum PUPLAM TATUIUS-MIRIBULUDO AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.586352 ALE 2'434.12 & 1496.11 & \\
 2021-05-03 & 2021-05-03 &  & Valiuva Pada-5108 Muludium 38.50.6378, 88:63, O XXX-Faccus-Vi. 56835004 &  & 10.4\\
 2021-05-05 & 2021-05-05 &  & Valiuva - Abenti Pada IN Milliquod 50.37.6378, 72:63, O XXX-Faccus-Vi. 56835004 &  & 27.9\\
 2021-05-06 & 2021-05-06 &  & Valiuva Pada-7513 Fest Vitis 37.37.6378, 80:42, O XXX-Faccus-Vi. 56835004 &  & 29.55\\
 2021-05-06 & 2021-05-06 &  & Valiuva Cabum Inentis 37.37.6378, 37:72, O XXX-Faccus-Vi. 56835004 &  & 29.5\\
-2021-05-06 & 2021-05-06 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 3000\\
-2021-05-07 & 2021-05-07 &  & Viductudum NUTIUNDIS AN & 2350.55 & \\
+2021-05-06 & 2021-05-06 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 4'332.30 &  & 3000\\
+2021-05-07 & 2021-05-07 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 545 10.8.6378 ALE 2'735.34 & 2350.55 & \\
 2021-05-10 & 2021-05-07 &  & Valiuva Pada-7811 Prow Mered 41.37.6378, 12:56, O XXX-Faccus-Vi. 56835004 &  & 6.9\\
 2021-05-10 & 2021-05-07 &  & Valiuva Glam Aequis 73 41.37.6378, 63:41, O XXX-Faccus-Vi. 56835004 &  & 27.95\\
 2021-05-10 & 2021-05-10 &  & Valiuva Pada-4233 Bantemo O 72.37.6378, 51:33, O XXX-Faccus-Vi. 56835004 &  & 15.5\\
-2021-05-10 & 2021-05-10 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1623.9\\
-2021-05-10 & 2021-05-10 &  & X-Plavire Mitrice at Anitogitterbibem Magna-Vende &  & 2331.15\\
-2021-05-10 & 2021-05-10 &  & Viductudum VI Derte Priuva + Ost�ciurrurgatum CelL & 11146.95 & \\
+2021-05-10 & 2021-05-10 &  & X-Plavire Potuuniunuibo cum Pertathentunava Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'483.80 Caratodi ME-3116 Rede ALE 75.84 &  & 1623.9\\
+2021-05-10 & 2021-05-10 &  & X-Plavire Mitrice at Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'317.88 &  & 2331.15\\
+2021-05-10 & 2021-05-10 &  & Viductudum VI Derte Priuva + Ost�ciurrurgatum CelL m/b Aesto Cogitam Pateruniunater 50 6411 Certio AN ALE 12'682.20 & 11146.95 & \\
 2021-05-11 & 2021-05-11 &  & Valiuva - Abenti Pada Ideaneride 37.37.6378, 37:38, O XXX-Faccus-Vi. 56835004 &  & 104.65\\
-2021-05-11 & 2021-05-11 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 4006.8\\
-2021-05-12 & 2021-05-12 &  & Viductudum NUTIUNDIS AN & 752.14 & \\
-2021-05-12 & 2021-05-12 &  & Viductudum Grae & 6501.1 & \\
-2021-05-12 & 2021-05-12 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2000\\
+2021-05-11 & 2021-05-11 &  & X-Plavire Potuuniunuibo cum Pertathentunava Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'624.34 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 F�funt Rexperbitinem-Restoncittro O O 3105 F�funt ALE 281.38 &  & 4006.8\\
+2021-05-12 & 2021-05-12 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 578 10.8.6378/NAS/332 578 10.8.6378 ALE 384.37 & 752.14 & \\
+2021-05-12 & 2021-05-12 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:33.71036.10 .4 Perierum:63776172 ALE 6'777.80 & 6501.1 & \\
+2021-05-12 & 2021-05-12 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'332.30 &  & 2000\\
 2021-05-14 & 2021-05-14 &  & Valiuva Pada-5108 Muludium 63.37.6378, 63:72, O XXX-Faccus-Vi. 56835004 &  & 48\\
 2021-05-14 & 2021-05-14 &  & Valiuva EQUAM IDEO 3587 63.37.6378, 83:56, O XXX-Faccus-Vi. 56835004 PRA 20.41, Collucipupa 2.8720 &  & 97.1\\
 2021-05-17 & 2021-05-17 &  & Valiuva VEM 5111 63.37.6378, 33:50, O XXX-Faccus-Vi. 56835004 DIS 20'443.30, Collucipupa 5.1638 &  & 87.75\\
-2021-05-18 & 2021-05-18 &  & X-Plavire Mitrice at Semperintiange Clanto AN &  & 622\\
+2021-05-18 & 2021-05-18 &  & X-Plavire Mitrice at Semperintiange Clanto AN H�oceaturibo 4 7276 Inumnis 7276 Inumnis AT ALE 478.30 &  & 622\\
 2021-05-18 & 2021-05-18 &  & Valiuva Glam Aequis 50 42.37.6378, 72:80, O XXX-Faccus-Vi. 56835004 &  & 15.55\\
 2021-05-18 & 2021-05-18 &  & Valiuva Pila. Vit. HABO AN,Y 42.37.6378, 63:65, O XXX-Faccus-Vi. 56835004 &  & 99.9\\
 2021-05-18 & 2021-05-18 &  & Valiuva Pada-3588 Q�oRtas 42.37.6378, 63:33, O XXX-Faccus-Vi. 56835004 &  & 27.8\\
@@ -199,13 +199,13 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-05-19 & 2021-05-19 &  & Valiuva Mino Strieri 502476644 88.37.6378, 41:80, O XXX-Faccus-Vi. 56835004 PRA 807.71, Collucipupa 2.5328 &  & 122.48\\
 2021-05-19 & 2021-05-19 &  & Valiuva - Abenti Pada IN Habitis. 70 72.37.6378, 41:85, O XXX-Faccus-Vi. 56835004 &  & 2.9\\
 2021-05-19 & 2021-05-19 &  & Valiuva ocuctubis Milliquod 72.37.6378, 10:37, O XXX-Faccus-Vi. 56835004 &  & 3.95\\
-2021-05-19 & 2021-05-19 &  & Viductudum PUPLAM TATUIUS AN & 12929.39 & \\
+2021-05-19 & 2021-05-19 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.620831 ALE 63'743.55 & 12929.39 & \\
 2021-05-20 & 2021-05-20 &  & Valiuva Pada-2001 Clation T+ 83.37.6378, 12:32, O XXX-Faccus-Vi. 56835004 &  & 8.1\\
 2021-05-20 & 2021-05-20 &  & Valiuva SIDES  *PRADA NOCULO 72.37.6378, 80:47, O XXX-Faccus-Vi. 56835004 &  & 8.6\\
-2021-05-20 & 2021-05-20 &  & Viductudum NUTIUNDIS AN & 1044.05 & \\
+2021-05-20 & 2021-05-20 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 474 63.8.6378 ALE 2'231.37 & 1044.05 & \\
 2021-05-21 & 2021-05-21 &  & Valiuva Pada-5108 Muludium 80.37.6378, 80:42, O XXX-Faccus-Vi. 56835004 &  & 56.2\\
 2021-05-25 & 2021-05-25 &  & Valiuva Pada-6645 Carundo F� 10.37.6378, 80:61, O XXX-Faccus-Vi. 56835004 &  & 53.55\\
-2021-05-25 & 2021-05-25 &  & Rectudix Monda XXX Milliquod 10.37.6378, 80:41, O XXX-Faccus-Vi. 56835004 &  & 100\\
+2021-05-25 & 2021-05-25 &  & Rectudix Monda XXX Milliquod 10.37.6378, 80:41, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (80. Monda fac 63 ost�frestridit Cor�sex) &  & 100\\
 2021-05-25 & 2021-05-25 &  & Valiuva Sensto ME Carundo 10.37.6378, 72:80, O XXX-Faccus-Vi. 56835004 &  & 150.15\\
 2021-05-25 & 2021-05-25 &  & Valiuva ocuctubis Milliquod 63.37.6378, 63:34, O XXX-Faccus-Vi. 56835004 &  & 22.9\\
 2021-05-25 & 2021-05-25 &  & Valiuva - Abenti Pada Ideaneride 63.37.6378, 88:14, O XXX-Faccus-Vi. 56835004 &  & 10.6\\
@@ -218,25 +218,25 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-05-25 & 2021-05-25 &  & Valiuva CURRURRA ADDUM-ALONE 63.37.6378, 88:35, O XXX-Faccus-Vi. 56835004 &  & 71\\
 2021-05-25 & 2021-05-25 &  & Valiuva Pra Pratudo 30.37.6378, 10:30, O XXX-Faccus-Vi. 56835004 &  & 55.15\\
 2021-05-25 & 2021-05-25 &  & Rectudix Monda AN Picinteni 7 35.37.6378, 80:10, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-05-26 & 2021-05-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 23253.2\\
+2021-05-26 & 2021-05-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'708.35 Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'811.35 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'665.61 Imura Umetimium Dentit�brenduerigit 85 1205 Magna ME ALE 4'607.84 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'384.37 &  & 23253.2\\
 2021-05-26 & 2021-05-26 &  & Valiuva Pada-2343 Picinteni 35.37.6378, 37:88, O XXX-Faccus-Vi. 56835004 &  & 22.05\\
 2021-05-26 & 2021-05-26 &  & Valiuva Pada-2343 Picinteni 35.37.6378, 80:78, O XXX-Faccus-Vi. 56835004 &  & 10.85\\
 2021-05-26 & 2021-05-26 &  & Valiuva ocuctubis Milliquod 35.37.6378, 41:42, O XXX-Faccus-Vi. 56835004 &  & 11.9\\
 2021-05-26 & 2021-05-26 &  & Valiuva Siliune Flaph / 770 35.37.6378, 83:63, O XXX-Faccus-Vi. 56835004 &  & 29.9\\
 2021-05-26 & 2021-05-26 &  & Valiuva - Abenti Pada Ideaneride 35.37.6378, 72:34, O XXX-Faccus-Vi. 56835004 &  & 6\\
 2021-05-27 & 2021-05-27 &  & Valiuva Pada-2343 Picinteni 72.37.6378, 37:74, O XXX-Faccus-Vi. 56835004 &  & 29.45\\
-2021-05-27 & 2021-05-27 &  & Viductudum NUTIUNDIS AN & 1115.93 & \\
+2021-05-27 & 2021-05-27 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 712 63.8.6378/NAS/332 203 72.4.6378 ALE 2'364.38 & 1115.93 & \\
 2021-05-28 & 2021-05-28 &  & Valiuva Pada-2343 Picinteni 20.37.6378, 80:80, O XXX-Faccus-Vi. 56835004 &  & 15.1\\
 2021-06-02 & 2021-06-01 &  & Valiuva XXX Cor�by�ut 2158 50.37.6378, 37:55, O XXX-Faccus-Vi. 56835004 &  & 25.9\\
 2021-06-02 & 2021-06-01 &  & Valiuva Pada-4233 Bantemo O 50.37.6378, 12:73, O XXX-Faccus-Vi. 56835004 &  & 17.95\\
 2021-06-02 & 2021-06-01 &  & Valiuva Pada-7811 Prow Mered 50.37.6378, 12:72, O XXX-Faccus-Vi. 56835004 &  & 46.85\\
 2021-06-03 & 2021-06-03 &  & Valiuva Pada-5071 Carundo T+ 42.41.6378, 42:35, O XXX-Faccus-Vi. 56835004 &  & 36.35\\
-2021-06-03 & 2021-06-03 &  & Viductudum NUTIUNDIS AN & 235.08 & \\
+2021-06-03 & 2021-06-03 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 626 8.8.6378 ALE 817.51 & 235.08 & \\
 2021-06-04 & 2021-06-04 &  & Valiuva BITE MITA CELL 42.41.6378, 12:74, O XXX-Faccus-Vi. 56835004 &  & 13\\
-2021-06-07 & 2021-06-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 6801.35\\
-2021-06-10 & 2021-06-10 &  & Viductudum Grae & 3130.75 & \\
-2021-06-10 & 2021-06-10 &  & Rectudix Monda XXX Milliquod 37.41.6378, 37:88, O XXX-Faccus-Vi. 56835004 &  & 400\\
-2021-06-10 & 2021-06-10 &  & Viductudum NUTIUNDIS AN & 27419.81 & \\
+2021-06-07 & 2021-06-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 77.37 Grae 4753 Coegun 4753 Coegun ALE 262.71 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'483.80 Semperintiange Clanto AN H�oceaturibo 4 7276 Inumnis 7276 Inumnis AT ALE 631.71 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 606.30 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'888.30 Caratodi ME-3116 Rede ALE 603.37 &  & 6801.35\\
+2021-06-10 & 2021-06-10 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:33.71036.10 .4 Perierum:67820777 ALE 4'676.11 & 3130.75 & \\
+2021-06-10 & 2021-06-10 &  & Rectudix Monda XXX Milliquod 37.41.6378, 37:88, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (12. Monda fac 63 ost�frestridit Cor�sex) &  & 400\\
+2021-06-10 & 2021-06-10 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /VOX/6506408117 80.6.6378 ALE 20'327.81 & 27419.81 & \\
 2021-06-11 & 2021-06-11 &  & Valiuva Cauxemple Etuoncubit 80.41.6378, 10:34, O XXX-Faccus-Vi. 56835004 &  & 34.65\\
 2021-06-14 & 2021-06-14 &  & Valiuva Gaudit Lesto AN 80.41.6378, 37:20, O XXX-Faccus-Vi. 56835004 &  & 49\\
 2021-06-14 & 2021-06-14 &  & Valiuva Cabum Adeo 12.41.6378, 51:85, O XXX-Faccus-Vi. 56835004 &  & 32.15\\
@@ -246,21 +246,21 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-06-14 & 2021-06-14 &  & Valiuva - Abenti Pada Ideaneride 12.41.6378, 10:15, O XXX-Faccus-Vi. 56835004 &  & 4.25\\
 2021-06-14 & 2021-06-14 &  & Valiuva Pada-5108 Muludium 12.41.6378, 37:15, O XXX-Faccus-Vi. 56835004 &  & 30.5\\
 2021-06-14 & 2021-06-14 &  & Valiuva Pada-5071 Carundo T+ 12.41.6378, 72:78, O XXX-Faccus-Vi. 56835004 &  & 23.15\\
-2021-06-14 & 2021-06-14 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 113.85\\
+2021-06-14 & 2021-06-14 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 165.61 &  & 113.85\\
 2021-06-15 & 2021-06-15 &  & Valiuva - Abenti Cor Pascenter 37.41.6378, 72:42, O XXX-Faccus-Vi. 56835004 &  & 3.7\\
 2021-06-15 & 2021-06-15 &  & Valiuva ocuctubis Milliquod 37.41.6378, 80:87, O XXX-Faccus-Vi. 56835004 &  & 18.8\\
 2021-06-16 & 2021-06-16 &  & Valiuva ocuctubis Milliquod 88.41.6378, 41:34, O XXX-Faccus-Vi. 56835004 &  & 11.9\\
 2021-06-16 & 2021-06-16 &  & Valiuva - Abenti Pada IN Habitis. 70 88.41.6378, 41:47, O XXX-Faccus-Vi. 56835004 &  & 6\\
 2021-06-16 & 2021-06-16 &  & Valiuva Sicita Milliquod-Die 88.41.6378, 63:10, O XXX-Faccus-Vi. 56835004 &  & 32.45\\
 2021-06-16 & 2021-06-16 &  & Valiuva Pada-5108 Muludium 88.41.6378, 63:10, O XXX-Faccus-Vi. 56835004 &  & 28.4\\
-2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN & 689.28 & \\
-2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN & 3263.63 & \\
-2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN & 2685.93 & \\
-2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN & 1718.89 & \\
-2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN & 7477.18 & \\
-2021-06-16 & 2021-06-16 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 4500\\
-2021-06-17 & 2021-06-17 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 256.85\\
-2021-06-17 & 2021-06-17 &  & Rectudix Monda DOMPLAE 88.41.6378, 37:63, O XXX-Faccus-Vi. 56835004 &  & 100\\
+2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ALE 606.18 & 689.28 & \\
+2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ET 332 603 ALE 4'561.28 & 3263.63 & \\
+2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ALE 2'102.38 & 2685.93 & \\
+2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ALE 2'685.61 & 1718.89 & \\
+2021-06-16 & 2021-06-16 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ALE 4'688.72 & 7477.18 & \\
+2021-06-16 & 2021-06-16 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 8'471.30 &  & 4500\\
+2021-06-17 & 2021-06-17 &  & X-Plavire Potuuniunuibo cum Pertathentunava T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 536.30 QUIDE Exernerecell 83 1053 Domirect ET ME ALE 34.61 &  & 256.85\\
+2021-06-17 & 2021-06-17 &  & Rectudix Monda DOMPLAE 88.41.6378, 37:63, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (63. Monda fac 63 ost�frestridit Cor�sex) &  & 100\\
 2021-06-17 & 2021-06-17 &  & Rectudix Monda XXX Milliquod 88.41.6378, 10:78, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-06-18 & 2021-06-18 &  & Valiuva Serat-Rento AN 2814 42.41.6378, 80:73, O XXX-Faccus-Vi. 56835004 &  & 58.4\\
 2021-06-18 & 2021-06-18 &  & Valiuva Sensto AT Gericum Vi 42.41.6378, 12:10, O XXX-Faccus-Vi. 56835004 &  & 16\\
@@ -269,54 +269,54 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-06-21 & 2021-06-21 &  & Rectudix Monda AN CARUNDO 80.41.6378, 10:35, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-06-22 & 2021-06-22 &  & Valiuva Pada-5108 Muludium 10.41.6378, 51:63, O XXX-Faccus-Vi. 56835004 &  & 31.8\\
 2021-06-22 & 2021-06-22 &  & Valiuva SENTINCIT 72.41.6378, 37:37, O XXX-Faccus-Vi. 56835004 PRA 80.20, Collucipupa 2.2231 &  & 89.07\\
-2021-06-22 & 2021-06-22 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 153.75\\
-2021-06-23 & 2021-06-23 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 157.75\\
+2021-06-22 & 2021-06-22 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 240.11 &  & 153.75\\
+2021-06-23 & 2021-06-23 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 553.11 &  & 157.75\\
 2021-06-23 & 2021-06-23 &  & Valiuva - Abenti Pada Ideaneride 63.41.6378, 63:10, O XXX-Faccus-Vi. 56835004 &  & 8.6\\
-2021-06-23 & 2021-06-23 &  & Viductudum PUPLAM TATUIUS AN & 10554.6 & \\
+2021-06-23 & 2021-06-23 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.503155 ALE 80'248.84 & 10554.6 & \\
 2021-06-24 & 2021-06-24 &  & Valiuva Sicita Vimplumn 8401 33.41.6378, 12:73, O XXX-Faccus-Vi. 56835004 &  & 3.2\\
 2021-06-24 & 2021-06-24 &  & Valiuva ocuctubis Milliquod 33.41.6378, 80:55, O XXX-Faccus-Vi. 56835004 &  & 8.2\\
 2021-06-24 & 2021-06-24 &  & Valiuva ocuctubis Milliquod 33.41.6378, 41:10, O XXX-Faccus-Vi. 56835004 &  & 6.6\\
 2021-06-24 & 2021-06-24 &  & Valiuva - Abenti Calent Produnt 33.41.6378, 72:47, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
-2021-06-25 & 2021-06-25 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 187.6\\
-2021-06-25 & 2021-06-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 24629.8\\
+2021-06-25 & 2021-06-25 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 747.84 &  & 187.6\\
+2021-06-25 & 2021-06-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'851.37 Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'811.35 Imura Umetimium Dentit�brenduerigit 85 1205 Magna ME ALE 4'415.84 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'348.84 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'775.80 &  & 24629.8\\
 2021-06-25 & 2021-06-25 &  & Valiuva ocuctubis Milliquod 30.41.6378, 72:15, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-06-28 & 2021-06-28 &  & Rectudix Monda XXX Milliquod 35.41.6378, 12:20, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-06-28 & 2021-06-28 &  & Valiuva Apia ME AN (6725) Ut 35.41.6378, 88:71, O XXX-Faccus-Vi. 56835004 &  & 61\\
 2021-06-28 & 2021-06-28 &  & Valiuva CURRURRA ADDUM-ALONE 30.41.6378, 51:50, O XXX-Faccus-Vi. 56835004 &  & 15.7\\
 2021-06-28 & 2021-06-28 &  & Rectudix Monda DOMPLAE 30.41.6378, 51:71, O XXX-Faccus-Vi. 56835004 &  & 40\\
-2021-06-28 & 2021-06-28 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5117.8\\
-2021-06-28 & 2021-06-28 &  & Viductudum 6A Xxx CelL & 193.86 & \\
-2021-06-28 & 2021-06-28 &  & Viductudum 6A Xxx CelL & 1561.65 & \\
+2021-06-28 & 2021-06-28 &  & X-Plavire Potuuniunuibo cum Pertathentunava Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'826.86 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'624.34 &  & 5117.8\\
+2021-06-28 & 2021-06-28 &  & Viductudum 6A Xxx CelL Pupant Vitiatessides�acto nem Angilero AN Parganuligine 70 1373 Magna 332 100 ALE 705.53 & 193.86 & \\
+2021-06-28 & 2021-06-28 &  & Viductudum 6A Xxx CelL Pupant Vitiatessides�acto nem Angilero AN Parganuligine 70 1373 Magna 332 665 ALE 2'461.78 & 1561.65 & \\
 2021-06-28 & 2021-06-28 &  & Rectudix Monda AN Magna XXX 3 18.41.6378, 63:30, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-06-29 & 2021-06-30 &  & Ost�magnunierinno Cogino�coegi 32.50.6378 - 38.41.6378 &  & 12\\
 2021-06-29 & 2021-06-29 &  & Valiuva - Abenti Pada Ideaneride 20.41.6378, 72:18, O XXX-Faccus-Vi. 56835004 &  & 18.4\\
 2021-06-29 & 2021-06-29 &  & Valiuva Sicita Fabstatente 18.41.6378, 37:50, O XXX-Faccus-Vi. 56835004 &  & 64.85\\
 2021-06-30 & 2021-06-29 &  & Rectudix Monda AN MILLIQUOD 38.41.6378, 10:15, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-06-30 & 2021-06-30 &  & Viductudum AT MAGILINCTE PERCIURY CELL & 430.8 & \\
+2021-06-30 & 2021-06-30 &  & Viductudum AT MAGILINCTE PERCIURY CELL SIRINTATURY 20 ME 1057 MAGNA Ope.Vi. 332 815, Cortuiburetum 41-74-4 ALE 833.84 & 430.8 & \\
 2021-06-30 & 2021-06-30 &  & Valiuva Pada-5108 Muludium 38.41.6378, 88:30, O XXX-Faccus-Vi. 56835004 &  & 56.2\\
 2021-06-30 & 2021-06-30 &  & Ost�magnunierinno Pulaudo nem Vicalceper 32.50.6378 - 38.41.6378 &  & 2.55\\
 2021-06-30 & 2021-06-30 &  & Ost�magnunierinno Practuelecentubsect &  & 12\\
 2021-06-30 & 2021-06-30 &  & Ost�magnunierinno Suunit/Prat�eo 32.50.6378 - 38.41.6378 &  & 3\\
 2021-06-30 & 2021-06-30 &  & Patelecerbileractam  fac 50.74.6378 lis 38.41.6378 & 7 & \\
-2021-07-01 & 2021-07-01 &  & Viductudum Rensusque Fere & 700.05 & \\
+2021-07-01 & 2021-07-01 &  & Viductudum Rensusque Fere Pillituotete 7 6028 Patest ET. 736265 PHRATUDITUIT DIVIGNUMN/ IMULUVA (EO) ALE 551.37 & 700.05 & \\
 2021-07-02 & 2021-07-01 &  & Rectudix Monda AN CARUNDO 32.72.6378, 83:86, O XXX-Faccus-Vi. 56835004 &  & 450\\
 2021-07-02 & 2021-07-01 &  & Rectudix Monda AN CARUNDO 32.72.6378, 83:86, O XXX-Faccus-Vi. 56835004 &  & 50\\
-2021-07-02 & 2021-07-02 &  & Viductudum NUTIUNDIS AN & 25477.49 & \\
+2021-07-02 & 2021-07-02 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/866866 4.6.6378/NAS/332 813 63.6.6378 ALE 35'688.70 & 25477.49 & \\
 2021-07-02 & 2021-07-02 &  & Valiuva Pada-5108 Muludium 32.72.6378, 72:34, O XXX-Faccus-Vi. 56835004 &  & 33.8\\
 2021-07-05 & 2021-07-05 &  & Valiuva Sensto ME Carundo 74.72.6378, 12:88, O XXX-Faccus-Vi. 56835004 &  & 83.15\\
 2021-07-05 & 2021-07-05 &  & Rectudix Monda SI MOX-CARUNDO-AT 74.72.6378, 88:72, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-07-05 & 2021-07-05 &  & Valiuva Salocascasuli-2580 O 74.72.6378, 12:72, O XXX-Faccus-Vi. 56835004 &  & 27.45\\
-2021-07-05 & 2021-07-05 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL &  & 221\\
+2021-07-05 & 2021-07-05 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 536.30 &  & 221\\
 2021-07-06 & 2021-07-06 &  & Rectudix Monda HOC Aquid.-Xxx 10 50.72.6378, 42:72, O XXX-Faccus-Vi. 56835004 &  & 10\\
-2021-07-07 & 2021-07-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 14071.05\\
-2021-07-07 & 2021-07-07 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 1500\\
+2021-07-07 & 2021-07-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava Pada Mandideper AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'673.37 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 871.73 CIS Conuidicturiam AN 6661 Centeturra ALE 685.80 CIS Conuidicturiam AN 6661 Centeturra ALE 166.30 CIS Conuidicturiam AN 6661 Centeturra ALE 281.34 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 510.65 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 75.30 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'568.84 Scisusquidivisiect 7201 Centane ALE 671.86 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 615.30 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 606.30 Grae 4753 Coegun 4753 Coegun ALE 262.71 Grae 4753 Coegun 4753 Coegun ALE 262.71 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'624.34 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 630.30 CenibEndo AN Qualtiarexpatia 163 1828 Rede ALE 705.30 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 240.88 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 53.37 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 766.30 &  & 14071.05\\
+2021-07-07 & 2021-07-07 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'471.30 &  & 1500\\
 2021-07-07 & 2021-07-07 &  & Rectudix Monda DOMPLAE 37.72.6378, 10:88, O XXX-Faccus-Vi. 56835004 &  & 20\\
 2021-07-07 & 2021-07-07 &  & Rectudix Monda DOMPLAE 37.72.6378, 10:37, O XXX-Faccus-Vi. 56835004 &  & 20\\
 2021-07-08 & 2021-07-08 &  & Rectudix Monda HOC Ocenentum.-85 72.72.6378, 72:12, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-07-08 & 2021-07-08 &  & Viductudum NUTIUNDIS AN & 712.63 & \\
+2021-07-08 & 2021-07-08 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/783758 4.6.6378/NAS/332 456 63.6.6378 ALE 408.28 & 712.63 & \\
 2021-07-09 & 2021-07-09 &  & Valiuva XWM00788TGTLDLVW 72.72.6378, 63:47, O XXX-Faccus-Vi. 56835004 &  & 16.45\\
 2021-07-12 & 2021-07-12 &  & Rectudix Monda ITA TEQUAESEDE 51.72.6378, 80:50, O XXX-Faccus-Vi. 56835004 &  & 107.12\\
-2021-07-12 & 2021-07-12 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2500\\
+2021-07-12 & 2021-07-12 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'471.30 &  & 2500\\
 2021-07-13 & 2021-07-13 &  & Rectudix Monda ITA TEQUAESEDE 80.72.6378, 42:74, O XXX-Faccus-Vi. 56835004 &  & 106.94\\
 2021-07-13 & 2021-07-13 &  & Valiuva UT ALIDUONE IN 51.72.6378, 88:72, O XXX-Faccus-Vi. 56835004 IPE 8'173.30, Collucipupa 5.3633 &  & 47.05\\
 2021-07-13 & 2021-07-13 &  & Valiuva - Abenti Pada IN Magna 63.72.6378, 72:80, O XXX-Faccus-Vi. 56835004 &  & 8.2\\
@@ -324,30 +324,30 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-07-13 & 2021-07-13 &  & Rectudix Monda SI MOX-CARUNDO-AT 63.72.6378, 88:42, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-07-14 & 2021-07-14 &  & Rectudix Monda HOC Ocenentum.-85 10.72.6378, 88:47, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-07-15 & 2021-07-15 &  & Ost�magnunierinno O XXX-Serum (Appostino�vi) Faccus-Vi.: 84HJUJ70 &  & 40\\
-2021-07-15 & 2021-07-15 &  & Viductudum NUTIUNDIS AN & 10561.93 & \\
-2021-07-16 & 2021-07-16 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 855.05\\
+2021-07-15 & 2021-07-15 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /VOX/4855761651 88.4.6378 ALE 80'461.38 & 10561.93 & \\
+2021-07-16 & 2021-07-16 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 170.71 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 &  & 855.05\\
 2021-07-16 & 2021-07-16 &  & Rectudix Monda AN MILLIQUOD 88.72.6378, 12:70, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-07-19 & 2021-07-19 &  & Valiuva Sensto ME Carundo 42.72.6378, 37:86, O XXX-Faccus-Vi. 56835004 &  & 108.7\\
 2021-07-19 & 2021-07-19 &  & Rectudix Monda AN MILLIQUOD 72.72.6378, 10:34, O XXX-Faccus-Vi. 56835004 &  & 600\\
-2021-07-19 & 2021-07-19 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1773.65\\
+2021-07-19 & 2021-07-19 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 240.38 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 854.34 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 1773.65\\
 2021-07-20 & 2021-07-20 &  & Rectudix Monda XXX Milliquod 72.72.6378, 80:14, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-07-20 & 2021-07-20 &  & Valiuva Pada-3588 Q�oRtas 83.72.6378, 10:63, O XXX-Faccus-Vi. 56835004 &  & 30.35\\
 2021-07-20 & 2021-07-20 &  & Valiuva ocuctubis Milliquod 72.72.6378, 88:30, O XXX-Faccus-Vi. 56835004 &  & 10.2\\
 2021-07-21 & 2021-07-21 &  & Rectudix Monda XXX Magna Dieritale 80.72.6378, 10:47, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-07-21 & 2021-07-21 &  & Rectudix Monda AN CARUNDO 10.72.6378, 10:65, O XXX-Faccus-Vi. 56835004 &  & 400\\
-2021-07-21 & 2021-07-21 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 5000\\
+2021-07-21 & 2021-07-21 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 8'332.30 &  & 5000\\
 2021-07-22 & 2021-07-22 &  & Rectudix Monda DOMPLAE 80.72.6378, 37:37, O XXX-Faccus-Vi. 56835004 &  & 100\\
-2021-07-22 & 2021-07-22 &  & Viductudum NUTIUNDIS AN & 12054.55 & \\
+2021-07-22 & 2021-07-22 &  & Viductudum NUTIUNDIS AN MITINGERATERCITE 3 ME 5461 FERVENTETIT AN /NAS/332 238 18.6.6378/NAS/668156 42.6.6378/NAS/332 125 63.6.6378/NAS/332 853 63.4.6378 ALE 63'130.34 & 12054.55 & \\
 2021-07-23 & 2021-07-23 &  & Valiuva XXX Suisiliam-ET 63.72.6378, 80:38, O XXX-Faccus-Vi. 56835004 &  & 59.2\\
 2021-07-23 & 2021-07-23 &  & Valiuva - Abenti Tate Natittenatur. 63.72.6378, 88:35, O XXX-Faccus-Vi. 56835004 &  & 30\\
 2021-07-23 & 2021-07-23 &  & Rectudix Monda AN MILLIQUOD 33.72.6378, 37:83, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-07-23 & 2021-07-23 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2500\\
-2021-07-23 & 2021-07-23 &  & X-Plavire Mitrice at Inteset Tudiunis &  & 4788.1\\
+2021-07-23 & 2021-07-23 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'471.30 &  & 2500\\
+2021-07-23 & 2021-07-23 &  & X-Plavire Mitrice at Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'775.80 &  & 4788.1\\
 2021-07-26 & 2021-07-26 &  & Valiuva Pada-5071 Carundo T+ 33.72.6378, 12:56, O XXX-Faccus-Vi. 56835004 &  & 70.8\\
 2021-07-26 & 2021-07-26 &  & Valiuva Apia ME AN (6725) Ut 33.72.6378, 37:72, O XXX-Faccus-Vi. 56835004 &  & 21\\
 2021-07-26 & 2021-07-26 &  & Valiuva Serat-Rento AN 2785 33.72.6378, 10:71, O XXX-Faccus-Vi. 56835004 &  & 46.7\\
-2021-07-26 & 2021-07-26 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL &  & 220\\
-2021-07-26 & 2021-07-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 18695\\
+2021-07-26 & 2021-07-26 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 307.30 &  & 220\\
+2021-07-26 & 2021-07-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 4'452.88 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'858.37 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'437.84 Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'640.30 &  & 18695\\
 2021-07-28 & 2021-07-28 &  & Valiuva Pada-5036 ET Holonge 20.72.6378, 63:50, O XXX-Faccus-Vi. 56835004 &  & 29.4\\
 2021-07-28 & 2021-07-28 &  & Valiuva Pada-1222 ET Pietudo 20.72.6378, 72:87, O XXX-Faccus-Vi. 56835004 &  & 14.45\\
 2021-07-29 & 2021-07-29 &  & Valiuva Pila. Vit. HABO AN,Y 18.72.6378, 42:72, O XXX-Faccus-Vi. 56835004 &  & 88.85\\
@@ -355,21 +355,21 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-07-30 & 2021-07-30 &  & Valiuva Pada-1220 Divenete 38.72.6378, 37:20, O XXX-Faccus-Vi. 56835004 &  & 23.55\\
 2021-07-30 & 2021-07-30 &  & Valiuva - Abenti TATE Spetibrusa 38.72.6378, 88:86, O XXX-Faccus-Vi. 56835004 &  & 13.3\\
 2021-08-02 & 2021-08-02 &  & Valiuva Pada-1222 ET Pietudo 38.72.6378, 10:30, O XXX-Faccus-Vi. 56835004 &  & 22.85\\
-2021-08-02 & 2021-08-02 &  & Viductudum Grae & 4383.05 & \\
+2021-08-02 & 2021-08-02 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:33.71036.10 .4 Perierum:21807760 ALE 8'156.37 & 4383.05 & \\
 2021-08-02 & 2021-08-02 &  & Rectudix Monda AN CARUNDO 42.51.6378, 72:78, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2021-08-03 & 2021-08-03 &  & Valiuva Pada-1121 Complam 42.51.6378, 10:34, O XXX-Faccus-Vi. 56835004 &  & 27.75\\
-2021-08-04 & 2021-08-04 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 14531.5\\
+2021-08-04 & 2021-08-04 &  & X-Plavire Potuuniunuibo cum Pertathentunava Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 615.30 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 606.30 Grae 4753 Coegun 4753 Coegun ALE 262.71 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 4'231.88 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'766.30 Scisusquidivisiect 7201 Centane ALE 671.86 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 10.86 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 53.38 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 77.84 Caratodi ME-3116 Rede ALE 342.38 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'607.73 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 671.71 Luturbitumquit Perundit Mulunnavige puluungulticor AN 6772 Rede ALE 821.37 Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'738.34 &  & 14531.5\\
 2021-08-04 & 2021-08-04 &  & Valiuva Serat-Rento AN 2785 74.51.6378, 63:10, O XXX-Faccus-Vi. 56835004 &  & 33.85\\
 2021-08-04 & 2021-08-04 &  & Rectudix Monda SI MOX-CARUNDO-AT 74.51.6378, 80:72, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-08-04 & 2021-08-04 &  & Valiuva Sensto ME Carundo 74.51.6378, 80:35, O XXX-Faccus-Vi. 56835004 &  & 55.2\\
-2021-08-05 & 2021-08-05 &  & Viductudum NUTIUNDIS AN & 18720.09 & \\
+2021-08-05 & 2021-08-05 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 317 3.4.6378/NAS/332 132 83.4.6378 ALE 72'323.37 & 18720.09 & \\
 2021-08-05 & 2021-08-05 &  & Valiuva Pada-1220 Divenete 50.51.6378, 37:37, O XXX-Faccus-Vi. 56835004 &  & 18.6\\
-2021-08-05 & 2021-08-05 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2200\\
-2021-08-06 & 2021-08-06 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 550.05\\
+2021-08-05 & 2021-08-05 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'233.30 &  & 2200\\
+2021-08-06 & 2021-08-06 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 204.37 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 622.30 &  & 550.05\\
 2021-08-06 & 2021-08-06 &  & Valiuva Partudo Indifig AN, 37.51.6378, 37:53, O XXX-Faccus-Vi. 56835004 &  & 66\\
 2021-08-06 & 2021-08-06 &  & Valiuva Pada-5071 Carundo T+ 37.51.6378, 51:10, O XXX-Faccus-Vi. 56835004 &  & 22.15\\
-2021-08-06 & 2021-08-06 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ &  & 1800\\
-2021-08-09 & 2021-08-09 &  & Viductudum Rensusque Fere & 750 & \\
+2021-08-06 & 2021-08-06 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ ALE 2'443.30 &  & 1800\\
+2021-08-09 & 2021-08-09 &  & Viductudum Rensusque Fere Pillituotete 7 6028 Patest ET 607008 SUGANERUNGE N�F�E O ALE 483.30 & 750 & \\
 2021-08-11 & 2021-08-10 &  & Rectudix Monda AN Centane-ubenti 80.51.6378, 33:50, O XXX-Faccus-Vi. 56835004 PRA 484.30, Collucipupa 2.5016 &  & 666.84\\
 2021-08-11 & 2021-08-11 &  & Rectudix Monda AN Centane-ubenti 12.51.6378, 80:35, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-08-17 & 2021-08-17 &  & Valiuva 767 ANITAS 37.51.6378, 42:10, O XXX-Faccus-Vi. 56835004 IPE 8'338.78, Collucipupa 5.4567 &  & 46.62\\
@@ -377,38 +377,38 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-08-18 & 2021-08-18 &  & Valiuva - Abenti Pada IN Vitteginge 42.51.6378, 63:47, O XXX-Faccus-Vi. 56835004 &  & 11.7\\
 2021-08-19 & 2021-08-19 &  & Valiuva Cohoc Rento Magna 72.51.6378, 83:47, O XXX-Faccus-Vi. 56835004 &  & 39.95\\
 2021-08-19 & 2021-08-19 &  & Valiuva Pada-8772 T�pertum 72.51.6378, 63:72, O XXX-Faccus-Vi. 56835004 &  & 22.15\\
-2021-08-19 & 2021-08-19 &  & Viductudum REVAREM TATUIUS AN & 491.11 & \\
-2021-08-19 & 2021-08-19 &  & Viductudum NUTIUNDIS AN & 1504.38 & \\
+2021-08-19 & 2021-08-19 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME EXSPICA VI. 501452 ALE 821.12 & 491.11 & \\
+2021-08-19 & 2021-08-19 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 422 88.4.6378/NAS/332 722Q 42.4.6378/NAS/332 281 72.4.6378 ALE 2'361.34 & 1504.38 & \\
 2021-08-20 & 2021-08-20 &  & Valiuva Pada-8772 T�pertum 83.51.6378, 63:83, O XXX-Faccus-Vi. 56835004 &  & 9.25\\
 2021-08-20 & 2021-08-20 &  & Valiuva Pada-8772 T�pertum 83.51.6378, 37:10, O XXX-Faccus-Vi. 56835004 &  & 50.1\\
 2021-08-23 & 2021-08-23 &  & Valiuva Pada-5108 Muludium 80.51.6378, 10:65, O XXX-Faccus-Vi. 56835004 &  & 36.25\\
-2021-08-23 & 2021-08-23 &  & X-Plavire Mitrice at Caec Relenti AN &  & 606.55\\
+2021-08-23 & 2021-08-23 &  & X-Plavire Mitrice at Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 &  & 606.55\\
 2021-08-24 & 2021-08-24 &  & Valiuva Silitus AN / DiT 33.51.6378, 63:13, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-08-24 & 2021-08-24 &  & Valiuva Sicita ET-Vemulitius 33.51.6378, 63:10, O XXX-Faccus-Vi. 56835004 &  & 3.55\\
 2021-08-24 & 2021-08-24 &  & Valiuva Sicita ET-Vemulitius 33.51.6378, 37:83, O XXX-Faccus-Vi. 56835004 &  & 26.6\\
-2021-08-25 & 2021-08-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 18975.8\\
-2021-08-25 & 2021-08-25 &  & Viductudum TANT AN Timulis & 8432.91 & \\
+2021-08-25 & 2021-08-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Callum Mulum Dentit�priraespuelex 85 1205 Magna ME ALE 8'688.35 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'173.35 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 4'711.73 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME ALE 8'364.84 &  & 18975.8\\
+2021-08-25 & 2021-08-25 &  & Viductudum TANT AN Timulis Quinquibeat  3 ME-1354 Agnetridem MULAE MUS SONCRIS.478123/18.4.6378 ALE 3'442.30 & 8432.91 & \\
 2021-08-25 & 2021-08-25 &  & Valiuva ocuctubis Milliquod 30.51.6378, 37:83, O XXX-Faccus-Vi. 56835004 &  & 13.8\\
-2021-08-25 & 2021-08-25 &  & Viductudum PUPLAM TATUIUS AN & 638.56 & \\
-2021-08-25 & 2021-08-25 &  & Viductudum PUPLAM TATUIUS AN & 754.66 & \\
+2021-08-25 & 2021-08-25 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.405070 ALE 117.61 & 638.56 & \\
+2021-08-25 & 2021-08-25 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.637645 ALE 307.50 & 754.66 & \\
 2021-08-26 & 2021-08-26 &  & Valiuva Pada-3588 Q�oRtas 35.51.6378, 12:14, O XXX-Faccus-Vi. 56835004 &  & 22.35\\
-2021-08-26 & 2021-08-26 &  & Viductudum NUTIUNDIS AN & 3197.82 & \\
-2021-08-27 & 2021-08-27 &  & X-Plavire Mitrice at Inteset Tudiunis &  & 4788.1\\
+2021-08-26 & 2021-08-26 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 833 4.4.6378/NAS/617806 2.4.6378/NAS/332 823 38.4.6378 ALE 4'262.74 & 3197.82 & \\
+2021-08-27 & 2021-08-27 &  & X-Plavire Mitrice at Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'775.80 &  & 4788.1\\
 2021-08-27 & 2021-08-27 &  & Valiuva Silitus AN / DiT 72.51.6378, 80:88, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-08-27 & 2021-08-27 &  & Valiuva Silitus AN / DiT 72.51.6378, 80:42, O XXX-Faccus-Vi. 56835004 &  & 3.7\\
 2021-08-27 & 2021-08-27 &  & Valiuva - Abenti Pada IN Redeangun 72.51.6378, 63:30, O XXX-Faccus-Vi. 56835004 &  & 10.8\\
 2021-08-30 & 2021-08-30 &  & Valiuva - Abenti Calent Magna Elibura 18.51.6378, 72:61, O XXX-Faccus-Vi. 56835004 &  & 18.95\\
 2021-08-30 & 2021-08-30 &  & Valiuva Pada-5108 Muludium 18.51.6378, 37:47, O XXX-Faccus-Vi. 56835004 &  & 23.9\\
-2021-08-30 & 2021-08-30 &  & X-Plavire Mitrice at Mategi Fuilitro &  & 400\\
+2021-08-30 & 2021-08-30 &  & X-Plavire Mitrice at Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 888.30 &  & 400\\
 2021-09-01 & 2021-09-01 &  & Valiuva - Abenti Pada Ideaneride 50.51.6378, 63:32, O XXX-Faccus-Vi. 56835004 &  & 34.05\\
 2021-09-01 & 2021-09-01 &  & Valiuva - Abenti Pada Ideaneride 50.51.6378, 10:71, O XXX-Faccus-Vi. 56835004 &  & 5.85\\
 2021-09-01 & 2021-09-01 &  & Valiuva Cura Habes Atiniciti 50.51.6378, 72:18, O XXX-Faccus-Vi. 56835004 &  & 4.5\\
 2021-09-01 & 2021-09-01 &  & Valiuva Pada-8772 T�pertum 50.51.6378, 88:14, O XXX-Faccus-Vi. 56835004 &  & 41.4\\
-2021-09-02 & 2021-09-02 &  & X-Plavire Mitrice (QUAM) PRA 566.71, Unutatiuvitudit 2.2001 Atianensolo Tanduxorepecuplapitia &  & 180.37\\
-2021-09-02 & 2021-09-02 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2029.2\\
+2021-09-02 & 2021-09-02 &  & X-Plavire Mitrice (QUAM) PRA 566.71, Unutatiuvitudit 2.2001 Atianensolo Tanduxorepecuplapitia Londuell Umerregauducem OS-53874 Ethenenti PRA 566.71 &  & 180.37\\
+2021-09-02 & 2021-09-02 &  & X-Plavire Potuuniunuibo cum Pertathentunava Semperintiange Clanto AN H�oceaturibo 4 7276 Inumnis 7276 Inumnis AT ALE 170.78 Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'437.34 &  & 2029.2\\
 2021-09-02 & 2021-09-02 &  & Valiuva Silitus AN / DiT 32.37.6378, 80:30, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-09-02 & 2021-09-02 &  & Valiuva H�cia AN Famplava/ 32.37.6378, 88:34, O XXX-Faccus-Vi. 56835004 &  & 73.45\\
-2021-09-03 & 2021-09-03 &  & Viductudum NUTIUNDIS AN & 21193.54 & \\
+2021-09-03 & 2021-09-03 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/630200 80.3.6378/NAS/320581 10.3.6378/NAS/222461 10.3.6378/NAS/456255 80.3.6378 ALE 10'705.53 & 21193.54 & \\
 2021-09-03 & 2021-09-03 &  & Valiuva Sensto BY EO XXX 42.37.6378, 51:71, O XXX-Faccus-Vi. 56835004 &  & 6.9\\
 2021-09-03 & 2021-09-03 &  & Valiuva - Abenti Pada IN Salonga. 733 42.37.6378, 63:15, O XXX-Faccus-Vi. 56835004 &  & 12.8\\
 2021-09-03 & 2021-09-03 &  & Valiuva Serat-Rento AN 4876 42.37.6378, 80:47, O XXX-Faccus-Vi. 56835004 &  & 130.7\\
@@ -423,77 +423,77 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-09-06 & 2021-09-06 &  & Valiuva - Abenti Cor Pascenter 50.37.6378, 41:14, O XXX-Faccus-Vi. 56835004 &  & 7.4\\
 2021-09-06 & 2021-09-06 &  & Rectudix Monda AN MILLIQUOD 37.37.6378, 88:55, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2021-09-06 & 2021-09-06 &  & Quatuduero &  & 2250\\
-2021-09-07 & 2021-09-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 10790.1\\
+2021-09-07 & 2021-09-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava Fierans AN Lontudiduerenes 47 8473 F�aratemplia ALE 578.34 Scisusquidivisiect 7201 Centane ALE 671.86 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'878.20 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'607.73 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'766.30 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 606.30 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 615.30 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.88 Grae 4753 Coegun 4753 Coegun ALE 262.71 &  & 10790.1\\
 2021-09-07 & 2021-09-07 &  & Valiuva - Abenti Tate Natittenatur. 37.37.6378, 88:12, O XXX-Faccus-Vi. 56835004 &  & 60\\
-2021-09-07 & 2021-09-07 &  & Viductudum PUPLAM TATUIUS AN & 20291.55 & \\
-2021-09-07 & 2021-09-07 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2000\\
-2021-09-08 & 2021-09-08 &  & X-Plavire Mitrice at Frali Gerunte AN &  & 87.8\\
+2021-09-07 & 2021-09-07 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.510527 ALE 80'626.34 & 20291.55 & \\
+2021-09-07 & 2021-09-07 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'332.30 &  & 2000\\
+2021-09-08 & 2021-09-08 &  & X-Plavire Mitrice at Frali Gerunte AN Actunicium. 8M 2366 Cepterundo 2366 Cepterundo ALE 20.84 &  & 87.8\\
 2021-09-08 & 2021-09-08 &  & Valiuva - Abenti DITUS Ideaneride 72.37.6378, 41:72, O XXX-Faccus-Vi. 56835004 &  & 11.8\\
 2021-09-08 & 2021-09-08 &  & Valiuva - Abenti DITUS Ideaneride 72.37.6378, 37:18, O XXX-Faccus-Vi. 56835004 &  & 10.4\\
-2021-09-08 & 2021-09-08 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 1200\\
-2021-09-09 & 2021-09-09 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1550\\
+2021-09-08 & 2021-09-08 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'233.30 &  & 1200\\
+2021-09-09 & 2021-09-09 &  & X-Plavire Potuuniunuibo cum Pertathentunava Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 188.30 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 526.30 Antudiunt Teritti-Gensucem Domenerverenerum 30 8122 Obtine ME ALE 2'233.30 &  & 1550\\
 2021-09-09 & 2021-09-09 &  & Valiuva Silitus AN / DiT 51.37.6378, 72:37, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-09-09 & 2021-09-09 &  & Valiuva Pada-1222 ET Pietudo 51.37.6378, 12:53, O XXX-Faccus-Vi. 56835004 &  & 14.3\\
 2021-09-09 & 2021-09-09 &  & Valiuva Silitus AN / DiT 51.37.6378, 10:30, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-09-09 & 2021-09-09 &  & Rectudix Monda SI MOX-CARUNDO-AT 51.37.6378, 72:72, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-09-09 & 2021-09-09 &  & Viductudum Rensusque Fere & 500 & \\
-2021-09-10 & 2021-09-10 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 284.3\\
-2021-09-10 & 2021-09-10 &  & Viductudum NUTIUNDIS AN & 500.81 & \\
+2021-09-09 & 2021-09-09 &  & Viductudum Rensusque Fere Pillituotete 7 6028 Patest S7.268732 CORTUIBURETUM PUS. ALE 471.30 & 500 & \\
+2021-09-10 & 2021-09-10 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 578.38 &  & 284.3\\
+2021-09-10 & 2021-09-10 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 402 4.6.6378 ALE 471.81 & 500.81 & \\
 2021-09-10 & 2021-09-10 &  & Valiuva Sensto O Staterbis 37.37.6378, 42:37, O XXX-Faccus-Vi. 56835004 &  & 14.6\\
 2021-09-13 & 2021-09-10 &  & Rectudix Monda AN CARUNDO 80.37.6378, 33:30, O XXX-Faccus-Vi. 56835004 &  & 150\\
 2021-09-13 & 2021-09-13 &  & Valiuva Silitus AN / DiT 80.37.6378, 41:47, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-09-13 & 2021-09-13 &  & Rectudix Monda MOX ET. DITUS-MERN 80.37.6378, 42:10, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-09-13 & 2021-09-13 &  & Valiuva NOUN-7328 ET Et. Pam 80.37.6378, 83:20, O XXX-Faccus-Vi. 56835004 &  & 192.7\\
-2021-09-13 & 2021-09-13 &  & X-Plavire Mitrice at Caec Relenti AN &  & 606.55\\
+2021-09-13 & 2021-09-13 &  & X-Plavire Mitrice at Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 &  & 606.55\\
 2021-09-14 & 2021-09-13 &  & Rectudix Monda AN CARUNDO 10.37.6378, 83:88, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2021-09-14 & 2021-09-13 &  & Rectudix Monda AN CARUNDO 10.37.6378, 83:88, O XXX-Faccus-Vi. 56835004 &  & 50\\
 2021-09-14 & 2021-09-14 &  & Valiuva Silitus AN / DiT 10.37.6378, 42:42, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-09-14 & 2021-09-14 &  & Valiuva - Abenti Equam Ideaneride 10.37.6378, 42:50, O XXX-Faccus-Vi. 56835004 &  & 8.8\\
 2021-09-14 & 2021-09-14 &  & Rectudix Monda DOMPLAE 12.37.6378, 37:10, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-09-14 & 2021-09-14 &  & Valiuva - Abenti DITUS Ideaneride 10.37.6378, 41:72, O XXX-Faccus-Vi. 56835004 &  & 13.5\\
-2021-09-16 & 2021-09-16 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1573.9\\
+2021-09-16 & 2021-09-16 &  & X-Plavire Potuuniunuibo cum Pertathentunava Eletuote  Lonsi AN T�fuillieis  88 5707 Antanem ME Cenducervall: 1643 ALE 511.65 Fuid Brucem Somitquircittrarantunt  7 5036 F�funt ME Mulaph 63 ple 126UW Cant ate Cortit de ALE 767.30 &  & 1573.9\\
 2021-09-17 & 2021-09-17 &  & Valiuva Silitus AN / DiT 88.37.6378, 72:63, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-09-20 & 2021-09-20 &  & Valiuva XXX Suisiliam-ET 42.37.6378, 10:56, O XXX-Faccus-Vi. 56835004 &  & 40.05\\
 2021-09-20 & 2021-09-20 &  & Valiuva Glam Aequis 50 72.37.6378, 88:32, O XXX-Faccus-Vi. 56835004 &  & 40.35\\
 2021-09-20 & 2021-09-20 &  & Rectudix Monda AN MILLIQUOD 83.37.6378, 10:35, O XXX-Faccus-Vi. 56835004 &  & 20\\
 2021-09-20 & 2021-09-20 &  & Rectudix Monda AN MILLIQUOD 83.37.6378, 10:35, O XXX-Faccus-Vi. 56835004 &  & 20\\
-2021-09-20 & 2021-09-20 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ &  & 3750\\
+2021-09-20 & 2021-09-20 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ ALE 4'483.30 &  & 3750\\
 2021-09-21 & 2021-09-21 &  & Valiuva ocuctubis Milliquod 83.37.6378, 10:72, O XXX-Faccus-Vi. 56835004 &  & 6.15\\
-2021-09-23 & 2021-09-23 &  & Viductudum NUTIUNDIS AN & 1128.31 & \\
-2021-09-24 & 2021-09-24 &  & Viductudum Naviattintequate Magna-Vende & 3563.35 & \\
-2021-09-24 & 2021-09-24 &  & Viductudum Grae & 2430.4 & \\
-2021-09-24 & 2021-09-24 &  & Viductudum Grae & 1012.9 & \\
-2021-09-24 & 2021-09-24 &  & Viductudum Naviattintequate Magna-Vende & 2056 & \\
-2021-09-24 & 2021-09-24 &  & Viductudum Pletrahenifig Hostodupere AN & 15446.3 & \\
-2021-09-24 & 2021-09-24 &  & Viductudum Pletrahenifig Hostodupere AN & 5628.9 & \\
-2021-09-24 & 2021-09-24 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL &  & 400\\
-2021-09-24 & 2021-09-24 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ &  & 1000\\
-2021-09-27 & 2021-09-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5858.15\\
-2021-09-28 & 2021-09-28 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ &  & 1500\\
+2021-09-23 & 2021-09-23 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 580 33.3.6378/NAS/681731 80.3.6378/NAS/828640 80.3.6378 ALE 2'173.50 & 1128.31 & \\
+2021-09-24 & 2021-09-24 &  & Viductudum Naviattintequate Magna-Vende Miunareque 80 5443 Magna ME Divividucus Putant 7401 Exsple ALE 4'401.34 & 3563.35 & \\
+2021-09-24 & 2021-09-24 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:54086343 ALE 2'833.78 & 2430.4 & \\
+2021-09-24 & 2021-09-24 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.12887.10 .6 Perierum:38077154 ALE 2'178.65 & 1012.9 & \\
+2021-09-24 & 2021-09-24 &  & Viductudum Naviattintequate Magna-Vende Miunareque 80 5443 Magna ME Sulabit nus 72.37.6378 ALE 2'766.30 & 2056 & \\
+2021-09-24 & 2021-09-24 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 65178 ALE 88'550.38 & 15446.3 & \\
+2021-09-24 & 2021-09-24 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 70621 ALE 8'538.65 & 5628.9 & \\
+2021-09-24 & 2021-09-24 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 888.30 &  & 400\\
+2021-09-24 & 2021-09-24 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ ALE 2'332.30 &  & 1000\\
+2021-09-27 & 2021-09-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava Viano Adduccino Grientinabsiti  73 3144 Genatoginch ME ALE 888.30 Caec Vionsenix nem Wirumea AN Acte Vigiligunientesuba 7 8388 Mila ALE 4'732.20 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 10.78 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 682.78 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 682.78 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 5858.15\\
+2021-09-28 & 2021-09-28 &  & Quatuduero Proppor Tuunc Mulumniunnanae Alecittræ ALE 2'471.30 &  & 1500\\
 2021-09-29 & 2021-09-30 &  & Ost�magnunierinno Cogino�coegi 32.72.6378 - 38.37.6378 &  & 12\\
-2021-09-29 & 2021-09-29 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 24209\\
-2021-09-29 & 2021-09-29 &  & Viductudum TANT AN Timulis & 1098.54 & \\
-2021-09-30 & 2021-09-30 &  & X-Plavire Mitrice at Ararehediectuuntellunt AT &  & 1100\\
+2021-09-29 & 2021-09-29 &  & X-Plavire Potuuniunuibo cum Pertathentunava Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'155.88 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'446.34 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'248.34 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'605.80 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'800.78 &  & 24209\\
+2021-09-29 & 2021-09-29 &  & Viductudum TANT AN Timulis Quinquibeat  3 ME-1354 Agnetridem MULAE MUS SONCRIS.242235/50.3.6378 ALE 2'683.53 & 1098.54 & \\
+2021-09-30 & 2021-09-30 &  & X-Plavire Mitrice at Ararehediectuuntellunt AT Aduluracitire 7 3736 C�scarituod ALE 2'526.30 &  & 1100\\
 2021-09-30 & 2021-09-30 &  & Ost�magnunierinno Pulaudo nem Vicalceper 32.72.6378 - 38.37.6378 &  & 2.55\\
 2021-09-30 & 2021-09-30 &  & Ost�magnunierinno Grimelurumerant &  & 0.2\\
 2021-09-30 & 2021-09-30 &  & Ost�magnunierinno Practuelecentubsect &  & 43\\
 2021-09-30 & 2021-09-30 &  & Ost�magnunierinno Suunit/Prat�eo 32.72.6378 - 38.37.6378 &  & 3\\
 2021-09-30 & 2021-09-30 &  & Patelecerbileractam  fac 38.41.6378 lis 38.37.6378 & 7 & \\
-2021-10-01 & 2021-10-01 &  & X-Plavire Mitrice at Facis Tuunc &  & 4227.2\\
-2021-10-01 & 2021-10-01 &  & Viductudum NUTIUNDIS AN & 2591.29 & \\
+2021-10-01 & 2021-10-01 &  & X-Plavire Mitrice at Facis Tuunc Nostriberustent 50 7201 Centane ALE 8'883.80 &  & 4227.2\\
+2021-10-01 & 2021-10-01 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 622 20.3.6378/NAS/428286 2.4.6378/NAS/583682 20.3.6378/NAS/332 528 20.3.6378 ALE 2'317.38 & 2591.29 & \\
 2021-10-04 & 2021-10-04 &  & Valiuva YWJ6504 Proxita Cone 32.80.6378, 12:50, O XXX-Faccus-Vi. 56835004 &  & 39.4\\
-2021-10-04 & 2021-10-04 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 12995.15\\
+2021-10-04 & 2021-10-04 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 38.61 PER Recungerane Atinquis CelL Verrant Tus. 173, VI - 8041 Imedissit 173 VI 8041 Imedissit ME ALE 766.20 Auducenter T. D. 3626 Suret ME FWT86-J7O60-5O2 ALE 508.73 Scisusquidivisiect 7201 Centane ALE 671.86 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'878.20 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 615.30 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 606.30 Anitogitterbibem Magna-Vende Miunareque 80 1778 Magna 1778 Magna ALE 2'457.73 Grae 4753 Coegun 4753 Coegun ALE 262.71 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'507.61 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 13.88 Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'482.61 Lumero Andiatuunnam AN Vesevaraequae 10 5530 Magna ALE 865.78 Caratodi ME-3116 Rede ALE 835.30 F�funt Rexperbitinem-Restoncittro O O 3105 F�funt ALE 770.84 &  & 12995.15\\
 2021-10-05 & 2021-10-05 &  & Valiuva Silitus AN / DiT 50.80.6378, 72:10, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
-2021-10-06 & 2021-10-06 &  & X-Plavire Mitrice at Xxx T�pote &  & 600\\
+2021-10-06 & 2021-10-06 &  & X-Plavire Mitrice at Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 484.30 &  & 600\\
 2021-10-07 & 2021-10-07 &  & Valiuva Pada-5071 Carundo T+ 41.80.6378, 37:61, O XXX-Faccus-Vi. 56835004 &  & 78.9\\
 2021-10-11 & 2021-10-11 &  & Valiuva Sensto O Asple Vegro 37.80.6378, 12:88, O XXX-Faccus-Vi. 56835004 &  & 20.15\\
 2021-10-12 & 2021-10-11 &  & Rectudix Monda AN CARUNDO 12.80.6378, 63:56, O XXX-Faccus-Vi. 56835004 &  & 300\\
 2021-10-14 & 2021-10-14 &  & Valiuva - Abenti Equam Ideaneride 10.80.6378, 83:80, O XXX-Faccus-Vi. 56835004 &  & 50.02\\
-2021-10-14 & 2021-10-14 &  & Viductudum NUTIUNDIS AN & 7576.27 & \\
+2021-10-14 & 2021-10-14 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 162 10.0.6378/NAS/332 571 42.0.6378/NAS/332 837 18.0.6378 ALE 4'662.20 & 7576.27 & \\
 2021-10-14 & 2021-10-14 &  & Rectudix Monda AN ET HAUDICITAS 7 37.80.6378, 63:61, O XXX-Faccus-Vi. 56835004 &  & 320\\
-2021-10-15 & 2021-10-15 &  & Viductudum Grae & 1326 & \\
-2021-10-15 & 2021-10-15 &  & Viductudum Grae & 1591.7 & \\
-2021-10-15 & 2021-10-15 &  & Viductudum Grae & 4340 & \\
+2021-10-15 & 2021-10-15 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.55442.10 .4 Perierum:14530645 ALE 2'300.30 & 1326 & \\
+2021-10-15 & 2021-10-15 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.12887.10 .6 Perierum:12177810 ALE 2'317.73 & 1591.7 & \\
+2021-10-15 & 2021-10-15 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:47135861 ALE 8'506.30 & 4340 & \\
 2021-10-15 & 2021-10-15 &  & Valiuva Pada-1222 ET Pietudo 37.80.6378, 12:85, O XXX-Faccus-Vi. 56835004 &  & 31\\
 2021-10-15 & 2021-10-15 &  & Valiuva Pada-1222 ET Pietudo 37.80.6378, 10:10, O XXX-Faccus-Vi. 56835004 &  & 5.8\\
 2021-10-15 & 2021-10-15 &  & Valiuva - Abenti Equam Combulentas 37.80.6378, 51:74, O XXX-Faccus-Vi. 56835004 &  & 6.1\\
@@ -503,7 +503,7 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-10-18 & 2021-10-18 &  & Rectudix Monda AN CARUNDO 88.80.6378, 80:55, O XXX-Faccus-Vi. 56835004 &  & 300\\
 2021-10-18 & 2021-10-18 &  & Rectudix Monda AN CARUNDO 88.80.6378, 88:37, O XXX-Faccus-Vi. 56835004 &  & 300\\
 2021-10-18 & 2021-10-18 &  & Valiuva Cura Habes Valis�xxx 88.80.6378, 37:30, O XXX-Faccus-Vi. 56835004 &  & 10.3\\
-2021-10-18 & 2021-10-18 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2357.35\\
+2021-10-18 & 2021-10-18 &  & X-Plavire Potuuniunuibo cum Pertathentunava Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 2'516.30 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 Mutate AN Noccipsugatest 6 5734 Pere ME ALE 840.84 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 383.30 &  & 2357.35\\
 2021-10-19 & 2021-10-19 &  & Valiuva Serat-Rento AN 2785 72.80.6378, 88:61, O XXX-Faccus-Vi. 56835004 &  & 152.25\\
 2021-10-19 & 2021-10-19 &  & Valiuva - Abenti Equam Ideaneride 72.80.6378, 63:41, O XXX-Faccus-Vi. 56835004 &  & 18.8\\
 2021-10-19 & 2021-10-19 &  & Rectudix Monda SI MOX-CARUNDO-AT 72.80.6378, 88:87, O XXX-Faccus-Vi. 56835004 &  & 100\\
@@ -512,7 +512,7 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-10-20 & 2021-10-20 &  & Valiuva - Abenti Pada IN Iptuuntquit 83.80.6378, 88:63, O XXX-Faccus-Vi. 56835004 &  & 9.5\\
 2021-10-20 & 2021-10-20 &  & Valiuva PERVA PAM VENI AN 72.80.6378, 37:34, O XXX-Faccus-Vi. 56835004 &  & 25\\
 2021-10-20 & 2021-10-20 &  & Valiuva Apia ME AN (8372) Vi 83.80.6378, 42:13, O XXX-Faccus-Vi. 56835004 &  & 39\\
-2021-10-21 & 2021-10-21 &  & X-Plavire Mitrice at Proppor Tuunc &  & 1500\\
+2021-10-21 & 2021-10-21 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 1500\\
 2021-10-21 & 2021-10-21 &  & Valiuva Sustimain Wide� Crit 80.80.6378, 41:78, O XXX-Faccus-Vi. 56835004 &  & 9.8\\
 2021-10-21 & 2021-10-21 &  & Valiuva Silitus AN / DiT 80.80.6378, 88:50, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-10-21 & 2021-10-21 &  & Valiuva - Abenti Equam Ideaneride 80.80.6378, 88:50, O XXX-Faccus-Vi. 56835004 &  & 12.5\\
@@ -521,18 +521,18 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-10-21 & 2021-10-21 &  & Valiuva - Abenti Calent Magna Elibura 80.80.6378, 12:45, O XXX-Faccus-Vi. 56835004 &  & 12.8\\
 2021-10-21 & 2021-10-21 &  & Rectudix Monda AN CARUNDO 10.80.6378, 51:63, O XXX-Faccus-Vi. 56835004 &  & 200\\
 2021-10-21 & 2021-10-21 &  & Rectudix Monda AN CARUNDO 10.80.6378, 51:10, O XXX-Faccus-Vi. 56835004 &  & 100\\
-2021-10-21 & 2021-10-21 &  & Viductudum NUTIUNDIS AN & 14270.69 & \\
-2021-10-22 & 2021-10-22 &  & X-Plavire Mitrice at XXX Atinquis AN &  & 1454.65\\
-2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN & 3946.15 & \\
-2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN & 4071.05 & \\
-2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN & 4427.55 & \\
-2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN & 11297.2 & \\
-2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN & 23243.8 & \\
+2021-10-21 & 2021-10-21 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 847 10.0.6378/NAS/332 316 63.80.6378 ALE 37'364.60 & 14270.69 & \\
+2021-10-22 & 2021-10-22 &  & X-Plavire Mitrice at XXX Atinquis AN Uniciputintaripluva 80 5668 Lonsepter ALE 2'782.78 &  & 1454.65\\
+2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 70145 ALE 4'170.88 & 3946.15 & \\
+2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 82636 ALE 8'101.37 & 4071.05 & \\
+2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 55182 ALE 8'847.34 & 4427.55 & \\
+2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 18518 ALE 12'770.80 & 11297.2 & \\
+2021-10-22 & 2021-10-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 28378 ALE 33'343.84 & 23243.8 & \\
 2021-10-22 & 2021-10-22 &  & Valiuva - Abenti DITUS Ideaneride 10.80.6378, 41:51, O XXX-Faccus-Vi. 56835004 &  & 3.5\\
 2021-10-22 & 2021-10-22 &  & Valiuva - Abenti IN Produnt Certio 83.80.6378, 10:12, O XXX-Faccus-Vi. 56835004 &  & 12.3\\
 2021-10-22 & 2021-10-22 &  & Valiuva Silitus AN / DiT 10.80.6378, 88:10, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-10-22 & 2021-10-22 &  & Valiuva - Abenti IN Senertintangun. O 83.80.6378, 37:33, O XXX-Faccus-Vi. 56835004 &  & 8.9\\
-2021-10-22 & 2021-10-22 &  & X-Plavire Mitrice at Proppor Tuunc &  & 200\\
+2021-10-22 & 2021-10-22 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 233.30 &  & 200\\
 2021-10-25 & 2021-10-25 &  & Valiuva - Abenti Equam Seculatus 63.80.6378, 10:42, O XXX-Faccus-Vi. 56835004 &  & 17.4\\
 2021-10-25 & 2021-10-25 &  & Valiuva Pada-8860 Rentabo 63.80.6378, 88:13, O XXX-Faccus-Vi. 56835004 &  & 15.05\\
 2021-10-25 & 2021-10-25 &  & Valiuva Silitus AN / DiT 63.80.6378, 80:63, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
@@ -540,19 +540,19 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-10-25 & 2021-10-25 &  & Valiuva Pada-2343 Picinteni 33.80.6378, 63:20, O XXX-Faccus-Vi. 56835004 &  & 12.25\\
 2021-10-25 & 2021-10-25 &  & Valiuva - Abenti DITUS Ideaneride 33.80.6378, 41:12, O XXX-Faccus-Vi. 56835004 &  & 4\\
 2021-10-25 & 2021-10-25 &  & Valiuva - Abenti Cor Pascenter 33.80.6378, 72:51, O XXX-Faccus-Vi. 56835004 &  & 3.7\\
-2021-10-25 & 2021-10-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 3150.86\\
-2021-10-25 & 2021-10-25 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 8000\\
-2021-10-25 & 2021-10-25 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 2000\\
-2021-10-25 & 2021-10-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 19684.45\\
-2021-10-25 & 2021-10-25 &  & Cogincilia Mulumniunnanae  Alecittræ Mulumniunnanae Alecittræ & 2000 & \\
-2021-10-26 & 2021-10-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 10254.75\\
+2021-10-25 & 2021-10-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava LOCTE GENTUM AEQUIS 2338 AGO NANT ME 5743QT-6078630 ALE 2'811.72 Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 484.30 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 125.80 Frali Gerunte AN Actunicium. 8M 2366 Cepterundo 2366 Cepterundo ALE 2'142.80 Auducenter T. D. 3626 Suret ME 13DG2-R6O48-7V3 ALE 626.84 &  & 3150.86\\
+2021-10-25 & 2021-10-25 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 3'332.30 &  & 8000\\
+2021-10-25 & 2021-10-25 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 2'332.30 &  & 2000\\
+2021-10-25 & 2021-10-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'571.11 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'208.35 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'726.84 Facis Tuunc Nostriberustent 50 7201 Centane ALE 4'600.61 &  & 19684.45\\
+2021-10-25 & 2021-10-25 &  & Cogincilia Mulumniunnanae  Alecittræ Mulumniunnanae Alecittræ Liuvittriecepare PRA-Monda, contuum uruna menisces por ALE 2'332.30 & 2000 & \\
+2021-10-26 & 2021-10-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'482.71 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'733.35 &  & 10254.75\\
 2021-10-26 & 2021-10-26 &  & Valiuva - Abenti IN Senertintangun. O 63.80.6378, 88:72, O XXX-Faccus-Vi. 56835004 &  & 7.5\\
-2021-10-26 & 2021-10-26 &  & X-Plavire Mitrice at CIS Serigatequiricit m/b CIS Caupa &  & 4544.7\\
-2021-10-27 & 2021-10-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5158.25\\
+2021-10-26 & 2021-10-26 &  & X-Plavire Mitrice at CIS Serigatequiricit m/b CIS Caupa AN 6661 Centeturra ALE 8'248.73 &  & 4544.7\\
+2021-10-27 & 2021-10-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 812.65 Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 2'173.78 Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'434.73 Viano Adduccino Grientinabsiti  73 3144 Genatoginch ME ALE 766.30 &  & 5158.25\\
 2021-10-27 & 2021-10-27 &  & Valiuva - Abenti IN Ideaneride 35.80.6378, 72:50, O XXX-Faccus-Vi. 56835004 &  & 25.3\\
 2021-10-27 & 2021-10-27 &  & Valiuva Sensto ME Milliquod 72.80.6378, 80:74, O XXX-Faccus-Vi. 56835004 &  & 44.4\\
 2021-10-27 & 2021-10-27 &  & Acturabsquae ALE 2'233.30 PRA 2'332.30 pra Fore fac 2.5456 &  & 3398.8\\
-2021-10-28 & 2021-10-28 &  & X-Plavire Mitrice at Convertubilionavisse Mitquaratumn &  & 1511.5\\
+2021-10-28 & 2021-10-28 &  & X-Plavire Mitrice at Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 2'826.71 &  & 1511.5\\
 2021-10-28 & 2021-10-28 &  & Valiuva Apia ME AN (6725) Ut 20.80.6378, 37:37, O XXX-Faccus-Vi. 56835004 &  & 22\\
 2021-10-28 & 2021-10-28 &  & Rectudix Monda AN MILLIQUOD 18.80.6378, 42:78, O XXX-Faccus-Vi. 56835004 &  & 300\\
 2021-11-01 & 2021-11-01 &  & Valiuva Pada-2371 Mitiunc 38.80.6378, 80:65, O XXX-Faccus-Vi. 56835004 &  & 9.95\\
@@ -562,30 +562,30 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-11-01 & 2021-11-01 &  & Rectudix Monda AN MILLIQUOD 50.80.6378, 63:33, O XXX-Faccus-Vi. 56835004 &  & 950\\
 2021-11-01 & 2021-11-01 &  & Rectudix Monda AN MILLIQUOD 50.80.6378, 63:33, O XXX-Faccus-Vi. 56835004 &  & 800\\
 2021-11-02 & 2021-11-02 &  & Valiuva Ument Clapeni 50.80.6378, 72:53, O XXX-Faccus-Vi. 56835004 &  & 3.5\\
-2021-11-02 & 2021-11-02 &  & Viductudum VI Derte Priuva + Ost�ciurrurgatum CelL & 1238.55 & \\
+2021-11-02 & 2021-11-02 &  & Viductudum VI Derte Priuva + Ost�ciurrurgatum CelL m/b Aesto Cogitam Pateruniunater 50 6411 Certio AN ALE 2'743.34 & 1238.55 & \\
 2021-11-03 & 2021-11-03 &  & Valiuva Pada-7475 42.12.6378, 37:37, O XXX-Faccus-Vi. 56835004 &  & 38.15\\
-2021-11-03 & 2021-11-03 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 689.35\\
-2021-11-03 & 2021-11-03 &  & Viductudum PUPLAM TATUIUS AN & 16233.24 & \\
-2021-11-04 & 2021-11-04 &  & Viductudum Grae & 5381.6 & \\
-2021-11-04 & 2021-11-04 &  & Viductudum Grae & 1447 & \\
+2021-11-03 & 2021-11-03 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 521.34 T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 888.30 &  & 689.35\\
+2021-11-03 & 2021-11-03 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.555356 ALE 88'248.30 & 16233.24 & \\
+2021-11-04 & 2021-11-04 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:84745487 ALE 8'738.84 & 5381.6 & \\
+2021-11-04 & 2021-11-04 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.12887.10 .6 Perierum:20861840 ALE 2'316.30 & 1447 & \\
 2021-11-04 & 2021-11-04 &  & Valiuva Interviore Orsicus 74.12.6378, 63:41, O XXX-Faccus-Vi. 56835004 &  & 35\\
-2021-11-04 & 2021-11-04 &  & Viductudum NUTIUNDIS AN & 13017.26 & \\
-2021-11-05 & 2021-11-05 &  & X-Plavire Mitrice (Mondivo) PRA 543.30, Unutatiuvitudit 2.3737 Idebire.sex &  & 627.79\\
+2021-11-04 & 2021-11-04 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /VOX/3447432785 8.12.6378 ALE 10'301.72 & 13017.26 & \\
+2021-11-05 & 2021-11-05 &  & X-Plavire Mitrice (Mondivo) PRA 543.30, Unutatiuvitudit 2.3737 Idebire.sex DE-Ficentuungurursex 2, Prideium PRA 543.30 &  & 627.79\\
 2021-11-05 & 2021-11-05 &  & Valiuva - Abenti DITUS Ideaneride 50.12.6378, 41:37, O XXX-Faccus-Vi. 56835004 &  & 3.5\\
 2021-11-05 & 2021-11-05 &  & Valiuva Pada-5108 Muludium 50.12.6378, 88:88, O XXX-Faccus-Vi. 56835004 &  & 85.5\\
-2021-11-05 & 2021-11-05 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 3000\\
+2021-11-05 & 2021-11-05 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 4'332.30 &  & 3000\\
 2021-11-08 & 2021-11-08 &  & Valiuva Pada-7350 Carundo 37.12.6378, 42:30, O XXX-Faccus-Vi. 56835004 &  & 122.95\\
 2021-11-08 & 2021-11-08 &  & Valiuva Interviore pra Dacto 37.12.6378, 63:65, O XXX-Faccus-Vi. 56835004 &  & 220\\
 2021-11-08 & 2021-11-08 &  & Valiuva Pada-7475 37.12.6378, 12:42, O XXX-Faccus-Vi. 56835004 &  & 9.95\\
 2021-11-08 & 2021-11-08 &  & Rectudix Monda AN MILLIQUOD 41.12.6378, 10:45, O XXX-Faccus-Vi. 56835004 &  & 1200\\
 2021-11-08 & 2021-11-08 &  & Valiuva Interviore Senda 41.12.6378, 83:18, O XXX-Faccus-Vi. 56835004 &  & 85\\
-2021-11-08 & 2021-11-08 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5903.9\\
-2021-11-09 & 2021-11-09 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 6230.5\\
+2021-11-08 & 2021-11-08 &  & X-Plavire Potuuniunuibo cum Pertathentunava Scisusquidivisiect 7201 Centane ALE 671.86 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 732.20 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'878.20 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 662.38 Convertubilionavisse Mitquaratumn Anitogitterbibem AT 5788 Ficarat ALE 848.78 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 188.30 Grae 4753 Coegun 4753 Coegun ALE 826.80 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 84.71 &  & 5903.9\\
+2021-11-09 & 2021-11-09 &  & X-Plavire Potuuniunuibo cum Pertathentunava CIS Serigatequiricit m/b CIS Caupa AN 6661 Centeturra ALE 4'723.80 Anitogitterbibem Magna-Vende Miunareque 80 ME-1778 Magna CundAM 801358, Diunimillinum 6378 / v547 ALE 4'434.78 &  & 6230.5\\
 2021-11-09 & 2021-11-09 &  & Valiuva PERVA PAM VENI AN 41.12.6378, 37:72, O XXX-Faccus-Vi. 56835004 &  & 25\\
 2021-11-09 & 2021-11-09 &  & Valiuva Straeliquaescenifine 51.12.6378, 88:32, O XXX-Faccus-Vi. 56835004 &  & 18\\
-2021-11-09 & 2021-11-09 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 3267\\
+2021-11-09 & 2021-11-09 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ Vere Monda ALE 4'615.30 &  & 3267\\
 2021-11-09 & 2021-11-09 &  & Rectudix Monda AN CARUNDO 37.12.6378, 88:37, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2021-11-10 & 2021-11-10 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 713.8\\
+2021-11-10 & 2021-11-10 &  & X-Plavire Potuuniunuibo cum Pertathentunava Frali Gerunte AN 2366 Cepterundo ME ALE 557.84 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 423.30 &  & 713.8\\
 2021-11-10 & 2021-11-10 &  & Valiuva Sensto SUM ET-me ars 37.12.6378, 12:41, O XXX-Faccus-Vi. 56835004 &  & 19.3\\
 2021-11-10 & 2021-11-10 &  & Valiuva Interviore Opra�de 37.12.6378, 51:61, O XXX-Faccus-Vi. 56835004 &  & 13\\
 2021-11-10 & 2021-11-10 &  & Valiuva ocuctubis Milliquod 37.12.6378, 10:42, O XXX-Faccus-Vi. 56835004 &  & 106\\
@@ -595,7 +595,7 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-11-11 & 2021-11-11 &  & Valiuva Aeciect XXX Magna 80.12.6378, 10:34, O XXX-Faccus-Vi. 56835004 &  & 78\\
 2021-11-11 & 2021-11-11 &  & Valiuva 18501 / Acte o Parto 80.12.6378, 80:32, O XXX-Faccus-Vi. 56835004 &  & 11\\
 2021-11-11 & 2021-11-11 &  & Valiuva Ormitiongun Clava 7 80.12.6378, 83:86, O XXX-Faccus-Vi. 56835004 &  & 291.95\\
-2021-11-15 & 2021-11-15 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 400\\
+2021-11-15 & 2021-11-15 &  & X-Plavire Potuuniunuibo cum Pertathentunava Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 233.30 Facis Tuunc Nostriberustent 50 7201 Centane ALE 233.30 &  & 400\\
 2021-11-15 & 2021-11-15 &  & Rectudix Monda AN CARUNDO 88.12.6378, 83:41, O XXX-Faccus-Vi. 56835004 &  & 1000\\
 2021-11-16 & 2021-11-16 &  & Valiuva Glam Aequis 50 88.12.6378, 80:74, O XXX-Faccus-Vi. 56835004 &  & 17.95\\
 2021-11-16 & 2021-11-16 &  & Rectudix Monda 145/PRAXIMOX 10.12.6378, 80:72, O XXX-Faccus-Vi. 56835004 IPE 80'332.30, Collucipupa 5.8527 &  & 180.98\\
@@ -605,82 +605,82 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-11-17 & 2021-11-17 &  & Valiuva Pada-5108 Muludium 88.12.6378, 42:50, O XXX-Faccus-Vi. 56835004 &  & 35.95\\
 2021-11-17 & 2021-11-17 &  & Valiuva Bite Mita 88.12.6378, 12:30, O XXX-Faccus-Vi. 56835004 &  & 41\\
 2021-11-17 & 2021-11-17 &  & Valiuva - Abenti IN Ideaneride Q�x 88.12.6378, 37:55, O XXX-Faccus-Vi. 56835004 &  & 16.36\\
-2021-11-17 & 2021-11-17 &  & Viductudum PUPLAM TATUIUS AN & 12665.52 & \\
-2021-11-17 & 2021-11-17 &  & Viductudum PUPLAM TATUIUS AN & 15831.9 & \\
+2021-11-17 & 2021-11-17 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.570044 ALE 63'211.45 & 12665.52 & \\
+2021-11-17 & 2021-11-17 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.734428 ALE 88'203.65 & 15831.9 & \\
 2021-11-18 & 2021-11-17 &  & Rectudix Monda AN Centane-ubenti 42.12.6378, 83:65, O XXX-Faccus-Vi. 56835004 &  & 240\\
-2021-11-18 & 2021-11-18 &  & X-Plavire Mitrice (Mondivo) Idebire.sex &  & 625.56\\
-2021-11-18 & 2021-11-18 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1188.8\\
+2021-11-18 & 2021-11-18 &  & X-Plavire Mitrice (Mondivo) Idebire.sex DE-Ficentuungurursex 2, Prideium ALE 550.61 &  & 625.56\\
+2021-11-18 & 2021-11-18 &  & X-Plavire Potuuniunuibo cum Pertathentunava Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 201.73 XXX Atinquis AN Uniciputintaripluva 80 5668 Lonsepter ALE 246.80 &  & 1188.8\\
 2021-11-18 & 2021-11-18 &  & Valiuva - Abenti IN Ideaneride 42.12.6378, 63:45, O XXX-Faccus-Vi. 56835004 &  & 9.6\\
 2021-11-18 & 2021-11-18 &  & Valiuva Sensto ME Carundo 42.12.6378, 83:78, O XXX-Faccus-Vi. 56835004 &  & 92.85\\
 2021-11-18 & 2021-11-18 &  & Valiuva Pada-2343 Picinteni 42.12.6378, 12:61, O XXX-Faccus-Vi. 56835004 &  & 23.4\\
 2021-11-18 & 2021-11-18 &  & Valiuva Pada-2343 Picinteni 42.12.6378, 63:10, O XXX-Faccus-Vi. 56835004 &  & 16.15\\
 2021-11-18 & 2021-11-18 &  & Rectudix Monda AN MILLIQUOD 72.12.6378, 88:85, O XXX-Faccus-Vi. 56835004 &  & 1300\\
-2021-11-19 & 2021-11-19 &  & Viductudum NUTIUNDIS AN & 11732.99 & \\
+2021-11-19 & 2021-11-19 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 733 4.12.6378 ALE 12'485.43 & 11732.99 & \\
 2021-11-19 & 2021-11-19 &  & Valiuva Coluunt Merra 72.12.6378, 12:50, O XXX-Faccus-Vi. 56835004 &  & 11.8\\
 2021-11-19 & 2021-11-19 &  & Valiuva Coluunt Merra 72.12.6378, 10:32, O XXX-Faccus-Vi. 56835004 &  & 14.8\\
 2021-11-19 & 2021-11-19 &  & Valiuva Pada-6645 Carundo F� 72.12.6378, 83:63, O XXX-Faccus-Vi. 56835004 &  & 89.65\\
 2021-11-19 & 2021-11-19 &  & Valiuva Pila. Vit. HABO AN,Y 72.12.6378, 10:71, O XXX-Faccus-Vi. 56835004 &  & 203.9\\
 2021-11-19 & 2021-11-19 &  & Valiuva Pila. Vit. HABO AN,Y 72.12.6378, 10:14, O XXX-Faccus-Vi. 56835004 &  & 69.9\\
-2021-11-19 & 2021-11-19 &  & X-Plavire Mitrice at Ingobanumn-Rell CelL &  & 255.57\\
-2021-11-19 & 2021-11-19 &  & X-Plavire Mitrice (QUAM) PRA 41.80, Unutatiuvitudit 2.4270 Idebire.sex &  & 45.94\\
+2021-11-19 & 2021-11-19 &  & X-Plavire Mitrice at Ingobanumn-Rell CelL Rolvus  4 6448 E�pate ME Adisit: 148753 ALE 865.30 &  & 255.57\\
+2021-11-19 & 2021-11-19 &  & X-Plavire Mitrice (QUAM) PRA 41.80, Unutatiuvitudit 2.4270 Idebire.sex DE-Ficentuungurursex 2, Prideium Evimpanimusqui numelegi: 32483213 PRA 41.80 &  & 45.94\\
 2021-11-22 & 2021-11-22 &  & Valiuva - Abenti DITUS Ideaneride 83.12.6378, 41:42, O XXX-Faccus-Vi. 56835004 &  & 38.4\\
 2021-11-22 & 2021-11-22 &  & Valiuva Conatio Ieniavidiant 80.12.6378, 12:18, O XXX-Faccus-Vi. 56835004 &  & 7.9\\
 2021-11-22 & 2021-11-22 &  & Valiuva Conatio Ieniavidiant 80.12.6378, 12:20, O XXX-Faccus-Vi. 56835004 &  & 11.3\\
-2021-11-22 & 2021-11-22 &  & Viductudum Grae & 2256.8 & \\
+2021-11-22 & 2021-11-22 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:67454866 ALE 2'301.84 & 2256.8 & \\
 2021-11-22 & 2021-11-22 &  & Rectudix Monda AN F�aratemplia-sed 63.12.6378, 72:37, O XXX-Faccus-Vi. 56835004 &  & 3250\\
-2021-11-23 & 2021-11-23 &  & X-Plavire Mitrice at  Cortatuer AN Muluvia &  & 88.77\\
+2021-11-23 & 2021-11-23 &  & X-Plavire Mitrice at  Cortatuer AN Muluvia Paventateregurrum 55 4638 Miliquat ME Nubitquiuniunt 21402526 ALE 41.61 &  & 88.77\\
 2021-11-23 & 2021-11-23 &  & Valiuva Diam Autabo, Fuge \& 63.12.6378, 88:50, O XXX-Faccus-Vi. 56835004 &  & 34.3\\
 2021-11-23 & 2021-11-23 &  & Valiuva ITUUNTE SUFFIG 80.12.6378, 63:37, O XXX-Faccus-Vi. 56835004 &  & 110\\
 2021-11-23 & 2021-11-23 &  & Valiuva CESPILLIBUS MORTUDO 83.12.6378, 80:41, O XXX-Faccus-Vi. 56835004 &  & 284\\
 2021-11-23 & 2021-11-23 &  & Rectudix Monda DOMPLAE TARADULUNIAE 80.12.6378, 63:34, O XXX-Faccus-Vi. 56835004 &  & 1000\\
 2021-11-23 & 2021-11-23 &  & Valiuva IDIFINARE LATTETRURA 83.12.6378, 10:74, O XXX-Faccus-Vi. 56835004 &  & 27.5\\
 2021-11-23 & 2021-11-23 &  & Valiuva CESPILLIBUS MORTUDO 83.12.6378, 33:50, O XXX-Faccus-Vi. 56835004 &  & 180\\
-2021-11-24 & 2021-11-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2429.5\\
+2021-11-24 & 2021-11-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava Partudo Indifig AN Suprittriaratenius 84 6145 F�funt ALE 574.71 Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 484.30 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 2429.5\\
 2021-11-24 & 2021-11-24 &  & Valiuva ocuctubis Milliquod 33.12.6378, 10:51, O XXX-Faccus-Vi. 56835004 &  & 15.85\\
 2021-11-24 & 2021-11-24 &  & Valiuva Serat-Rento AN 4475 33.12.6378, 63:63, O XXX-Faccus-Vi. 56835004 &  & 89.5\\
 2021-11-24 & 2021-11-24 &  & Valiuva - Abenti Pada IN Ocestote 33.12.6378, 12:85, O XXX-Faccus-Vi. 56835004 &  & 7.85\\
 2021-11-24 & 2021-11-24 &  & Valiuva Pada-5108 Muludium 33.12.6378, 42:13, O XXX-Faccus-Vi. 56835004 &  & 50.9\\
-2021-11-24 & 2021-11-24 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 3500\\
-2021-11-25 & 2021-11-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 32091.65\\
+2021-11-24 & 2021-11-24 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 4'471.30 &  & 3500\\
+2021-11-25 & 2021-11-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'155.80 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'830.78 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'365.35 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'733.35 Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 8'687.84 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'446.34 Facis Tuunc Nostriberustent 50 7201 Centane ALE 2'300.20 &  & 32091.65\\
 2021-11-25 & 2021-11-25 &  & Valiuva FUNANECT'Q CENTANE 33.12.6378, 83:10, O XXX-Faccus-Vi. 56835004 &  & 4.5\\
 2021-11-25 & 2021-11-25 &  & Valiuva FUNANECT'Q CENTANE 33.12.6378, 83:18, O XXX-Faccus-Vi. 56835004 &  & 24.2\\
 2021-11-25 & 2021-11-25 &  & Valiuva - Abenti IN Senertintangun. O 63.12.6378, 10:50, O XXX-Faccus-Vi. 56835004 &  & 7.4\\
 2021-11-25 & 2021-11-25 &  & Valiuva Pada-5071 Carundo T+ 30.12.6378, 42:53, O XXX-Faccus-Vi. 56835004 &  & 47.9\\
-2021-11-26 & 2021-11-26 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 435.6\\
-2021-11-26 & 2021-11-26 &  & Viductudum Grae & 2951.2 & \\
+2021-11-26 & 2021-11-26 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 680.84 &  & 435.6\\
+2021-11-26 & 2021-11-26 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:50886377 ALE 2'607.80 & 2951.2 & \\
 2021-11-26 & 2021-11-26 &  & Valiuva ocuctubis Milliquod 35.12.6378, 83:50, O XXX-Faccus-Vi. 56835004 &  & 32.05\\
 2021-11-26 & 2021-11-26 &  & Valiuva IDIFINARE 33.12.6378, 10:34, O XXX-Faccus-Vi. 56835004 &  & 22.5\\
 2021-11-26 & 2021-11-26 &  & Valiuva Adebresus 35.12.6378, 88:41, O XXX-Faccus-Vi. 56835004 &  & 539.1\\
 2021-11-26 & 2021-11-26 &  & Valiuva - Abenti DITUS Ideaneride 35.12.6378, 88:72, O XXX-Faccus-Vi. 56835004 &  & 14.4\\
-2021-11-26 & 2021-11-26 &  & Viductudum NUTIUNDIS AN & 16464.92 & \\
+2021-11-26 & 2021-11-26 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 470 30.0.6378/NAS/332 650 88.80.6378/NAS/332 766 88.80.6378 ALE 88'650.53 & 16464.92 & \\
 2021-11-29 & 2021-11-29 &  & Valiuva Pada-5108 Muludium 72.12.6378, 10:88, O XXX-Faccus-Vi. 56835004 &  & 17.8\\
 2021-11-29 & 2021-11-29 &  & Valiuva Pada-3588 Q�oRtas 20.12.6378, 88:86, O XXX-Faccus-Vi. 56835004 &  & 38.6\\
 2021-11-29 & 2021-11-29 &  & Rectudix Monda XXX Milliquod 20.12.6378, 32:86, O XXX-Faccus-Vi. 56835004 &  & 1200\\
 2021-11-29 & 2021-11-29 &  & Valiuva Interviore Senda 72.12.6378, 83:80, O XXX-Faccus-Vi. 56835004 &  & 90\\
-2021-11-29 & 2021-11-29 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 19873.45\\
+2021-11-29 & 2021-11-29 &  & X-Plavire Potuuniunuibo cum Pertathentunava Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 Pada Pitiplebis AN 5220 Tententam ME-Terrunabienendacus 78 ALE 2'562.61 Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 2'808.65 Scisusquidivisiect 7201 Centane ALE 671.86 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'878.20 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 2'216.30 Lumero Andiatuunnam AN Vesevaraequae 10 5530 Magna ALE 865.73 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'624.34 Luturbitumquit Perundit Mulunnavige puluungulticor AN 6772 Rede ALE 633.84 Araectas Viatiunterba-Andiatuunnam AN 6772 Rede ALE 2'641.80 Caratodi ME-3116 Rede ALE 136.65 D.T.Q. Hauxertia AN Quartantime  3 6220 At�cappam UT ME ALE 4'142.34 &  & 19873.45\\
 2021-11-29 & 2021-11-29 &  & Rectudix Monda AN CARUNDO 38.12.6378, 12:20, O XXX-Faccus-Vi. 56835004 &  & 2500\\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 323.1 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 387.7 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 646.2 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 1163.15 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 1550.9 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 1615.5 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 1292.4 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 1787.95 & \\
-2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN & 3984.9 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 25370 ALE 333.80 & 323.1 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 80026 ALE 516.73 & 387.7 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 56251 ALE 472.80 & 646.2 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 53884 ALE 2'566.88 & 1163.15 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 54084 ALE 2'876.65 & 1550.9 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 33420 ALE 2'244.71 & 1615.5 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 56128 ALE 2'858.78 & 1292.4 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 12882 ALE 2'778.20 & 1787.95 & \\
+2021-11-30 & 2021-11-30 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 80756 ALE 4'376.65 & 3984.9 & \\
 2021-11-30 & 2021-11-30 &  & Valiuva NOUN-7328 ET Et. Pam 38.12.6378, 88:86, O XXX-Faccus-Vi. 56835004 &  & 27.8\\
 2021-11-30 & 2021-11-30 &  & Valiuva NOUN-7328 ET Et. Pam 38.12.6378, 88:70, O XXX-Faccus-Vi. 56835004 &  & 125.7\\
 2021-11-30 & 2021-11-30 &  & Valiuva - Abenti Cor Pascenter 38.12.6378, 72:30, O XXX-Faccus-Vi. 56835004 &  & 7.2\\
 2021-11-30 & 2021-11-30 &  & Valiuva Interviore Senda 20.12.6378, 42:63, O XXX-Faccus-Vi. 56835004 &  & 50\\
 2021-11-30 & 2021-11-30 &  & Valiuva Calis AN 38.12.6378, 88:72, O XXX-Faccus-Vi. 56835004 &  & 42.65\\
-2021-12-01 & 2021-12-01 &  & X-Plavire Mitrice at DiconFluunnam AN &  & 225.25\\
+2021-12-01 & 2021-12-01 &  & X-Plavire Mitrice at DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 107.35 &  & 225.25\\
 2021-12-02 & 2021-12-02 &  & Valiuva Calis AN 32.63.6378, 72:50, O XXX-Faccus-Vi. 56835004 &  & 225.7\\
 2021-12-02 & 2021-12-02 &  & Valiuva - Abenti IN Senertintangun. O 38.12.6378, 72:18, O XXX-Faccus-Vi. 56835004 &  & 28.67\\
 2021-12-02 & 2021-12-02 &  & Valiuva Pada-2343 Picinteni 32.63.6378, 10:63, O XXX-Faccus-Vi. 56835004 &  & 10.75\\
 2021-12-02 & 2021-12-02 &  & Valiuva NOUN-7328 ET Et. Pam 32.63.6378, 42:53, O XXX-Faccus-Vi. 56835004 &  & 259.8\\
 2021-12-02 & 2021-12-02 &  & Rectudix Monda AN CARUNDO 42.63.6378, 37:14, O XXX-Faccus-Vi. 56835004 &  & 2250\\
-2021-12-02 & 2021-12-02 &  & Viductudum NUTIUNDIS AN & 22415.51 & \\
-2021-12-03 & 2021-12-03 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 839.96\\
+2021-12-02 & 2021-12-02 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 847 4.12.6378/NAS/332 180 38.80.6378/NAS/332 502 63.12.6378 ALE 63'546.14 & 22415.51 & \\
+2021-12-03 & 2021-12-03 &  & X-Plavire Potuuniunuibo cum Pertathentunava T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 471.30 Semperintiange Clanto AN H�oceaturibo 4 7276 Inumnis 7276 Inumnis AT ALE 640.48 &  & 839.96\\
 2021-12-03 & 2021-12-03 &  & Valiuva Pra Pratudo 42.63.6378, 37:35, O XXX-Faccus-Vi. 56835004 &  & 37.65\\
 2021-12-03 & 2021-12-03 &  & Valiuva Silitus AN / DiT 42.63.6378, 80:70, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-12-06 & 2021-12-06 &  & Valiuva Pra Pratudo 74.63.6378, 63:42, O XXX-Faccus-Vi. 56835004 &  & 81.3\\
@@ -691,31 +691,31 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-12-06 & 2021-12-06 &  & Valiuva SURBITA FRIT MAGNA 74.63.6378, 10:61, O XXX-Faccus-Vi. 56835004 &  & 26\\
 2021-12-06 & 2021-12-06 &  & Valiuva Sensto ME Carundo 50.63.6378, 63:85, O XXX-Faccus-Vi. 56835004 &  & 95\\
 2021-12-07 & 2021-12-07 &  & Valiuva Pada-8772 T�pertum 41.63.6378, 63:71, O XXX-Faccus-Vi. 56835004 &  & 50.55\\
-2021-12-07 & 2021-12-07 &  & Viductudum PUPLAM TATUIUS AN & 4058.88 & \\
-2021-12-07 & 2021-12-07 &  & Viductudum PUPLAM TATUIUS AN & 1892.44 & \\
-2021-12-08 & 2021-12-08 &  & X-Plavire Mitrice at Caec Relenti AN &  & 517.95\\
+2021-12-07 & 2021-12-07 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.831200 ALE 8'457.41 & 4058.88 & \\
+2021-12-07 & 2021-12-07 &  & Viductudum PUPLAM TATUIUS AN IDERABULUMEMORAT 23 CENTANE 7201 ME XXX PERE.243370 ALE 2'317.50 & 1892.44 & \\
+2021-12-08 & 2021-12-08 &  & X-Plavire Mitrice at Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 732.20 &  & 517.95\\
 2021-12-08 & 2021-12-08 &  & Valiuva - Abenti CABUM Por Frit 72.63.6378, 37:42, O XXX-Faccus-Vi. 56835004 &  & 5.3\\
 2021-12-08 & 2021-12-08 &  & Valiuva Calis AN 72.63.6378, 12:10, O XXX-Faccus-Vi. 56835004 &  & 98.15\\
 2021-12-08 & 2021-12-08 &  & Valiuva Interviore Vegro�san 72.63.6378, 10:32, O XXX-Faccus-Vi. 56835004 &  & 90\\
-2021-12-08 & 2021-12-08 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 3000\\
+2021-12-08 & 2021-12-08 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 4'332.30 &  & 3000\\
 2021-12-09 & 2021-12-09 &  & Rectudix Monda AN CARUNDO 37.63.6378, 72:80, O XXX-Faccus-Vi. 56835004 &  & 500\\
-2021-12-10 & 2021-12-10 &  & Viductudum Pletrahenifig Hostodupere AN & 12629.98 & \\
-2021-12-10 & 2021-12-10 &  & Viductudum Pletrahenifig Hostodupere AN & 969.3 & \\
-2021-12-10 & 2021-12-10 &  & Viductudum Pletrahenifig Hostodupere AN & 37825.19 & \\
+2021-12-10 & 2021-12-10 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 18554 ALE 63'521.38 & 12629.98 & \\
+2021-12-10 & 2021-12-10 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 51863 ALE 126.38 & 969.3 & \\
+2021-12-10 & 2021-12-10 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 50664 ALE 15'738.83 & 37825.19 & \\
 2021-12-10 & 2021-12-10 &  & Valiuva Silitus AN / DiT 37.63.6378, 80:80, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-12-10 & 2021-12-10 &  & Valiuva Silitus AN / DiT 37.63.6378, 72:30, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-12-10 & 2021-12-10 &  & Valiuva Silitus AN / DiT 37.63.6378, 72:63, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-12-10 & 2021-12-10 &  & Valiuva Silitus AN / DiT 37.63.6378, 72:33, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
-2021-12-10 & 2021-12-10 &  & Viductudum REVAREM TATUIUS AN & 6924.68 & \\
+2021-12-10 & 2021-12-10 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ALE 6'621.75 & 6924.68 & \\
 2021-12-13 & 2021-12-13 &  & Rectudix Monda AN Carundo 12.63.6378, 42:50, O XXX-Faccus-Vi. 56835004 &  & 1000\\
 2021-12-13 & 2021-12-13 &  & Valiuva Pila. Vit. HABO AN,Y 12.63.6378, 10:63, O XXX-Faccus-Vi. 56835004 &  & 79.9\\
 2021-12-13 & 2021-12-13 &  & Valiuva Sensto ME Carundo 12.63.6378, 83:15, O XXX-Faccus-Vi. 56835004 &  & 84.4\\
 2021-12-13 & 2021-12-13 &  & Valiuva Pada-6645 Carundo F� 12.63.6378, 10:85, O XXX-Faccus-Vi. 56835004 &  & 77.95\\
 2021-12-13 & 2021-12-13 &  & Valiuva Sensto ME Carundo 12.63.6378, 42:73, O XXX-Faccus-Vi. 56835004 &  & 12.95\\
-2021-12-13 & 2021-12-13 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 6846.15\\
-2021-12-13 & 2021-12-13 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 6000\\
-2021-12-14 & 2021-12-14 &  & X-Plavire Mitrice (QUAM) PRA 672.20, Unutatiuvitudit 2.8424 Idebire.sex &  & 560.66\\
-2021-12-14 & 2021-12-14 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2684.7\\
+2021-12-13 & 2021-12-13 &  & X-Plavire Potuuniunuibo cum Pertathentunava Lonunto Conuidicturiam AN Vocapostris 402 5036 F�funt ALE 2'317.38 CIS Conuidicturiam AN 6661 Centeturra ALE 685.80 CIS Conuidicturiam AN 6661 Centeturra ALE 166.30 MilIs Aveseni Quatuotansi Q.t.c.f 5356 Debrum ALE 165.78 CIS Conuidicturiam AN 6661 Centeturra ALE 281.34 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 812.65 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 262.80 CIS Serigatequiricit m/b CIS Caupa AN 6661 Centeturra ALE 4'332.30 &  & 6846.15\\
+2021-12-13 & 2021-12-13 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 6'332.30 &  & 6000\\
+2021-12-14 & 2021-12-14 &  & X-Plavire Mitrice (QUAM) PRA 672.20, Unutatiuvitudit 2.8424 Idebire.sex DE-Ficentuungurursex 2, Prideium Evimpanimusqui numelegi: 36838268 PRA 672.20 &  & 560.66\\
+2021-12-14 & 2021-12-14 &  & X-Plavire Potuuniunuibo cum Pertathentunava MilIs Aveseni Quatuotansi Q.t.c.f 5356 Debrum ALE 61.34 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'258.34 &  & 2684.7\\
 2021-12-14 & 2021-12-14 &  & Valiuva ocuctubis Milliquod 10.63.6378, 37:37, O XXX-Faccus-Vi. 56835004 &  & 5.5\\
 2021-12-14 & 2021-12-14 &  & Valiuva FUNANECT'Q CENTANE 12.63.6378, 12:85, O XXX-Faccus-Vi. 56835004 &  & 26.4\\
 2021-12-14 & 2021-12-14 &  & Valiuva Apia ME AN (6725) Ut 10.63.6378, 37:41, O XXX-Faccus-Vi. 56835004 &  & 12\\
@@ -723,106 +723,106 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2021-12-14 & 2021-12-14 &  & Valiuva - Abenti DITUS Ideaneride 63.63.6378, 80:12, O XXX-Faccus-Vi. 56835004 &  & 12.1\\
 2021-12-14 & 2021-12-14 &  & Valiuva FUNANECT'Q CENTANE 63.63.6378, 63:14, O XXX-Faccus-Vi. 56835004 &  & 13.6\\
 2021-12-14 & 2021-12-14 &  & Valiuva Pada-5071 Carundo T+ 10.63.6378, 72:88, O XXX-Faccus-Vi. 56835004 &  & 44.85\\
-2021-12-15 & 2021-12-15 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 4051.25\\
+2021-12-15 & 2021-12-15 &  & X-Plavire Potuuniunuibo cum Pertathentunava Solondica Cantinam Mattius Muluvia Spillucensal  30 2121 Potantino ME Seguluvigniam: 4225834380 ALE 2'502.61 Solondica Cantinam Mattius Muluvia Spillucensal  30 2121 Potantino ME Ponater Petuus ALE 201.77 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'878.20 &  & 4051.25\\
 2021-12-15 & 2021-12-15 &  & Valiuva Silitus AN / DiT 37.63.6378, 37:72, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-12-15 & 2021-12-15 &  & Valiuva POSTO FER 63.63.6378, 88:34, O XXX-Faccus-Vi. 56835004 &  & 70.6\\
-2021-12-15 & 2021-12-15 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 7000\\
-2021-12-16 & 2021-12-16 &  & X-Plavire Mitrice at Xxx T�pote &  & 600\\
+2021-12-15 & 2021-12-15 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ ALE 4'332.30 &  & 7000\\
+2021-12-16 & 2021-12-16 &  & X-Plavire Mitrice at Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 484.30 &  & 600\\
 2021-12-16 & 2021-12-16 &  & Valiuva Silitus AN / DiT 88.63.6378, 37:34, O XXX-Faccus-Vi. 56835004 &  & 3.3\\
 2021-12-16 & 2021-12-16 &  & Valiuva PERVA PAM VENI AN 10.63.6378, 37:65, O XXX-Faccus-Vi. 56835004 &  & 25\\
 2021-12-16 & 2021-12-16 &  & Rectudix Monda AN Milliquod 88.63.6378, 72:18, O XXX-Faccus-Vi. 56835004 &  & 1450\\
-2021-12-17 & 2021-12-17 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ &  & 6070.4\\
+2021-12-17 & 2021-12-17 &  & Quatuduero Inteset Tudiunis Mulumniunnanae Alecittræ Monda ALE 8'332.- nem PRA 2'332.- ALE 6'328.78 &  & 6070.4\\
 2021-12-17 & 2021-12-17 &  & Rectudix Monda AN Milliquod 42.63.6378, 10:70, O XXX-Faccus-Vi. 56835004 PRA 71.30, Collucipupa 2.5842 &  & 53.54\\
 2021-12-20 & 2021-12-20 &  & Valiuva FUNANECT'Q CENTANE 88.63.6378, 80:12, O XXX-Faccus-Vi. 56835004 &  & 12.8\\
 2021-12-20 & 2021-12-20 &  & Valiuva Pada-5167 Magna Seri 42.63.6378, 12:15, O XXX-Faccus-Vi. 56835004 &  & 10.55\\
 2021-12-20 & 2021-12-20 &  & Valiuva Gaudit Lesto AN 88.63.6378, 37:10, O XXX-Faccus-Vi. 56835004 &  & 39\\
-2021-12-20 & 2021-12-20 &  & X-Plavire Mitrice at XXX Atinquis AN &  & 1943.3\\
+2021-12-20 & 2021-12-20 &  & X-Plavire Mitrice at XXX Atinquis AN Uniciputintaripluva 80 5668 Lonsepter ALE 2'108.38 &  & 1943.3\\
 2021-12-21 & 2021-12-21 &  & Rectudix Monda INTI CENTANE 7 80.63.6378, 72:63, O XXX-Faccus-Vi. 56835004 &  & 160\\
-2021-12-22 & 2021-12-22 &  & X-Plavire Mitrice at Pada Pitiplebis AN &  & 1975.2\\
-2021-12-23 & 2021-12-23 &  & Viductudum TANT AN Timulis & 24232.5 & \\
-2021-12-23 & 2021-12-23 &  & Viductudum Grae & 3298.4 & \\
-2021-12-23 & 2021-12-23 &  & Viductudum Grae & 2083.2 & \\
-2021-12-23 & 2021-12-23 &  & Viductudum NUTIUNDIS AN & 7460.86 & \\
-2021-12-24 & 2021-12-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 30918.55\\
+2021-12-22 & 2021-12-22 &  & X-Plavire Mitrice at Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'144.80 &  & 1975.2\\
+2021-12-23 & 2021-12-23 &  & Viductudum TANT AN Timulis Quinquibeat  3 ME-1354 Agnetridem MULAE MUS SONCRIS.128858/38.12.6378 ALE 30'508.71 & 24232.5 & \\
+2021-12-23 & 2021-12-23 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:44384034 ALE 4'185.78 & 3298.4 & \\
+2021-12-23 & 2021-12-23 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:87316610 ALE 2'510.80 & 2083.2 & \\
+2021-12-23 & 2021-12-23 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 617 72.12.6378/NAS/332 750 10.63.6378 ALE 4'180.53 & 7460.86 & \\
+2021-12-24 & 2021-12-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 8'161.71 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'803.61 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'463.38 Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'453.84 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'780.30 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'560.80 &  & 30918.55\\
 2021-12-27 & 2021-12-27 &  & Rectudix Monda INTI MEDEANDUS 7 30.63.6378, 80:83, O XXX-Faccus-Vi. 56835004 &  & 220\\
 2021-12-27 & 2021-12-27 &  & Rectudix Monda INTI MEDEANDUS 7 35.63.6378, 88:50, O XXX-Faccus-Vi. 56835004 &  & 1400\\
-2021-12-27 & 2021-12-27 &  & X-Plavire Mitrice at Proppor Tuunc &  & 350\\
-2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN & 2582.65 & \\
-2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN & 3332.84 & \\
-2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN & 4394.15 & \\
-2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN & 43615.3 & \\
+2021-12-27 & 2021-12-27 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 735.30 &  & 350\\
+2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 86051 ALE 2'562.78 & 2582.65 & \\
+2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 21114 ALE 4'853.75 & 3332.84 & \\
+2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 63200 ALE 8'417.88 & 4394.15 & \\
+2021-12-28 & 2021-12-28 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 32046 ALE 41'244.38 & 43615.3 & \\
 2021-12-29 & 2021-12-29 &  & Rectudix Monda AN Carundo 38.63.6378, 88:42, O XXX-Faccus-Vi. 56835004 &  & 100\\
 2021-12-30 & 2021-12-31 &  & Ost�magnunierinno Cogino�coegi 32.80.6378 - 50.63.6378 &  & 12\\
-2021-12-31 & 2021-12-31 &  & X-Plavire Mitrice (Mondivo) PRA 177.20, Unutatiuvitudit 2.861 TEMO ANITAS O TRITEMUS SECITA &  & 802.25\\
-2021-12-31 & 2021-12-31 &  & X-Plavire Mitrice at Proppor Tuunc &  & 1500\\
+2021-12-31 & 2021-12-31 &  & X-Plavire Mitrice (Mondivo) PRA 177.20, Unutatiuvitudit 2.861 TEMO ANITAS O TRITEMUS SECITA ET-37608 Tequaesede PRA 177.20 &  & 802.25\\
+2021-12-31 & 2021-12-31 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 1500\\
 2021-12-31 & 2021-12-31 &  & Rectudix Monda AN Carundo 50.63.6378, 88:71, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2021-12-31 & 2021-12-31 &  & Ost�magnunierinno Pulaudo nem Vicalceper 32.80.6378 - 50.63.6378 &  & 2.55\\
 2021-12-31 & 2021-12-31 &  & Ost�magnunierinno Grimelurumerant &  & 57.4\\
 2021-12-31 & 2021-12-31 &  & Ost�magnunierinno Practuelecentubsect &  & 16.5\\
 2021-12-31 & 2021-12-31 &  & Ost�magnunierinno Suunit/Prat�eo 32.80.6378 - 50.63.6378 &  & 3\\
 2021-12-31 & 2021-12-31 &  & Patelecerbileractam  fac 38.37.6378 lis 50.63.6378 & 7 & \\
-2022-01-04 & 2022-01-04 &  & X-Plavire Mitrice (QUAM) PRA 256.37, Unutatiuvitudit 2.7204 Idebire.sex &  & 472.65\\
+2022-01-04 & 2022-01-04 &  & X-Plavire Mitrice (QUAM) PRA 256.37, Unutatiuvitudit 2.7204 Idebire.sex DE-Ficentuungurursex 2, Prideium Evimpanimusqui numelegi: 36838268 PRA 256.37 &  & 472.65\\
 2022-01-06 & 2022-01-06 &  & Valiuva Sensto ME Carundo 37.32.8780, 72:35, O XXX-Faccus-Vi. 56835004 &  & 188.2\\
-2022-01-06 & 2022-01-06 &  & Viductudum NUTIUNDIS AN & 1178.02 & \\
-2022-01-07 & 2022-01-07 &  & Viductudum TANT AN Timulis & 19386 & \\
-2022-01-07 & 2022-01-07 &  & X-Plavire Mitrice (Mondivo) PRA 2'332.30, Unutatiuvitudit 2.773 Usquaeps Coegratia &  & 1059\\
+2022-01-06 & 2022-01-06 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 835 3.63.6378/NAS/332 688 3.63.6378/NAS/332 127 3.63.6378 ALE 2'520.42 & 1178.02 & \\
+2022-01-07 & 2022-01-07 &  & Viductudum TANT AN Timulis Quinquibeat  3 ME-1354 Agnetridem MULAE MUS SONCRIS.527067/0.63.6378 ALE 83'800.30 & 19386 & \\
+2022-01-07 & 2022-01-07 &  & X-Plavire Mitrice (Mondivo) PRA 2'332.30, Unutatiuvitudit 2.773 Usquaeps Coegratia ET-Post IN 24285 Quirolietiant PRA 2'332.30 &  & 1059\\
 2022-01-10 & 2022-01-10 &  & Valiuva 43OE STET AN 72.32.8780, 63:10, O XXX-Faccus-Vi. 56835004 &  & 31.7\\
-2022-01-10 & 2022-01-10 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL &  & 350\\
+2022-01-10 & 2022-01-10 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 735.30 &  & 350\\
 2022-01-10 & 2022-01-10 &  & Rectudix Monda AN Milliquod 80.32.8780, 12:34, O XXX-Faccus-Vi. 56835004 &  & 300\\
-2022-01-10 & 2022-01-10 &  & X-Plavire Mitrice at Eletuote  Lonsi AN &  & 350.05\\
+2022-01-10 & 2022-01-10 &  & X-Plavire Mitrice at Eletuote  Lonsi AN T�fuillieis  88 5707 Antanem ME Cenducervall: 1643 ALE 735.37 &  & 350.05\\
 2022-01-11 & 2022-01-10 &  & Rectudix Monda AN Carundo 80.32.8780, 80:37, O XXX-Faccus-Vi. 56835004 PRA 188.30, Collucipupa 2.3324 &  & 269.45\\
-2022-01-11 & 2022-01-11 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 835.1\\
+2022-01-11 & 2022-01-11 &  & X-Plavire Potuuniunuibo cum Pertathentunava Salaufficistra Magna-Vende 1778 Magna Surrendetudo: Tudiunis Inteset 375864614 ALE 688.80 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 502.30 &  & 835.1\\
 2022-01-11 & 2022-01-11 &  & Valiuva - Abenti Pada Ideaneride 80.32.8780, 88:30, O XXX-Faccus-Vi. 56835004 &  & 37.15\\
 2022-01-12 & 2022-01-12 &  & Valiuva Serat-Rento AN 2814 12.32.8780, 10:20, O XXX-Faccus-Vi. 56835004 &  & 71.9\\
 2022-01-12 & 2022-01-12 &  & Valiuva Sensto ME Carundo 12.32.8780, 80:10, O XXX-Faccus-Vi. 56835004 &  & 187.7\\
 2022-01-13 & 2022-01-12 &  & Rectudix Monda AN Milliquod 63.32.8780, 80:38, O XXX-Faccus-Vi. 56835004 &  & 800\\
-2022-01-13 & 2022-01-13 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL &  & 382\\
+2022-01-13 & 2022-01-13 &  & X-Plavire Mitrice at T�sire Gaudit \& Fraribo CelL Subsenturregundum  61 5461 Pente�pere AN ME ALE 805.30 &  & 382\\
 2022-01-13 & 2022-01-13 &  & Valiuva Adebresus 63.32.8780, 10:78, O XXX-Faccus-Vi. 56835004 &  & 49.95\\
 2022-01-13 & 2022-01-13 &  & Valiuva Pada-6645 Carundo F� 63.32.8780, 37:80, O XXX-Faccus-Vi. 56835004 &  & 70.6\\
 2022-01-13 & 2022-01-13 &  & Valiuva Pra Pratudo 63.32.8780, 80:30, O XXX-Faccus-Vi. 56835004 &  & 53.65\\
 2022-01-13 & 2022-01-13 &  & Valiuva Cabum Restiatura 63.32.8780, 37:56, O XXX-Faccus-Vi. 56835004 &  & 19.95\\
-2022-01-13 & 2022-01-13 &  & Viductudum NUTIUNDIS AN & 5867.71 & \\
-2022-01-13 & 2022-01-13 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1124.5\\
+2022-01-13 & 2022-01-13 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 601 10.63.6378/NAS/332 562 3.63.6378 ALE 8'635.10 & 5867.71 & \\
+2022-01-13 & 2022-01-13 &  & X-Plavire Potuuniunuibo cum Pertathentunava Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 732.20 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 &  & 1124.5\\
 2022-01-14 & 2022-01-14 &  & Valiuva - Abenti Calent Produnt 10.32.8780, 12:72, O XXX-Faccus-Vi. 56835004 &  & 6\\
 2022-01-14 & 2022-01-14 &  & Valiuva Sensto O Vetratuis 10.32.8780, 88:38, O XXX-Faccus-Vi. 56835004 &  & 67.55\\
 2022-01-14 & 2022-01-14 &  & Valiuva T�sire Gaudit \& Lars 10.32.8780, 10:53, O XXX-Faccus-Vi. 56835004 &  & 180\\
 2022-01-17 & 2022-01-17 &  & Valiuva Sensto TAM Et�tem 88.32.8780, 63:38, O XXX-Faccus-Vi. 56835004 &  & 23.1\\
 2022-01-17 & 2022-01-17 &  & Valiuva Bertinturrucent Et�m 88.32.8780, 63:41, O XXX-Faccus-Vi. 56835004 &  & 0.5\\
-2022-01-17 & 2022-01-17 &  & X-Plavire Mitrice (Mondivo) PRA 2'332.30, Unutatiuvitudit 2.3552 Usquaeps Coegratia &  & 1061.9\\
+2022-01-17 & 2022-01-17 &  & X-Plavire Mitrice (Mondivo) PRA 2'332.30, Unutatiuvitudit 2.3552 Usquaeps Coegratia ET-Post IN 24285 Quirolietiant PRA 2'332.30 &  & 1061.9\\
 2022-01-17 & 2022-01-17 &  & Rectudix Monda AN Carundo 42.32.8780, 80:80, O XXX-Faccus-Vi. 56835004 &  & 5000\\
-2022-01-18 & 2022-01-18 &  & X-Plavire Mitrice at Anitogitterbibem Magna-Vende &  & 3046.2\\
-2022-01-19 & 2022-01-19 &  & Viductudum Grae & 142.2 & \\
-2022-01-20 & 2022-01-20 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 550\\
+2022-01-18 & 2022-01-18 &  & X-Plavire Mitrice at Anitogitterbibem Magna-Vende Miunareque 80 ME-1778 Magna CundAM 801358, Diunimillinum 6378 / 340 ALE 4'772.80 &  & 3046.2\\
+2022-01-19 & 2022-01-19 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:33.37661.63 .8 Perierum:80011267 ALE 400.80 & 142.2 & \\
+2022-01-20 & 2022-01-20 &  & X-Plavire Potuuniunuibo cum Pertathentunava Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 233.30 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 735.30 &  & 550\\
 2022-01-20 & 2022-01-20 &  & Valiuva Expant Posimanabum + 83.32.8780, 12:13, O XXX-Faccus-Vi. 56835004 &  & 133.2\\
-2022-01-21 & 2022-01-21 &  & X-Plavire Mitrice at CenibEndo AN &  & 1029\\
+2022-01-21 & 2022-01-21 &  & X-Plavire Mitrice at CenibEndo AN Qualtiarexpatia 163 1828 Rede ALE 2'585.30 &  & 1029\\
 2022-01-24 & 2022-01-24 &  & Rectudix Monda AN Milliquod 63.32.8780, 30:47, O XXX-Faccus-Vi. 56835004 &  & 1000\\
 2022-01-24 & 2022-01-24 &  & Valiuva PERVA PAM VENI AN 83.32.8780, 12:10, O XXX-Faccus-Vi. 56835004 &  & 25\\
 2022-01-24 & 2022-01-24 &  & Valiuva Pada-3588 Q�oRtas 63.32.8780, 72:47, O XXX-Faccus-Vi. 56835004 &  & 359.25\\
-2022-01-24 & 2022-01-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 501.69\\
+2022-01-24 & 2022-01-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava Semperintiange Clanto AN H�oceaturibo 4 7276 Inumnis 7276 Inumnis AT ALE 225.50 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 682.35 &  & 501.69\\
 2022-01-25 & 2022-01-25 &  & Valiuva Pada-3588 Q�oRtas 30.32.8780, 42:80, O XXX-Faccus-Vi. 56835004 &  & 37.9\\
 2022-01-25 & 2022-01-25 &  & Valiuva - Abenti Calent Produnt 30.32.8780, 63:30, O XXX-Faccus-Vi. 56835004 &  & 7.8\\
-2022-01-26 & 2022-01-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 36003.15\\
-2022-01-26 & 2022-01-26 &  & Rectudix Monda HOC Navestam. 84 35.32.8780, 37:65, O XXX-Faccus-Vi. 56835004 &  & 500\\
+2022-01-26 & 2022-01-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 8'775.37 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'743.84 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'510.38 Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'437.71 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'676.20 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'446.34 Legant Deiurumen Cogincum  20 8241 Alastritura ME ALE 8'757.80 &  & 36003.15\\
+2022-01-26 & 2022-01-26 &  & Rectudix Monda HOC Navestam. 84 35.32.8780, 37:65, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (2. Monda fac 63 ost�frestridit Cor�sex) &  & 500\\
 2022-01-26 & 2022-01-26 &  & Valiuva Pada-7350 Carundo 35.32.8780, 72:14, O XXX-Faccus-Vi. 56835004 &  & 57.05\\
-2022-01-27 & 2022-01-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 6597.6\\
-2022-01-27 & 2022-01-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5562.2\\
+2022-01-27 & 2022-01-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'830.84 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'830.84 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 4'805.30 &  & 6597.6\\
+2022-01-27 & 2022-01-27 &  & X-Plavire Potuuniunuibo cum Pertathentunava Proxitti OpulUtumn CelL Tesedevale 60 6316 Teris AT ME Perierum-Vi  815861 ALE 154.73 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 446.38 Scisusquidivisiect 7201 Centane ALE 671.86 Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'842.11 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'624.34 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 630.86 Caratodi ME-3116 Rede ALE 736.80 &  & 5562.2\\
 2022-01-28 & 2022-01-27 &  & Rectudix Monda AN Carundo 20.32.8780, 10:85, O XXX-Faccus-Vi. 56835004 PRA 888.30, Collucipupa 2.1474 &  & 427.32\\
-2022-01-28 & 2022-01-28 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2239.75\\
+2022-01-28 & 2022-01-28 &  & X-Plavire Potuuniunuibo cum Pertathentunava Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 688.65 Grae ME-4753 Coegun ALE 2'358.80 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 48.78 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 188.30 Ararehediectuuntellunt Magna-Fendaculis Aduluracitire 7 3736 C�scarituod ALE 188.30 Iniae Aminsi Solocturum Cit 6145 Manate ME 6361012825406030 Me AN ALE 188.30 &  & 2239.75\\
 2022-01-28 & 2022-01-28 &  & Valiuva Apia ME AN (6725) Ut 20.32.8780, 10:70, O XXX-Faccus-Vi. 56835004 &  & 65\\
 2022-01-31 & 2022-01-31 &  & Valiuva PERVA PAM VENI AN 20.32.8780, 80:47, O XXX-Faccus-Vi. 56835004 &  & 25\\
 2022-01-31 & 2022-01-31 &  & Valiuva EQUAM DIES PASU 1166 18.32.8780, 41:63, O XXX-Faccus-Vi. 56835004 PRA 80.72, Collucipupa 2.8212 &  & 76.08\\
-2022-01-31 & 2022-01-31 &  & X-Plavire Mitrice at XXX Atinquis AN &  & 456.25\\
-2022-02-01 & 2022-02-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 2347.1\\
-2022-02-03 & 2022-02-03 &  & Viductudum Grae & 5381.6 & \\
-2022-02-04 & 2022-02-04 &  & Viductudum NUTIUNDIS AN & 23425.97 & \\
+2022-01-31 & 2022-01-31 &  & X-Plavire Mitrice at XXX Atinquis AN Uniciputintaripluva 80 5668 Lonsepter ALE 131.35 &  & 456.25\\
+2022-02-01 & 2022-02-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 805.11 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 805.11 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 674.84 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 674.84 Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 484.30 &  & 2347.1\\
+2022-02-03 & 2022-02-03 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:35682832 ALE 8'738.84 & 5381.6 & \\
+2022-02-04 & 2022-02-04 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/332 125 3.63.6378/NAS/332 434 3.63.6378/NAS/645 30.2.8780/NAS/186 18.2.8780 ALE 33'382.73 & 23425.97 & \\
 2022-02-07 & 2022-02-07 &  & Valiuva Stem Strieri Supam Supam 50.42.8780, 12:13, O XXX-Faccus-Vi. 56835004 PRA 83.10, Collucipupa 2.2140 &  & 21.25\\
 2022-02-07 & 2022-02-07 &  & Valiuva VEM 2482 50.42.8780, 37:72, O XXX-Faccus-Vi. 56835004 PRA 61.47, Collucipupa 2.2140 &  & 96.59\\
-2022-02-07 & 2022-02-07 &  & X-Plavire Mitrice at Proppor Tuunc &  & 200\\
-2022-02-07 & 2022-02-07 &  & X-Plavire Mitrice at Auducenter T. D. &  & 97.5\\
+2022-02-07 & 2022-02-07 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 233.30 &  & 200\\
+2022-02-07 & 2022-02-07 &  & X-Plavire Mitrice at Auducenter T. D. 5928 Venlo CH V2TJK-07A11-7Q3 CHF 97.50 &  & 97.5\\
 2022-02-08 & 2022-02-08 &  & Valiuva Adebresus 72.42.8780, 80:34, O XXX-Faccus-Vi. 56835004 &  & 159.8\\
 2022-02-08 & 2022-02-08 &  & Valiuva Pada-6060 Aderahetum 72.42.8780, 51:72, O XXX-Faccus-Vi. 56835004 &  & 114.2\\
 2022-02-08 & 2022-02-08 &  & Valiuva H�cia AN Famplava/ 72.42.8780, 80:50, O XXX-Faccus-Vi. 56835004 &  & 85.2\\
-2022-02-09 & 2022-02-09 &  & X-Plavire Mitrice at Proppor Tuunc &  & 150\\
+2022-02-09 & 2022-02-09 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 434.30 &  & 150\\
 2022-02-09 & 2022-02-09 &  & Valiuva Pada-5071 Carundo T+ 51.42.8780, 37:20, O XXX-Faccus-Vi. 56835004 &  & 82.85\\
 2022-02-11 & 2022-02-10 &  & Rectudix Monda AN Carundo 80.42.8780, 63:47, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2022-02-11 & 2022-02-11 &  & Valiuva Noculo Perantus AN 80.42.8780, 88:37, O XXX-Faccus-Vi. 56835004 &  & 76\\
@@ -838,49 +838,49 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2022-02-15 & 2022-02-15 &  & Valiuva Interviore Senda 37.42.8780, 80:13, O XXX-Faccus-Vi. 56835004 &  & 150.1\\
 2022-02-15 & 2022-02-15 &  & Valiuva - Abenti Cor Pascenter 37.42.8780, 80:50, O XXX-Faccus-Vi. 56835004 &  & 16.5\\
 2022-02-16 & 2022-02-16 &  & Valiuva Glam Aequis 50 88.42.8780, 83:80, O XXX-Faccus-Vi. 56835004 &  & 79.8\\
-2022-02-16 & 2022-02-16 &  & Viductudum TANT AN Timulis & 1292.4 & \\
-2022-02-18 & 2022-02-18 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 3023.2\\
+2022-02-16 & 2022-02-16 &  & Viductudum TANT AN Timulis Quinquibeat  3 ME-1354 Agnetridem MULAE MUS SONCRIS.156001/35.2.8780 ALE 2'858.78 & 1292.4 & \\
+2022-02-18 & 2022-02-18 &  & X-Plavire Potuuniunuibo cum Pertathentunava BY OCANT AN Viditamisto 71b 2734 Navisusum ME ALE 2'170.84 BY OCANT AN Viditamisto 71b 2734 Navisusum ME ALE 112.84 Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 2'233.30 &  & 3023.2\\
 2022-02-21 & 2022-02-21 &  & Valiuva Partudo Indifig AN, 72.42.8780, 37:56, O XXX-Faccus-Vi. 56835004 &  & 477\\
 2022-02-21 & 2022-02-21 &  & Valiuva - Abenti IN Senertintangun. O 42.42.8780, 12:85, O XXX-Faccus-Vi. 56835004 &  & 9.3\\
 2022-02-21 & 2022-02-21 &  & Valiuva Pada-5071 Carundo T+ 83.42.8780, 88:56, O XXX-Faccus-Vi. 56835004 &  & 68.3\\
-2022-02-22 & 2022-02-22 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1124.5\\
-2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN & 193.85 & \\
-2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN & 290.8 & \\
-2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN & 1571.34 & \\
-2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN & 1716.25 & \\
-2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN & 959.3 & \\
+2022-02-22 & 2022-02-22 &  & X-Plavire Potuuniunuibo cum Pertathentunava Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 732.20 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 &  & 1124.5\\
+2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 64365 ALE 705.61 & 193.85 & \\
+2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 20115 ALE 468.84 & 290.8 & \\
+2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME ET 538081 ALE 2'727.10 & 1571.34 & \\
+2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 82523 ALE 2'801.35 & 1716.25 & \\
+2022-02-22 & 2022-02-22 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 34252 ALE 540.38 & 959.3 & \\
 2022-02-22 & 2022-02-22 &  & Valiuva SED INTERVIORE 526 72.42.8780, 10:72, O XXX-Faccus-Vi. 56835004 &  & 130\\
 2022-02-22 & 2022-02-22 &  & Valiuva Serat-Rento AN 2814 10.42.8780, 37:42, O XXX-Faccus-Vi. 56835004 &  & 92.95\\
 2022-02-22 & 2022-02-22 &  & Rectudix Monda AN Centane 63.42.8780, 88:30, O XXX-Faccus-Vi. 56835004 &  & 1000\\
 2022-02-23 & 2022-02-23 &  & Valiuva SIDES  *MAGILA UT IN 10.42.8780, 80:53, O XXX-Faccus-Vi. 56835004 &  & 30\\
-2022-02-23 & 2022-02-23 &  & Viductudum INIAE E.D. & 250 & \\
+2022-02-23 & 2022-02-23 &  & Viductudum INIAE E.D. MULAM VESPERABILLUVITA 2 1431 AT SENTIONSE PER SAESSUSTENT SQ26524738330QD SQ26524738330QD NOTUDO XXX ME AN VOX:I681313477 ALE 188.30 & 250 & \\
 2022-02-23 & 2022-02-23 &  & Rectudix Monda AN Carundo 33.42.8780, 88:72, O XXX-Faccus-Vi. 56835004 &  & 4000\\
-2022-02-24 & 2022-02-24 &  & Viductudum Grae & 2430.4 & \\
+2022-02-24 & 2022-02-24 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:45883316 ALE 2'833.78 & 2430.4 & \\
 2022-02-24 & 2022-02-24 &  & Valiuva Magnovio Matteral 21 33.42.8780, 10:50, O XXX-Faccus-Vi. 56835004 &  & 150\\
 2022-02-24 & 2022-02-24 &  & Valiuva Pada-8702 F�funt Xxx 33.42.8780, 63:72, O XXX-Faccus-Vi. 56835004 &  & 64.95\\
-2022-02-24 & 2022-02-24 &  & X-Plavire Mitrice at Salaufficistra Magna-Vende &  & 734.1\\
-2022-02-24 & 2022-02-24 &  & Viductudum NUTIUNDIS AN & 6846.05 & \\
-2022-02-25 & 2022-02-25 &  & Viductudum 6A Xxx CelL & 19386 & \\
-2022-02-25 & 2022-02-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 27381.75\\
+2022-02-24 & 2022-02-24 &  & X-Plavire Mitrice at Salaufficistra Magna-Vende 4001 Basel Arbeitnehmer: Petrovic Nemanja 200221667 CHF 734.10 &  & 734.1\\
+2022-02-24 & 2022-02-24 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/156 20.2.8780/NAS/685 88.2.8780 ALE 6'617.37 & 6846.05 & \\
+2022-02-25 & 2022-02-25 &  & Viductudum 6A Xxx CelL Pupant Vitiatessides�acto nem Angilero AN Parganuligine 70 1373 Magna Raducibullique Cogisi Coegar Empatogisi, 4210 Fœnuntequis ALE 83'800.30 & 19386 & \\
+2022-02-25 & 2022-02-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava BY OCANT AN Viditamisto 71b 2734 Navisusum ME ALE 802.11 BY OCANT AN Viditamisto 71b 2734 Navisusum ME ALE 576.11 Mutate AN Noccipsugatest 6 5734 Pere ME Icabus 78lx ALE 502.30 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'576.61 Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'365.11 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'821.84 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'552.84 Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 8'831.35 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 &  & 27381.75\\
 2022-02-25 & 2022-02-25 &  & Valiuva Sensto ME Carundo 30.42.8780, 12:13, O XXX-Faccus-Vi. 56835004 &  & 30.25\\
-2022-02-25 & 2022-02-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5609.15\\
+2022-02-25 & 2022-02-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Legant Deiurumen Cogincum  20 8241 Alastritura ME ALE 8'813.78 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 805.11 &  & 5609.15\\
 2022-02-28 & 2022-02-25 &  & Rectudix Monda AN Milliquod 35.42.8780, 63:30, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2022-02-28 & 2022-02-28 &  & Valiuva - Abenti Pada Ideaneride 35.42.8780, 37:72, O XXX-Faccus-Vi. 56835004 &  & 4.2\\
 2022-02-28 & 2022-02-28 &  & Valiuva - Abenti Calent Produnt 35.42.8780, 80:80, O XXX-Faccus-Vi. 56835004 &  & 6.8\\
 2022-03-01 & 2022-03-01 &  & Valiuva SIDES  *LIENT 20.42.8780, 74:13, O XXX-Faccus-Vi. 56835004 &  & 58\\
 2022-03-01 & 2022-03-01 &  & Rectudix Monda AN Carundo 32.74.8780, 63:80, O XXX-Faccus-Vi. 56835004 &  & 4000\\
-2022-03-02 & 2022-03-02 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 19570.6\\
+2022-03-02 & 2022-03-02 &  & X-Plavire Potuuniunuibo cum Pertathentunava Anitogitterbibem Magna-Vende Miunareque 80 ME-1778 Magna CundAM 801358, Diunimillinum 6378 / y585, Lurgauctas NUS ALE 4'332.30 Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'317.20 Scisusquidivisiect 7201 Centane ALE 671.86 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 571.80 Grae ME-4753 Coegun ALE 2'358.78 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'365.80 MilIs Aveseni Quatuotansi Q.t.c.f 5356 Debrum ALE 47.84 MilIs Aveseni Quatuotansi Q.t.c.f 5356 Debrum ALE 23.78 MilIs Aveseni Quatuotansi Q.t.c.f 5356 Debrum ALE 47.84 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'365.80 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'332.30 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 4'805.30 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'830.61 Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 2'714.84 &  & 19570.6\\
 2022-03-02 & 2022-03-02 &  & Valiuva - Abenti Tate Natittenatur. 32.74.8780, 63:63, O XXX-Faccus-Vi. 56835004 &  & 11.6\\
-2022-03-03 & 2022-03-03 &  & X-Plavire Mitrice at Proppor Tuunc &  & 450\\
+2022-03-03 & 2022-03-03 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 383.30 &  & 450\\
 2022-03-03 & 2022-03-03 &  & Valiuva Volfactum Arumita 42.74.8780, 80:30, O XXX-Faccus-Vi. 56835004 &  & 2.2\\
 2022-03-03 & 2022-03-03 &  & Rectudix Monda AN Milliquod 74.74.8780, 83:72, O XXX-Faccus-Vi. 56835004 &  & 140\\
-2022-03-04 & 2022-03-04 &  & Rectudix Monda HOC Ocenentum.-70 74.74.8780, 51:47, O XXX-Faccus-Vi. 56835004 &  & 260\\
-2022-03-07 & 2022-03-07 &  & Rectudix Monda XXX Milliquod 37.74.8780, 83:38, O XXX-Faccus-Vi. 56835004 &  & 200\\
-2022-03-07 & 2022-03-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 5139.85\\
+2022-03-04 & 2022-03-04 &  & Rectudix Monda HOC Ocenentum.-70 74.74.8780, 51:47, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (2. Monda fac 63 ost�frestridit Cor�sex) &  & 260\\
+2022-03-07 & 2022-03-07 &  & Rectudix Monda XXX Milliquod 37.74.8780, 83:38, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (4. Monda fac 63 ost�frestridit Cor�sex) &  & 200\\
+2022-03-07 & 2022-03-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 674.84 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 805.11 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 72.71 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 20.71 BY OCANT AN Viditamisto 71b 2734 Navisusum ME ALE 812.38 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'332.30 &  & 5139.85\\
 2022-03-08 & 2022-03-08 &  & Valiuva IDIFINARE LATTETRURA 37.74.8780, 63:50, O XXX-Faccus-Vi. 56835004 &  & 13.5\\
-2022-03-09 & 2022-03-09 &  & X-Plavire Mitrice (QUAM) PRA 478.61, Unutatiuvitudit 2.7121 Idebire.sex &  & 270.02\\
-2022-03-09 & 2022-03-09 &  & X-Plavire Mitrice at Partudo Indifig AN &  & 60\\
-2022-03-10 & 2022-03-10 &  & Viductudum NUTIUNDIS AN & 1347.63 & \\
+2022-03-09 & 2022-03-09 &  & X-Plavire Mitrice (QUAM) PRA 478.61, Unutatiuvitudit 2.7121 Idebire.sex DE-Ficentuungurursex 2, Prideium Evimpanimusqui numelegi: 36838268 PRA 478.61 &  & 270.02\\
+2022-03-09 & 2022-03-09 &  & X-Plavire Mitrice at Partudo Indifig AN Suprittriaratenius 84 6145 F�funt ALE 84.30 &  & 60\\
+2022-03-10 & 2022-03-10 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/423 4.2.8780/NAS/538 12.2.8780 ALE 2'365.28 & 1347.63 & \\
 2022-03-11 & 2022-03-11 &  & Valiuva - Abenti DITUS Ideaneride 80.74.8780, 80:72, O XXX-Faccus-Vi. 56835004 &  & 13.5\\
 2022-03-11 & 2022-03-11 &  & Valiuva - Abenti Calent Produnt 80.74.8780, 37:78, O XXX-Faccus-Vi. 56835004 &  & 8.8\\
 2022-03-11 & 2022-03-11 &  & Valiuva Pada-7350 Carundo 80.74.8780, 37:47, O XXX-Faccus-Vi. 56835004 &  & 14.95\\
@@ -889,7 +889,7 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2022-03-14 & 2022-03-14 &  & Valiuva Serat-Rento AN 2814 12.74.8780, 63:87, O XXX-Faccus-Vi. 56835004 &  & 71.15\\
 2022-03-14 & 2022-03-14 &  & Valiuva - Abenti Calent Produnt 12.74.8780, 63:88, O XXX-Faccus-Vi. 56835004 &  & 8.8\\
 2022-03-14 & 2022-03-14 &  & Valiuva Cabum Adeo 63.74.8780, 63:41, O XXX-Faccus-Vi. 56835004 &  & 39\\
-2022-03-15 & 2022-03-15 &  & X-Plavire Mitrice at Iniae Aminsi Solocturum Cit &  & 59.2\\
+2022-03-15 & 2022-03-15 &  & X-Plavire Mitrice at Iniae Aminsi Solocturum Cit 6301 Zug CH NTG8HWRDFCNSF232 Dodax AG CHF 59.20 &  & 59.2\\
 2022-03-16 & 2022-03-15 &  & Rectudix Monda AN Carundo 88.74.8780, 10:30, O XXX-Faccus-Vi. 56835004 &  & 600\\
 2022-03-17 & 2022-03-17 &  & Valiuva - Abenti Pada Ideaneride 88.74.8780, 72:30, O XXX-Faccus-Vi. 56835004 &  & 5.2\\
 2022-03-17 & 2022-03-17 &  & Valiuva XXX Suisiliam-ET 88.74.8780, 88:83, O XXX-Faccus-Vi. 56835004 &  & 13.1\\
@@ -901,20 +901,20 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2022-03-21 & 2022-03-21 &  & Valiuva XXX Suisiliam-ET 83.74.8780, 88:65, O XXX-Faccus-Vi. 56835004 &  & 58.9\\
 2022-03-21 & 2022-03-21 &  & Valiuva - Abenti Calent Produnt 83.74.8780, 88:72, O XXX-Faccus-Vi. 56835004 &  & 8.8\\
 2022-03-21 & 2022-03-21 &  & Valiuva Cabum Adeo 83.74.8780, 37:37, O XXX-Faccus-Vi. 56835004 &  & 185.95\\
-2022-03-23 & 2022-03-23 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 9998.65\\
-2022-03-23 & 2022-03-23 &  & Viductudum Grae & 1302 & \\
+2022-03-23 & 2022-03-23 &  & X-Plavire Potuuniunuibo cum Pertathentunava Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 2'350.80 Caratodi (Muluvia) AN Acte Propicimolonata 2 ME-3116 Rede Lontersugatuod: XXX:ROW:66187845 / aSpere: 32.32.8780 - 18.42.8780 / By quall lis: 12.50.8780 ALE 835.84 Vocullunumettesex Centane Noccipsugatest 47 7201 Centane ME ALE 2'881.84 Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 8'332.30 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 732.20 &  & 9998.65\\
+2022-03-23 & 2022-03-23 &  & Viductudum Grae Serundulchralum 7 1545 Coegun ME DY13 733-67347.5 7 Saec:72.63252.10 .8 Perierum:61444470 ALE 2'583.30 & 1302 & \\
 2022-03-23 & 2022-03-23 &  & Valiuva Pada-2672 Abulutarto 63.74.8780, 37:32, O XXX-Faccus-Vi. 56835004 &  & 28.3\\
 2022-03-23 & 2022-03-23 &  & Valiuva - Abenti DITUS Ideaneride 63.74.8780, 12:37, O XXX-Faccus-Vi. 56835004 &  & 13.4\\
 2022-03-23 & 2022-03-23 &  & Valiuva - Abenti Cor Pascenter 63.74.8780, 37:80, O XXX-Faccus-Vi. 56835004 &  & 8.3\\
 2022-03-24 & 2022-03-24 &  & Rectudix Monda AN Carundo 30.74.8780, 37:78, O XXX-Faccus-Vi. 56835004 &  & 850\\
-2022-03-24 & 2022-03-24 &  & Viductudum NUTIUNDIS AN & 6020.35 & \\
-2022-03-24 & 2022-03-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 30753.85\\
-2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN & 2326.3 & \\
-2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN & 1292.4 & \\
-2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN & 2907.9 & \\
-2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN & 2326.3 & \\
-2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN & 2907.9 & \\
-2022-03-28 & 2022-03-28 &  & Viductudum IN Merruntertudipe AN & 4577.25 & \\
+2022-03-24 & 2022-03-24 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /VOX/6057345283 30.4.8780 ALE 6'441.34 & 6020.35 & \\
+2022-03-24 & 2022-03-24 &  & X-Plavire Potuuniunuibo cum Pertathentunava Legant Deiurumen Cogincum  20 8241 Alastritura ME ALE 8'813.86 Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 8'831.38 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'654.20 Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'821.34 Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'648.84 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'576.84 &  & 30753.85\\
+2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 22147 ALE 2'300.38 & 2326.3 & \\
+2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 12030 ALE 2'858.78 & 1292.4 & \\
+2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 56868 ALE 2'523.65 & 2907.9 & \\
+2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 64623 ALE 2'300.38 & 2326.3 & \\
+2022-03-25 & 2022-03-25 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 82285 ALE 2'523.65 & 2907.9 & \\
+2022-03-28 & 2022-03-28 &  & Viductudum IN Merruntertudipe AN Vocapostris 208 2483 Mortudo ME 815 ALE 8'842.35 & 4577.25 & \\
 2022-03-29 & 2022-03-29 &  & Valiuva ocuctubis Milliquod 20.74.8780, 80:32, O XXX-Faccus-Vi. 56835004 &  & 14.7\\
 2022-03-29 & 2022-03-29 &  & Valiuva - Abenti Pada Ideaneride 20.74.8780, 80:38, O XXX-Faccus-Vi. 56835004 &  & 22.9\\
 2022-03-30 & 2022-03-31 &  & Ost�magnunierinno Cogino�coegi 32.32.8780 - 50.74.8780 &  & 14.66\\
@@ -925,60 +925,60 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2022-03-31 & 2022-03-31 &  & Ost�magnunierinno Ost�vi ple Ocutudo 32.32.8780 - 50.74.8780 &  & 15.4\\
 2022-03-31 & 2022-03-31 &  & Ost�magnunierinno Suunit nem Prat�eo 32.32.8780 - 50.74.8780 &  & 6\\
 2022-03-31 & 2022-03-31 &  & Patelecerbileractam  fac 50.63.6378 lis 50.74.8780 & 7 & \\
-2022-04-01 & 2022-04-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 17758.45\\
+2022-04-01 & 2022-04-01 &  & X-Plavire Potuuniunuibo cum Pertathentunava Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 127.84 Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 778.84 Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 316.80 Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 21.34 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 502.34 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'776.86 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'343.84 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 4'211.35 Scisusquidivisiect 7201 Centane ALE 671.86 Grae ME-4753 Coegun ALE 2'604.80 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'332.30 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 4'805.30 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 2'830.84 &  & 17758.45\\
 2022-04-01 & 2022-04-01 &  & Valiuva - Abenti Tate Frit Magna 50.74.8780, 80:55, O XXX-Faccus-Vi. 56835004 &  & 18.15\\
-2022-04-01 & 2022-04-01 &  & X-Plavire Mitrice at Salaufficistra Magna-Vende &  & 734.1\\
+2022-04-01 & 2022-04-01 &  & X-Plavire Mitrice at Salaufficistra Magna-Vende 4001 Basel Arbeitnehmer: Petrovic Nemanja 200221667 CHF 734.10 &  & 734.1\\
 2022-04-04 & 2022-04-04 &  & Valiuva XXX Suisiliam-ET 32.50.8780, 37:13, O XXX-Faccus-Vi. 56835004 &  & 75\\
 2022-04-04 & 2022-04-04 &  & Rectudix Monda AN Carundo 50.50.8780, 37:88, O XXX-Faccus-Vi. 56835004 &  & 1000\\
-2022-04-04 & 2022-04-04 &  & X-Plavire Mitrice at Salaufficistra Magna-Vende &  & 734.1\\
+2022-04-04 & 2022-04-04 &  & X-Plavire Mitrice at Salaufficistra Magna-Vende 4001 Basel Arbeitnehmer: Petrovic Nemanja 200221667 Januar CHF 734.10 &  & 734.1\\
 2022-04-05 & 2022-04-04 &  & Rectudix Monda AN Carundo 50.50.8780, 80:34, O XXX-Faccus-Vi. 56835004 PRA 2'766.30, Collucipupa 2.7368 &  & 1361.62\\
-2022-04-05 & 2022-04-05 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1400\\
+2022-04-05 & 2022-04-05 &  & X-Plavire Potuuniunuibo cum Pertathentunava Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 2'233.30 Legant Deiurumen Cogincum  20 8241 Alastritura ME Covimempluune ALE 233.30 &  & 1400\\
 2022-04-05 & 2022-04-05 &  & Valiuva ocuctubis Milliquod 50.50.8780, 41:61, O XXX-Faccus-Vi. 56835004 &  & 11.7\\
 2022-04-05 & 2022-04-05 &  & Valiuva - Abenti 8184 Equam Offinum 50.50.8780, 63:83, O XXX-Faccus-Vi. 56835004 &  & 9.9\\
 2022-04-05 & 2022-04-05 &  & Valiuva Regem Merpupa 50.50.8780, 51:34, O XXX-Faccus-Vi. 56835004 &  & 2.5\\
 2022-04-05 & 2022-04-05 &  & Valiuva - Abenti Equam Ideaneride 50.50.8780, 37:47, O XXX-Faccus-Vi. 56835004 &  & 3.9\\
 2022-04-05 & 2022-04-05 &  & Rectudix Monda AN Magna Rantere 37.50.8780, 10:85, O XXX-Faccus-Vi. 56835004 &  & 300\\
-2022-04-06 & 2022-04-06 &  & Viductudum Ingobanumn CelL & 255.57 & \\
+2022-04-06 & 2022-04-06 &  & Viductudum Ingobanumn CelL Rolvus 4 6448 Freles ME Vicentimodestatuer 148753 ALE 865.30 & 255.57 & \\
 2022-04-07 & 2022-04-06 &  & Rectudix Monda AN Carundo 41.50.8780, 63:55, O XXX-Faccus-Vi. 56835004 &  & 1000\\
-2022-04-07 & 2022-04-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 1641.7\\
+2022-04-07 & 2022-04-07 &  & X-Plavire Potuuniunuibo cum Pertathentunava DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 431.84 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 674.84 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 805.11 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 &  & 1641.7\\
 2022-04-07 & 2022-04-07 &  & Valiuva E�by CelL 41.50.8780, 63:42, O XXX-Faccus-Vi. 56835004 &  & 26\\
-2022-04-07 & 2022-04-07 &  & Viductudum NUTIUNDIS AN & 17691.11 & \\
-2022-04-08 & 2022-04-08 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 14982.2\\
+2022-04-07 & 2022-04-07 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/715 4.2.8780/NAS/337 33.4.8780 ALE 42'458.12 & 17691.11 & \\
+2022-04-08 & 2022-04-08 &  & X-Plavire Potuuniunuibo cum Pertathentunava CIS Serigatequiricit m/b CIS Caupa AN 6661 Centeturra ALE 10'778.84 Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 2'777.71 Caliquali.me Rumea�habillinte ars Pada Vescaelis arere 5206 Derumquate ALE 483.65 &  & 14982.2\\
 2022-04-08 & 2022-04-08 &  & Valiuva Sicita F�proximi 72.50.8780, 80:30, O XXX-Faccus-Vi. 56835004 &  & 11.05\\
 2022-04-08 & 2022-04-08 &  & Valiuva Quium Ficarat AN 72.50.8780, 88:51, O XXX-Faccus-Vi. 56835004 &  & 68.7\\
 2022-04-08 & 2022-04-08 &  & Valiuva ocuctubis Milliquod 72.50.8780, 72:71, O XXX-Faccus-Vi. 56835004 &  & 4.9\\
-2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN & 1163.15 & \\
-2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN & 1163.15 & \\
-2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN & 1938.6 & \\
-2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN & 323.1 & \\
-2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN & 1163.15 & \\
-2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN & 64020.15 & \\
-2022-04-08 & 2022-04-08 &  & X-Plavire Mitrice at Frali Gerunte AN &  & 88.85\\
+2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 53177 ALE 2'566.88 & 1163.15 & \\
+2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 50487 ALE 2'566.88 & 1163.15 & \\
+2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 25647 ALE 2'437.84 & 1938.6 & \\
+2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 86721 ALE 333.80 & 323.1 & \\
+2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 37180 ALE 2'566.88 & 1163.15 & \\
+2022-04-08 & 2022-04-08 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 43422 ALE 22'441.88 & 64020.15 & \\
+2022-04-08 & 2022-04-08 &  & X-Plavire Mitrice at Frali Gerunte AN 5612 Villmergen CH Bezahlt f�r ND Bau AG CHF 88.85 &  & 88.85\\
 2022-04-11 & 2022-04-11 &  & Valiuva - Abenti Calent Cosicipuperva 51.50.8780, 37:33, O XXX-Faccus-Vi. 56835004 &  & 2.9\\
-2022-04-11 & 2022-04-11 &  & Rectudix Monda HOC Ocenentum.-70 51.50.8780, 72:80, O XXX-Faccus-Vi. 56835004 &  & 400\\
+2022-04-11 & 2022-04-11 &  & Rectudix Monda HOC Ocenentum.-70 51.50.8780, 72:80, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (8. Monda fac 63 ost�frestridit Cor�sex) &  & 400\\
 2022-04-11 & 2022-04-11 &  & Valiuva - Abenti Calent Cosicipuperva 51.50.8780, 37:33, O XXX-Faccus-Vi. 56835004 &  & 55\\
 2022-04-11 & 2022-04-11 &  & Valiuva - Abenti IN Ideaneride Q�x 51.50.8780, 41:63, O XXX-Faccus-Vi. 56835004 &  & 3.9\\
 2022-04-11 & 2022-04-11 &  & Valiuva Peridit DE Lonfore 37.50.8780, 88:88, O XXX-Faccus-Vi. 56835004 &  & 84.8\\
 2022-04-11 & 2022-04-11 &  & Quatuduero &  & 7500\\
-2022-04-12 & 2022-04-12 &  & X-Plavire Mitrice at Lumero Andiatuunnam AN &  & 3770.1\\
+2022-04-12 & 2022-04-12 &  & X-Plavire Mitrice at Lumero Andiatuunnam AN Obascile 5530 Magna ME ALE 4'228.80 &  & 3770.1\\
 2022-04-12 & 2022-04-12 &  & Valiuva Pada-1331 Primali 12.50.8780, 37:30, O XXX-Faccus-Vi. 56835004 &  & 10.15\\
 2022-04-12 & 2022-04-12 &  & Valiuva ocuctubis Milliquod 80.50.8780, 42:72, O XXX-Faccus-Vi. 56835004 &  & 20.5\\
-2022-04-12 & 2022-04-12 &  & Rectudix Monda XXX Milliquod 80.50.8780, 32:72, O XXX-Faccus-Vi. 56835004 &  & 1000\\
-2022-04-14 & 2022-04-14 &  & X-Plavire Mitrice at Proppor Tuunc &  & 500\\
+2022-04-12 & 2022-04-12 &  & Rectudix Monda XXX Milliquod 80.50.8780, 32:72, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (8. Monda fac 63 ost�frestridit Cor�sex) &  & 1000\\
+2022-04-14 & 2022-04-14 &  & X-Plavire Mitrice at Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 471.30 &  & 500\\
 2022-04-14 & 2022-04-14 &  & Valiuva Pada-1331 Primali 10.50.8780, 37:80, O XXX-Faccus-Vi. 56835004 &  & 29.75\\
-2022-04-14 & 2022-04-14 &  & Viductudum NUTIUNDIS AN & 20868.21 & \\
-2022-04-14 & 2022-04-14 &  & Viductudum REVAREM TATUIUS AN & 700.05 & \\
-2022-04-14 & 2022-04-14 &  & Viductudum Pletrahenifig Hostodupere AN & 1421.65 & \\
+2022-04-14 & 2022-04-14 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/482 63.4.8780/NAS/638 38.4.8780/NAS/332 403 12.8.8780 ALE 80'812.10 & 20868.21 & \\
+2022-04-14 & 2022-04-14 &  & Viductudum REVAREM TATUIUS AN LAMQUOTEMO 10 1170 DEDESTQUOD ME ET 136546 ALE 551.37 & 700.05 & \\
+2022-04-14 & 2022-04-14 &  & Viductudum Pletrahenifig Hostodupere AN Habitimusuibo 88 6208 Mortudo ME Et.-Vi.: 31156 ALE 2'482.78 & 1421.65 & \\
 2022-04-19 & 2022-04-19 &  & Valiuva - Abenti Cor Pascenter 37.50.8780, 72:10, O XXX-Faccus-Vi. 56835004 &  & 10.9\\
 2022-04-19 & 2022-04-19 &  & Valiuva Pada-1331 Primali 37.50.8780, 63:10, O XXX-Faccus-Vi. 56835004 &  & 18.05\\
-2022-04-19 & 2022-04-19 &  & Rectudix Monda HOC Ocenentum.-70 88.50.8780, 12:13, O XXX-Faccus-Vi. 56835004 &  & 500\\
+2022-04-19 & 2022-04-19 &  & Rectudix Monda HOC Ocenentum.-70 88.50.8780, 12:13, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (6. Monda fac 63 ost�frestridit Cor�sex) &  & 500\\
 2022-04-19 & 2022-04-19 &  & Rectudix Monda AN Milliquod 88.50.8780, 33:10, O XXX-Faccus-Vi. 56835004 &  & 1000\\
-2022-04-19 & 2022-04-19 &  & Rectudix Monda XXX Milliquod 88.50.8780, 63:32, O XXX-Faccus-Vi. 56835004 &  & 600\\
-2022-04-19 & 2022-04-19 &  & Rectudix Monda HOC Semplebreat 78 88.50.8780, 83:34, O XXX-Faccus-Vi. 56835004 &  & 500\\
+2022-04-19 & 2022-04-19 &  & Rectudix Monda XXX Milliquod 88.50.8780, 63:32, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (4. Monda fac 63 ost�frestridit Cor�sex) &  & 600\\
+2022-04-19 & 2022-04-19 &  & Rectudix Monda HOC Semplebreat 78 88.50.8780, 83:34, O XXX-Faccus-Vi. 56835004 Ost�peredeculo Monda at Uruna-Calevoleni Rectudix (3. Monda fac 63 ost�frestridit Cor�sex) &  & 500\\
 2022-04-19 & 2022-04-18 &  & Rectudix Monda AN Milliquod 72.50.8780, 37:10, O XXX-Faccus-Vi. 56835004 &  & 1000\\
-2022-04-19 & 2022-04-19 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 700\\
+2022-04-19 & 2022-04-19 &  & X-Plavire Potuuniunuibo cum Pertathentunava Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 471.30 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 233.30 &  & 700\\
 2022-04-19 & 2022-04-19 &  & Valiuva SIDES  *BITANT PULUM 88.50.8780, 30:34, O XXX-Faccus-Vi. 56835004 &  & 20\\
-2022-04-20 & 2022-04-20 &  & X-Plavire Mitrice at Pada Pitiplebis AN &  & 3030.9\\
+2022-04-20 & 2022-04-20 &  & X-Plavire Mitrice at Pada Pitiplebis AN Terrunabienendacus 78 ME-5220 Tententam ALE 4'382.65 &  & 3030.9\\
 2022-04-21 & 2022-04-21 &  & Valiuva Cura Habes 80.50.8780, 63:47, O XXX-Faccus-Vi. 56835004 &  & 11.25\\
 2022-04-21 & 2022-04-21 &  & Valiuva - Abenti Calent Produnt 80.50.8780, 88:41, O XXX-Faccus-Vi. 56835004 &  & 10.8\\
 2022-04-22 & 2022-04-21 &  & Rectudix Monda AN Milliquod 10.50.8780, 83:20, O XXX-Faccus-Vi. 56835004 &  & 500\\
@@ -991,17 +991,17 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2022-04-25 & 2022-04-25 &  & Valiuva - Abenti Cor Pascenter 63.50.8780, 72:18, O XXX-Faccus-Vi. 56835004 &  & 9.05\\
 2022-04-25 & 2022-04-25 &  & Rectudix Monda AN Milliquod 33.50.8780, 42:86, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2022-04-25 & 2022-04-25 &  & Rectudix Monda AN Magna Fraribo 30.50.8780, 42:32, O XXX-Faccus-Vi. 56835004 &  & 1000\\
-2022-04-25 & 2022-04-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 4049.95\\
+2022-04-25 & 2022-04-25 &  & X-Plavire Potuuniunuibo cum Pertathentunava Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 735.30 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 2'471.30 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 732.20 Caec Relenti AN Acte Vigiligunientesuba 63 8388 Mila ALE 624.34 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 674.84 Solondica Cantinam Mattius Muluvia AN Spillucensal 30 2121 Potantino ALE 805.11 DiconFluunnam AN Partiquitipsulumn 80 1027 Pinethentequi ALE 304.65 &  & 4049.95\\
 2022-04-25 & 2022-04-25 &  & Rectudix Monda AN PAM Centane 35.50.8780, 88:80, O XXX-Faccus-Vi. 56835004 &  & 7290\\
-2022-04-26 & 2022-04-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 31391.15\\
-2022-04-26 & 2022-04-26 &  & X-Plavire Mitrice at Inteset Tudiunis &  & 3800\\
-2022-04-28 & 2022-04-28 &  & Viductudum NUTIUNDIS AN & 6655.83 & \\
-2022-04-29 & 2022-04-29 &  & X-Plavire Mitrice at Paurgervem Magila \& Induniunate AN &  & 1933.8\\
+2022-04-26 & 2022-04-26 &  & X-Plavire Potuuniunuibo cum Pertathentunava Imura Umetimium Dentit�brenduerigit 84 1205 Magna ME ALE 8'821.84 Perunch Dupase Plutunicispica 75 2282 Magna ME ALE 8'654.20 Legant Deiurumen Cogincum  20 8241 Alastritura ME Covimempluune ALE 8'270.86 Mategi Fuilitro Dentit�brenduerigit 50 1205 Magna ME covimempluune ALE 8'248.78 Manterto Tatipe Icupercitanem  10 3315 D�prodest ME ALE 8'342.30 Callum Mulum Dentit�priraespuelex 87 1205 Magna ME ALE 8'648.11 &  & 31391.15\\
+2022-04-26 & 2022-04-26 &  & X-Plavire Mitrice at Inteset Tudiunis Plutunicispica 75 2282 Magna ME ALE 4'443.30 &  & 3800\\
+2022-04-28 & 2022-04-28 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/215 80.8.8780/NAS/507 80.8.8780 ALE 6'675.21 & 6655.83 & \\
+2022-04-29 & 2022-04-29 &  & X-Plavire Mitrice at Paurgervem Magila \& Induniunate AN Haeritquidususube  6 8445 Ramilor ME ALE 2'415.84 &  & 1933.8\\
 2022-05-02 & 2022-05-02 &  & Valiuva - Abenti IN Senertintangun. O 63.50.8780, 12:10, O XXX-Faccus-Vi. 56835004 &  & 5.5\\
-2022-05-02 & 2022-05-02 &  & X-Plavire Potuuniunuibo cum Pertathentunava &  & 9374.58\\
-2022-05-02 & 2022-05-02 &  & X-Plavire Mitrice at Xxx T�pote &  & 1200\\
+2022-05-02 & 2022-05-02 &  & X-Plavire Potuuniunuibo cum Pertathentunava Scisusquidivisiect 7201 Centane ALE 671.86 Obsent�orgatis Anitogitterbibem Sendactimodeo 78 8842 Rede ME t/x 10.50.8780 //K5/80/8224255108 / q63/858620167 ALE 676.65 Obsent�orgatis Anitogitterbibem DEA O 8842 Rede 8842 Rede ALE 4'805.30 Raspentegmensus AT Fuiecriam�d 807 5815 Milliquod 5815 Milliquod ALE 2'332.30 Grae ME-4753 Coegun ALE 2'604.38 XXX Magna-Fendaculis Capparalique 807 5815 Milliquod ME ALE 2'332.30 SICIDEPTIMA Aequis AN Quaestritudo 7 ME-6772 Rede 864430266438 ALE 576.35 XXX solucanti AN Uniciputintaripluva 6 5668 Lonsepter 5668 Lonsepter ALE 548.84 Eletuote  Lonsi AN T�fuillieis  88 5707 Antanem ME Cenducervall: 1643 ALE 2'807.38 Expars AN Raliuncescion  6 2734 Navisusum ME ALE 576.75 Proppor Tuunc Nostriberustent 50 7201 Centane ME ALE 888.30 &  & 9374.58\\
+2022-05-02 & 2022-05-02 &  & X-Plavire Mitrice at Xxx T�pote Ocube�pardupa Nossiem Fuiecriam�d 78 2057 Pratis ALE 2'233.30 &  & 1200\\
 2022-05-02 & 2022-05-02 &  & Rectudix Monda AN Tententam Aratia 42.37.8780, 88:15, O XXX-Faccus-Vi. 56835004 &  & 3550\\
-2022-05-03 & 2022-05-03 &  & X-Plavire Mitrice at Cone AN &  & 276.9\\
+2022-05-03 & 2022-05-03 &  & X-Plavire Mitrice at Cone AN Imultumquoturrell 10 ME-2346 Decusa ET Testana f�c OS Xxx AN ALE 203.65 &  & 276.9\\
 2022-05-03 & 2022-05-03 &  & Valiuva - Abenti Cor Pascenter 42.37.8780, 12:38, O XXX-Faccus-Vi. 56835004 &  & 9.2\\
 2022-05-03 & 2022-05-03 &  & Valiuva ocuctubis Milliquod 32.37.8780, 10:87, O XXX-Faccus-Vi. 56835004 &  & 3.55\\
 2022-05-03 & 2022-05-03 &  & Valiuva ocuctubis Milliquod 32.37.8780, 12:78, O XXX-Faccus-Vi. 56835004 &  & 7.2\\
@@ -1014,13 +1014,13 @@ Date & DateValue & Doc & Description & Income & Expenses\\
 2022-05-06 & 2022-05-05 &  & Rectudix Monda AN Milliquod 37.37.8780, 63:88, O XXX-Faccus-Vi. 56835004 &  & 500\\
 2022-05-06 & 2022-05-06 &  & Valiuva Pada-5108 Muludium 37.37.8780, 80:37, O XXX-Faccus-Vi. 56835004 &  & 3.6\\
 2022-05-06 & 2022-05-06 &  & Valiuva - Abenti DITUS Ideaneride 37.37.8780, 51:20, O XXX-Faccus-Vi. 56835004 &  & 10.9\\
-2022-05-06 & 2022-05-06 &  & Viductudum NUTIUNDIS AN & 9091.01 & \\
+2022-05-06 & 2022-05-06 &  & Viductudum NUTIUNDIS AN ETRANTESTERTATEST 13 ME 7764 FUNTIRCITA /NAS/584 35.8.8780 ALE 0'714.32 & 9091.01 & \\
 2022-05-09 & 2022-05-09 &  & Rectudix Monda AN Centane 72.37.8780, 32:71, O XXX-Faccus-Vi. 56835004 &  & 1000\\
 2022-05-09 & 2022-05-09 &  & Valiuva 43OE STET AN 37.37.8780, 10:35, O XXX-Faccus-Vi. 56835004 &  & 126.5\\
 2022-05-09 & 2022-05-09 &  & Valiuva - Abenti DITUS Ideaneride 41.37.8780, 41:80, O XXX-Faccus-Vi. 56835004 &  & 7.95\\
 2022-05-09 & 2022-05-09 &  & Valiuva 43OE STET AN 37.37.8780, 83:70, O XXX-Faccus-Vi. 56835004 &  & 124\\
-2022-05-09 & 2022-05-09 &  & X-Plavire Mitrice at Frali Gerunte AN &  & 32.35\\
-2022-05-10 & 2022-05-10 &  & Viductudum RASPENTEGMENSUS AT & 322.75 & \\
+2022-05-09 & 2022-05-09 &  & X-Plavire Mitrice at Frali Gerunte AN 5612 Villmergen CH Bezahlt f�r ND Bau AG CHF 32.35 &  & 32.35\\
+2022-05-10 & 2022-05-10 &  & Viductudum RASPENTEGMENSUS AT Capparalique 807 5815 Milliquod ME ...                 OS Xxx AN                           Lurgauctas: Cor 80.80-37.63  480.11 ALE 480.11 & 322.75 & \\
 2022-05-10 & 2022-05-10 &  & Valiuva - Abenti DITUS Ideaneride 37.37.8780, 41:74, O XXX-Faccus-Vi. 56835004 &  & 9\\
 2022-05-10 & 2022-05-10 &  & Valiuva - Abenti Pada IN Hosupedduces 37.37.8780, 37:73, O XXX-Faccus-Vi. 56835004 &  & 23.85\\
 \\

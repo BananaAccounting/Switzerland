@@ -115,16 +115,6 @@
                             "rowLists": [
                                 {
                                     "rows": [
-                                        {
-                                            "fields": {
-                                                "VatCode": "VB25",
-                                                "VatRate": "2.50%"
-                                            },
-                                            "operation": {
-                                                "name": "add",
-                                                "srcFileName": ""
-                                            }
-                                        }
                                     ]
                                 }
                             ]
@@ -156,7 +146,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 123",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I77-1"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -172,7 +163,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 123",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I77-1"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -188,6 +180,7 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 441",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -204,6 +197,7 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 441",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -220,6 +214,7 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 231",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -236,7 +231,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 231",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I77-1"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -252,7 +248,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 231",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I77-1"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -268,7 +265,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 232",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I25"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -284,7 +282,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 232",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I25"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -300,7 +299,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 233",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I25"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -316,7 +316,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 234",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I25"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -332,7 +333,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 234",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I25"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -348,7 +350,8 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 234",
-                                                "VatCode": ""
+                                                "VatAmountType": "1",
+                                                "VatCode": "I25"
                                             },
                                             "operation": {
                                                 "name": "add",
@@ -364,6 +367,7 @@
                                                 "Description": "Description, Bober GmbH",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "LR 099",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -380,6 +384,7 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 06",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -396,6 +401,7 @@
                                                 "Description": "Description, Service",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "LR 045",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -412,6 +418,7 @@
                                                 "Description": "Description, Manoir",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "LR 026",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -428,6 +435,7 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 236",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -444,6 +452,7 @@
                                                 "Description": "Description",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 236",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {
@@ -460,6 +469,7 @@
                                                 "Description": "Transfer",
                                                 "ExchangeRate": "",
                                                 "ExternalReference": "MB 238",
+                                                "VatAmountType": "",
                                                 "VatCode": ""
                                             },
                                             "operation": {

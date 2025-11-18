@@ -1,4 +1,4 @@
-// Copyright [2022] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.creditsuisse.test
 // @api = 1.0
-// @pubdate = 2022-08-22
+// @pubdate = 2025-10-03
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.creditsuisse.test>
 // @task = app.command
@@ -68,6 +68,7 @@ TestImportCreditSuisse.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format4_20230905.csv");
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format5_20240108.csv");
    fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format5_20240901.csv");
+   fileNameList.push("file:script/../test/testcases/csv_creditsuisse_example_format5_20251003.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
