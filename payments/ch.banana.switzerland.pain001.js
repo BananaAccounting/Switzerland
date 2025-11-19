@@ -143,14 +143,27 @@ function onCurrentIndexChanged_methodId(index, value, params) {
             keepData = true;
     }*/
 
-    let keepData = true;
+    let amount = '';
     for (var i = 0; i < newParams.data.length; i++) {
         var key = newParams.data[i].name;
-        if (key !== 'methodId' && keepData) {
+        if (key !== 'methodId') {
             for (var j = 0; j < params.data.length; j++) {
                 if (params.data[j].name === newParams.data[i].name) {
                     newParams.data[i].value = params.data[j].value;
                 }
+                if (params.data[j].name === 'amount') {
+                    amount = params.data[j].value;
+                }
+            }
+        }
+    }
+
+    // if empty amount and SEPA payment set EUR as currency
+    if (paymentObj.methodId.indexOf("SEPA") >= 0 && Banana.SDecimal.isZero(amount)) {
+        for (var i = 0; i < newParams.data.length; i++) {
+            if (newParams.data[i].name === 'currency') {
+                newParams.data[i].value = 'EUR';
+                break;
             }
         }
     }
