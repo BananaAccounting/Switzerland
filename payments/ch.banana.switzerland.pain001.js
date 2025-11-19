@@ -214,6 +214,7 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_LICENSE_NOTVALID = "ID_ERR_LICENSE_NOTVALID";
     this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY";
     this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID";
+    this.ID_ERR_ONLY_EUR_ALLOWED = "ID_ERR_ONLY_EUR_ALLOWED";
     this.ID_ERR_PAYMENTMETHOD_NOTSUPPORTED = "ID_ERR_PAYMENTMETHOD_NOTSUPPORTED";
     this.ID_ERR_PAYMENTOBJECT_EMPTY = "ID_ERR_PAYMENTOBJECT_EMPTY";
     this.ID_ERR_QRIBAN_NOTVALID = "ID_ERR_QRIBAN_NOTVALID";
@@ -1300,6 +1301,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "QRIBAN is not valid";
         case this.ID_ERR_LICENSE_NOTVALID:
             return "This extension requires Banana Accounting+ Advanced";
+        case this.ID_ERR_ONLY_EUR_ALLOWED:
+            return "Only EUR is allowed";
         case this.ID_ERR_PAYMENTMETHOD_NOTSUPPORTED:
             return "The payment method %1 is not supported";
         case this.ID_ERR_PAYMENTOBJECT_EMPTY = "ID_ERR_PAYMENTOBJECT_EMPTY":
@@ -1990,7 +1993,12 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
                 error = true;
             }
         }
-        else if (methodId == this.ID_PAYMENT_SEPA) {
+        else if (methodId.startsWith(this.ID_PAYMENT_SEPA)) {
+            if (key === 'currency' && value.trim().toLowerCase() !== 'eur') {
+                params.data[i].errorId = this.ID_ERR_ONLY_EUR_ALLOWED;
+                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ONLY_EUR_ALLOWED);
+                error = true;
+            }
             if (key === 'creditorIban' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
