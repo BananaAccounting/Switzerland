@@ -126,12 +126,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -142,12 +142,12 @@ ewline
 ewline 
 ewline 1130.00
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline QRR
 ewline 113456000000100002000003507
@@ -242,12 +242,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -258,12 +258,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline 113456000000100004000003605
@@ -357,12 +357,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -373,12 +373,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline QRR
 ewline 113456000000100002000036102
@@ -468,12 +468,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -484,12 +484,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline 113456000000100004000036204
@@ -581,12 +581,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -597,12 +597,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline QRR
 ewline 113456000000100002000036307
@@ -696,12 +696,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -712,12 +712,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline 113456000000100004036202001
@@ -819,12 +819,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -927,12 +927,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1029,12 +1029,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1129,12 +1129,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1232,12 +1232,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1339,12 +1339,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1470,12 +1470,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectQR-IBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1486,12 +1486,12 @@ ewline
 ewline 
 ewline 1130.00
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline QRR
 ewline 000000000000100002000003505
@@ -1586,12 +1586,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectQR-IBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1602,12 +1602,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline 000000000000100004000003607
@@ -1701,12 +1701,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectQR-IBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1717,12 +1717,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline QRR
 ewline 000000000000100002000036106
@@ -1812,12 +1812,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectQR-IBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1828,12 +1828,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline 000000000000100004000036208
@@ -1925,12 +1925,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectQR-IBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -1941,12 +1941,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline QRR
 ewline 000000000000100002000036301
@@ -2040,12 +2040,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectQR-IBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2056,12 +2056,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline 000000000000100004036202002
@@ -2155,12 +2155,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2171,12 +2171,12 @@ ewline
 ewline 
 ewline 150.35
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline QRR
 ewline @errorinvoiceNoinvalid,onlydigitsarepermitted.YourinvoiceNoF00120
@@ -2286,12 +2286,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2302,12 +2302,12 @@ ewline
 ewline 
 ewline 1130.00
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF586100002235
@@ -2402,12 +2402,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2418,12 +2418,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF606100004236
@@ -2517,12 +2517,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2533,12 +2533,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF1961000023361
@@ -2628,12 +2628,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2644,12 +2644,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF8861000043362
@@ -2741,12 +2741,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2757,12 +2757,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF6261000023363
@@ -2856,12 +2856,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2872,12 +2872,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF8861000046362020
@@ -2970,12 +2970,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -2986,12 +2986,12 @@ ewline
 ewline 
 ewline 150.35
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF0661000046F00120
@@ -3099,12 +3099,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3115,12 +3115,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF586100002235
@@ -3213,12 +3213,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3229,12 +3229,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF606100004236
@@ -3323,12 +3323,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3339,12 +3339,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF1961000023361
@@ -3429,12 +3429,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3445,12 +3445,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF8861000043362
@@ -3540,12 +3540,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3556,12 +3556,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF6261000023363
@@ -3653,12 +3653,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3669,12 +3669,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF8861000046362020
@@ -3765,12 +3765,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3781,12 +3781,12 @@ ewline
 ewline 
 ewline 
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF0661000046F00120
@@ -3896,12 +3896,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -3912,12 +3912,12 @@ ewline
 ewline 
 ewline 1130.00
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline SCOR
 ewline RF586100002235
@@ -4012,12 +4012,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4028,12 +4028,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF606100004236
@@ -4127,12 +4127,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4143,12 +4143,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF1961000023361
@@ -4238,12 +4238,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4254,12 +4254,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF8861000043362
@@ -4351,12 +4351,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4367,12 +4367,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF6261000023363
@@ -4466,12 +4466,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4482,12 +4482,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF8861000046362020
@@ -4580,12 +4580,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4596,12 +4596,12 @@ ewline
 ewline 
 ewline 150.35
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF0661000046F00120
@@ -4696,12 +4696,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4712,12 +4712,12 @@ ewline
 ewline 
 ewline 4500.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF3461000043364
@@ -4821,12 +4821,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4837,12 +4837,12 @@ ewline
 ewline 
 ewline 1130.00
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline NON
 ewline 
@@ -4931,12 +4931,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -4947,12 +4947,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -5040,12 +5040,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5056,12 +5056,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline NON
 ewline 
@@ -5145,12 +5145,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5161,12 +5161,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -5252,12 +5252,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5268,12 +5268,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline NON
 ewline 
@@ -5361,12 +5361,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5377,12 +5377,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -5486,12 +5486,12 @@ Via Trevano \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5502,12 +5502,12 @@ ewline
 ewline 
 ewline 1130.00
 ewline CHF
-ewline K
+ewline S
 ewline Mario Bianchi
 ewline Via Trevano
-ewline 6963 Pregassona
 ewline 
-ewline 
+ewline 6963
+ewline Pregassona
 ewline CH
 ewline NON
 ewline 
@@ -5596,12 +5596,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5612,12 +5612,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -5705,12 +5705,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5721,12 +5721,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline NON
 ewline 
@@ -5810,12 +5810,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5826,12 +5826,12 @@ ewline
 ewline 
 ewline 0.00
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -5917,12 +5917,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -5933,12 +5933,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline NON
 ewline 
@@ -6026,12 +6026,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH0930000001652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6042,12 +6042,12 @@ ewline
 ewline 
 ewline 1234567.90
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline NON
 ewline 
@@ -6138,12 +6138,12 @@ V.Meggiagra 3 \\
 ewline 0200
 ewline 1
 ewline @errorMissingIBAN
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6154,12 +6154,12 @@ ewline
 ewline 
 ewline 150.35
 ewline CHF
-ewline K
+ewline S
 ewline ABC SA
 ewline V.Meggiagra 3
-ewline 6599 Robasacco
 ewline 
-ewline 
+ewline 6599
+ewline Robasacco
 ewline CH
 ewline SCOR
 ewline RF0661000046F00120
@@ -6313,12 +6313,12 @@ V. Campuréta 40 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6329,12 +6329,12 @@ ewline
 ewline 
 ewline 1593.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF886100003247
@@ -6489,12 +6489,12 @@ V. Campuréta 40 \\
 ewline 0200
 ewline 1
 ewline @errorIncorrectIBAN:CH5809000000652501224
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6505,12 +6505,12 @@ ewline
 ewline 
 ewline 1593.00
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF886100003247
@@ -6607,12 +6607,12 @@ V. Campagnola 7 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6623,12 +6623,12 @@ ewline
 ewline 
 ewline 494.50
 ewline CHF
-ewline K
+ewline S
 ewline Germano Simoni
 ewline V. Campagnola 7
-ewline 6928 Manno
 ewline 
-ewline 
+ewline 6928
+ewline Manno
 ewline CH
 ewline SCOR
 ewline RF576100005260
@@ -6751,12 +6751,12 @@ V. Campuréta 40 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6767,12 +6767,12 @@ ewline
 ewline 
 ewline 3614.60
 ewline CHF
-ewline K
+ewline S
 ewline Marco Alberti
 ewline V. Campuréta 40
-ewline 6883 Novazzano
 ewline 
-ewline 
+ewline 6883
+ewline Novazzano
 ewline CH
 ewline SCOR
 ewline RF176100003264
@@ -6858,12 +6858,12 @@ Via ai Salici 12 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch
 ewline VIa la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6874,12 +6874,12 @@ ewline
 ewline 
 ewline 25.00
 ewline CHF
-ewline K
+ewline S
 ewline Artemisia SA
 ewline Via ai Salici 12
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF79113401
@@ -6966,12 +6966,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch
 ewline VIa la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -6982,12 +6982,12 @@ ewline
 ewline 
 ewline 30.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF03123402
@@ -7074,12 +7074,12 @@ Vicolo Mariotti 5 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch
 ewline VIa la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -7090,12 +7090,12 @@ ewline
 ewline 
 ewline 25.00
 ewline CHF
-ewline K
+ewline S
 ewline Domotica Sagl
 ewline Vicolo Mariotti 5
-ewline 6808 Bironico
 ewline 
-ewline 
+ewline 6808
+ewline Bironico
 ewline CH
 ewline SCOR
 ewline RF24133403
@@ -7184,12 +7184,12 @@ Via ai Salici 12 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch
 ewline VIa la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -7200,12 +7200,12 @@ ewline
 ewline 
 ewline 25.00
 ewline CHF
-ewline K
+ewline S
 ewline Artemisia SA
 ewline Via ai Salici 12
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF79113401
@@ -7293,12 +7293,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch
 ewline VIa la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -7309,12 +7309,12 @@ ewline
 ewline 
 ewline 30.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF03123402
@@ -7402,12 +7402,12 @@ Vicolo Mariotti 5 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch
 ewline VIa la Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -7418,12 +7418,12 @@ ewline
 ewline 
 ewline 25.00
 ewline CHF
-ewline K
+ewline S
 ewline Domotica Sagl
 ewline Vicolo Mariotti 5
-ewline 6808 Bironico
 ewline 
-ewline 
+ewline 6808
+ewline Bironico
 ewline CH
 ewline SCOR
 ewline RF24133403
@@ -7510,12 +7510,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -7526,12 +7526,12 @@ ewline
 ewline 
 ewline 46.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF821215
@@ -7619,12 +7619,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -7635,12 +7635,12 @@ ewline
 ewline 
 ewline 24.70
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF551216
@@ -7728,12 +7728,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -7744,12 +7744,12 @@ ewline
 ewline 
 ewline 22.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF281217
@@ -7838,12 +7838,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -7854,12 +7854,12 @@ ewline
 ewline 
 ewline 50.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF981218
@@ -7945,12 +7945,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -7961,12 +7961,12 @@ ewline
 ewline 
 ewline 46.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF711219
@@ -8054,12 +8054,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -8070,12 +8070,12 @@ ewline
 ewline 
 ewline 24.70
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF3712210
@@ -8163,12 +8163,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -8179,12 +8179,12 @@ ewline
 ewline 
 ewline 22.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF1012211
@@ -8273,12 +8273,12 @@ Via dei Rustici 9 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -8289,12 +8289,12 @@ ewline
 ewline 
 ewline 50.00
 ewline CHF
-ewline K
+ewline S
 ewline Carlo Bianchi
 ewline Via dei Rustici 9
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF8012212
@@ -8384,12 +8384,12 @@ Pagabile da \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -8400,12 +8400,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline @error Address: missing name/business
 ewline 
-ewline @error Address: missing ZIP code @error Address: missing locality
 ewline 
-ewline 
+ewline @error Address: missing ZIP code
+ewline @error Address: missing locality
 ewline @error Address: missing country code
 ewline SCOR
 ewline RF6261000023363
@@ -8487,12 +8487,12 @@ Pagabile da (nome/indirizzo) \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Banana.ch SA
 ewline Via alla Santa 7
-ewline 6962 Viganello
 ewline 
-ewline 
+ewline 6962
+ewline Viganello
 ewline CH
 ewline 
 ewline 
@@ -8612,12 +8612,12 @@ Via ai Salici 12 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline VIa alle colline 12
-ewline 600 Lugano
 ewline 
-ewline 
+ewline 600
+ewline Lugano
 ewline CH
 ewline 
 ewline 
@@ -8628,12 +8628,12 @@ ewline
 ewline 
 ewline 131.56
 ewline CHF
-ewline K
+ewline S
 ewline La stanza del Te SA
 ewline Via ai Salici 12
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF231113
@@ -8727,12 +8727,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -8743,12 +8743,12 @@ ewline
 ewline 
 ewline 3940.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF084110012
@@ -8844,12 +8844,12 @@ Via Carlo Cattaneo \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -8860,12 +8860,12 @@ ewline
 ewline 
 ewline 370.00
 ewline CHF
-ewline K
+ewline S
 ewline James Johnson
 ewline Via Carlo Cattaneo
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF2141101213
@@ -8960,12 +8960,12 @@ Via Carlo Cattaneo \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -8976,12 +8976,12 @@ ewline
 ewline 
 ewline 370.00
 ewline CHF
-ewline K
+ewline S
 ewline James Johnson
 ewline Via Carlo Cattaneo
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF9141101214
@@ -9073,12 +9073,12 @@ Via Carlo Cattaneo \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -9089,12 +9089,12 @@ ewline
 ewline 
 ewline 370.00
 ewline CHF
-ewline K
+ewline S
 ewline James Johnson
 ewline Via Carlo Cattaneo
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF6441101215
@@ -9192,12 +9192,12 @@ Rue des salines 44 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline Rue aux lapins 2
-ewline 1002 Lausanne
 ewline 
-ewline 
+ewline 1002
+ewline Lausanne
 ewline CH
 ewline 
 ewline 
@@ -9208,12 +9208,12 @@ ewline
 ewline 
 ewline 370.00
 ewline CHF
-ewline K
+ewline S
 ewline The Tea corner
 ewline Rue des salines 44
-ewline 1007 Lausanne
 ewline 
-ewline 
+ewline 1007
+ewline Lausanne
 ewline CH
 ewline SCOR
 ewline RF0611216
@@ -9309,12 +9309,12 @@ Rue des salines 44 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline Rue aux lapins 2
-ewline 1002 Lausanne
 ewline 
-ewline 
+ewline 1002
+ewline Lausanne
 ewline CH
 ewline 
 ewline 
@@ -9325,12 +9325,12 @@ ewline
 ewline 
 ewline 370.00
 ewline CHF
-ewline K
+ewline S
 ewline The Tea corner
 ewline Rue des salines 44
-ewline 1007 Lausanne
 ewline 
-ewline 
+ewline 1007
+ewline Lausanne
 ewline CH
 ewline SCOR
 ewline RF7611217
@@ -9423,12 +9423,12 @@ Rue des salines 44 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline My Company
 ewline Rue aux lapins 2
-ewline 1002 Lausanne
 ewline 
-ewline 
+ewline 1002
+ewline Lausanne
 ewline CH
 ewline 
 ewline 
@@ -9439,12 +9439,12 @@ ewline
 ewline 
 ewline 370.00
 ewline CHF
-ewline K
+ewline S
 ewline The Tea corner
 ewline Rue des salines 44
-ewline 1007 Lausanne
 ewline 
-ewline 
+ewline 1007
+ewline Lausanne
 ewline CH
 ewline SCOR
 ewline RF4911218
@@ -9761,12 +9761,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -9777,12 +9777,12 @@ ewline
 ewline 
 ewline 540.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF66411003501
@@ -9887,12 +9887,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -9903,12 +9903,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF39411003502
@@ -10022,12 +10022,12 @@ Via Carlo Cattaneo \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -10038,12 +10038,12 @@ ewline
 ewline 
 ewline 300.00
 ewline CHF
-ewline K
+ewline S
 ewline James Johnson
 ewline Via Carlo Cattaneo
-ewline 6900 Lugano
 ewline 
-ewline 
+ewline 6900
+ewline Lugano
 ewline CH
 ewline SCOR
 ewline RF60411013503
@@ -10145,12 +10145,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -10161,12 +10161,12 @@ ewline
 ewline 
 ewline 540.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF66411003501
@@ -10269,12 +10269,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -10285,12 +10285,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF39411003502
@@ -10392,12 +10392,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -10408,12 +10408,12 @@ ewline
 ewline 
 ewline 540.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF66411003501
@@ -10516,12 +10516,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -10532,12 +10532,12 @@ ewline
 ewline 
 ewline 90.00
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF39411003502
@@ -10706,6 +10706,9 @@ Product A \newline \newline  &  &  & 501.39  & 501.39 \\
 \end{longtable}
 This is the final text of the estimate. \\
 It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
 \end{reportvalue}
 \begin{jsonvalue}{JSON preferences}
 {
@@ -10759,6 +10762,9 @@ Service 2 \newline \newline  & 1.0000  & hrs  & 37.14  & 37.14 \\
 \end{longtable}
 This is the final text of the estimate. \\
 It can be on multiple lines. \\
+\begin{longtable}[l]{ l }
+\\
+\end{longtable}
 \end{reportvalue}
 \begin{jsonvalue}{JSON preferences}
 {
@@ -10855,12 +10861,12 @@ Viale Stazione 11 \\
 ewline 0200
 ewline 1
 ewline CH5800791123000889012
-ewline K
+ewline S
 ewline Company
 ewline Address1
-ewline Zip City
 ewline 
-ewline 
+ewline Zip
+ewline City
 ewline CH
 ewline 
 ewline 
@@ -10871,12 +10877,12 @@ ewline
 ewline 
 ewline 600.10
 ewline CHF
-ewline K
+ewline S
 ewline Redford SA
 ewline Viale Stazione 11
-ewline 6500 Bellinzona
 ewline 
-ewline 
+ewline 6500
+ewline Bellinzona
 ewline CH
 ewline SCOR
 ewline RF55411003505
@@ -10994,6 +11000,488 @@ Thank you very much. \\
 \\
 \end{longtable}
 \end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 110}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 110 \\
+Date:  & 01.01.2025 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 110 \\
+Date:  & 01.01.2025 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Redford SA \newline Andrew Redford \newline Viale Stazione \newline Casa Serena \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 110 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  & 1.00  & pz  & 92.51  & 92.51 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{Total net } & 92.51 \\
+\multicolumn{503}{l}{VAT 8.10\% (92.51) } & 7.49 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{TOTAL CHF } & 100.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF50 4110 0311 0 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+100.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+100.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF50 4110 0311 0 \\
+  \\
+Additional information \\
+//S1/10/110/11/250101/20/1100/31/250101/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 100.00
+ewline CHF
+ewline S
+ewline Redford SA
+ewline Viale Stazione
+ewline 11
+ewline 6500
+ewline Bellinzona
+ewline CH
+ewline SCOR
+ewline RF50411003110
+ewline 
+ewline EPD
+ewline //S1/10/110/11/250101/20/1100/31/250101/32/8.1/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 111}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 111 \\
+Date:  & 01.02.2025 \\
+Customer No:  & 1101 \\
+Due date:  & 03.03.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 111 \\
+Date:  & 01.02.2025 \\
+Customer No:  & 1101 \\
+Due date:  & 03.03.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 111 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product B \newline \newline  & 2.00  & pz  & 92.51  & 185.01 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{Total net } & 185.01 \\
+\multicolumn{508}{l}{VAT 8.10\% (185.01) } & 14.99 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{TOTAL CHF } & 200.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF71 4110 1311 1 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo 12 \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+200.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+200.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF71 4110 1311 1 \\
+  \\
+Additional information \\
+//S1/10/111/11/250201/20/1101/31/250201/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo 12 \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 200.00
+ewline CHF
+ewline S
+ewline James Johnson
+ewline Via Carlo Cattaneo
+ewline 12
+ewline 6900
+ewline Lugano
+ewline CH
+ewline SCOR
+ewline RF71411013111
+ewline 
+ewline EPD
+ewline //S1/10/111/11/250201/20/1101/31/250201/32/8.1/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 112}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 112 \\
+Date:  & 01.03.2025 \\
+Customer No:  & 1102 \\
+Due date:  & 31.03.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 112 \\
+Date:  & 01.03.2025 \\
+Customer No:  & 1102 \\
+Due date:  & 31.03.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Robert Black \newline Via Regina \newline 6982 Agno \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 112 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product C \newline \newline  & 3.00  & pz  & 92.51  & 277.52 \\
+\multicolumn{514}{l}{}\\
+\multicolumn{513}{l}{Total net } & 277.52 \\
+\multicolumn{513}{l}{VAT 8.10\% (277.52) } & 22.48 \\
+\multicolumn{514}{l}{}\\
+\multicolumn{513}{l}{TOTAL CHF } & 300.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF92 4110 2311 2 \\
+  \\
+Payable by \\
+Robert Black \\
+Via Regina 13 \\
+6982 Agno \\
+Currency \\
+CHF \\
+Amount \\
+300.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+300.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF92 4110 2311 2 \\
+  \\
+Additional information \\
+//S1/10/112/11/250301/20/1102/31/250301/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+Robert Black \\
+Via Regina 13 \\
+6982 Agno \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 300.00
+ewline CHF
+ewline S
+ewline Robert Black
+ewline Via Regina
+ewline 13
+ewline 6982
+ewline Agno
+ewline CH
+ewline SCOR
+ewline RF92411023112
+ewline 
+ewline EPD
+ewline //S1/10/112/11/250301/20/1102/31/250301/32/8.1/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 113}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 113 \\
+Date:  & 01.04.2025 \\
+Customer No:  & 1103 \\
+Due date:  & 01.05.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 113 \\
+Date:  & 01.04.2025 \\
+Customer No:  & 1103 \\
+Due date:  & 01.05.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+John Smith \newline 6962 Viganello \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 113 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product D \newline \newline  & 4.00  & pz  & 92.51  & 370.03 \\
+\multicolumn{519}{l}{}\\
+\multicolumn{518}{l}{Total net } & 370.03 \\
+\multicolumn{518}{l}{VAT 8.10\% (370.03) } & 29.97 \\
+\multicolumn{519}{l}{}\\
+\multicolumn{518}{l}{TOTAL CHF } & 400.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF16 4110 3311 3 \\
+  \\
+Payable by \\
+John Smith \\
+6962 Viganello \\
+Currency \\
+CHF \\
+Amount \\
+400.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+400.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF16 4110 3311 3 \\
+  \\
+Additional information \\
+//S1/10/113/11/250401/20/1103/31/250401/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+John Smith \\
+6962 Viganello \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 400.00
+ewline CHF
+ewline S
+ewline John Smith
+ewline 
+ewline 
+ewline 6962
+ewline Viganello
+ewline CH
+ewline SCOR
+ewline RF16411033113
+ewline 
+ewline EPD
+ewline //S1/10/113/11/250401/20/1103/31/250401/32/8.1/40/0:30}\\
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}

@@ -2,6 +2,13 @@
 
 All notable changes to the [[CH10] Layout with Swiss QR Code](https://www.banana.ch/apps/en/node/9338) extension will be documented in this file.  
 
+* 2025-11-18
+	* Update Stable Release extensions with structured addresses and BuildingNumber.
+* 2025-05-27
+	* Update Beta Release - QR Code always with structured addresses (S). As of November 2025, combined addresses (K) will no longer be supported.
+		* New column BuildingNumber is used for the building number of the customer address. The AddressExtra column is no longer used.
+		* New field BuildingNumber is used for the building number of the supplier address.
+	* Fix footer printing for estimates.  
 * 2025-02-04
 	* Added the customer email in the invoice address and as free text using the EmailWork column.
 * 2024-12-11

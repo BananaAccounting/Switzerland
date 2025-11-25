@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.ch.invoice.ch10
 // @api = 1.0
-// @pubdate = 2025-02-04
+// @pubdate = 2025-11-18
 // @publisher = Banana.ch SA
 // @description = [CH10] Invoice layout with Swiss QR Code (Banana+)
 // @description.it = [CH10] Layout con codice QR svizzero (Banana+)
@@ -238,7 +238,7 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
 
   /* PRINT CUSTOMER ADDRESS */
   if (invoiceObj.shipping_info && invoiceObj.shipping_info.different_shipping_address && (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts")) { //for delivery note use shipping address when available
-    if (BAN_ADVANCED && typeof(hook_print_customer_address) === typeof(Function)) {
+    if (BAN_ADVANCED && typeof(hook_print_address_delivery_note) === typeof(Function)) {
       hook_print_address_delivery_note(repDocObj, invoiceObj, userParam);
     } else {
       print_address_delivery_note(repDocObj, invoiceObj, userParam);
@@ -367,8 +367,8 @@ function printInvoice(banDoc, repDocObj, texts, userParam, repStyleObj, invoiceO
   }
 
   /* PRINT QR CODE */
-  if (printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice" || printFormat === "order_confirmation") {
-    userParam.qr_code_add = false; //delivery notes printed without QRCode
+  if (invoiceObj.document_info.doc_type == "17" || printFormat === "delivery_note" || printFormat === "delivery_note_without_amounts" || printFormat === "proforma_invoice" || printFormat === "order_confirmation") {
+    userParam.qr_code_add = false; //estimates, delivery notes, proforma invoices, order confirmations printed without QRCode
   }
 
   if (invoiceObj.payment_info && invoiceObj.payment_info.last_reminder_date && invoiceObj.payment_info.last_reminder_due_date && (printFormat === "reminder_1" || printFormat === "reminder_2" || printFormat === "reminder_3")) {
@@ -1763,6 +1763,7 @@ function columnNamesToValues(invoiceObj, text) {
   var firstName = invoiceObj.customer_info.first_name;
   var lastName = invoiceObj.customer_info.last_name;
   var address1 = invoiceObj.customer_info.address1;
+  var buildingNumber = invoiceObj.customer_info.building_number;
   var address2 = invoiceObj.customer_info.address2;
   var address3 = invoiceObj.customer_info.address3;
   var postalCode = invoiceObj.customer_info.postal_code;
@@ -1823,6 +1824,11 @@ function columnNamesToValues(invoiceObj, text) {
       text = text.replace(/<Street>/g, address1.trim());
     } else {
       text = text.replace(/<Street>/g, "<>");
+    }
+    if (buildingNumber && text.indexOf("<BuildingNumber>") > -1) {
+      text = text.replace(/<BuildingNumber>/g, buildingNumber.trim());
+    } else {
+      text = text.replace(/<BuildingNumber>/g, "<>");
     }
     if (address2 && text.indexOf("<AddressExtra>") > -1) {
       text = text.replace(/<AddressExtra>/g, address2.trim());
@@ -2054,6 +2060,7 @@ function getInvoiceAddress(invoiceAddress, userParam) {
   var firstName = invoiceAddress.first_name;
   var lastName = invoiceAddress.last_name;
   var address1 = invoiceAddress.address1;
+  var buildingNumber = invoiceAddress.building_number;
   var address2 = invoiceAddress.address2;
   var address3 = invoiceAddress.address3;
   var postalCode = invoiceAddress.postal_code;
@@ -2104,6 +2111,10 @@ function getInvoiceAddress(invoiceAddress, userParam) {
     address = address.replace(/<Street>/g, address1.trim());
   }
   
+  if (address.indexOf("<BuildingNumber>") > -1 && buildingNumber) {
+    address = address.replace(/<BuildingNumber>/g, buildingNumber.trim());
+  }
+
   if (address.indexOf("<AddressExtra>") > -1 && address2) {
     address = address.replace(/<AddressExtra>/g, address2.trim());
   }
@@ -2175,8 +2186,14 @@ function getInvoiceSupplier(invoiceSupplier, userParam, texts) {
   if (invoiceSupplier.address1) {
     supplierAddress += invoiceSupplier.address1;
   }
-  if (invoiceSupplier.address2) {
+  if (invoiceSupplier.building_number) {
     if (invoiceSupplier.address1) {
+      supplierAddress += " ";
+    }
+    supplierAddress += invoiceSupplier.building_number;
+  }
+  if (invoiceSupplier.address2) {
+    if (invoiceSupplier.address1 || invoiceSupplier.building_number) {
       supplierAddress += ", ";
     }
     supplierAddress += invoiceSupplier.address2;

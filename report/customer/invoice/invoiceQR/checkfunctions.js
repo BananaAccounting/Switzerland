@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-/* Script update: 2024-12-11 */
+/* Script update: 2025-05-30 */
 
 
 /*
@@ -124,6 +124,23 @@ function isSwissCountry(input) {
         return true;
     }
 }
+
+// /**
+// * Check if the Banana document has the column BuildingNumber in Accounts table (old Banana versions don't have it).
+// * Returns TRUE if the column exists.
+// * Returns FALSE if the document or table or column do not exist.
+// */
+// function hasBuildingNumber() {
+//     if (!Banana.document) {
+//         return false;
+//     }
+//     var table = Banana.document.table("Accounts");
+//     if (!table) {
+//         return false;
+//     }
+//     var tColumnNames = table.columnNames;
+//     return tColumnNames && tColumnNames.includes("BuildingNumber");
+// }
 
 
 
