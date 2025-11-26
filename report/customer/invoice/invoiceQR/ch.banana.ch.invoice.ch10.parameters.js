@@ -15,7 +15,7 @@
 
 
 
-/* User parameters update: 2025-11-18 */
+/* User parameters update: 2025-11-26 */
 
 
 
@@ -1555,17 +1555,83 @@ function convertParam(userParam) {
   convertedParam.data.push(currentParam);
 
 
+
   /*******************************************************************************************
-  * EMBEDDED JAVASCRIPT FILEE
+  * DEVELOP
   *******************************************************************************************/
   currentParam = {};
+  currentParam.name = 'develop';
+  currentParam.title = texts.param_develop;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.develop = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //CSS
+  currentParam = {};
+  currentParam.name = 'embedded_css';
+  currentParam.parentObject = 'develop';
+  currentParam.title = texts.param_embedded_css;
+  currentParam.type = 'string';
+  currentParam.value = '';
+  currentParam.editable = false;
+  currentParam.readValue = function() {
+    userParam.embedded_css = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'code_css';
+  currentParam.parentObject = 'embedded_css';
+  currentParam.title = texts.param_code_css;
+  currentParam.type = 'multilinestring';
+  currentParam.value = userParam.code_css ? userParam.code_css : '';
+  currentParam.defaultvalue = '';
+  currentParam.tooltip = texts.param_tooltip_code_css;
+  currentParam.readValue = function() {
+    userParam.code_css = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'embedded_css_filename';
+  currentParam.parentObject = 'embedded_css';
+  currentParam.title = texts.param_embedded_css_filename;
+  currentParam.type = 'string';
+  currentParam.value = userParam.embedded_css_filename ? userParam.embedded_css_filename : '';
+  currentParam.defaultvalue = '';
+  currentParam.tooltip = texts.param_tooltip_css_filename;
+  currentParam.readValue = function() {
+    userParam.embedded_css_filename = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  //JS
+  currentParam = {};
   currentParam.name = 'embedded_javascript';
+  currentParam.parentObject = 'develop';
   currentParam.title = texts.param_embedded_javascript;
   currentParam.type = 'string';
   currentParam.value = '';
   currentParam.editable = false;
   currentParam.readValue = function() {
     userParam.embedded_javascript = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
+  currentParam = {};
+  currentParam.name = 'code_javascript';
+  currentParam.parentObject = 'embedded_javascript';
+  currentParam.title = texts.param_code_javascript;
+  currentParam.type = 'multilinestring';
+  currentParam.value = userParam.code_javascript ? userParam.code_javascript : '';
+  currentParam.defaultvalue = '';
+  currentParam.tooltip = texts.param_tooltip_code_javascript;
+  currentParam.readValue = function() {
+    userParam.code_javascript = this.value;
   }
   convertedParam.data.push(currentParam);
 
@@ -1582,49 +1648,20 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  //JSON
+  //invoice, parameters, preferences and QRCode text
   currentParam = {};
-  currentParam.name = 'embedded_css_filename';
-  currentParam.parentObject = 'embedded_javascript';
-  currentParam.title = texts.param_embedded_css_filename;
-  currentParam.type = 'string';
-  currentParam.value = userParam.embedded_css_filename ? userParam.embedded_css_filename : '';
-  currentParam.defaultvalue = '';
-  currentParam.tooltip = texts.param_tooltip_javascript_filename;
+  currentParam.name = 'dev_show_json';
+  currentParam.parentObject = 'develop';
+  currentParam.title = texts.param_dev_show_json;
+  currentParam.type = 'bool';
+  currentParam.value = userParam.dev_show_json ? true : false;
+  currentParam.defaultvalue = false;
+  currentParam.tooltip = texts.param_tooltip_dev_show_json;
   currentParam.readValue = function() {
-   userParam.embedded_css_filename = this.value;
+   userParam.dev_show_json = this.value;
   }
   convertedParam.data.push(currentParam);
-
-
-  /*******************************************************************************************
-  * DEVELOP
-  *******************************************************************************************/
-  if (BAN_ADVANCED) {
-    currentParam = {};
-    currentParam.name = 'develop';
-    currentParam.title = texts.param_develop;
-    currentParam.type = 'string';
-    currentParam.value = '';
-    currentParam.editable = false;
-    currentParam.readValue = function() {
-      userParam.develop = this.value;
-    }
-    convertedParam.data.push(currentParam);
-
-    //JSON of invoice, parameters, preferences and QRCode text
-    currentParam = {};
-    currentParam.name = 'dev_show_json';
-    currentParam.parentObject = 'develop';
-    currentParam.title = texts.param_dev_show_json;
-    currentParam.type = 'bool';
-    currentParam.value = userParam.dev_show_json ? true : false;
-    currentParam.defaultvalue = false;
-    currentParam.tooltip = texts.param_tooltip_dev_show_json;
-    currentParam.readValue = function() {
-     userParam.dev_show_json = this.value;
-    }
-    convertedParam.data.push(currentParam);
-  }
   
   return convertedParam;
 }
@@ -1774,6 +1811,8 @@ function initParam() {
 
   //Invoice JSON
   userParam.dev_show_json = false;
+  userParam.code_css = '';
+  userParam.code_javascript = '';
 
   return userParam;
 }
@@ -2097,6 +2136,12 @@ function verifyParam(userParam) {
   //Develop
   if (!userParam.dev_show_json || !BAN_ADVANCED) {
     userParam.dev_show_json = false;
+  }
+  if (!userParam.code_css || !BAN_ADVANCED) {
+    userParam.code_css = '';
+  }
+  if (!userParam.code_javascript || !BAN_ADVANCED) {
+    userParam.code_javascript = '';
   }
 
   // First time check the version parameter: if < 2 add the building number to the address composition

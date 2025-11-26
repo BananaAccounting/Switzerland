@@ -15,7 +15,7 @@
 
 
 
-/* Texts update: 2025-11-18 */
+/* Texts update: 2025-11-26 */
 
 
 
@@ -145,9 +145,10 @@ function setTexts_it(texts) {
   texts.param_font_family = "Tipo carattere";
   texts.param_font_size = "Dimensione carattere";
   texts.embedded_javascript_file_not_found = "File JavaScript non trovato o non valido";
-  texts.param_embedded_javascript = "JavaScript / CSS";
-  texts.param_embedded_javascript_filename = "Nome file JS (colonna 'ID' tabella Documenti)";
-  texts.param_embedded_css_filename = "Nome file CSS (colonna 'ID' tabella Documenti)";
+  texts.param_embedded_javascript = "JavaScript";
+  texts.param_embedded_css = "CSS";
+  texts.param_embedded_javascript_filename = "Nome file (colonna 'ID' tabella Documenti)";
+  texts.param_embedded_css_filename = "Nome file (colonna 'ID' tabella Documenti)";
   texts.param_tooltip_header_print = "Vista per includere l'intestazione della pagina";
   texts.param_tooltip_logo_print = "Vista per includere il logo";
   texts.param_tooltip_logo_name = "Inserisci il nome del logo";
@@ -203,6 +204,7 @@ function setTexts_it(texts) {
   texts.param_tooltip_text_color_details_header = "Inserisci il colore per il testo dell'intestazione dei dettagli (ad es. '#ffffff' oppure 'White')";
   texts.param_tooltip_background_color_alternate_lines = "Inserisci il colore per lo sfondo delle rige alternate (ad es. '#F0F8FF' oppure 'LightSkyBlue')";
   texts.param_tooltip_javascript_filename = "Inserisci il nome del file JavaScript (.js) della colonna 'ID' tabella Documenti (ad es. File.js)";
+  texts.param_tooltip_css_filename = "Inserisci il nome del file CSS (.css) della colonna 'ID' tabella Documenti (ad es. File.css)";
   texts.error1 = "I nomi delle colonne non corrispondono ai testi da stampare. Verificare impostazioni fattura.";
   texts.it_error1_msg = "Nomi testi e colonne non corrispondono";
   texts.offer = "Offerta";
@@ -294,6 +296,11 @@ function setTexts_it(texts) {
   texts.param_develop = "Sviluppo";
   texts.param_dev_show_json = "Visualizza JSON fattura";
   texts.param_tooltip_dev_show_json = "Visualizza JSON fattura, parametri layout, preferenze layout, testo QRCode";
+  texts.param_code_css = "Codice";
+  texts.param_tooltip_code_css = "Inserisci il codice CSS";
+  texts.param_code_javascript = "Codice";
+  texts.param_tooltip_code_javascript = "Inserisci il codice JavaScript"; 
+
   texts.json_invoice = "JSON fattura";
   texts.json_layoutparameters = "JSON parametri layout";
   texts.json_layoutpreferences = "JSON preferenze layout";
@@ -397,9 +404,10 @@ function setTexts_fr(texts) {
   texts.param_font_family = "Type de caractère";
   texts.param_font_size = "Taille des caractères";
   texts.embedded_javascript_file_not_found = "Fichier JavaScript non trouvé ou invalide";
-  texts.param_embedded_javascript = "JavaScript / CSS";
-  texts.param_embedded_javascript_filename = "Nom fichier JS (colonne 'ID' du tableau Documents)";
-  texts.param_embedded_css_filename = "Nom fichier CSS (colonne 'ID' du tableau Documents)";
+  texts.param_embedded_javascript = "JavaScript";
+  texts.param_embedded_css = "CSS";
+  texts.param_embedded_javascript_filename = "Nom fichier (colonne 'ID' du tableau Documents)";
+  texts.param_embedded_css_filename = "Nom fichier (colonne 'ID' du tableau Documents)";
   texts.param_tooltip_header_print = "Activer pour inclure l'en-tête de la page";
   texts.param_tooltip_logo_print = "Activer pour inclure le logo";
   texts.param_tooltip_logo_name = "Insérer le nom du logo";
@@ -454,7 +462,8 @@ function setTexts_fr(texts) {
   texts.param_tooltip_background_color_details_header = "Insérer la couleur de fond de l'en-tête des détails (p. ex. '#337ab7' ou 'Blue')";
   texts.param_tooltip_text_color_details_header = "Insérer la couleur de texte de l'en-tête des détails (p. ex. '#ffffff' ou 'White')";
   texts.param_tooltip_background_color_alternate_lines = "Insérer la couleur de fond pour les lignes alternées (p. ex. '#F0F8FF' ou 'LightSkyBlue')";
-  texts.param_tooltip_javascript_filename = "Insérer le nom du fichier JavaScript (.js) de la colonne 'ID' du tableau Documents (p. ex. File.js)";    
+  texts.param_tooltip_javascript_filename = "Insérer le nom du fichier JavaScript (.js) de la colonne 'ID' du tableau Documents (p. ex. File.js)";
+  texts.param_tooltip_css_filename = "Insérer le nom du fichier CSS (.css) de la colonne 'ID' du tableau Documents (p. ex. File.css)";    
   texts.error1 = "Les noms des colonnes ne correspondent pas aux textes à imprimer. Vérifiez les paramètres de la facture.";
   texts.fr_error1_msg = "Le texte et les noms des colonnes ne correspondent pas";
   texts.offer = "Offre";
@@ -546,6 +555,11 @@ function setTexts_fr(texts) {
   texts.param_develop = "Développement";
   texts.param_dev_show_json = "Afficher le JSON de la facture";
   texts.param_tooltip_dev_show_json = "Afficher le JSON de la facture, des paramètres de mise en page, des préférences de mise en page, le texte du QRCode";
+  texts.param_code_css = "Code";
+  texts.param_tooltip_code_css = "Insérez le code CSS";
+  texts.param_code_javascript = "Code";
+  texts.param_tooltip_code_javascript = "Insérez le code JavaScript";
+
   texts.json_invoice = "JSON de la facture";
   texts.json_layoutparameters = "JSON des paramètres de mise en page";
   texts.json_layoutpreferences = "JSON des préférences de mise en page";
@@ -649,9 +663,10 @@ function setTexts_de(texts) {
   texts.param_font_family = "Schriftzeichen";
   texts.param_font_size = "Schriftgrösse";
   texts.embedded_javascript_file_not_found = "Benutzerdefinierte Javascript-Datei nicht gefunden oder nicht gültig";
-  texts.param_embedded_javascript = "JavaScript / CSS";
-  texts.param_embedded_javascript_filename = "JS Dateiname ('ID-Spalte Dokumente-Tabelle)";
-  texts.param_embedded_css_filename = "CSS Dateiname ('ID-Spalte Dokumente-Tabelle)";
+  texts.param_embedded_javascript = "JavaScript";
+  texts.param_embedded_css = "CSS";
+  texts.param_embedded_javascript_filename = "Dateiname ('ID-Spalte Dokumente-Tabelle)";
+  texts.param_embedded_css_filename = "Dateiname ('ID-Spalte Dokumente-Tabelle)";
   texts.param_tooltip_header_print = "Aktivieren, um Seitenkopf einzuschliessen";
   texts.param_tooltip_logo_print = "Aktivieren, um Logo einzuschliessen";
   texts.param_tooltip_logo_name = "Logo-Name eingeben";
@@ -706,7 +721,8 @@ function setTexts_de(texts) {
   texts.param_tooltip_background_color_details_header = "Farbe eingeben (z.B. '#337ab7' oder 'Blue')";
   texts.param_tooltip_text_color_details_header = "Textfarbe eingeben (z.B. '#ffffff' oder 'White')";
   texts.param_tooltip_background_color_alternate_lines = "Farbe Zeilenhintergrund der Details eingeben (z.B. '#F0F8FF' oder 'LightSkyBlue')";
-  texts.param_tooltip_javascript_filename = "Javaskript-Dateiname der 'ID'-Spalte Dokumente-Tabelle eingeben (z.B. Filejs)";
+  texts.param_tooltip_javascript_filename = "Javaskript-Dateiname der 'ID'-Spalte Dokumente-Tabelle eingeben (z.B. File.js)";
+  texts.param_tooltip_css_filename = "CSS-Dateiname der 'ID'-Spalte Dokumente-Tabelle eingeben (z.B. File.css)";
   texts.error1 = "Die Spaltennamen stimmen nicht mit den zu druckenden Texten überein. Prüfen Sie die Rechnungseinstellungen.";
   texts.de_error1_msg = "Die Namen von Text und Spalten stimmen nicht überein.";
   texts.offer = "Offerte";
@@ -798,6 +814,11 @@ function setTexts_de(texts) {
   texts.param_develop = "Entwicklung";
   texts.param_dev_show_json = "Zeige JSON-Rechnung";
   texts.param_tooltip_dev_show_json = "Zeige JSON-Rechnung, JSON-Layoutparameter, JSON-Layouteinstellungen und QRCode-Text";
+  texts.param_code_css = "Code";
+  texts.param_tooltip_code_css = "CSS-Code eingeben";
+  texts.param_code_javascript = "Code";
+  texts.param_tooltip_code_javascript = "JavaScript-Code eingeben";
+
   texts.json_invoice = "JSON-Rechnung";
   texts.json_layoutparameters = "JSON-Layoutparameter";
   texts.json_layoutpreferences = "JSON-Layouteinstellungen";
@@ -901,9 +922,10 @@ function setTexts_en(texts) {
   texts.param_font_family = "Font family";
   texts.param_font_size = "Font size";
   texts.embedded_javascript_file_not_found = "JavaScript file not found or invalid";
-  texts.param_embedded_javascript = "JavaScript / CSS";
-  texts.param_embedded_javascript_filename = "JS file name (column 'ID' of table Documents)";
-  texts.param_embedded_css_filename = "CSS file name (column 'ID' of table Documents)";
+  texts.param_embedded_javascript = "JavaScript";
+  texts.param_embedded_css = "CSS";
+  texts.param_embedded_javascript_filename = "File name (column 'ID' of table Documents)";
+  texts.param_embedded_css_filename = "File name (column 'ID' of table Documents)";
   texts.param_tooltip_header_print = "Check to include page header";
   texts.param_tooltip_logo_print = "Check to include logo";
   texts.param_tooltip_logo_name = "Enter the logo name";
@@ -958,7 +980,8 @@ function setTexts_en(texts) {
   texts.param_tooltip_background_color_details_header = "Enter color for the background of header details (e.g. '#337ab7' or 'Blue')";
   texts.param_tooltip_text_color_details_header = "Enter color for the text of header details (e.g. '#ffffff' or 'White')";
   texts.param_tooltip_background_color_alternate_lines = "Enter color for the background of alternate lines (e.g. '#F0F8FF' or 'LightSkyBlue')";
-  texts.param_tooltip_javascript_filename = "Enter name of the javascript file taken from the 'ID' column of the table 'Documents' (i.e. file.js)";  
+  texts.param_tooltip_javascript_filename = "Enter name of the JavaScript file taken from the 'ID' column of the table 'Documents' (i.e. file.js)";
+  texts.param_tooltip_css_filename = "Enter name of the CSS file taken from the 'ID' column of the table 'Documents' (i.e. file.css)";  
   texts.error1 = "Column names do not match with the text to print. Check invoice settings.";
   texts.en_error1_msg = "Text names and columns do not match";
   texts.offer = "Estimate";
@@ -1050,6 +1073,11 @@ function setTexts_en(texts) {
   texts.param_develop = "Development";
   texts.param_dev_show_json = "View JSON invoice";
   texts.param_tooltip_dev_show_json = "View JSON invoice, layout parameters, layout preferences, QRCode text";
+  texts.param_code_css = "Code";
+  texts.param_tooltip_code_css = "Enter the CSS code";
+  texts.param_code_javascript = "Code";
+  texts.param_tooltip_code_javascript = "Enter the JavaScript code";
+
   texts.json_invoice = "JSON invoice";
   texts.json_layoutparameters = "JSON layout parameters";
   texts.json_layoutpreferences = "JSON layout preferences";
