@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
 
 // @id = ch.banana.switzerland.import.viseca
 // @api = 1.0
-// @pubdate = 2024-08-28
+// @pubdate = 2025-10-15
 // @publisher = Banana.ch SA
-// @description = Viseca (One) - Import movements .xls (Banana+ Advanced)
-// @description.it = Viseca (One) - Importa movimenti .xls (Banana+ Advanced)
-// @description.en = Viseca (One) - Import movements .xls (Banana+ Advanced)
-// @description.de = Viseca (One) - Bewegungen importieren .xls (Banana+ Advanced)
-// @description.fr = Viseca (One) - Importer mouvements .xls (Banana+ Advanced)
+// @description = Viseca (One) - Import movements .csv (Banana+ Advanced)
+// @description.it = Viseca (One) - Importa movimenti .csv (Banana+ Advanced)
+// @description.en = Viseca (One) - Import movements .csv (Banana+ Advanced)
+// @description.de = Viseca (One) - Bewegungen importieren .csv (Banana+ Advanced)
+// @description.fr = Viseca (One) - Importer mouvements .csv (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -48,12 +48,13 @@ function exec(inData, isTest) {
       return "";
 
    convertionParam = defineConversionParam(inData);
+
    let transactions = Banana.Converter.csvToArray(inData, convertionParam.separator, convertionParam.textDelim);
-   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
    // Viseca Card Payments, this format works with the header names.
    // Format 1
    var visecaFormat1 = new VisecaFormat1();
+   let transactionsData = visecaFormat1.getFormattedData(transactions, importUtilities);
    if (visecaFormat1.match(transactionsData)) {
       transactions = visecaFormat1.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
@@ -61,8 +62,17 @@ function exec(inData, isTest) {
 
    // Format 2
    var visecaFormat2 = new VisecaFormat2();
+   transactionsData = visecaFormat2.getFormattedData(transactions, importUtilities);
    if (visecaFormat2.match(transactionsData)) {
       transactions = visecaFormat2.convert(transactionsData);
+      return Banana.Converter.arrayToTsv(transactions);
+   }
+
+   // Format 3
+   var visecaFormat3 = new VisecaFormat3();
+   transactionsData = visecaFormat3.getFormattedData(transactions, importUtilities);
+   if (visecaFormat3.match(transactionsData)) {
+      transactions = visecaFormat3.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
    }
 
@@ -95,7 +105,7 @@ function VisecaFormat1() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 8 &&
             transaction["Date"].match(/^\d{2}.\d{2}.\d{2}$/))
             formatMatched = true;
@@ -113,7 +123,7 @@ function VisecaFormat1() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 8 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{2}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -126,6 +136,33 @@ function VisecaFormat1() {
       // Add header and return
       var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
+   }
+
+   this.getFormattedData = function (inData, importUtilities) {
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 5); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 6); //array of array
+      let form = [];
+
+      let convertedColumns = [];
+
+      convertedColumns = convertHeaderDe(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderEn(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
    }
 
    this.mapTransaction = function (transaction) {
@@ -167,7 +204,7 @@ function VisecaFormat2() {
       for (var i = 0; i < transactionsData.length; i++) {
          var transaction = transactionsData[i];
          var formatMatched = true;
-         
+
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
             transaction["Date"].match(/^\d{2}.\d{2}.\d{4}$/))
             formatMatched = true;
@@ -185,7 +222,7 @@ function VisecaFormat2() {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
-         
+
          if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
             transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
             transactionsToImport.push(this.mapTransaction(transactionsData[i]));
@@ -198,6 +235,33 @@ function VisecaFormat2() {
       // Add header and return
       var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
       return header.concat(transactionsToImport);
+   }
+
+   this.getFormattedData = function (inData, importUtilities) {
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 4); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 5); //array of array
+      let form = [];
+
+      let convertedColumns = [];
+
+      convertedColumns = convertHeaderDe(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderEn(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
    }
 
    this.mapTransaction = function (transaction) {
@@ -226,13 +290,6 @@ function defineConversionParam(inData) {
    convertionParam.textDelim = '\"';
    // get separator
    convertionParam.separator = findSeparator(inData);
-   if (inData.split('\n')[5].match(/^POSITION/)) {
-      convertionParam.headerLineStart = 5;
-      convertionParam.dataLineStart = 6;
-   } else {
-      convertionParam.headerLineStart = 4;
-      convertionParam.dataLineStart = 5;
-   }
 
    /** SPECIFY THE COLUMN TO USE FOR SORTING
    If sortColums is empty the data are not sorted */
@@ -240,24 +297,6 @@ function defineConversionParam(inData) {
    convertionParam.sortDescending = false;
 
    return convertionParam;
-}
-
-function getFormattedData(inData, convertionParam, importUtilities) {
-   var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart); //array
-   var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart); //array of array
-   let form = [];
-
-   let convertedColumns = [];
-
-   convertedColumns = convertHeaderDe(columns);
-
-   //Load the form with data taken from the array. Create objects
-   if (convertedColumns.length > 0) {
-      importUtilities.loadForm(form, convertedColumns, rows);
-      return form;
-   }
-
-   return [];
 }
 
 function convertHeaderDe(columns) {
@@ -269,8 +308,8 @@ function convertHeaderDe(columns) {
             convertedColumns[i] = "Date";
             break;
          case "VORNAME":
-               convertedColumns[i] = "First Name";
-               break;
+            convertedColumns[i] = "First Name";
+            break;
          case "NACHNAME":
             convertedColumns[i] = "Last Name";
             break;
@@ -279,6 +318,148 @@ function convertHeaderDe(columns) {
             break;
          case "BRUTTOBETRAG RECHNUNG":
             convertedColumns[i] = "Amount";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+/**
+ * Viseco (One) Format 3
+ * TransactionId,CardId,Date,ValutaDate,Amount,Currency,OriginalAmount,OriginalCurrency,MerchantName,MerchantPlace,MerchantCountry,StateType,Details,Type
+ * TRX2025123456789012345,1239456ABC3Z1234,2025-05-08 12:04:06,2025-05-09 00:00:00,8.500,EUR,8.500,EUR,Vichy,FRA,BOOKED,Vichy,merchant
+ * TRX2025012345678901234,1239456ABC3Z1234,2025-05-06 21:29:11,2025-05-07 00:00:00,256.960,EUR,256.960,EUR,hotel,FRA,BOOKED,hotel,merchant
+ * TRX2025123456789001234,1239456ABC3Z1234,2025-04-16 14:18:01,2025-04-17 00:00:00,14.300,EUR,12.900,CHF,Test,,,BOOKED,Test,merchant
+ * 
+ */
+function VisecaFormat3() {
+   /** Return true if the transactions match this format */
+   this.match = function (transactionsData) {
+      if (transactionsData.length === 0)
+         return false;
+
+      for (var i = 0; i < transactionsData.length; i++) {
+         var transaction = transactionsData[i];
+         var formatMatched = true;
+
+         if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
+            transaction["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/))
+            formatMatched = true;
+         else
+            formatMatched = false;
+
+         if (formatMatched)
+            return true;
+      }
+
+      return false;
+   }
+
+   this.getFormattedData = function (inData, importUtilities) {
+      let transactionsCopy = JSON.parse(JSON.stringify(inData)); //To not modifiy the original array we make a deep copy of the array.
+      var columns = importUtilities.getHeaderData(transactionsCopy, 0); //array
+      var rows = importUtilities.getRowData(transactionsCopy, 1); //array of array
+      let form = [];
+
+      let convertedColumns = convertHeaderEn(columns);
+
+      //Load the form with data taken from the array. Create objects
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+   }
+
+   this.convert = function (transactionsData) {
+      var transactionsToImport = [];
+
+      for (var i = 0; i < transactionsData.length; i++) {
+
+         if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
+            transactionsData[i]["Date"].substring(0, 10).match(/^\d{4}-\d{2}-\d{2}$/)) {
+            transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+         }
+      }
+
+      // Sort rows by date
+      transactionsToImport = transactionsToImport.reverse();
+
+      // Add header and return
+      var header = [["Date", "DateValue", "Doc", "ExternalReference", "Description", "Income", "Expenses"]];
+      return header.concat(transactionsToImport);
+   }
+
+   this.mapTransaction = function (transaction) {
+      let mappedLine = [];
+
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
+      mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
+      mappedLine.push("");
+      mappedLine.push(transaction["TransactionId"]);
+      mappedLine.push(this.getDescription(transaction));
+      if (transaction["Amount"].substring(0, 1) === '-') { // Income has the minus sign
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), '.'));
+         mappedLine.push("");
+      } else { // Expenses
+         mappedLine.push("");
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
+      }
+
+      return mappedLine;
+   }
+
+   this.getDescription = function (transaction) {
+      if (!transaction) return "";
+      const { "MerchantName": name, "MerchantPlace": place, "Details": details } = transaction;
+      return [name, place, details]
+         .filter(value => value && typeof value === "string" && value.trim() !== "")
+         .join(", ");
+   }
+}
+
+function convertHeaderEn(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Date":
+            convertedColumns[i] = "Date";
+            break;
+         case "ValutaDate":
+            convertedColumns[i] = "DateValue";
+            break;
+         case "TransactionId":
+            convertedColumns[i] = "TransactionId";
+            break;
+         case "Amount":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Currency":
+            convertedColumns[i] = "Currency";
+            break;
+         case "MerchantName":
+            convertedColumns[i] = "MerchantName";
+            break;
+         case "MerchantPlace":
+            convertedColumns[i] = "MerchantPlace";
+            break;
+         case "MerchantCountry":
+            convertedColumns[i] = "MerchantCountry";
+            break;
+         case "StateType":
+            convertedColumns[i] = "State Type";
+            break;
+         case "Details":
+            convertedColumns[i] = "Details";
             break;
          default:
             break;

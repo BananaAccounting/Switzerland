@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Bank CIC - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Bank CIC - Import account statement .csv (Banana+ Advanced)",
+    "description.de": "Bank CIC - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Banque CIC - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it": "Banca CIC - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.cic",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Bank CIC - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Bank CIC - Import account statement .csv (Banana+ Advanced)",
+    "title.de": "Bank CIC - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Banque CIC - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it": "Banca CIC - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

@@ -11000,6 +11000,488 @@ Thank you very much. \\
 \\
 \end{longtable}
 \end{reportvalue}
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 110}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 110 \\
+Date:  & 01.01.2025 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 110 \\
+Date:  & 01.01.2025 \\
+Customer No:  & 1100 \\
+Due date:  & 31.01.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Redford SA \newline Andrew Redford \newline Viale Stazione \newline Casa Serena \newline 6500 Bellinzona \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 110 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product A \newline \newline  & 1.00  & pz  & 92.51  & 92.51 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{Total net } & 92.51 \\
+\multicolumn{503}{l}{VAT 8.10\% (92.51) } & 7.49 \\
+\multicolumn{504}{l}{}\\
+\multicolumn{503}{l}{TOTAL CHF } & 100.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF50 4110 0311 0 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+Currency \\
+CHF \\
+Amount \\
+100.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+100.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF50 4110 0311 0 \\
+  \\
+Additional information \\
+//S1/10/110/11/250101/20/1100/31/250101/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+Redford SA \\
+Viale Stazione 11 \\
+6500 Bellinzona \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 100.00
+ewline CHF
+ewline S
+ewline Redford SA
+ewline Viale Stazione
+ewline 11
+ewline 6500
+ewline Bellinzona
+ewline CH
+ewline SCOR
+ewline RF50411003110
+ewline 
+ewline EPD
+ewline //S1/10/110/11/250101/20/1100/31/250101/32/8.1/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 111}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 111 \\
+Date:  & 01.02.2025 \\
+Customer No:  & 1101 \\
+Due date:  & 03.03.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 111 \\
+Date:  & 01.02.2025 \\
+Customer No:  & 1101 \\
+Due date:  & 03.03.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+James Johnson \newline Via Carlo Cattaneo \newline 6900 Lugano \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 111 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product B \newline \newline  & 2.00  & pz  & 92.51  & 185.01 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{Total net } & 185.01 \\
+\multicolumn{508}{l}{VAT 8.10\% (185.01) } & 14.99 \\
+\multicolumn{509}{l}{}\\
+\multicolumn{508}{l}{TOTAL CHF } & 200.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF71 4110 1311 1 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo 12 \\
+6900 Lugano \\
+Currency \\
+CHF \\
+Amount \\
+200.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+200.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF71 4110 1311 1 \\
+  \\
+Additional information \\
+//S1/10/111/11/250201/20/1101/31/250201/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+James Johnson \\
+Via Carlo Cattaneo 12 \\
+6900 Lugano \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 200.00
+ewline CHF
+ewline S
+ewline James Johnson
+ewline Via Carlo Cattaneo
+ewline 12
+ewline 6900
+ewline Lugano
+ewline CH
+ewline SCOR
+ewline RF71411013111
+ewline 
+ewline EPD
+ewline //S1/10/111/11/250201/20/1101/31/250201/32/8.1/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 112}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 112 \\
+Date:  & 01.03.2025 \\
+Customer No:  & 1102 \\
+Due date:  & 31.03.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 112 \\
+Date:  & 01.03.2025 \\
+Customer No:  & 1102 \\
+Due date:  & 31.03.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Robert Black \newline Via Regina \newline 6982 Agno \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 112 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product C \newline \newline  & 3.00  & pz  & 92.51  & 277.52 \\
+\multicolumn{514}{l}{}\\
+\multicolumn{513}{l}{Total net } & 277.52 \\
+\multicolumn{513}{l}{VAT 8.10\% (277.52) } & 22.48 \\
+\multicolumn{514}{l}{}\\
+\multicolumn{513}{l}{TOTAL CHF } & 300.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF92 4110 2311 2 \\
+  \\
+Payable by \\
+Robert Black \\
+Via Regina 13 \\
+6982 Agno \\
+Currency \\
+CHF \\
+Amount \\
+300.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+300.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF92 4110 2311 2 \\
+  \\
+Additional information \\
+//S1/10/112/11/250301/20/1102/31/250301/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+Robert Black \\
+Via Regina 13 \\
+6982 Agno \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 300.00
+ewline CHF
+ewline S
+ewline Robert Black
+ewline Via Regina
+ewline 13
+ewline 6982
+ewline Agno
+ewline CH
+ewline SCOR
+ewline RF92411023112
+ewline 
+ewline EPD
+ewline //S1/10/112/11/250301/20/1102/31/250301/32/8.1/40/0:30}\\
+\begin{jsonvalue}{JSON preferences}
+{
+    "id": "invoice_available_layout_preferences",
+    "print_choices": {
+        "print_as": "invoice"
+    },
+    "version": "1.0"
+}
+\end{jsonvalue}
+\subsection{Get print format from json: invoice}
+\begin{reportvalue}{Invoice 113}
+\begin{longtable}[l]{ l  l }
+Invoice:  & 113 \\
+Date:  & 01.04.2025 \\
+Customer No:  & 1103 \\
+Due date:  & 01.05.2025 \\
+Page:  & \#page-nr \\
+\end{longtable}
+Company \\
+Firstname Lastname \\
+Address 1, Zip City \\
+info@myweb, http://www.myweb \\
+\begin{longtable}[l]{ l  l }
+Invoice:  & 113 \\
+Date:  & 01.04.2025 \\
+Customer No:  & 1103 \\
+Due date:  & 01.05.2025 \\
+Page:  & \#page-nr \\
+\multicolumn{2}{l}{  }\\
+\multicolumn{2}{l}{  }\\
+\end{longtable}
+\begin{longtable}[l]{ l }
+John Smith \newline 6962 Viganello \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l }
+Invoice 113 \newline \\
+\end{longtable}
+\begin{longtable}[l]{ l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l  l }
+Description  & Quantity  & Unit  & Unit Price  & Amount \\
+Product D \newline \newline  & 4.00  & pz  & 92.51  & 370.03 \\
+\multicolumn{519}{l}{}\\
+\multicolumn{518}{l}{Total net } & 370.03 \\
+\multicolumn{518}{l}{VAT 8.10\% (370.03) } & 29.97 \\
+\multicolumn{519}{l}{}\\
+\multicolumn{518}{l}{TOTAL CHF } & 400.00 \\
+\end{longtable}
+  \\
+Receipt \\
+  \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF16 4110 3311 3 \\
+  \\
+Payable by \\
+John Smith \\
+6962 Viganello \\
+Currency \\
+CHF \\
+Amount \\
+400.00 \\
+Acceptance point \\
+Payment part \\
+Currency \\
+CHF \\
+Amount \\
+400.00 \\
+Account / Payable to \\
+CH58 0079 1123 0008 8901 2 \\
+Company \\
+Address 1 \\
+Zip City \\
+  \\
+Reference \\
+RF16 4110 3311 3 \\
+  \\
+Additional information \\
+//S1/10/113/11/250401/20/1103/31/250401/32/8.1/40/0:30 \\
+  \\
+Payable by \\
+John Smith \\
+6962 Viganello \\
+\end{reportvalue}
+\textvalue{SPC
+ewline 0200
+ewline 1
+ewline CH5800791123000889012
+ewline S
+ewline Company
+ewline Address
+ewline 1
+ewline Zip
+ewline City
+ewline CH
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 
+ewline 400.00
+ewline CHF
+ewline S
+ewline John Smith
+ewline 
+ewline 
+ewline 6962
+ewline Viganello
+ewline CH
+ewline SCOR
+ewline RF16411033113
+ewline 
+ewline EPD
+ewline //S1/10/113/11/250401/20/1103/31/250401/32/8.1/40/0:30}\\
 \keyvalue{Result}{Passed}
 \end{test}
 \end{testcase}

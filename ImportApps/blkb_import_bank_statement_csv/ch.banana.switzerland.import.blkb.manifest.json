@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Basellandschaftliche Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Basellandschaftliche Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.de":"Basellandschaftliche Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr":"Basellandschaftliche Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it":"Basellandschaftliche Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.blkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Basellandschaftliche Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Basellandschaftliche Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.de":"Basellandschaftliche Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr":"Basellandschaftliche Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it":"Basellandschaftliche Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

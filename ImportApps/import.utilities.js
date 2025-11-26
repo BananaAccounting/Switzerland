@@ -141,6 +141,11 @@ var ImportUtilities = class ImportUtilities {
             startLineNumber = 0;
         }
         var headerData = csvFile[startLineNumber];
+
+        if (!headerData || headerData.length < 0) {
+            return [];
+        }
+
         for (var i = 0; i < headerData.length; i++) {
 
             headerData[i] = headerData[i].trim();
@@ -173,13 +178,18 @@ var ImportUtilities = class ImportUtilities {
             lang = lang.substr(0, 2);
         return lang;
     }
-    
+
     //The purpose of this function is to return all the data of the rows
     getRowData(csvFile, startLineNumber) {
         if (!startLineNumber) {
             startLineNumber = 1;
         }
         var rowData = [];
+
+        if (!csvFile || csvFile.length <= startLineNumber) {
+            return rowData;
+        }
+
         for (var i = startLineNumber; i < csvFile.length; i++) {
             rowData.push(csvFile[i]);
         }
@@ -258,17 +268,17 @@ var ImportUtilities = class ImportUtilities {
             lang = 'en';
         switch (errorId) {
             case "ID_ERR_FORMAT_UNKNOWN":
-                 if (lang == 'it')
+                if (lang == 'it')
                     return "Formato del file *.csv non riconosciuto";
-                 else if (lang == 'fr')
+                else if (lang == 'fr')
                     return "Format de fichier *.csv non reconnu";
-                 else if (lang == 'de')
+                else if (lang == 'de')
                     return "Unerkanntes *.csv-Dateiformat";
-                 else
+                else
                     return "Unrecognised *.csv file format";
         }
         return '';
-     }
+    }
 
     getLang() {
         var lang = 'en';
@@ -277,9 +287,9 @@ var ImportUtilities = class ImportUtilities {
         if (lang.length > 2)
             lang = lang.substring(0, 2);
         return lang;
-     }
+    }
 
-    getUnknownFormatError(){
+    getUnknownFormatError() {
         let errId = "ID_ERR_FORMAT_UNKNOWN"; //error
         let lang = this.getLang();
         let msg = this.getErrorMessage(errId, lang);

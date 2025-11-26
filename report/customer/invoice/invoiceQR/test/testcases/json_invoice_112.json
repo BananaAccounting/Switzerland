@@ -1,0 +1,164 @@
+{
+   "billing_info": {
+      "payment_term": "",
+      "total_amount_vat_exclusive": "277.52",
+      "total_amount_vat_exclusive_before_discount": "277.52",
+      "total_amount_vat_inclusive": "300.00",
+      "total_amount_vat_inclusive_before_discount": "300.00",
+      "total_categories": [],
+      "total_discount_percent": "",
+      "total_discount_vat_exclusive": "",
+      "total_discount_vat_inclusive": "",
+      "total_rounding_difference": "",
+      "total_to_pay": "300.00",
+      "total_vat_amount": "22.48",
+      "total_vat_amount_before_discount": "22.48",
+      "total_vat_codes": [
+         {
+            "total_amount_vat_exclusive": "277.52",
+            "total_amount_vat_inclusive": "300.00",
+            "total_vat_amount": "22.48",
+            "vat_code": "V81"
+         }
+      ],
+      "total_vat_rates": [
+         {
+            "total_amount_vat_exclusive": "277.52",
+            "total_amount_vat_inclusive": "300.00",
+            "total_vat_amount": "22.48",
+            "vat_rate": "8.10"
+         }
+      ]
+   },
+   "customer_info": {
+      "address1": "Via Regina",
+      "balance": "300.00",
+      "balance_base_currency": "300.00",
+      "building_number": "13",
+      "city": "Agno",
+      "country_code": "CH",
+      "first_name": "Robert",
+      "lang": "en",
+      "last_name": "Black",
+      "number": "1102",
+      "origin_row": "29",
+      "origin_table": "Accounts",
+      "postal_code": "6982"
+   },
+   "document_info": {
+      "currency": "CHF",
+      "date": "2025-03-01",
+      "decimals_amounts": 2,
+      "description": "",
+      "doc_type": "10",
+      "locale": "en",
+      "number": "112",
+      "origin_row": "2",
+      "origin_table": "Transactions",
+      "printed": "",
+      "rounding_total": "0.05",
+      "type": "invoice"
+   },
+   "items": [
+      {
+         "account_assignment": "1102",
+         "description": "Product C",
+         "details": "",
+         "index": "0",
+         "item_type": "item",
+         "mesure_unit": "pz",
+         "number": "",
+         "origin_row": "2",
+         "origin_table": "Transactions",
+         "quantity": "3.0000",
+         "total_amount_vat_exclusive": "277.52",
+         "total_amount_vat_inclusive": "300.00",
+         "total_vat_amount": "22.48",
+         "unit_price": {
+            "amount_vat_inclusive": "100.00",
+            "calculated_amount_vat_exclusive": "92.51",
+            "calculated_amount_vat_inclusive": "100.00",
+            "calculated_vat_amount": "7.49",
+            "currency": "CHF",
+            "vat_code": "V81",
+            "vat_rate": "8.10"
+         }
+      }
+   ],
+   "note": [],
+   "parameters": {},
+   "payment_info": {
+      "date_expected": "2025-03-31",
+      "due_date": "2025-03-31",
+      "due_days": "232",
+      "due_period": "0_>90",
+      "last_reminder": "",
+      "last_reminder_date": "",
+      "payment_date": ""
+   },
+   "shipping_info": {
+      "different_shipping_address": false
+   },
+   "supplier_info": {
+      "address1": "Address",
+      "building_number": "1",
+      "business_name": "Company",
+      "city": "City",
+      "country": "Country",
+      "country_code": "CH",
+      "email": "info@myweb",
+      "first_name": "Firstname",
+      "last_name": "Lastname",
+      "postal_code": "Zip",
+      "web": "http://www.myweb"
+   },
+   "template_parameters": {
+      "footer_texts": [
+         {
+            "lang": "(default)",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "de",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "en",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "fr",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "it",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "nl",
+            "text": [
+               ""
+            ]
+         },
+         {
+            "lang": "zh",
+            "text": [
+               ""
+            ]
+         }
+      ]
+   },
+   "transactions": [],
+   "type": "invoice",
+   "version": "1.0"
+}

@@ -1,16 +1,16 @@
-Report IVA CH formulari attuali con XML
-(https://www.banana.ch/apps/en/node/9023)
-(https://www.banana.ch/apps/en/node/9024)
-ch.banana.apps.vatreportch.ef.sbaa
-ch.banana.apps.vatreportch.sa.sbaa
+# 2025-10-21
+Beta Release:
+- Updated beta version with new EMWST 2.0 standard
+- Corrected VAT number length check (Liechtenstein length of 5 characters no longer accepted)
 
-Report IVA CH formulari 2018
-(https://www.banana.ch/apps/en/node/8837)
-(https://www.banana.ch/apps/en/node/8868)
-ch.banana.apps.vatreportch.ef.sbaa
-ch.banana.apps.vatreportch.sa.sbaa
+# 2025-08-20
+Stable Release and Beta Release:
+- Corrected VAT number length check (Liechtenstein accepts 5-character length with EMWST 1.0.1)
 
-Report IVA CH formulari fino 2017 senza XML
-(pagine di drupal rimosse, files ancora pubblicati)
-ch.banana.apps.vatreportch.old.ef.sbaa
-ch.banana.apps.vatreportch.old.sa.sbaa
+# 2025-04-14
+Stable Release and Beta Release:
+- Compiled the extension with Banana 9 version for compatibility
+
+# 2025-04-02
+Stable Release
+- Published the beta version on the stable release channel with changes for Swiss VAT 2025

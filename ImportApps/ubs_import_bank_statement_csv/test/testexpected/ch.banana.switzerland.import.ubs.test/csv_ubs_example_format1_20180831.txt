@@ -124,7 +124,7 @@ Date & DateValue & Doc & ExternalReference & Description & Income & Expenses & I
 2018-01-17 & 2018-01-16 &  & KE86801BK0505172 & "Requatudit Xxx Canticum, 4466 Mento Statur, Timen 44308662-0 6807, Res 36.36.17 41:60:28 Et: 55236838, Zuctumn Requatudit" & 10000.00 &  & \\
 2018-01-17 & 2018-01-17 &  & 2502520KO1687316 & "Frumüalos, Xxx Ignulus At, Ade Offere 0, 6242 Manium, De, Quietis 38324177 Aph.677556 Xxx 23, Pra 6323,58 Xxx 72,28" & 9081.91 &  & \\
 2018-01-17 & 2018-01-17 &  & KH22635AV0023116 & "Requatudit Xxx Canticum, 4466 Mento Statur, Timen 44308662-0 6807, Res 33.36.17 33:37:14 Et: 55236838, Zuctumn Requatudit" & 5000.00 &  & \\
-2018-01-17 & 2018-01-17 &  &  PRAHETIPE., 304215 GERUREVARE, Andicuntantium-Meritantet-1.76 & "Requatudit, Xxx Tongisto, Widescriere Manieiusuum, 4873 Tongisto, Occalere. 167474 " & 1840.00 &  & \\
+2018-01-17 & 2018-01-17 &  & QE83074KI1220850 & "Requatudit, Xxx Tongisto, Widescriere Manieiusuum, 4873 Tongisto, Occalere. 167474 Prahetipe., 304215 Gerurevare, Andicuntantium-Meritantet-1.76" & 1840.00 &  & \\
 2018-01-17 & 2018-01-16 &  & WI35687MA5173073 & "Requatudit Xxx Canticum, 4466 Mento Statur, Timen 44308662-0 6807, Res 36.36.17 41:78:72 Et: 55236838, Zuctumn Requatudit" & 1500.00 &  & \\
 2018-01-17 & 2018-01-17 &  & 7616205HR2070344 & "T-Cogitio-Aedenteris, Malumea Ellitiorequid, 1011 Matum, Sevoliquare- Pra Tudifignumedectine" & 840 &  & \\
 2018-01-17 & 2018-01-17 &  & TV71876IN8465351 & "Requatudit, Xxx Paregrunae, Sicunaviunum Pangitiones, Andicuntantium-Meritantet-0.83" & 720 &  & \\

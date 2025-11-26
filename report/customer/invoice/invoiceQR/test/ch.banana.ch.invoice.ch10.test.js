@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.ch.invoice.ch10.test
 // @api = 1.0
-// @pubdate = 2024-12-11
+// @pubdate = 2025-11-18
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.ch.invoice.ch10.js>
 // @task = app.command
@@ -300,6 +300,14 @@ ReportInvoiceQrCode.prototype.testReport = function() {
   //Test Order Confirmation (selected as print preference)
   this.add_test_invoice_20("501", "Invoice 501", "order_confirmation"); //integrated invoice
   this.add_test_invoice_20("502", "Invoice 502", "order_confirmation"); //integrated invoice
+
+  //Test structured addresses
+  //Integrated invoice
+  this.add_test_invoice_22("110", "Invoice 110", "invoice"); //integrated invoice
+  this.add_test_invoice_22("111", "Invoice 111", "invoice"); //integrated invoice
+  this.add_test_invoice_22("112", "Invoice 112", "invoice"); //integrated invoice
+  this.add_test_invoice_22("113", "Invoice 113", "invoice"); //integrated invoice
+
 }
 
 
@@ -1378,6 +1386,48 @@ ReportInvoiceQrCode.prototype.add_test_invoice_21 = function(invoiceNumber, repo
   Test.logger.addText(text);
 }
 
+ReportInvoiceQrCode.prototype.add_test_invoice_22 = function(invoiceNumber, reportName, printformat) {
+  var fileAC2 = "file:script/../test/testcases/invoice_integrated_structured_address.ac2";
+  var banDoc = Banana.application.openDocument(fileAC2);
+  IS_INTEGRATED_INVOICE = true;
+  var variables = setVariables(variables);
+  variables.decimals_quantity = '';
+  var jsonInvoice = getJsonInvoice(invoiceNumber);
+  var invoiceObj = JSON.parse(jsonInvoice);
+  var texts = setInvoiceTexts('en');
+  var userParam = setUserParam(texts);
+  userParam.shipping_address = false;
+  userParam.info_customer_vat_number = false;
+  userParam.info_customer_fiscal_number = false;
+  userParam.details_gross_amounts = false;
+  userParam.address_small_line = '<none>';
+  userParam.qr_code_add = true;
+  userParam.qr_code_iban = 'CH58 0079 1123 0008 8901 2';
+  userParam.qr_code_reference_type = 'SCOR'
+  userParam.qr_code_additional_information = '';
+  userParam.qr_code_billing_information = true;
+
+  // Print preferences, set the print format
+  var preferencesObj =
+  {
+    "version":"1.0",
+    "id":"invoice_available_layout_preferences",
+    "print_choices": {
+      "print_as":printformat
+    }
+  }
+  Test.logger.addJson("JSON preferences", JSON.stringify(preferencesObj));
+  var printFormat = getPrintFormat(preferencesObj);
+  Test.logger.addSubSection("Get print format from json: " + printFormat);
+
+  //Report invoice
+  var reportTest = printInvoice(banDoc, reportTest, texts, userParam, "", invoiceObj, variables);
+  Test.logger.addReport(reportName, reportTest);
+  //QRCode text
+  var text = getQRCodeText(banDoc, userParam, invoiceObj, texts, 'en');
+  Test.logger.addText(text);
+}
+
 
 
 function getQRCodeText(banDoc, userParam, invoiceObj, texts, langCode) {
@@ -1615,6 +1665,30 @@ function getJsonInvoice(invoiceNumber) {
   }
   else if (invoiceNumber === "64") {
     file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_64.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "110") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_110.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "111") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_111.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "112") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_112.json");
+    parsedfile = JSON.stringify(file.read(), "", "");
+    jsonInvoice = JSON.parse(parsedfile);
+    //Banana.console.log(jsonInvoice);
+  }
+  else if (invoiceNumber === "113") {
+    file = Banana.IO.getLocalFile("file:script/../test/testcases/json_invoice_113.json");
     parsedfile = JSON.stringify(file.read(), "", "");
     jsonInvoice = JSON.parse(parsedfile);
     //Banana.console.log(jsonInvoice);

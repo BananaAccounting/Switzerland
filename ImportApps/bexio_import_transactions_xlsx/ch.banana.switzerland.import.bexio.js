@@ -1,4 +1,4 @@
-// Copyright [2024] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 //
 // @id = ch.banana.switzerland.import.bexio
 // @api = 1.0
-// @pubdate = 2024-09-20
+// @pubdate = 2025-04-09
 // @publisher = Banana.ch SA
 // @description = Bexio - Import movements .xlsx (Banana+ Advanced)
 // @description.it = Bexio - Importa movimenti .xlsx (Banana+ Advanced)
@@ -100,6 +100,17 @@ function exec(inData, banDocument, isTest) {
     return "";
 
 }
+
+/**
+ * Utilities.
+ * Expression to filter the data by removing all the transactions using the vat accounts as are not necessary
+ * bc the vat is already inserted in the normal transactions inside the vat columns.
+ *  - First !accountdebit:xml!=2200|2201|1171|1172|1170|2202|1175 !vatcode:xml!<>
+ *  - Second !accountcredit:xml!=2200|2201|1171|1172|1170|2202|1175 !vatcode:xml!<>
+ * The ideal solution would be to have: !vatcode:xml!<> (!accountdebit:xml!=2200|2201|1171|1172|1170|2202|1175 | !accountcredit:xml!=2200|2201|1171|1172|1170|2202|1175)
+ * but for some reason it doesn't work.
+ * The accounts are examples, it depends on the chart of accounts used.
+ */
 
 var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
     constructor(banDocument) {
@@ -461,31 +472,22 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
     }
 
     /**
-     * Finds and returns the vat code contained in the MWST field (Bexio file).
-     * field format:
-     *  - "UN77 (7.70%)"
-     *  - "UR25 (2.50%)"
-     */
-    getCodeFromVatField(rowField) {
-        let code = "";
-        if (rowField) {
-            code = rowField.substring(0, rowField.indexOf(' '));
-            code.trim();
-        }
-
-        return code;
-    }
-
-    /**
      * Creates the document change object for the transactions table.
      */
     createJsonDocument_AddTransactions(transactions) {
 
         let jsonDoc = this.createJsonDocument_Init();
         let rows = [];
+        let transactionsKeys = new Set();
 
         for (const tr of transactions) {
-            let vatCode = this.getBananaVatCode(this.getCodeFromVatField(tr["MWST"]));
+            let vatCode = this.getBananaVatCode(tr["Code"]);
+            let amountType = "1";
+
+            if (!vatCode) {
+                vatCode = tr["Code"];
+                amountType = "";
+            }
 
             let row = {};
             row.operation = {};
@@ -500,16 +502,15 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
             row.fields["AmountCurrency"] = Banana.Converter.toInternalNumberFormat(this.getAmountCurrency(tr), '.');
             row.fields["ExchangeCurrency"] = this.getExchangeCurrency(tr);
             row.fields["ExchangeRate"] = tr["Kurs"];
-            if (vatCode)
-                row.fields["VatCode"] = vatCode;
-            else {
-                /** The vat code is not bewtween the mapped ones
-                 * so we inserted it int the vat codes table.
-                 */
-                row.fields["VatCode"] = this.getCodeFromVatField(tr["MWST"]);
-            }
+            row.fields["VatCode"] = vatCode;
+            row.fields["VatAmountType"] = amountType;
 
-            rows.push(row);
+            let rowContent = JSON.stringify(row.fields);
+
+            if (!transactionsKeys.has(rowContent)) { // We wants to avoid duplicates as we work with a journal.
+                transactionsKeys.add(rowContent);
+                rows.push(row);
+            }
         }
 
         var dataUnitFilePorperties = {};
@@ -521,7 +522,6 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
         jsonDoc.document.dataUnits.push(dataUnitFilePorperties);
 
         return jsonDoc;
-
     }
 
     getExchangeCurrency(transaction) {
@@ -577,14 +577,15 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
     }
 
     /**
-     * Dato un coidce iva Bexio ritorna il codice corrispondente in Banana.
+     * Given the vatCode from Bexio, returns the corrispondent code from Banana (if present), 
+     * otherwise empty.
      */
     getBananaVatCode(bxVatCode) {
         if (bxVatCode) {
             let mpdVatCodes = this.getMappedVatCodes();
             let banVatCode;
 
-            /**get the Banana vat code */
+            /*Get the Banana vat code */
             banVatCode = mpdVatCodes.get(bxVatCode);
 
             if (banVatCode) {
@@ -595,11 +596,10 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
         return "";
     }
 
-    /**
-     * Ritorna la bclasse per l'account inserito partendo
-     * dal presupposto che si tratti di un piano dei conti 
-     * svizzero per PMI, altrimenti torna vuoto.
-     */
+    /** Returns the bclass for the account entered starting
+     * assuming it is an account plan 
+     * Swiss for PMI, otherwise returns blank.
+     * */
     setAccountBclass(accountNr) {
         let bClass = "";
         let firstDigit = accountNr.substring(0, 1);
@@ -629,11 +629,12 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
         }
     }
 
-    /**
-     * Ritorna la struttura contenente i codici iva mappati da Bexio
-     * questa struttura contiene i codici standard, non funziona in 
-     * caso in cui l'utente abbia personalizzato la tabella codici iva.
-     */
+    /** Returns the structure containing the vat codes mapped by Bexio
+     * this structure contains the standard codes, it does not work in 
+     * case the user has customized the vat codes table.
+     * We use codes for managing net amounts, since Bexio
+     * handles them this way.
+     * */
     getMappedVatCodes() {
         /**
          * Map structure:
@@ -645,8 +646,16 @@ var BexioTransactionsImportFormat2 = class BexioTransactionsImportFormat2 {
         //set codes
         vatCodes.set("UN77", "V77");
         vatCodes.set("UR25", "V25-N");
-        vatCodes.set("VB77", "V77-B");
-        vatCodes.set("VM77", "M77");
+        vatCodes.set("VB77", "I77-1");
+        vatCodes.set("VB25", "I25");
+        vatCodes.set("VB81", "I81-1");
+        vatCodes.set("VM77", "M77-1");
+        vatCodes.set("VM26", "M26");
+        vatCodes.set("UN81", "V81");
+        vatCodes.set("VM81", "M81-1");
+        // Bexio uses VSF for more operations, in Banana we have more appliable codes, we choose I0 as its general.
+        vatCodes.set("VSF", "I0");
+        vatCodes.set("VIM", "M0");
 
         return vatCodes;
     }

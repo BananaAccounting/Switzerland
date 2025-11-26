@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.twint.test
 // @api = 1.0
-// @pubdate = 2024-05-06
+// @pubdate = 2025-09-22
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.twint.test>
 // @task = app.command
@@ -58,9 +58,10 @@ TestImportTwint.prototype.cleanup = function () {
 
 TestImportTwint.prototype.testImportDoubleEntry = function () {
    let fileNameList = [];
-   let ac2File = "file:script/../test/testcases/Double-entry test Twint.ac2";
+   let ac2File = "file:script/../test/testcases/Double_entry_test_Twint.ac2";
 
    fileNameList.push("file:script/../test/testcases/csv_twint_example_format1_business_20231120.csv");
+   fileNameList.push("file:script/../test/testcases/csv_twint_example_format1_business_20250902.csv");
 
    let parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);

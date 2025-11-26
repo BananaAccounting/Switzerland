@@ -1,0 +1,19 @@
+Buchungsdatum;Valutadatum;Auftragsnummer;Konto;Rubrik;IBAN;Kartennummer;Beschreibung;Buchungsdetails;Originalbetrag;W�hrung;Gutschrift;Belastung
+30.04.2025;30.04.2025;181480247;Kontokorrent CHF;;CH00 0000 0000 0000 0000 1;;"PAYMENTS
+";"PAYMENTS
+TEST
+
+TEST DETAILS";;CHF;629.78;
+29.04.2025;29.04.2025;181366771;Kontokorrent CHF;;CH00 0000 0000 0000 0000 1;;"PAYMENTS
+";"PAYMENTS
+TEST
+
+DETAILS1
+DETAILS2
+
+STRIPE DETAILS";;CHF;192.17;
+29.04.2025;29.04.2025;181289177;Kontokorrent CHF;;CH00 0000 0000 0000 0000 1;;"Sunshine
+";"TEST
+
+
+000000000000000";;CHF;;-72.10
