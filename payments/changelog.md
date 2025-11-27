@@ -11,5 +11,3 @@ All notable changes to the [Payment orders PAIN.001 for Switzerland](https://www
 		* Fixed an issue with undo/redo operations involving payment data in the transactions table
 		* Fixed the removal of the supplier account in the transaction table when it is deleted from the Payment Data dialog
 		* Replaced deprecated JavaScript function substr() with substring()
-
-
