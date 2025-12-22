@@ -26,6 +26,7 @@
 // @docproperties =
 // @outputformat = transactions.simple
 // @inputdatasource = openfiledialog
+// @inputencoding = utf-8
 // @timeout = -1
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
@@ -144,6 +145,7 @@ var ImportCornerBankFormat1 = class ImportCornerBankFormat1 extends ImportUtilit
   convert(transactions) {
     var transactionsToImport = [];
 
+    var row = 0;
     // Filter and map rows
     for (var i = 0; i < transactions.length; i++) {
       //We take only the complete rows.
@@ -153,6 +155,16 @@ var ImportCornerBankFormat1 = class ImportCornerBankFormat1 extends ImportUtilit
       if ((transaction[this.colDate] && transaction[this.colDate].match(/[0-9\.]+/g)) &&
         (transaction[this.colDateValuta] && transaction[this.colDate].match(/[0-9\.]+/g))) {
         transactionsToImport.push(this.mapTransaction(transaction));
+        row++;
+      } else if (row > 0 && transaction[this.colDescr]) {
+        let detDescr = transaction[this.colDescr];
+        if (transaction[this.colDetail] && transaction[this.colDetail] !== "") {
+          /** Insert details between quotes to avoid problems with method who take care
+           * to guess the separator. In the Transactions table, values appears without
+           * double quotes, those are visibles just in tests.*/
+          detDescr += " \"" + transaction[this.colDetail] + "\"";
+        }
+        transactionsToImport[row - 1][3] += " " + detDescr;
       }
     }
 
@@ -267,6 +279,7 @@ var ImportCornerBankFormat2 = class ImportCornerBankFormat2 extends ImportUtilit
   convert(transactions) {
     var transactionsToImport = [];
 
+    var row = 0;
     // Filter and map rows
     for (var i = 0; i < transactions.length; i++) {
       //We take only the complete rows.
@@ -277,6 +290,16 @@ var ImportCornerBankFormat2 = class ImportCornerBankFormat2 extends ImportUtilit
       if ((transaction[this.colDate] && transaction[this.colDate].length === 10) &&
         (transaction[this.colDateValuta] && transaction[this.colDate].length === 10)) {
         transactionsToImport.push(this.mapTransaction(transaction));
+        row++;
+      } else if (row > 0 && transaction[this.colDescr]) {
+        let detDescr = transaction[this.colDescr];
+        if (transaction[this.colDetail] && transaction[this.colDetail] !== "") {
+          /** Insert details between quotes to avoid problems with method who take care
+           * to guess the separator. In the Transactions table, values appears without
+           * double quotes, those are visibles just in tests.*/
+          detDescr += " \"" + transaction[this.colDetail] + "\"";
+        }
+        transactionsToImport[row - 1][3] += " " + detDescr;
       }
     }
 

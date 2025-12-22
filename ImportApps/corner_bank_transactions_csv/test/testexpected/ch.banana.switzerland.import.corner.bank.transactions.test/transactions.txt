@@ -20,10 +20,10 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses\\
-2021-12-31 & 2021-12-31 &  & Descrizione 4 &  & 143.5\\
-2021-12-31 & 2021-12-31 &  & Descrizione 3 & 236.5 & \\
-2021-12-31 & 2021-12-31 &  & Descrizione 2 &  & 34.6\\
-2021-12-31 & 2021-12-31 &  & Descrizione1 &  & 40.0\\
+2021-12-31 & 2021-12-31 &  & Descrizione 4 Vostro ordine del 31.12.2021 CH1234897630000 ALFRED MULLER BANCA UBS CH - ZURIGO SPESE VARIE ABCDEFGHI Importo dell'ordine "111,05 CHF" Ns.rif: UNWER12345 &  & 143.5\\
+2021-12-31 & 2021-12-31 &  & Descrizione 3 Id cliente 543210 Totale pagamenti ricevuti "1" Totale spese reclamate "1,65 CHF" Conteggiate a fine periodo Ns.rif: BCA9876543221 & 236.5 & \\
+2021-12-31 & 2021-12-31 &  & Descrizione 2 Spese "7,50 CHF" Spese reclamate "21,20 CHF" Totale spese "28,70 CHF" Ns.rif: 202112DD00000000024C11823 &  & 34.6\\
+2021-12-31 & 2021-12-31 &  & Descrizione1 Spese "40,00- CHF" Ns.rif: 2022LI60101010101ABCDEFG &  & 40.0\\
 \\
 \end{tablevalue}
 \end{document}
