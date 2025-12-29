@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "VZ Depotbank - Import movements .csv (Banana+ Advanced)",
+    "description.en": "VZ Depotbank - Import movements .csv (Banana+ Advanced)",
+    "description.it": "VZ Depotbank - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "VZ Depotbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "VZ Depotbank - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.vzdepotbank",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "VZ Depotbank - Import movements .csv (Banana+ Advanced)",
+    "title.en": "VZ Depotbank - Import movements .csv (Banana+ Advanced)",
+    "title.it": "VZ Depotbank - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "VZ Depotbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "VZ Depotbank - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
