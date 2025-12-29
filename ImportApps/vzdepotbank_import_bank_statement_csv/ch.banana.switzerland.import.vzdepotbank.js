@@ -16,11 +16,11 @@
 // @api = 1.0
 // @pubdate = 2025-12-29
 // @publisher = Banana.ch SA
-// @description = VZ Depotbank - Import account statement .csv (Banana+ Advanced)
-// @description.it = VZ Depotbank - Importa movimenti .csv (Banana+ Advanced)
-// @description.en = VZ Depotbank - Import account statement .csv (Banana+ Advanced)
-// @description.de = VZ Depotbank - Bewegungen importieren .csv (Banana+ Advanced)
-// @description.fr = VZ Depotbank - Importer mouvements .csv (Banana+ Advanced)
+// @description = VZ Depotbank - Import account statement (.xlsx/.csv) (Banana+ Advanced)
+// @description.it = VZ Depotbank - Importa movimenti (.xlsx/.csv) (Banana+ Advanced)
+// @description.en = VZ Depotbank - Import account statement (.xlsx/.csv) (Banana+ Advanced)
+// @description.de = VZ Depotbank - Bewegungen importieren (.xlsx/.csv) (Banana+ Advanced)
+// @description.fr = VZ Depotbank - Importer mouvements (.xlsx/.csv) (Banana+ Advanced)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
