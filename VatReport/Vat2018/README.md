@@ -1,4 +1,7 @@
 # 2025-01-07
+Beta Release (effective method):
+- Improved the display of error messages
+
 Beta Release (net tax rate method):
 - Added error messages for missing or invalid activity codes
 - Improved the display of error messages
