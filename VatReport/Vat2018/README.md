@@ -1,3 +1,9 @@
+# 2025-01-07
+Beta Release (net tax rate method):
+- Added error messages for missing or invalid activity codes
+- Improved the display of error messages
+- Changed the initial activity code from 00000 to an empty value
+
 # 2025-10-21
 Beta Release:
 - Updated beta version with new EMWST 2.0 standard
