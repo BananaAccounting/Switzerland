@@ -1,3 +1,8 @@
+# 2025-01-12
+Beta Release (net tax rate method):
+- Fixed the display of dialog buttons in older Banana versions
+- Improved error message handling for checkVatCode3
+
 # 2025-01-07
 Beta Release (effective method):
 - Improved the display of error messages
