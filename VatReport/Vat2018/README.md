@@ -1,3 +1,7 @@
+# 2026-01-20
+Stable Release
+- Published the beta version on the stable release channel for both net tax rate and effective methods
+
 # 2026-01-19
 Beta Release (net tax rate method):
 - Disabled XML creation for extension version 2024.
