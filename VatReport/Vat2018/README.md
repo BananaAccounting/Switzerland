@@ -1,3 +1,9 @@
+# 2026-02-04
+Stable Release and Beta Release
+- Published new Stable Release and Beta Release for both net tax rate and effective methods
+- Fixed input tax rates in dialog for net tax rate method
+- Updated report texts for both methods
+
 # 2026-01-20
 Stable Release
 - Published the beta version on the stable release channel for both net tax rate and effective methods
