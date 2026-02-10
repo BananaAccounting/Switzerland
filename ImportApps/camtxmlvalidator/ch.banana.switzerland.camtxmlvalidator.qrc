@@ -1,0 +1,12 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+   <file>ch.banana.switzerland.camtxmlvalidator.manifest.json</file>
+   <file>ch.banana.switzerland.camtxmlvalidator.js</file>
+   <file>camt.052.001.04.xsd</file>
+   <file>camt.052.001.08.xsd</file>
+   <file>camt.053.001.04.xsd</file>
+   <file>camt.053.001.08.xsd</file>
+   <file>camt.054.001.04.xsd</file>
+   <file>camt.054.001.08.xsd</file>
+ </qresource>
+ </RCC>

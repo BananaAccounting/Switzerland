@@ -1,0 +1,18 @@
+{
+    "category": "productivity",
+    "country":"switzerland",
+    "countryCode":"ch",
+    "description": "CAMT XML Validator with XSD Schema",
+    "description.en": "CAMT XML Validator with XSD Schema",
+    "description.it": "Validatore CAMT XML con schema XSD",
+    "description.de": "CAMT XML Validierer mit XSD Schema",
+    "description.fr": "Validateur CAMT XML avec schéma XSD",
+    "language":"",
+    "publisher": "Banana.ch",
+    "title": "CAMT XML Validator with XSD Schema",
+    "title.en": "CAMT XML Validator with XSD Schema",
+    "title.it": "Validatore CAMT XML con schema XSD",
+    "title.de": "CAMT XML Validierer mit XSD Schema",
+    "title.fr": "Validateur CAMT XML avec schéma XSD",
+    "version": "1.0"
+}
