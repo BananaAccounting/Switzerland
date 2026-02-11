@@ -57,7 +57,7 @@ function exec(inData) {
 
     // Adds the schemaLocation if it is missing in the selected CAMT file
     // Manually appends ".xsd" to the selected schemaFileName because schemalocation expects the complete XSD file name
-    if (xmlData.indexOf("xsi:schemaLocation" < 0)) {
+    if (xmlData.indexOf("xsi:schemaLocation") < 0) {
         xmlData = xmlData.replace('<Document', '<Document xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:'+ schemaFileName + " " + schemaFileName + '.xsd" ');
     }
 
