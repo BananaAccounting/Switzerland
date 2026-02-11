@@ -1,4 +1,4 @@
-// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.camtxmlvalidator
 // @api = 1.0
-// @pubdate = 2025-12-05
+// @pubdate = 2026-02-11
 // @publisher = Banana.ch SA
 // @description = CAMT XML Validator with XSD Schema
 // @description.en = CAMT XML Validator with XSD Schema
@@ -55,26 +55,56 @@ function exec(inData) {
     // Reads the selected CAMT file
     let xmlData = readFile();
 
+    var inj = injectSchemaLocation(xmlData, schemaFileName);
+    xmlData = inj.xmlData;
+
+    var xmlObject = Banana.Xml.parse(xmlData);
+    if (!xmlObject) {
+        Banana.Ui.showInformation("XML error", Banana.Xml.errorString);
+        return;
+    }
+
+    var validDocument = Banana.Xml.validate(xmlObject, inj.schemaFile);
+    if (validDocument) {
+        Banana.Ui.showInformation(texts.informationTitle, texts.informationResultsValid + " " + inj.schemaFile);
+    } else {
+        Banana.Ui.showInformation(texts.informationTitle,
+            texts.informationResultsNotValid + " " + inj.schemaFile + "\n\n" +
+            texts.errorDetails + ":\n" + Banana.Xml.errorString
+        );
+    }
+
+}
+
+function injectSchemaLocation(xmlData, schemaName) {
+
     // Adds the schemaLocation if it is missing in the selected CAMT file
     // Manually appends ".xsd" to the selected schemaFileName because schemalocation expects the complete XSD file name
-    if (xmlData.indexOf("xsi:schemaLocation") < 0) {
-        xmlData = xmlData.replace('<Document', '<Document xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:'+ schemaFileName + " " + schemaFileName + '.xsd" ');
+
+    var schemaUrn = 'urn:iso:std:iso:20022:tech:xsd:' + schemaName;
+    var schemaFile = schemaName + '.xsd';
+
+    // 1) Ensures xmlns:xsi
+    if (xmlData.indexOf('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"') < 0) {
+        // Insert xmlns:xsi on Document tag (right after "<Document")
+        xmlData = xmlData.replace(
+            /<Document\b/,
+            '<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
+        );
     }
 
-    // Parses XML data and returns a Banana.Xml.XmlElement object representing the parsed XML
-    let xmlObject = Banana.Xml.parse(xmlData);
-
-    // Manually appends ".xsd" to the selected schemaFileName because Banana.Xml.validate expects the complete XSD file name
-    schemaFileName = schemaFileName + ".xsd";
-
-    // Checks the validation of the CAMT XML file against the XSD schema
-    let validDocument = Banana.Xml.validate(xmlObject, schemaFileName);
-    if (validDocument) {
-        Banana.Ui.showInformation(texts.informationTitle, texts.informationResultsValid + " " + schemaFileName);
-    } else {
-        Banana.Ui.showInformation(texts.informationTitle, texts.informationResultsNotValid + " " + schemaFileName + "\n\n" + texts.errorDetails + ":\n" + Banana.Xml.errorString);
+    // 2) Ensures xsi:schemaLocation
+    if (xmlData.indexOf('xsi:schemaLocation=') < 0) {
+        // Insert schemaLocation inside the opening tag of Document
+        xmlData = xmlData.replace(
+            /<Document\b([^>]*)>/,
+            '<Document$1 xsi:schemaLocation="' + schemaUrn + ' ' + schemaFile + '">'
+        );
     }
+
+    return { xmlData: xmlData, schemaFile: schemaFile };
 }
+
 
 /**
  * Function that lets user select a CAMT XML file and read it
