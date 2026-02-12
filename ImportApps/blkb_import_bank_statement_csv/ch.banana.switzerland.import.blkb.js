@@ -132,20 +132,77 @@ function BLKBFormat4() {
 	this.convert = function (transactionsData) {
         var transactionsToImport = [];
 
-        for (var i = 0; i < transactionsData.length; i++) {
-        
-            if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
-                    transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
-                    transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+		var lastCompleteTransaction = null;
+        var isPreviousCompleteTransaction = false;
+        var lastCompleteTransactionPrinted = false;
+
+        // Filter and map rows
+        for (i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            if (transaction["Description"]) { //Valid transaction (complete & detail).
+                if (!this.isDetailRow(transaction)) { // Normal row.
+                    lastCompleteTransactionPrinted = false;
+                    if (isPreviousCompleteTransaction) {
+                        transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                    }
+                    lastCompleteTransaction = transaction;
+                    isPreviousCompleteTransaction = true;
+                } else { // Detail row.
+                    if (transaction['SinglePaymentAmount'] && transaction['SinglePaymentAmount'].length > 1) {
+						Banana.console.log("Detail row with single payment amount: " + JSON.stringify(transaction));
+                        if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+                            lastCompleteTransaction['IsDetail'] = 'S';
+                            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                            lastCompleteTransactionPrinted = true;
+                        }
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        if (applicationSupportIsDetail) {
+                            transaction['IsDetail'] = 'D';
+                        }
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    } else {
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    }
+                }
             }
+        }
+
+        if (isPreviousCompleteTransaction === true) {
+            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
         }
 
         // Sort rows by date
         transactionsToImport = transactionsToImport.reverse();
 
         // Add header and return
-        var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+        var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses", "IsDetail"]];
         return header.concat(transactionsToImport);
+    }
+
+	this.fillDetailRow = function (detailRow, totalRow) {
+        // Copy dates
+        detailRow["Date"] = totalRow["Date"];
+        detailRow["DateValue"] = totalRow["DateValue"];
+        if (detailRow["SinglePaymentAmount"] && detailRow["SinglePaymentAmount"].length > 1) {
+            if (totalRow["DebitAmount"].length > 1) {
+                detailRow["DebitAmount"] = detailRow["SinglePaymentAmount"];
+            } else if (totalRow["CreditAmount"].length > 1) {
+                detailRow["CreditAmount"] = detailRow["SinglePaymentAmount"];
+            }
+        } else {
+            detailRow["DebitAmount"] = totalRow["DebitAmount"];
+            detailRow["CreditAmount"] = totalRow["CreditAmount"];
+        }
+    }
+
+    this.isDetailRow = function (transaction) {
+        if (transaction["Date"].trim().length === 0
+            && transaction["DateValue"].trim().length === 0)
+            return true;
+        return false;
     }
 
 	this.getFormattedData = function (inData, importUtilities) {
@@ -175,6 +232,7 @@ function BLKBFormat4() {
         mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"]));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
+		mappedLine.push(transaction["IsDetail"]);
 
         return mappedLine;
     }
