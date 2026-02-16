@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.camtxmlvalidator
 // @api = 1.0
-// @pubdate = 2026-02-11
+// @pubdate = 2026-02-16
 // @publisher = Banana.ch SA
 // @description = CAMT XML Validator with XSD Schema
 // @description.en = CAMT XML Validator with XSD Schema
@@ -36,26 +36,13 @@ function exec(inData) {
     // Set the texts
     let texts = loadTexts();
 
-    // List of swiss CAMT schemas (04=old schemas, 08=new schemas)
-    let schemaFileNames = [
-        "camt.052.001.04",
-        "camt.052.001.08",
-        "camt.053.001.04",
-        "camt.053.001.08",
-        "camt.054.001.04",
-        "camt.054.001.08"
-    ];
-
-    // Displays a combo box dialog prompting the user to select a CAMT XSD schema from a list
-    let schemaFileName = Banana.Ui.getItem(texts.dialogTitle, texts.dialogText, schemaFileNames, 3, false);
-    if (!schemaFileName) {
-        return "@Cancel"; 
-    }
-    
     // Reads the selected CAMT file
     let xmlData = readFile();
+    if (xmlData.length <= 0) {
+        return;
+    }
 
-    var inj = injectSchemaLocation(xmlData, schemaFileName);
+    var inj = injectSchemaLocation(xmlData);
     xmlData = inj.xmlData;
 
     var xmlObject = Banana.Xml.parse(xmlData);
@@ -68,22 +55,57 @@ function exec(inData) {
     if (validDocument) {
         Banana.Ui.showInformation(texts.informationTitle, texts.informationResultsValid + " " + inj.schemaFile);
     } else {
-        Banana.Ui.showInformation(texts.informationTitle,
-            texts.informationResultsNotValid + " " + inj.schemaFile + "\n\n" +
-            texts.errorDetails + ":\n" + Banana.Xml.errorString
-        );
+        if (inj.schemaFile.length <= 0) {
+            Banana.Ui.showInformation(texts.informationTitle,
+                texts.errorSchemaMissing );
+        }
+        else {
+            Banana.Ui.showInformation(texts.informationTitle,
+                texts.informationResultsNotValid + " " + inj.schemaFile + "\n\n" +
+                texts.errorDetails + ":\n" + Banana.Xml.errorString
+            );
+        }
     }
 
 }
 
-function injectSchemaLocation(xmlData, schemaName) {
+function injectSchemaLocation(xmlData) {
 
     // Adds the schemaLocation if it is missing in the selected CAMT file
     // Manually appends ".xsd" to the selected schemaFileName because schemalocation expects the complete XSD file name
 
-    var schemaUrn = 'urn:iso:std:iso:20022:tech:xsd:' + schemaName;
-    var schemaFile = schemaName + '.xsd';
+    // Get schemaLocation from namespace xmlns
+    var schemaFile = "";
+    var schemaName = "";
 
+    if (xmlData.indexOf("urn:iso:std:iso:20022:tech:xsd:camt.052.001.04") >= 0) {
+        schemaName = "camt.052.001.04";
+    }
+    else if (xmlData.indexOf("urn:iso:std:iso:20022:tech:xsd:camt.052.001.08") >= 0) {
+        schemaName = "camt.052.001.08";
+    }
+    else if (xmlData.indexOf("urn:iso:std:iso:20022:tech:xsd:camt.053.001.04") >= 0) {
+        schemaName = "camt.053.001.04";
+    }
+    else if (xmlData.indexOf("urn:iso:std:iso:20022:tech:xsd:camt.053.001.08") >= 0) {
+        schemaName = "camt.053.001.08";
+    }
+    else if (xmlData.indexOf("urn:iso:std:iso:20022:tech:xsd:camt.054.001.04") >= 0) {
+        schemaName = "camt.054.001.04";
+    }
+    else if (xmlData.indexOf("urn:iso:std:iso:20022:tech:xsd:camt.054.001.08") >= 0) {
+        schemaName = "camt.054.001.08";
+    }
+
+    var schemaUrn = 'urn:iso:std:iso:20022:tech:xsd:' + schemaName;
+    if (schemaName.length > 0) {
+        schemaFile = schemaName + '.xsd';
+    }
+
+    /*
+    <Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08 camt.053.001.08.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    */
     // 1) Ensures xmlns:xsi
     if (xmlData.indexOf('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"') < 0) {
         // Insert xmlns:xsi on Document tag (right after "<Document")
@@ -140,36 +162,32 @@ function loadTexts() {
     }
 
     if (lang === "de") {
-        texts.dialogTitle = "CAMT Validierer";
-        texts.dialogText = "Wählen Sie ein Schema";
         texts.informationTitle = "Validierungsergebnis";
         texts.informationResultsValid = "Das XML-Dokument ist gültig im Vergleich zu";
         texts.informationResultsNotValid = "Das XML-Dokument ist nicht gültig im Vergleich zu";
         texts.errorDetails = "Fehlerdetails";
+        texts.errorSchemaMissing = "Das XML-Schema fehlt oder wird nicht unterstützt.";
     }
     else if (lang === "fr") {
-        texts.dialogTitle = "Validateur CAMT";
-        texts.dialogText = "Choisissez un schéma";
         texts.informationTitle = "Résultat de la validation";
         texts.informationResultsValid = "Le document XML est valide par rapport à";
         texts.informationResultsNotValid = "Le document XML n'est pas valide par rapport à";
         texts.errorDetails = "Détails de l'erreur";
+        texts.errorSchemaMissing = "Le schéma XML est manquant ou n’est pas pris en charge.";
     }
     else if (lang === "it") {
-        texts.dialogTitle = "Validatore CAMT";
-        texts.dialogText = "Scegli uno schema";
         texts.informationTitle = "Risultato della validazione";
         texts.informationResultsValid = "Il documento XML è valido rispetto a";
         texts.informationResultsNotValid = "Il documento XML non è valido rispetto a";
         texts.errorDetails = "Dettagli dell'errore";
+        texts.errorSchemaMissing = "Lo schema XML è mancante o non supportato.";
     }
     else {
-        texts.dialogTitle = "CAMT Validator";
-        texts.dialogText = "Choose a schema";
         texts.informationTitle = "Validation result";
         texts.informationResultsValid = "XML document is valid against";
-        texts.informationResultsNotValid = "XML document is not valid againts";
+        texts.informationResultsNotValid = "XML document is not valid against";
         texts.errorDetails = "Error details";
+        texts.errorSchemaMissing = "The XML schema is missing or not supported.";
     }
     return texts;
 }
