@@ -174,8 +174,38 @@ function BLKBFormat4() {
             transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
         }
 
-        // Sort rows by date
-        transactionsToImport = transactionsToImport.reverse();
+		// Sort rows by date, keeping detail rows grouped after their parent summary row.
+        // First, group transactions into blocks: each block starts with a non-detail row
+        // and includes all subsequent detail rows.
+        var groups = [];
+        var currentGroup = [];
+        for (var j = 0; j < transactionsToImport.length; j++) {
+            var isDetail = transactionsToImport[j][6]; // IsDetail column
+            if (isDetail === 'D' && currentGroup.length > 0) {
+                // Detail row belongs to the current group
+                currentGroup.push(transactionsToImport[j]);
+            } else {
+                // Start a new group (summary or normal row)
+                if (currentGroup.length > 0) {
+                    groups.push(currentGroup);
+                }
+                currentGroup = [transactionsToImport[j]];
+            }
+        }
+        if (currentGroup.length > 0) {
+            groups.push(currentGroup);
+        }
+
+        // Reverse the groups to sort by date ascending
+        groups.reverse();
+
+        // Flatten groups back into a single array
+        transactionsToImport = [];
+        for (var i = 0; i < groups.length; i++) {
+            for (var j = 0; j < groups[i].length; j++) {
+                transactionsToImport.push(groups[i][j]);
+            }
+        }
 
         // Add header and return
         var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses", "IsDetail"]];
@@ -227,9 +257,9 @@ function BLKBFormat4() {
         let mappedLine = [];
 
         mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
-        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
         mappedLine.push("");
-        mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"]));
+        mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"].replace(/\s+/g, ' ').trim()));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
 		mappedLine.push(transaction["IsDetail"]);
