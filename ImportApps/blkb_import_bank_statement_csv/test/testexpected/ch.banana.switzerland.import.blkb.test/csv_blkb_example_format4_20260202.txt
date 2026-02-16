@@ -20,14 +20,14 @@
 %Begin test data
 \begin{tablevalue}{}{ l  l  l  l  l  l  l }
 Date & DateValue & Doc & Description & Income & Expenses & IsDetail\\
-2026-01-29 &  &  & Belastung: 00000 / Ref.-Nr.  00000 ** Mitteilung: 00000 00000 00000 00000 00000 00000 &  & 48.5 & undefined\\
-2026-01-30 &  &  & 00000 PAIN001 Datei:upload.Dta &  & 50 & D\\
-2026-01-30 &  &  & 00000 PAIN001 Datei:upload.Dta &  & 144.5 & D\\
-2026-01-30 &  &  & 00000 PAIN001 Datei:upload.Dta &  & 100 & D\\
-2026-01-30 &  &  & 00000 PAIN001 Datei:upload.Dta &  & 89.9 & D\\
-2026-01-30 &  &  & Zahlungsauftrag E-Banking Anzahl Buchungen: 4 / Ref.-Nr. 00000 &  & 384.4 & S\\
-2026-01-31 &  &  & Viseca Zahlung  / Ref.-Nr.  00000 00000 Kartennummer 00000 31.01.2026 05:18 &  & 3.4 & undefined\\
-2026-01-31 &  &  & Viseca Zahlung  / Ref.-Nr.  00000 00000 *00000 Sa 00000 Kartennummer 00000 31.01.2026 10:35 &  & 70.16 & undefined\\
+2026-01-29 & 2026-01-29 &  & Belastung: 00000 / Ref.-Nr. 00000 ** Mitteilung: 00000 00000 00000 00000 00000 00000 &  & 48.5 & undefined\\
+2026-01-30 & 2026-01-30 &  & Zahlungsauftrag E-Banking Anzahl Buchungen: 4 / Ref.-Nr. 00000 &  & 384.4 & S\\
+2026-01-30 & 2026-01-30 &  & 00000 PAIN001 Datei:upload.Dta &  & 89.9 & D\\
+2026-01-30 & 2026-01-30 &  & 00000 PAIN001 Datei:upload.Dta &  & 100 & D\\
+2026-01-30 & 2026-01-30 &  & 00000 PAIN001 Datei:upload.Dta &  & 144.5 & D\\
+2026-01-30 & 2026-01-30 &  & 00000 PAIN001 Datei:upload.Dta &  & 50 & D\\
+2026-01-31 & 2026-01-31 &  & Viseca Zahlung / Ref.-Nr. 00000 00000 Kartennummer 00000 31.01.2026 05:18 &  & 3.4 & undefined\\
+2026-01-31 & 2026-01-31 &  & Viseca Zahlung / Ref.-Nr. 00000 00000 *00000 Sa 00000 Kartennummer 00000 31.01.2026 10:35 &  & 70.16 & undefined\\
 \\
 \end{tablevalue}
 \end{document}
