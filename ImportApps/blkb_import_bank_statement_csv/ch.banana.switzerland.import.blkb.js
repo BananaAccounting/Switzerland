@@ -149,7 +149,6 @@ function BLKBFormat4() {
                     isPreviousCompleteTransaction = true;
                 } else { // Detail row.
                     if (transaction['SinglePaymentAmount'] && transaction['SinglePaymentAmount'].length > 1) {
-						Banana.console.log("Detail row with single payment amount: " + JSON.stringify(transaction));
                         if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
                             lastCompleteTransaction['IsDetail'] = 'S';
                             transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
@@ -201,9 +200,9 @@ function BLKBFormat4() {
 
         // Flatten groups back into a single array
         transactionsToImport = [];
-        for (var i = 0; i < groups.length; i++) {
-            for (var j = 0; j < groups[i].length; j++) {
-                transactionsToImport.push(groups[i][j]);
+        for (var u = 0; u < groups.length; u++) {
+            for (var v = 0; v < groups[u].length; v++) {
+                transactionsToImport.push(groups[u][v]);
             }
         }
 
