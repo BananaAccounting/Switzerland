@@ -132,20 +132,106 @@ function BLKBFormat4() {
 	this.convert = function (transactionsData) {
         var transactionsToImport = [];
 
-        for (var i = 0; i < transactionsData.length; i++) {
-        
-            if (transactionsData[i]["Date"] && transactionsData[i]["Date"].length >= 10 &&
-                    transactionsData[i]["Date"].match(/^\d{2}.\d{2}.\d{4}$/)) {
-                    transactionsToImport.push(this.mapTransaction(transactionsData[i]));
+		var lastCompleteTransaction = null;
+        var isPreviousCompleteTransaction = false;
+        var lastCompleteTransactionPrinted = false;
+
+        // Filter and map rows
+        for (i = 0; i < transactionsData.length; i++) {
+            var transaction = transactionsData[i];
+            if (transaction["Description"]) { //Valid transaction (complete & detail).
+                if (!this.isDetailRow(transaction)) { // Normal row.
+                    lastCompleteTransactionPrinted = false;
+                    if (isPreviousCompleteTransaction) {
+                        transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                    }
+                    lastCompleteTransaction = transaction;
+                    isPreviousCompleteTransaction = true;
+                } else { // Detail row.
+                    if (transaction['SinglePaymentAmount'] && transaction['SinglePaymentAmount'].length > 1) {
+                        if (applicationSupportIsDetail && !lastCompleteTransactionPrinted) {
+                            lastCompleteTransaction['IsDetail'] = 'S';
+                            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+                            lastCompleteTransactionPrinted = true;
+                        }
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        if (applicationSupportIsDetail) {
+                            transaction['IsDetail'] = 'D';
+                        }
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    } else {
+                        this.fillDetailRow(transaction, lastCompleteTransaction);
+                        transactionsToImport.push(this.mapTransaction(transaction));
+                        isPreviousCompleteTransaction = false;
+                    }
+                }
             }
         }
 
-        // Sort rows by date
-        transactionsToImport = transactionsToImport.reverse();
+        if (isPreviousCompleteTransaction === true) {
+            transactionsToImport.push(this.mapTransaction(lastCompleteTransaction));
+        }
+
+		// Sort rows by date, keeping detail rows grouped after their parent summary row.
+        // First, group transactions into blocks: each block starts with a non-detail row
+        // and includes all subsequent detail rows.
+        var groups = [];
+        var currentGroup = [];
+        for (var j = 0; j < transactionsToImport.length; j++) {
+            var isDetail = transactionsToImport[j][6]; // IsDetail column
+            if (isDetail === 'D' && currentGroup.length > 0) {
+                // Detail row belongs to the current group
+                currentGroup.push(transactionsToImport[j]);
+            } else {
+                // Start a new group (summary or normal row)
+                if (currentGroup.length > 0) {
+                    groups.push(currentGroup);
+                }
+                currentGroup = [transactionsToImport[j]];
+            }
+        }
+        if (currentGroup.length > 0) {
+            groups.push(currentGroup);
+        }
+
+        // Reverse the groups to sort by date ascending
+        groups.reverse();
+
+        // Flatten groups back into a single array
+        transactionsToImport = [];
+        for (var u = 0; u < groups.length; u++) {
+            for (var v = 0; v < groups[u].length; v++) {
+                transactionsToImport.push(groups[u][v]);
+            }
+        }
 
         // Add header and return
-        var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses"]];
+        var header = [["Date", "DateValue", "Doc", "Description", "Income", "Expenses", "IsDetail"]];
         return header.concat(transactionsToImport);
+    }
+
+	this.fillDetailRow = function (detailRow, totalRow) {
+        // Copy dates
+        detailRow["Date"] = totalRow["Date"];
+        detailRow["DateValue"] = totalRow["DateValue"];
+        if (detailRow["SinglePaymentAmount"] && detailRow["SinglePaymentAmount"].length > 1) {
+            if (totalRow["DebitAmount"].length > 1) {
+                detailRow["DebitAmount"] = detailRow["SinglePaymentAmount"];
+            } else if (totalRow["CreditAmount"].length > 1) {
+                detailRow["CreditAmount"] = detailRow["SinglePaymentAmount"];
+            }
+        } else {
+            detailRow["DebitAmount"] = totalRow["DebitAmount"];
+            detailRow["CreditAmount"] = totalRow["CreditAmount"];
+        }
+    }
+
+    this.isDetailRow = function (transaction) {
+        if (transaction["Date"].trim().length === 0
+            && transaction["DateValue"].trim().length === 0)
+            return true;
+        return false;
     }
 
 	this.getFormattedData = function (inData, importUtilities) {
@@ -170,11 +256,12 @@ function BLKBFormat4() {
         let mappedLine = [];
 
         mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
-        mappedLine.push(Banana.Converter.toInternalDateFormat("", "dd.mm.yyyy"));
+        mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "dd.mm.yyyy"));
         mappedLine.push("");
-        mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"]));
+        mappedLine.push(Banana.Converter.stringToCamelCase(transaction["Description"].replace(/\s+/g, ' ').trim()));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["CreditAmount"], '.'));
         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["DebitAmount"], '.'));
+		mappedLine.push(transaction["IsDetail"]);
 
         return mappedLine;
     }
