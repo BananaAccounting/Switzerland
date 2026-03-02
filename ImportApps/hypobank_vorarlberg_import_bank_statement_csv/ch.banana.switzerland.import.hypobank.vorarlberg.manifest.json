@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Hypobank Vorarlberg - Import bank account statement (*.csv)",
+    "description.en": "Hypobank Vorarlberg - Import bank account statement (*.csv)",
+    "description.de": "Hypobank Vorarlberg - Kontoauszug importieren (*.csv)",
+    "description.fr": "Hypobank Vorarlberg - Importer un relevé de compte bancaire (*.csv)",
+    "description.it": "Hypobank Vorarlberg - Importa movimenti estratto conto bancario (*.csv)",
+    "id": "ch.banana.switzerland.import.hypobank.vorarlberg",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Hypobank Vorarlberg - Import bank account statement (*.csv)",
+    "title.en": "Hypobank Vorarlberg - Import bank account statement (*.csv)",
+    "title.de": "Hypobank Vorarlberg - Kontoauszug importieren (*.csv)",
+    "title.fr": "Hypobank Vorarlberg - Importer un relevé de compte bancaire (*.csv)",
+    "title.it": "Hypobank Vorarlberg - Importa movimenti estratto conto bancario (*.csv)",
+    "version": "1.0"
+}
