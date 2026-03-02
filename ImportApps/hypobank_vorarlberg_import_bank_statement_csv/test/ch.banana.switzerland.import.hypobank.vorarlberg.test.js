@@ -24,8 +24,8 @@
 // @docproperties = 
 // @outputformat = none
 // @inputdataform = none
-// @includejs = ../ch.banana.switzerland.import.hypobank.vorarlberg/import.utilities.js
-// @includejs = ../ch.banana.switzerland.import.hypobank.vorarlberg/ch.banana.switzerland.import.hypobank.vorarlberg.js
+// @includejs = ../ch.banana.switzerland.import.hypobank.vorarlberg.sbaa/import.utilities.js
+// @includejs = ../ch.banana.switzerland.import.hypobank.vorarlberg.sbaa/ch.banana.switzerland.import.hypobank.vorarlberg.js
 // @timeout = -1
 
 // Register test case to be executed
