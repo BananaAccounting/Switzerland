@@ -16,11 +16,11 @@
 // @api = 1.0
 // @pubdate = 2026-06-03
 // @publisher = Banana.ch SA
-// @description = Hypobank Vorarlberg - Import bank account statement (*.csv)
-// @description.it = Hypobank Vorarlberg - Importa estratto conto bancario (*.csv)
-// @description.en = Hypobank Vorarlberg - Import bank account statement (*.csv)
-// @description.de = Hypobank Vorarlberg - Kontoauszug importieren (*.csv)
-// @description.fr = Hypobank Vorarlberg - Importer un relevé de compte bancaire (*.csv)
+// @description = Hypo Vorarlberg Bank - Import bank account statement (*.csv)
+// @description.it = Hypo Vorarlberg Bank - Importa estratto conto bancario (*.csv)
+// @description.en = Hypo Vorarlberg Bank - Import bank account statement (*.csv)
+// @description.de = Hypo Vorarlberg Bank - Kontoauszug importieren (*.csv)
+// @description.fr = Hypo Vorarlberg Bank - Importer un relevé de compte bancaire (*.csv)
 // @doctype = *
 // @docproperties =
 // @task = import.transactions
@@ -49,7 +49,7 @@ function exec(string, isTest) {
    var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
    let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
-   // Hypobank Vorarlberg Format, this format works with the header names.
+   // Hypo Vorarlberg Bank Vorarlberg Format, this format works with the header names.
    var hypobankVorarlbergFormat1 = new HypobankVorarlbergFormat1();
    if (hypobankVorarlbergFormat1.match(transactionsData)) {
       transactions = hypobankVorarlbergFormat1.convert(transactionsData);
@@ -63,7 +63,7 @@ function exec(string, isTest) {
 }
 
 /**
- * Hypobank Vorarlberg Format
+ * Hypo Vorarlberg Bank Format
  *
  * IBAN;Auszugsnummer;Buchungsdatum;Valutadatum;Umsatzzeit;Zahlungsreferenz;Waehrung;Betrag;Buchungstext;Umsatztext;Name des Partners;Name des ultimate Partners;Name des ultimate Auftraggebers;Creditor ID;Mandat ID;Kontoverbindung des Partners;Partner BIC;Auftraggeberreferenz;Verwendungszweck;Kategorie;Notiz;Original Auftragsbetrag;Original W�hrung;Bestandskategorie;Umsatzkategorie;Entgeltinformationen;Eigene Referenz
  * A0000000000000000000;12;2025-12-31;2025-12-31;2025-12-31-21.35.45.616362;;EUR;-40,51;Abschluss;Test description;;;;;;;;;;Sonstiges;;;;;;;
