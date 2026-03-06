@@ -1,4 +1,4 @@
-// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.hypobank.vorarlberg
 // @api = 1.0
-// @pubdate = 2026-02-03
+// @pubdate = 2026-06-03
 // @publisher = Banana.ch SA
 // @description = Hypobank Vorarlberg - Import bank account statement (*.csv)
 // @description.it = Hypobank Vorarlberg - Importa estratto conto bancario (*.csv)
@@ -119,17 +119,26 @@ function HypobankVorarlbergFormat1() {
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy.mm.dd"));
       mappedLine.push("");
       mappedLine.push(transaction["PaymentReference"]);
-      mappedLine.push(transaction["Description"] + (transaction["TransactionText"] ? " - " + transaction["TransactionText"] : ""));
+      mappedLine.push(getDescription(transaction));
       if (transaction["Amount"] && transaction["Amount"].startsWith("-")) {
          mappedLine.push("");
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), ','));
       } else {
-         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"].substring(1), ','));
+         mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], ','));
          mappedLine.push("");
       }
 
       return mappedLine;
    }
+}
+
+function getDescription(transaction) {
+   if (!transaction)
+      return "";
+   const { "Description": description, "TransactionText": transactionText, "PartnerName": partnerName } = transaction;
+   return [description, transactionText, partnerName]
+      .filter(value => value && typeof value === "string" && value.trim() !== "")
+      .join(", ").replace(/ +/g, " ");
 }
 
 function defineConversionParam(inData) {
