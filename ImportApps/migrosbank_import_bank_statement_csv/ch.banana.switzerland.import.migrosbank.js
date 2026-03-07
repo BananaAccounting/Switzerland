@@ -499,6 +499,13 @@ function getFormattedData(inData, convertionParam, importUtilities) {
       return form;
    }
 
+   convertedColumns = convertHeaderDe(columns);
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
    return [];
 }
 
@@ -563,6 +570,46 @@ function convertHeaderFr(columns) {
             convertedColumns[i] = "Amount";
             break;
          case "Valeur":
+            convertedColumns[i] = "DateValue";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0
+      || convertedColumns.indexOf("Description") < 0
+      || convertedColumns.indexOf("Description2") < 0
+      || convertedColumns.indexOf("Description3") < 0
+      || convertedColumns.indexOf("Amount") < 0
+      || convertedColumns.indexOf("DateValue") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+function convertHeaderDe(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Datum":
+            convertedColumns[i] = "Date";
+            break;
+         case "Buchungstext":
+            convertedColumns[i] = "Description";
+            break;
+         case "Mitteilung":
+            convertedColumns[i] = "Description2";
+            break;
+         case "Referenznummer":
+            convertedColumns[i] = "Description3";
+            break;
+         case "Betrag":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Valuta":
             convertedColumns[i] = "DateValue";
             break;
          default:
