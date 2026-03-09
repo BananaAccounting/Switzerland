@@ -1,0 +1,16 @@
+﻿"Kontoauszug von:";"2026-01-01"
+"Kontoauszug bis:";"2026-03-01"
+;
+"Vertrag:";"11111111"
+"Kontonummer / IBAN:";"111.111.11 / CH11 1111 1111 1111 1111 1"
+"Bezeichnung:";"Anlagesparkonto"
+"Saldo:";""
+;
+"User XXX"
+"Address XXX"
+"Number XXX"
+;
+;
+"Datum";"Buchungstext";"Mitteilung";"Referenznummer";"Betrag";"Saldo";"Valuta"
+"20.02.2026";"Test description";"";;"-25000.00";"25918.95";"20.02.2026"
+"23.02.2026";"Test description";"";;"-30.00";"25888.95";"23.02.2026"
