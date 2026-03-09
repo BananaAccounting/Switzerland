@@ -471,10 +471,17 @@ function defineConversionParam(inData) {
    // get separator
    convertionParam.separator = findSeparator(string);
 
+   var headerLine = string.split("\n")[13]; // get the line of the German headers (the line with the column titles)
+
    /** SPECIFY AT WHICH ROW OF THE CSV FILE IS THE HEADER (COLUMN TITLES)
    We suppose the data will always begin right away after the header line */
    convertionParam.headerLineStart = 7;
    convertionParam.dataLineStart = 8;
+
+   if (headerLine !== undefined && headerLine.length > 0 && headerLine.indexOf("Datum") >= 0) {
+      convertionParam.headerLineStart = 13;
+      convertionParam.dataLineStart = 14;
+   }
 
    return convertionParam;
 }
