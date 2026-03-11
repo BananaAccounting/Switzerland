@@ -46,7 +46,6 @@ function exec(string, isTest) {
 
    let convertionParam = defineConversionParam(string);
    var transactions = Banana.Converter.csvToArray(string, convertionParam.separator, '"');
-   let transactionsData = getFormattedData(transactions, convertionParam, importUtilities);
 
    // Format 1
    var format1 = new MBFormat1();
@@ -57,6 +56,7 @@ function exec(string, isTest) {
 
    // Format 2
    var format2 = new MBFormat2();
+   let transactionsData = format2.getFormattedData(string, importUtilities);
    if (format2.match(transactionsData)) {
       transactions = format2.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
@@ -235,8 +235,74 @@ function MBFormatCC1() {
 /**
  * Migros Bank Format 2
  */
-function MBFormat2() {
-   this.match = function (transactionsData) {
+var MBFormat2 = class MBFormat2 {
+
+   defineConversionParam(string) {
+      var convertionParam = {};
+      convertionParam.format = "csv";
+      convertionParam.textDelim = '"';
+      convertionParam.separator = findSeparator(string);
+
+      // Keywords that identify a header line across all supported languages
+      var headerKeywords = [
+         "Datum", "Buchungstext", "Betrag", "Valuta",   // German
+         "Data", "Testo di registrazione", "Importo",   // Italian
+         "Date", "Libellé", "Montant",                  // French
+         "Amount"                                        // English
+      ];
+
+      var lines = string.split("\n");
+      convertionParam.headerLineStart = 0;
+      convertionParam.dataLineStart = 1;
+
+      for (var i = 0; i < lines.length; i++) {
+         var line = lines[i];
+         var matchCount = 0;
+         for (var k = 0; k < headerKeywords.length; k++) {
+            if (line.indexOf(headerKeywords[k]) >= 0) {
+               matchCount++;
+            }
+         }
+         // Require at least 2 keyword matches to avoid false positives
+         if (matchCount >= 2) {
+            convertionParam.headerLineStart = i;
+            convertionParam.dataLineStart = i + 1;
+            break;
+         }
+      }
+
+      return convertionParam;
+   }
+
+   getFormattedData(string, importUtilities) {
+      var convertionParam = this.defineConversionParam(string);
+      var inData = Banana.Converter.csvToArray(string, convertionParam.separator, convertionParam.textDelim);
+      var columns = importUtilities.getHeaderData(inData, convertionParam.headerLineStart);
+      var rows = importUtilities.getRowData(inData, convertionParam.dataLineStart);
+      let form = [];
+
+      let convertedColumns = convertHeaderIt(columns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderFr(columns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      convertedColumns = convertHeaderDe(columns);
+      if (convertedColumns.length > 0) {
+         importUtilities.loadForm(form, convertedColumns, rows);
+         return form;
+      }
+
+      return [];
+   }
+
+   match(transactionsData) {
       if (transactionsData.length === 0)
          return false;
 
@@ -268,7 +334,7 @@ function MBFormat2() {
       return false;
    }
 
-   this.convert = function (transactionsData) {
+   convert(transactionsData) {
       var transactionsToImport = [];
 
       for (var i = 0; i < transactionsData.length; i++) {
@@ -283,7 +349,7 @@ function MBFormat2() {
       return header.concat(transactionsToImport);
    }
 
-   this.mapTransaction = function (transaction) {
+   mapTransaction(transaction) {
       let mappedLine = [];
 
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "dd.mm.yyyy"));
@@ -311,7 +377,7 @@ function MBFormat2() {
       return mappedLine;
    }
 
-   this.getDescription = function (transaction) {
+   getDescription(transaction) {
       let description = "";
       description = transaction["Description"];
       if (transaction["Description2"])
