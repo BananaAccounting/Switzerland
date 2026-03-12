@@ -65,7 +65,7 @@ function exec(string, isTest) {
    // Migros Bank Credit Card Format 1
    var mbFormatCC1 = new MBFormatCC1();
    transactionsData = mbFormatCC1.getFormattedData(transactions, importUtilities);
-   
+
    if (mbFormatCC1.match(transactionsData)) {
       transactions = mbFormatCC1.convert(transactionsData);
       return Banana.Converter.arrayToTsv(transactions);
@@ -87,7 +87,7 @@ function MBFormatCC1() {
 
       let convertedColumns = [];
       convertedColumns = this.convertHeaderEn(columns);
-      
+
       //Load the form with data taken from the array. Create objects
       if (convertedColumns.length > 0) {
          importUtilities.loadForm(form, convertedColumns, rows);
@@ -107,7 +107,7 @@ function MBFormatCC1() {
                break;
             case "ValutaDate":
                convertedColumns[i] = "DateValue";
-               break;         
+               break;
             case "TransactionId":
                convertedColumns[i] = "TransactionId";
                break;
@@ -142,7 +142,7 @@ function MBFormatCC1() {
          || convertedColumns.indexOf("Amount") < 0) {
          return [];
       }
-      
+
       return convertedColumns;
    }
 
@@ -159,7 +159,7 @@ function MBFormatCC1() {
             formatMatched = true;
          else
             formatMatched = false;
-      
+
          if (formatMatched && transaction["DateValue"] && transaction["DateValue"].length >= 10 &&
             transaction["DateValue"].match(/^\d{4}-\d{2}-\d{2}/))
             formatMatched = true;
@@ -203,7 +203,7 @@ function MBFormatCC1() {
 
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["Date"], "yyyy-mm-dd"));
       mappedLine.push(Banana.Converter.toInternalDateFormat(transaction["DateValue"], "yyyy-mm-dd"));
-      mappedLine.push(""); 
+      mappedLine.push("");
       mappedLine.push(transaction["TransactionId"]);
       let description = this.getDescription(transaction);
       mappedLine.push(description);
@@ -243,7 +243,13 @@ var MBFormat2 = class MBFormat2 {
       convertionParam.textDelim = '"';
       convertionParam.separator = findSeparator(string);
 
-      // Keywords that identify a header line across all supported languages
+      /**
+       * Keywords used to identify the header row across all supported languages.
+       * 
+       * The following logic is used to determine the exact header row position.
+       * For format 2, the header may appear at row 8 or row 14, depending on whether
+       * the export includes additional information about the account and its owner.
+       */
       var headerKeywords = [
          "Datum", "Buchungstext", "Betrag", "Valuta",   // German
          "Data", "Testo di registrazione", "Importo",   // Italian
