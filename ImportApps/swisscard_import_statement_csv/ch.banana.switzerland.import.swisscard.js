@@ -69,7 +69,7 @@ function SwisscardFormat2() {
          var formatMatched = true;
 
          if (formatMatched && transaction["Date"] && transaction["Date"].length >= 10 &&
-            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/) && transaction["Registered category"])
+            transaction["Date"].match(/^[0-9]+\.[0-9]+\.[0-9]+$/) && "Registered category" in transaction)
             formatMatched = true;
          else
             formatMatched = false;

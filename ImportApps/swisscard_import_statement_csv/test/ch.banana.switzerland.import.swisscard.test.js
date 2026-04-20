@@ -64,6 +64,9 @@ TestImportSwisscard.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20240717.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_it_20240916.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_en_20241015.csv");
+   // The following file is used because it has format 2 with only one transaction, so it is useful
+   // to test the case of a file with only one transaction that doesn't have data in "Registered category".
+   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20260415.csv");
 
 
    var parentLogger = this.testLogger;
