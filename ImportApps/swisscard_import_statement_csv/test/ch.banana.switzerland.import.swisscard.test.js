@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.swisscard.test
 // @api = 1.0
-// @pubdate = 2023-05-02
+// @pubdate = 2026-04-20
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.swisscard.test>
 // @task = app.command

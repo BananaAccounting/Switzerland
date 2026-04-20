@@ -1,6 +1,20 @@
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 // @id = ch.banana.switzerland.import.swisscard
 // @api = 1.0
-// @pubdate = 2024-07-25
+// @pubdate = 2026-04-20
 // @publisher = Banana.ch SA
 // @description = Swisscard - Import movements .csv (Banana+ Advanced)
 // @description.it = Swisscard - Importa movimenti .csv (Banana+ Advanced)
@@ -12,7 +26,7 @@
 // @task = import.transactions
 // @outputformat = transactions.simple
 // @inputdatasource = openfiledialog
-// @inputencoding = latin1
+// @inputencoding = utf8
 // @inputfilefilter = Text files (*.txt *.csv);;All files (*.*)
 // @inputfilefilter.de = Text (*.txt *.csv);;Alle Dateien (*.*)
 // @inputfilefilter.fr = Texte (*.txt *.csv);;Tous (*.*)
@@ -111,7 +125,7 @@ function SwisscardFormat2() {
       } else {
          mappedLine.push(transaction["Description"]);
       }
-      if (!transaction["Amount"][0] === "-"){
+      if (!transaction["Amount"][0] === "-") {
          mappedLine.push(Banana.Converter.toInternalNumberFormat(transaction["Amount"], '.'));
          mappedLine.push("");
       }
