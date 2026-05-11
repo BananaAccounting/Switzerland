@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.ubs
 // @api = 1.0
-// @pubdate = 2025-10-22
+// @pubdate = 2026-05-08
 // @publisher = Banana.ch SA
 // @description = UBS - Import account statement .csv (Banana+ Advanced)
 // @description.en = UBS - Import account statement .csv (Banana+ Advanced)
@@ -1122,6 +1122,11 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
     }
 
     getFormattedData(transactions, importUtilities) {
+
+        if (!transactions || transactions.length <= 9) {
+            return [];
+        }
+
         let transactionsCopy = JSON.parse(JSON.stringify(transactions)); //To not modifiy the original array we make a deep copy of the array.
         var columns = importUtilities.getHeaderData(transactionsCopy, 9); //array
         var rows = importUtilities.getRowData(transactionsCopy, 10); //array of array
