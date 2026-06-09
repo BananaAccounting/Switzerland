@@ -1,0 +1,36 @@
+%%info_test_name{csv_bcv_example_format1_20260608}
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\newenvironment{tablevalue}[2]{\textbf{Table: #1}\begin{longtable}[l]{#2}}{\end{longtable}}
+\newenvironment{reportvalue}[1]{\textbf{Report: #1}\\}{}
+\lstnewenvironment{jsonvalue}[1]{\textbf{Json: #1}\lstset{language=Java}}{}
+\lstnewenvironment{xmlvalue}[1]{\textbf{Xml: #1}\lstset{language=Xml}}{}
+\newcommand{\info}[2]{\textit{#1: #2}\\}
+\newcommand{\fatalerror}[1]{\textbf{\textcolor[rgb]{1,0,0}{Fatal error: #1}}\\}
+\newcommand{\keyvalue}[2]{\textbf{Keyvalue: #1} #2\\}
+\newcommand{\textvalue}[1]{#1\\}
+\newcommand{\excltest}[1]{\\Excluded from compare: #1}
+\newcommand{\lognewpage}{\newpage}
+\newenvironment{testcase}[1]{\section*{Test: #1}}{\newpage}
+\newenvironment{test}[1]{\section*{Test case: #1}}{}
+%Begin test data
+\begin{tablevalue}{}{ l  l  l  l  l  l }
+Date & DateValue & Doc & Description & Income & Expenses\\
+2025-09-19 & 2025-09-19 &  & Test & 4250.00 & \\
+2025-09-21 & 2025-09-19 &  & Test &  & 4.62\\
+2025-09-23 & 2025-09-22 &  & Test &  & 109.40\\
+2025-09-26 & 2025-09-26 &  & Test &  & 10079.65\\
+2025-09-26 & 2025-09-26 &  & Test &  & 2035.00\\
+2025-09-26 & 2025-09-25 &  & Test &  & 99.80\\
+2025-09-26 & 2025-09-24 &  & Test &  & 2528.63\\
+2025-09-26 & 2025-09-22 &  & Test &  & 20.04\\
+2025-09-27 & 2025-09-25 &  & Test &  & 96.00\\
+2025-09-29 & 2025-09-29 &  & Test &  & 3700.00\\
+2025-09-30 & 2025-09-30 &  & Test &  & 1350.00\\
+\\
+\end{tablevalue}
+\end{document}
