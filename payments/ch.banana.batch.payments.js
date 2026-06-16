@@ -16,7 +16,7 @@
 //
 // @id = ch.banana.batch.payments
 // @api = 1.0
-// @pubdate = 2024-12-03
+// @pubdate = 2026-06-16
 // @doctype = 100.*;110.*;130.*
 // @description = Add payment data to suppliers invoices [BETA]
 // @task = app.command
@@ -92,7 +92,7 @@ function exec() {
   if (rowsToProcess.length > 0) {
     for (var i = 0; i < rowsToProcess.length; i++) {
       tabPos.rowNr = rowsToProcess[i] - 1;
-      docChange = createPaymentObject(tabPos, docChange, openInvoicesList, rowsProcessed);
+      docChange = createPaymentObject(tabPos, docChange, openInvoicesList, rowsProcessed, userParam);
     }
   }
   else {
@@ -161,14 +161,31 @@ function convertParam(userParam) {
   }
   convertedParam.data.push(currentParam);
 
+  currentParam = {};
+  currentParam.name = 'storeMessageInNotesDefault';
+  currentParam.title = 'Synchronize \'Additional Information\' with the \'Notes\' column';
+  currentParam.type = 'bool';
+  currentParam.value = userParam.storeMessageInNotesDefault ? userParam.storeMessageInNotesDefault : false;
+  currentParam.readValue = function () {
+    userParam.storeMessageInNotesDefault = this.value;
+  }
+  convertedParam.data.push(currentParam);
+
   return convertedParam;
 }
 
-function createPaymentObject(tabPos, docChange, openInvoicesList, rowProcessed) {
+function createPaymentObject(tabPos, docChange, openInvoicesList, rowProcessed, userParam) {
   var jsAction = new JsAction(Banana.document);
   var pain001CH = new Pain001Switzerland(Banana.document);
   if (!pain001CH.verifyBananaVersion())
     return docChange;
+
+  //non è possibile leggere le impostazioni dell'estensione pain001 perché i settings non sono condivisi
+  // è necessario reimpostare la lettura della colonna note
+  if (userParam && userParam.storeMessageInNotesDefault) {
+    if (pain001CH.param && pain001CH.param.storeMessageInNotesDefault)
+      pain001CH.param.storeMessageInNotesDefault = userParam.storeMessageInNotesDefault;
+  }
 
   var paymentObj = pain001CH.initPaymObject();
 
@@ -291,6 +308,7 @@ function initUserParam() {
   userParam.process_table = '';
   userParam.process_rows = '*';
   userParam.only_open_invoices = false;
+  userParam.storeMessageInNotesDefault=false;
 
   return userParam;
 }
@@ -362,6 +380,8 @@ function verifyUserParam(userParam) {
     userParam.process_rows = '*';
   if (!userParam.only_open_invoices)
     userParam.only_open_invoices = false;
+  if (!userParam.storeMessageInNotesDefault)
+    userParam.storeMessageInNotesDefault = false;
 
   return userParam;
 }
