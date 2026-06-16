@@ -251,12 +251,12 @@ function Pain001Switzerland(banDocument) {
         "@version": this.version
     });
     //questo formato non è più valido
-    /*this.painFormats.push({
+    this.painFormats.push({
         "@appId": this.id,
-        "@description": "ISO 20022 Schema (pain.001.001.03)",
+        "@description": "ISO 20022 Schema (pain.001.001.03) no longer supported",
         "@format": this.ID_PAIN_FORMAT_001_001_03,
         "@version": this.version
-    });*/
+    });
 
     this.SEPARATOR_CHAR = '\xa0';
     this.isTest = false;
