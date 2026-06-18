@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2024-07-30
+// @pubdate = 2026-06-16
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -250,9 +250,10 @@ function Pain001Switzerland(banDocument) {
         "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
         "@version": this.version
     });
+    //questo formato non è più valido
     this.painFormats.push({
         "@appId": this.id,
-        "@description": "ISO 20022 Schema (pain.001.001.03)",
+        "@description": "ISO 20022 Schema (pain.001.001.03) no longer supported",
         "@format": this.ID_PAIN_FORMAT_001_001_03,
         "@version": this.version
     });
