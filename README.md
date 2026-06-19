@@ -8,7 +8,7 @@
   - french
   - german
   - italian
-- tremplates
+- templates
   Templates files for Switzerland
   
 
