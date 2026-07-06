@@ -77,7 +77,24 @@ function printDocument(jsonInvoice, repDocObj, repStyleObj, jsonPreferences) {
     var userParam = initParam();
     var savedParam = Banana.document.getScriptSettings();
     if (savedParam.length > 0) {
-      userParam = JSON.parse(savedParam);
+      var savedSettings = JSON.parse(savedParam);
+      if (savedSettings.profiles && savedSettings.active_profile) {
+        // New format with profiles: sync Default from root flat params first,
+        // then use the active profile's params.
+        var rootParams = extractRootParams(savedSettings);
+        if (Object.keys(rootParams).length > 0) {
+          savedSettings.profiles["Default"] = rootParams;
+        }
+        var activeProfile = savedSettings.active_profile;
+        if (savedSettings.profiles[activeProfile]) {
+          userParam = savedSettings.profiles[activeProfile];
+        } else {
+          userParam = savedSettings.profiles[Object.keys(savedSettings.profiles)[0]];
+        }
+      } else {
+        // Old flat format: use directly
+        userParam = savedSettings;
+      }
       userParam = verifyParam(userParam);
     }
 

@@ -298,6 +298,21 @@ function setTexts_it(texts) {
   texts.json_layoutparameters = "JSON parametri layout";
   texts.json_layoutpreferences = "JSON preferenze layout";
   texts.text_qrcode = "Testo QRCode";
+
+  texts.param_profile_selector = "Profilo";
+  texts.param_create_new_profile = "Crea nuovo profilo...";
+  texts.param_delete_profile = "Elimina profilo...";
+  texts.param_new_profile_title = "Nuovo profilo";
+  texts.param_new_profile_msg = "Inserisci il nome del nuovo profilo:";
+  texts.param_delete_profile_confirm = "Eliminare il profilo '%1' e tutte le sue impostazioni?";
+  texts.param_cannot_delete_default = "Impossibile eliminare il profilo predefinito 'Default'.";
+  texts.param_profile_exists = "Il profilo '%1' esiste già. Passare a questo profilo?";
+  texts.param_save_before_switch = "Le impostazioni del profilo '%1' sono state modificate. Salvarle prima di cambiare profilo?";
+  texts.param_rename_profile = "Rinomina profilo...";
+  texts.param_rename_profile_title = "Rinomina profilo";
+  texts.param_rename_profile_msg = "Inserisci il nuovo nome per il profilo '%1':";
+  texts.param_cannot_rename_default = "Impossibile rinominare il profilo predefinito 'Default'.";
+  texts.param_rename_profile_exists = "Esiste già un profilo con il nome '%1'.";
 }
 
 function setTexts_fr(texts) {
@@ -550,6 +565,21 @@ function setTexts_fr(texts) {
   texts.json_layoutparameters = "JSON des paramètres de mise en page";
   texts.json_layoutpreferences = "JSON des préférences de mise en page";
   texts.text_qrcode = "Texte du QRCode";
+
+  texts.param_profile_selector = "Profil";
+  texts.param_create_new_profile = "Créer nouveau profil...";
+  texts.param_delete_profile = "Supprimer profil...";
+  texts.param_new_profile_title = "Nouveau profil";
+  texts.param_new_profile_msg = "Entrez le nom du nouveau profil:";
+  texts.param_delete_profile_confirm = "Supprimer le profil '%1' et tous ses paramètres?";
+  texts.param_cannot_delete_default = "Impossible de supprimer le profil par défaut 'Default'.";
+  texts.param_profile_exists = "Le profil '%1' existe déjà. Passer à ce profil?";
+  texts.param_save_before_switch = "Les paramètres du profil '%1' ont été modifiés. Les enregistrer avant de changer de profil?";
+  texts.param_rename_profile = "Renommer profil...";
+  texts.param_rename_profile_title = "Renommer profil";
+  texts.param_rename_profile_msg = "Entrez le nouveau nom pour le profil '%1':";
+  texts.param_cannot_rename_default = "Impossible de renommer le profil par défaut 'Default'.";
+  texts.param_rename_profile_exists = "Un profil avec le nom '%1' existe déjà.";
 }
 
 function setTexts_de(texts) {
@@ -802,6 +832,21 @@ function setTexts_de(texts) {
   texts.json_layoutparameters = "JSON-Layoutparameter";
   texts.json_layoutpreferences = "JSON-Layouteinstellungen";
   texts.text_qrcode = "QRCode-Text";
+
+  texts.param_profile_selector = "Profil";
+  texts.param_create_new_profile = "Neues Profil erstellen...";
+  texts.param_delete_profile = "Profil löschen...";
+  texts.param_new_profile_title = "Neues Profil";
+  texts.param_new_profile_msg = "Namen für das neue Profil eingeben:";
+  texts.param_delete_profile_confirm = "Profil '%1' und alle seine Einstellungen löschen?";
+  texts.param_cannot_delete_default = "Das Standard-Profil 'Default' kann nicht gelöscht werden.";
+  texts.param_profile_exists = "Profil '%1' existiert bereits. Zu diesem Profil wechseln?";
+  texts.param_save_before_switch = "Die Einstellungen des Profils '%1' wurden geändert. Vor dem Profilwechsel speichern?";
+  texts.param_rename_profile = "Profil umbenennen...";
+  texts.param_rename_profile_title = "Profil umbenennen";
+  texts.param_rename_profile_msg = "Neuen Namen für Profil '%1' eingeben:";
+  texts.param_cannot_rename_default = "Das Standard-Profil 'Default' kann nicht umbenannt werden.";
+  texts.param_rename_profile_exists = "Ein Profil mit dem Namen '%1' existiert bereits.";
 }
 
 function setTexts_en(texts) {
@@ -1054,5 +1099,20 @@ function setTexts_en(texts) {
   texts.json_layoutparameters = "JSON layout parameters";
   texts.json_layoutpreferences = "JSON layout preferences";
   texts.text_qrcode = "QRCode text";
+
+  texts.param_profile_selector = "Profile";
+  texts.param_create_new_profile = "Create new profile...";
+  texts.param_delete_profile = "Delete profile...";
+  texts.param_new_profile_title = "New profile";
+  texts.param_new_profile_msg = "Enter the name for the new profile:";
+  texts.param_delete_profile_confirm = "Delete profile '%1' and all its settings?";
+  texts.param_cannot_delete_default = "The default profile 'Default' cannot be deleted.";
+  texts.param_profile_exists = "Profile '%1' already exists. Switch to this profile?";
+  texts.param_save_before_switch = "The settings of profile '%1' have been modified. Save them before switching profile?";
+  texts.param_rename_profile = "Rename profile...";
+  texts.param_rename_profile_title = "Rename profile";
+  texts.param_rename_profile_msg = "Enter the new name for profile '%1':";
+  texts.param_cannot_rename_default = "The default profile 'Default' cannot be renamed.";
+  texts.param_rename_profile_exists = "A profile with the name '%1' already exists.";
 }
 

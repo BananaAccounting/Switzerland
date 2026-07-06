@@ -18,6 +18,9 @@
 /* User parameters update: 2025-11-18 */
 
 
+// Module-level variables for profile management
+var _profiles = {};
+var _activeProfile = "Default";
 
 
 function settingsDialog() {
@@ -32,12 +35,39 @@ function settingsDialog() {
 
     isIntegratedInvoice();
 
-    var userParam = initParam();
     var savedParam = Banana.document.getScriptSettings();
+    var savedSettings = {};
     if (savedParam.length > 0) {
-      userParam = JSON.parse(savedParam);
+      savedSettings = JSON.parse(savedParam);
     }
-    userParam = verifyParam(userParam);
+
+    // Detect new format (has profiles) vs old flat format
+    if (savedSettings.profiles) {
+      _profiles = savedSettings.profiles;
+      _activeProfile = savedSettings.active_profile || "Default";
+      if (!_profiles[_activeProfile]) {
+        _activeProfile = Object.keys(_profiles)[0] || "Default";
+      }
+      // Always sync Default profile from root-level flat params.
+      // The old extension updates only the root flat params when it saves,
+      // so root flat is always the most up-to-date version of Default.
+      var rootParams = extractRootParams(savedSettings);
+      if (Object.keys(rootParams).length > 0) {
+        _profiles["Default"] = rootParams;
+      }
+    } else {
+      // Old format or first run: migrate existing flat params to Default profile
+      _profiles = {};
+      _activeProfile = "Default";
+      var defaultParams = initParam();
+      if (savedParam.length > 0) {
+        defaultParams = JSON.parse(savedParam);
+      }
+      _profiles["Default"] = defaultParams;
+    }
+
+    var userParam = verifyParam(JSON.parse(JSON.stringify(_profiles[_activeProfile])));
+
     if (typeof (Banana.Ui.openPropertyEditor) !== 'undefined') {
       var dialogTitle = 'Settings';
       var convertedParam = convertParam(userParam);
@@ -56,8 +86,18 @@ function settingsDialog() {
         }
       }
     }
-    var paramToString = JSON.stringify(userParam);
-    var value = Banana.document.setScriptSettings(paramToString);
+
+    // Save the active profile's updated params
+    _profiles[_activeProfile] = userParam;
+
+    // Spread Default profile params at the root level for backward compatibility
+    // with older versions of the extension that don't know about profiles.
+    var defaultParams = _profiles["Default"] || userParam;
+    var settingsToSave = Object.assign({}, defaultParams, {
+      active_profile: _activeProfile,
+      profiles: _profiles
+    });
+    Banana.document.setScriptSettings(JSON.stringify(settingsToSave));
   }
 }
 
@@ -82,6 +122,29 @@ function convertParam(userParam) {
 
   var lengthDetailsColumns = "";
   var lengthDetailsTexts = "";
+
+
+  /*******************************************************************************************
+  * PROFILE SELECTOR
+  *******************************************************************************************/
+  var profileNames = Object.keys(_profiles);
+  var profileItems = profileNames.concat([texts.param_create_new_profile, texts.param_rename_profile, texts.param_delete_profile]);
+
+  var currentParam = {};
+  currentParam.name = 'profile_selector';
+  currentParam.title = texts.param_profile_selector;
+  currentParam.type = 'combobox';
+  currentParam.items = profileItems;
+  currentParam.value = _activeProfile;
+  currentParam.defaultvalue = "Default";
+  currentParam.readValue = function() {
+    // _activeProfile is updated by onCurrentIndexChanged_profile_selector
+    // but we ensure it reflects the final selection
+    if (this.value !== texts.param_create_new_profile && this.value !== texts.param_delete_profile) {
+      _activeProfile = this.value;
+    }
+  }
+  convertedParam.data.push(currentParam);
 
 
   /*******************************************************************************************
@@ -2113,6 +2176,227 @@ function verifyParam(userParam) {
 //====================================================================//
 // Change parameters for specific events
 //====================================================================//
+
+function extractRootParams(savedSettings) {
+  /**
+   * Extracts the flat params from the root of savedSettings,
+   * stripping out the profile-management keys added by the new extension.
+   * These flat params represent the Default profile as saved by either
+   * the old or the new extension.
+   */
+  var rootParams = {};
+  var profileKeys = { active_profile: true, profiles: true };
+  for (var key in savedSettings) {
+    if (savedSettings.hasOwnProperty(key) && !profileKeys[key]) {
+      rootParams[key] = savedSettings[key];
+    }
+  }
+  return rootParams;
+}
+
+function saveCurrentDialogToProfile(convertedParam, profileName) {
+  /**
+   * Saves the current dialog field values back to the given profile in _profiles.
+   */
+  if (!_profiles[profileName]) {
+    _profiles[profileName] = initParam();
+  }
+  for (var i = 0; i < convertedParam.data.length; i++) {
+    var param = convertedParam.data[i];
+    if (param.name && param.name !== 'profile_selector') {
+      _profiles[profileName][param.name] = param.value;
+    }
+  }
+}
+
+function loadProfileParamsIntoDialog(convertedParam, profileData) {
+  /**
+   * Loads a profile's param values into the dialog fields.
+   */
+  for (var i = 0; i < convertedParam.data.length; i++) {
+    var param = convertedParam.data[i];
+    if (param.name && param.name !== 'profile_selector') {
+      if (profileData.hasOwnProperty(param.name)) {
+        param.value = profileData[param.name];
+      }
+    }
+  }
+  return convertedParam;
+}
+
+function onCurrentIndexChanged_profile_selector(index, value, convertedParam) {
+  /**
+   * Called when the profile combobox selection changes.
+   */
+  var texts = setInvoiceTexts(lang);
+
+  if (value === texts.param_create_new_profile) {
+    // Ask for new profile name
+    var profileName = Banana.Ui.getText(texts.param_new_profile_title, texts.param_new_profile_msg);
+    if (!profileName || profileName.trim() === "") {
+      // User cancelled or empty name: revert to current active profile
+      for (var i = 0; i < convertedParam.data.length; i++) {
+        if (convertedParam.data[i].name === 'profile_selector') {
+          convertedParam.data[i].value = _activeProfile;
+          break;
+        }
+      }
+      return convertedParam;
+    }
+    profileName = profileName.trim();
+
+    if (_profiles[profileName]) {
+      // Profile already exists: ask to switch to it
+      var answer = Banana.Ui.showQuestion("", texts.param_profile_exists.replace('%1', profileName));
+      if (!answer) {
+        for (var i = 0; i < convertedParam.data.length; i++) {
+          if (convertedParam.data[i].name === 'profile_selector') {
+            convertedParam.data[i].value = _activeProfile;
+            break;
+          }
+        }
+        return convertedParam;
+      }
+    } else {
+      // Ask user whether to save current profile's changes before switching
+      var saveAnswer = Banana.Ui.showQuestion("", texts.param_save_before_switch.replace('%1', _activeProfile));
+      if (saveAnswer) {
+        saveCurrentDialogToProfile(convertedParam, _activeProfile);
+      }
+      // Create new profile with default params
+      _profiles[profileName] = initParam();
+    }
+
+    _activeProfile = profileName;
+
+    // Update combobox items
+    var profileNames = Object.keys(_profiles);
+    var profileItems = profileNames.concat([texts.param_create_new_profile, texts.param_rename_profile, texts.param_delete_profile]);
+    for (var i = 0; i < convertedParam.data.length; i++) {
+      if (convertedParam.data[i].name === 'profile_selector') {
+        convertedParam.data[i].items = profileItems;
+        convertedParam.data[i].value = _activeProfile;
+        break;
+      }
+    }
+
+    // Load new profile's params into all fields
+    convertedParam = loadProfileParamsIntoDialog(convertedParam, _profiles[_activeProfile]);
+
+  } else if (value === texts.param_rename_profile) {
+    // Cannot rename "Default"
+    if (_activeProfile === "Default") {
+      Banana.Ui.showInformation("", texts.param_cannot_rename_default);
+      for (var i = 0; i < convertedParam.data.length; i++) {
+        if (convertedParam.data[i].name === 'profile_selector') {
+          convertedParam.data[i].value = _activeProfile;
+          break;
+        }
+      }
+      return convertedParam;
+    }
+
+    // Ask for new name
+    var newName = Banana.Ui.getText(texts.param_rename_profile_title, texts.param_rename_profile_msg.replace('%1', _activeProfile));
+    if (!newName || newName.trim() === "") {
+      // User cancelled: revert
+      for (var i = 0; i < convertedParam.data.length; i++) {
+        if (convertedParam.data[i].name === 'profile_selector') {
+          convertedParam.data[i].value = _activeProfile;
+          break;
+        }
+      }
+      return convertedParam;
+    }
+    newName = newName.trim();
+
+    if (_profiles[newName]) {
+      // Name already taken
+      Banana.Ui.showInformation("", texts.param_rename_profile_exists.replace('%1', newName));
+      for (var i = 0; i < convertedParam.data.length; i++) {
+        if (convertedParam.data[i].name === 'profile_selector') {
+          convertedParam.data[i].value = _activeProfile;
+          break;
+        }
+      }
+      return convertedParam;
+    }
+
+    // Rename: copy data under new key, delete old key
+    _profiles[newName] = _profiles[_activeProfile];
+    delete _profiles[_activeProfile];
+    _activeProfile = newName;
+
+    // Update combobox items
+    var profileNames = Object.keys(_profiles);
+    var profileItems = profileNames.concat([texts.param_create_new_profile, texts.param_rename_profile, texts.param_delete_profile]);
+    for (var i = 0; i < convertedParam.data.length; i++) {
+      if (convertedParam.data[i].name === 'profile_selector') {
+        convertedParam.data[i].items = profileItems;
+        convertedParam.data[i].value = _activeProfile;
+        break;
+      }
+    }
+
+  } else if (value === texts.param_delete_profile) {
+    // Cannot delete "Default"
+    if (_activeProfile === "Default") {
+      Banana.Ui.showInformation("", texts.param_cannot_delete_default);
+      for (var i = 0; i < convertedParam.data.length; i++) {
+        if (convertedParam.data[i].name === 'profile_selector') {
+          convertedParam.data[i].value = _activeProfile;
+          break;
+        }
+      }
+      return convertedParam;
+    }
+
+    // Confirm deletion
+    var answer = Banana.Ui.showQuestion("", texts.param_delete_profile_confirm.replace('%1', _activeProfile));
+    if (!answer) {
+      for (var i = 0; i < convertedParam.data.length; i++) {
+        if (convertedParam.data[i].name === 'profile_selector') {
+          convertedParam.data[i].value = _activeProfile;
+          break;
+        }
+      }
+      return convertedParam;
+    }
+
+    // Delete the profile and switch to Default
+    delete _profiles[_activeProfile];
+    _activeProfile = "Default";
+    if (!_profiles["Default"]) {
+      _profiles["Default"] = initParam();
+    }
+
+    // Update combobox items
+    var profileNames = Object.keys(_profiles);
+    var profileItems = profileNames.concat([texts.param_create_new_profile, texts.param_rename_profile, texts.param_delete_profile]);
+    for (var i = 0; i < convertedParam.data.length; i++) {
+      if (convertedParam.data[i].name === 'profile_selector') {
+        convertedParam.data[i].items = profileItems;
+        convertedParam.data[i].value = _activeProfile;
+        break;
+      }
+    }
+
+    // Load Default profile's params into all fields
+    convertedParam = loadProfileParamsIntoDialog(convertedParam, _profiles[_activeProfile]);
+
+  } else {
+    // Switch to selected profile: ask whether to save current changes first
+    var saveAnswer = Banana.Ui.showQuestion("", texts.param_save_before_switch.replace('%1', _activeProfile));
+    if (saveAnswer) {
+      saveCurrentDialogToProfile(convertedParam, _activeProfile);
+    }
+    _activeProfile = value;
+    convertedParam = loadProfileParamsIntoDialog(convertedParam, _profiles[_activeProfile]);
+  }
+
+  return convertedParam;
+}
+
 function onCurrentIndexChanged_details_columns_predefined(index, value, userParam) {
   /**
   * function called by combobox 'details_columns_predefined', event currentIndexChanged
