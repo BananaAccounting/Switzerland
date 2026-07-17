@@ -5,9 +5,11 @@
 
 ### API V5
 
+- The extension receives a simplified version of the original JSON object provided by bLink, containing only an object with the list of transactions.
+
 ```json
-"data": {
-  "designation": "Firmenkonto",
+{
+  "iban": "CH5481230000001998736",
   "entries": [ // Account transaction entry object
     {
       "accountServicerReference": "12345ABC6789", // Unique reference for the entry, assigned by the bank (ntry ⇾ AcctSvcrRef in SPS/ISO-20022)
@@ -123,12 +125,6 @@
         }
       ]
     }
-  ],
-  "iban": "CH5481230000001998736",
-  "_links": {
-    "self": "/accounts/550e8400e29b11d4a716446655440000/statements",
-    "account": "/accounts/550e8400e29b11d4a716446655440000",
-    "balance": "/accounts/550e8400e29b11d4a716446655440000/balance"
-  }
+  ]
 }
 ```

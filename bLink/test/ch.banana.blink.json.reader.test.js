@@ -84,13 +84,7 @@ TestBlinkJsonParser.prototype.testJsonConversion = function () {
  */
 function getBankAccount2Transactions() {
    return {
-      "designation": "Bank Account 2 - with bookings for past date",
       "iban": "CH0200700110000387896",
-      "_links": {
-         "self": "\/accounts\/2\/transactions",
-         "account": "\/accounts\/2",
-         "balance": "\/accounts\/2\/balance"
-      },
       "entries": [
          {
             "entryId": "ENTRY00001648",
@@ -506,10 +500,6 @@ function getBankAccount2Transactions() {
                }
             ]
          }
-      ],
-      "meta": {
-         "current_cursor": "",
-         "next_cursor": ""
-      }
+      ]
    }
 }

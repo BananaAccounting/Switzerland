@@ -46,7 +46,6 @@ function exec(transactionsData) {
         return [];
     }
 
-
     // Read Json
     let bLinkJsonParser = new BLinkJsonParser();
     if (bLinkJsonParser.initClassVariables(jsonObj, banDoc)) {
@@ -93,6 +92,10 @@ var BLinkJsonParser = class BLinkJsonParser {
 
         this.accountIbanMap = this.getExistingAccountingRowsWithIban();
         this.bankIban = this.jsonData.iban;
+
+        if (!this.bankIban)
+            return false;
+
         if (!this.ibanExists()) {
             this.banDoc.addMessage(getErrorMessage(null, ID_IBAN_NOT_FOUND, this.bankIban));
             return false;
@@ -105,31 +108,6 @@ var BLinkJsonParser = class BLinkJsonParser {
         });
 
         return true;
-    }
-
-    /**
-     * If present, returns the bank account used in the accounting entry.
-     * The lookup is performed based on the stored account-to-IBAN mappings.
-     * If both accounts have a corresponding IBAN (whether the same or different),
-     * an empty result is returned for simplicity, as these operations are not
-     * relevant for comparison with transactions that still need to be imported.
-     * This method is used for the double entry accounting where we could have two
-     * different accounts in a row.
- */
-
-    getRowBankAccountUsed(tRow) {
-
-        const accDebit = tRow.value("AccountDebit");
-        const accCredit = tRow.value("AccountCredit");
-
-        const debitHasIban = this.accountIbanMap.has(accDebit);
-        const creditHasIban = this.accountIbanMap.has(accCredit);
-
-        if (debitHasIban && creditHasIban) return "";
-        if (debitHasIban && !creditHasIban) return accDebit;
-        if (creditHasIban && !debitHasIban) return accCredit;
-
-        return "";
     }
 
     /**
@@ -206,6 +184,7 @@ var BLinkJsonParser = class BLinkJsonParser {
          * For simplicity, the JSON is pre-processed in order to identify and validate
          * these 3 scenarios, making the check for existing accounting entries cleaner.
          */
+
 
         this.prepareEntriesListData(entriesList);
 
@@ -428,222 +407,3 @@ var BLinkJsonParser = class BLinkJsonParser {
             .join(", ");
     }
 }
-
-
-
-/** Other methods currently unsused*/
-/**
-     * Returns the list with the existing transactions in the accounting.
-     * We create an object containing the main data of each transaction that allows
-     * to identify it. The logic changes between the accounting types as transactions
-     * are booked in a different way.
-     * Actually we worl with:
-     * - Double-entry accounting
-     * - Income and Expense accounting
-     * - Cash manager
-     */
-/*functiongetExistingTransactions() {
-    let existingTransactions = [];
-
-    if (!this.banDoc)
-        return existingTransactions;
-
-    if (!this.tabMov)
-        return existingTransactions;
-
-    if (this.accountingType == "100") {
-        return this.getExistingTransactionsDoubleEntry(existingTransactions);
-    } else if (this.accountingType == "110") {
-        return this.getExistingTransactionsIncomeExpenses(existingTransactions);
-    } else if (this.accountingType == "130") {
-        return this.getExistingTransactionsCashManager(existingTransactions);
-    }
-
-    return existingTransactions;
-}*/
-
-/**
- * Retrieves the existing transactions from the double-entry accounting file.
- * The IBAN is inferred based on the bank account used in the transaction,
- * checking for the presence of a bank account on either the debit or credit side.
- * Based on the identified bank account, the transaction type
- * (incoming to or outgoing from the bank account) is also determined.
- */
-/*
-getExistingTransactionsDoubleEntry(existingTransactions) {
-
-    for (var i = 0; i < this.tabMov.rowCount; i++) {
-        var trData = {};
-        var tRow = this.tabMov.row(i);
-        if (!tRow.isEmpty) {
-            trData.ExternalReference = tRow.value("ExternalReference");
-            trData.Date = tRow.value("Date");
-            trData.DateValue = tRow.value("DateValue");
-            let bankAccount = this.getRowBankAccountUsed(tRow);
-            trData.AccountIban = this.accountIbanMap.get(bankAccount);
-            trData.Amount = tRow.value("Amount");
-            trData.Type = this.getTransactionType(tRow, bankAccount);
-
-            if (trData.ExternalReference)
-                existingTransactions.push(trData);
-        }
-    }
-
-    return existingTransactions;
-}*/
-
-/**
- * Returns the transaction type (Income/Expense).
- * The accounting row and the bank-related account used in the entry
- * (previously identified) are passed as parameters.
- * This method is used in double-entry accounting to determine the
- * transaction type. The "bankAccount" parameter represents the
- * accounting account associated with the bank that is used in
- * the transaction.
- */
-/*getTransactionType(tRow, bankAccount) {
-    if (!bankAccount)
-        return "";
-    if (tRow.value("AccountDebit") == bankAccount) {
-        return "CRDT"; // Income
-    } else if (tRow.value("AccountCredit") == bankAccount) {
-        return "DBIT"; // Expenses
-    }
-}*/
-
-/**Retrieves the existing transactions in the income and expenses accounting file. */
-/*getExistingTransactionsIncomeExpenses(existingTransactions) {
-
-    for (var i = 0; i < this.tabMov.rowCount; i++) {
-        var trData = {};
-        var tRow = this.tabMov.row(i);
-        if (!tRow.isEmpty) {
-            trData.ExternalReference = tRow.value("ExternalReference");
-            trData.Date = tRow.value("Date");
-            trData.DateValue = tRow.value("DateValue");
-            trData.AccountIban = this.accountIbanMap.get(tRow.value("Account"));
-            trData.Amount = tRow.value("Income") !== "" ? tRow.value("Income") : tRow.value("Expenses");
-            trData.Type = tRow.value("Income") !== "" ? "CRDT" : "DBIT";
-
-            if (trData.ExternalReference)
-                existingTransactions.push(trData);
-        }
-    }
-
-    return existingTransactions;
-}*/
-
-/**Retrieves the existing transactions in the cash manager accounting file.
- * The "type" result empty in main transactions with details (No amount is present). 
- * Even if in future the main transaction amount should be given as commentend amount, we
- * return an empty type as so far is not clear where should be positioned (income or Expenses).
- */
-/*getExistingTransactionsCashManager(existingTransactions) {
-
-    let account = this.tabAccount.value("1", "Account");
-
-    for (var i = 0; i < this.tabMov.rowCount; i++) {
-        var trData = {};
-        var tRow = this.tabMov.row(i);
-        if (!tRow.isEmpty) {
-            trData.ExternalReference = tRow.value("ExternalReference");
-            trData.Date = tRow.value("Date");
-            trData.DateValue = tRow.value("DateValue");
-            trData.AccountIban = this.accountIbanMap.get(account);
-            trData.Amount = tRow.value("Income") !== "" ? tRow.value("Income") : tRow.value("Expenses");
-            let type = "";
-            if (tRow.value("Income") && !tRow.value("Income").startsWith("±") &&
-                !tRow.value("Income").includes("[")) {
-                type = "CRDT";
-            } else if (tRow.value("Expenses") && !tRow.value("Expenses").startsWith("±") &&
-                !tRow.value("Expenses").includes("[")) {
-                type = "DBIT"
-            }
-            trData.Type = type;
-
-            if (trData.ExternalReference)
-                existingTransactions.push(trData);
-        }
-    }
-
-    return existingTransactions;
-}*/
-
-/**
-     * Compares the values to check if the entry already exists.
-     * We check:
-     * - ExternalReference (Transactions id)
-     * - Date (and ValueDate if present).
-     * - Amount
-     * - Iban associated
-     * - Transaction type (Credit or Debit)
-     * In some cases could happen to have same id's over the years or used by different banks, thats the 
-     * reason why we include the dates and bank account in the checking, those would be particular 
-     * cases but possible.
-     * In Cash Manager accounting files (130), when transaction details are present, the main transaction
-     * is saved without an amount, since the amount is provided only in the detail rows.
-     * If in the future the main amount in Cash Manager is included as a comment
-     * (using '±' or '[]'), this case is already partially handled.
-     */
-/*entryAlreadyExistInAccounting(existingTransactions, entryObj) {
-    const entryId = entryObj.accountServicerReference;
-    const entryDate = entryObj.bookingDate;
-    const entryDateValue = entryObj.valueDate;
-    // Integer numbers are provided without decimals; for a correct comparison, they need to be converted.
-    const entryAmount = this.formatAmountForComparison(entryObj.amount.amount);
-    const entryRefIban = this.bankIban;
-    const entryTrType = entryObj.transactionType;
-
-    return existingTransactions.some(t =>
-        t.ExternalReference === entryId &&
-        t.Date === entryDate &&
-        t.DateValue === entryDateValue &&
-        (t.Amount == "" || t.Amount.startsWith("±") ||
-            t.Amount.includes("[") || t.Amount === entryAmount) &&
-        (t.Type == "" || t.Type === entryTrType) &&
-        t.AccountIban == entryRefIban
-    );
-}*/
-
-/**
- * Compares values to determine whether the entry already exists.
- * The following fields are checked:
- * - ExternalReference (transaction ID)
- * - Date (and ValueDate, if present). Already given in the ISO format.
- * - Amount. Integer numbers are provided without decimals; 
- * for a correct comparison, they need to be formatted.
- *
- * Date and ValueDate are the same as in the main entry. In this case, the IBAN
- * cannot be checked because the detail transactions are booked using a different
- * account, typically a profit and loss account. The bank account is present only
- * as the counterpart in the main transaction. At the moment, it is therefore not
- * possible to reliably identify the corresponding main accounting entry.
- * For the same reason, it is also not possible to determine the transaction type.
- */
-
-/*detailTransactionAlreadyExistInAccounting(existingTransactions, entryObj, trObj) {
-    const trId = trObj.accountServicerReference;
-    const entryDate = entryObj.bookingDate;
-    const entryDateValue = entryObj.valueDate;
-    const trAmount = this.formatAmountForComparison(trObj.amount.amount);
-
-    return existingTransactions.some(t =>
-        t.ExternalReference === trId &&
-        t.Date === entryDate &&
-        t.DateValue === entryDateValue &&
-        t.Amount === trAmount
-    );
-}*/
-
-/**
- * The amount from BLink can be provided following this Regex:"^[0-9]{1,12}([.][0-9]{1,5})?$" 
- * See the official documentation:https://docs.blink.six-group.com/api-reference/ais/v5/six/request-account-transactions.
- * There are some cases where the amount does not have the decimals, for example '120' is a valid format.
- * To be able to compare values with the one in the accounting we need to add decimal points to the integer amounts.
- */
-/*formatAmountForComparison(bLinkAmount) {
-    if (bLinkAmount && bLinkAmount.indexOf(".") < 0) {
-        return Banana.SDecimal.roundNearest(bLinkAmount, '0.00', { 'decimals': 2 });
-    }
-    return bLinkAmount;
-}*/
