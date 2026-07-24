@@ -1,4 +1,4 @@
-// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@ TestImportClerBankTrans.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_clerbank_example_format1_CHF_20241021.csv");
    fileNameList.push("file:script/../test/testcases/csv_clerbank_example_format1_EUR_20241021.csv");
    fileNameList.push("file:script/../test/testcases/csv_clerbank_example_format1_CHF_20251002.csv");
+   fileNameList.push("file:script/../test/testcases/csv_clerbank_example_format1_CHF_20260724.csv");
 
    var parentLogger = this.testLogger;
    this.progressBar.start(fileNameList.length);
