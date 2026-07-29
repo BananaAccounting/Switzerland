@@ -136,7 +136,7 @@ var BLinkJsonParser = class BLinkJsonParser {
 
         let entriesList = this.jsonData.entries;
 
-        if (!entriesList || entriesList.length < 1) {
+        if (!entriesList || entriesList.length < 0) {
             this.banDoc.addMessage(getErrorMessage(this.banDoc, NO_ENTRIES_FOUND));
             return [];
         }
