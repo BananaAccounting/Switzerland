@@ -1,0 +1,15 @@
+﻿Numéro de compte:;0000 00000000.0X;
+IBAN:;CH00 0000 0000 0000 0000 X;
+Du:;2026-05-20;
+Au:;2026-05-21;
+Solde initial:;10000.10;
+Solde final:;100001.10;
+Évaluation en:;CHF;
+Nombre de transactions dans cette période:;5;
+
+Date de transaction;Heure de transaction;Date de comptabilisation;Date de valeur;Devise;Débit;Crédit;Sous-montant;Solde;No de transaction;Description1;Description2;Description3;Notes de bas de page;
+2026-05-21;;2026-05-21;2026-05-21;CHF;-22000.00;;;11111.10;0000000000000000;"Test";"Test";"Test";Test;
+2026-05-21;;2026-05-21;2026-05-21;CHF;-13952.60;;;11111.10;0000000000000000;"Test";"Test";"Test";Test;
+2026-05-21;;2026-05-21;2026-05-21;CHF;-54.85;;;11111.10;0000000000000000;"Test";Test;"Test";Test;
+2026-05-19;;2026-05-20;2026-05-20;CHF;-3622.75;;;11111.10;0000000000000000;"Test";"Test";"Test";Test;
+2026-05-20;;2026-05-20;2026-05-20;CHF;;70000.00;;11111.10;0000000000000000;"Test";Test;"Test";;

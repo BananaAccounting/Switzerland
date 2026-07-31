@@ -1,6 +1,6 @@
 // @id = ch.banana.switzerland.import.ubs
 // @api = 1.0
-// @pubdate = 2026-05-08
+// @pubdate = 2026-07-31
 // @publisher = Banana.ch SA
 // @description = UBS - Import account statement .csv (Banana+ Advanced)
 // @description.en = UBS - Import account statement .csv (Banana+ Advanced)
@@ -1374,6 +1374,7 @@ var UBSFormat3 = class UBSFormat3 extends ImportUtilities {
                     convertedColumns[i] = "ValueDate";
                     break;
                 case "Monnaie":
+                case "Devise":
                     convertedColumns[i] = "Currency";
                     break;
                 case "Debit amount":
