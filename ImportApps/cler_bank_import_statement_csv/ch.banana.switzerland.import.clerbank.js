@@ -1,4 +1,4 @@
-// Copyright [2025] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.clerbank
 // @api = 1.0
-// @pubdate = 2025-10-02
+// @pubdate = 2026-07-24
 // @publisher = Banana.ch SA
 // @description = Cler Bank - Import movements .csv (Banana+ Advanced)
 // @description.it = Cler Bank - Importa movimenti .csv (Banana+ Advanced)
@@ -177,6 +177,13 @@ function getFormattedData(inData, convertionParam, importUtilities) {
       return form;
    }
 
+   convertedColumns = convertHeaderDe(columns);
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
    return [];
 }
 
@@ -241,14 +248,59 @@ function convertHeaderIt(columns) {
             break;
          case "Importo di addebito (EUR)":
          case "Importo di addebito (CHF)":
+         case "Importo di addebito (USD)":
             convertedColumns[i] = "DebitAmount";
             break;
          case "Importo di accredito (EUR)":
          case "Importo di accredito (CHF)":
+         case "Importo di accredito (USD)":
             convertedColumns[i] = "CreditAmount";
             break;
          case "Saldo (EUR)":
          case "Saldo (CHF)":
+         case "Saldo (USD)":
+            convertedColumns[i] = "Balance";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0
+      && convertedColumns.indexOf("OrderType") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+function convertHeaderDe(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Buchungsdatum":
+            convertedColumns[i] = "Date";
+            break;
+         case "Auftragsart":
+            convertedColumns[i] = "OrderType";
+            break;
+         case "Text":
+            convertedColumns[i] = "Description";
+            break;
+         case "Belastungsbetrag (EUR)":
+         case "Belastungsbetrag (CHF)":
+         case "Belastungsbetrag (USD)":
+            convertedColumns[i] = "DebitAmount";
+            break;
+         case "Gutschriftsbetrag (EUR)":
+         case "Gutschriftsbetrag (CHF)":
+         case "Gutschriftsbetrag (USD)":
+            convertedColumns[i] = "CreditAmount";
+            break;
+         case "Saldo (EUR)":
+         case "Saldo (CHF)":
+         case "Saldo (USD)":
             convertedColumns[i] = "Balance";
             break;
          default:

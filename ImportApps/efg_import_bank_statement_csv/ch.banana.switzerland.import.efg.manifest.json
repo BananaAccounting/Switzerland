@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "EFG - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "EFG - Import account statement .csv (Banana+ Advanced)",
+    "description.de": "EFG - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "EFG - Importer mouvements .csv (Banana+ Advanced)",
+    "description.it": "EFG - Importa movimenti .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.efg",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "EFG - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "EFG - Import account statement .csv (Banana+ Advanced)",
+    "title.de": "EFG - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "EFG - Importer mouvements .csv (Banana+ Advanced)",
+    "title.it": "EFG - Importa movimenti .csv (Banana+ Advanced)",
+    "version": "1.0"
+}

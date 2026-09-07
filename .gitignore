@@ -9,3 +9,4 @@ VatEU
 **/build/
 ~$*
 **/.vscode/
+.qtCreator/

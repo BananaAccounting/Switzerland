@@ -585,9 +585,9 @@ function PFCSVFormat2_CreditCard() {
       }
 
       if (convertedColumns.indexOf("Date") < 0
-          || convertedColumns.indexOf("Description") < 0
-          || convertedColumns.indexOf("Income") < 0
-          || convertedColumns.indexOf("Expenses") < 0) {
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
       return convertedColumns;
@@ -624,9 +624,9 @@ function PFCSVFormat2_CreditCard() {
       }
 
       if (convertedColumns.indexOf("Date") < 0
-          || convertedColumns.indexOf("Description") < 0
-          || convertedColumns.indexOf("Income") < 0
-          || convertedColumns.indexOf("Expenses") < 0) {
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
       return convertedColumns;
@@ -663,9 +663,9 @@ function PFCSVFormat2_CreditCard() {
       }
 
       if (convertedColumns.indexOf("Date") < 0
-          || convertedColumns.indexOf("Description") < 0
-          || convertedColumns.indexOf("Income") < 0
-          || convertedColumns.indexOf("Expenses") < 0) {
+         || convertedColumns.indexOf("Description") < 0
+         || convertedColumns.indexOf("Income") < 0
+         || convertedColumns.indexOf("Expenses") < 0) {
          return [];
       }
       return convertedColumns;
@@ -843,6 +843,13 @@ function PFCSVFormat5() {
             formatMatched = false;
 
          if (formatMatched && transaction[this.colDate].match(/[0-9]{2}(\.)[0-9]{2}(\.)[0-9]{2}/g)) {
+            formatMatched = true;
+         } else {
+            formatMatched = false;
+         }
+
+         // Check if is not a date to avoid conflicts with some format 6 variants.
+         if (formatMatched && !transaction[this.colDebit].match(/[0-9]{2}(\.)[0-9]{2}(\.)[0-9]{2}/g)) {
             formatMatched = true;
          } else {
             formatMatched = false;

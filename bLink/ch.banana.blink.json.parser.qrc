@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>ch.banana.blink.json.parser.js</file>
+        <file>ch.banana.blink.errormessages.js</file>
+        <file>import.utilities.js</file>
+        <file>ch.banana.blink.json.parser.manifest.json</file>
+    </qresource>
+</RCC>

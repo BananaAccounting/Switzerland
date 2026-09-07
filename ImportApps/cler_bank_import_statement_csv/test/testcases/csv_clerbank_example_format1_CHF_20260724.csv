@@ -1,0 +1,16 @@
+Buchungsdatum;Auftragsart;Text;Belastungsbetrag (CHF);Gutschriftsbetrag (CHF);Saldo (CHF)
+31.12.2025;QR-Rechnung;"Test
+Test
+Test
+Test
+Pers. Ref.: Test";1008.00;;55555.11
+30.12.2025;Gutschrift;"Test
+Test
+Test
+Test
+Test";;650.00;55555.11
+30.12.2025;QR-Rechnung;"Test
+Test
+Test
+Test";101.20;;55555.11
+

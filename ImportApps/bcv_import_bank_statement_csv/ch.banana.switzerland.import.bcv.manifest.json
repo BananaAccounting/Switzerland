@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Banque Cantonale Vaudoise - Import account statement .xlsx/.csv (Banana+ Advanced)",
+    "description.en": "Banque Cantonale Vaudoise - Import account statement .xlsx/.csv (Banana+ Advanced)",
+    "description.it": "Banque Cantonale Vaudoise - Importa movimenti .xlsx/.csv (Banana+ Advanced)",
+    "description.de": "Banque Cantonale Vaudoise - Bewegungen importieren .xlsx/.csv (Banana+ Advanced)",
+    "description.fr": "Banque Cantonale Vaudoise - Importer mouvements .xlsx/.csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.bcv",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Banque Cantonale Vaudoise - Import account statement .xlsx/.csv (Banana+ Advanced)",
+    "title.en": "Banque Cantonale Vaudoise - Import account statement .xlsx/.csv (Banana+ Advanced)",
+    "title.it": "Banque Cantonale Vaudoise - Importa movimenti .xlsx/.csv (Banana+ Advanced)",
+    "title.de": "Banque Cantonale Vaudoise - Bewegungen importieren .xlsx/.csv (Banana+ Advanced)",
+    "title.fr": "Banque Cantonale Vaudoise - Importer mouvements .xlsx/.csv (Banana+ Advanced)",
+    "version": "1.0"
+}

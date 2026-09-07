@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.swisscard.test
 // @api = 1.0
-// @pubdate = 2023-05-02
+// @pubdate = 2026-04-20
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.swisscard.test>
 // @task = app.command
@@ -64,6 +64,9 @@ TestImportSwisscard.prototype.testImport = function () {
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20240717.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_it_20240916.csv");
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_en_20241015.csv");
+   // The following file is used because it has format 2 with only one transaction, so it is useful
+   // to test the case of a file with only one transaction that doesn't have data in "Registered category".
+   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20260415.csv");
 
 
    var parentLogger = this.testLogger;

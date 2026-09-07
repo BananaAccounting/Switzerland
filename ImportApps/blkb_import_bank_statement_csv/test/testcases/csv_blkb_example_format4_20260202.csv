@@ -1,0 +1,26 @@
+Auftragsdatum;Buchungstext;Betrag Einzelzahlung (CHF);Belastungsbetrag (CHF);Gutschriftsbetrag (CHF);Valutadatum;Saldo (CHF)
+31.01.2026;"Viseca Zahlung  / Ref.-Nr.  00000
+00000 *00000 SA 00000
+Kartennummer 00000
+31.01.2026 10:35";;70.16;;31.01.2026;21149.04
+31.01.2026;"Viseca Zahlung  / Ref.-Nr.  00000
+00000
+Kartennummer 00000
+31.01.2026 05:18";;3.4;;31.01.2026;21219.2
+30.01.2026;"Zahlungsauftrag E-Banking
+Anzahl Buchungen: 4 / Ref.-Nr. 00000";;384.4;;30.01.2026;21222.6
+;"00000
+PAIN001 Datei:Upload.dta";89.9;;;;
+;"00000
+PAIN001 Datei:Upload.dta";100;;;;
+;"00000
+PAIN001 Datei:Upload.dta";144.5;;;;
+;"00000
+PAIN001 Datei:Upload.dta";50;;;;
+29.01.2026;"Belastung: 00000 / Ref.-Nr.  00000 **
+Mitteilung: 00000
+00000
+00000
+00000
+00000
+00000";;48.5;;29.01.2026;21607

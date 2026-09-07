@@ -1,0 +1,7 @@
+IBAN;Auszugsnummer;Buchungsdatum;Valutadatum;Umsatzzeit;Zahlungsreferenz;Waehrung;Betrag;Buchungstext;Umsatztext;Name des Partners;Name des ultimate Partners;Name des ultimate Auftraggebers;Creditor ID;Mandat ID;Kontoverbindung des Partners;Partner BIC;Auftraggeberreferenz;Verwendungszweck;Kategorie;Notiz;Original Auftragsbetrag;Original W�hrung;Bestandskategorie;Umsatzkategorie;Entgeltinformationen;Eigene Referenz
+A0000000000000000000;12;2025-12-31;2025-12-31;2025-12-31-21.35.45.616362;;EUR;-40,51;Abschluss;Test description;;;;;;;;;;Sonstiges;;;;;;;
+A0000000000000000000;12;2025-12-31;2025-12-30;2025-12-31-07.34.03.125484;;EUR;-125,00;POS;Test description;;;;;;;;;;Freizeit & Genuss;;;;;;;
+A0000000000000000000;12;2025-12-30;2025-12-30;2025-12-30-14.15.40.717674;;EUR;-52,32;SEPA-Zahlung;Test description;Partner 1;;;;;A0000000000000000001;XXXXXXXXXXX;;Motivation;Sonstiges;;-52,32;;;;;1111111111111111111111111111
+A0000000000000000000;12;2025-12-30;2025-12-30;2025-12-30-13.52.12.741268;;EUR;-57,32;SEPA-Zahlung;Test description;Partner 1;;;;;A0000000000000000001;XXXXXXXXXXX;;Motivation;Sonstiges;;-57,32;;;;;1111111111111111111111111111
+A0000000000000000000;9;2025-09-30;2025-09-30;2025-09-30-12.33.56.318330;;EUR;-38,00;POS Zahlungsauftrag;Test description;;;;;;;;;;Unkategorisiert;;;;;;;
+A0000000000000000000;9;2025-09-25;2025-09-23;2025-09-25-06.39.28.204098;;EUR;-34,00;POS;Test description;;;;;;;;;;Freizeit & Genuss;;;;;;;

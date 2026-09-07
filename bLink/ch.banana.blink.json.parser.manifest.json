@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "bLink parser",
+    "description.en": "bLink parser",
+    "description.de": "bLink parser",
+    "description.fr": "bLink parser",
+    "description.it": "bLink parser",
+    "id": "ch.banana.blink.json.parser",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "bLink parser",
+    "title.en": "bLink parser",
+    "title.de": "bLink parser",
+    "title.fr": "bLink parser",
+    "title.it": "bLink parser",
+    "version": "1.0"
+}
