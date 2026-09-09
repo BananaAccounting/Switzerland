@@ -25,18 +25,30 @@ var DomBuilderSPS2025 = class DomBuilderSPS2025 extends DomBuilder {
 
     /**
      * Appends an address node to the given DOM element, including country and address lines.
-     * Uses the hybrid address format.
+     * Uses the structured address format.
      * If no address is available in transactionInformation, the method does nothing.
      *
      * @param \DOMElement $creditor
      * @param CustomerCreditTransferInformation $transactionInformation
      */
     appendCreditorAddressToDomElement(creditor, transactionInformation) {
-        if (transactionInformation.getCreditorCountry().length < 0 && transactionInformation.getCreditorTown().length < 0) {
+        if (transactionInformation.getCreditorCountry().length <= 0 && transactionInformation.getCreditorTown().length <= 0) {
             return; // No address exists, nothing to do.
         }
 
         var postalAddress = creditor.addElement('PstlAdr');
+
+        // Generate streetname (max lenth 70)
+        if (transactionInformation.getCreditorStreet1().length > 0) {
+            var node = postalAddress.addElement('StrtNm');
+            node.addTextNode(transactionInformation.getCreditorStreet1());
+        }
+
+        // Generate building number (max length 16)
+        if (transactionInformation.getCreditorBuildingNumber().length > 0) {
+            var node = postalAddress.addElement('BldgNb');
+            node.addTextNode(transactionInformation.getCreditorBuildingNumber());
+        }
 
         // Generate postalcode node.
         if (transactionInformation.getCreditorPostalCode().length > 0) {
@@ -55,18 +67,6 @@ var DomBuilderSPS2025 = class DomBuilderSPS2025 extends DomBuilder {
             var node = postalAddress.addElement('Ctry');
             node.addTextNode(transactionInformation.getCreditorCountry());
         }
-
-        // Generate addressline 1. (max length?)
-        if (transactionInformation.getCreditorStreet1().length > 0) {
-            var node = postalAddress.addElement('AdrLine');
-            node.addTextNode(transactionInformation.getCreditorStreet1());
-        }
-
-        // Generate addressline 2. (max length?)
-        if (transactionInformation.getCreditorStreet2().length > 0) {
-            var node = postalAddress.addElement('AdrLine');
-            node.addTextNode(transactionInformation.getCreditorStreet2());
-        }
     }
 
     /**
@@ -84,6 +84,18 @@ var DomBuilderSPS2025 = class DomBuilderSPS2025 extends DomBuilder {
 
         var postalAddress = ultimateDebtor.addElement('PstlAdr');
 
+        // Generate streetname (max lenth 70)
+        if (transactionInformation.getUltimateDebtorStreet1().length > 0) {
+            var node = postalAddress.addElement('StrtNm');
+            node.addTextNode(transactionInformation.getUltimateDebtorStreet1());
+        }
+
+        // Generate building number (max length 16)
+        if (transactionInformation.getUltimateDebtorBuildingNumber().length > 0) {
+            var node = postalAddress.addElement('BldgNb');
+            node.addTextNode(transactionInformation.getUltimateDebtorBuildingNumber());
+        }
+
         // Generate postalcode node.
         if (transactionInformation.getUltimateDebtorPostalCode().length > 0) {
             var node = postalAddress.addElement('PstCd');
@@ -100,18 +112,6 @@ var DomBuilderSPS2025 = class DomBuilderSPS2025 extends DomBuilder {
         if (transactionInformation.getUltimateDebtorCountry().length > 0) {
             var node = postalAddress.addElement('Ctry');
             node.addTextNode(transactionInformation.getUltimateDebtorCountry());
-        }
-
-        // Generate addressline 1. (max length?)
-        if (transactionInformation.getUltimateDebtorStreet1().length > 0) {
-            var node = postalAddress.addElement('AdrLine');
-            node.addTextNode(transactionInformation.getUltimateDebtorStreet1());
-        }
-
-        // Generate addressline 2. (max length?)
-        if (transactionInformation.getUltimateDebtorStreet2().length > 0) {
-            var node = postalAddress.addElement('AdrLine');
-            node.addTextNode(transactionInformation.getUltimateDebtorStreet2());
         }
     }
 

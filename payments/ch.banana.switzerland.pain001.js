@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2026-06-16
+// @pubdate = 2026-09-08
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -77,6 +77,9 @@ function onCurrentIndexChanged_creditorAccountId(index, value, params) {
         }
         else if (params.data[i].name === 'creditorStreet2') {
             params.data[i].value = creditor.street2;
+        }
+        else if (params.data[i].name === 'creditorBuildingNumber') {
+            params.data[i].value = creditor.creditorBuildingNumber;
         }
         else if (params.data[i].name === 'creditorPostalCode') {
             params.data[i].value = creditor.postalCode;
@@ -265,7 +268,9 @@ function Pain001Switzerland(banDocument) {
     this.ID_BUSINESS_RULES_SPS2025 = "SPS2025";
 
     this.painFormats = [];
-    this.painFormats.push({
+    // DEPRECATED
+    // Unstructured addresses are no longer supported as of November 2026.
+    /*this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2022 (pain.001.001.09.ch.03)",
         "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03,
@@ -277,21 +282,18 @@ function Pain001Switzerland(banDocument) {
         "@format": this.ID_PAIN_FORMAT_001_001_03_CH_02,
         "@version": this.version
     });
-    //questo formato non è più valido
+    this.painFormats.push({
+        "@appId": this.id,
+        "@description": "ISO 20022 Schema (pain.001.001.03) no longer supported",
+        "@format": this.ID_PAIN_FORMAT_001_001_03,
+        "@version": this.version
+    });*/
     this.painFormats.push({
         "@appId": this.id,
         "@description": "Swiss Payment Standard 2025 (pain.001.001.09.ch.03) [BETA]", 
         "@format": this.ID_PAIN_FORMAT_001_001_09_CH_03_2025,
         "@version": this.version
     });
-    // DEPRECATED
-    /*this.painFormats.push({
-        "@appId": this.id,
-        "@description": "ISO 20022 Schema (pain.001.001.03)",
-        "@description": "ISO 20022 Schema (pain.001.001.03) no longer supported",
-        "@format": this.ID_PAIN_FORMAT_001_001_03,
-        "@version": this.version
-    });*/
 
     this.SEPARATOR_CHAR = '\xa0';
     this.isTest = false;
@@ -421,7 +423,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
     currentParam = {};
     currentParam.name = 'creditorStreet1';
-    currentParam.title = 'Address 1';
+    currentParam.title = 'Street Name';
     currentParam.type = 'string';
     currentParam.parentObject = 'creditor';
     currentParam.value = paymentObj.creditorStreet1 ? paymentObj.creditorStreet1 : '';
@@ -432,15 +434,31 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
     convertedParam.data.push(currentParam);
 
     currentParam = {};
-    currentParam.name = 'creditorStreet2';
-    currentParam.title = 'Address 2';
+    currentParam.name = 'creditorBuildingNumber';
+    currentParam.title = 'Building Number';
     currentParam.type = 'string';
     currentParam.parentObject = 'creditor';
-    currentParam.value = paymentObj.creditorStreet2 ? paymentObj.creditorStreet2 : '';
+    currentParam.value = paymentObj.creditorBuildingNumber ? paymentObj.creditorBuildingNumber : '';
     currentParam.readValue = function () {
-        paymentObj.creditorStreet2 = this.value;
+        paymentObj.creditorBuildingNumber = this.value;
     }
     convertedParam.data.push(currentParam);
+
+    // Display the address line 2 only if data is available,
+    // for backward compatibility (hybrid/unstructured address) 
+    // New payments use only street1 and Building Number.
+    if (paymentObj.creditorStreet2.length > 0) {
+        currentParam = {};
+        currentParam.name = 'creditorStreet2';
+        currentParam.title = 'Address Extra (no longer supported)';
+        currentParam.type = 'string';
+        currentParam.parentObject = 'creditor';
+        currentParam.value = paymentObj.creditorStreet2 ? paymentObj.creditorStreet2 : '';
+        currentParam.readValue = function () {
+            paymentObj.creditorStreet2 = this.value;
+        }
+        convertedParam.data.push(currentParam);
+    }
 
     currentParam = {};
     currentParam.name = 'creditorCity';
@@ -625,7 +643,8 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
         }
         convertedParam.data.push(currentParam);
 
-        currentParam = {};
+        // Read from the QR code but not displayed because it is not required for the payment
+        /*currentParam = {};
         currentParam.name = 'billingInfo';
         currentParam.title = "Billing Information";
         currentParam.type = 'string';
@@ -634,7 +653,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
         currentParam.readValue = function () {
             paymentObj.billingInfo = this.value;
         }
-        convertedParam.data.push(currentParam);
+        convertedParam.data.push(currentParam);*/
 
         var categoryPurposeTypes = [];
         categoryPurposeTypes.push("");
@@ -692,7 +711,7 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
 
         currentParam = {};
         currentParam.name = 'ultimateDebtorStreet1';
-        currentParam.title = 'Address 1';
+        currentParam.title = 'Street Name';
         currentParam.type = 'string';
         currentParam.parentObject = 'ultimateDebtor';
         currentParam.value = paymentObj.ultimateDebtorStreet1 ? paymentObj.ultimateDebtorStreet1 : '';
@@ -703,16 +722,32 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
         convertedParam.data.push(currentParam);
 
         currentParam = {};
-        currentParam.name = 'ultimateDebtorStreet2';
-        currentParam.title = 'Address 2';
+        currentParam.name = 'ultimateDebtorBuildingNumber';
+        currentParam.title = 'Building Number';
         currentParam.type = 'string';
         currentParam.parentObject = 'ultimateDebtor';
-        currentParam.value = paymentObj.ultimateDebtorStreet2 ? paymentObj.ultimateDebtorStreet2 : '';
-        currentParam.defaultvalue = '';
+        currentParam.value = paymentObj.ultimateDebtorBuildingNumber ? paymentObj.ultimateDebtorBuildingNumber : '';
         currentParam.readValue = function () {
-            paymentObj.ultimateDebtorStreet2 = this.value;
+            paymentObj.ultimateDebtorBuildingNumber = this.value;
         }
         convertedParam.data.push(currentParam);
+
+        // Display the address line 2 only if data is available,
+        // for backward compatibility (hybrid/unstructured address) 
+        // New payments use only street1 and Building Number.
+        if (paymentObj.ultimateDebtorStreet2.length > 0) {
+            currentParam = {};
+            currentParam.name = 'ultimateDebtorStreet2';
+            currentParam.title = 'Address Extra (no longer supported)';
+            currentParam.type = 'string';
+            currentParam.parentObject = 'ultimateDebtor';
+            currentParam.value = paymentObj.ultimateDebtorStreet2 ? paymentObj.ultimateDebtorStreet2 : '';
+            currentParam.defaultvalue = '';
+            currentParam.readValue = function () {
+                paymentObj.ultimateDebtorStreet2 = this.value;
+            }
+            convertedParam.data.push(currentParam);
+        }
 
         currentParam = {};
         currentParam.name = 'ultimateDebtorCity';
@@ -1005,13 +1040,15 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                 transfer.setUltimateDebtorCountry(transactionInfoObj.ultimateDebtorCountry);
                 transfer.setUltimateDebtorTown(transactionInfoObj.ultimateDebtorCity);
                 transfer.setUltimateDebtorPostalCode(transactionInfoObj.ultimateDebtorPostalCode);
-                transfer.setUltimateDebtorStreet1(transactionInfoObj.ultimateDebtorStreet1);
-                transfer.setUltimateDebtorStreet2(transactionInfoObj.ultimateDebtorStreet2);
+                transfer.setUltimateDebtorStreet1(transactionInfoObj.ultimateDebtorStreet1); //Street
+                // transfer.setUltimateDebtorStreet2(transactionInfoObj.ultimateDebtorStreet2); //AddressExtra no longer supported
+                transfer.setUltimateDebtorBuildingNumber(transactionInfoObj.ultimateDebtorBuildingNumber); //Building Nr.
                 transfer.setCreditorCountry(transactionInfoObj.creditorCountry);
                 transfer.setCreditorTown(transactionInfoObj.creditorCity);
                 transfer.setCreditorPostalCode(transactionInfoObj.creditorPostalCode);
-                transfer.setCreditorStreet1(transactionInfoObj.creditorStreet1); //Street + Building Nr.
-                transfer.setCreditorStreet2(transactionInfoObj.creditorStreet2); //AddressExtra
+                transfer.setCreditorStreet1(transactionInfoObj.creditorStreet1); //Street
+                //transfer.setCreditorStreet2(transactionInfoObj.creditorStreet2); //AddressExtra no longer supported
+                transfer.setCreditorBuildingNumber(transactionInfoObj.creditorBuildingNumber); //Building Nr.
                 
                 //unstructured address of creditor
                 var postalAddress = [];
@@ -1148,6 +1185,7 @@ Pain001Switzerland.prototype.getCreditor = function (accountId) {
     creditor.name = "";
     creditor.street1 = "";
     creditor.street2 = "";
+    creditor.buildingNumber = "";
     creditor.postalCode = "";
     creditor.city = "";
     creditor.country = "";
@@ -1194,15 +1232,7 @@ Pain001Switzerland.prototype.getCreditor = function (accountId) {
                 creditor.street1 = row.value("Street");
             }
             if (row.value("BuildingNumber")) {
-                let buildingNumber = row.value("BuildingNumber");
-                if (buildingNumber.length > 0) {
-                    let street1 = creditor.street1;
-                    if (street1.length > 0) {
-                        street1 += " ";
-                    }
-                    street1 += buildingNumber;
-                    creditor.street1 = street1;
-                }
+                creditor.buildingNumber = row.value("BuildingNumber");
             }
             if (row.value("AddressExtra")) {
                 creditor.street2 = row.value("AddressExtra");
@@ -1374,6 +1404,7 @@ Pain001Switzerland.prototype.initPaymObject = function () {
         "creditorName": "",
         "creditorStreet1": "",
         "creditorStreet2": "",
+        "creditorBuildingNumber": "",
         "creditorCity": "",
         "creditorPostalCode": "",
         "creditorCountry": "",
@@ -1386,6 +1417,7 @@ Pain001Switzerland.prototype.initPaymObject = function () {
         "ultimateDebtorName": "",
         "ultimateDebtorStreet1": "",
         "ultimateDebtorStreet2": "",
+        "ultimateDebtorBuildingNumber": "",
         "ultimateDebtorCity": "",
         "ultimateDebtorPostalCode": "",
         "ultimateDebtorCountry": "",
@@ -1703,7 +1735,7 @@ Pain001Switzerland.prototype.scanCode = function (code) {
         paymentObj.creditorName = swissQRCodeData.CRName;
         if (swissQRCodeData.CRAddressTyp == 'S') {
             paymentObj.creditorStreet1 = swissQRCodeData.CRStreet1;
-            paymentObj.creditorStreet2 = swissQRCodeData.CRStreet2;
+            paymentObj.creditorBuildingNumber = swissQRCodeData.CRStreet2;
             paymentObj.creditorPostalCode = swissQRCodeData.CRPostalCode;
             paymentObj.creditorCity = swissQRCodeData.CRCity;
             paymentObj.creditorCountry = swissQRCodeData.CRCountry;
@@ -1725,7 +1757,7 @@ Pain001Switzerland.prototype.scanCode = function (code) {
         paymentObj.ultimateDebtorName = swissQRCodeData.UDName;
         if (swissQRCodeData.UDAddressTyp == 'S') {
             paymentObj.ultimateDebtorStreet1 = swissQRCodeData.UDStreet1;
-            paymentObj.ultimateDebtorStreet2 = swissQRCodeData.UDStreet2;
+            paymentObj.ultimateDebtorBuildingNumber = swissQRCodeData.UDStreet2;
             paymentObj.ultimateDebtorPostalCode = swissQRCodeData.UDPostalCode;
             paymentObj.ultimateDebtorCity = swissQRCodeData.UDCity;
             paymentObj.ultimateDebtorCountry = swissQRCodeData.UDCountry;
@@ -2855,6 +2887,7 @@ var JsAction = class JsAction {
                     paymentObj.creditorName = creditor.name;
                     paymentObj.creditorStreet1 = creditor.street1
                     paymentObj.creditorStreet2 = creditor.street2;
+                    paymentObj.creditorBuildingNumber = creditor.buildingNumber;
                     paymentObj.creditorPostalCode = creditor.postalCode;
                     paymentObj.creditorCity = creditor.city;
                     paymentObj.creditorCountry = creditor.country;

@@ -120,9 +120,15 @@ function CustomerCreditTransferInformation(id, name, amount) {
 
      /**
      * @var string
-     * structured address SPS2025
+     * hybrid/unstructured address
      */
     this.creditorStreet2 = '';
+
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.creditorBuildingNumber = '';
 
     /**
      * @var string
@@ -269,10 +275,15 @@ function CustomerCreditTransferInformation(id, name, amount) {
 
      /**
      * @var string
-     * structured address SPS2025
+     * hybrid/unstructured address
      */
     this.ultimateDebtorStreet2 = '';
 
+     /**
+     * @var string
+     * structured address SPS2025
+     */
+    this.ultimateDebtorBuildingNumber = '';
 
 }
 
@@ -361,6 +372,22 @@ CustomerCreditTransferInformation.prototype.getCreditorStreet2 = function () {
  */
 CustomerCreditTransferInformation.prototype.setCreditorStreet2 = function (creditorStreet2) {
     this.creditorStreet2 = creditorStreet2;
+}
+
+/**
+ * @return creditorBuildingNumber
+ */
+CustomerCreditTransferInformation.prototype.getCreditorBuildingNumber = function () {
+    if (!this.creditorBuildingNumber)
+        return '';
+    return this.creditorBuildingNumber;
+}
+
+/**
+ * @param string creditorBuildingNumber
+ */
+CustomerCreditTransferInformation.prototype.setCreditorBuildingNumber = function (creditorBuildingNumber) {
+    this.creditorBuildingNumber = creditorBuildingNumber;
 }
 
 /**
@@ -774,6 +801,22 @@ CustomerCreditTransferInformation.prototype.getUltimateDebtorStreet2 = function 
  */
 CustomerCreditTransferInformation.prototype.setUltimateDebtorStreet2 = function (ultimateDebtorStreet2) {
     this.ultimateDebtorStreet2 = ultimateDebtorStreet2;
+}
+
+/**
+     * @return ultimateDebtorBuildingNumber
+     */
+CustomerCreditTransferInformation.prototype.getUltimateDebtorBuildingNumber = function () {
+    if (!this.ultimateDebtorBuildingNumber)
+        return '';
+    return this.ultimateDebtorBuildingNumber;
+}
+
+/**
+ * @param string ultimateDebtorBuildingNumber
+ */
+CustomerCreditTransferInformation.prototype.setUltimateDebtorBuildingNumber = function (ultimateDebtorBuildingNumber) {
+    this.ultimateDebtorBuildingNumber = ultimateDebtorBuildingNumber;
 }
 
 //ID_PAIN_FORMAT_001_001_03
