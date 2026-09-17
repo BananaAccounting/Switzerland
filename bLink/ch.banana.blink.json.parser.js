@@ -312,12 +312,13 @@ var BLinkJsonParser = class BLinkJsonParser {
         if (!detTrObj || !mainConvTr)
             return;
 
-        /* Check id */
-        if ((mainConvTr["transactionId"] || "") !== (detTrObj.accountServicerReference || "")) {
-            Banana.console.debug("entry ID and Transaction ID do not match.\n" +
-                "Entry id: " + (mainConvTr["transactionId"] || "") + "\n" +
-                "Transaction id: " + (detTrObj.accountServicerReference || ""));
-        }
+        /**
+         * The ID of the detail transaction (field: accountServicerReference) is not used;
+         * we use the ID of the main entry instead, as it should be the same.
+         * This is also consistent with the standard ISO 20022 Camt.053, where the ID
+         * of the main entry is used instead of the one of the detail transaction.
+         * We want to maintain the same logic here.
+         */
 
         /* Check amounts*/
         let trAmount = detTrObj.amount?.amount || "";
