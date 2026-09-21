@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2026-09-08
+// @pubdate = 2026-09-21
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -1333,7 +1333,7 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
         case this.ID_ERR_ELEMENT_REQUIRED:
             return "This is a required field";
         case this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED:
-            return "The Country code is recommended (Alpha-2 code).\nExamples: CH for Switzerland, LI for Liechtenstein";
+            return "The Country code is required (Alpha-2 code).\nExamples: CH for Switzerland, LI for Liechtenstein";
         case this.ID_ERR_MESSAGE_EMPTY = "ID_ERR_MESSAGE_EMPTY":
             return "The pain message is empty, impossible to validate or save the message";
         case this.ID_ERR_MESSAGE_NOTVALID = "ID_ERR_MESSAGE_NOTVALID":
@@ -1995,29 +1995,32 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
                 error = true;
             }
         }
+        // check structured address
+        // minimal address requirement: creditor name, country code and town name
+        if (key === 'creditorName' && value.length <= 0) {
+            params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+            params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
+            error = true;
+        }
+        else if (key === 'creditorName' && value.length > 70) {
+            params.data[i].errorId = this.ID_ERR_ELEMENT_EXCEEDED_LENGTH;
+            params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EXCEEDED_LENGTH);
+            params.data[i].errorMsg = params.data[i].errorMsg.replace("%1", "70");
+            error = true;
+        }
+        if (key === 'creditorCountry' && value.length !== 2) {
+            params.data[i].errorId = this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED;
+            params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED);
+            error = true;
+        }
+        if (key === 'creditorCity' && value.length <= 0) {
+            params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+            params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
+            error = true;
+        }
+
         if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
-            if (key === 'creditorName' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
-                error = true;
-            }
-            else if (key === 'creditorName' && value.length > 70) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_EXCEEDED_LENGTH;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_EXCEEDED_LENGTH);
-                params.data[i].errorMsg = params.data[i].errorMsg.replace("%1", "70");
-                error = true;
-            }
-            else if (key === 'creditorCountry' && value.length !== 2) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_COUNTRYCODE_REQUIRED);
-                error = true;
-            }
-            else if (key === 'creditorCity' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
-                error = true;
-            }
-            else if (key === 'creditorIban' && value.length <= 0) {
+            if (key === 'creditorIban' && value.length <= 0) {
                 params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
                 params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
                 error = true;
@@ -2122,8 +2125,8 @@ Pain001Switzerland.prototype.verifyBananaVersion = function (suppressMsg) {
     var version = Banana.application.version;
 
     var supportedVersion = true;
-    var requiredVersion = "10.1.14";
-    var requiredSerial = "231102";
+    var requiredVersion = "10.2.13";
+    var requiredSerial = "26264";
 
     if (Banana.compareVersion && Banana.compareVersion(version, requiredVersion) < 0) {
         supportedVersion = false;
