@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2026-09-21
+// @pubdate = 2026-09-22
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -886,8 +886,11 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
         var lang = this.getLang();
         var msg = this.getErrorMessage(this.ID_ERR_PAYMENTOBJECT_EMPTY, lang);
         this.banDocument.addMessage(msg, this.ID_ERR_PAYMENTOBJECT_EMPTY);
-        return "";
+        return null;
     }
+
+    // Gets the list of previously used IBANs to warn when a payment is made to a new IBAN.
+    // var usedIbans = this.getUsedIbans();
 
     var parsedPainFormat = this.parsePainFormat(paymentObj["@format"]);
     var painFormat = parsedPainFormat.format || "";
@@ -1029,6 +1032,20 @@ Pain001Switzerland.prototype.createTransferFile = function (paymentObj) {
                     transactionInfoObj.creditorName, //Name of Creditor
                     transactionInfoObj.amount // Amount
                 );
+
+                // Controlla con elenco iban già inviati, se un nuovo iban avvisa l'utente
+                /*if (!transactionInfoObj.creditorIban || transactionInfoObj.creditorIban.length <= 0) {
+                    // non dovrebbe succedere
+                    Banana.console.debug("------------------ IBAN MANCANTE " + transactionInfoObj.creditorIban + " " + transactionInfoObj.creditorName);
+                    continue;
+                }
+                else if (!this.isIbanUsed(usedIbans, transactionInfoObj.creditorIban)) {
+                    //Banana.console.debug("------------------nuovo IBAN MAI USATO " + transactionInfoObj.creditorIban + " " + transactionInfoObj.creditorName);
+                    var msg = "TROVATO NUOVO IBAN %1 %2";
+                    msg = msg.replace("%1", transactionInfoObj.creditorIban);
+                    msg = msg.replace("%2", transactionInfoObj.creditorName);
+                    this.banDocument.addMessage(msg, this.ID_ERR_MESSAGE_NOTVALID);
+                }*/
 
                 // Set Instruction Identification for any transfer (unique within B-LEVEL)
                 transfer.setInstructionId("INSTRID-" + parseInt(j + 1).toString());
@@ -1391,6 +1408,36 @@ Pain001Switzerland.prototype.getTexts = function (language) {
     return texts;
 }
 
+// Returns the unique IBANs used in the payment journal.
+Pain001Switzerland.prototype.getUsedIbans = function () {
+    var ibans = [];
+
+    if (!this.banDocument)
+        return ibans;
+
+    var journalPayments = this.banDocument.journalPayments();
+    if (!journalPayments) {
+        return ibans;
+    }
+
+    for (var i = 0; i < journalPayments.rowCount; i++) {
+        var row = journalPayments.row(i);
+        var iban = row.value("CreditorIban");
+
+        if (!iban)
+            continue;
+
+        iban = iban.replace(/\s/g, "");
+
+        if (ibans.indexOf(iban) < 0)
+            ibans.push(iban);
+    }
+
+
+    Banana.console.debug("---------------------- elenco ibans " + ibans);
+    return ibans;
+}
+
 Pain001Switzerland.prototype.initPaymObject = function () {
 
     // if syncTransaction=true data is synchronized with transaction row
@@ -1472,7 +1519,7 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
     var iban = "";
     if (paymentObj.creditorIban)
         iban = cleanIBAN(paymentObj.creditorIban);
-    if (!isValidIBAN(iban)) {
+    if (isValidIBAN(iban) !== 1) {
         var msg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID, lang);
         msg = msg.replace("%1", "creditorIban");
         msg = "<span style='color:red'>" + msg + "</span>";
@@ -1521,6 +1568,16 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         };
         infoObj.push(infoMsg);
     }
+}
+
+// Returns true if the given IBAN is present in the list of used IBANs.
+Pain001Switzerland.prototype.isIbanUsed = function (usedIbans, iban) {
+    if (!usedIbans || !iban)
+        return false;
+
+    var normalizedIban = iban.replace(/\s/g, "").toUpperCase();
+
+    return usedIbans.indexOf(normalizedIban) >= 0;
 }
 
 /*Returns all suppliers accounts from table Accounts according to params*/
@@ -2020,44 +2077,50 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
         }
 
         if (methodId == this.ID_PAYMENT_QRCODE_DESCRIPTION) {
-            if (key === 'creditorIban' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
-                error = true;
-            }
-            else if (key === 'creditorIban' &&  !isValidIBAN(value)) {
-                params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID);
-                error = true;
-            }
-            else if (key === 'creditorIban' && (!reference || reference.length < 0 || reference.startsWith("RF")) && isQRIBAN(value)) {
-                //QRIban needs reference
-                params.data[i].errorId = this.ID_ERR_QRIBAN_REFERENCE_NOTVALID;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_QRIBAN_REFERENCE_NOTVALID);
-                error = true;
-            }
-            else if (key === 'creditorIban' && reference.length > 0 && !reference.startsWith("RF")  && !isQRIBAN(value)) {
-                //Iban only with RF reference (SCOR) or without reference (NON)
-                params.data[i].errorId = this.ID_ERR_IBAN_REFERENCE_NOTVALID;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_IBAN_REFERENCE_NOTVALID);
-                error = true;
+            if (key === 'creditorIban') {
+                if (!value?.length) {
+                    params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                } else if (isValidIBAN(value) !== 1) {
+                    params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
+                } else {
+                    const hasReference = reference?.length > 0;
+                    const isRF = reference?.startsWith("RF");
+                    const qrIban = isQRIBAN(value);
+
+                    if (qrIban && (!hasReference || isRF)) {
+                        params.data[i].errorId = this.ID_ERR_QRIBAN_REFERENCE_NOTVALID;
+                    } else if (!qrIban && hasReference && !isRF) {
+                        params.data[i].errorId = this.ID_ERR_IBAN_REFERENCE_NOTVALID;
+                    }
+                }
+
+                if (params.data[i].errorId) {
+                    params.data[i].errorMsg =
+                        this.getErrorMessage(params.data[i].errorId);
+                    error = true;
+                }
             }
         }
         else if (methodId.startsWith(this.ID_PAYMENT_SEPA)) {
             if (key === 'currency' && value.trim().toLowerCase() !== 'eur') {
                 params.data[i].errorId = this.ID_ERR_ONLY_EUR_ALLOWED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ONLY_EUR_ALLOWED);
+                params.data[i].errorMsg =
+                    this.getErrorMessage(this.ID_ERR_ONLY_EUR_ALLOWED);
                 error = true;
             }
-            if (key === 'creditorIban' && value.length <= 0) {
-                params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_ELEMENT_REQUIRED);
-                error = true;
-            }
-            else if (key === 'creditorIban' && !isValidIBAN(value)) {
-                params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
-                params.data[i].errorMsg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID);
-                error = true;
+
+            if (key === 'creditorIban') {
+                if (!value?.length) {
+                    params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
+                } else if (isValidIBAN(iban) !== 1) {
+                    params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
+                }
+
+                if (params.data[i].errorId) {
+                    params.data[i].errorMsg =
+                        this.getErrorMessage(params.data[i].errorId);
+                    error = true;
+                }
             }
         }
     }
@@ -2191,7 +2254,7 @@ Pain001Switzerland.prototype.verifyPaymObject = function (paymentObj) {
     
     // Update reference type
     paymentObj.referenceType = "";
-    if (isValidIBAN(iban)) {
+    if (isValidIBAN(iban) === 1) {
         if (isQRIBAN(iban)) {
             if (paymentObj.reference && paymentObj.reference.length > 0 && !paymentObj.reference.startsWith("RF"))
                 paymentObj.referenceType = "QRR";
