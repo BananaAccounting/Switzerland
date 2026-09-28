@@ -1,5 +1,6 @@
 # XBRL CH Switzerland
 
+
 # 2026-09-28
 Stable Release
 - Fix help from mapping dialog
