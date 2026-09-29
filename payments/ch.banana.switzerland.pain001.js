@@ -643,17 +643,20 @@ Pain001Switzerland.prototype.convertPaymData = function (paymentObj) {
         }
         convertedParam.data.push(currentParam);
 
-        // Read from the QR code but not displayed because it is not required for the payment
-        /*currentParam = {};
-        currentParam.name = 'billingInfo';
-        currentParam.title = "Billing Information";
-        currentParam.type = 'string';
-        currentParam.value = paymentObj.billingInfo ? paymentObj.billingInfo : '';
-        currentParam.defaultvalue = '';
-        currentParam.readValue = function () {
-            paymentObj.billingInfo = this.value;
+        // Display billingInfo only if available, for backward compatibility.
+        // New payments no longer read billingInfo from the QR code.
+        if (paymentObj.billingInfo && paymentObj.billingInfo.length > 0) {
+            currentParam = {};
+            currentParam.name = 'billingInfo';
+            currentParam.title = "Billing Information";
+            currentParam.type = 'string';
+            currentParam.value = paymentObj.billingInfo ? paymentObj.billingInfo : '';
+            currentParam.defaultvalue = '';
+            currentParam.readValue = function () {
+                paymentObj.billingInfo = this.value;
+            }
+            convertedParam.data.push(currentParam);
         }
-        convertedParam.data.push(currentParam);*/
 
         var categoryPurposeTypes = [];
         categoryPurposeTypes.push("");
@@ -1837,6 +1840,8 @@ Pain001Switzerland.prototype.scanCode = function (code) {
         paymentObj.reference = swissQRCodeData.Reference;
         paymentObj.unstructuredMessage = swissQRCodeData.UnstructuredMessage;
         paymentObj.billingInfo = swissQRCodeData.BillingInformation;
+        // New payments no longer read billingInfo from the QR code.
+        paymentObj.billingInfo = "";
     }
     return paymentObj;
 }
