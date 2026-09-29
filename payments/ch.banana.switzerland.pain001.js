@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2026-09-22
+// @pubdate = 2026-09-29
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -79,7 +79,7 @@ function onCurrentIndexChanged_creditorAccountId(index, value, params) {
             params.data[i].value = creditor.street2;
         }
         else if (params.data[i].name === 'creditorBuildingNumber') {
-            params.data[i].value = creditor.creditorBuildingNumber;
+            params.data[i].value = creditor.buildingNumber;
         }
         else if (params.data[i].name === 'creditorPostalCode') {
             params.data[i].value = creditor.postalCode;
@@ -1434,7 +1434,7 @@ Pain001Switzerland.prototype.getUsedIbans = function () {
     }
 
 
-    Banana.console.debug("---------------------- elenco ibans " + ibans);
+    //Banana.console.debug("---------------------- elenco ibans " + ibans);
     return ibans;
 }
 
@@ -2112,7 +2112,7 @@ Pain001Switzerland.prototype.validatePaymData = function (params) {
             if (key === 'creditorIban') {
                 if (!value?.length) {
                     params.data[i].errorId = this.ID_ERR_ELEMENT_REQUIRED;
-                } else if (isValidIBAN(iban) !== 1) {
+                } else if (isValidIBAN(value) !== 1) {
                     params.data[i].errorId = this.ID_ERR_IBAN_NOTVALID;
                 }
 
