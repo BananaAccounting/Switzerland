@@ -2,6 +2,11 @@
 
 All notable changes to the [Payment orders PAIN.001 for Switzerland](https://www.banana.ch/apps/en/node/9327) extension are documented in this file.  
 
+* 2026-09-29
+    * Published Beta Release 
+	    * Updated SPS 2025 pain format only with structured addresses
+	    * Removed old PAIN formats: SPS 2021 and SPS 2022
+		* Valid only with Banana Dev-Channel 10.2.13+
 * 2025-11-26
 	* Published Beta Release - New SPS 2025 pain format with structured/hydrid addresses
 		* Added new PAIN format 'Swiss Payment Standard 2025 (pain.001.001.09.ch.03)' which supports structured and hybrid addresses
