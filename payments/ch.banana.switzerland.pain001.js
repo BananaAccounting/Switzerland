@@ -1,4 +1,4 @@
-// Copyright [2023] [Banana.ch SA - Lugano Switzerland]
+// Copyright [2026] [Banana.ch SA - Lugano Switzerland]
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //
 // @id = ch.banana.switzerland.pain001
 // @api = 1.0
-// @pubdate = 2026-09-29
+// @pubdate = 2026-10-16
 // @publisher = Banana.ch SA
 // @description = Credit Transfer File for Switzerland (pain.001)
 // @task = accounting.payment
@@ -236,6 +236,7 @@ function Pain001Switzerland(banDocument) {
     this.ID_ERR_QRIBAN_NOTVALID = "ID_ERR_QRIBAN_NOTVALID";
     this.ID_ERR_QRIBAN_REFERENCE_NOTVALID = "ID_ERR_QRIBAN_REFERENCE_NOTVALID";
     this.ID_ERR_VERSION_NOTSUPPORTED = "ID_ERR_VERSION_NOTSUPPORTED";
+    this.ID_WARNING_AMOUNT_DIFFERENT = "ID_WARNING_AMOUNT_DIFFERENT";
 
     // PT:3 in ID_PAIN_FORMAT_001_001_03_CH_02
     // PT:D in ID_PAIN_FORMAT_001_001_09_CH_03
@@ -1378,6 +1379,8 @@ Pain001Switzerland.prototype.getErrorMessage = function (errorId) {
             return "QRIBAN needs a reference number";
         case this.ID_ERR_VERSION_NOTSUPPORTED:
             return "Unsupported version. Please use or install the latest version of Banana Accounting Dev Channel with Advanced Plan. <br>Click the Help button to get the link.";
+        case this.ID_WARNING_AMOUNT_DIFFERENT:
+            return "Payment amount %1 differs from the transaction amount %2.";
     }
     return "";
 }
@@ -1518,18 +1521,17 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         };
         infoObj.push(infoMsg);
     }
-
-    var iban = "";
-    if (paymentObj.creditorIban)
-        iban = cleanIBAN(paymentObj.creditorIban);
-    if (isValidIBAN(iban) !== 1) {
-        var msg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID, lang);
-        msg = msg.replace("%1", "creditorIban");
-        msg = "<span style='color:red'>" + msg + "</span>";
-        let infoMsg = {
-            'text': msg
-        };
-        infoObj.push(infoMsg);
+    else {
+        var iban = cleanIBAN(paymentObj.creditorIban);
+        if (isValidIBAN(iban) !== 1) {
+            var msg = this.getErrorMessage(this.ID_ERR_IBAN_NOTVALID, lang);
+            msg = msg.replace("%1", iban);
+            msg = "<span style='color:red'>" + msg + "</span>";
+            let infoMsg = {
+                'text': msg
+            };
+            infoObj.push(infoMsg);
+        }
     }
 
     if (!paymentObj.creditorName) {
@@ -1541,16 +1543,6 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         };
         infoObj.push(infoMsg);
     }
-
-    /*if (!paymentObj.creditorStreet1 && paymentObj.methodId == this.ID_PAYMENT_QRCODE) {
-        var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
-        msg = msg.replace("%1", "Creditor Address");
-        msg = "<span style='color:red'>" + msg + "</span>";
-        let infoMsg = {
-            'text': msg
-        };
-        infoObj.push(infoMsg);
-    }*/
 
     if (!paymentObj.creditorCity) {
         var msg = this.getErrorMessage(this.ID_ERR_ELEMENT_EMPTY, lang);
@@ -1571,6 +1563,41 @@ Pain001Switzerland.prototype.infoPaymObject = function (paymentObj, infoObj, row
         };
         infoObj.push(infoMsg);
     }
+    else {
+        // Warn if the payment amount differs from the transaction amount.
+        var transactionAmount = "";
+        var transactionCurrency = this.docInfo.basicCurrency;
+
+        if (this.docInfo.isDoubleEntry) {
+            if (this.docInfo.multiCurrency) {
+                transactionAmount = row.value("AmountCurrency");
+                transactionCurrency = row.value("ExchangeCurrency");
+            }
+            else {
+                transactionAmount = row.value("Amount");
+            }
+        }
+        else if (this.docInfo.isIncomeExpenses) {
+            transactionAmount = row.value("Expenses");
+        }
+
+        if (transactionAmount &&
+            (paymentObj.currency !== transactionCurrency ||
+                Banana.SDecimal.compare(
+                    Banana.SDecimal.abs(paymentObj.amount),
+                    Banana.SDecimal.abs(transactionAmount)) !== 0)) {
+
+            var msg = this.getErrorMessage(this.ID_WARNING_AMOUNT_DIFFERENT, lang);
+            msg = msg.replace("%1", paymentObj.currency + " " + this.toAmountLocalFormat(paymentObj.amount));
+            msg = msg.replace("%2", transactionCurrency + " " + this.toAmountLocalFormat(transactionAmount));
+            msg = "<span style='color:orange'>" + msg + "</span>";
+            let infoMsg = {
+                'text': msg
+            };
+            infoObj.push(infoMsg);
+        }
+    }
+
 }
 
 // Returns true if the given IBAN is present in the list of used IBANs.
@@ -1586,14 +1613,15 @@ Pain001Switzerland.prototype.isIbanUsed = function (usedIbans, iban) {
 /*Returns all suppliers accounts from table Accounts according to params*/
 Pain001Switzerland.prototype.loadCreditors = function (includeDescription) {
     var accountsList = [];
-    //empty value
+    // Empty value
     accountsList.push("");
 
     if (!this.banDocument || !this.banDocument.table("Accounts")) {
         return accountsList;
     }
 
-    //gets supplier groups from param, if empty loads supplier group id from accounting data
+    // Get supplier groups from parameters; if empty, use the supplier group from accounting data.
+    // Multiple groups can be specified because subgroups are not automatically included.
     var creditorGroupsList = [];
     if (this.param.creditorGroups.length > 0)
         creditorGroupsList = this.param.creditorGroups.split(";");
@@ -1612,11 +1640,18 @@ Pain001Switzerland.prototype.loadCreditors = function (includeDescription) {
     for (var i = 0; i < table.rowCount; i++) {
         var tRow = table.row(i);
         var gr = tRow.value('Gr');
-        if (gr.length > 0 && creditorGroupsList.indexOf(gr) < 0)
+
+        // Ignore accounts not assigned to a group.
+        if (!gr || gr.length <= 0) {
             continue;
+        }
+
+        // Ignore accounts that do not belong to any of the specified groups.
+        if (creditorGroupsList.indexOf(gr) < 0) {
+            continue;
+        }
 
         var accountId = tRow.value('Account');
-        var groupId = tRow.value('Group');
         var bClass = tRow.value('BClass');
         if (accountId.length > 0 && bClass !== "3" && bClass !== "4") {
             var description = tRow.value('Description');
@@ -2903,15 +2938,16 @@ var JsAction = class JsAction {
             accountId = row.value("Account");
         }
 
-        //remove comment
-        if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-            accountId = accountId.substring(1, accountId.length - 2);
+        // Keep commented accounts unchanged to avoid updating payment data.
+        // Account synchronization behavior still needs to be clarified.
+        /*if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+            accountId = accountId.substring(1, accountId.length - 1);*/
 
         //cost centers
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc3");
-            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-                accountId = accountId.substring(1, accountId.length - 2);
+            /*if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substring(1, accountId.length - 1);*/
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substring(1);
             if (accountId)
@@ -2919,8 +2955,8 @@ var JsAction = class JsAction {
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc2");
-            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-                accountId = accountId.substring(1, accountId.length - 2);
+            /*if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substring(1, accountId.length - 1);*/
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substring(1);
             if (accountId)
@@ -2928,8 +2964,8 @@ var JsAction = class JsAction {
         }
         if (!accountId || creditors.indexOf(accountId) < 0) {
             accountId = row.value("Cc1");
-            if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
-                accountId = accountId.substring(1, accountId.length - 2);
+            /*if (accountId && accountId.startsWith("[") && accountId.endsWith("]"))
+                accountId = accountId.substring(1, accountId.length - 1);*/
             if (accountId && accountId.startsWith("-"))
                 accountId = accountId.substring(1);
             if (accountId)
@@ -3052,7 +3088,7 @@ var JsAction = class JsAction {
         var fieldName = "";
         if (accountId.length <= 0) {
             var creditors = this.pain001CH.loadCreditors(false);
-            //first row is always empty creditors[0]
+            //first row is always empty creditors[0] because combobox list and first element is empty
             if (creditors.length > 1) {
                 if (creditors[1].startsWith("."))
                     fieldName = "Cc1";
