@@ -69,6 +69,31 @@ var DocumentChange = class DocumentChange {
         currentDoc.dataUnits.push(dataUnitTransactions);
     }
 
+    addOperationRowInsert(tableName, rowNr, fieldChanges) {
+        var row = {};
+        row.operation = {};
+        row.operation.name = "add";
+        if (rowNr && parseInt(rowNr) >= 0) {
+            row.operation.sequence = rowNr.toString();
+        }
+        row.fields = fieldChanges;
+
+        //rows
+        var rows = [];
+        rows.push(row);
+
+        //table
+        var dataUnitTransactions = {};
+        dataUnitTransactions.nameXml = tableName;
+        dataUnitTransactions.data = {};
+        dataUnitTransactions.data.rowLists = [];
+        dataUnitTransactions.data.rowLists.push({"rows":rows});
+
+        //document
+        var currentDoc = this.jsonDoc.data[this.jsonDoc.data.length-1].document;
+        currentDoc.dataUnits.push(dataUnitTransactions);
+    }
+
     getDocChange() {
         return this.jsonDoc;
     }

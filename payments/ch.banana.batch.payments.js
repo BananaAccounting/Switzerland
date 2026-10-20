@@ -114,7 +114,7 @@ function convertParam(userParam) {
     lang = Banana.document.locale;
   }
   if (lang.length > 2) {
-    lang = lang.substr(0, 2);
+    lang = lang.substring(0, 2);
   }
 
   var texts = {};
@@ -322,7 +322,7 @@ function parametersDialog(userParam) {
       lang = Banana.document.locale;
     }
     if (lang.length > 2) {
-      lang = lang.substr(0, 2);
+      lang = lang.substring(0, 2);
     }
 
     //parameters

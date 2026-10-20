@@ -48,6 +48,11 @@ function cleanIBAN(input) {
 	return iban;
 }
 
+/*
+ * Returns 1 if the IBAN is valid 
+ * Returns FALSE if the IBAN's length is not as should be (for CH the IBAN Should be 21 chars long starting with CH )
+ * Returns any other number (checksum) when the IBAN is invalid (check digits do not match)
+ */
 function isValidIBAN(input) {
     var CODE_LENGTHS = {
         AD: 24, AE: 23, AT: 20, AZ: 28, BA: 20, BE: 16, BG: 22, BH: 22, BR: 29,
