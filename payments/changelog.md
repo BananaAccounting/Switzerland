@@ -2,6 +2,9 @@
 
 All notable changes to the [Payment orders PAIN.001 for Switzerland](https://www.banana.ch/apps/en/node/9327) extension are documented in this file.  
 
+* 2026-10-20
+    * Published Stable Release 
+	    * Based on the beta version released on 2026-09-29
 * 2026-09-29
     * Published Beta Release 
 	    * Updated SPS 2025 pain format only with structured addresses
