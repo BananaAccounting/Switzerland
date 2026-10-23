@@ -1,0 +1,17 @@
+Kontoauszug bis: 31.12.2025 ;;;
+;;;
+Kontonummer: 111.111-1 222;;;
+Bezeichnung: Kontokorrent BUSINESS CHF;;;
+Saldo: CHF 1234.11;;;
+;;;
+MyBusiness AG;;;
+Street. 4;;;
+8604 Paris;;;
+;;;
+;;;
+Datum;Buchungstext;Betrag;Valuta
+31.12.25;Test;-12.00;31.12.25
+29.12.25;Test;-200.00;29.12.25
+29.12.25;Test;-2799.60;29.12.25
+29.12.25;Test;-54.95;24.12.25
+24.12.25;Test;-42.00;22.12.25

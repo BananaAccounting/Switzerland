@@ -1,0 +1,19 @@
+{
+    "category": "import",
+    "country": "switzerland",
+    "countryCode": "ch",
+    "description": "Schaffhauser Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.en": "Schaffhauser Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "description.it": "Schaffhauser Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "description.de": "Schaffhauser Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "description.fr": "Schaffhauser Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "id": "ch.banana.switzerland.import.shkb",
+    "language": "en",
+    "publisher": "Banana.ch",
+    "title": "Schaffhauser Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.en": "Schaffhauser Kantonalbank - Import account statement .csv (Banana+ Advanced)",
+    "title.it": "Schaffhauser Kantonalbank - Importa movimenti .csv (Banana+ Advanced)",
+    "title.de": "Schaffhauser Kantonalbank - Bewegungen importieren .csv (Banana+ Advanced)",
+    "title.fr": "Schaffhauser Kantonalbank - Importer mouvements .csv (Banana+ Advanced)",
+    "version": "1.0"
+}
