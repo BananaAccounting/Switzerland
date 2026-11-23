@@ -16,7 +16,7 @@
 
 // @id = ch.banana.switzerland.import.swisscard.test
 // @api = 1.0
-// @pubdate = 2026-04-20
+// @pubdate = 2026-11-23
 // @publisher = Banana.ch SA
 // @description = <TEST ch.banana.switzerland.import.swisscard.test>
 // @task = app.command
@@ -67,6 +67,7 @@ TestImportSwisscard.prototype.testImport = function () {
    // The following file is used because it has format 2 with only one transaction, so it is useful
    // to test the case of a file with only one transaction that doesn't have data in "Registered category".
    fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_de_20260415.csv");
+   fileNameList.push("file:script/../test/testcases/csv_swisscard_example_format2_fr_20261123.csv");
 
 
    var parentLogger = this.testLogger;

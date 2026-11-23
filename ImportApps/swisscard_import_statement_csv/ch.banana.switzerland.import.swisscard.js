@@ -14,7 +14,7 @@
 
 // @id = ch.banana.switzerland.import.swisscard
 // @api = 1.0
-// @pubdate = 2026-04-20
+// @pubdate = 2026-11-23
 // @publisher = Banana.ch SA
 // @description = Swisscard - Import movements .csv (Banana+ Advanced)
 // @description.it = Swisscard - Importa movimenti .csv (Banana+ Advanced)
@@ -298,6 +298,13 @@ function getFormattedData(inData, convertionParam, importUtilities) {
       return form;
    }
 
+   convertedColumns = convertHeaderFr(columns);
+   //Load the form with data taken from the array. Create objects
+   if (convertedColumns.length > 0) {
+      importUtilities.loadForm(form, convertedColumns, rows);
+      return form;
+   }
+
    return [];
 }
 
@@ -348,6 +355,38 @@ function convertHeaderIt(columns) {
             convertedColumns[i] = "Amount";
             break;
          case "Categoria Registrata":
+            convertedColumns[i] = "Registered category";
+            break;
+         default:
+            break;
+      }
+   }
+
+   if (convertedColumns.indexOf("Date") < 0
+      || convertedColumns.indexOf("Description") < 0
+      || convertedColumns.indexOf("Amount") < 0
+      || convertedColumns.indexOf("Registered category") < 0) {
+      return [];
+   }
+
+   return convertedColumns;
+}
+
+function convertHeaderFr(columns) {
+   let convertedColumns = [];
+
+   for (var i = 0; i < columns.length; i++) {
+      switch (columns[i]) {
+         case "Date transaction":
+            convertedColumns[i] = "Date";
+            break;
+         case "Description":
+            convertedColumns[i] = "Description";
+            break;
+         case "Montant":
+            convertedColumns[i] = "Amount";
+            break;
+         case "Catégorie enregistrée":
             convertedColumns[i] = "Registered category";
             break;
          default:

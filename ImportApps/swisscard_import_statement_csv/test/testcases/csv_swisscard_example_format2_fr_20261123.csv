@@ -1,0 +1,3 @@
+Date transaction,Description,Commerçant,Numéro de carte,Monnaie,Montant,Monnaie étrangère,Montant étranger,Débit/Crédit,Statut,Catégorie de commerçant,Catégorie enregistrée
+"15.11.2026","Test","Test","1234 56** **** 7890","CHF","100.00","","","Débit","Comptabilisée","Services","Test"
+"12.11.2026","Test","Test","1234 56** **** 7890","CHF","13.60","","","Débit","Comptabilisée","Achats","Test"
